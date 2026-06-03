@@ -11,8 +11,8 @@ Plan d'exécution maître. Statuts : `TODO` · `EN COURS` · `DONE` · `BLOQUÉ`
 | E1 | Foundation & Setup | M | **DONE** | [E1-foundation.md](features/E1-foundation.md) |
 | — | Design system (typo, boutons, nav/mega menu, icônes Tabler) | M | **DONE** | `docs/DESIGN.md` + `/styleguide` |
 | E2 | App shell & design-system completion | M | **DONE** | [E2-design-system.md](features/E2-design-system.md) |
-| E3 | i18n (EN/FR) | M | **TODO (next)** | [E3-i18n.md](features/E3-i18n.md) |
-| E4 | Sanity CMS | M | TODO | [E4-sanity-cms.md](features/E4-sanity-cms.md) |
+| E3 | i18n (EN/FR) | M | **DONE** | [E3-i18n.md](features/E3-i18n.md) |
+| E4 | Sanity CMS | M | **TODO (next)** | [E4-sanity-cms.md](features/E4-sanity-cms.md) |
 | E5 | Pages cœur & silos SEO | L | TODO | [E5-core-pages.md](features/E5-core-pages.md) |
 | E6 | Mini-app DTV | L | TODO | [E6-dtv-app.md](features/E6-dtv-app.md) |
 | E7 | SEO technique | M | TODO | [E7-seo-technical.md](features/E7-seo-technical.md) |
@@ -41,10 +41,10 @@ E1 Foundation
 
 ## Prochaines étapes prioritaires (reprise session suivante)
 
-1. ✅ **E1 + design system + E2 faits** : scaffold, tokens (+ sémantiques + form + layout), typo/titres, boutons, nav/mega menu, Tabler, `BaseLayout` complet (OG/Twitter/jsonld slot/preload), `Footer`, `Container`/`Section`, `Card`, système de formulaire complet, `config/site.ts` (contact réel + pricing réel THB), `/styleguide` à jour.
-2. ▶️ **E3 (i18n)** et/ou **E4 (Sanity)** — parallélisables. E3 : extraire les strings EN en dur (Nav, Footer, pages) vers le système de messages (Paraglide vs JSON à trancher).
-3. Trancher **Q5** (domaine) — placeholder `wildcatmuaythai.com`. **Q1** storage DTV avant E6 ; **Q6** slugs avant E5.
-4. Données réelles manquantes dans `src/config/site.ts` : email (placeholder) + horaires (placeholder maquette) — `TODO(real data)`.
+1. ✅ **E1 + design system + E2 + E3 faits** : scaffold, tokens, typo/titres, boutons, nav/mega menu, Tabler, `BaseLayout`, `Footer`, `Container`/`Section`, `Card`, formulaires, `config/site.ts` ; **i18n complet** : Paraglide 2.x (144 clés EN/FR, parité OK), middleware SSG, `LangSwitcher`, zéro string UI en dur.
+2. ▶️ **E4 (Sanity)** — schémas + studio. Stratégie i18n CMS : document-level (pages/blog, slugs traduits → règle Q6) + field-level (coachs, pricing, FAQ).
+3. Trancher **Q5** (domaine) — placeholder `wildcatmuaythai.com`. **Q1** storage DTV avant E6.
+4. Données réelles manquantes : email + horaires (`src/config/site.ts` + message `nav_util_open_today`) — `TODO(real data)`. Labels pricing → messages en E5.
 
 ## Build-as-you-go (zéro churn de thème, à créer avec leur page)
 FighterCard/CoachCard, DTVStepper, TestimonialSlider, TrainingSchedule, table pricing, liste/article blog + `.prose`, galerie, HeroVideo, fil d'ariane, liens in-content, composants motifs (BrushDivider/stripes).

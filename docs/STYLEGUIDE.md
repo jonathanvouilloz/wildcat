@@ -64,15 +64,18 @@ Breakpoints maquette : `1024px` (nav → burger), `860px` (grilles → 1 col), `
 ### Structure de fichiers (prévue)
 
 ```
+messages/              # SOURCE i18n (en.json, fr.json) — versionnée, éditable
+project.inlang/        # config inlang (locales, pathPattern)
 src/
 ├── components/        # PascalCase .astro (Nav, Footer, FighterCard, DTVStepper…)
-│   ├── ui/            # primitives réutilisables (Button, Badge, Card)
+│   ├── ui/            # primitives réutilisables (Button, Badge, Card, LangSwitcher)
 │   └── sections/      # sections de page (Hero, DtvPillar, Pricing…)
 ├── layouts/           # BaseLayout.astro (head, SEO, fonts, nav, footer)
+├── middleware.ts      # pose la locale Paraglide (setLocale) à chaque rendu SSG
 ├── pages/
 │   └── [lang]/        # routing localisé
 ├── lib/               # sanity client, helpers seo, schema.org
-├── paraglide/         # messages i18n (en.json, fr.json…)
+├── paraglide/         # OUTPUT compilé Paraglide (gitignored, régénéré au build)
 ├── styles/            # tokens.css + global.css
 └── content/           # collections statiques éventuelles
 ```
@@ -80,7 +83,12 @@ src/
 ### Règles
 
 - **Tokens, pas de magie** : couleurs/spacing/radius via variables CSS ou classes Tailwind mappées. Jamais de hex en dur dans un composant.
-- **i18n strict** : aucune string UI en dur — tout via Paraglide.
+- **i18n strict** : aucune string UI en dur — tout via Paraglide (`import { m } from '../paraglide/messages.js'` puis `m.nav_train()`).
+  - **Clés** : snake_case préfixé par domaine — `nav_*`, `footer_*`, `home_*`, `cta_*`, `site_*`, `form_*`, `meta_*`. Variables : `{year}`, `{name}`.
+  - **Jamais d'accès dynamique** `m['nav_' + x]()` (casse tree-shaking + typage) → record explicite en frontmatter pour les listes (cf. `Footer.astro`, `ctaLabels` de `Nav.astro`).
+  - **Defaults de props traduits** : `prop ?? m.key()` dans le corps du frontmatter, pas dans la destructuration (cf. `FileUpload.astro`).
+  - **Parité EN/FR obligatoire** à chaque ajout de clé : clé FR manquante = fallback EN silencieux au build.
+  - En dur autorisé : marque "Wildcat" (`site.name`), badge graphique DTV/Visa, noms propres (Instagram…). FR = tutoiement.
 - **SEO par défaut** : chaque page passe par `BaseLayout` qui exige `title`, `description`, `lang`, et génère `hreflang` + OG.
 - **Images** : WebP, `alt` obligatoire, `loading="lazy"` sauf hero (LCP). Le `<image-slot>` des maquettes = placeholder à remplacer par `<Image>` Astro / asset Sanity.
 - **Accessibilité** : `aria-expanded` sur les toggles mega menu, focus visibles, navigation clavier (Échap ferme les panneaux).

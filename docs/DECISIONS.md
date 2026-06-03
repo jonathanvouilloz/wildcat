@@ -32,6 +32,13 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 - **Choix** : **Satoshi** Bold (titres) + Satoshi (corps) ; **Fraunces 72pt SemiBold Italic** (accents en or). Satoshi n'étant ni sur Google Fonts ni Fontsource, il est **self-hosté depuis Fontshare** (licence gratuite usage commercial) dans `public/fonts/satoshi/`. Fraunces via `@fontsource-variable/fraunces` (axe opsz + italic). Système détaillé dans `docs/DESIGN.md`, rendu sur `/styleguide`.
 - **Alternatives** : garder Bricolage/Literata ; Hanken Grotesk (Fontsource, zéro self-host) — écartées au profit du choix explicite de Jonathan.
 
+### 2026-06-03 | i18n : Astro i18n natif (routing) + Paraglide JS 2.x (messages)
+- **Contexte** : E3 — extraire toutes les strings UI en dur (Nav ~115, Footer, home, FileUpload) avec type-safety et scalabilité V1.1 (TH/DE/ES/RU + pipeline DeepL).
+- **Choix** : **Astro i18n natif** garde le routing (`/en` `/fr`, hreflang, sitemap) ; **Paraglide JS 2.x** compile `messages/{locale}.json` en fonctions typées `m.*()` (clé inexistante = erreur build, tree-shaking, zéro runtime client). En SSG la locale est posée par `src/middleware.ts` → `setLocale(assertIsLocale(context.currentLocale))` (pattern SSG officiel). **Piège résolu** : la strategy doit inclure `globalVariable` (`['url','globalVariable','baseLocale']`) — côté serveur `url` est ignorée (pas de `window`), c'est la variable globale écrite par `setLocale` qui porte la locale au build.
+- **Conventions** : source éditoriale = `messages/` (versionné) ; `src/paraglide/` = output compilé (gitignored, régénéré au build) ; clés snake_case préfixées par domaine (`nav_*`, `footer_*`, `home_*`, `cta_*`, `site_*`, `form_*`, `meta_*`) ; **jamais d'accès dynamique** `m['…']` → records explicites pour les listes ; FR = tutoiement ; marque "Wildcat" et badge DTV/Visa jamais traduits.
+- **Alternatives** : JSON maison + helper `t()` (zéro dep mais typage/parité à maintenir à la main, faible scalabilité V1.1) ; `paraglideMiddleware` ALS (pensé pour `output: server`, inutile/fragile en SSG) ; `{ locale }` explicite à chaque appel (~200 call sites, trop verbeux).
+- **Limite connue** : clé FR manquante = fallback EN **silencieux** (build vert ≠ FR complet) → vérifier la parité des sets de clés à chaque ajout.
+
 ### 2026-06-03 | Communication DTV : WhatsApp deep link
 - **Contexte** : l'owner travaille déjà sur WhatsApp. Zéro friction souhaitée.
 - **Choix** : `wa.me` avec message pré-rempli (nom + réf dossier) à la soumission du formulaire, plutôt qu'une intégration API WhatsApp Business.
@@ -53,4 +60,4 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 |---|-------|---------|--------|
 | Q1 | **Storage DTV** | Google Drive API ⟷ Supabase Storage | ⏳ **Tranché avant E6.** On construit E1→E5 d'abord. |
 | Q5 | **Domaine** | wildcatmuaythai.com (maquette) ⟷ wildcatchiangmai.com (PRD) | hreflang, sitemap, env (avant E10) |
-| Q6 | **Slugs traduits** | Slugs EN partout ⟷ slugs localisés `/fr/visa-dtv` | SEO local, complexité routing (avant E5) |
+| Q6 | **Slugs traduits** | Slugs EN partout ⟷ slugs localisés `/fr/visa-dtv` | SEO local, complexité routing (avant E5). NB : si Sanity document-level i18n (E4), les slugs localisés viennent gratuitement par document. |
