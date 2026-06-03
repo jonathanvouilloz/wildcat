@@ -1,0 +1,73 @@
+---
+import { Icon } from 'astro-icon/components';
+
+/**
+ * Field — wrapper de champ : label + contrôle (slot) + helper + message d'erreur.
+ * L'attribut data-error propage l'état aux .wc-control enfants (voir global.css).
+ * Usage :
+ *   <Field label="Email" for="email" error={errors.email}>
+ *     <Input id="email" name="email" type="email" />
+ *   </Field>
+ */
+export interface Props {
+  label: string;
+  /** id du contrôle associé (attribut for du label). */
+  for?: string;
+  helper?: string;
+  error?: string;
+  required?: boolean;
+  class?: string;
+}
+
+const { label, for: htmlFor, helper, error, required = false, class: extra = '' } = Astro.props;
+---
+
+<div class:list={['wc-field', extra]} data-error={error ? '' : undefined}>
+  <label class="wc-field-label" for={htmlFor}>
+    {label}
+    {required && <span class="wc-field-req" aria-hidden="true">*</span>}
+  </label>
+  <slot />
+  {helper && !error && <p class="wc-field-helper">{helper}</p>}
+  {
+    error && (
+      <p class="wc-field-error" role="alert">
+        <Icon name="tabler:alert-circle" width={15} height={15} />
+        {error}
+      </p>
+    )
+  }
+</div>
+
+<style>
+  .wc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .wc-field-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .wc-field-req {
+    color: var(--error);
+    margin-left: 2px;
+  }
+  .wc-field-helper {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .wc-field-error {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--error);
+  }
+</style>

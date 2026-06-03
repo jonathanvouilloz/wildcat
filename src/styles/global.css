@@ -91,6 +91,55 @@ a {
 }
 
 /* ------------------------------------------------------------
+   Form controls — base partagée .wc-control (Input/Textarea/Select).
+   Volontairement globale (non scopée) : un seul box model pour tous les
+   champs + propagation de l'état erreur depuis le wrapper .wc-field[data-error]
+   sans prop drilling. Tokens : --field-* (tokens.css).
+   ------------------------------------------------------------ */
+.wc-control {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-display);
+  font-size: 16px; /* ≥16px : pas de zoom auto iOS */
+  line-height: 1.4;
+  color: var(--field-text);
+  background: var(--field-bg);
+  border: 1.5px solid var(--field-border);
+  border-radius: var(--field-radius);
+  padding: var(--field-pad-y) var(--field-pad-x);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.wc-control::placeholder {
+  color: var(--field-placeholder);
+}
+.wc-control:hover:not(:disabled) {
+  border-color: var(--field-border-hover);
+}
+.wc-control:focus-visible {
+  outline: none;
+  border-color: var(--field-border-focus);
+  box-shadow: var(--field-ring);
+}
+.wc-control:disabled {
+  background: var(--field-bg-disabled);
+  color: var(--ink-3);
+  cursor: not-allowed;
+}
+.wc-field[data-error] .wc-control {
+  border-color: var(--field-error-border);
+}
+.wc-field[data-error] .wc-control:focus-visible {
+  box-shadow: var(--field-error-ring);
+}
+@media (prefers-reduced-motion: reduce) {
+  .wc-control {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------
    Accent éditorial — Fraunces 72pt SemiBold Italic
    Ex : <span class="em">stay for the family.</span>
    Or profond sur fond clair ; passer .on-dark pour l'or vif sur fond sombre.

@@ -1,0 +1,40 @@
+---
+/**
+ * Textarea — zone de texte (.wc-control). Redimensionnable verticalement.
+ */
+export interface Props {
+  id?: string;
+  name?: string;
+  rows?: number;
+  placeholder?: string;
+  required?: boolean;
+  disabled?: boolean;
+  class?: string;
+}
+
+const {
+  id,
+  name,
+  rows = 4,
+  placeholder,
+  required = false,
+  disabled = false,
+  class: extra = '',
+} = Astro.props;
+---
+
+<textarea
+  class:list={['wc-control', 'wc-textarea', extra]}
+  {id}
+  {name}
+  {rows}
+  {placeholder}
+  {required}
+  {disabled}><slot /></textarea>
+
+<style>
+  .wc-textarea {
+    resize: vertical;
+    min-height: 90px;
+  }
+</style>

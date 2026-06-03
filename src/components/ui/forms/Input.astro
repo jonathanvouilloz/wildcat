@@ -1,0 +1,41 @@
+---
+/**
+ * Input — champ texte de base (.wc-control, voir global.css).
+ * À utiliser dans un <Field> pour label/helper/erreur.
+ */
+export interface Props {
+  type?: 'text' | 'email' | 'tel' | 'url' | 'number' | 'password' | 'date';
+  id?: string;
+  name?: string;
+  value?: string;
+  placeholder?: string;
+  required?: boolean;
+  disabled?: boolean;
+  autocomplete?: string;
+  class?: string;
+}
+
+const {
+  type = 'text',
+  id,
+  name,
+  value,
+  placeholder,
+  required = false,
+  disabled = false,
+  autocomplete,
+  class: extra = '',
+} = Astro.props;
+---
+
+<input
+  class:list={['wc-control', extra]}
+  {type}
+  {id}
+  {name}
+  {value}
+  {placeholder}
+  {required}
+  {disabled}
+  {autocomplete}
+/>

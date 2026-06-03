@@ -1,0 +1,111 @@
+---
+import { Icon } from 'astro-icon/components';
+
+/**
+ * Checkbox — case native stylée + label inline (ex : consentement DTV).
+ * Coché : fond forest + check cream. Focus : ring gold (cohérent Button).
+ */
+export interface Props {
+  id?: string;
+  name?: string;
+  value?: string;
+  checked?: boolean;
+  required?: boolean;
+  disabled?: boolean;
+  class?: string;
+}
+
+const {
+  id,
+  name,
+  value,
+  checked = false,
+  required = false,
+  disabled = false,
+  class: extra = '',
+} = Astro.props;
+---
+
+<label class:list={['wc-checkbox', extra]}>
+  <span class="wc-checkbox-box">
+    <input type="checkbox" {id} {name} {value} {checked} {required} {disabled} />
+    <Icon name="tabler:check" class="wc-checkbox-check" width={14} height={14} />
+  </span>
+  <span class="wc-checkbox-label"><slot /></span>
+</label>
+
+<style>
+  .wc-checkbox {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .wc-checkbox:has(input:disabled) {
+    cursor: not-allowed;
+    color: var(--ink-3);
+  }
+
+  .wc-checkbox-box {
+    position: relative;
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+  }
+  .wc-checkbox-box input {
+    appearance: none;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--field-bg);
+    border: 1.5px solid var(--field-border);
+    border-radius: 6px;
+    cursor: inherit;
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .wc-checkbox-box input:hover:not(:disabled) {
+    border-color: var(--field-border-hover);
+  }
+  .wc-checkbox-box input:focus-visible {
+    outline: none;
+    border-color: var(--field-border-focus);
+    box-shadow: var(--field-ring);
+  }
+  .wc-checkbox-box input:checked {
+    background: var(--forest);
+    border-color: var(--forest);
+  }
+  .wc-checkbox-box input:disabled {
+    background: var(--field-bg-disabled);
+  }
+  :global(.wc-field[data-error]) .wc-checkbox-box input {
+    border-color: var(--field-error-border);
+  }
+
+  .wc-checkbox-check {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    color: var(--cream);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.12s ease;
+  }
+  .wc-checkbox-box input:checked + .wc-checkbox-check {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wc-checkbox-box input,
+    .wc-checkbox-check {
+      transition: none;
+    }
+  }
+</style>

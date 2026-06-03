@@ -1,0 +1,161 @@
+---
+import { Icon } from 'astro-icon/components';
+
+/**
+ * FileUpload — dropzone (UI seulement, l'upload réel arrive avec E6 DTV).
+ * Progressive enhancement : sans JS, reste un <input type="file"> fonctionnel ;
+ * avec JS, affiche les fichiers choisis + état dragover.
+ */
+export interface Props {
+  id?: string;
+  name?: string;
+  accept?: string;
+  multiple?: boolean;
+  required?: boolean;
+  disabled?: boolean;
+  /** Texte principal de la zone. */
+  prompt?: string;
+  /** Indication formats/taille (ex : "PDF, JPG — max 10 MB"). */
+  hint?: string;
+  class?: string;
+}
+
+const {
+  id,
+  name,
+  accept,
+  multiple = false,
+  required = false,
+  disabled = false,
+  prompt = 'Drop files here or browse',
+  hint,
+  class: extra = '',
+} = Astro.props;
+---
+
+<label class:list={['wc-file', extra]} data-wc-file>
+  <input
+    class="wc-file-input"
+    type="file"
+    {id}
+    {name}
+    {accept}
+    {multiple}
+    {required}
+    {disabled}
+  />
+  <Icon name="tabler:cloud-upload" class="wc-file-icon" width={28} height={28} />
+  <span class="wc-file-prompt">{prompt}</span>
+  {hint && <span class="wc-file-hint">{hint}</span>}
+  <span class="wc-file-names" data-wc-file-names></span>
+</label>
+
+<style>
+  .wc-file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 28px 20px;
+    background: var(--soft);
+    border: 1.5px dashed var(--line-2);
+    border-radius: var(--field-radius);
+    text-align: center;
+    cursor: pointer;
+    transition:
+      border-color 0.15s ease,
+      background-color 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .wc-file:hover:not(:has(input:disabled)) {
+    border-color: var(--field-border-hover);
+  }
+  .wc-file.is-dragover {
+    border-color: var(--field-border-focus);
+    background: var(--soft-2);
+  }
+  .wc-file:has(input:focus-visible) {
+    border-color: var(--field-border-focus);
+    box-shadow: var(--field-ring);
+  }
+  .wc-file:has(input:disabled) {
+    background: var(--field-bg-disabled);
+    cursor: not-allowed;
+    color: var(--ink-3);
+  }
+  :global(.wc-field[data-error]) .wc-file {
+    border-color: var(--field-error-border);
+  }
+
+  /* Input visuellement masqué mais focusable/fonctionnel (no-JS friendly) */
+  .wc-file-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .wc-file-icon {
+    color: var(--forest);
+  }
+  .wc-file:has(input:disabled) .wc-file-icon {
+    color: var(--ink-3);
+  }
+  .wc-file-prompt {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .wc-file-hint {
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .wc-file-names {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gold-deep);
+  }
+  .wc-file-names:empty {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wc-file {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // Affichage des fichiers choisis + état dragover (progressive enhancement).
+  document.querySelectorAll<HTMLElement>('[data-wc-file]').forEach((zone) => {
+    const input = zone.querySelector<HTMLInputElement>('input[type="file"]');
+    const names = zone.querySelector<HTMLElement>('[data-wc-file-names]');
+    if (!input || !names) return;
+
+    const render = () => {
+      const files = Array.from(input.files ?? []);
+      names.textContent = files.map((f) => f.name).join(' · ');
+    };
+    input.addEventListener('change', render);
+
+    zone.addEventListener('dragover', (e) => {
+      if (input.disabled) return;
+      e.preventDefault();
+      zone.classList.add('is-dragover');
+    });
+    zone.addEventListener('dragleave', () => zone.classList.remove('is-dragover'));
+    zone.addEventListener('drop', (e) => {
+      if (input.disabled) return;
+      e.preventDefault();
+      zone.classList.remove('is-dragover');
+      if (e.dataTransfer?.files.length) {
+        input.files = e.dataTransfer.files;
+        render();
+      }
+    });
+  });
+</script>

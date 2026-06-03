@@ -1,0 +1,67 @@
+---
+import { Icon } from 'astro-icon/components';
+
+/**
+ * Select — natif stylé (.wc-control) + caret Tabler custom.
+ * Options via la prop `options` ou en slot (<option>).
+ */
+export interface Props {
+  id?: string;
+  name?: string;
+  options?: { value: string; label: string }[];
+  /** Valeur présélectionnée (avec la prop options). */
+  value?: string;
+  /** Première option désactivée type "Choose…". */
+  placeholder?: string;
+  required?: boolean;
+  disabled?: boolean;
+  class?: string;
+}
+
+const {
+  id,
+  name,
+  options,
+  value,
+  placeholder,
+  required = false,
+  disabled = false,
+  class: extra = '',
+} = Astro.props;
+---
+
+<span class="wc-select-wrap">
+  <select class:list={['wc-control', 'wc-select', extra]} {id} {name} {required} {disabled}>
+    {placeholder && <option value="" disabled selected={!value}>{placeholder}</option>}
+    {options?.map((opt) => (
+      <option value={opt.value} selected={opt.value === value}>
+        {opt.label}
+      </option>
+    ))}
+    <slot />
+  </select>
+  <Icon name="tabler:chevron-down" class="wc-select-caret" width={18} height={18} />
+</span>
+
+<style>
+  .wc-select-wrap {
+    position: relative;
+    display: block;
+  }
+  .wc-select {
+    appearance: none;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+  .wc-select:disabled {
+    cursor: not-allowed;
+  }
+  .wc-select-caret {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--ink-2);
+  }
+</style>
