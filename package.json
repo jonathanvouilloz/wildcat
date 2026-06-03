@@ -20,5 +20,8 @@
     "astro": "^6.4.3",
     "astro-icon": "^1.1.5",
     "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "@inlang/paraglide-js": "^2.18.2"
   }
 }

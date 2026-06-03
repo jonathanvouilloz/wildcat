@@ -2,6 +2,9 @@
 dist/
 # generated types
 .astro/
+# paraglide compiled output (source = messages/*.json)
+src/paraglide/
+project.inlang/cache/
 
 # dependencies
 node_modules/
