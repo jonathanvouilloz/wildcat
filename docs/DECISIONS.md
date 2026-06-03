@@ -39,6 +39,16 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 - **Alternatives** : JSON maison + helper `t()` (zéro dep mais typage/parité à maintenir à la main, faible scalabilité V1.1) ; `paraglideMiddleware` ALS (pensé pour `output: server`, inutile/fragile en SSG) ; `{ locale }` explicite à chaque appel (~200 call sites, trop verbeux).
 - **Limite connue** : clé FR manquante = fallback EN **silencieux** (build vert ≠ FR complet) → vérifier la parité des sets de clés à chaque ajout.
 
+### 2026-06-03 | E4 — Studio Sanity embarqué (/studio) + i18n CMS mixte
+- **Contexte** : E4 — brancher Sanity sur le site Astro 6 SSG (adapter Vercel), studio gérable par l'owner, i18n EN/FR cohérente avec Paraglide. Le projet sanity.io n'existait pas encore au moment de l'init.
+- **Choix** :
+  - **Studio embarqué** via `@sanity/astro` (`studioBasePath: '/studio'`) plutôt que repo séparé — un seul deploy, une seule URL. En SSG le studio est une page statique unique en **hash router** (`/studio#/...`) : pas de SSR requis. React (`@astrojs/react`) installé **pour le studio uniquement** — zéro island React sur le site public.
+  - **i18n CMS mixte** (conforme PLAN.md) : **document-level** pour `blogPost` (plugin `@sanity/document-internationalization`, un document par langue → **slugs traduits gratuits, Q6 réglée**) ; **field-level** pour `coach`/`fighter`/`testimonial`/`trainingSchedule`/`category` (objets `localeString`/`localeText` `{en, fr}`, résolus côté front par `pickLocale()` avec fallback EN — même politique que Paraglide).
+  - **Client** : `sanity:client` fourni par l'intégration (pas de `@sanity/client` direct) + `useCdn: false` (SSG = contenu frais au build). Requêtes GROQ en `defineQuery` (package `groq`) → types de résultats générés par `sanity typegen` (`npm run sanity:types`, 100 % local, aucun login). `src/lib/sanity.types.ts` committé.
+  - **Placeholder projectId** : `SANITY_PROJECT_ID` lu via `loadEnv` avec fallback `'placeholder'` — le build du site passe sans projet réel (aucune page ne consomme Sanity en E4) ; le studio monte mais ne se connecte pas tant que `.env` n'est pas rempli.
+- **Pièges notés** : ne pas dupliquer le champ `language` de blogPost (posé par le plugin) ; studio exclu du sitemap (`filter`) + `Disallow: /studio` dans robots.txt (header `X-Robots-Tag: noindex` à ajouter en E10 côté Vercel) ; si une island client requête Sanity un jour (E6), préfixer `PUBLIC_SANITY_PROJECT_ID` ; la config typegen vit dans `sanity.cli.ts` (clé `typegen`), le fichier séparé `sanity-typegen.json` est déprécié.
+- **Alternatives** : studio repo séparé / dossier séparé sur son propre port (2 deploys, déconnecté du site) ; field-level partout (slugs non traduits) ; document-level partout (lourd pour coachs/témoignages).
+
 ### 2026-06-03 | Communication DTV : WhatsApp deep link
 - **Contexte** : l'owner travaille déjà sur WhatsApp. Zéro friction souhaitée.
 - **Choix** : `wa.me` avec message pré-rempli (nom + réf dossier) à la soumission du formulaire, plutôt qu'une intégration API WhatsApp Business.
@@ -60,4 +70,4 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 |---|-------|---------|--------|
 | Q1 | **Storage DTV** | Google Drive API ⟷ Supabase Storage | ⏳ **Tranché avant E6.** On construit E1→E5 d'abord. |
 | Q5 | **Domaine** | wildcatmuaythai.com (maquette) ⟷ wildcatchiangmai.com (PRD) | hreflang, sitemap, env (avant E10) |
-| Q6 | **Slugs traduits** | Slugs EN partout ⟷ slugs localisés `/fr/visa-dtv` | SEO local, complexité routing (avant E5). NB : si Sanity document-level i18n (E4), les slugs localisés viennent gratuitement par document. |
+| ~~Q6~~ | ~~Slugs traduits~~ | **RÉGLÉE (E4)** : blogPost en document-level i18n → un slug par langue, traduits gratuitement par document. | — |

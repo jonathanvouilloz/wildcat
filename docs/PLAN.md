@@ -12,7 +12,7 @@ Plan d'exécution maître. Statuts : `TODO` · `EN COURS` · `DONE` · `BLOQUÉ`
 | — | Design system (typo, boutons, nav/mega menu, icônes Tabler) | M | **DONE** | `docs/DESIGN.md` + `/styleguide` |
 | E2 | App shell & design-system completion | M | **DONE** | [E2-design-system.md](features/E2-design-system.md) |
 | E3 | i18n (EN/FR) | M | **DONE** | [E3-i18n.md](features/E3-i18n.md) |
-| E4 | Sanity CMS | M | **TODO (next)** | [E4-sanity-cms.md](features/E4-sanity-cms.md) |
+| E4 | Sanity CMS | M | **EN COURS** (code fait — reste projet sanity.io à créer) | [E4-sanity-cms.md](features/E4-sanity-cms.md) |
 | E5 | Pages cœur & silos SEO | L | TODO | [E5-core-pages.md](features/E5-core-pages.md) |
 | E6 | Mini-app DTV | L | TODO | [E6-dtv-app.md](features/E6-dtv-app.md) |
 | E7 | SEO technique | M | TODO | [E7-seo-technical.md](features/E7-seo-technical.md) |
@@ -42,9 +42,10 @@ E1 Foundation
 ## Prochaines étapes prioritaires (reprise session suivante)
 
 1. ✅ **E1 + design system + E2 + E3 faits** : scaffold, tokens, typo/titres, boutons, nav/mega menu, Tabler, `BaseLayout`, `Footer`, `Container`/`Section`, `Card`, formulaires, `config/site.ts` ; **i18n complet** : Paraglide 2.x (144 clés EN/FR, parité OK), middleware SSG, `LangSwitcher`, zéro string UI en dur.
-2. ▶️ **E4 (Sanity)** — schémas + studio. Stratégie i18n CMS : document-level (pages/blog, slugs traduits → règle Q6) + field-level (coachs, pricing, FAQ).
-3. Trancher **Q5** (domaine) — placeholder `wildcatmuaythai.com`. **Q1** storage DTV avant E6.
-4. Données réelles manquantes : email + horaires (`src/config/site.ts` + message `nav_util_open_today`) — `TODO(real data)`. Labels pricing → messages en E5.
+2. 🔶 **E4 (Sanity) — code fait** : studio embarqué `/studio` (@sanity/astro, hash router SSG), 6 schémas + localeString/localeText, client `src/lib/sanity.ts` + queries GROQ + typegen (`npm run sanity:types`). **Q6 réglée** (blogPost document-level → slugs traduits). **Reste : Jonathan crée le projet sanity.io** (projectId → `.env`, CORS, dataset) — checklist dans [E4-sanity-cms.md](features/E4-sanity-cms.md).
+3. ▶️ Puis **E5 (pages)** — assemblage des primitives, requêtes Sanity, sans retoucher le thème.
+4. Trancher **Q5** (domaine) — placeholder `wildcatmuaythai.com`. **Q1** storage DTV avant E6.
+5. Données réelles manquantes : email + horaires (`src/config/site.ts` + message `nav_util_open_today`) — `TODO(real data)`. Labels pricing → messages en E5.
 
 ## Build-as-you-go (zéro churn de thème, à créer avec leur page)
 FighterCard/CoachCard, DTVStepper, TestimonialSlider, TrainingSchedule, table pricing, liste/article blog + `.prose`, galerie, HeroVideo, fil d'ariane, liens in-content, composants motifs (BrushDivider/stripes).

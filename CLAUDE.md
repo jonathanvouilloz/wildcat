@@ -22,10 +22,10 @@ Site vitrine SEO multi-langue (Astro 6 + Sanity CMS) pour **Wildcat Muay Thai**,
 
 ```bash
 npm install            # dépendances
-npm run dev            # serveur dev (localhost:4321)
+npm run dev            # serveur dev (localhost:4321) — studio sur /studio
 npm run build          # build production (→ dist/ + .vercel/output)
 npm run preview        # preview du build
-# npx sanity dev       # studio Sanity (E4 — pas encore en place)
+npm run sanity:types   # extract schéma + typegen → src/lib/sanity.types.ts (100% local)
 ```
 
 ## Conventions de code
@@ -64,7 +64,7 @@ Palette **"Tropical Garden"** (Direction B) + typo Satoshi / Fraunces :
 
 ## État actuel
 
-**Phase : Thème + i18n complets (E1 + design system + E2 + E3). Prochain : E4 (Sanity).**
+**Phase : E4 (Sanity) — code fait, reste la création du projet sanity.io par Jonathan. Prochain : E5 (pages).**
 
 - [x] PRD lu et analysé · bundle de design analysé · docs projet créés
 - [x] Décisions tranchées : langues **EN+FR** (V1), **Coaches + Fighters**, **prix publics**, **Astro 6**, **icônes Tabler**, **marque Wildcat**
@@ -72,7 +72,9 @@ Palette **"Tropical Garden"** (Direction B) + typo Satoshi / Fraunces :
 - [x] **Design system** : palette verte 3 tons + gold/cream/charcoal/orange ; typo Satoshi + Fraunces + titres canoniques `.display/.h1/.h2/.h3` ; **boutons** (gold/forest/outline/link + flat + swoosh `ArrowWild`) ; **nav/mega menu** + drawer + utility bar ; **icônes Tabler** (`astro-icon`) ; focus-visible + reduced-motion ; `docs/DESIGN.md` + `/styleguide`
 - [x] **E2 — App shell & design-system completion** : couleurs sémantiques (`--success/--warning/--error` harmonisées) ; `BaseLayout` complet (OG/Twitter, slot `jsonld`, preload satoshi-700, Nav+Footer) ; **`Footer`** 4 colonnes ; primitives **`Container`/`Section`** (+ `--gutter`/`--section-y`/`--maxw-narrow`) ; **système de formulaire** (`.wc-control` + `Field/Input/Textarea/Select/Checkbox/FileUpload`) ; **`Card`** de base ; **`src/config/site.ts`** = source unique contenu transverse (contact réel, Instagram/Facebook réels, **pricing THB réel** ; email + horaires `TODO(real data)`). `npm run build` ✅
 - [x] **E3 — i18n** : **Paraglide JS 2.x** (plugin Vite, strategy `url > globalVariable > baseLocale`, middleware SSG `setLocale`) ; source `messages/{en,fr}.json` (**144 clés, parité vérifiée**), output `src/paraglide/` gitignored ; **zéro string UI en dur** (Nav ~115 clés, Footer, BaseLayout, home, FileUpload) ; `site.ts` = données brutes only (listes à clés `dayKey`/`key` mappées par records explicites) ; **`LangSwitcher`** (préserve le path, aria-current, zéro JS) ; conventions dans `docs/STYLEGUIDE.md` ; décision + pièges dans `docs/DECISIONS.md`. `npm run build` ✅ (`/fr` rend FR, `/en` rend EN, bundle client inchangé)
-- [ ] Questions ouvertes : **Q1** storage DTV (avant E6), **Q5** domaine, **Q6** slugs traduits (réglée de facto si Sanity document-level en E4)
-- [ ] Puis E5 (pages) — assemblage des primitives, sans retoucher le thème
+- [x] **E4 — Sanity (code)** : **studio embarqué `/studio`** (`@sanity/astro`, hash router en SSG, React pour le studio only) ; **6 schémas** (`sanity/schemaTypes/` : coach, fighter, blogPost, trainingSchedule, testimonial, category) + objets **`localeString`/`localeText`** (field-level {en, fr}) ; **blogPost en document-level** (`@sanity/document-internationalization` → slugs traduits, **Q6 réglée**) ; client `src/lib/sanity.ts` (`sanity:client`, `useCdn:false`) + `image.ts` (`urlFor`) + `i18n-content.ts` (`pickLocale`) + `queries.ts` (GROQ `defineQuery`) ; **typegen** `npm run sanity:types` (local, sans login) → `sanity.types.ts` committé ; robots.txt `Disallow: /studio` + sitemap filter. Fallback `projectId: 'placeholder'` → `npm run build` ✅ sans projet réel
+- [ ] **E4 — reste** : Jonathan crée le projet sanity.io (projectId → `.env`, CORS `localhost:4321`, dataset public) — checklist dans `docs/features/E4-sanity-cms.md`
+- [ ] Questions ouvertes : **Q1** storage DTV (avant E6), **Q5** domaine. ~~Q6~~ réglée (document-level)
+- [ ] Puis E5 (pages) — assemblage des primitives + requêtes Sanity, sans retoucher le thème
 
 _Dernière mise à jour : 2026-06-03._
