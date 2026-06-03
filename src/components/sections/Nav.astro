@@ -1,9 +1,10 @@
 ---
 import Button from '../ui/Button.astro';
 import ArrowWild from '../ui/ArrowWild.astro';
+import { Icon } from 'astro-icon/components';
 
 /**
- * Nav — mega menu WildCat (repris du bundle Claude Design, adapté au design system).
+ * Nav — mega menu Wildcat (repris du bundle Claude Design, adapté au design system).
  * Tokens (forest #2E5D3C, gold, cream), Satoshi (titres+corps), Fraunces (.em accents).
  * CTA Join = <Button> gold ; CTA cartes promo = pill gold + swoosh.
  * Desktop : mega panels au survol/clic/clavier. Mobile (<1080px) : drawer accordéon.
@@ -28,50 +29,20 @@ function ctaFor(p: string): string {
 const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
 ---
 
-<!-- ============ ICON SPRITE ============ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <g id="i-glove"><path d="M8 7h6a4 4 0 0 1 4 4v1.5a3 3 0 0 1-3 3h-1.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 7a3 3 0 0 0-3 3v3a3 3 0 0 0 3 3h5.5V7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.5 16v1.5a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></g>
-    <g id="i-levels" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 18v-5M12 18V6M18 18v-8"/></g>
-    <g id="i-user" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 19a6.5 6.5 0 0 1 13 0"/></g>
-    <g id="i-users" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="2.8"/><circle cx="16.5" cy="9.5" r="2.2"/><path d="M4 18a5 5 0 0 1 10 0M14.5 18a4 4 0 0 1 5.5-3.7"/></g>
-    <g id="i-kids" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.2"/><circle cx="16" cy="8" r="2.2"/><path d="M5 18v-3a3 3 0 0 1 6 0v3M13 18v-3a3 3 0 0 1 6 0v3"/></g>
-    <g id="i-flame" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c1.2 3.6-1.8 4.8-1.8 7.8A3.6 3.6 0 0 0 15.6 15c1.2 3-.6 5-3.6 5s-7.2-2.4-7.2-7.8c0-4.8 4.8-5.4 7.2-8.4z"/></g>
-    <g id="i-calendar" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M4 9.5h16M8 3.5v3M16 3.5v3"/></g>
-    <g id="i-tag" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5V5.5A1.5 1.5 0 0 1 5.5 4h7l7.5 7.5a1.5 1.5 0 0 1 0 2L13 21a1.5 1.5 0 0 1-2 0z"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor" stroke="none"/></g>
-    <g id="i-spark" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></g>
-    <g id="i-bed" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18v-9M4 13h16a0 0 0 0 1 0 0v5M20 18v-3a2 2 0 0 0-2-2"/><path d="M7 13v-2a1.5 1.5 0 0 1 1.5-1.5H13a1.5 1.5 0 0 1 1.5 1.5v2"/></g>
-    <g id="i-scooter" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="2.6"/><circle cx="18" cy="17" r="2.6"/><path d="M8.5 17h7M5.5 17l3.5-8h3l4 8M11 9h4.5"/></g>
-    <g id="i-pin" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4-4.5 6.5-8 6.5-11A6.5 6.5 0 0 0 5.5 10c0 3 2.5 6.5 6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g>
-    <g id="i-map" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5 4 7v12l5-2 6 2 5-2V5l-5 2-6-2z"/><path d="M9 5v12M15 7v12"/></g>
-    <g id="i-id" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="2.5"/><circle cx="9" cy="11.5" r="2"/><path d="M6.5 16a2.8 2.8 0 0 1 5 0M14 10h4M14 13.5h4"/></g>
-    <g id="i-check" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.4 1.7 2.9-.2 1 2.8 2.3 1.8-.9 2.8.9 2.8-2.3 1.8-1 2.8-2.9-.2L12 20.5l-2.4-1.7-2.9.2-1-2.8-2.3-1.8.9-2.8-.9-2.8 2.3-1.8 1-2.8 2.9.2z"/><path d="M9 12l2 2 4-4"/></g>
-    <g id="i-clock" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4.5l3 2"/></g>
-    <g id="i-help" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4.8.9c0 1.7-2.3 2.1-2.3 3.6"/><circle cx="12" cy="17" r="0.4" fill="currentColor" stroke="currentColor"/></g>
-    <g id="i-book" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5.5A1.5 1.5 0 0 1 6.5 4H18v14H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 1 6.5 18H18v2H6.5A1.5 1.5 0 0 1 5 18.5"/></g>
-    <g id="i-star" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l2.4 4.9 5.4.8-3.9 3.8.9 5.3L12 17.1 7.2 19.6l.9-5.3L4.2 9.7l5.4-.8z"/></g>
-    <g id="i-camera" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="12" rx="2.5"/><circle cx="12" cy="13" r="3"/><path d="M8.5 7l1.2-2h4.6l1.2 2"/></g>
-    <g id="i-heart" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19.5C6.5 15.5 4 12.5 4 9.5A3.8 3.8 0 0 1 12 7.8 3.8 3.8 0 0 1 20 9.5c0 3-2.5 6-8 10z"/></g>
-    <g id="i-chat" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14a1.5 1.5 0 0 1 1.5 1.5v7A1.5 1.5 0 0 1 19 16H9l-4 3v-3H5a1.5 1.5 0 0 1-1.5-1.5v-7A1.5 1.5 0 0 1 5 6z"/></g>
-    <g id="i-leaf" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M6 18c3-5 6-7 9-8"/></g>
-    <g id="i-route" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/></g>
-    <g id="i-caret" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 5 5-5"/></g>
-  </defs>
-</svg>
 
 <!-- ============ UTILITY BAR ============ -->
 <div class="util">
   <div class="wrap">
     <div class="u-left">
-      <span class="u-item"><svg class="i"><use href="#i-pin"/></svg> Old City, Chiang Mai</span>
+      <span class="u-item"><Icon name="tabler:map-pin" class="i" /> Old City, Chiang Mai</span>
       <span class="u-item hide-sm"><span class="dot-open"></span> Open today · 07:00–21:00</span>
-      <span class="u-item hide-sm"><svg class="i"><use href="#i-chat"/></svg> +66 81 234 5678</span>
+      <span class="u-item hide-sm"><Icon name="tabler:phone" class="i" /> +66 81 234 5678</span>
     </div>
     <div class="u-right">
       <div class="u-soc">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V7c0-1 .5-1.5 1.5-1.5H17V2h-3c-2.5 0-4 1.6-4 4v3H7v3.5h3V22h4v-9.5h2.7l.3-3.5H14z"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 8s-.2-1.5-.8-2.1c-.8-.8-1.6-.8-2-.9C16.5 4.7 12 4.7 12 4.7s-4.5 0-7.2.3c-.4 0-1.2.1-2 .9C2.2 6.5 2 8 2 8s-.2 1.7-.2 3.5v1.1c0 1.8.2 3.5.2 3.5s.2 1.5.8 2.1c.8.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s4.5 0 7.2-.3c.4 0 1.2-.1 2-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.5v-1.1C22.2 9.7 22 8 22 8z"/></svg></a>
+        <a href="#" aria-label="Instagram"><Icon name="tabler:brand-instagram" /></a>
+        <a href="#" aria-label="Facebook"><Icon name="tabler:brand-facebook" /></a>
+        <a href="#" aria-label="YouTube"><Icon name="tabler:brand-youtube" /></a>
       </div>
       <span class="lang"><b>EN</b> <span>/</span> FR</span>
     </div>
@@ -81,31 +52,31 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
 <!-- ============ MAIN NAV ============ -->
 <header class:list={['nav', !sticky && 'nav--static']} id="wc-nav">
   <div class="wrap">
-    <a class="brand" href="#" aria-label="WildCat Muay Thai home"><img src="/assets/logo-cream.png" alt="WildCat Muay Thai"></a>
+    <a class="brand" href="#" aria-label="Wildcat Muay Thai home"><img src="/assets/logo-cream.png" alt="Wildcat Muay Thai"></a>
 
     <nav class="menubar" aria-label="Primary">
 
       <!-- TRAIN -->
       <div class="mi wide" data-mega>
-        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">Train</span> <svg class="caret"><use href="#i-caret"/></svg></button>
+        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">Train</span> <Icon name="tabler:chevron-down" class="caret" /></button>
         <div class="mega" role="menu">
           <div class="mcol">
             <span class="lab">Classes</span>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-glove"/></svg></span><span class="mtx"><span class="mt">Beginner Muay Thai</span><span class="md">Start from zero — no experience needed</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-levels"/></svg></span><span class="mtx"><span class="mt">All-Levels Classes</span><span class="md">Daily group training for everyone</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-user"/></svg></span><span class="mtx"><span class="mt">Private Sessions</span><span class="md">One-on-one with a Kru</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:karate" class="i" /></span><span class="mtx"><span class="mt">Beginner Muay Thai</span><span class="md">Start from zero — no experience needed</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:chart-bar" class="i" /></span><span class="mtx"><span class="mt">All-Levels Classes</span><span class="md">Daily group training for everyone</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:user" class="i" /></span><span class="mtx"><span class="mt">Private Sessions</span><span class="md">One-on-one with a Kru</span></span></a>
           </div>
           <div class="mcol">
             <span class="lab">For everyone</span>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-heart"/></svg></span><span class="mtx"><span class="mt">Women's Muay Thai</span><span class="md">A welcoming, supportive space</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-kids"/></svg></span><span class="mtx"><span class="mt">Kids &amp; Family</span><span class="md">Fun, safe, confidence-building</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-flame"/></svg></span><span class="mtx"><span class="mt">Fight Team</span><span class="md">Train hard &amp; compete</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:gender-female" class="i" /></span><span class="mtx"><span class="mt">Women's Muay Thai</span><span class="md">A welcoming, supportive space</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:mood-kid" class="i" /></span><span class="mtx"><span class="mt">Kids &amp; Family</span><span class="md">Fun, safe, confidence-building</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:flame" class="i" /></span><span class="mtx"><span class="mt">Fight Team</span><span class="md">Train hard &amp; compete</span></span></a>
           </div>
           <div class="mcol">
             <span class="lab">Plan your training</span>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-calendar"/></svg></span><span class="mtx"><span class="mt">Class Schedule</span><span class="md">Daily timetable &amp; sessions</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-tag"/></svg></span><span class="mtx"><span class="mt">Pricing &amp; Passes</span><span class="md">Drop-in, monthly &amp; long-stay</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-spark"/></svg></span><span class="mtx"><span class="mt">Free Trial Class</span><span class="md">Try your first class on us</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:calendar-event" class="i" /></span><span class="mtx"><span class="mt">Class Schedule</span><span class="md">Daily timetable &amp; sessions</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:tag" class="i" /></span><span class="mtx"><span class="mt">Pricing &amp; Passes</span><span class="md">Drop-in, monthly &amp; long-stay</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:sparkles" class="i" /></span><span class="mtx"><span class="mt">Free Trial Class</span><span class="md">Try your first class on us</span></span></a>
           </div>
           <div class="mfeat">
             <span class="ft-tag">New here?</span>
@@ -115,8 +86,8 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
           </div>
           <div class="mfoot">
             <div class="links">
-              <a href="#"><svg><use href="#i-calendar"/></svg> View full schedule</a>
-              <a href="#"><svg><use href="#i-tag"/></svg> Compare passes</a>
+              <a href="#"><Icon name="tabler:calendar-event" /> View full schedule</a>
+              <a href="#"><Icon name="tabler:tag" /> Compare passes</a>
             </div>
             <a class="allcta" href="#">All classes <ArrowWild size={18} /></a>
           </div>
@@ -125,23 +96,23 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
 
       <!-- STAY & TRAIN -->
       <div class="mi wide" data-mega>
-        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">Stay &amp; Train</span> <svg class="caret"><use href="#i-caret"/></svg></button>
+        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">Stay &amp; Train</span> <Icon name="tabler:chevron-down" class="caret" /></button>
         <div class="mega" role="menu">
           <div class="mcol">
             <span class="lab">Train &amp; stay</span>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-route"/></svg></span><span class="mtx"><span class="mt">Stay &amp; Train Packages</span><span class="md">All-in week or month plans</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-clock"/></svg></span><span class="mtx"><span class="mt">Long-Stay Training</span><span class="md">Settle in for the season</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:route" class="i" /></span><span class="mtx"><span class="mt">Stay &amp; Train Packages</span><span class="md">All-in week or month plans</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:home-2" class="i" /></span><span class="mtx"><span class="mt">Long-Stay Training</span><span class="md">Settle in for the season</span></span></a>
           </div>
           <div class="mcol">
             <span class="lab">Logistics</span>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-bed"/></svg></span><span class="mtx"><span class="mt">Where to Stay</span><span class="md">Partner accommodation nearby</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-scooter"/></svg></span><span class="mtx"><span class="mt">Scooter Rental</span><span class="md">Get around on two wheels</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-pin"/></svg></span><span class="mtx"><span class="mt">Getting Here</span><span class="md">Find &amp; reach the gym</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:bed" class="i" /></span><span class="mtx"><span class="mt">Where to Stay</span><span class="md">Partner accommodation nearby</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:motorbike" class="i" /></span><span class="mtx"><span class="mt">Scooter Rental</span><span class="md">Get around on two wheels</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:map-pin" class="i" /></span><span class="mtx"><span class="mt">Getting Here</span><span class="md">Find &amp; reach the gym</span></span></a>
           </div>
           <div class="mcol">
             <span class="lab">Explore Chiang Mai</span>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-map"/></svg></span><span class="mtx"><span class="mt">Chiang Mai Guide</span><span class="md">Food, temples &amp; nature</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-leaf"/></svg></span><span class="mtx"><span class="mt">Things to Do</span><span class="md">Make the most of your stay</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:map-2" class="i" /></span><span class="mtx"><span class="mt">Chiang Mai Guide</span><span class="md">Food, temples &amp; nature</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:leaf" class="i" /></span><span class="mtx"><span class="mt">Things to Do</span><span class="md">Make the most of your stay</span></span></a>
           </div>
           <div class="mfeat">
             <span class="ft-tag">Make it home</span>
@@ -151,7 +122,7 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
           </div>
           <div class="mfoot">
             <div class="links">
-              <a href="#"><svg><use href="#i-id"/></svg> Staying long-term? See DTV Visa</a>
+              <a href="#"><Icon name="tabler:id" /> Staying long-term? See DTV Visa</a>
             </div>
             <a class="allcta" href="#">Stay &amp; Train overview <ArrowWild size={18} /></a>
           </div>
@@ -160,24 +131,24 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
 
       <!-- DTV VISA -->
       <div class="mi wide" data-mega>
-        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">DTV Visa</span> <svg class="caret"><use href="#i-caret"/></svg></button>
+        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">DTV Visa</span> <Icon name="tabler:chevron-down" class="caret" /></button>
         <div class="mega" role="menu">
           <div class="mcol">
             <span class="lab">The DTV guide</span>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-id"/></svg></span><span class="mtx"><span class="mt">What is the DTV Visa</span><span class="md">The 5-year soft-power visa, explained</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-check"/></svg></span><span class="mtx"><span class="mt">Am I Eligible?</span><span class="md">Requirements &amp; who qualifies</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-route"/></svg></span><span class="mtx"><span class="mt">How to Apply</span><span class="md">Step-by-step walkthrough</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:id" class="i" /></span><span class="mtx"><span class="mt">What is the DTV Visa</span><span class="md">The 5-year soft-power visa, explained</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:circle-check" class="i" /></span><span class="mtx"><span class="mt">Am I Eligible?</span><span class="md">Requirements &amp; who qualifies</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:route" class="i" /></span><span class="mtx"><span class="mt">How to Apply</span><span class="md">Step-by-step walkthrough</span></span></a>
           </div>
           <div class="mcol">
             <span class="lab">Train on a DTV</span>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-glove"/></svg></span><span class="mtx"><span class="mt">Muay Thai &amp; the DTV</span><span class="md">Training as your qualifying activity</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-clock"/></svg></span><span class="mtx"><span class="mt">Long-Stay Training Plans</span><span class="md">Programs built for the DTV</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-book"/></svg></span><span class="mtx"><span class="mt">Your Training Documents</span><span class="md">We provide your enrolment letter</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:karate" class="i" /></span><span class="mtx"><span class="mt">Muay Thai &amp; the DTV</span><span class="md">Training as your qualifying activity</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:home-2" class="i" /></span><span class="mtx"><span class="mt">Long-Stay Training Plans</span><span class="md">Programs built for the DTV</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:file-text" class="i" /></span><span class="mtx"><span class="mt">Your Training Documents</span><span class="md">We provide your enrolment letter</span></span></a>
           </div>
           <div class="mcol">
             <span class="lab">Get help</span>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-help"/></svg></span><span class="mtx"><span class="mt">DTV FAQ</span><span class="md">Common questions answered</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-chat"/></svg></span><span class="mtx"><span class="mt">Talk to Us</span><span class="md">Ask about your situation</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:help-circle" class="i" /></span><span class="mtx"><span class="mt">DTV FAQ</span><span class="md">Common questions answered</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:message-circle" class="i" /></span><span class="mtx"><span class="mt">Talk to Us</span><span class="md">Ask about your situation</span></span></a>
           </div>
           <div class="mfeat gold">
             <span class="stamp"></span>
@@ -188,8 +159,8 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
           </div>
           <div class="mfoot">
             <div class="links">
-              <a href="#"><svg><use href="#i-scooter"/></svg> Scooter rental for your stay</a>
-              <a href="#"><svg><use href="#i-bed"/></svg> Accommodation</a>
+              <a href="#"><Icon name="tabler:motorbike" /> Scooter rental for your stay</a>
+              <a href="#"><Icon name="tabler:bed" /> Accommodation</a>
             </div>
             <a class="allcta" href="#">DTV Visa guide <ArrowWild size={18} /></a>
           </div>
@@ -198,21 +169,21 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
 
       <!-- ABOUT -->
       <div class="mi" data-mega>
-        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">About</span> <svg class="caret"><use href="#i-caret"/></svg></button>
+        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">About</span> <Icon name="tabler:chevron-down" class="caret" /></button>
         <div class="mega mega--about" role="menu">
           <div class="mcol">
-            <span class="lab">WildCat</span>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-leaf"/></svg></span><span class="mtx"><span class="mt">Our Story</span><span class="md">Family-led, born in Chiang Mai</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-user"/></svg></span><span class="mtx"><span class="mt">Meet the Coaches</span><span class="md">Real Thai trainers &amp; warmth</span></span></a>
+            <span class="lab">Wildcat</span>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:leaf" class="i" /></span><span class="mtx"><span class="mt">Our Story</span><span class="md">Family-led, born in Chiang Mai</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:user" class="i" /></span><span class="mtx"><span class="mt">Meet the Coaches</span><span class="md">Real Thai trainers &amp; warmth</span></span></a>
           </div>
           <div class="mcol">
             <span class="lab">Community</span>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-users"/></svg></span><span class="mtx"><span class="mt">Our Community</span><span class="md">Members from around the world</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-camera"/></svg></span><span class="mtx"><span class="mt">Gallery</span><span class="md">Life at the gym</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-star"/></svg></span><span class="mtx"><span class="mt">Reviews</span><span class="md">What members say</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:users" class="i" /></span><span class="mtx"><span class="mt">Our Community</span><span class="md">Members from around the world</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:camera" class="i" /></span><span class="mtx"><span class="mt">Gallery</span><span class="md">Life at the gym</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:star" class="i" /></span><span class="mtx"><span class="mt">Reviews</span><span class="md">What members say</span></span></a>
           </div>
           <div class="mfeat">
-            <span class="ft-tag">Why WildCat</span>
+            <span class="ft-tag">Why Wildcat</span>
             <h4>Run by a woman, built like a <span class="em">family.</span></h4>
             <p>No ego at the door — just real training and real people.</p>
             <div class="ff"><a class="fbtn" href="#">Our story <ArrowWild class="fbtn-ar" size={20} /></a></div>
@@ -236,7 +207,7 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
 <div class="drawer" id="wc-drawer">
   <div class="scrim" data-drawer-close></div>
   <div class="panel">
-    <div class="dh"><img src="/assets/logo-cream.png" alt="WildCat"><button class="x" aria-label="Close" data-drawer-close>×</button></div>
+    <div class="dh"><img src="/assets/logo-cream.png" alt="Wildcat"><button class="x" aria-label="Close" data-drawer-close>×</button></div>
     <div class="dbody">
       <details open><summary>Train <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> Beginner Muay Thai</a><a href="#"><span class="dot"></span> All Levels</a><a href="#"><span class="dot"></span> Private Sessions</a><a href="#"><span class="dot"></span> Women's Muay Thai</a><a href="#"><span class="dot"></span> Kids &amp; Family</a><a href="#"><span class="dot"></span> Fight Team</a><a href="#"><span class="dot"></span> Schedule &amp; Pricing</a></div></details>
       <details><summary>Stay &amp; Train <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> Packages</a><a href="#"><span class="dot"></span> Accommodation</a><a href="#"><span class="dot"></span> Scooter Rental</a><a href="#"><span class="dot"></span> Getting Here</a><a href="#"><span class="dot"></span> Chiang Mai Guide</a></div></details>
@@ -251,7 +222,7 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
 
 <style>
   .util {
-    background: #21422c;
+    background: var(--forest-deep);
     color: rgba(246, 241, 230, 0.72);
     font-size: 12.5px;
   }
@@ -339,6 +310,19 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
   svg.i { width: 20px; height: 20px; flex: 0 0 auto; }
   .caret { display: inline-block; }
 
+  /* Focus visible — accessibilité clavier */
+  .mi > a:focus-visible,
+  .mi > button:focus-visible,
+  .util .u-soc a:focus-visible,
+  .mlink:focus-visible,
+  .fbtn:focus-visible,
+  .mega .mfoot a:focus-visible,
+  .allcta:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: var(--r-sm);
+  }
+
   /* MEGA PANEL */
   .mega {
     --shift: 0px;
@@ -390,14 +374,14 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
 
   /* featured promo card */
   .mfeat { background: var(--forest); color: var(--cream); border-radius: var(--r-md); padding: 20px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
-  .mfeat.gold { background: radial-gradient(120% 90% at 80% 0, #356a44, #2e5d3c); }
+  .mfeat.gold { background: radial-gradient(120% 90% at 80% 0, var(--forest-light), var(--forest)); }
   .mfeat .ft-tag { font-size: 10.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
   .mfeat h4 { font-family: var(--font-display); font-weight: 800; font-size: 19px; line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 7px; }
   .mfeat h4 .em { color: var(--gold); }
   .mfeat p { font-size: 12.5px; color: rgba(246, 241, 230, 0.74); line-height: 1.45; margin: 0 0 16px; }
   .mfeat .ff { margin-top: auto; }
   .fbtn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--charcoal); font-family: var(--font-display); font-weight: 700; font-size: 13px; padding: 9px 16px; border-radius: 999px; transition: 0.16s; }
-  .fbtn:hover { background: #e8b13e; }
+  .fbtn:hover { background: color-mix(in srgb, var(--gold), #fff 10%); }
   .fbtn-ar { transition: transform 0.18s ease; }
   .fbtn:hover .fbtn-ar { transform: translateX(3px); }
   .mfeat .stamp { position: absolute; right: -26px; top: -26px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle at 50% 38%, #efb63a, #db9a14); border: 2px solid #1c1407; opacity: 0.16; }
@@ -439,6 +423,16 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
   .drawer .sub-links a .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
   .drawer .flat { padding: 15px 6px; font-weight: 700; font-size: 16px; color: var(--forest); border-bottom: 1px solid var(--line); display: block; }
   .drawer :global(.djoin) { margin: 18px 6px 0; width: calc(100% - 12px); justify-content: center; }
+
+  /* Reduced motion — neutralise les transitions du nav */
+  @media (prefers-reduced-motion: reduce) {
+    .mi > button .caret,
+    .lbl::after,
+    .mega,
+    .mlink,
+    .fbtn-ar,
+    .drawer summary .pm { transition: none; }
+  }
 </style>
 
 <script>

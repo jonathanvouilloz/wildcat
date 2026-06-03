@@ -2,7 +2,7 @@
 import ArrowWild from './ArrowWild.astro';
 
 /**
- * Button — CTA signature WildCat.
+ * Button — CTA signature Wildcat.
  * Pill · Satoshi Bold (casse normale) · relief (surface claire + ombre foncée) · swoosh maison.
  * Variantes : gold (primaire) · forest · outline (+ onDark) · link (texte, navbar).
  * Toutes les variantes "boutons" partagent exactement la même boîte (hauteur/padding/pill/bordure).
@@ -92,24 +92,24 @@ const variantClass =
     transform: translateY(1px) scale(0.99);
   }
 
-  /* Forest — surface vert clair (#3B6645) + relief/ombre vert foncé */
+  /* Forest — surface vert clair + relief/ombre vert foncé */
   .wc-forest {
-    background: #3b6645;
+    background: var(--forest-light);
     color: var(--cream);
     box-shadow:
-      0 7px 0 -1px #21422c,
+      0 7px 0 -1px var(--forest-deep),
       0 16px 26px -12px rgba(12, 26, 17, 0.6);
   }
   .wc-forest:hover {
-    background: #447552;
+    background: color-mix(in srgb, var(--forest-light), #fff 10%);
     transform: translateY(-1px);
     box-shadow:
-      0 8px 0 -1px #21422c,
+      0 8px 0 -1px var(--forest-deep),
       0 20px 30px -12px rgba(12, 26, 17, 0.65);
   }
   .wc-forest:active {
     box-shadow:
-      0 3px 0 -1px #21422c,
+      0 3px 0 -1px var(--forest-deep),
       0 10px 18px -12px rgba(12, 26, 17, 0.55);
   }
 
@@ -122,7 +122,7 @@ const variantClass =
       0 16px 26px -12px rgba(160, 116, 18, 0.55);
   }
   .wc-gold:hover {
-    background: #e8b13e;
+    background: color-mix(in srgb, var(--gold), #fff 10%);
     transform: translateY(-1px);
     box-shadow:
       0 8px 0 -1px var(--gold-deep),

@@ -1,4 +1,4 @@
-# STYLEGUIDE — WildCat Muay Thai
+# STYLEGUIDE — Wildcat Muay Thai
 
 Conventions de **code**. La source de vérité **visuelle** (couleurs, typo, motifs, voix) est `docs/DESIGN.md` + la page live `/styleguide`. Les tokens techniques vivent dans `src/styles/tokens.css` + `@theme` de `src/styles/global.css`.
 

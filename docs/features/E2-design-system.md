@@ -8,7 +8,7 @@ Recréer pixel-perfect le shell de la maquette : layout de base, navigation (meg
 ## Tâches
 - [ ] `BaseLayout.astro` : `<head>` SEO, fonts, slots, nav + footer
 - [ ] Composant `Nav` / `MegaMenu` (4 panneaux : Train, Stay & Train, DTV Visa, About + Blog/Contact + CTA Join)
-  - [ ] Comportement hover/clic/clavier (Échap), `aria-expanded`, clamp anti-débordement (voir JS `WildCat Mega Menu.html`)
+  - [ ] Comportement hover/clic/clavier (Échap), `aria-expanded`, clamp anti-débordement (voir JS `Wildcat Mega Menu.html`)
 - [ ] `MobileDrawer` accordéon (`<details>`)
 - [ ] `UtilityBar` (localisation, horaires, tel, socials, lang switcher)
 - [ ] `Footer` (4 colonnes : brand/social, explore, hours, contact + bottom bar)

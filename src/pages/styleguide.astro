@@ -3,12 +3,103 @@ import '../styles/global.css';
 import Button from '../components/ui/Button.astro';
 import SectionHead from '../components/ui/SectionHead.astro';
 import Nav from '../components/sections/Nav.astro';
+import { Icon } from 'astro-icon/components';
+
+// Inventaire des icônes (set candidat : Tabler). Swappable : changer le préfixe.
+const iconGroups = [
+  {
+    title: 'Navigation / mega menu',
+    items: [
+      { label: 'Classes (Muay Thai)', name: 'karate' },
+      { label: 'Conditioning', name: 'barbell' },
+      { label: 'Niveaux', name: 'chart-bar' },
+      { label: 'Coach / privé', name: 'user' },
+      { label: 'Communauté', name: 'users' },
+      { label: "Women's", name: 'gender-female' },
+      { label: 'Kids & family', name: 'mood-kid' },
+      { label: 'Fight team', name: 'flame' },
+      { label: 'Horaires', name: 'calendar-event' },
+      { label: 'Pricing', name: 'tag' },
+      { label: 'Essai gratuit', name: 'sparkles' },
+      { label: 'Stay & Train', name: 'route' },
+      { label: 'Long-stay', name: 'home-2' },
+      { label: 'Logement', name: 'bed' },
+      { label: 'Scooter / moto', name: 'motorbike' },
+      { label: 'Getting here', name: 'map-pin' },
+      { label: 'Chiang Mai guide', name: 'map-2' },
+      { label: 'Things to do', name: 'leaf' },
+      { label: 'DTV / id', name: 'id' },
+      { label: 'Éligible', name: 'circle-check' },
+      { label: 'How to apply', name: 'list-check' },
+      { label: 'Documents', name: 'file-text' },
+      { label: 'FAQ', name: 'help-circle' },
+      { label: 'Talk to us', name: 'message-circle' },
+      { label: 'Gallery', name: 'camera' },
+      { label: 'Reviews', name: 'star' },
+      { label: 'Caret', name: 'chevron-down' },
+    ],
+  },
+  {
+    title: 'Mini-app DTV (formulaire / upload)',
+    items: [
+      { label: 'Passeport', name: 'id-badge-2' },
+      { label: 'Photo ID', name: 'photo' },
+      { label: 'Justif. revenus', name: 'receipt' },
+      { label: 'Upload', name: 'upload' },
+      { label: 'Cloud upload', name: 'cloud-upload' },
+      { label: 'Fichier OK', name: 'file-check' },
+      { label: 'Erreur', name: 'alert-circle' },
+      { label: 'Succès', name: 'confetti' },
+      { label: 'Consentement', name: 'lock' },
+      { label: 'Sécurité', name: 'shield-check' },
+      { label: 'Email', name: 'mail' },
+    ],
+  },
+  {
+    title: 'Contact / footer / réseaux (logos)',
+    items: [
+      { label: 'Adresse', name: 'map-pin' },
+      { label: 'Téléphone', name: 'phone' },
+      { label: 'Email', name: 'mail' },
+      { label: 'Horaires', name: 'clock' },
+      { label: 'Instagram', name: 'brand-instagram' },
+      { label: 'Facebook', name: 'brand-facebook' },
+      { label: 'YouTube', name: 'brand-youtube' },
+      { label: 'WhatsApp', name: 'brand-whatsapp' },
+      { label: 'TikTok', name: 'brand-tiktok' },
+      { label: 'Google', name: 'brand-google' },
+    ],
+  },
+  {
+    title: 'Fighters / Coaches / Pricing',
+    items: [
+      { label: 'Trophée', name: 'trophy' },
+      { label: 'Médaille', name: 'medal' },
+      { label: 'Combats', name: 'swords' },
+      { label: 'Feature ✓', name: 'check' },
+      { label: 'Most popular', name: 'star' },
+    ],
+  },
+  {
+    title: 'UI transverse',
+    items: [
+      { label: 'Menu (burger)', name: 'menu-2' },
+      { label: 'Close', name: 'x' },
+      { label: 'Langue', name: 'world' },
+      { label: 'Arrow', name: 'arrow-right' },
+      { label: 'Play (vidéo)', name: 'player-play' },
+      { label: 'Lien externe', name: 'external-link' },
+      { label: 'Chevron', name: 'chevron-right' },
+    ],
+  },
+];
 
 // Page interne de référence design — non indexée, non localisée.
 
 const coreColors = [
-  { name: 'Forest', hex: '#1F3B2E', role: 'Nav, footer, sections sombres, titres', dark: true },
-  { name: 'Jungle', hex: '#345C3E', role: 'Accents secondaires, labels', dark: true },
+  { name: 'Forest Light', hex: '#3B6645', role: 'Surfaces en relief (bouton forest)', dark: true },
+  { name: 'Forest', hex: '#2E5D3C', role: 'Base — nav, footer, sections sombres, titres', dark: true },
+  { name: 'Forest Deep', hex: '#21422C', role: 'Ombres / ledges, util bar', dark: true },
   { name: 'Gold', hex: '#E0A62B', role: 'CTA principal, accents', dark: false },
   { name: 'Gold Deep', hex: '#C98A12', role: 'Accents texte / liens', dark: false },
   { name: 'Cream', hex: '#F6F1E6', role: 'Fond clair principal', dark: false },
@@ -36,7 +127,7 @@ const inks = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>WildCat — Design System</title>
+    <title>Wildcat — Design System</title>
   </head>
   <body>
     <!-- Mega menu live (sticky) -->
@@ -46,8 +137,8 @@ const inks = [
       <!-- Intro -->
       <header class="mb-16">
         <SectionHead>Design System v1</SectionHead>
-        <h1 class="mt-3 font-display text-5xl font-extrabold tracking-tight text-forest md:text-6xl">
-          The WildCat <span class="em">look book.</span>
+        <h1 class="display mt-3">
+          The Wildcat <span class="em">look book.</span>
         </h1>
         <p class="mt-4 max-w-[60ch] text-lg text-ink-2">
           La base verrouillée — couleurs, typographie, boutons, motifs et navigation — pour toute la
@@ -78,7 +169,7 @@ const inks = [
       <!-- Colors -->
       <section class="mb-20">
         <SectionHead>Couleurs</SectionHead>
-        <h2 class="mt-3 mb-6 font-display text-3xl font-bold text-forest">Palette Tropical Garden</h2>
+        <h2 class="h2 mt-3 mb-6">Palette Tropical Garden</h2>
 
         <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
           {
@@ -114,7 +205,7 @@ const inks = [
       <!-- Typography -->
       <section class="mb-20">
         <SectionHead>Typographie</SectionHead>
-        <h2 class="mt-3 mb-2 font-display text-3xl font-bold text-forest">
+        <h2 class="h2 mt-3 mb-2">
           Satoshi + <span class="em">Fraunces.</span>
         </h2>
         <p class="mb-8 max-w-[60ch] text-ink-2">
@@ -124,20 +215,20 @@ const inks = [
 
         <div class="space-y-6 rounded-[var(--r-lg)] border border-line bg-surface p-8">
           <div>
-            <div class="font-mono text-[11px] uppercase tracking-wider text-ink-3">H1 · Satoshi 800</div>
-            <div class="font-display text-6xl font-extrabold tracking-tight text-forest">
-              Train <span class="em">today.</span>
-            </div>
+            <div class="font-mono text-[11px] uppercase tracking-wider text-ink-3">.display · Satoshi 800</div>
+            <div class="display">Train <span class="em">today.</span></div>
           </div>
           <div>
-            <div class="font-mono text-[11px] uppercase tracking-wider text-ink-3">H2 · Satoshi 700</div>
-            <div class="font-display text-4xl font-bold tracking-tight text-forest">
-              Your Muay Thai home
-            </div>
+            <div class="font-mono text-[11px] uppercase tracking-wider text-ink-3">.h1 · Satoshi 800</div>
+            <h2 class="h1">Your Muay Thai home</h2>
           </div>
           <div>
-            <div class="font-mono text-[11px] uppercase tracking-wider text-ink-3">H3 · Satoshi 700</div>
-            <div class="font-display text-2xl font-bold text-forest">Beginner-friendly classes</div>
+            <div class="font-mono text-[11px] uppercase tracking-wider text-ink-3">.h2 · Satoshi 700</div>
+            <h2 class="h2">Real training, family vibe</h2>
+          </div>
+          <div>
+            <div class="font-mono text-[11px] uppercase tracking-wider text-ink-3">.h3 · Satoshi 700</div>
+            <h3 class="h3">Beginner-friendly classes</h3>
           </div>
           <div>
             <div class="font-mono text-[11px] uppercase tracking-wider text-ink-3">Accent · Fraunces 72 SemiBold Italic</div>
@@ -169,11 +260,11 @@ const inks = [
       <!-- Buttons -->
       <section class="mb-20">
         <SectionHead>Boutons</SectionHead>
-        <h2 class="mt-3 mb-2 font-display text-3xl font-bold text-forest">
-          The WildCat <span class="em">press.</span>
+        <h2 class="h2 mt-3 mb-2">
+          The Wildcat <span class="em">press.</span>
         </h2>
         <p class="mb-7 max-w-[56ch] text-ink-2">
-          Pill, Satoshi Bold en casse normale, relief vert <code>#3B6645</code> et flèche maison.
+          Pill, Satoshi Bold en casse normale, relief (surface claire + ombre foncée) et flèche maison.
           Survol : lift + flèche qui glisse. Clic : la pastille s'enfonce.
         </p>
 
@@ -215,7 +306,7 @@ const inks = [
       <!-- Motifs -->
       <section class="mb-20">
         <SectionHead>Motifs &amp; iconographie</SectionHead>
-        <h2 class="mt-3 mb-6 font-display text-3xl font-bold text-forest">
+        <h2 class="h2 mt-3 mb-6">
           The tiger, and a few marks of our own.
         </h2>
         <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
@@ -233,7 +324,7 @@ const inks = [
           </figure>
           <figure class="overflow-hidden rounded-[var(--r-md)] border border-line bg-surface">
             <div class="flex h-24 items-center justify-center bg-gold">
-              <div class="stamp-round">WildCat · Est. Chiang Mai · Muay Thai</div>
+              <div class="stamp-round">Wildcat · Est. Chiang Mai · Muay Thai</div>
             </div>
             <figcaption class="p-3 text-[13px] font-bold text-ink">
               Round stamp<small class="block font-mono text-[10px] font-normal uppercase text-ink-3">seals · stickers</small>
@@ -249,16 +340,44 @@ const inks = [
         </div>
       </section>
 
+      <!-- Icon library -->
+      <section class="mb-20">
+        <SectionHead>Bibliothèque d'icônes</SectionHead>
+        <h2 class="h2 mt-3 mb-2">Inventaire — <span class="em">Tabler.</span></h2>
+        <p class="mb-8 max-w-[60ch] text-ink-2">
+          Tous les besoins du PRD couverts par <strong>un seul set</strong> (Tabler, style ligne) —
+          y compris les logos réseaux. Set swappable (Phosphor…) en changeant le préfixe.
+          Le swoosh, le tigre et le DTV stamp restent custom.
+        </p>
+
+        {
+          iconGroups.map((g) => (
+            <div class="mb-7">
+              <div class="mb-3 font-mono text-[11px] uppercase tracking-wider text-ink-3">{g.title}</div>
+              <div class="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
+                {g.items.map((it) => (
+                  <div class="flex flex-col items-center gap-2 rounded-[var(--r-md)] border border-line bg-surface px-2 py-4 text-center">
+                    <Icon name={`tabler:${it.name}`} class="h-6 w-6 text-forest" />
+                    <div class="text-[11px] font-bold leading-tight text-ink">{it.label}</div>
+                    <code class="text-[10px] text-ink-3">{it.name}</code>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </section>
+
       <!-- Components sample -->
       <section class="mb-20">
         <SectionHead>Composants</SectionHead>
-        <h2 class="mt-3 mb-6 font-display text-3xl font-bold text-forest">Aperçu</h2>
+        <h2 class="h2 mt-3 mb-6">Aperçu</h2>
         <div class="grid gap-5 md:grid-cols-3">
           <!-- program card -->
           <article class="overflow-hidden rounded-[var(--r-md)] border border-line bg-surface" style="box-shadow:var(--shadow-sm)">
             <div class="h-32 bg-soft-2"></div>
             <div class="p-5">
-              <span class="inline-block rounded-full bg-soft-2 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-jungle">Beginners</span>
+              <span class="inline-block rounded-full bg-soft-2 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-forest">Beginners</span>
               <h3 class="mt-3 font-display text-xl font-bold text-forest">Muay Thai Basics</h3>
               <p class="mt-1 text-sm text-ink-2">Start strong — stance, movement and technique in a no-ego space.</p>
             </div>
@@ -266,7 +385,7 @@ const inks = [
           <!-- pricing plan -->
           <article class="relative flex flex-col rounded-[var(--r-md)] border-[1.5px] border-gold bg-surface p-7" style="box-shadow:var(--shadow-md)">
             <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-charcoal">Most popular</span>
-            <div class="text-[13px] font-bold uppercase tracking-wider text-jungle">Monthly</div>
+            <div class="text-[13px] font-bold uppercase tracking-wider text-forest">Monthly</div>
             <div class="font-display text-4xl font-extrabold text-forest">3,500 <span class="text-base font-bold text-ink-3">THB</span></div>
             <div class="mt-1 text-sm text-ink-2">Unlimited classes</div>
             <Button variant="gold" class="mt-5 w-full justify-center">Get started</Button>
@@ -288,22 +407,22 @@ const inks = [
       <!-- Logos -->
       <section class="mb-10">
         <SectionHead>Logo &amp; lockups</SectionHead>
-        <h2 class="mt-3 mb-6 font-display text-3xl font-bold text-forest">The master mark</h2>
+        <h2 class="h2 mt-3 mb-6">The master mark</h2>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div class="flex h-40 items-center justify-center rounded-[var(--r-md)] border border-line bg-surface p-8">
-            <img src="/assets/logo-knockout.png" alt="WildCat logo on light" class="max-h-20 w-auto" />
+            <img src="/assets/logo-knockout.png" alt="Wildcat logo on light" class="max-h-20 w-auto" />
           </div>
           <div class="flex h-40 items-center justify-center rounded-[var(--r-md)] bg-forest p-8">
-            <img src="/assets/logo-cream.png" alt="WildCat logo on forest" class="max-h-20 w-auto" />
+            <img src="/assets/logo-cream.png" alt="Wildcat logo on forest" class="max-h-20 w-auto" />
           </div>
           <div class="flex h-40 items-center justify-center rounded-[var(--r-md)] bg-gold p-8">
-            <img src="/assets/logo.png" alt="WildCat logo on gold" class="max-h-20 w-auto" />
+            <img src="/assets/logo.png" alt="Wildcat logo on gold" class="max-h-20 w-auto" />
           </div>
         </div>
       </section>
 
       <footer class="border-t border-line pt-6 text-sm text-ink-3">
-        WildCat Muay Thai · Design System v1 · interne (noindex) · juin 2026
+        Wildcat Muay Thai · Design System v1 · interne (noindex) · juin 2026
       </footer>
     </div>
 

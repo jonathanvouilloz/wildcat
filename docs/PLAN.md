@@ -1,4 +1,4 @@
-# PLAN — WildCat Muay Thai
+# PLAN — Wildcat Muay Thai
 
 Plan d'exécution maître. Statuts : `TODO` · `EN COURS` · `DONE` · `BLOQUÉ`.
 

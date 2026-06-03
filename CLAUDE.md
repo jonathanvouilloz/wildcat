@@ -1,8 +1,8 @@
-# CLAUDE.md — WildCat Muay Thai Chiang Mai
+# CLAUDE.md — Wildcat Muay Thai Chiang Mai
 
 ## Résumé du projet
 
-Site vitrine SEO multi-langue (Astro 5 + Sanity CMS) pour **WildCat Muay Thai**, un camp de Muay Thai familial et open-air à Chiang Mai. Objectif : capter des clients étrangers via le SEO global/local et professionnaliser la gestion des visas DTV grâce à une mini-app de dépôt de dossier intégrée (formulaire multi-étapes + upload documents + WhatsApp + email). Positionnement de marque : chaleureux, accueillant, familial — **pas** un fight camp hardcore.
+Site vitrine SEO multi-langue (Astro 5 + Sanity CMS) pour **Wildcat Muay Thai**, un camp de Muay Thai familial et open-air à Chiang Mai. Objectif : capter des clients étrangers via le SEO global/local et professionnaliser la gestion des visas DTV grâce à une mini-app de dépôt de dossier intégrée (formulaire multi-étapes + upload documents + WhatsApp + email). Positionnement de marque : chaleureux, accueillant, familial — **pas** un fight camp hardcore.
 
 ## Stack technique
 
@@ -48,9 +48,9 @@ npm run preview        # preview du build
 | `docs/DECISIONS.md` | Log des décisions techniques |
 | `docs/features/*.md` | Détail par feature/epic |
 | `wildcat/project/` | **Bundle Claude Design** — maquettes HTML/CSS de référence (à recréer pixel-perfect) |
-| `wildcat/project/WildCat Landing.html` + `landing.css` | Direction visuelle **verrouillée** (page d'accueil de prod) |
-| `wildcat/project/WildCat Mega Menu.html` + `meganav.css` | Architecture de navigation + silos SEO |
-| `wildcat/project/WildCat Brand Board.html` | 3 directions explorées (contexte, A/B/C) |
+| `wildcat/project/Wildcat Landing.html` + `landing.css` | Direction visuelle **verrouillée** (page d'accueil de prod) |
+| `wildcat/project/Wildcat Mega Menu.html` + `meganav.css` | Architecture de navigation + silos SEO |
+| `wildcat/project/Wildcat Brand Board.html` | 3 directions explorées (contexte, A/B/C) |
 
 ## Design — direction verrouillée
 

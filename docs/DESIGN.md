@@ -1,4 +1,4 @@
-# DESIGN — WildCat Muay Thai
+# DESIGN — Wildcat Muay Thai
 
 Système design complet et **verrouillé**. Source de vérité visuelle pour tout le site.
 Référence vivante : page `/styleguide` (interne, `noindex`). Conventions de code : `docs/STYLEGUIDE.md`.
@@ -8,7 +8,7 @@ Tokens techniques : `src/styles/tokens.css` + `@theme` dans `src/styles/global.c
 
 ## 1. Essence de marque
 
-WildCat n'est **pas** un fight camp hardcore. C'est un **jardin, une piscine et un ring** où chacun — débutant, voyageur ou nomade installé — pratique le vrai Muay Thai et se sent accueilli comme en famille. Tenu par une femme, bâti sur la chaleur humaine, pas l'intimidation.
+Wildcat n'est **pas** un fight camp hardcore. C'est un **jardin, une piscine et un ring** où chacun — débutant, voyageur ou nomade installé — pratique le vrai Muay Thai et se sent accueilli comme en famille. Tenu par une femme, bâti sur la chaleur humaine, pas l'intimidation.
 
 | # | Valeur | En clair |
 |---|--------|----------|
@@ -27,6 +27,8 @@ Chaleureux, simple, encourageant. Comme un·e ami·e qui tient une salle — jam
 
 **Tone words** : Warm · Welcoming · Genuine · Encouraging · Down-to-earth
 **Bannis** : ~~Aggressive~~ · ~~Elitist~~ · ~~Hardcore-bro~~ · ~~bloodied/warrior imagery~~
+
+> **Nom de marque** : toujours écrit **Wildcat** (W majuscule, c minuscule) — **jamais** de C majuscule (~~WildCat~~). Vaut pour copy, titres, `alt`, méta. Les noms de fichiers du logo restent inchangés.
 
 ### Taglines
 - **Come for the fight. *Stay for the family.*** ← lockup signature (voir §4)
@@ -50,10 +52,13 @@ Palette verrouillée. Tokens dans `src/styles/tokens.css`. **Ne jamais mettre de
 
 ### Core
 
+Échelle verte à 3 tons (clair → foncé) — c'est l'ossature de la marque.
+
 | Nom | Hex | Token | Rôle |
 |-----|-----|-------|------|
-| Forest (Palm Green) | `#2E5D3C` | `--forest` | Nav, footer, sections sombres, titres, fond du lockup |
-| Jungle | `#345C3E` | `--jungle` | Accents secondaires, labels, ✓ |
+| Forest Light | `#3B6645` | `--forest-light` | Surfaces vertes en relief (bouton forest) |
+| Forest (Palm Green) | `#2E5D3C` | `--forest` | Base — nav, footer, sections sombres, titres, fond du lockup |
+| Forest Deep | `#21422C` | `--forest-deep` | Ombres / ledges des reliefs, util bar |
 | Gold | `#E0A62B` | `--gold` | CTA principal, accents, accents sur fond sombre |
 | Gold Deep | `#C98A12` | `--gold-deep` | Emphase texte / liens sur fond clair |
 | Cream | `#F6F1E6` | `--cream` | Fond clair principal, texte sur fond sombre |
@@ -92,11 +97,18 @@ Deux familles. **Satoshi** (self-hostée, Fontshare) porte titres et corps ; **F
 
 Sur fond `forest` `#2E5D3C`. C'est LE pattern de marque : une affirmation directe en Satoshi + une chute chaleureuse en Fraunces or. Classe d'accent : `.em` (or profond) / `.em.on-dark` (or vif). **Tracking serré** (`-0.035em`) sur le display.
 
-### Échelle (références)
-- H1 hero : `clamp(40px, 6.2vw, 72px)`, lh `0.98`
-- H2 : `clamp(28px, 4vw, 44px)`
-- H3 : ~21–24px
-- Body : 17px · Lead : 18–21px · Label : 13px
+### Échelle canonique (classes dans `src/styles/global.css`)
+Utiliser ces classes plutôt que des utilitaires ad hoc — cohérence garantie sur tout le site.
+
+| Classe | Poids | Taille | line-height | letter-spacing |
+|--------|------|--------|-------------|----------------|
+| `.display` | 800 | `clamp(40px,6vw,72px)` | .98 | -0.03em |
+| `.h1` | 800 | `clamp(34px,5vw,56px)` | 1.0 | -0.025em |
+| `.h2` | 700 | `clamp(28px,4vw,44px)` | 1.05 | -0.02em |
+| `.h3` | 700 | `clamp(20px,2.4vw,26px)` | 1.15 | -0.01em |
+
+Couleur par défaut `--forest`. Accent via `.em` (Fraunces). `text-wrap: balance`.
+- Body : 17px · Lead : 18–21px · Label/eyebrow : 13px (Satoshi 700 caps, `◆`).
 
 ### Do / Don't
 - **Do** : Satoshi pour 95 % du texte ; Fraunces réservé aux accents courts (1–4 mots) et toujours en or.
@@ -138,6 +150,10 @@ Sur fond `forest` `#2E5D3C`. C'est LE pattern de marque : une affirmation direct
 
 ## 7. Iconographie & motifs
 
+### Set d'icônes : Tabler (une seule famille)
+Toutes les icônes UI viennent de **Tabler** via `astro-icon` : `<Icon name="tabler:karate" />`. Logos réseaux inclus dans le même set (`tabler:brand-instagram`, `brand-whatsapp`…). Tailles via tokens : `--icon-sm 16` / `--icon-md 20` / `--icon-lg 24`. Inventaire complet rendu sur `/styleguide`. **Custom hors-lib** : le swoosh (`ArrowWild`), le tigre (logo), le DTV stamp, le `◆`.
+
+### Motifs de marque
 Le **tigre** est le cœur de la marque — mascotte à conserver. Autour, un petit kit de devices reproductibles, construits à partir des couleurs de marque.
 
 | Motif | Description | Usage |
@@ -145,7 +161,7 @@ Le **tigre** est le cœur de la marque — mascotte à conserver. Autour, un pet
 | **Master mark** | Lock-up complet (tigre + wordmark). Clear space ≥ 1× la hauteur du tigre. | Header, footer. Safe-area solide sur photo/fond sombre. |
 | **Tiger stripes** | `repeating-linear-gradient(60deg, forest 0 14px, gold 14px 28px)` | Dividers, bords, cadrage photo |
 | **Claw slash** | 3 griffes or inclinées sur charcoal | Accent sur boutons / liens actifs (hover) |
-| **Round stamp** | Sceau circulaire bord charcoal, texte mono « WildCat · Est. Chiang Mai · Muay Thai » | Merch, stickers, story |
+| **Round stamp** | Sceau circulaire bord charcoal, texte mono « Wildcat · Est. Chiang Mai · Muay Thai » | Merch, stickers, story |
 | **DTV stamp** | Sceau doré radial, « DTV / Visa Friendly / Muay Thai · Soft Power » | Header/footer DTV, badge pilier |
 
 **Variantes logo** (dans `public/assets/`) : `logo-cream.png` (sur forest), `logo-knockout.png` (sur clair), `logo.png` (master / sur or), `logo-horizontal.png`, `logo-stacked*.png`.

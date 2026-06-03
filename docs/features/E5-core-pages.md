@@ -3,7 +3,7 @@
 **Complexité : L · Statut : TODO**
 
 ## Description
-Construire les pages principales selon l'architecture en silos SEO de la maquette (`WildCat Mega Menu.html`).
+Construire les pages principales selon l'architecture en silos SEO de la maquette (`Wildcat Mega Menu.html`).
 
 ## Architecture (slugs de référence — maquette)
 ```
@@ -19,7 +19,7 @@ Construire les pages principales selon l'architecture en silos SEO de la maquett
 ```
 
 ## Tâches (par priorité lancement)
-- [ ] **Home** — hero, value strip, DTV pillar teaser, programs, schedule+stay, coaches, community, pricing, FAQ, CTA banner (sections de `WildCat Landing.html`)
+- [ ] **Home** — hero, value strip, DTV pillar teaser, programs, schedule+stay, coaches, community, pricing, FAQ, CTA banner (sections de `Wildcat Landing.html`)
 - [ ] **DTV Visa pillar** `/dtv-visa` — page commerciale + steps + sceau + CTA vers apply
 - [ ] **Stay & Train** `/stay-train`
 - [ ] **Classes** `/classes` + sous-pages
