@@ -1,26 +1,44 @@
 ---
 import '../styles/global.css';
+import Nav from '../components/sections/Nav.astro';
+import Footer from '../components/sections/Footer.astro';
+import { site } from '../config/site';
 
 export interface Props {
   title: string;
   description?: string;
   /** Locale de la page. Par défaut, celle détectée par Astro i18n. */
   lang?: string;
+  /** Image OG/Twitter (chemin public ou URL absolue). Défaut : site.defaultOgImage. */
+  image?: string;
+  /** og:type — 'article' pour le blog (E8). */
+  ogType?: 'website' | 'article';
+  /** Pages à exclure de l'index (ex : confirmation formulaire). */
+  noindex?: boolean;
 }
 
 const {
   title,
   description = 'Wildcat Muay Thai — your family-style Muay Thai home in Chiang Mai.',
   lang = Astro.currentLocale ?? 'en',
+  image = site.defaultOgImage,
+  ogType = 'website',
+  noindex = false,
 } = Astro.props;
 
 const locales = ['en', 'fr'];
+const ogLocale = lang === 'fr' ? 'fr_FR' : 'en_US';
+const ogLocaleAlternate = lang === 'fr' ? 'en_US' : 'fr_FR';
+
+const base = Astro.site ?? Astro.url.origin;
+const canonical = new URL(Astro.url.pathname, base).href;
+const ogImage = new URL(image, base).href;
 
 // hreflang alternates (E7 affinera : canonical, x-default, etc.)
 const path = Astro.url.pathname.replace(/^\/(en|fr)/, '');
 const alternates = locales.map((loc) => ({
   lang: loc,
-  href: new URL(`/${loc}${path}`, Astro.site ?? Astro.url.origin).href,
+  href: new URL(`/${loc}${path}`, base).href,
 }));
 ---
 
@@ -31,14 +49,46 @@ const alternates = locales.map((loc) => ({
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
     {alternates.map((alt) => <link rel="alternate" hreflang={alt.lang} href={alt.href} />)}
-    <link rel="alternate" hreflang="x-default" href={new URL(`/en${path}`, Astro.site ?? Astro.url.origin).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL(`/en${path}`, base).href} />
+
+    <!-- Fonts — preload du poids critique uniquement (Satoshi 700 : titres + nav).
+         400 non préchargé (below the fold) ; Fraunces non préchargeable (bundlée
+         par Vite via fontsource, accent-only, pas LCP) — voir docs/DESIGN.md. -->
+    <link
+      rel="preload"
+      href="/fonts/satoshi/satoshi-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Schema.org JSON-LD (E7) : <script type="application/ld+json" slot="jsonld"> -->
+    <slot name="jsonld" />
+
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-    <!-- TODO(E2): <Nav /> mega menu + utility bar -->
+    <Nav />
     <slot />
-    <!-- TODO(E2): <Footer /> -->
+    <Footer />
   </body>
 </html>

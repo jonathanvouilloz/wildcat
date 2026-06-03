@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/layout/Section.astro';
+import Button from '../../components/ui/Button.astro';
+import SectionHead from '../../components/ui/SectionHead.astro';
 
 // V1 : EN + FR. Génère /en et /fr.
 export function getStaticPaths() {
@@ -12,52 +15,44 @@ const { lang } = Astro.params;
 const copy = {
   en: {
     title: 'Wildcat Muay Thai — your home in Chiang Mai',
-    eyebrow: 'Foundation ready',
+    eyebrow: 'App shell ready',
     h1: 'Your Muay Thai',
     em: 'home',
     h1b: 'in Chiang Mai.',
-    sub: 'Scaffold Astro 6 + Tailwind v4 opérationnel. Tokens, fonts et i18n branchés.',
+    sub: 'Astro 6 + Tailwind v4 + design system Tropical Garden. Shell complet : Nav, Footer, primitives.',
+    cta: 'Book a free trial',
+    cta2: 'Explore classes',
   },
   fr: {
     title: 'Wildcat Muay Thai — ton camp à Chiang Mai',
-    eyebrow: 'Socle prêt',
+    eyebrow: 'Coquille prête',
     h1: 'Ton Muay Thai',
     em: 'comme à la maison',
     h1b: 'à Chiang Mai.',
-    sub: 'Scaffold Astro 6 + Tailwind v4 opérationnel. Tokens, fonts et i18n branchés.',
+    sub: 'Astro 6 + Tailwind v4 + design system Tropical Garden. Shell complet : Nav, Footer, primitives.',
+    cta: 'Réserve un essai gratuit',
+    cta2: 'Découvre les cours',
   },
 }[lang === 'fr' ? 'fr' : 'en'];
 ---
 
 <BaseLayout title={copy.title}>
-  <main class="min-h-screen bg-cream text-ink">
-    <section class="mx-auto max-w-[1200px] px-6 py-24">
-      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-forest">
-        ◆ {copy.eyebrow}
-      </p>
-      <h1 class="display">
+  <main>
+    <Section>
+      <SectionHead>{copy.eyebrow}</SectionHead>
+      <h1 class="display mt-3">
         {copy.h1} <span class="em">{copy.em}</span> {copy.h1b}
       </h1>
       <p class="mt-6 max-w-[42ch] text-lg text-ink-2">{copy.sub}</p>
 
       <div class="mt-8 flex flex-wrap gap-3">
-        <a
-          href="#"
-          class="rounded-md bg-gold px-6 py-3 text-sm font-bold uppercase tracking-wider text-charcoal transition hover:opacity-90"
-        >
-          btn-gold
-        </a>
-        <a
-          href="#"
-          class="rounded-md bg-forest px-6 py-3 text-sm font-bold uppercase tracking-wider text-cream transition hover:opacity-90"
-        >
-          btn-forest
-        </a>
+        <Button href="#" arrow>{copy.cta}</Button>
+        <Button href="#programs" variant="forest">{copy.cta2}</Button>
       </div>
 
       <p class="mt-10 text-sm text-ink-3">
         Lang actuelle : <strong>{lang}</strong> · /en · /fr
       </p>
-    </section>
+    </Section>
   </main>
 </BaseLayout>
