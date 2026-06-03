@@ -1,0 +1,88 @@
+---
+import Container from '../layout/Container.astro';
+
+/**
+ * Breadcrumb — fil d'Ariane + JSON-LD BreadcrumbList (rendu inline body, valide
+ * pour Google). Labels traduits par la page ; `ariaLabel` = m.breadcrumb_aria().
+ * Dernier item = page courante (sans lien, aria-current).
+ */
+export interface Props {
+  items: { label: string; href?: string }[];
+  ariaLabel: string;
+}
+const { items, ariaLabel } = Astro.props;
+
+const base = Astro.site ?? Astro.url.origin;
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, base).href } : {}),
+  })),
+};
+---
+
+<nav class="crumbs" aria-label={ariaLabel}>
+  <Container>
+    <ol>
+      {
+        items.map((item, i) => (
+          <li>
+            {item.href && i < items.length - 1 ? (
+              <a href={item.href}>{item.label}</a>
+            ) : (
+              <span aria-current="page">{item.label}</span>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+  </Container>
+</nav>
+<script type="application/ld+json" is:inline set:html={JSON.stringify(jsonld)} />
+
+<style>
+  .crumbs {
+    padding: 14px 0 0;
+    background: var(--cream);
+  }
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  li + li::before {
+    content: '›';
+    color: var(--line-3);
+  }
+  a {
+    color: var(--ink-2);
+    font-weight: 600;
+  }
+  a:hover {
+    color: var(--gold-deep);
+  }
+  a:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  span[aria-current] {
+    font-weight: 700;
+    color: var(--forest);
+  }
+</style>

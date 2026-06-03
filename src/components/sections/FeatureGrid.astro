@@ -1,0 +1,79 @@
+---
+import { Icon } from 'astro-icon/components';
+
+/**
+ * FeatureGrid — grille d'atouts sur fond clair (pendant light du ValueStrip).
+ * Cartes surface + icône Tabler forest sur pastille soft.
+ */
+export interface Props {
+  items: { icon: string; title: string; body: string }[];
+}
+const { items } = Astro.props;
+---
+
+<div class="feat-grid">
+  {
+    items.map((item) => (
+      <div class="feat">
+        <span class="ic">
+          <Icon name={item.icon} aria-hidden="true" />
+        </span>
+        <h4>{item.title}</h4>
+        <p>{item.body}</p>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .feat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .feat {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 22px 20px 24px;
+    box-shadow: var(--shadow-sm);
+  }
+  .ic {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--soft-2);
+    margin-bottom: 14px;
+  }
+  .ic :global(svg) {
+    width: 24px;
+    height: 24px;
+    color: var(--forest);
+  }
+  h4 {
+    margin: 0 0 5px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--forest);
+  }
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  @media (max-width: 1024px) {
+    .feat-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 520px) {
+    .feat-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

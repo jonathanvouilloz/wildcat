@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/layout/Section.astro';
+import SectionHead from '../../components/ui/SectionHead.astro';
+import Button from '../../components/ui/Button.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import DtvStamp from '../../components/ui/DtvStamp.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import DtvSteps from '../../components/sections/DtvSteps.astro';
+import FeatureGrid from '../../components/sections/FeatureGrid.astro';
+import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
+import Faq from '../../components/sections/Faq.astro';
+import CtaBanner from '../../components/sections/CtaBanner.astro';
+import { site } from '../../config/site';
+import { localePath } from '../../lib/routes';
+import { safeQuery } from '../../lib/content';
+import { FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
+import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../lib/sanity.types';
+import { pickLocale } from '../../lib/i18n-content';
+import { m } from '../../paraglide/messages.js';
+
+// Pilier DTV — page commerciale du silo n°1 (kw : "DTV visa Chiang Mai").
+// CTA "apply" → /contact tant que la mini-app (E6) n'existe pas.
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+// Témoignage DTV — uniquement si le CMS en a un (pas de fausse review en fallback)
+const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
+  { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'dtv' } },
+  [],
+);
+const quote = testimonialDocs[0]
+  ? {
+      content: pickLocale(testimonialDocs[0].content, lang),
+      name: testimonialDocs[0].name ?? '',
+      meta: testimonialDocs[0].country ?? undefined,
+      rating: testimonialDocs[0].rating ?? 5,
+    }
+  : null;
+
+const steps = [
+  { title: m.dtv_step1_t(), body: m.dtv_step1_b() },
+  { title: m.dtv_step2_t(), body: m.dtv_step2_b() },
+  { title: m.dtv_step3_t(), body: m.dtv_step3_b() },
+];
+
+const included = [
+  { icon: 'tabler:file-text', title: m.dtv_inc1_t(), body: m.dtv_inc1_b() },
+  { icon: 'tabler:circle-check', title: m.dtv_inc2_t(), body: m.dtv_inc2_b() },
+  { icon: 'tabler:motorbike', title: m.dtv_inc3_t(), body: m.dtv_inc3_b() },
+  { icon: 'tabler:home-2', title: m.dtv_inc4_t(), body: m.dtv_inc4_b() },
+];
+
+const faqItems = [
+  { q: m.dtv_faq_q1(), a: m.dtv_faq_a1() },
+  { q: m.dtv_faq_q2(), a: m.dtv_faq_a2() },
+  { q: m.dtv_faq_q3(), a: m.dtv_faq_a3() },
+  { q: m.dtv_faq_q4(), a: m.dtv_faq_a4() },
+  { q: m.dtv_faq_q5(), a: m.dtv_faq_a5() },
+];
+
+// JSON-LD FAQPage (PRD §7) — le BreadcrumbList est émis par <Breadcrumb>
+const faqJsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<BaseLayout title={m.dtv_meta_title()} description={m.dtv_meta_desc()}>
+  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(faqJsonld)} />
+
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.nav_dtv() },
+      ]}
+    />
+
+    <PageHero
+      dark
+      head={m.dtv_hero_head()}
+      title={m.dtv_hero_title()}
+      titleEm={m.dtv_hero_title_em()}
+      lead={m.dtv_hero_lead()}
+      cta={{ label: m.cta_start_dtv(), href: p('/contact') }}
+    >
+      <DtvStamp size={210} slot="aside" />
+    </PageHero>
+
+    <Section containerSize="narrow">
+      <SectionHead>{m.dtv_intro_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-4">{m.dtv_intro_title()}</h2>
+      <p class="body-p">{m.dtv_intro_p1()}</p>
+      <p class="body-p">{m.dtv_intro_p2()}</p>
+    </Section>
+
+    <Section dark>
+      <SectionHead onDark>{m.dtv_how_head()}</SectionHead>
+      <h2 class="h2 h2--dark mt-2 mb-7">
+        {m.dtv_how_title()} <span class="em on-dark">{m.dtv_how_title_em()}</span>
+      </h2>
+      <DtvSteps steps={steps} />
+    </Section>
+
+    <Section soft>
+      <SectionHead>{m.dtv_inc_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-7">
+        {m.dtv_inc_title()} <span class="em">{m.dtv_inc_title_em()}</span>
+      </h2>
+      <FeatureGrid items={included} />
+    </Section>
+
+    <Section>
+      <div class="elig">
+        <div>
+          <SectionHead>{m.dtv_elig_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-3">{m.dtv_elig_title()}</h2>
+          <p class="body-p">{m.dtv_elig_body()}</p>
+          <div class="mt-6">
+            <Button href={p('/contact')} variant="forest" arrow>{m.dtv_elig_cta()}</Button>
+          </div>
+        </div>
+        {
+          quote && (
+            <TestimonialQuote
+              content={quote.content}
+              name={quote.name}
+              meta={quote.meta}
+              rating={quote.rating}
+              ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
+            />
+          )
+        }
+      </div>
+    </Section>
+
+    <Section soft id="faq">
+      <div class="faq-split">
+        <div>
+          <SectionHead>{m.dtv_faq_head()}</SectionHead>
+          <h2 class="h2 mt-2">{m.dtv_faq_title()}</h2>
+        </div>
+        <Faq items={faqItems} firstOpen />
+      </div>
+    </Section>
+
+    <CtaBanner
+      title={m.dtv_cta_title()}
+      titleEm={m.dtv_cta_title_em()}
+      ctaPrimary={{ label: m.cta_start_dtv(), href: p('/contact') }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .body-p {
+    font-size: 17px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin: 0 0 16px;
+    max-width: 64ch;
+  }
+  .h2--dark {
+    color: var(--cream);
+  }
+  .elig {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 46px;
+    align-items: center;
+  }
+  .elig:has(> div:only-child) {
+    grid-template-columns: 1fr;
+  }
+  .faq-split {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 46px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .elig,
+    .faq-split {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+</style>
