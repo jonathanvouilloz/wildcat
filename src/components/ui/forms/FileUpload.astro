@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { m } from '../../../paraglide/messages.js';
 
 /**
  * FileUpload — dropzone (UI seulement, l'upload réel arrive avec E6 DTV).
@@ -27,10 +28,13 @@ const {
   multiple = false,
   required = false,
   disabled = false,
-  prompt = 'Drop files here or browse',
+  prompt,
   hint,
   class: extra = '',
 } = Astro.props;
+
+// Default évalué dans le corps (timing : la locale est posée par le middleware).
+const promptText = prompt ?? m.form_fileupload_prompt();
 ---
 
 <label class:list={['wc-file', extra]} data-wc-file>
@@ -45,7 +49,7 @@ const {
     {disabled}
   />
   <Icon name="tabler:cloud-upload" class="wc-file-icon" width={28} height={28} />
-  <span class="wc-file-prompt">{prompt}</span>
+  <span class="wc-file-prompt">{promptText}</span>
   {hint && <span class="wc-file-hint">{hint}</span>}
   <span class="wc-file-names" data-wc-file-names></span>
 </label>

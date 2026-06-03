@@ -155,5 +155,7 @@
   "footer_explore_schedule": "Schedule",
   "footer_explore_coaches": "Coaches",
   "footer_explore_pricing": "Pricing",
-  "footer_explore_dtv": "DTV Visa"
+  "footer_explore_dtv": "DTV Visa",
+
+  "form_fileupload_prompt": "Drop files here or browse"
 }

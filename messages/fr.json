@@ -155,5 +155,7 @@
   "footer_explore_schedule": "Planning",
   "footer_explore_coaches": "Coachs",
   "footer_explore_pricing": "Tarifs",
-  "footer_explore_dtv": "Visa DTV"
+  "footer_explore_dtv": "Visa DTV",
+
+  "form_fileupload_prompt": "Dépose tes fichiers ici ou parcours"
 }
