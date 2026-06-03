@@ -28,6 +28,12 @@
   --ink-2: #556157;
   --ink-3: #8a9389;
 
+  /* sémantiques (états) — harmonisées à la palette, pas de verts/rouges génériques */
+  --success: #5bb487; /* vert jade — aussi le dot "open" du nav */
+  --success-glow: rgba(91, 180, 135, 0.2);
+  --warning: #c98a12; /* = gold-deep, alias sémantique */
+  --error: #c0492b; /* terracotta rougie (cousine de --orange) */
+
   /* typography */
   --font-display: 'Satoshi', system-ui, sans-serif; /* titres (Bold) + corps */
   --font-accent: 'Fraunces Variable', 'Fraunces', Georgia, serif; /* accents 72pt italic or */
@@ -37,8 +43,11 @@
   --icon-md: 20px;
   --icon-lg: 24px;
 
-  /* layout */
+  /* layout — valeurs = maquette verrouillée (landing.css .wrap / section.block) */
   --maxw: 1200px;
+  --maxw-narrow: 760px; /* colonne prose/formulaires (Contact, DTV) */
+  --gutter: clamp(20px, 4vw, 40px);
+  --section-y: clamp(56px, 7vw, 88px);
   --r-sm: 8px;
   --r-md: 12px;
   --r-lg: 20px;
@@ -48,4 +57,19 @@
   --shadow-sm: 0 2px 10px -6px rgba(20, 35, 25, 0.4);
   --shadow-md: 0 18px 44px -28px rgba(20, 35, 25, 0.5);
   --shadow-lg: 0 36px 80px -44px rgba(20, 35, 25, 0.6);
+
+  /* form fields (Input/Textarea/Select/Checkbox/FileUpload — voir .wc-control) */
+  --field-bg: #ffffff;
+  --field-bg-disabled: var(--soft-2);
+  --field-border: var(--line-2);
+  --field-border-hover: var(--line-3);
+  --field-border-focus: var(--gold);
+  --field-radius: var(--r-sm);
+  --field-text: var(--ink);
+  --field-placeholder: var(--ink-3);
+  --field-ring: 0 0 0 3px rgba(224, 166, 43, 0.35);
+  --field-error-border: var(--error);
+  --field-error-ring: 0 0 0 3px rgba(192, 73, 43, 0.28);
+  --field-pad-y: 11px;
+  --field-pad-x: 14px;
 }
