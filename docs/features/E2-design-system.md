@@ -1,6 +1,6 @@
 # E2 — App shell & design-system completion
 
-**Complexité : M · Statut : TODO (next)**
+**Complexité : M · Statut : DONE (2026-06-03)**
 
 ## Description
 Le design system de marque est **déjà fait** (typo/titres, boutons, nav/mega menu + drawer + utility bar, icônes Tabler — voir `docs/DESIGN.md` + `/styleguide`). E2 ferme les **trous "niveau thème"** restants (tokens + coquille + primitives) pour pouvoir empiler les pages E5+ **sans jamais retoucher le thème**. (Cf. audit de complétude, session 2026-06-03.)
@@ -13,14 +13,16 @@ Le design system de marque est **déjà fait** (typo/titres, boutons, nav/mega m
 - [x] Tokens couleurs/typo/radius/ombres/icônes + @theme
 - [x] Icônes : set unique **Tabler** (`astro-icon`)
 
-## À faire (les 5 points de complétion)
-1. **Couleurs sémantiques** — ajouter `--success` / `--error` / `--warning` dans `tokens.css` + `@theme` ; tokeniser le point "open today" du nav (actuellement `#5bb487` en dur).
-2. **Coquille de page**
-   - [ ] `BaseLayout.astro` fini : head SEO complet (title/description, **OG + Twitter card**, slot **JSON-LD**), `font preload`, intègre `<Nav/>` + `<Footer/>`.
-   - [ ] `Footer` (4 colonnes : brand/social, explore, hours, contact + bottom bar — cf. `landing.css`).
-3. **Primitives de layout** — `Container` (max-width + gutter tokenisés) et `Section` (rythme vertical `clamp(...)` + variante `dark` fond forest). Remplace les `mx-auto max-w-[...]` ad hoc.
-4. **Tokens de formulaire** — base `Input` / `Textarea` / `Select` / `Checkbox` / `FileUpload` + `Label` + helper/erreur + focus ring. (Sert E6 DTV + Contact.)
-5. **`Card` de base** — surface/bordure `--line`/radius `--r-md`/`--shadow-sm` + hover lift. Réutilisée par programs, pricing, coaches, fighters, blog, témoignages.
+## Livré (les 5 points de complétion) ✅
+1. [x] **Couleurs sémantiques** — `--success #5BB487` / `--warning #C98A12` / `--error #C0492B` (harmonisées palette) + `--success-glow` ; dot "open" du nav tokenisé.
+2. [x] **Coquille de page**
+   - [x] `BaseLayout.astro` : OG + Twitter card + og:locale, slot `jsonld` (E7), preload `satoshi-700` (Fraunces non préloadable — Fontsource/Vite), prop `noindex`, intègre `<Nav/>` + `<Footer/>`.
+   - [x] `Footer` 4 colonnes + bottom bar — contenu depuis **`src/config/site.ts`** (source unique : contact réel Hang Dong, tél réel, Instagram/Facebook réels, **pricing THB réel pour E5** ; email + horaires en placeholder `TODO(real data)`).
+3. [x] **Primitives de layout** — `layout/Container` (`--maxw`/`--maxw-narrow 760px`/`--gutter`) et `layout/Section` (`--section-y`, variantes `dark`/`soft`, auto-Container) + `scroll-margin-top` ancres.
+4. [x] **Système de formulaire** — base globale `.wc-control` + tokens `--field-*` ; composants `ui/forms/` : `Field` (label/helper/erreur `role=alert`, propagation `data-error`), `Input`, `Textarea`, `Select` (caret Tabler), `Checkbox`, `FileUpload` (dropzone progressive enhancement, upload réel en E6).
+5. [x] **`Card` de base** — surface/`--line`/`--r-md`/`--shadow-sm` + hover lift + `href` carte entière + reduced-motion.
+
+Le tout démontré sur `/styleguide` (sémantiques, primitives full-bleed, forms tous états, cards, footer live).
 
 ## Décisions techniques
 - Mega menu/drawer en vanilla JS (fait).

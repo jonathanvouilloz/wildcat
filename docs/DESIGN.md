@@ -71,6 +71,15 @@ Palette verrouillée. Tokens dans `src/styles/tokens.css`. **Ne jamais mettre de
 ### Ink (texte)
 `--ink #1B2A22` (principal) · `--ink-2 #556157` (secondaire) · `--ink-3 #8A9389` (tertiaire/légendes)
 
+### Sémantiques (états)
+Harmonisées à la palette — pas de verts/rouges génériques. Utilisées par les formulaires (E6 DTV, Contact) et le dot « open » du nav.
+
+| Nom | Hex | Token | Rôle |
+|-----|-----|-------|------|
+| Success | `#5BB487` | `--success` (+ `--success-glow` rgba .2) | Validations, « open today » (nav), fichier OK |
+| Warning | `#C98A12` | `--warning` | Avertissements (= gold-deep, alias sémantique) |
+| Error | `#C0492B` | `--error` | Erreurs formulaire, messages bloquants (terracotta rougie) |
+
 ### Règles d'association
 - **Fond sombre** : `forest` `#2E5D3C` (ou dégradé sombre → forest) + texte `cream` + accents `gold`.
 - **Fond clair** : `cream`/`surface` + texte `ink` + accents `gold-deep`.
@@ -125,7 +134,10 @@ Couleur par défaut `--forest`. Accent via `.em` (Fraunces). `text-wrap: balance
 - **Modifieur `flat`** : même couleur (gold/forest) mais **sans relief ni lift** — utilisé pour le **CTA du nav** (Join), avec swoosh. Le libellé du CTA nav est **dynamique selon la page** (`Start your DTV` sur /dtv-visa, `Plan your stay` sur /stay-train, `Book a class` sur /classes…, sinon `Join now`).
 - **Variante `link`** (navbar) : texte seul, sans bordure ni relief, Satoshi 600, soulignement or animé au survol (couleur → `gold-deep` clair / `gold` sombre).
 - **Ombres** : `--shadow-sm` (cards) · `--shadow-md` (hover, médias) · `--shadow-lg` (flottants).
-- **Largeur max** : `--maxw 1200px`, padding latéral `clamp(20px, 4vw, 40px)`.
+- **Largeur max** : `--maxw 1200px` · `--maxw-narrow 760px` (prose/formulaires) · gouttières `--gutter clamp(20px, 4vw, 40px)` → primitive `layout/Container` (`size="narrow"`).
+- **Rythme de section** : `--section-y clamp(56px, 7vw, 88px)` → primitive `layout/Section` (variantes `dark` fond forest / `soft`). `dark` n'auto-flip pas les enfants : passer `onDark` aux SectionHead/Button et `.on-dark` au Fraunces. Ancres : `scroll-margin-top 90px` (nav sticky 74px).
+- **Champs de formulaire** : base globale `.wc-control` + tokens `--field-*` (bg blanc, bordure `--line-2`, radius `--r-sm`, focus = bordure gold + ring `--field-ring`, erreur = bordure/ring `--error` propagés par `Field` via `data-error`, disabled = `--soft-2`). `font-size 16px` (pas de zoom iOS).
+- **Fonts — chargement** : preload de `satoshi-700.woff2` uniquement (titres + nav, LCP). Satoshi 400 non préchargée (below the fold). **Fraunces non préchargeable** (bundlée par Vite via Fontsource, URL fingerprintée) — acceptable : accent-only, jamais LCP.
 - **Breakpoints** (Tailwind) : `sm 640` · `md 768` · `lg 1024` · `xl 1280`. Bascules clés : `1024px` (nav → burger), `860px` (grilles → 1 col). **Mobile-first absolu.**
 
 ---
@@ -177,15 +189,22 @@ Spécifiés visuellement ici, implémentés en E2 (`src/components/ui` + `sectio
 | `Button` (gold/forest/outline/link + on-dark) | ✅ `ui/Button.astro` | **Pill · Satoshi Bold casse normale · même boîte sur toutes les variantes · surface claire + ombre foncée · swoosh maison · `link` = navbar · états hover(lift)/press/focus** |
 | `ArrowWild` (swoosh maison) | ✅ `ui/ArrowWild.astro` | icône vectorielle `currentColor` (public/assets/arrow-wild.svg) |
 | `SectionHead` (◆ CAPS) | ✅ `ui/SectionHead.astro` | center / on-dark |
+| `Container` | ✅ `layout/Container.astro` | `--maxw`/`--maxw-narrow` + `--gutter` |
+| `Section` | ✅ `layout/Section.astro` | `--section-y` · variantes `dark`/`soft` · auto-Container |
+| `Card` | ✅ `ui/Card.astro` | surface/`--line`/`--r-md`/`--shadow-sm` · hover lift · `href` carte entière |
+| `Field` + `Input`/`Textarea`/`Select`/`Checkbox`/`FileUpload` | ✅ `ui/forms/*.astro` | base `.wc-control` + tokens `--field-*` · états focus/erreur/disabled · upload réel en E6 |
+| `Nav` / `MegaMenu` + `MobileDrawer` | ✅ `sections/Nav.astro` | 4 panneaux + drawer accordéon + utility bar (infos depuis `config/site.ts`) |
+| `Footer` | ✅ `sections/Footer.astro` | 4 colonnes + bottom bar — contenu depuis `config/site.ts` |
+| `BaseLayout` | ✅ `layouts/BaseLayout.astro` | head SEO complet (OG/Twitter/canonical/hreflang), slot `jsonld` (E7), preload fonts, Nav+Footer |
 | `DtvStamp` | spec | sceau doré (cf. /styleguide) |
 | Tiger stripes / Claw / Round stamp | spec | motifs CSS |
 | `FighterCard` / `CoachCard` | E5 | photo + stats (fighter) / rôle (coach) |
-| `Nav` / `MegaMenu` + `MobileDrawer` | E2 | 4 panneaux + drawer accordéon |
-| `Footer` / `UtilityBar` | E2 | 4 colonnes + barre infos |
 | `TestimonialSlider` | E9 | photo, pays, étoiles |
 | `TrainingSchedule` | E5 | grille horaires (Sanity) |
-| Pricing plan / FAQ accordion | E5 | prix publics |
+| Pricing plan / FAQ accordion | E5 | prix publics — **tarifs réels dans `config/site.ts`** |
+
+> **Contenu transverse** (contact, horaires, réseaux, tagline, pricing) : source unique `src/config/site.ts`. Modifier là, jamais dans les composants.
 
 ---
 
-_Dernière mise à jour : 2026-06-03 — typo verrouillée Satoshi + Fraunces._
+_Dernière mise à jour : 2026-06-03 — E2 : sémantiques, primitives layout, forms, Card, Footer, BaseLayout._

@@ -2,7 +2,17 @@
 import '../styles/global.css';
 import Button from '../components/ui/Button.astro';
 import SectionHead from '../components/ui/SectionHead.astro';
+import Card from '../components/ui/Card.astro';
+import Container from '../components/layout/Container.astro';
+import Section from '../components/layout/Section.astro';
+import Field from '../components/ui/forms/Field.astro';
+import Input from '../components/ui/forms/Input.astro';
+import Textarea from '../components/ui/forms/Textarea.astro';
+import Select from '../components/ui/forms/Select.astro';
+import Checkbox from '../components/ui/forms/Checkbox.astro';
+import FileUpload from '../components/ui/forms/FileUpload.astro';
 import Nav from '../components/sections/Nav.astro';
+import Footer from '../components/sections/Footer.astro';
 import { Icon } from 'astro-icon/components';
 
 // Inventaire des icônes (set candidat : Tabler). Swappable : changer le préfixe.
@@ -119,6 +129,11 @@ const inks = [
   { name: 'Ink 2', hex: '#556157' },
   { name: 'Ink 3', hex: '#8A9389' },
 ];
+const semantics = [
+  { name: 'Success', hex: '#5BB487', role: 'Validations, "open today" (nav), fichiers OK', token: '--success' },
+  { name: 'Warning', hex: '#C98A12', role: 'Avertissements (= gold-deep, alias)', token: '--warning' },
+  { name: 'Error', hex: '#C0492B', role: 'Erreurs formulaire, messages bloquants', token: '--error' },
+];
 ---
 
 <!doctype html>
@@ -200,6 +215,33 @@ const inks = [
             ))
           }
         </div>
+
+        <!-- Sémantiques -->
+        <h3 class="h3 mt-8 mb-1">Couleurs sémantiques</h3>
+        <p class="mb-4 max-w-[60ch] text-sm text-ink-2">
+          Harmonisées à la palette — pas de verts/rouges génériques. Utilisées par les états de
+          formulaire (E6 DTV, Contact) et le point « open » du nav.
+        </p>
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {
+            semantics.map((c) => (
+              <div class="overflow-hidden rounded-[var(--r-md)] border border-line bg-surface">
+                <div class="h-16 w-full" style={`background:${c.hex}`} />
+                <div class="p-3">
+                  <div class="font-display font-bold text-ink">
+                    {c.name} <code class="text-[11px] font-normal text-ink-3">{c.token}</code>
+                  </div>
+                  <div class="font-mono text-xs text-ink-2">{c.hex}</div>
+                  <div class="mt-1 text-xs text-ink-3">{c.role}</div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <p class="mt-4 flex items-center gap-2 text-sm text-ink-2">
+          <span class="inline-block h-[7px] w-[7px] rounded-full" style="background:var(--success); box-shadow:0 0 0 3px var(--success-glow)"></span>
+          Le dot « Open today » du nav = <code>var(--success)</code> + <code>var(--success-glow)</code>.
+        </p>
       </section>
 
       <!-- Typography -->
@@ -368,6 +410,89 @@ const inks = [
         }
       </section>
 
+      <!-- Forms -->
+      <section class="mb-20">
+        <SectionHead>Formulaires</SectionHead>
+        <h2 class="h2 mt-3 mb-2">Champs &amp; états</h2>
+        <p class="mb-7 max-w-[60ch] text-ink-2">
+          Base <code>.wc-control</code> (tokens <code>--field-*</code>) : focus ring or, erreur
+          terracotta propagée par <code>Field</code>, disabled soft. Sert le Contact et la mini-app
+          DTV (E6).
+        </p>
+
+        <div class="grid gap-7 rounded-[var(--r-lg)] border border-line bg-surface p-8 md:grid-cols-2">
+          <Field label="Full name" for="sg-name" required>
+            <Input id="sg-name" name="name" placeholder="Jane Doe" autocomplete="name" />
+          </Field>
+          <Field label="Email" for="sg-email" helper="We reply within 24 hours.">
+            <Input id="sg-email" name="email" type="email" placeholder="you@example.com" />
+          </Field>
+          <Field label="Passport number" for="sg-pass" error="This field is required.">
+            <Input id="sg-pass" name="passport" placeholder="X1234567" />
+          </Field>
+          <Field label="Phone (disabled)" for="sg-tel">
+            <Input id="sg-tel" name="tel" type="tel" placeholder="+66 …" disabled />
+          </Field>
+          <Field label="Program" for="sg-program">
+            <Select
+              id="sg-program"
+              name="program"
+              placeholder="Choose a program…"
+              options={[
+                { value: 'group', label: 'Group classes' },
+                { value: 'private', label: 'Private training' },
+                { value: 'fighter', label: 'Fighter program' },
+              ]}
+            />
+          </Field>
+          <Field label="Message" for="sg-msg">
+            <Textarea id="sg-msg" name="message" placeholder="Tell us about your plans…" />
+          </Field>
+          <div class="md:col-span-2">
+            <Field label="Documents" for="sg-files">
+              <FileUpload id="sg-files" name="documents" multiple hint="PDF, JPG — max 10 MB" />
+            </Field>
+          </div>
+          <div class="md:col-span-2 flex flex-col gap-3">
+            <Checkbox name="consent" required>
+              I agree to the processing of my documents for the DTV application.
+            </Checkbox>
+            <Checkbox name="newsletter" checked>Send me the monthly Wildcat news.</Checkbox>
+            <Checkbox name="disabled-demo" disabled>Disabled option</Checkbox>
+          </div>
+        </div>
+      </section>
+
+      <!-- Card -->
+      <section class="mb-20">
+        <SectionHead>Card</SectionHead>
+        <h2 class="h2 mt-3 mb-2">Surface de base</h2>
+        <p class="mb-7 max-w-[60ch] text-ink-2">
+          Surface blanche · bordure <code>--line</code> · radius <code>--r-md</code> ·
+          <code>--shadow-sm</code> · hover lift. Réutilisée par programs, pricing, coaches,
+          fighters, blog, témoignages.
+        </p>
+        <div class="grid gap-5 md:grid-cols-3">
+          <Card>
+            <div class="h-28 bg-soft-2"></div>
+            <div class="p-5">
+              <h3 class="font-display text-lg font-bold text-forest">Default + hover lift</h3>
+              <p class="mt-1 text-sm text-ink-2">Média edge-to-edge, contenu paddé à la main.</p>
+            </div>
+          </Card>
+          <Card padded>
+            <h3 class="font-display text-lg font-bold text-forest">padded</h3>
+            <p class="mt-1 text-sm text-ink-2">Padding interne 20px — cartes texte simples.</p>
+          </Card>
+          <Card href="#" padded>
+            <h3 class="font-display text-lg font-bold text-forest">href → carte lien</h3>
+            <p class="mt-1 text-sm text-ink-2">
+              Toute la carte est cliquable (focus ring or). Pas d'interactifs imbriqués.
+            </p>
+          </Card>
+        </div>
+      </section>
+
       <!-- Components sample -->
       <section class="mb-20">
         <SectionHead>Composants</SectionHead>
@@ -422,9 +547,48 @@ const inks = [
       </section>
 
       <footer class="border-t border-line pt-6 text-sm text-ink-3">
-        Wildcat Muay Thai · Design System v1 · interne (noindex) · juin 2026
+        Wildcat Muay Thai · Design System v1 · interne (noindex) · juin 2026 · ↓ primitives de
+        layout &amp; footer live ci-dessous
       </footer>
     </div>
+
+    <!-- Layout primitives — full-bleed (hors wrapper), composants réels -->
+    <Section soft>
+      <SectionHead>Primitives de layout</SectionHead>
+      <h2 class="h2 mt-3 mb-2">Section <code>soft</code> + Container</h2>
+      <p class="max-w-[60ch] text-ink-2">
+        Rythme vertical <code>--section-y</code> = <code>clamp(56px, 7vw, 88px)</code> · gouttières
+        <code>--gutter</code> = <code>clamp(20px, 4vw, 40px)</code> · largeur <code>--maxw</code>
+        1200px. Remplace les <code>mx-auto max-w-[…]</code> ad hoc.
+      </p>
+    </Section>
+
+    <Section dark>
+      <SectionHead onDark>Primitives de layout</SectionHead>
+      <h2 class="h2 mt-3 mb-2" style="color:var(--cream)">
+        Section <code>dark</code> — fond forest
+      </h2>
+      <p class="max-w-[60ch]" style="color:rgba(246,241,230,.78)">
+        Les enfants ne sont pas auto-flippés : passer <code>onDark</code> aux SectionHead/Button et
+        <code>.on-dark</code> au <span class="em on-dark">Fraunces.</span>
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <Button variant="gold" arrow>Start your DTV</Button>
+        <Button variant="outline" onDark>Learn more</Button>
+      </div>
+    </Section>
+
+    <Section containerSize="narrow">
+      <SectionHead>Primitives de layout</SectionHead>
+      <h2 class="h2 mt-3 mb-2">Container <code>narrow</code></h2>
+      <p class="text-ink-2">
+        Colonne 760px (<code>--maxw-narrow</code>) pour la prose et les formulaires — Contact, DTV
+        apply. Ce bloc est rendu dans <code>&lt;Section containerSize="narrow"&gt;</code>.
+      </p>
+    </Section>
+
+    <!-- Footer live (intégré à BaseLayout pour les vraies pages) -->
+    <Footer />
 
     <style>
       /* Motifs (repris de brand-board.css, adaptés aux tokens) */

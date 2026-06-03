@@ -2,6 +2,7 @@
 import Button from '../ui/Button.astro';
 import ArrowWild from '../ui/ArrowWild.astro';
 import { Icon } from 'astro-icon/components';
+import { site } from '../../config/site';
 
 /**
  * Nav — mega menu Wildcat (repris du bundle Claude Design, adapté au design system).
@@ -34,15 +35,15 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
 <div class="util">
   <div class="wrap">
     <div class="u-left">
-      <span class="u-item"><Icon name="tabler:map-pin" class="i" /> Old City, Chiang Mai</span>
+      <span class="u-item"><Icon name="tabler:map-pin" class="i" /> Hang Dong, Chiang Mai</span>
       <span class="u-item hide-sm"><span class="dot-open"></span> Open today · 07:00–21:00</span>
-      <span class="u-item hide-sm"><Icon name="tabler:phone" class="i" /> +66 81 234 5678</span>
+      <span class="u-item hide-sm"><Icon name="tabler:phone" class="i" /> <a href={site.contact.phoneHref}>{site.contact.phone}</a></span>
     </div>
     <div class="u-right">
       <div class="u-soc">
-        <a href="#" aria-label="Instagram"><Icon name="tabler:brand-instagram" /></a>
-        <a href="#" aria-label="Facebook"><Icon name="tabler:brand-facebook" /></a>
-        <a href="#" aria-label="YouTube"><Icon name="tabler:brand-youtube" /></a>
+        {site.social.map((s) => (
+          <a href={s.href} aria-label={s.label} target="_blank" rel="noopener"><Icon name={s.icon} /></a>
+        ))}
       </div>
       <span class="lang"><b>EN</b> <span>/</span> FR</span>
     </div>

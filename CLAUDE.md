@@ -64,13 +64,13 @@ Palette **"Tropical Garden"** (Direction B) + typo Satoshi / Fraunces :
 
 ## État actuel
 
-**Phase : Design system complet & verrouillé. Prochain : E2 — App shell & design-system completion.**
+**Phase : Thème complet (E1 + design system + E2). Prochain : E3 (i18n) et/ou E4 (Sanity), parallélisables.**
 
 - [x] PRD lu et analysé · bundle de design analysé · docs projet créés
 - [x] Décisions tranchées : langues **EN+FR** (V1), **Coaches + Fighters**, **prix publics**, **Astro 6**, **icônes Tabler**, **marque Wildcat**
 - [x] **E1 — Scaffold** Astro 6 + Tailwind v4 : tokens, i18n EN/FR (`/en` `/fr`), adapter Vercel + sitemap, assets
-- [x] **Design system** : palette verte 3 tons + gold/cream/charcoal/orange ; typo Satoshi + Fraunces + titres canoniques `.display/.h1/.h2/.h3` ; **boutons** (gold/forest/outline/link + flat + swoosh `ArrowWild`) ; **nav/mega menu** + drawer + utility bar ; **icônes Tabler** (`astro-icon`) ; focus-visible + reduced-motion ; `docs/DESIGN.md` + `/styleguide`. `npm run build` ✅
-- [ ] **E2 (à faire) — App shell & design-system completion** : (1) couleurs sémantiques `--success/--error/--warning` (2) `BaseLayout` fini (head SEO/OG/JSON-LD, fonts preload, Nav+Footer) + **Footer** (3) primitives `Container`/`Section` + rythme de section (4) tokens de champ de formulaire + états (5) `Card` de base. _Cf. audit de complétude — closes les trous "niveau thème" avant les pages._
+- [x] **Design system** : palette verte 3 tons + gold/cream/charcoal/orange ; typo Satoshi + Fraunces + titres canoniques `.display/.h1/.h2/.h3` ; **boutons** (gold/forest/outline/link + flat + swoosh `ArrowWild`) ; **nav/mega menu** + drawer + utility bar ; **icônes Tabler** (`astro-icon`) ; focus-visible + reduced-motion ; `docs/DESIGN.md` + `/styleguide`
+- [x] **E2 — App shell & design-system completion** : couleurs sémantiques (`--success/--warning/--error` harmonisées) ; `BaseLayout` complet (OG/Twitter, slot `jsonld`, preload satoshi-700, Nav+Footer) ; **`Footer`** 4 colonnes ; primitives **`Container`/`Section`** (+ `--gutter`/`--section-y`/`--maxw-narrow`) ; **système de formulaire** (`.wc-control` + `Field/Input/Textarea/Select/Checkbox/FileUpload`) ; **`Card`** de base ; **`src/config/site.ts`** = source unique contenu transverse (contact réel, Instagram/Facebook réels, **pricing THB réel** ; email + horaires `TODO(real data)`). `npm run build` ✅
 - [ ] Questions ouvertes : **Q1** storage DTV (avant E6), **Q5** domaine, **Q6** slugs traduits
 - [ ] Puis E5 (pages) — assemblage des primitives, sans retoucher le thème
 

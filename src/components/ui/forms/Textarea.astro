@@ -1,11 +1,14 @@
 ---
 /**
  * Textarea — zone de texte (.wc-control). Redimensionnable verticalement.
+ * Valeur initiale via la prop `value` ou le slot (contenu RCDATA : pas de
+ * <slot/> direct possible dans <textarea>, d'où Astro.slots.render + set:text).
  */
 export interface Props {
   id?: string;
   name?: string;
   rows?: number;
+  value?: string;
   placeholder?: string;
   required?: boolean;
   disabled?: boolean;
@@ -16,11 +19,16 @@ const {
   id,
   name,
   rows = 4,
+  value,
   placeholder,
   required = false,
   disabled = false,
   class: extra = '',
 } = Astro.props;
+
+const content = Astro.slots.has('default')
+  ? (await Astro.slots.render('default')).trim()
+  : (value ?? '');
 ---
 
 <textarea
@@ -30,7 +38,8 @@ const {
   {rows}
   {placeholder}
   {required}
-  {disabled}><slot /></textarea>
+  {disabled}
+  set:text={content}></textarea>
 
 <style>
   .wc-textarea {
