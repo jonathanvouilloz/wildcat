@@ -1,6 +1,6 @@
 # E4 — Sanity CMS
 
-**Complexité : M · Statut : EN COURS (fondations posées — reste la création du projet sanity.io par Jonathan)**
+**Complexité : M · Statut : DONE (projet `etmrqgb2` créé, dataset public, studio vérifié — login screen OK en headless)**
 
 ## Description
 Schémas Sanity + studio embarqué + client de lecture côté Astro pour le contenu géré par l'owner.
@@ -19,16 +19,13 @@ Schémas Sanity + studio embarqué + client de lecture côté Astro pour le cont
 - [x] Requêtes GROQ (`src/lib/queries.ts`, `defineQuery`) — coaches, fighters, testimonials, schedule, blog (consommées en E5)
 - [x] TypeGen : `npm run sanity:types` (extract + generate, 100 % local) → `src/lib/sanity.types.ts` committé
 - [x] Gestion i18n du contenu : **document-level** (blogPost, plugin `@sanity/document-internationalization`) + **field-level** (le reste) — voir DECISIONS.md
-- [ ] **Jonathan : créer le projet sur sanity.io** (voir checklist ci-dessous)
-- [ ] Premier contenu de test dans le studio (1 coach, 1 témoignage, horaires) — après création du projet
+- [x] **Projet sanity.io créé** : `etmrqgb2`, dataset `production` **public** (lecture sans token), CORS `localhost:4321` OK, `.env` rempli
+- [x] Studio vérifié en headless : login screen "Wildcat Muay Thai" rendu sans erreur d'hydratation
+- [ ] Premier contenu de test dans le studio (1 coach, 1 témoignage, horaires) — au fil de E5
 
-## Checklist Jonathan (création du projet Sanity)
-1. [sanity.io/manage](https://www.sanity.io/manage) → Create project → récupérer le **projectId**
-2. Créer `.env` (copier `.env.example`) : `SANITY_PROJECT_ID=<projectId>`, `SANITY_DATASET=production`
-3. Dans manage → API → Datasets : créer/laisser `production` en **public** (lecture sans token) — ou privé + token Viewer dans `SANITY_TOKEN`
-4. Dans manage → API → **CORS Origins** : ajouter `http://localhost:4321` (allow credentials) ; plus tard le domaine prod + `https://*.vercel.app`
-5. `npm run dev` → [localhost:4321/studio](http://localhost:4321/studio) → login Sanity → c'est parti
-6. (E10) Ajouter `SANITY_PROJECT_ID`/`SANITY_DATASET` dans les env vars Vercel
+## Reste à faire plus tard
+- CORS : ajouter le domaine prod + `https://*.vercel.app` (manage → API → CORS Origins) — avant E10
+- (E10) Ajouter `PUBLIC_SANITY_PROJECT_ID`/`PUBLIC_SANITY_DATASET` dans les env vars Vercel + header `X-Robots-Tag: noindex` sur `/studio`
 
 ## Décisions techniques
 - Studio embarqué `/studio` (un seul deploy) — page statique en hash router, exclu du sitemap, `Disallow: /studio` dans robots.txt. Header `X-Robots-Tag: noindex` à ajouter en E10 (config Vercel).

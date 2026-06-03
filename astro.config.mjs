@@ -11,10 +11,10 @@ import sanity from '@sanity/astro';
 import react from '@astrojs/react';
 
 // Sanity — projectId/dataset doivent être connus au niveau config (build-time).
-// Fallback 'placeholder' : le build du site public passe tant qu'aucune page ne
-// consomme Sanity ; le studio affichera une erreur de connexion jusqu'à ce que
-// SANITY_PROJECT_ID soit rempli dans .env (projet à créer sur sanity.io).
-const { SANITY_PROJECT_ID, SANITY_DATASET } = loadEnv(
+// Préfixe PUBLIC_ : le studio embarqué (island React) lit ces valeurs côté
+// navigateur via import.meta.env (le projectId n'est pas un secret).
+// Fallback 'placeholder' : le build du site public passe même sans .env.
+const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
   process.env.NODE_ENV ?? 'development',
   process.cwd(),
   ''
@@ -71,8 +71,8 @@ export default defineConfig({
     // routing interne en hash router (/studio#/...). React requis par le studio
     // uniquement — aucune island React sur le site public.
     sanity({
-      projectId: SANITY_PROJECT_ID || 'placeholder',
-      dataset: SANITY_DATASET || 'production',
+      projectId: PUBLIC_SANITY_PROJECT_ID || 'placeholder',
+      dataset: PUBLIC_SANITY_DATASET || 'production',
       useCdn: false, // SSG : contenu frais au moment du build, pas de cache CDN
       studioBasePath: '/studio',
     }),
