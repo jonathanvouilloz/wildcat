@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon/components';
+import Container from '../layout/Container.astro';
+
+/**
+ * ValueStrip — bande forest 4 valeurs (maquette : .values).
+ * Icônes Tabler (astro-icon), strings traduites en props.
+ */
+export interface Props {
+  items: { icon: string; title: string; body: string }[];
+}
+const { items } = Astro.props;
+---
+
+<section class="values">
+  <Container>
+    <div class="values-grid">
+      {
+        items.map((item) => (
+          <div class="val">
+            <Icon name={item.icon} class="ic" aria-hidden="true" />
+            <div>
+              <h4>{item.title}</h4>
+              <p>{item.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</section>
+
+<style>
+  .values {
+    background: var(--forest);
+    color: var(--cream);
+    padding: 40px 0;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+  }
+  .val {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .val :global(.ic) {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    color: var(--gold);
+  }
+  .val h4 {
+    margin: 2px 0 3px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+  .val p {
+    margin: 0;
+    font-size: 13.5px;
+    color: rgba(246, 241, 230, 0.7);
+    line-height: 1.45;
+  }
+  @media (min-width: 861px) {
+    .val:not(:first-child) {
+      padding-left: 26px;
+      border-left: 1px solid rgba(246, 241, 230, 0.12);
+    }
+  }
+  @media (max-width: 860px) {
+    .values-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 22px 26px;
+    }
+  }
+  @media (max-width: 520px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

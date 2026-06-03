@@ -1,31 +1,423 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/layout/Section.astro';
-import Button from '../../components/ui/Button.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
+import Button from '../../components/ui/Button.astro';
+import Hero from '../../components/sections/Hero.astro';
+import ValueStrip from '../../components/sections/ValueStrip.astro';
+import DtvTeaser from '../../components/sections/DtvTeaser.astro';
+import ProgramGrid from '../../components/sections/ProgramGrid.astro';
+import ScheduleTable from '../../components/sections/ScheduleTable.astro';
+import StayTrainUpsell from '../../components/sections/StayTrainUpsell.astro';
+import CoachGrid from '../../components/sections/CoachGrid.astro';
+import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
+import CommunityGallery from '../../components/sections/CommunityGallery.astro';
+import PricingTable from '../../components/sections/PricingTable.astro';
+import Faq from '../../components/sections/Faq.astro';
+import CtaBanner from '../../components/sections/CtaBanner.astro';
+import { Icon } from 'astro-icon/components';
+import { site } from '../../config/site';
+import { localePath } from '../../lib/routes';
+import { safeQuery } from '../../lib/content';
+import { COACHES_QUERY, FEATURED_TESTIMONIALS_QUERY, SCHEDULE_QUERY } from '../../lib/queries';
+import type {
+  COACHES_QUERY_RESULT,
+  FEATURED_TESTIMONIALS_QUERY_RESULT,
+  SCHEDULE_QUERY_RESULT,
+} from '../../lib/sanity.types';
+import { pickLocale } from '../../lib/i18n-content';
+import { urlFor } from '../../lib/image';
 import { m } from '../../paraglide/messages.js';
 
-// V1 : EN + FR. Génère /en et /fr.
+// Home — port fidèle de la maquette `wildcat/project/WildCat Landing.html`
+// sur le thème verrouillé (Satoshi/Fraunces + tokens). Contenu CMS via safeQuery
+// avec fallbacks messages : publiable dataset vide.
 export function getStaticPaths() {
   return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
 }
 
-// Placeholder minimal (E5 remplacera par la vraie home). Strings : messages/{locale}.json.
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+/* ---------- Contenu CMS (fallbacks statiques si dataset vide) ---------- */
+
+// Coachs — fallback : le trio de la maquette (noms = données brutes, rôles/bios = messages)
+const coachDocs = await safeQuery<COACHES_QUERY_RESULT>({ query: COACHES_QUERY }, []);
+const coaches =
+  coachDocs.length > 0
+    ? coachDocs.slice(0, 3).map((coach) => ({
+        name: coach.name ?? '',
+        role: pickLocale(coach.role, lang),
+        bio: pickLocale(coach.bio, lang),
+        photo: coach.photo?.asset
+          ? {
+              src: urlFor(coach.photo).width(280).height(280).format('webp').url(),
+              alt: coach.photo.alt ?? coach.name ?? '',
+            }
+          : undefined,
+      }))
+    : [
+        { name: 'Kru Nut', role: m.home_coach1_role(), bio: m.home_coach1_bio() },
+        { name: 'Kru Fern', role: m.home_coach2_role(), bio: m.home_coach2_bio() },
+        { name: 'Kru Bank', role: m.home_coach3_role(), bio: m.home_coach3_bio() },
+      ];
+
+// Témoignage vedette — fallback : la quote de la maquette
+const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
+  { query: FEATURED_TESTIMONIALS_QUERY, params: { service: null } },
+  [],
+);
+const quote = testimonialDocs[0]
+  ? {
+      content: pickLocale(testimonialDocs[0].content, lang),
+      name: testimonialDocs[0].name ?? '',
+      meta: testimonialDocs[0].country ?? undefined,
+      rating: testimonialDocs[0].rating ?? 5,
+    }
+  : { content: m.home_quote_text(), name: 'James T.', meta: m.home_quote_meta(), rating: 5 };
+
+// Planning (teaser) — Sanity : créneaux du lundi (journée type) ; fallback : rows maquette
+const scheduleDocs = await safeQuery<SCHEDULE_QUERY_RESULT>({ query: SCHEDULE_QUERY }, []);
+const levelLabels: Record<string, string> = {
+  all: m.schedule_level_all(),
+  beginner: m.schedule_level_beginner(),
+  kids: m.schedule_level_kids(),
+  fighter: m.schedule_level_fighter(),
+  women: m.schedule_level_women(),
+};
+const typicalDay = scheduleDocs.filter((doc) => doc.day === 'mon');
+const scheduleRows =
+  typicalDay.length > 0
+    ? typicalDay.flatMap((doc) =>
+        (doc.timeSlots ?? []).map((slot) => ({
+          time: slot.start ?? '',
+          cls: pickLocale(slot.label, lang),
+          tag: doc.level ? levelLabels[doc.level] : undefined,
+        })),
+      )
+    : [
+        { time: '07:00', cls: m.home_sched_r1_cls(), sub: m.home_sched_r1_sub(), tag: m.home_sched_r1_tag() },
+        { time: '10:00', cls: m.home_sched_r2_cls(), sub: m.home_sched_r2_sub(), tag: m.home_sched_r2_tag() },
+        { time: '16:30', cls: m.home_sched_r3_cls(), sub: m.home_sched_r3_sub(), tag: m.home_sched_r3_tag() },
+        { time: '18:00', cls: m.home_sched_r4_cls(), sub: m.home_sched_r4_sub(), tag: m.home_sched_r4_tag() },
+      ];
+
+/* ---------- Contenu statique (messages + site.ts) ---------- */
+
+const values = [
+  { icon: 'tabler:karate', title: m.home_val1_title(), body: m.home_val1_body() },
+  { icon: 'tabler:users', title: m.home_val2_title(), body: m.home_val2_body() },
+  { icon: 'tabler:flame', title: m.home_val3_title(), body: m.home_val3_body() },
+  { icon: 'tabler:leaf', title: m.home_val4_title(), body: m.home_val4_body() },
+];
+
+const dtvSteps = [
+  { title: m.home_dtv_step1_t(), body: m.home_dtv_step1_b() },
+  { title: m.home_dtv_step2_t(), body: m.home_dtv_step2_b() },
+  { title: m.home_dtv_step3_t(), body: m.home_dtv_step3_b() },
+];
+
+const programs = [
+  { level: m.home_prog1_lvl(), title: m.home_prog1_t(), body: m.home_prog1_b(), href: p('/classes') },
+  { level: m.home_prog2_lvl(), title: m.home_prog2_t(), body: m.home_prog2_b(), href: p('/classes') },
+  { level: m.home_prog3_lvl(), title: m.home_prog3_t(), body: m.home_prog3_b(), href: p('/classes') },
+];
+
+// Tarifs réels (site.ts) — prix formatés selon la locale
+const fmt = (price: number) => price.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
+const priceOf = (list: readonly { key: string; price: number }[], key: string) =>
+  list.find((item) => item.key === key)?.price ?? 0;
+const plans = [
+  {
+    name: m.pricing_card_dropin_name(),
+    price: fmt(priceOf(site.pricing.groupAdults, 'dropin')),
+    currency: site.pricing.currency,
+    unit: m.pricing_card_dropin_unit(),
+    features: [
+      m.pricing_card_dropin_f1(),
+      m.pricing_card_dropin_f2(),
+      m.pricing_card_dropin_f3(),
+      m.pricing_card_dropin_f4(),
+    ],
+    cta: { label: m.cta_book_class(), href: p('/contact'), variant: 'outline' as const },
+  },
+  {
+    name: m.pricing_card_monthly_name(),
+    price: fmt(priceOf(site.pricing.groupAdults, 'month_unlimited')),
+    currency: site.pricing.currency,
+    unit: m.pricing_card_monthly_unit(),
+    features: [
+      m.pricing_card_monthly_f1(),
+      m.pricing_card_monthly_f2(),
+      m.pricing_card_monthly_f3(),
+      m.pricing_card_monthly_f4(),
+    ],
+    cta: { label: m.pricing_card_monthly_cta(), href: p('/contact'), variant: 'gold' as const },
+    popular: true,
+  },
+  {
+    name: m.pricing_card_fighter_name(),
+    price: fmt(priceOf(site.pricing.fighter, 'fighter_month')),
+    currency: site.pricing.currency,
+    unit: m.pricing_card_fighter_unit(),
+    features: [
+      m.pricing_card_fighter_f1(),
+      m.pricing_card_fighter_f2(),
+      m.pricing_card_fighter_f3(),
+      m.pricing_card_fighter_f4(),
+    ],
+    cta: { label: m.cta_plan_stay(), href: p('/stay-train'), variant: 'forest' as const },
+  },
+];
+
+const faqItems = [
+  { q: m.faq_q1(), a: m.faq_a1() },
+  { q: m.faq_q2(), a: m.faq_a2() },
+  { q: m.faq_q3(), a: m.faq_a3() },
+  { q: m.faq_q4(), a: m.faq_a4() },
+  { q: m.faq_q5(), a: m.faq_a5() },
+];
+
+const instagram = site.social.find((s) => s.label === 'Instagram')?.href ?? '#';
+
+/* ---------- JSON-LD SportsClub (PRD §7 : LocalBusiness sur la home) ---------- */
+const base = Astro.site ?? Astro.url.origin;
+const hoursSpec = [
+  { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], time: site.hours[0].time },
+  { days: ['Saturday'], time: site.hours[1].time },
+  { days: ['Sunday'], time: site.hours[2].time },
+].map(({ days, time }) => {
+  const [opens, closes] = time.split('–').map((part) => part.trim());
+  return { '@type': 'OpeningHoursSpecification', dayOfWeek: days, opens, closes };
+});
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'SportsClub',
+  name: site.name,
+  sport: 'Muay Thai',
+  url: new URL(`/${lang}`, base).href,
+  image: new URL(site.defaultOgImage, base).href,
+  telephone: site.contact.phone,
+  email: site.contact.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.contact.address,
+    addressLocality: 'Chiang Mai',
+    addressCountry: 'TH',
+  },
+  sameAs: site.social.map((s) => s.href),
+  openingHoursSpecification: hoursSpec,
+};
 ---
 
-<BaseLayout title={m.home_title()}>
-  <main>
-    <Section>
-      <SectionHead>{m.home_eyebrow()}</SectionHead>
-      <h1 class="display mt-3">
-        {m.home_h1()} <span class="em">{m.home_h1_em()}</span> {m.home_h1b()}
-      </h1>
-      <p class="mt-6 max-w-[42ch] text-lg text-ink-2">{m.home_sub()}</p>
+<BaseLayout title={m.home_title()} description={m.home_meta_desc()}>
+  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(jsonld)} />
 
-      <div class="mt-8 flex flex-wrap gap-3">
-        <Button href="#" arrow>{m.home_cta()}</Button>
-        <Button href="#programs" variant="forest">{m.home_cta2()}</Button>
+  <main>
+    <Hero
+      badgePill={m.home_hero_badge_pill()}
+      badge={m.home_hero_badge()}
+      title={m.home_h1()}
+      titleEm={m.home_h1_em()}
+      titleAfter={m.home_h1b()}
+      sub={m.home_hero_sub()}
+      ctaPrimary={{ label: m.home_hero_cta1(), href: p('/classes#pricing') }}
+      ctaSecondary={{ label: m.home_hero_cta2(), href: p('/classes#schedule') }}
+      metas={[
+        { b: m.home_hero_meta1_b(), s: m.home_hero_meta1_s() },
+        { b: m.home_hero_meta2_b(), s: m.home_hero_meta2_s() },
+        { b: m.home_hero_meta3_b(), s: m.home_hero_meta3_s() },
+      ]}
+      image={{ src: '/assets/gym-garden.jpg', alt: m.home_hero_img_alt() }}
+      float={{ t: m.home_hero_float_t(), d: m.home_hero_float_d() }}
+    />
+
+    <ValueStrip items={values} />
+
+    <DtvTeaser
+      id="dtv"
+      head={m.home_dtv_head()}
+      title={m.home_dtv_title()}
+      titleEm={m.home_dtv_title_em()}
+      lead={m.home_dtv_lead()}
+      steps={dtvSteps}
+      cta={{ label: m.home_dtv_cta(), href: p('/dtv-visa') }}
+      scooterTag={m.home_dtv_scooter()}
+    />
+
+    <Section soft id="programs">
+      <div class="block-head row">
+        <div>
+          <SectionHead>{m.home_prog_head()}</SectionHead>
+          <h2 class="h2 mt-2">{m.home_prog_title()}</h2>
+        </div>
+        <Button href={p('/classes#pricing')} variant="outline">{m.home_prog_seeall()}</Button>
+      </div>
+      <ProgramGrid programs={programs} moreLabel={m.home_prog_more()} />
+    </Section>
+
+    <Section id="schedule">
+      <div class="split">
+        <div>
+          <SectionHead>{m.home_sched_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-3">{m.home_sched_title()}</h2>
+          <p class="lead mb-6">{m.home_sched_lead()}</p>
+          <ScheduleTable
+            rows={scheduleRows}
+            foot={{ label: m.home_sched_more(), href: p('/classes#schedule') }}
+          />
+        </div>
+        <StayTrainUpsell
+          head={m.home_stay_head()}
+          title={m.home_stay_title()}
+          titleEm={m.home_stay_title_em()}
+          lead={m.home_stay_lead()}
+          image={{ src: '/assets/gym-garden.jpg', alt: m.home_stay_img_alt() }}
+        />
       </div>
     </Section>
+
+    <Section soft id="coaches">
+      <div class="block-head center">
+        <SectionHead center>{m.home_coach_head()}</SectionHead>
+        <h2 class="h2 mt-2">{m.home_coach_title()}</h2>
+      </div>
+      <div class="split split--coaches">
+        <CoachGrid coaches={coaches} />
+        <TestimonialQuote
+          content={quote.content}
+          name={quote.name}
+          meta={quote.meta}
+          rating={quote.rating}
+          ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
+        />
+      </div>
+    </Section>
+
+    <Section>
+      <div class="block-head row">
+        <div>
+          <SectionHead>{m.home_comm_head()}</SectionHead>
+          <h2 class="h2 mt-2">
+            {m.home_comm_title()} <span class="em">{m.home_comm_title_em()}</span>
+          </h2>
+        </div>
+        <a href={instagram} target="_blank" rel="noopener" class="gal-foot">
+          <Icon name="tabler:brand-instagram" aria-hidden="true" />
+          {m.home_comm_follow()}
+        </a>
+      </div>
+      <CommunityGallery />
+    </Section>
+
+    <Section soft id="pricing">
+      <div class="block-head center">
+        <SectionHead center>{m.home_price_head()}</SectionHead>
+        <h2 class="h2 mt-2 mb-3">{m.home_price_title()}</h2>
+        <p class="lead lead--center">{m.home_price_lead()}</p>
+      </div>
+      <PricingTable plans={plans} popularLabel={m.pricing_popular()} />
+    </Section>
+
+    <Section>
+      <div class="split split--faq">
+        <div>
+          <SectionHead>{m.home_faq_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-3">{m.home_faq_title()}</h2>
+          <p class="lead">
+            {m.home_faq_lead_pre()}
+            <a href={p('/contact')} class="faq-link">{m.home_faq_lead_link()}</a>
+            {m.home_faq_lead_post()}
+          </p>
+        </div>
+        <Faq items={faqItems} firstOpen />
+      </div>
+    </Section>
+
+    <CtaBanner
+      title={m.home_h1()}
+      titleEm={m.home_h1_em()}
+      titleAfter={m.home_h1b()}
+      ctaPrimary={{ label: m.home_cta_banner1(), href: p('/contact') }}
+      ctaSecondary={{ label: m.home_cta_banner2(), href: site.contact.whatsapp }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
   </main>
 </BaseLayout>
+
+<style>
+  .block-head {
+    margin-bottom: 38px;
+  }
+  .block-head.row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .block-head.center {
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 18px;
+    color: var(--ink-2);
+    max-width: 60ch;
+    margin-top: 0;
+  }
+  .lead--center {
+    margin-inline: auto;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 46px;
+    align-items: start;
+  }
+  .split--coaches {
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+  }
+  .split--faq {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .gal-foot {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: var(--forest);
+  }
+  .gal-foot :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+  .gal-foot:hover {
+    color: var(--gold-deep);
+  }
+  .gal-foot:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .faq-link {
+    color: var(--gold-deep);
+    font-weight: 700;
+  }
+  .faq-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 860px) {
+    .split,
+    .split--coaches,
+    .split--faq {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+</style>

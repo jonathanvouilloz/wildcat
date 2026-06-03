@@ -1,0 +1,116 @@
+---
+/**
+ * ScheduleTable — liste de créneaux (maquette : .sched).
+ * rows : heure brute + libellés traduits (la page mappe Sanity ou fallback messages).
+ * foot : lien « View full schedule » optionnel.
+ */
+export interface Props {
+  rows: { time: string; cls: string; sub?: string; tag?: string }[];
+  foot?: { label: string; href: string };
+}
+const { rows, foot } = Astro.props;
+---
+
+<div class="sched">
+  {
+    rows.map((row) => (
+      <div class="row">
+        <span class="time">{row.time}</span>
+        <span class="cls">
+          {row.cls}
+          {row.sub && <small>{row.sub}</small>}
+        </span>
+        {row.tag && <span class="tag">{row.tag}</span>}
+      </div>
+    ))
+  }
+  {
+    foot && (
+      <div class="sched-foot">
+        <a href={foot.href} class="more">
+          {foot.label} <span class="ar">→</span>
+        </a>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .sched {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 15px 22px;
+    border-bottom: 1px solid var(--line);
+  }
+  .sched > .row:last-child {
+    border-bottom: 0;
+  }
+  .row:hover {
+    background: var(--soft);
+  }
+  .time {
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--forest);
+    width: 78px;
+  }
+  .cls {
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .cls small {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--forest-light);
+    background: var(--soft-2);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .sched-foot {
+    padding: 16px 22px;
+    border-top: 1px solid var(--line);
+  }
+  .more {
+    color: var(--gold-deep);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    gap: 7px;
+    align-items: center;
+  }
+  .more .ar {
+    transition: transform 0.18s;
+  }
+  .more:hover .ar {
+    transform: translateX(3px);
+  }
+  .more:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .more .ar {
+      transition: none;
+    }
+  }
+</style>

@@ -1,0 +1,124 @@
+---
+import { Icon } from 'astro-icon/components';
+import Container from '../layout/Container.astro';
+import SectionHead from '../ui/SectionHead.astro';
+import Button from '../ui/Button.astro';
+import DtvStamp from '../ui/DtvStamp.astro';
+import DtvSteps from './DtvSteps.astro';
+
+/**
+ * DtvTeaser — section pilier DTV de la home (maquette : .dtv).
+ * Gradient forest sombre + stries or, sceau DTV, 3 étapes, CTA gold + tag scooter.
+ * (La micro-note FR de la maquette est omise : les pages sont entièrement localisées.)
+ */
+export interface Props {
+  id?: string;
+  head: string;
+  title: string;
+  titleEm: string;
+  lead: string;
+  steps: { title: string; body: string }[];
+  cta: { label: string; href: string };
+  scooterTag?: string;
+}
+const { id, head, title, titleEm, lead, steps, cta, scooterTag } = Astro.props;
+---
+
+<section class="dtv wc-section" id={id}>
+  <Container>
+    <div class="dtv-grid">
+      <DtvStamp size={240} class="stamp" />
+      <div>
+        <SectionHead onDark>{head}</SectionHead>
+        <h2 class="h2">
+          {title} <span class="em on-dark">{titleEm}</span>
+        </h2>
+        <p class="dlead">{lead}</p>
+        <DtvSteps steps={steps} />
+        <div class="dtv-foot">
+          <Button href={cta.href} variant="gold" arrow>{cta.label}</Button>
+          {
+            scooterTag && (
+              <span class="scooter-tag">
+                <Icon name="tabler:motorbike" aria-hidden="true" />
+                {scooterTag}
+              </span>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .dtv {
+    background: linear-gradient(180deg, #16271e, var(--forest-deep));
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--section-y);
+  }
+  .dtv::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(58deg, transparent 0 34px, rgba(224, 166, 43, 0.05) 34px 40px);
+  }
+  .dtv :global(.wc-container) {
+    position: relative;
+    z-index: 2;
+  }
+  .dtv-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .dtv-grid :global(.stamp) {
+    margin: 0 auto;
+  }
+  .h2 {
+    color: var(--cream);
+    margin: 8px 0 12px;
+  }
+  .dlead {
+    font-size: 17px;
+    color: rgba(246, 241, 230, 0.78);
+    max-width: 54ch;
+    margin: 0 0 24px;
+  }
+  .dtv-foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 22px;
+    align-items: center;
+    margin-top: 22px;
+  }
+  .scooter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(224, 166, 43, 0.12);
+    border: 1px solid rgba(224, 166, 43, 0.32);
+    border-radius: 999px;
+    padding: 9px 16px;
+    font-size: 13.5px;
+    color: #e9dfc6;
+  }
+  .scooter-tag :global(svg) {
+    width: 20px;
+    height: 20px;
+    color: var(--gold);
+  }
+  @media (max-width: 1024px) {
+    .dtv-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .dtv-grid :global(.stamp) {
+      margin: 0;
+    }
+  }
+</style>

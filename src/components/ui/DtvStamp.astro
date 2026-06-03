@@ -1,0 +1,66 @@
+---
+/**
+ * DtvStamp — sceau DTV circulaire or (motif maquette/styleguide).
+ * Texte de marque, JAMAIS traduit (comme « Wildcat ») — voir docs/DESIGN.md.
+ * Décoratif : aria-hidden, le contexte textuel vit dans la section parente.
+ */
+export interface Props {
+  /** Diamètre en px. Maquette landing : 240 · styleguide : 150. */
+  size?: number;
+  class?: string;
+}
+const { size = 150, class: extra = '' } = Astro.props;
+---
+
+<div class:list={['dtv-stamp', extra]} style={`--stamp-size:${size}px`} aria-hidden="true">
+  <div class="big">DTV</div>
+  <div class="l1">Visa Friendly</div>
+  <div class="l2">Muay Thai · Soft Power</div>
+</div>
+
+<style>
+  /* Tailles dérivées du diamètre (réfs : 34px/9px/8px à 150px) */
+  .dtv-stamp {
+    width: var(--stamp-size);
+    height: var(--stamp-size);
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 34%, #efb63a, #db9a14);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #1c1407;
+    border: 3px solid #1c1407;
+    box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.7);
+    position: relative;
+    flex: 0 0 auto;
+  }
+  .dtv-stamp::before {
+    content: '';
+    position: absolute;
+    inset: calc(var(--stamp-size) * 0.06);
+    border: 1.5px solid rgba(28, 20, 7, 0.45);
+    border-radius: 50%;
+  }
+  .big {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: calc(var(--stamp-size) * 0.2267);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+  }
+  .l1 {
+    font-weight: 800;
+    font-size: calc(var(--stamp-size) * 0.06);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-top: calc(var(--stamp-size) * 0.04);
+  }
+  .l2 {
+    font-size: calc(var(--stamp-size) * 0.0533);
+    font-weight: 700;
+    margin-top: calc(var(--stamp-size) * 0.02);
+    opacity: 0.85;
+  }
+</style>

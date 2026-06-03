@@ -1,0 +1,96 @@
+---
+import Card from '../ui/Card.astro';
+
+/**
+ * ProgramCard — carte programme (maquette : .prog).
+ * Carte entière cliquable (Card href) — le « Learn more » est un span, pas un lien.
+ * Sans image : bloc placeholder soft-2 (pattern styleguide) jusqu'à E9.
+ */
+export interface Props {
+  level: string;
+  title: string;
+  body: string;
+  href: string;
+  moreLabel: string;
+  image?: { src: string; alt: string };
+}
+const { level, title, body, href, moreLabel, image } = Astro.props;
+---
+
+<Card href={href} class="prog">
+  {
+    image ? (
+      <img class="media" src={image.src} alt={image.alt} loading="lazy" />
+    ) : (
+      <div class="media media--placeholder" aria-hidden="true" />
+    )
+  }
+  <div class="body">
+    <span class="lvl">{level}</span>
+    <h3>{title}</h3>
+    <p>{body}</p>
+    <span class="more">{moreLabel} <span class="ar">→</span></span>
+  </div>
+</Card>
+
+<style>
+  .media {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+  }
+  .media--placeholder {
+    background: var(--soft-2);
+  }
+  .body {
+    padding: 20px 22px 24px;
+  }
+  .lvl {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--forest-light);
+    background: var(--soft-2);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 21px;
+    letter-spacing: -0.01em;
+    margin: 0 0 7px;
+    color: var(--forest);
+  }
+  p {
+    margin: 0 0 16px;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .more {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    display: inline-flex;
+    gap: 7px;
+    align-items: center;
+  }
+  .more .ar {
+    transition: transform 0.18s;
+  }
+  :global(.prog:hover) .more .ar {
+    transform: translateX(3px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .more .ar {
+      transition: none;
+    }
+  }
+</style>

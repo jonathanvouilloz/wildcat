@@ -1,0 +1,66 @@
+---
+/**
+ * DtvSteps — étapes numérotées du parcours DTV (maquette : .dtv-steps).
+ * Conçu pour fond sombre (cartes cream-alpha). Numéro = index + 1.
+ */
+export interface Props {
+  steps: { title: string; body: string }[];
+}
+const { steps } = Astro.props;
+---
+
+<div class="dtv-steps" style={`--steps:${steps.length}`}>
+  {
+    steps.map((step, i) => (
+      <div class="dstep">
+        <div class="n">{i + 1}</div>
+        <h4>{step.title}</h4>
+        <p>{step.body}</p>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .dtv-steps {
+    display: grid;
+    grid-template-columns: repeat(var(--steps, 3), 1fr);
+    gap: 14px;
+  }
+  .dstep {
+    background: rgba(246, 241, 230, 0.05);
+    border: 1px solid rgba(246, 241, 230, 0.1);
+    border-radius: var(--r-md);
+    padding: 16px 16px 18px;
+  }
+  .dstep .n {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #1c1407;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-bottom: 11px;
+  }
+  .dstep h4 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--cream);
+  }
+  .dstep p {
+    margin: 0;
+    font-size: 13px;
+    color: rgba(246, 241, 230, 0.66);
+    line-height: 1.45;
+  }
+  @media (max-width: 860px) {
+    .dtv-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

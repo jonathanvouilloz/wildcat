@@ -20,6 +20,7 @@ export const site = {
     email: 'hello@wildcatmuaythai.com', // TODO(real data): email réel à confirmer
     phone: '+66 85 720 9620',
     phoneHref: 'tel:+66857209620',
+    whatsapp: 'https://wa.me/66857209620',
   },
 
   // TODO(real data): horaires réels à confirmer (valeurs maquette)

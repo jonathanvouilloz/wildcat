@@ -1,0 +1,45 @@
+---
+/**
+ * CommunityGallery — grille 6 tuiles carrées (maquette : .gal).
+ * Sans images (E9) : tuiles placeholder soft-2 décoratives.
+ */
+export interface Props {
+  images?: { src: string; alt: string }[];
+  /** Nombre de tuiles placeholder si pas d'images. */
+  count?: number;
+}
+const { images, count = 6 } = Astro.props;
+---
+
+<div class="gal">
+  {
+    images && images.length > 0
+      ? images.map((image) => <img src={image.src} alt={image.alt} loading="lazy" />)
+      : Array.from({ length: count }).map(() => <div class="ph" aria-hidden="true" />)
+  }
+</div>
+
+<style>
+  .gal {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+  .gal img,
+  .gal .ph {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: var(--r-md);
+    object-fit: cover;
+  }
+  .gal .ph {
+    background: var(--soft-2);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 860px) {
+    .gal {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

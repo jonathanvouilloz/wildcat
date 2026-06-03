@@ -1,0 +1,88 @@
+---
+/**
+ * Faq — accordéon pur CSS <details>/<summary> (maquette : .faq). Zéro JS.
+ * Le « + » pivote en « × » à l'ouverture (pattern styleguide).
+ */
+export interface Props {
+  items: { q: string; a: string }[];
+  /** Ouvre le premier item au chargement (maquette home). */
+  firstOpen?: boolean;
+}
+const { items, firstOpen = false } = Astro.props;
+---
+
+<div class="faq">
+  {
+    items.map((item, i) => (
+      <details open={firstOpen && i === 0}>
+        <summary>
+          {item.q} <span class="pm" aria-hidden="true">+</span>
+        </summary>
+        <div class="ans">{item.a}</div>
+      </details>
+    ))
+  }
+</div>
+
+<style>
+  .faq {
+    display: grid;
+    gap: 10px;
+  }
+  details {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+  }
+  summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--forest);
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: -3px;
+    border-radius: var(--r-md);
+  }
+  .pm {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--soft-2);
+    color: var(--forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: 0.2s;
+  }
+  details[open] summary .pm {
+    background: var(--gold);
+    color: #1c1407;
+    transform: rotate(45deg);
+  }
+  .ans {
+    padding: 0 22px 20px;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.55;
+    max-width: 64ch;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pm {
+      transition: none;
+    }
+  }
+</style>

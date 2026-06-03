@@ -1,0 +1,33 @@
+---
+import CoachCard from './CoachCard.astro';
+
+/**
+ * CoachGrid — grille de coachs (maquette : .coach-grid, 3 colonnes).
+ */
+export interface Props {
+  coaches: {
+    name: string;
+    role: string;
+    bio?: string;
+    photo?: { src: string; alt: string };
+  }[];
+}
+const { coaches } = Astro.props;
+---
+
+<div class="coach-grid">
+  {coaches.map((coach) => <CoachCard {...coach} />)}
+</div>
+
+<style>
+  .coach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 860px) {
+    .coach-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

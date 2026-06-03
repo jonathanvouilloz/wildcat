@@ -1,0 +1,115 @@
+---
+import Button from '../ui/Button.astro';
+
+/**
+ * PricingCard — carte plan tarifaire (maquette : .plan).
+ * `popular` → bordure gold + badge (styleguide). Prix préformaté par la page
+ * (toLocaleString selon la locale), devise = code brut (THB).
+ */
+export interface Props {
+  name: string;
+  price: string;
+  currency: string;
+  unit: string;
+  features: string[];
+  cta: { label: string; href: string; variant?: 'gold' | 'forest' | 'outline' };
+  popular?: boolean;
+  popularLabel?: string;
+}
+const { name, price, currency, unit, features, cta, popular = false, popularLabel } = Astro.props;
+---
+
+<article class:list={['plan', popular && 'pop']}>
+  {popular && popularLabel && <span class="pop-tag">{popularLabel}</span>}
+  <div class="pname">{name}</div>
+  <div class="pprice">{price} <span>{currency}</span></div>
+  <div class="punit">{unit}</div>
+  <ul>
+    {features.map((feature) => <li>{feature}</li>)}
+  </ul>
+  <Button href={cta.href} variant={cta.variant ?? 'outline'} class="cta">{cta.label}</Button>
+</article>
+
+<style>
+  .plan {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 30px 28px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+  .plan.pop {
+    border: 1.5px solid var(--gold);
+    box-shadow: var(--shadow-md);
+  }
+  .pop-tag {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: #1c1407;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .pname {
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--forest-light);
+    margin-bottom: 14px;
+  }
+  .pprice {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 40px;
+    letter-spacing: -0.02em;
+    color: var(--forest);
+    line-height: 1;
+  }
+  .pprice span {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink-3);
+    letter-spacing: 0;
+  }
+  .punit {
+    font-size: 13.5px;
+    color: var(--ink-2);
+    margin: 6px 0 20px;
+  }
+  ul {
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  li {
+    font-size: 14px;
+    color: var(--ink);
+    padding-left: 24px;
+    position: relative;
+  }
+  li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--forest-light);
+    font-weight: 800;
+  }
+  .plan :global(.cta) {
+    width: 100%;
+    justify-content: center;
+    margin-top: auto;
+  }
+</style>

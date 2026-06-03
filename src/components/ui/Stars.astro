@@ -1,0 +1,28 @@
+---
+/**
+ * Stars — rangée d'étoiles or (témoignages, reviews).
+ * `label` = libellé accessible traduit (ex : « Note : 5 sur 5 ») fourni par la page.
+ */
+export interface Props {
+  rating?: number;
+  label?: string;
+  class?: string;
+}
+const { rating = 5, label, class: extra = '' } = Astro.props;
+const full = Math.max(0, Math.min(5, Math.round(rating)));
+---
+
+<span
+  class:list={['wc-stars', extra]}
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+>{'★'.repeat(full)}{'☆'.repeat(5 - full)}</span>
+
+<style>
+  .wc-stars {
+    color: var(--gold);
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+</style>

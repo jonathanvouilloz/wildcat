@@ -1,0 +1,36 @@
+---
+import ProgramCard from './ProgramCard.astro';
+
+/**
+ * ProgramGrid — grille de cartes programmes (3 colonnes, maquette : .prog-grid).
+ * 6 cartes (Classes) wrappent naturellement sur 2 rangées.
+ */
+export interface Props {
+  programs: {
+    level: string;
+    title: string;
+    body: string;
+    href: string;
+    image?: { src: string; alt: string };
+  }[];
+  moreLabel: string;
+}
+const { programs, moreLabel } = Astro.props;
+---
+
+<div class="prog-grid">
+  {programs.map((program) => <ProgramCard {...program} moreLabel={moreLabel} />)}
+</div>
+
+<style>
+  .prog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 860px) {
+    .prog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

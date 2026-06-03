@@ -1,0 +1,83 @@
+---
+/**
+ * CoachCard — portrait coach (maquette : .coach).
+ * Photo circulaire 140px ; sans photo → pastille initiales soft-2 (E9 : vraies photos).
+ */
+export interface Props {
+  name: string;
+  role: string;
+  bio?: string;
+  photo?: { src: string; alt: string };
+}
+const { name, role, bio, photo } = Astro.props;
+const initials = name
+  .split(/\s+/)
+  .map((part) => part[0])
+  .slice(0, 2)
+  .join('')
+  .toUpperCase();
+---
+
+<div class="coach">
+  {
+    photo ? (
+      <img class="pic" src={photo.src} alt={photo.alt} loading="lazy" width="140" height="140" />
+    ) : (
+      <div class="pic pic--placeholder" aria-hidden="true">
+        {initials}
+      </div>
+    )
+  }
+  <h4>{name}</h4>
+  <div class="role">{role}</div>
+  {bio && <p>{bio}</p>}
+</div>
+
+<style>
+  .coach {
+    text-align: center;
+  }
+  .pic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    object-fit: cover;
+  }
+  .pic--placeholder {
+    background: var(--soft-2);
+    color: var(--forest-light);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 34px;
+    letter-spacing: 0.02em;
+  }
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin: 0 0 2px;
+    color: var(--forest);
+  }
+  .role {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 9px;
+  }
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 28ch;
+    margin-inline: auto;
+  }
+</style>

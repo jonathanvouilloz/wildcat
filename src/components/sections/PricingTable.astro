@@ -1,0 +1,40 @@
+---
+import PricingCard from './PricingCard.astro';
+
+/**
+ * PricingTable — grille de plans (maquette : .price-grid).
+ */
+export interface Props {
+  plans: {
+    name: string;
+    price: string;
+    currency: string;
+    unit: string;
+    features: string[];
+    cta: { label: string; href: string; variant?: 'gold' | 'forest' | 'outline' };
+    popular?: boolean;
+  }[];
+  popularLabel: string;
+}
+const { plans, popularLabel } = Astro.props;
+---
+
+<div class="price-grid">
+  {plans.map((plan) => <PricingCard {...plan} popularLabel={popularLabel} />)}
+</div>
+
+<style>
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: stretch;
+  }
+  @media (max-width: 860px) {
+    .price-grid {
+      grid-template-columns: 1fr;
+      /* respiration pour le badge « Most popular » qui dépasse */
+      row-gap: 28px;
+    }
+  }
+</style>
