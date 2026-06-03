@@ -1,0 +1,235 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/layout/Section.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import ContactForm from '../../components/sections/ContactForm.astro';
+import { site } from '../../config/site';
+import { localePath } from '../../lib/routes';
+import { m } from '../../paraglide/messages.js';
+
+// Contact — formulaire (POST /api/contact) + coordonnées + WhatsApp.
+// Page statique : les bannières ?sent=1/error sont togglées par un mini
+// script inline (les query params n'existent pas au build SSG).
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+const hoursDays: Record<(typeof site.hours)[number]['dayKey'], string> = {
+  monfri: m.footer_hours_monfri(),
+  sat: m.footer_hours_sat(),
+  sun: m.footer_hours_sun(),
+};
+---
+
+<BaseLayout title={m.contact_meta_title()} description={m.contact_meta_desc()}>
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.nav_contact() },
+      ]}
+    />
+
+    <PageHero
+      head={m.contact_hero_head()}
+      title={m.contact_hero_title()}
+      titleEm={m.contact_hero_title_em()}
+      lead={m.contact_hero_lead()}
+    />
+
+    <Section soft>
+      <div class="banner banner--ok" id="sent-ok" hidden>
+        <Icon name="tabler:circle-check" aria-hidden="true" />
+        <div>
+          <b>{m.contact_success_title()}</b>
+          <p>{m.contact_success_body()}</p>
+        </div>
+      </div>
+      <div class="banner banner--err" id="sent-err" hidden>
+        <Icon name="tabler:alert-circle" aria-hidden="true" />
+        <p>{m.contact_error_body()}</p>
+      </div>
+
+      <div class="grid">
+        <div class="form-col">
+          <ContactForm lang={lang} />
+        </div>
+        <aside class="aside">
+          <h2 class="h3">{m.contact_aside_title()}</h2>
+          <ul class="details">
+            <li>
+              <Icon name="tabler:map-pin" aria-hidden="true" />
+              <span>{site.contact.address}</span>
+            </li>
+            <li>
+              <Icon name="tabler:mail" aria-hidden="true" />
+              <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+            </li>
+            <li>
+              <Icon name="tabler:phone" aria-hidden="true" />
+              <a href={site.contact.phoneHref}>{site.contact.phone}</a>
+            </li>
+            <li>
+              <Icon name="tabler:brand-whatsapp" aria-hidden="true" />
+              <a href={site.contact.whatsapp} target="_blank" rel="noopener">{m.cta_whatsapp()}</a>
+            </li>
+          </ul>
+          <h3 class="hours-title">{m.footer_col_hours()}</h3>
+          <ul class="hours">
+            {
+              site.hours.map((h) => (
+                <li>
+                  <b>{hoursDays[h.dayKey]}</b>
+                  <span>{h.time}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="note">{m.footer_contact_note()}</p>
+        </aside>
+      </div>
+    </Section>
+  </main>
+
+  <script is:inline>
+    // Affiche la bannière succès/erreur après redirect du POST /api/contact.
+    (function () {
+      var sent = new URLSearchParams(location.search).get('sent');
+      if (sent === '1') document.getElementById('sent-ok').hidden = false;
+      if (sent === 'error') document.getElementById('sent-err').hidden = false;
+    })();
+  </script>
+</BaseLayout>
+
+<style>
+  .banner {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    border-radius: var(--r-md);
+    padding: 16px 18px;
+    margin-bottom: 26px;
+    font-size: 15px;
+  }
+  .banner :global(svg) {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    margin-top: 1px;
+  }
+  .banner p {
+    margin: 0;
+    line-height: 1.5;
+  }
+  .banner b {
+    display: block;
+    margin-bottom: 2px;
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+  .banner--ok {
+    background: color-mix(in srgb, var(--success), #fff 82%);
+    border: 1px solid var(--success);
+    color: var(--ink);
+  }
+  .banner--ok :global(svg) {
+    color: var(--success);
+  }
+  .banner--err {
+    background: color-mix(in srgb, var(--error), #fff 86%);
+    border: 1px solid var(--error);
+    color: var(--ink);
+  }
+  .banner--err :global(svg) {
+    color: var(--error);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 46px;
+    align-items: start;
+  }
+  .form-col {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: clamp(22px, 3vw, 34px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .aside .h3 {
+    margin-bottom: 16px;
+  }
+  .details {
+    list-style: none;
+    margin: 0 0 26px;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+  }
+  .details li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .details :global(svg) {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    color: var(--forest);
+    margin-top: 2px;
+  }
+  .details a:hover {
+    color: var(--gold-deep);
+  }
+  .hours-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin: 0 0 10px;
+  }
+  .hours {
+    list-style: none;
+    margin: 0 0 14px;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+  }
+  .hours li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    max-width: 280px;
+  }
+  .hours b {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .note {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-3);
+  }
+
+  @media (max-width: 860px) {
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+</style>

@@ -1,0 +1,80 @@
+---
+import Field from '../ui/forms/Field.astro';
+import Input from '../ui/forms/Input.astro';
+import Select from '../ui/forms/Select.astro';
+import Textarea from '../ui/forms/Textarea.astro';
+import Checkbox from '../ui/forms/Checkbox.astro';
+import Button from '../ui/Button.astro';
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * ContactForm — formulaire contact natif (POST /api/contact, zéro JS,
+ * progressive enhancement). Honeypot `website` (champ caché) anti-spam.
+ * La locale part en champ caché pour le redirect retour.
+ */
+export interface Props {
+  lang: string;
+  action?: string;
+}
+const { lang, action = '/api/contact' } = Astro.props;
+
+const topics = [
+  { value: 'classes', label: m.contact_form_topic_classes() },
+  { value: 'stay', label: m.contact_form_topic_stay() },
+  { value: 'dtv', label: m.contact_form_topic_dtv() },
+  { value: 'other', label: m.contact_form_topic_other() },
+];
+---
+
+<form method="POST" action={action} class="cform">
+  <input type="hidden" name="lang" value={lang} />
+  <!-- honeypot — invisible pour les humains, rempli par les bots -->
+  <div class="hp" aria-hidden="true">
+    <label>
+      Website
+      <input type="text" name="website" tabindex="-1" autocomplete="off" />
+    </label>
+  </div>
+
+  <Field label={m.contact_form_name()} for="ct-name" required>
+    <Input id="ct-name" name="name" placeholder={m.contact_form_name_ph()} autocomplete="name" required />
+  </Field>
+  <Field label={m.contact_form_email()} for="ct-email" required>
+    <Input
+      id="ct-email"
+      name="email"
+      type="email"
+      placeholder={m.contact_form_email_ph()}
+      autocomplete="email"
+      required
+    />
+  </Field>
+  <Field label={m.contact_form_topic()} for="ct-topic">
+    <Select id="ct-topic" name="topic" placeholder={m.contact_form_topic_ph()} options={topics} />
+  </Field>
+  <Field label={m.contact_form_msg()} for="ct-msg" required>
+    <Textarea id="ct-msg" name="message" rows={6} placeholder={m.contact_form_msg_ph()} required />
+  </Field>
+  <Checkbox name="consent" required>{m.contact_form_consent()}</Checkbox>
+
+  <div class="submit">
+    <Button type="submit" variant="gold" arrow>{m.contact_form_submit()}</Button>
+  </div>
+</form>
+
+<style>
+  .cform {
+    display: grid;
+    gap: 18px;
+  }
+  .hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .submit {
+    margin-top: 6px;
+  }
+</style>
