@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/layout/Section.astro';
+import SectionHead from '../../components/ui/SectionHead.astro';
+import Card from '../../components/ui/Card.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import ProgramGrid from '../../components/sections/ProgramGrid.astro';
+import ScheduleTable from '../../components/sections/ScheduleTable.astro';
+import Faq from '../../components/sections/Faq.astro';
+import CtaBanner from '../../components/sections/CtaBanner.astro';
+import { site } from '../../config/site';
+import { localePath } from '../../lib/routes';
+import { safeQuery } from '../../lib/content';
+import { SCHEDULE_QUERY } from '../../lib/queries';
+import type { SCHEDULE_QUERY_RESULT } from '../../lib/sanity.types';
+import { pickLocale } from '../../lib/i18n-content';
+import { m } from '../../paraglide/messages.js';
+
+// Pilier Train (kw : "Muay Thai classes Chiang Mai").
+// Anchors #schedule / #pricing : cibles du Nav, du Footer et de la home.
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+/* ---------- Programmes (taxonomie du mega menu Train) ---------- */
+const programs = [
+  { level: m.classes_prog1_lvl(), title: m.classes_prog1_t(), body: m.classes_prog1_b(), href: p('/contact') },
+  { level: m.classes_prog2_lvl(), title: m.classes_prog2_t(), body: m.classes_prog2_b(), href: p('/contact') },
+  { level: m.classes_prog3_lvl(), title: m.classes_prog3_t(), body: m.classes_prog3_b(), href: p('/contact') },
+  { level: m.classes_prog4_lvl(), title: m.classes_prog4_t(), body: m.classes_prog4_b(), href: p('/contact') },
+  { level: m.classes_prog5_lvl(), title: m.classes_prog5_t(), body: m.classes_prog5_b(), href: p('/contact') },
+  { level: m.classes_prog6_lvl(), title: m.classes_prog6_t(), body: m.classes_prog6_b(), href: p('/contact') },
+];
+
+/* ---------- Planning complet (Sanity, fallback journée type) ---------- */
+const scheduleDocs = await safeQuery<SCHEDULE_QUERY_RESULT>({ query: SCHEDULE_QUERY }, []);
+const levelLabels: Record<string, string> = {
+  all: m.schedule_level_all(),
+  beginner: m.schedule_level_beginner(),
+  kids: m.schedule_level_kids(),
+  fighter: m.schedule_level_fighter(),
+  women: m.schedule_level_women(),
+};
+const dayOrder = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'] as const;
+const dayLabels: Record<(typeof dayOrder)[number], string> = {
+  mon: m.schedule_day_mon(),
+  tue: m.schedule_day_tue(),
+  wed: m.schedule_day_wed(),
+  thu: m.schedule_day_thu(),
+  fri: m.schedule_day_fri(),
+  sat: m.schedule_day_sat(),
+  sun: m.schedule_day_sun(),
+};
+const week = dayOrder
+  .map((day) => ({
+    day,
+    label: dayLabels[day],
+    rows: scheduleDocs
+      .filter((doc) => doc.day === day)
+      .flatMap((doc) =>
+        (doc.timeSlots ?? []).map((slot) => ({
+          time: slot.start ?? '',
+          cls: pickLocale(slot.label, lang),
+          tag: doc.level ? levelLabels[doc.level] : undefined,
+        })),
+      ),
+  }))
+  .filter((group) => group.rows.length > 0);
+// Fallback dataset vide : journée type (mêmes rows que la home)
+const fallbackRows = [
+  { time: '07:00', cls: m.home_sched_r1_cls(), sub: m.home_sched_r1_sub(), tag: m.home_sched_r1_tag() },
+  { time: '10:00', cls: m.home_sched_r2_cls(), sub: m.home_sched_r2_sub(), tag: m.home_sched_r2_tag() },
+  { time: '16:30', cls: m.home_sched_r3_cls(), sub: m.home_sched_r3_sub(), tag: m.home_sched_r3_tag() },
+  { time: '18:00', cls: m.home_sched_r4_cls(), sub: m.home_sched_r4_sub(), tag: m.home_sched_r4_tag() },
+];
+
+/* ---------- Tarifs publics complets (site.ts, source de vérité) ---------- */
+const fmt = (price: number) => price.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
+const priceLabels: Record<string, string> = {
+  dropin: m.pricing_label_dropin(),
+  times10: m.pricing_label_times10(),
+  month_once: m.pricing_label_month_once(),
+  month_unlimited: m.pricing_label_month_unlimited(),
+  week_unlimited: m.pricing_label_week_unlimited(),
+  fighter_month: m.pricing_label_fighter_month(),
+  private_head: m.pricing_label_private_head(),
+  private_normal: m.pricing_label_private_normal(),
+};
+const priceGroups = [
+  { title: m.pricing_group_adults(), items: site.pricing.groupAdults },
+  { title: m.pricing_group_kids(), items: site.pricing.groupKids },
+  { title: m.pricing_group_fighter(), items: site.pricing.fighter },
+  { title: m.pricing_group_private(), items: site.pricing.private },
+];
+
+const faqItems = [
+  { q: m.faq_q1(), a: m.faq_a1() },
+  { q: m.faq_q2(), a: m.faq_a2() },
+  { q: m.faq_q3(), a: m.faq_a3() },
+  { q: m.faq_q4(), a: m.faq_a4() },
+  { q: m.faq_q5(), a: m.faq_a5() },
+];
+---
+
+<BaseLayout title={m.classes_meta_title()} description={m.classes_meta_desc()}>
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.nav_train() },
+      ]}
+    />
+
+    <PageHero
+      head={m.classes_hero_head()}
+      title={m.classes_hero_title()}
+      titleEm={m.classes_hero_title_em()}
+      lead={m.classes_hero_lead()}
+      cta={{ label: m.cta_book_class(), href: p('/contact') }}
+    />
+
+    <Section soft id="programs">
+      <SectionHead>{m.classes_prog_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-7">{m.classes_prog_title()}</h2>
+      <ProgramGrid programs={programs} moreLabel={m.home_prog_more()} />
+    </Section>
+
+    <Section id="schedule">
+      <SectionHead>{m.classes_sched_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-3">{m.classes_sched_title()}</h2>
+      <p class="lead mb-7">{m.classes_sched_lead()}</p>
+      {
+        week.length > 0 ? (
+          <div class="week">
+            {week.map((group) => (
+              <div>
+                <h3 class="h3 day">{group.label}</h3>
+                <ScheduleTable rows={group.rows} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <ScheduleTable rows={fallbackRows} />
+        )
+      }
+    </Section>
+
+    <Section soft id="pricing">
+      <SectionHead>{m.classes_price_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-3">{m.classes_price_title()}</h2>
+      <p class="lead mb-7">{m.classes_price_lead()}</p>
+      <div class="price-groups">
+        {
+          priceGroups.map((group) => (
+            <Card padded hover={false}>
+              <h3 class="pg-title">{group.title}</h3>
+              <ul class="pg-list">
+                {group.items.map((item) => (
+                  <li>
+                    <span>{priceLabels[item.key]}</span>
+                    <b>
+                      {fmt(item.price)} {site.pricing.currency}
+                    </b>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          ))
+        }
+      </div>
+    </Section>
+
+    <Section>
+      <div class="faq-split">
+        <div>
+          <SectionHead>{m.classes_faq_head()}</SectionHead>
+          <h2 class="h2 mt-2">{m.classes_faq_title()}</h2>
+        </div>
+        <Faq items={faqItems} firstOpen />
+      </div>
+    </Section>
+
+    <CtaBanner
+      title={m.classes_cta_title()}
+      titleEm={m.classes_cta_title_em()}
+      ctaPrimary={{ label: m.cta_book_class(), href: p('/contact') }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .lead {
+    font-size: 18px;
+    color: var(--ink-2);
+    max-width: 60ch;
+    margin-top: 0;
+  }
+  .week {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+  .day {
+    margin-bottom: 12px;
+  }
+  .price-groups {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .pg-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--forest-light);
+    margin: 0 0 14px;
+  }
+  .pg-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .pg-list li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 15px;
+    color: var(--ink-2);
+    border-bottom: 1px dashed var(--line);
+    padding-bottom: 9px;
+  }
+  .pg-list li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .pg-list b {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--forest);
+    white-space: nowrap;
+  }
+  .faq-split {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 46px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .week,
+    .price-groups,
+    .faq-split {
+      grid-template-columns: 1fr;
+      gap: 26px;
+    }
+  }
+</style>
