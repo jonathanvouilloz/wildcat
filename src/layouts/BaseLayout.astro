@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Nav from '../components/sections/Nav.astro';
 import Footer from '../components/sections/Footer.astro';
 import { site } from '../config/site';
+import { m } from '../paraglide/messages.js';
 
 export interface Props {
   title: string;
@@ -19,12 +20,16 @@ export interface Props {
 
 const {
   title,
-  description = 'Wildcat Muay Thai — your family-style Muay Thai home in Chiang Mai.',
+  description,
   lang = Astro.currentLocale ?? 'en',
   image = site.defaultOgImage,
   ogType = 'website',
   noindex = false,
 } = Astro.props;
+
+// Default évalué dans le corps (pas en destructuration) : la locale Paraglide
+// est posée par le middleware avant le rendu, pas avant l'évaluation des props.
+const metaDescription = description ?? m.meta_default_description();
 
 const locales = ['en', 'fr'];
 const ogLocale = lang === 'fr' ? 'fr_FR' : 'en_US';
@@ -48,7 +53,7 @@ const alternates = locales.map((loc) => ({
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     {alternates.map((alt) => <link rel="alternate" hreflang={alt.lang} href={alt.href} />)}
@@ -69,7 +74,7 @@ const alternates = locales.map((loc) => ({
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:locale" content={ogLocale} />
@@ -78,7 +83,7 @@ const alternates = locales.map((loc) => ({
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={ogImage} />
 
     <!-- Schema.org JSON-LD (E7) : <script type="application/ld+json" slot="jsonld"> -->

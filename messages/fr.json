@@ -1,3 +1,14 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format"
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "meta_default_description": "Wildcat Muay Thai — ton camp de Muay Thai familial à Chiang Mai.",
+
+  "home_title": "Wildcat Muay Thai — ton camp à Chiang Mai",
+  "home_eyebrow": "Coquille prête",
+  "home_h1": "Ton Muay Thai",
+  "home_h1_em": "comme à la maison",
+  "home_h1b": "à Chiang Mai.",
+  "home_sub": "Astro 6 + Tailwind v4 + design system Tropical Garden. Shell complet : Nav, Footer, primitives.",
+  "home_cta": "Réserve un essai gratuit",
+  "home_cta2": "Découvre les cours"
 }
