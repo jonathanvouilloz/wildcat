@@ -157,5 +157,14 @@
   "footer_explore_pricing": "Pricing",
   "footer_explore_dtv": "DTV Visa",
 
-  "form_fileupload_prompt": "Drop files here or browse"
+  "form_fileupload_prompt": "Drop files here or browse",
+
+  "pricing_label_dropin": "Drop in",
+  "pricing_label_times10": "10 sessions",
+  "pricing_label_month_once": "One month (once a day)",
+  "pricing_label_month_unlimited": "One month (unlimited)",
+  "pricing_label_week_unlimited": "One week unlimited",
+  "pricing_label_fighter_month": "Fighter program — one month (twice a day)",
+  "pricing_label_private_head": "Private — Head Coach (1.5 hour)",
+  "pricing_label_private_normal": "Private — Coach (1.5 hour)"
 }

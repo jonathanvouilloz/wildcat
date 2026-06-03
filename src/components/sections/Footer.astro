@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import Container from '../layout/Container.astro';
 import { site } from '../../config/site';
+import { localePath } from '../../lib/routes';
 import { m } from '../../paraglide/messages.js';
 
 /**
@@ -11,6 +12,7 @@ import { m } from '../../paraglide/messages.js';
  * Cream-alpha en rgba brut, cohérent avec Nav (pas de token cream-alpha).
  */
 const year = new Date().getFullYear();
+const lang = Astro.currentLocale ?? 'en';
 
 // Records explicites (pas d'accès dynamique m['...'] — tree-shaking + typage).
 const hoursDays: Record<(typeof site.hours)[number]['dayKey'], string> = {
@@ -51,7 +53,7 @@ const exploreLabels: Record<(typeof site.exploreLinks)[number]['key'], string> =
           {
             site.exploreLinks.map((link) => (
               <li>
-                <a href={link.href}>{exploreLabels[link.key]}</a>
+                <a href={localePath(lang, link.href)}>{exploreLabels[link.key]}</a>
               </li>
             ))
           }

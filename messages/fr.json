@@ -157,5 +157,14 @@
   "footer_explore_pricing": "Tarifs",
   "footer_explore_dtv": "Visa DTV",
 
-  "form_fileupload_prompt": "Dépose tes fichiers ici ou parcours"
+  "form_fileupload_prompt": "Dépose tes fichiers ici ou parcours",
+
+  "pricing_label_dropin": "À la séance",
+  "pricing_label_times10": "Carnet de 10",
+  "pricing_label_month_once": "Un mois (une séance par jour)",
+  "pricing_label_month_unlimited": "Un mois (illimité)",
+  "pricing_label_week_unlimited": "Une semaine illimitée",
+  "pricing_label_fighter_month": "Programme fighter — un mois (deux séances par jour)",
+  "pricing_label_private_head": "Privé — Head Coach (1 h 30)",
+  "pricing_label_private_normal": "Privé — Coach (1 h 30)"
 }

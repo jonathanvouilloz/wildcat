@@ -43,43 +43,44 @@ export const site = {
     },
   ],
 
-  // Silos principaux (ancres maquette → vraies routes en E5)
+  // Silos principaux (E5) — paths SANS préfixe locale ; les composants
+  // les passent par localePath() (src/lib/routes.ts).
   // key → messages footer_explore_* (libellés)
   exploreLinks: [
-    { key: 'classes', href: '#programs' },
-    { key: 'schedule', href: '#schedule' },
-    { key: 'coaches', href: '#coaches' },
-    { key: 'pricing', href: '#pricing' },
-    { key: 'dtv', href: '#dtv' },
+    { key: 'classes', href: '/classes' },
+    { key: 'schedule', href: '/classes#schedule' },
+    { key: 'coaches', href: '/about#coaches' },
+    { key: 'pricing', href: '/classes#pricing' },
+    { key: 'dtv', href: '/dtv-visa' },
   ],
 
   /** Image OG par défaut (chemin public, résolu via Astro.site). TODO: vraie cover OG. */
   defaultOgImage: '/assets/gym-garden.jpg',
 
   /**
-   * Tarifs réels (THB) — fournis 2026-06-03, pour E5 (page Pricing, prix publics).
-   * NB i18n : les labels restent EN ici — extraction vers messages reportée à E5
-   * (donnée de page, pas du shell ; structure finale décidée avec la page Pricing).
+   * Tarifs réels (THB) — fournis 2026-06-03, prix publics (E5).
+   * i18n : `key` → messages pricing_label_* (record explicite dans les composants).
+   * `popular` → badge "Most popular" (PricingCard).
    */
   pricing: {
     currency: 'THB',
     groupAdults: [
-      { label: 'Drop in', price: 350 },
-      { label: '10 times', price: 3000 },
-      { label: 'One month (once a day)', price: 4000 },
-      { label: 'One month (unlimited)', price: 5000 },
-      { label: 'One week unlimited', price: 2000 },
+      { key: 'dropin', price: 350 },
+      { key: 'times10', price: 3000 },
+      { key: 'month_once', price: 4000 },
+      { key: 'month_unlimited', price: 5000, popular: true },
+      { key: 'week_unlimited', price: 2000 },
     ],
     groupKids: [
-      { label: 'Drop in', price: 300 },
-      { label: '10 times', price: 2500 },
-      { label: 'One month unlimited', price: 3000 },
-      { label: 'One week unlimited', price: 1500 },
+      { key: 'dropin', price: 300 },
+      { key: 'times10', price: 2500 },
+      { key: 'month_unlimited', price: 3000 },
+      { key: 'week_unlimited', price: 1500 },
     ],
-    fighter: [{ label: 'Fighter program — one month advance (twice a day)', price: 7000 }],
+    fighter: [{ key: 'fighter_month', price: 7000 }],
     private: [
-      { label: 'Head Coach (1.5 hour)', price: 1000 },
-      { label: 'Normal Coach (1.5 hour)', price: 800 },
+      { key: 'private_head', price: 1000 },
+      { key: 'private_normal', price: 800 },
     ],
   },
 } as const;
