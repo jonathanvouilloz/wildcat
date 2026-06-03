@@ -4,12 +4,14 @@ import ArrowWild from '../ui/ArrowWild.astro';
 import LangSwitcher from '../ui/LangSwitcher.astro';
 import { Icon } from 'astro-icon/components';
 import { site } from '../../config/site';
+import { m } from '../../paraglide/messages.js';
 
 /**
  * Nav — mega menu Wildcat (repris du bundle Claude Design, adapté au design system).
  * Tokens (forest #2E5D3C, gold, cream), Satoshi (titres+corps), Fraunces (.em accents).
  * CTA Join = <Button> gold ; CTA cartes promo = pill gold + swoosh.
  * Desktop : mega panels au survol/clic/clavier. Mobile (<1080px) : drawer accordéon.
+ * Strings : messages/{locale}.json (m.*) — zéro libellé en dur.
  *
  * Props :
  *  - sticky (def. true) : position sticky ; false = relative (démo styleguide).
@@ -22,13 +24,20 @@ export interface Props {
 const { sticky = true, cta } = Astro.props;
 
 // CTA dynamique selon la page (toujours avec le swoosh).
-function ctaFor(p: string): string {
-  if (p.includes('/dtv-visa')) return 'Start your DTV';
-  if (p.includes('/stay-train')) return 'Plan your stay';
-  if (p.includes('/classes') || p.includes('/schedule') || p.includes('/pricing')) return 'Book a class';
-  return 'Join now';
+// Record explicite (pas d'accès dynamique m['...'] — tree-shaking + typage).
+const ctaLabels = {
+  start_dtv: m.cta_start_dtv(),
+  plan_stay: m.cta_plan_stay(),
+  book_class: m.cta_book_class(),
+  join_now: m.cta_join_now(),
+} as const;
+function ctaKeyFor(p: string): keyof typeof ctaLabels {
+  if (p.includes('/dtv-visa')) return 'start_dtv';
+  if (p.includes('/stay-train')) return 'plan_stay';
+  if (p.includes('/classes') || p.includes('/schedule') || p.includes('/pricing')) return 'book_class';
+  return 'join_now';
 }
-const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
+const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
 ---
 
 
@@ -36,8 +45,8 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
 <div class="util">
   <div class="wrap">
     <div class="u-left">
-      <span class="u-item"><Icon name="tabler:map-pin" class="i" /> Hang Dong, Chiang Mai</span>
-      <span class="u-item hide-sm"><span class="dot-open"></span> Open today · 07:00–21:00</span>
+      <span class="u-item"><Icon name="tabler:map-pin" class="i" /> {m.nav_util_location()}</span>
+      <span class="u-item hide-sm"><span class="dot-open"></span> {m.nav_util_open_today()}</span>
       <span class="u-item hide-sm"><Icon name="tabler:phone" class="i" /> <a href={site.contact.phoneHref}>{site.contact.phone}</a></span>
     </div>
     <div class="u-right">
@@ -54,152 +63,152 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
 <!-- ============ MAIN NAV ============ -->
 <header class:list={['nav', !sticky && 'nav--static']} id="wc-nav">
   <div class="wrap">
-    <a class="brand" href="#" aria-label="Wildcat Muay Thai home"><img src="/assets/logo-cream.png" alt="Wildcat Muay Thai"></a>
+    <a class="brand" href="#" aria-label={m.nav_aria_home()}><img src="/assets/logo-cream.png" alt={site.name}></a>
 
-    <nav class="menubar" aria-label="Primary">
+    <nav class="menubar" aria-label={m.nav_aria_primary()}>
 
       <!-- TRAIN -->
       <div class="mi wide" data-mega>
-        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">Train</span> <Icon name="tabler:chevron-down" class="caret" /></button>
+        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">{m.nav_train()}</span> <Icon name="tabler:chevron-down" class="caret" /></button>
         <div class="mega" role="menu">
           <div class="mcol">
-            <span class="lab">Classes</span>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:karate" class="i" /></span><span class="mtx"><span class="mt">Beginner Muay Thai</span><span class="md">Start from zero — no experience needed</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:chart-bar" class="i" /></span><span class="mtx"><span class="mt">All-Levels Classes</span><span class="md">Daily group training for everyone</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:user" class="i" /></span><span class="mtx"><span class="mt">Private Sessions</span><span class="md">One-on-one with a Kru</span></span></a>
+            <span class="lab">{m.nav_train_col_classes()}</span>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:karate" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_beginner_title()}</span><span class="md">{m.nav_train_beginner_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:chart-bar" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_alllevels_title()}</span><span class="md">{m.nav_train_alllevels_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:user" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_private_title()}</span><span class="md">{m.nav_train_private_desc()}</span></span></a>
           </div>
           <div class="mcol">
-            <span class="lab">For everyone</span>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:gender-female" class="i" /></span><span class="mtx"><span class="mt">Women's Muay Thai</span><span class="md">A welcoming, supportive space</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:mood-kid" class="i" /></span><span class="mtx"><span class="mt">Kids &amp; Family</span><span class="md">Fun, safe, confidence-building</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:flame" class="i" /></span><span class="mtx"><span class="mt">Fight Team</span><span class="md">Train hard &amp; compete</span></span></a>
+            <span class="lab">{m.nav_train_col_everyone()}</span>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:gender-female" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_women_title()}</span><span class="md">{m.nav_train_women_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:mood-kid" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_kids_title()}</span><span class="md">{m.nav_train_kids_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:flame" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_fight_title()}</span><span class="md">{m.nav_train_fight_desc()}</span></span></a>
           </div>
           <div class="mcol">
-            <span class="lab">Plan your training</span>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:calendar-event" class="i" /></span><span class="mtx"><span class="mt">Class Schedule</span><span class="md">Daily timetable &amp; sessions</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:tag" class="i" /></span><span class="mtx"><span class="mt">Pricing &amp; Passes</span><span class="md">Drop-in, monthly &amp; long-stay</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:sparkles" class="i" /></span><span class="mtx"><span class="mt">Free Trial Class</span><span class="md">Try your first class on us</span></span></a>
+            <span class="lab">{m.nav_train_col_plan()}</span>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:calendar-event" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_schedule_title()}</span><span class="md">{m.nav_train_schedule_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:tag" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_pricing_title()}</span><span class="md">{m.nav_train_pricing_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:sparkles" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_trial_title()}</span><span class="md">{m.nav_train_trial_desc()}</span></span></a>
           </div>
           <div class="mfeat">
-            <span class="ft-tag">New here?</span>
-            <h4>Your first class is <span class="em">free.</span></h4>
-            <p>Never thrown a kick? Perfect. Everyone starts somewhere — come as you are.</p>
-            <div class="ff"><a class="fbtn" href="#">Book a trial <ArrowWild class="fbtn-ar" size={20} /></a></div>
+            <span class="ft-tag">{m.nav_train_feat_tag()}</span>
+            <h4>{m.nav_train_feat_title()} <span class="em">{m.nav_train_feat_title_em()}</span></h4>
+            <p>{m.nav_train_feat_body()}</p>
+            <div class="ff"><a class="fbtn" href="#">{m.nav_train_feat_btn()} <ArrowWild class="fbtn-ar" size={20} /></a></div>
           </div>
           <div class="mfoot">
             <div class="links">
-              <a href="#"><Icon name="tabler:calendar-event" /> View full schedule</a>
-              <a href="#"><Icon name="tabler:tag" /> Compare passes</a>
+              <a href="#"><Icon name="tabler:calendar-event" /> {m.nav_train_foot_schedule()}</a>
+              <a href="#"><Icon name="tabler:tag" /> {m.nav_train_foot_passes()}</a>
             </div>
-            <a class="allcta" href="#">All classes <ArrowWild size={18} /></a>
+            <a class="allcta" href="#">{m.nav_train_allcta()} <ArrowWild size={18} /></a>
           </div>
         </div>
       </div>
 
       <!-- STAY & TRAIN -->
       <div class="mi wide" data-mega>
-        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">Stay &amp; Train</span> <Icon name="tabler:chevron-down" class="caret" /></button>
+        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">{m.nav_stay()}</span> <Icon name="tabler:chevron-down" class="caret" /></button>
         <div class="mega" role="menu">
           <div class="mcol">
-            <span class="lab">Train &amp; stay</span>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:route" class="i" /></span><span class="mtx"><span class="mt">Stay &amp; Train Packages</span><span class="md">All-in week or month plans</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:home-2" class="i" /></span><span class="mtx"><span class="mt">Long-Stay Training</span><span class="md">Settle in for the season</span></span></a>
+            <span class="lab">{m.nav_stay_col_train()}</span>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:route" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_packages_title()}</span><span class="md">{m.nav_stay_packages_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:home-2" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_longstay_title()}</span><span class="md">{m.nav_stay_longstay_desc()}</span></span></a>
           </div>
           <div class="mcol">
-            <span class="lab">Logistics</span>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:bed" class="i" /></span><span class="mtx"><span class="mt">Where to Stay</span><span class="md">Partner accommodation nearby</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:motorbike" class="i" /></span><span class="mtx"><span class="mt">Scooter Rental</span><span class="md">Get around on two wheels</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:map-pin" class="i" /></span><span class="mtx"><span class="mt">Getting Here</span><span class="md">Find &amp; reach the gym</span></span></a>
+            <span class="lab">{m.nav_stay_col_logistics()}</span>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:bed" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_accom_title()}</span><span class="md">{m.nav_stay_accom_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:motorbike" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_scooter_title()}</span><span class="md">{m.nav_stay_scooter_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:map-pin" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_getting_title()}</span><span class="md">{m.nav_stay_getting_desc()}</span></span></a>
           </div>
           <div class="mcol">
-            <span class="lab">Explore Chiang Mai</span>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:map-2" class="i" /></span><span class="mtx"><span class="mt">Chiang Mai Guide</span><span class="md">Food, temples &amp; nature</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:leaf" class="i" /></span><span class="mtx"><span class="mt">Things to Do</span><span class="md">Make the most of your stay</span></span></a>
+            <span class="lab">{m.nav_stay_col_explore()}</span>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:map-2" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_guide_title()}</span><span class="md">{m.nav_stay_guide_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:leaf" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_todo_title()}</span><span class="md">{m.nav_stay_todo_desc()}</span></span></a>
           </div>
           <div class="mfeat">
-            <span class="ft-tag">Make it home</span>
-            <h4>Your Chiang Mai <span class="em">base.</span></h4>
-            <p>Train daily, recover by the pool, find your people. Week or season — you belong here.</p>
-            <div class="ff"><a class="fbtn" href="#">Plan your stay <ArrowWild class="fbtn-ar" size={20} /></a></div>
+            <span class="ft-tag">{m.nav_stay_feat_tag()}</span>
+            <h4>{m.nav_stay_feat_title()} <span class="em">{m.nav_stay_feat_title_em()}</span></h4>
+            <p>{m.nav_stay_feat_body()}</p>
+            <div class="ff"><a class="fbtn" href="#">{m.nav_stay_feat_btn()} <ArrowWild class="fbtn-ar" size={20} /></a></div>
           </div>
           <div class="mfoot">
             <div class="links">
-              <a href="#"><Icon name="tabler:id" /> Staying long-term? See DTV Visa</a>
+              <a href="#"><Icon name="tabler:id" /> {m.nav_stay_foot_dtv()}</a>
             </div>
-            <a class="allcta" href="#">Stay &amp; Train overview <ArrowWild size={18} /></a>
+            <a class="allcta" href="#">{m.nav_stay_allcta()} <ArrowWild size={18} /></a>
           </div>
         </div>
       </div>
 
       <!-- DTV VISA -->
       <div class="mi wide" data-mega>
-        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">DTV Visa</span> <Icon name="tabler:chevron-down" class="caret" /></button>
+        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">{m.nav_dtv()}</span> <Icon name="tabler:chevron-down" class="caret" /></button>
         <div class="mega" role="menu">
           <div class="mcol">
-            <span class="lab">The DTV guide</span>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:id" class="i" /></span><span class="mtx"><span class="mt">What is the DTV Visa</span><span class="md">The 5-year soft-power visa, explained</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:circle-check" class="i" /></span><span class="mtx"><span class="mt">Am I Eligible?</span><span class="md">Requirements &amp; who qualifies</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:route" class="i" /></span><span class="mtx"><span class="mt">How to Apply</span><span class="md">Step-by-step walkthrough</span></span></a>
+            <span class="lab">{m.nav_dtv_col_guide()}</span>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:id" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_what_title()}</span><span class="md">{m.nav_dtv_what_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:circle-check" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_eligible_title()}</span><span class="md">{m.nav_dtv_eligible_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:route" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_apply_title()}</span><span class="md">{m.nav_dtv_apply_desc()}</span></span></a>
           </div>
           <div class="mcol">
-            <span class="lab">Train on a DTV</span>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:karate" class="i" /></span><span class="mtx"><span class="mt">Muay Thai &amp; the DTV</span><span class="md">Training as your qualifying activity</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:home-2" class="i" /></span><span class="mtx"><span class="mt">Long-Stay Training Plans</span><span class="md">Programs built for the DTV</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:file-text" class="i" /></span><span class="mtx"><span class="mt">Your Training Documents</span><span class="md">We provide your enrolment letter</span></span></a>
+            <span class="lab">{m.nav_dtv_col_train()}</span>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:karate" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_muaythai_title()}</span><span class="md">{m.nav_dtv_muaythai_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:home-2" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_plans_title()}</span><span class="md">{m.nav_dtv_plans_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:file-text" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_docs_title()}</span><span class="md">{m.nav_dtv_docs_desc()}</span></span></a>
           </div>
           <div class="mcol">
-            <span class="lab">Get help</span>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:help-circle" class="i" /></span><span class="mtx"><span class="mt">DTV FAQ</span><span class="md">Common questions answered</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:message-circle" class="i" /></span><span class="mtx"><span class="mt">Talk to Us</span><span class="md">Ask about your situation</span></span></a>
+            <span class="lab">{m.nav_dtv_col_help()}</span>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:help-circle" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_faq_title()}</span><span class="md">{m.nav_dtv_faq_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:message-circle" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_talk_title()}</span><span class="md">{m.nav_dtv_talk_desc()}</span></span></a>
           </div>
           <div class="mfeat gold">
             <span class="stamp"></span>
             <div class="dtv-mini"><b>DTV</b><i>Visa</i></div>
-            <h4>Stay up to <span class="em">5 years.</span></h4>
-            <p>Enrol long-term and we handle your training documents to support your application.</p>
-            <div class="ff"><a class="fbtn" href="#">Start your DTV <ArrowWild class="fbtn-ar" size={20} /></a></div>
+            <h4>{m.nav_dtv_feat_title()} <span class="em">{m.nav_dtv_feat_title_em()}</span></h4>
+            <p>{m.nav_dtv_feat_body()}</p>
+            <div class="ff"><a class="fbtn" href="#">{m.cta_start_dtv()} <ArrowWild class="fbtn-ar" size={20} /></a></div>
           </div>
           <div class="mfoot">
             <div class="links">
-              <a href="#"><Icon name="tabler:motorbike" /> Scooter rental for your stay</a>
-              <a href="#"><Icon name="tabler:bed" /> Accommodation</a>
+              <a href="#"><Icon name="tabler:motorbike" /> {m.nav_dtv_foot_scooter()}</a>
+              <a href="#"><Icon name="tabler:bed" /> {m.nav_dtv_foot_accom()}</a>
             </div>
-            <a class="allcta" href="#">DTV Visa guide <ArrowWild size={18} /></a>
+            <a class="allcta" href="#">{m.nav_dtv_allcta()} <ArrowWild size={18} /></a>
           </div>
         </div>
       </div>
 
       <!-- ABOUT -->
       <div class="mi" data-mega>
-        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">About</span> <Icon name="tabler:chevron-down" class="caret" /></button>
+        <button aria-haspopup="true" aria-expanded="false"><span class="lbl">{m.nav_about()}</span> <Icon name="tabler:chevron-down" class="caret" /></button>
         <div class="mega mega--about" role="menu">
           <div class="mcol">
-            <span class="lab">Wildcat</span>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:leaf" class="i" /></span><span class="mtx"><span class="mt">Our Story</span><span class="md">Family-led, born in Chiang Mai</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:user" class="i" /></span><span class="mtx"><span class="mt">Meet the Coaches</span><span class="md">Real Thai trainers &amp; warmth</span></span></a>
+            <span class="lab">{m.nav_about_col_wildcat()}</span>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:leaf" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_story_title()}</span><span class="md">{m.nav_about_story_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:user" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_coaches_title()}</span><span class="md">{m.nav_about_coaches_desc()}</span></span></a>
           </div>
           <div class="mcol">
-            <span class="lab">Community</span>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:users" class="i" /></span><span class="mtx"><span class="mt">Our Community</span><span class="md">Members from around the world</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:camera" class="i" /></span><span class="mtx"><span class="mt">Gallery</span><span class="md">Life at the gym</span></span></a>
-            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:star" class="i" /></span><span class="mtx"><span class="mt">Reviews</span><span class="md">What members say</span></span></a>
+            <span class="lab">{m.nav_about_col_community()}</span>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:users" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_community_title()}</span><span class="md">{m.nav_about_community_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:camera" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_gallery_title()}</span><span class="md">{m.nav_about_gallery_desc()}</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><Icon name="tabler:star" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_reviews_title()}</span><span class="md">{m.nav_about_reviews_desc()}</span></span></a>
           </div>
           <div class="mfeat">
-            <span class="ft-tag">Why Wildcat</span>
-            <h4>Run by a woman, built like a <span class="em">family.</span></h4>
-            <p>No ego at the door — just real training and real people.</p>
-            <div class="ff"><a class="fbtn" href="#">Our story <ArrowWild class="fbtn-ar" size={20} /></a></div>
+            <span class="ft-tag">{m.nav_about_feat_tag()}</span>
+            <h4>{m.nav_about_feat_title()} <span class="em">{m.nav_about_feat_title_em()}</span></h4>
+            <p>{m.nav_about_feat_body()}</p>
+            <div class="ff"><a class="fbtn" href="#">{m.nav_about_feat_btn()} <ArrowWild class="fbtn-ar" size={20} /></a></div>
           </div>
         </div>
       </div>
 
       <!-- SIMPLE LINKS -->
-      <div class="mi"><a href="#"><span class="lbl">Blog</span></a></div>
-      <div class="mi"><a href="#"><span class="lbl">Contact</span></a></div>
+      <div class="mi"><a href="#"><span class="lbl">{m.nav_blog()}</span></a></div>
+      <div class="mi"><a href="#"><span class="lbl">{m.nav_contact()}</span></a></div>
       <div class="mi cta"><Button variant="gold" flat arrow href="#">{ctaLabel}</Button></div>
     </nav>
 
-    <button class="nav-toggle" aria-label="Open menu" data-drawer-open>
+    <button class="nav-toggle" aria-label={m.nav_aria_open_menu()} data-drawer-open>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
@@ -209,14 +218,14 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
 <div class="drawer" id="wc-drawer">
   <div class="scrim" data-drawer-close></div>
   <div class="panel">
-    <div class="dh"><img src="/assets/logo-cream.png" alt="Wildcat"><button class="x" aria-label="Close" data-drawer-close>×</button></div>
+    <div class="dh"><img src="/assets/logo-cream.png" alt={site.name}><button class="x" aria-label={m.nav_aria_close()} data-drawer-close>×</button></div>
     <div class="dbody">
-      <details open><summary>Train <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> Beginner Muay Thai</a><a href="#"><span class="dot"></span> All Levels</a><a href="#"><span class="dot"></span> Private Sessions</a><a href="#"><span class="dot"></span> Women's Muay Thai</a><a href="#"><span class="dot"></span> Kids &amp; Family</a><a href="#"><span class="dot"></span> Fight Team</a><a href="#"><span class="dot"></span> Schedule &amp; Pricing</a></div></details>
-      <details><summary>Stay &amp; Train <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> Packages</a><a href="#"><span class="dot"></span> Accommodation</a><a href="#"><span class="dot"></span> Scooter Rental</a><a href="#"><span class="dot"></span> Getting Here</a><a href="#"><span class="dot"></span> Chiang Mai Guide</a></div></details>
-      <details><summary>DTV Visa <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> DTV Visa Guide</a><a href="#"><span class="dot"></span> Am I Eligible?</a><a href="#"><span class="dot"></span> How to Apply</a><a href="#"><span class="dot"></span> Muay Thai &amp; the DTV</a><a href="#"><span class="dot"></span> DTV FAQ</a></div></details>
-      <details><summary>About <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> Our Story</a><a href="#"><span class="dot"></span> Coaches</a><a href="#"><span class="dot"></span> Community</a><a href="#"><span class="dot"></span> Gallery &amp; Reviews</a></div></details>
-      <a class="flat" href="#">Blog</a>
-      <a class="flat" href="#">Contact</a>
+      <details open><summary>{m.nav_train()} <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> {m.nav_train_beginner_title()}</a><a href="#"><span class="dot"></span> {m.nav_drawer_alllevels()}</a><a href="#"><span class="dot"></span> {m.nav_train_private_title()}</a><a href="#"><span class="dot"></span> {m.nav_train_women_title()}</a><a href="#"><span class="dot"></span> {m.nav_train_kids_title()}</a><a href="#"><span class="dot"></span> {m.nav_train_fight_title()}</a><a href="#"><span class="dot"></span> {m.nav_drawer_schedule_pricing()}</a></div></details>
+      <details><summary>{m.nav_stay()} <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> {m.nav_drawer_packages()}</a><a href="#"><span class="dot"></span> {m.nav_drawer_accommodation()}</a><a href="#"><span class="dot"></span> {m.nav_stay_scooter_title()}</a><a href="#"><span class="dot"></span> {m.nav_stay_getting_title()}</a><a href="#"><span class="dot"></span> {m.nav_stay_guide_title()}</a></div></details>
+      <details><summary>{m.nav_dtv()} <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> {m.nav_drawer_dtv_guide()}</a><a href="#"><span class="dot"></span> {m.nav_dtv_eligible_title()}</a><a href="#"><span class="dot"></span> {m.nav_dtv_apply_title()}</a><a href="#"><span class="dot"></span> {m.nav_dtv_muaythai_title()}</a><a href="#"><span class="dot"></span> {m.nav_dtv_faq_title()}</a></div></details>
+      <details><summary>{m.nav_about()} <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> {m.nav_about_story_title()}</a><a href="#"><span class="dot"></span> {m.nav_drawer_coaches()}</a><a href="#"><span class="dot"></span> {m.nav_about_col_community()}</a><a href="#"><span class="dot"></span> {m.nav_drawer_gallery_reviews()}</a></div></details>
+      <a class="flat" href="#">{m.nav_blog()}</a>
+      <a class="flat" href="#">{m.nav_contact()}</a>
       <Button variant="gold" flat arrow href="#" class="djoin">{ctaLabel}</Button>
     </div>
   </div>
