@@ -1,0 +1,66 @@
+---
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * LangSwitcher — bascule EN/FR en préservant le path courant.
+ * Strip du préfixe locale identique aux alternates hreflang de BaseLayout.
+ * Locale active en <b> gold (non cliquable), autres locales en lien.
+ * Pur HTML (zéro JS) : le changement de langue est une navigation.
+ */
+const locales = ['en', 'fr'] as const;
+const current = Astro.currentLocale ?? 'en';
+const path = Astro.url.pathname.replace(/^\/(en|fr)(?=\/|$)/, '');
+const hrefFor = (loc: string) => `/${loc}${path}`;
+---
+
+<nav class="lang" aria-label={m.nav_aria_lang_switch()}>
+  {
+    locales.map((loc, i) => (
+      <>
+        {i > 0 && (
+          <span class="sep" aria-hidden="true">
+            /
+          </span>
+        )}
+        {loc === current ? (
+          <b aria-current="page">{loc.toUpperCase()}</b>
+        ) : (
+          <a href={hrefFor(loc)} hreflang={loc} lang={loc}>
+            {loc.toUpperCase()}
+          </a>
+        )}
+      </>
+    ))
+  }
+</nav>
+
+<style>
+  .lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .lang b {
+    color: var(--gold);
+  }
+  .lang .sep {
+    opacity: 0.5;
+  }
+  .lang a {
+    transition: color 0.15s ease;
+  }
+  .lang a:hover {
+    color: var(--gold);
+  }
+  .lang a:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: var(--r-sm);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lang a {
+      transition: none;
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import Button from '../ui/Button.astro';
 import ArrowWild from '../ui/ArrowWild.astro';
+import LangSwitcher from '../ui/LangSwitcher.astro';
 import { Icon } from 'astro-icon/components';
 import { site } from '../../config/site';
 
@@ -45,7 +46,7 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
           <a href={s.href} aria-label={s.label} target="_blank" rel="noopener"><Icon name={s.icon} /></a>
         ))}
       </div>
-      <span class="lang"><b>EN</b> <span>/</span> FR</span>
+      <LangSwitcher />
     </div>
   </div>
 </div>
@@ -248,8 +249,7 @@ const ctaLabel = cta ?? ctaFor(Astro.url.pathname);
   .util .u-soc a { display: flex; opacity: 0.8; transition: 0.15s; }
   .util .u-soc a:hover { opacity: 1; color: var(--gold); }
   .util .u-soc svg { width: 15px; height: 15px; }
-  .util .lang b { color: var(--gold); }
-  .util .lang span { opacity: 0.5; }
+  /* styles du switch EN/FR : voir LangSwitcher.astro */
 
   /* MAIN NAV */
   .nav {
