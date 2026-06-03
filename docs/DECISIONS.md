@@ -4,6 +4,11 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 
 ---
 
+### 2026-06-03 | Icônes : Tabler (set unique via astro-icon)
+- **Contexte** : besoin d'icônes UI + logos réseaux cohérents sur tout le site (nav, DTV, contact, fighters…). Volonté d'**une seule lib** pour la cohérence.
+- **Choix** : **Tabler** via `astro-icon` + `@iconify-json/tabler` — couvre 55/55 besoins du PRD (UI + `brand-*` réseaux + `karate`/`motorbike`), style ligne identique au sprite d'origine. Tailles via tokens `--icon-*`. Custom hors-lib : swoosh (`ArrowWild`), tigre, DTV stamp, ◆. Drapeaux fighters = texte pour l'instant.
+- **Alternatives** : Lucide (exclut les logos de marque → forcerait Simple Icons en 2ᵉ lib) ; Phosphor (plus rond) ; multi-lib via Iconify (rejeté pour la cohérence).
+
 ### 2026-06-03 | Framework : Astro 6 (révision du PRD qui disait "Astro 5")
 - **Contexte** : site vitrine SEO-first, multi-langue, peu d'interactivité lourde. Besoin de SSG + quelques routes on-demand (API DTV).
 - **Alternatives** : Next.js (overkill), SvelteKit, 11ty ; Astro 5 (majeure précédente).

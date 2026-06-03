@@ -9,7 +9,8 @@ Plan d'exécution maître. Statuts : `TODO` · `EN COURS` · `DONE` · `BLOQUÉ`
 | # | Epic | Complexité | Statut | Détail |
 |---|------|:---:|:---:|--------|
 | E1 | Foundation & Setup | M | **DONE** | [E1-foundation.md](features/E1-foundation.md) |
-| E2 | Design System & Layout | M | TODO | [E2-design-system.md](features/E2-design-system.md) |
+| — | Design system (typo, boutons, nav/mega menu, icônes Tabler) | M | **DONE** | `docs/DESIGN.md` + `/styleguide` |
+| E2 | App shell & design-system completion | M | **TODO (next)** | [E2-design-system.md](features/E2-design-system.md) |
 | E3 | i18n (EN/FR) | M | TODO | [E3-i18n.md](features/E3-i18n.md) |
 | E4 | Sanity CMS | M | TODO | [E4-sanity-cms.md](features/E4-sanity-cms.md) |
 | E5 | Pages cœur & silos SEO | L | TODO | [E5-core-pages.md](features/E5-core-pages.md) |
@@ -38,12 +39,19 @@ E1 Foundation
 6. **E8 Blog** + **E9 Médias** — contenu et galerie.
 7. **E10 Deploy** — Vercel + domaine + env de prod.
 
-## Prochaines étapes prioritaires
+## Prochaines étapes prioritaires (reprise session suivante)
 
-1. ✅ **E1 fait** : scaffold Astro 6 + Tailwind v4 + tokens + fonts + i18n EN/FR + Vercel/sitemap.
-2. ▶️ **Lancer E2** : layout complet, mega menu (desktop + drawer mobile), footer, primitives `ui/` depuis la maquette.
-3. Trancher Q5 (domaine) — placeholder actuel `wildcatmuaythai.com` dans `astro.config.mjs` + `.env.example`.
-4. Q1 (storage DTV) avant E6 ; Q6 (slugs) avant E5.
+1. ✅ **E1 + design system faits** : scaffold, tokens, typo/titres canoniques, boutons, nav/mega menu, icônes Tabler, `/styleguide`.
+2. ▶️ **E2 — App shell & design-system completion** (closes les trous "niveau thème" avant les pages) :
+   1. Couleurs sémantiques `--success` / `--error` / `--warning` (+ tokeniser le point "open" du nav `#5bb487`).
+   2. `BaseLayout` fini (head SEO complet : OG/Twitter/JSON-LD slot, fonts preload) + intégration `<Nav/>` + **Footer** (4 colonnes, cf. landing.css).
+   3. Primitives `Container` / `Section` + rythme vertical de section tokenisé.
+   4. Tokens de champ de formulaire (input/label/select/checkbox/file) + états focus/erreur (sert E6 DTV + Contact).
+   5. `Card` de base (surface/bordure/radius/ombre/hover) — réutilisée par programs/pricing/coaches/fighters/blog/témoignages.
+3. Trancher **Q5** (domaine) — placeholder `wildcatmuaythai.com`. **Q1** storage DTV avant E6 ; **Q6** slugs avant E5.
+
+## Build-as-you-go (zéro churn de thème, à créer avec leur page)
+FighterCard/CoachCard, DTVStepper, TestimonialSlider, TrainingSchedule, table pricing, liste/article blog + `.prose`, galerie, HeroVideo, fil d'ariane, liens in-content, composants motifs (BrushDivider/stripes).
 
 ## Pages prioritaires lancement (rappel PRD)
 

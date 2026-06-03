@@ -55,22 +55,23 @@ npm run preview        # preview du build
 ## Design — direction verrouillée
 
 Palette **"Tropical Garden"** (Direction B) + typo Satoshi / Fraunces :
-- **Couleurs** : forest `#1F3B2E`, jungle `#345C3E`, gold `#E0A62B` (gold-deep `#C98A12`), cream `#F6F1E6`, orange/terracotta `#D97732`, charcoal `#111`.
-- **Typo** : **Satoshi** Bold (titres) + Satoshi (corps) ; **Fraunces 72pt SemiBold Italic** (accents or, classe `.em`). Lockup signature : *come for the fight / stay for the family*.
+- **Couleurs** : échelle verte `forest-light #3B6645` / `forest #2E5D3C` / `forest-deep #21422C` ; gold `#E0A62B` (gold-deep `#C98A12`) ; cream `#F6F1E6` ; orange/terracotta `#D97732` ; charcoal `#111`.
+- **Typo** : **Satoshi** Bold (titres `.display/.h1/.h2/.h3`) + Satoshi (corps) ; **Fraunces 72pt SemiBold Italic** (accents or, classe `.em`). Lockup signature : *Come for the fight / Stay for the family*.
+- **Icônes** : set unique **Tabler** via `astro-icon` (`<Icon name="tabler:..." />`) + logos `tabler:brand-*`. Custom : swoosh (`ArrowWild`), tigre, DTV stamp, ◆.
+- **Marque** : toujours **Wildcat** (jamais de C majuscule).
 - **Vibe** : open-air, golden hour, garden & pool. Photographie candide et dorée, jamais "warrior gym" sombre/agressif.
 - **Source de vérité design : `docs/DESIGN.md` + page live `/styleguide`.** Tokens : `src/styles/tokens.css`. Conventions code : `docs/STYLEGUIDE.md`.
 
 ## État actuel
 
-**Phase : E1 Foundation terminée. Prochain : E2 (Design System & Layout).**
+**Phase : Design system complet & verrouillé. Prochain : E2 — App shell & design-system completion.**
 
-- [x] PRD lu et analysé
-- [x] Bundle de design analysé (direction verrouillée identifiée)
-- [x] Documentation projet créée (CLAUDE.md, PLAN, features, DECISIONS, STYLEGUIDE)
-- [x] Décisions clés tranchées : langues **EN+FR** (V1), **Coaches + Fighters** (les 2), **prix publics**
-- [x] **E1 — Scaffold Astro 6 + Tailwind v4** : tokens, i18n EN/FR (`/en` `/fr`), BaseLayout, adapter Vercel + sitemap, assets. `npm run build` ✅
-- [x] **Base design verrouillée** : typo **Satoshi** (self-host Fontshare) + **Fraunces** ; `docs/DESIGN.md` ; page live `/styleguide` ; primitives `ui/Button` + `ui/SectionHead`. `npm run build` ✅
-- [ ] Restent ouvertes : Q1 storage DTV (avant E6), Q5 domaine, Q6 slugs traduits
-- [ ] E2 (Design System & Layout : nav/mega menu, footer) → suite : voir `docs/PLAN.md`
+- [x] PRD lu et analysé · bundle de design analysé · docs projet créés
+- [x] Décisions tranchées : langues **EN+FR** (V1), **Coaches + Fighters**, **prix publics**, **Astro 6**, **icônes Tabler**, **marque Wildcat**
+- [x] **E1 — Scaffold** Astro 6 + Tailwind v4 : tokens, i18n EN/FR (`/en` `/fr`), adapter Vercel + sitemap, assets
+- [x] **Design system** : palette verte 3 tons + gold/cream/charcoal/orange ; typo Satoshi + Fraunces + titres canoniques `.display/.h1/.h2/.h3` ; **boutons** (gold/forest/outline/link + flat + swoosh `ArrowWild`) ; **nav/mega menu** + drawer + utility bar ; **icônes Tabler** (`astro-icon`) ; focus-visible + reduced-motion ; `docs/DESIGN.md` + `/styleguide`. `npm run build` ✅
+- [ ] **E2 (à faire) — App shell & design-system completion** : (1) couleurs sémantiques `--success/--error/--warning` (2) `BaseLayout` fini (head SEO/OG/JSON-LD, fonts preload, Nav+Footer) + **Footer** (3) primitives `Container`/`Section` + rythme de section (4) tokens de champ de formulaire + états (5) `Card` de base. _Cf. audit de complétude — closes les trous "niveau thème" avant les pages._
+- [ ] Questions ouvertes : **Q1** storage DTV (avant E6), **Q5** domaine, **Q6** slugs traduits
+- [ ] Puis E5 (pages) — assemblage des primitives, sans retoucher le thème
 
 _Dernière mise à jour : 2026-06-03._
