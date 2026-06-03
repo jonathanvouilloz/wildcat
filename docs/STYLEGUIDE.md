@@ -47,7 +47,7 @@ Conventions de **code**. La source de vérité **visuelle** (couleurs, typo, mot
 ### Composants signature (depuis la maquette)
 
 - **`.sec-head`** : label CAPS `◆` (orange) avant chaque section, `letter-spacing:.16em`, couleur forest (ou gold sur fond sombre).
-- **Boutons** : `.btn-gold` (CTA primaire), `.btn-forest`, `.btn-outline` (+ variante `.on-dark`). CAPS, `13.5px`, `letter-spacing:.06em`, radius `--r-sm`. Flèche `→` qui glisse au hover.
+- **Boutons** (`ui/Button.astro`) : variantes `gold` / `forest` / `outline` (+ `onDark`). **Pill, Satoshi Bold casse normale**, relief vert `#3B6645`, swoosh maison (`ui/ArrowWild.astro`), états hover/press/focus. Détail : `docs/DESIGN.md` §8.
 - **DTV stamp** : sceau circulaire doré (radial-gradient or, bordure charcoal) — élément de marque récurrent.
 - **Mega menu** : 4 panneaux riches (Train / Stay & Train / DTV Visa / About) + liens simples (Blog, Contact) + CTA Join. Drawer accordéon en mobile.
 - **Brush divider** : séparateur SVG "coup de pinceau" entre hero et value strip.

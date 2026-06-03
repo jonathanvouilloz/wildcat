@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Button from '../components/ui/Button.astro';
 import SectionHead from '../components/ui/SectionHead.astro';
+import Nav from '../components/sections/Nav.astro';
 
 // Page interne de référence design — non indexée, non localisée.
 
@@ -38,6 +39,9 @@ const inks = [
     <title>WildCat — Design System</title>
   </head>
   <body>
+    <!-- Mega menu live (sticky) -->
+    <Nav />
+
     <div class="mx-auto max-w-[1100px] px-6 py-14">
       <!-- Intro -->
       <header class="mb-16">
@@ -46,8 +50,11 @@ const inks = [
           The WildCat <span class="em">look book.</span>
         </h1>
         <p class="mt-4 max-w-[60ch] text-lg text-ink-2">
-          La base verrouillée — couleurs, typographie, boutons et motifs — pour toute la suite du
-          site. Référence vivante (Astro + Tailwind v4). Voir <code>docs/DESIGN.md</code> pour le détail.
+          La base verrouillée — couleurs, typographie, boutons, motifs et navigation — pour toute la
+          suite du site. Référence vivante (Astro + Tailwind v4). Voir <code>docs/DESIGN.md</code>.
+        </p>
+        <p class="mt-3 text-sm text-ink-3">
+          ↑ Le <strong>mega menu</strong> est live en haut de page — survole <em>Train · Stay &amp; Train · DTV Visa · About</em> (réduis la fenêtre &lt; 1080px pour le drawer mobile).
         </p>
       </header>
 
@@ -58,9 +65,9 @@ const inks = [
           class="mt-4 overflow-hidden rounded-[var(--r-lg)] bg-forest px-8 py-16 text-center md:py-24"
           style="box-shadow: var(--shadow-md)"
         >
-          <p class="font-display text-4xl font-bold leading-[1.05] text-cream md:text-6xl">
-            come for the fight.<br />
-            <span class="em on-dark">stay for the family.</span>
+          <p class="font-display text-4xl font-bold leading-[1.05] tracking-[-0.035em] text-cream md:text-6xl">
+            Come for the fight.<br />
+            <span class="em on-dark">Stay for the family.</span>
           </p>
         </div>
         <p class="mt-3 text-sm text-ink-3">
@@ -162,15 +169,46 @@ const inks = [
       <!-- Buttons -->
       <section class="mb-20">
         <SectionHead>Boutons</SectionHead>
-        <h2 class="mt-3 mb-6 font-display text-3xl font-bold text-forest">CTA</h2>
-        <div class="flex flex-wrap items-center gap-3">
+        <h2 class="mt-3 mb-2 font-display text-3xl font-bold text-forest">
+          The WildCat <span class="em">press.</span>
+        </h2>
+        <p class="mb-7 max-w-[56ch] text-ink-2">
+          Pill, Satoshi Bold en casse normale, relief vert <code>#3B6645</code> et flèche maison.
+          Survol : lift + flèche qui glisse. Clic : la pastille s'enfonce.
+        </p>
+
+        <!-- showcase -->
+        <div class="mb-8 flex flex-wrap items-center gap-x-6 gap-y-8">
+          <Button variant="forest" arrow>Start your DTV</Button>
           <Button variant="gold" arrow>Book a class</Button>
-          <Button variant="forest">Stay &amp; Train</Button>
-          <Button variant="outline">View schedule</Button>
+          <Button variant="outline" arrow>Start your DTV</Button>
         </div>
-        <div class="mt-4 flex flex-wrap items-center gap-3 rounded-[var(--r-lg)] bg-forest p-6">
+
+        <!-- flat (CTA nav) -->
+        <div class="mb-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <Button variant="gold" flat arrow>Join now</Button>
+          <span class="text-sm text-ink-3">variante <code>flat</code> (sans relief) — utilisée pour le CTA du nav, texte dynamique selon la page</span>
+        </div>
+
+        <!-- on dark -->
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-8 rounded-[var(--r-lg)] bg-forest p-8">
           <Button variant="gold" arrow>Start your DTV</Button>
-          <Button variant="outline" onDark>Get in touch</Button>
+          <Button variant="outline" onDark arrow>Start your DTV</Button>
+        </div>
+
+        <!-- links (navbar) -->
+        <h3 class="mb-3 mt-10 font-display text-lg font-bold text-forest">Liens (navbar) — variante <code>link</code></h3>
+        <div class="flex flex-wrap items-center gap-7">
+          <Button variant="link" href="#">Classes</Button>
+          <Button variant="link" href="#">Stay &amp; Train</Button>
+          <Button variant="link" href="#">DTV Visa</Button>
+          <Button variant="link" href="#">Contact</Button>
+        </div>
+        <div class="mt-4 flex flex-wrap items-center gap-7 rounded-[var(--r-lg)] bg-forest p-6">
+          <Button variant="link" onDark href="#">Classes</Button>
+          <Button variant="link" onDark href="#">Stay &amp; Train</Button>
+          <Button variant="link" onDark href="#">DTV Visa</Button>
+          <Button variant="link" onDark href="#">Contact</Button>
         </div>
       </section>
 

@@ -29,7 +29,7 @@ Chaleureux, simple, encourageant. Comme un·e ami·e qui tient une salle — jam
 **Bannis** : ~~Aggressive~~ · ~~Elitist~~ · ~~Hardcore-bro~~ · ~~bloodied/warrior imagery~~
 
 ### Taglines
-- **come for the fight. *stay for the family.*** ← lockup signature (voir §4)
+- **Come for the fight. *Stay for the family.*** ← lockup signature (voir §4)
 - Train. Stay. *Belong.* / Entraîne-toi. Reste. *Trouve ta place.*
 - Your Muay Thai *home* in Chiang Mai. / Ton Muay Thai à Chiang Mai, *comme à la maison.*
 - Real training, *family* vibe. / Du vrai entraînement, *l'esprit famille.*
@@ -52,7 +52,7 @@ Palette verrouillée. Tokens dans `src/styles/tokens.css`. **Ne jamais mettre de
 
 | Nom | Hex | Token | Rôle |
 |-----|-----|-------|------|
-| Forest | `#1F3B2E` | `--forest` | Nav, footer, sections sombres, titres |
+| Forest (Palm Green) | `#2E5D3C` | `--forest` | Nav, footer, sections sombres, titres, fond du lockup |
 | Jungle | `#345C3E` | `--jungle` | Accents secondaires, labels, ✓ |
 | Gold | `#E0A62B` | `--gold` | CTA principal, accents, accents sur fond sombre |
 | Gold Deep | `#C98A12` | `--gold-deep` | Emphase texte / liens sur fond clair |
@@ -67,7 +67,7 @@ Palette verrouillée. Tokens dans `src/styles/tokens.css`. **Ne jamais mettre de
 `--ink #1B2A22` (principal) · `--ink-2 #556157` (secondaire) · `--ink-3 #8A9389` (tertiaire/légendes)
 
 ### Règles d'association
-- **Fond sombre** : `forest` (ou dégradé `#16271E → #1F3B2E`) + texte `cream` + accents `gold`.
+- **Fond sombre** : `forest` `#2E5D3C` (ou dégradé sombre → forest) + texte `cream` + accents `gold`.
 - **Fond clair** : `cream`/`surface` + texte `ink` + accents `gold-deep`.
 - CTA primaire : `gold` + texte `charcoal`. CTA sombre : `forest` + texte `cream`.
 - Sur or, le texte est toujours `charcoal` (jamais blanc).
@@ -87,10 +87,10 @@ Deux familles. **Satoshi** (self-hostée, Fontshare) porte titres et corps ; **F
 | **Accent / variation de titre** | **Fraunces** | **72pt SemiBold Italic** — `opsz 72`, `wght 600`, italic, couleur or |
 
 ### Lockup signature
-> **come for the fight.** *(Satoshi Bold, cream)*
-> ***stay for the family.*** *(Fraunces 72 SemiBold Italic, gold)*
+> **Come for the fight.** *(Satoshi Bold, cream)*
+> ***Stay for the family.*** *(Fraunces 72 SemiBold Italic, gold)*
 
-Sur fond `forest`. C'est LE pattern de marque : une affirmation directe en Satoshi + une chute chaleureuse en Fraunces or. Classe d'accent : `.em` (or profond) / `.em.on-dark` (or vif).
+Sur fond `forest` `#2E5D3C`. C'est LE pattern de marque : une affirmation directe en Satoshi + une chute chaleureuse en Fraunces or. Classe d'accent : `.em` (or profond) / `.em.on-dark` (or vif). **Tracking serré** (`-0.035em`) sur le display.
 
 ### Échelle (références)
 - H1 hero : `clamp(40px, 6.2vw, 72px)`, lh `0.98`
@@ -106,7 +106,12 @@ Sur fond `forest`. C'est LE pattern de marque : une affirmation directe en Satos
 
 ## 5. Spacing, radius, ombres, breakpoints
 
-- **Radius** : `--r-sm 8px` (boutons) · `--r-md 12px` (cards) · `--r-lg 20px` (blocs/médias) · `--r-xl 28px`.
+- **Radius** : boutons = **pill** (`999px`) · `--r-sm 8px` (badges, petits) · `--r-md 12px` (cards) · `--r-lg 20px` (blocs/médias) · `--r-xl 28px`.
+- **Boutons — même boîte** : toutes les variantes partagent `min-height 44px`, padding `10px 24px`, pill `999px`, bordure `1.5px` (transparente sur les pleins) → proportions 100 % identiques. Offsets de relief alignés : base `7px` / hover `8px` / press `3px`.
+- **Élévation** (surface claire + ombre foncée) : forest = surface `#3B6645` + pastille/ombre vert foncé `#21422C` ; gold = surface `gold` + pastille `--gold-deep` ; **outline** (tertiaire) = **totalement transparent** (ni fond ni bordure), texte seul → vert foncé (forest) sur fond clair, crème sur fond sombre. Même boîte que les pleins ; hover = léger fond teinté.
+- **Hiérarchie** : `gold` = primaire · `forest` = secondaire · `outline` = tertiaire · `link` = navbar. Hover = lift (`-1px`) ; press = pastille enfoncée (`scale .99`). Respecte `prefers-reduced-motion`.
+- **Modifieur `flat`** : même couleur (gold/forest) mais **sans relief ni lift** — utilisé pour le **CTA du nav** (Join), avec swoosh. Le libellé du CTA nav est **dynamique selon la page** (`Start your DTV` sur /dtv-visa, `Plan your stay` sur /stay-train, `Book a class` sur /classes…, sinon `Join now`).
+- **Variante `link`** (navbar) : texte seul, sans bordure ni relief, Satoshi 600, soulignement or animé au survol (couleur → `gold-deep` clair / `gold` sombre).
 - **Ombres** : `--shadow-sm` (cards) · `--shadow-md` (hover, médias) · `--shadow-lg` (flottants).
 - **Largeur max** : `--maxw 1200px`, padding latéral `clamp(20px, 4vw, 40px)`.
 - **Breakpoints** (Tailwind) : `sm 640` · `md 768` · `lg 1024` · `xl 1280`. Bascules clés : `1024px` (nav → burger), `860px` (grilles → 1 col). **Mobile-first absolu.**
@@ -153,7 +158,8 @@ Spécifiés visuellement ici, implémentés en E2 (`src/components/ui` + `sectio
 
 | Composant | Statut | Notes |
 |-----------|--------|-------|
-| `Button` (gold/forest/outline + on-dark) | ✅ `ui/Button.astro` | CAPS, flèche au hover |
+| `Button` (gold/forest/outline/link + on-dark) | ✅ `ui/Button.astro` | **Pill · Satoshi Bold casse normale · même boîte sur toutes les variantes · surface claire + ombre foncée · swoosh maison · `link` = navbar · états hover(lift)/press/focus** |
+| `ArrowWild` (swoosh maison) | ✅ `ui/ArrowWild.astro` | icône vectorielle `currentColor` (public/assets/arrow-wild.svg) |
 | `SectionHead` (◆ CAPS) | ✅ `ui/SectionHead.astro` | center / on-dark |
 | `DtvStamp` | spec | sceau doré (cf. /styleguide) |
 | Tiger stripes / Claw / Round stamp | spec | motifs CSS |

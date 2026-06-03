@@ -1,14 +1,20 @@
 ---
+import ArrowWild from './ArrowWild.astro';
+
 /**
- * Button — primitive CTA WildCat.
- * Variantes : gold (primaire) · forest · outline (+ onDark).
- * Rend <a> si `href`, sinon <button>. Flèche optionnelle qui glisse au hover.
+ * Button — CTA signature WildCat.
+ * Pill · Satoshi Bold (casse normale) · relief (surface claire + ombre foncée) · swoosh maison.
+ * Variantes : gold (primaire) · forest · outline (+ onDark) · link (texte, navbar).
+ * Toutes les variantes "boutons" partagent exactement la même boîte (hauteur/padding/pill/bordure).
+ * Rend <a> si href, sinon <button>.
  */
 export interface Props {
-  variant?: 'gold' | 'forest' | 'outline';
+  variant?: 'gold' | 'forest' | 'outline' | 'link';
   href?: string;
   onDark?: boolean;
   arrow?: boolean;
+  /** Sans relief/ombre (ex : CTA nav). */
+  flat?: boolean;
   class?: string;
   type?: 'button' | 'submit';
 }
@@ -18,32 +24,192 @@ const {
   href,
   onDark = false,
   arrow = false,
+  flat = false,
   class: extra = '',
   type = 'button',
 } = Astro.props;
 
-const base =
-  'btn inline-flex items-center gap-2 cursor-pointer font-display font-bold uppercase tracking-[0.06em] text-[13.5px] px-6 py-[13px] rounded-[var(--r-sm)] border-[1.5px] border-transparent transition-[0.18s] whitespace-nowrap';
-
-const variants = {
-  gold: 'bg-gold text-charcoal hover:opacity-90',
-  forest: 'bg-forest text-cream hover:opacity-90',
-  outline: onDark
-    ? 'bg-transparent border-[rgba(246,241,230,0.4)] text-cream hover:border-cream hover:bg-[rgba(246,241,230,0.08)]'
-    : 'bg-transparent border-line-2 text-ink hover:border-forest',
-};
-
-const cls = `${base} ${variants[variant]} ${extra}`;
 const Tag = href ? 'a' : 'button';
+const variantClass =
+  variant === 'gold'
+    ? 'wc-gold'
+    : variant === 'forest'
+      ? 'wc-forest'
+      : variant === 'link'
+        ? onDark
+          ? 'wc-link wc-link--dark'
+          : 'wc-link'
+        : onDark
+          ? 'wc-outline wc-outline--dark'
+          : 'wc-outline';
 ---
 
-<Tag class={cls} href={href} type={href ? undefined : type}>
-  <slot />
-  {arrow && <span class="ar transition-transform duration-150 group-hover:translate-x-1">→</span>}
+<Tag
+  class:list={['wc-btn', variantClass, flat && 'wc-flat', extra]}
+  href={href}
+  type={href ? undefined : type}
+>
+  <span class="wc-label"><slot /></span>
+  {arrow && <ArrowWild class="wc-ar" size={26} />}
 </Tag>
 
 <style>
-  .btn:hover .ar {
-    transform: translateX(3px);
+  .wc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    min-height: 44px;
+    padding: 10px 24px;
+    border-radius: 999px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      background-color 0.18s ease,
+      border-color 0.18s ease;
+  }
+  .wc-btn:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .wc-ar {
+    flex: 0 0 auto;
+    transition: transform 0.2s ease;
+  }
+  .wc-btn:hover .wc-ar {
+    transform: translateX(4px);
+  }
+  .wc-btn:active {
+    transform: translateY(1px) scale(0.99);
+  }
+
+  /* Forest — surface vert clair (#3B6645) + relief/ombre vert foncé */
+  .wc-forest {
+    background: #3b6645;
+    color: var(--cream);
+    box-shadow:
+      0 7px 0 -1px #21422c,
+      0 16px 26px -12px rgba(12, 26, 17, 0.6);
+  }
+  .wc-forest:hover {
+    background: #447552;
+    transform: translateY(-1px);
+    box-shadow:
+      0 8px 0 -1px #21422c,
+      0 20px 30px -12px rgba(12, 26, 17, 0.65);
+  }
+  .wc-forest:active {
+    box-shadow:
+      0 3px 0 -1px #21422c,
+      0 10px 18px -12px rgba(12, 26, 17, 0.55);
+  }
+
+  /* Gold — relief or profond */
+  .wc-gold {
+    background: var(--gold);
+    color: var(--charcoal);
+    box-shadow:
+      0 7px 0 -1px var(--gold-deep),
+      0 16px 26px -12px rgba(160, 116, 18, 0.55);
+  }
+  .wc-gold:hover {
+    background: #e8b13e;
+    transform: translateY(-1px);
+    box-shadow:
+      0 8px 0 -1px var(--gold-deep),
+      0 20px 30px -12px rgba(160, 116, 18, 0.6);
+  }
+  .wc-gold:active {
+    box-shadow:
+      0 3px 0 -1px var(--gold-deep),
+      0 10px 18px -12px rgba(160, 116, 18, 0.5);
+  }
+
+  /* Outline — relief "double ligne" : bordure + ligne blanche décalée (pastille claire),
+     surface transparente (prend la couleur du fond où le bouton est posé). */
+  /* Outline — totalement transparent (ni fond ni bordure), texte seul.
+     Même boîte que primary/secondary. Hover = léger fond teinté pour l'affordance. */
+  .wc-outline {
+    background: transparent;
+    border-color: transparent;
+    color: var(--forest);
+  }
+  .wc-outline:hover {
+    background: rgba(46, 93, 60, 0.07);
+  }
+
+  /* Outline sur fond sombre — texte crème */
+  .wc-outline--dark {
+    color: var(--cream);
+    border-color: transparent;
+  }
+  .wc-outline--dark:hover {
+    background: rgba(246, 241, 230, 0.1);
+  }
+
+  /* Link — texte simple (navbar), sans bordure ni relief, soulignement or animé */
+  .wc-link {
+    min-height: 0;
+    padding: 4px 2px;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: linear-gradient(var(--gold-deep), var(--gold-deep));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    color: var(--ink);
+    font-weight: 600;
+    gap: 7px;
+    transition:
+      background-size 0.2s ease,
+      color 0.18s ease;
+  }
+  .wc-link:hover {
+    color: var(--gold-deep);
+    background-size: 100% 2px;
+  }
+  .wc-link:active {
+    transform: none;
+  }
+  .wc-link--dark {
+    color: var(--cream);
+    background-image: linear-gradient(var(--gold), var(--gold));
+  }
+  .wc-link--dark:hover {
+    color: var(--gold);
+  }
+
+  /* Flat — même couleur, sans relief ni lift (ex : CTA nav) */
+  .wc-flat,
+  .wc-flat:hover,
+  .wc-flat:active {
+    box-shadow: none;
+  }
+  .wc-flat:hover {
+    transform: none;
+  }
+  .wc-flat:active {
+    transform: translateY(1px) scale(0.99);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wc-btn,
+    .wc-ar {
+      transition: none;
+    }
+    .wc-btn:hover {
+      transform: none;
+    }
   }
 </style>
