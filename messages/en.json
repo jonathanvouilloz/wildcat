@@ -12,5 +12,22 @@
   "home_h1b": "in Chiang Mai.",
   "home_sub": "Astro 6 + Tailwind v4 + design system Tropical Garden. Full shell: Nav, Footer, primitives.",
   "home_cta": "Book a free trial",
-  "home_cta2": "Explore classes"
+  "home_cta2": "Explore classes",
+
+  "site_tagline": "A warm, community-led Muay Thai gym in Chiang Mai, Thailand. Train together, grow together.",
+  "site_motto": "Train together. Grow together.",
+
+  "footer_col_explore": "Explore",
+  "footer_col_hours": "Hours",
+  "footer_col_contact": "Contact",
+  "footer_hours_monfri": "Mon – Fri",
+  "footer_hours_sat": "Saturday",
+  "footer_hours_sun": "Sunday",
+  "footer_contact_note": "Closed on Thai holidays",
+  "footer_copyright": "© {year} {name} Chiang Mai. All rights reserved.",
+  "footer_explore_classes": "Classes",
+  "footer_explore_schedule": "Schedule",
+  "footer_explore_coaches": "Coaches",
+  "footer_explore_pricing": "Pricing",
+  "footer_explore_dtv": "DTV Visa"
 }

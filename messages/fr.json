@@ -12,5 +12,22 @@
   "home_h1b": "à Chiang Mai.",
   "home_sub": "Astro 6 + Tailwind v4 + design system Tropical Garden. Shell complet : Nav, Footer, primitives.",
   "home_cta": "Réserve un essai gratuit",
-  "home_cta2": "Découvre les cours"
+  "home_cta2": "Découvre les cours",
+
+  "site_tagline": "Un camp de Muay Thai chaleureux et familial à Chiang Mai, en Thaïlande. On s’entraîne ensemble, on grandit ensemble.",
+  "site_motto": "S’entraîner ensemble. Grandir ensemble.",
+
+  "footer_col_explore": "Explorer",
+  "footer_col_hours": "Horaires",
+  "footer_col_contact": "Contact",
+  "footer_hours_monfri": "Lun – Ven",
+  "footer_hours_sat": "Samedi",
+  "footer_hours_sun": "Dimanche",
+  "footer_contact_note": "Fermé les jours fériés thaïlandais",
+  "footer_copyright": "© {year} {name} Chiang Mai. Tous droits réservés.",
+  "footer_explore_classes": "Cours",
+  "footer_explore_schedule": "Planning",
+  "footer_explore_coaches": "Coachs",
+  "footer_explore_pricing": "Tarifs",
+  "footer_explore_dtv": "Visa DTV"
 }

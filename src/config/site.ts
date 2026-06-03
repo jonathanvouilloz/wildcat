@@ -4,26 +4,30 @@
  *
  * NB : les URLs canoniques/OG se construisent depuis `Astro.site` (astro.config.mjs,
  * Q5 domaine) — ce fichier ne sert PAS à construire les URLs.
+ *
+ * i18n (E3) : ce fichier ne contient QUE des données brutes non traduisibles
+ * (coordonnées, hrefs, prix, horaires). Les libellés traduisibles vivent dans
+ * messages/{locale}.json ; les listes portent une clé (dayKey, key) que les
+ * composants mappent vers les messages via un record explicite.
  */
 export const site = {
-  name: 'Wildcat Muay Thai',
+  name: 'Wildcat Muay Thai', // marque — jamais traduite
   domain: 'wildcatmuaythai.com', // TODO(Q5): domaine définitif
-  tagline: 'A warm, community-led Muay Thai gym in Chiang Mai, Thailand. Train together, grow together.',
-  motto: 'Train together. Grow together.',
+  // tagline / motto / contact.note → messages : site_tagline, site_motto, footer_contact_note
 
   contact: {
     address: '132 หมู่ 7 Chaw Fa Vlg, Tambon Nong Kwai, Hang Dong District, Chiang Mai 50230, Thailand',
     email: 'hello@wildcatmuaythai.com', // TODO(real data): email réel à confirmer
     phone: '+66 85 720 9620',
     phoneHref: 'tel:+66857209620',
-    note: 'Closed on Thai holidays',
   },
 
   // TODO(real data): horaires réels à confirmer (valeurs maquette)
+  // dayKey → messages footer_hours_* (libellés des jours)
   hours: [
-    { days: 'Mon – Fri', time: '07:00 – 21:00' },
-    { days: 'Saturday', time: '09:00 – 16:00' },
-    { days: 'Sunday', time: '09:00 – 13:00' },
+    { dayKey: 'monfri', time: '07:00 – 21:00' },
+    { dayKey: 'sat', time: '09:00 – 16:00' },
+    { dayKey: 'sun', time: '09:00 – 13:00' },
   ],
 
   social: [
@@ -40,12 +44,13 @@ export const site = {
   ],
 
   // Silos principaux (ancres maquette → vraies routes en E5)
+  // key → messages footer_explore_* (libellés)
   exploreLinks: [
-    { label: 'Classes', href: '#programs' },
-    { label: 'Schedule', href: '#schedule' },
-    { label: 'Coaches', href: '#coaches' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'DTV Visa', href: '#dtv' },
+    { key: 'classes', href: '#programs' },
+    { key: 'schedule', href: '#schedule' },
+    { key: 'coaches', href: '#coaches' },
+    { key: 'pricing', href: '#pricing' },
+    { key: 'dtv', href: '#dtv' },
   ],
 
   /** Image OG par défaut (chemin public, résolu via Astro.site). TODO: vraie cover OG. */
@@ -53,6 +58,8 @@ export const site = {
 
   /**
    * Tarifs réels (THB) — fournis 2026-06-03, pour E5 (page Pricing, prix publics).
+   * NB i18n : les labels restent EN ici — extraction vers messages reportée à E5
+   * (donnée de page, pas du shell ; structure finale décidée avec la page Pricing).
    */
   pricing: {
     currency: 'THB',

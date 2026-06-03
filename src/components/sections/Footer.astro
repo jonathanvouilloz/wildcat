@@ -2,14 +2,29 @@
 import { Icon } from 'astro-icon/components';
 import Container from '../layout/Container.astro';
 import { site } from '../../config/site';
+import { m } from '../../paraglide/messages.js';
 
 /**
  * Footer — 4 colonnes (brand/social · Explore · Hours · Contact) + bottom bar.
  * Port fidèle de la maquette verrouillée (landing.css .foot).
- * Contenu : src/config/site.ts. Labels EN en dur (extraction i18n en E3).
+ * Données brutes : src/config/site.ts. Libellés : messages/{locale}.json (m.*).
  * Cream-alpha en rgba brut, cohérent avec Nav (pas de token cream-alpha).
  */
 const year = new Date().getFullYear();
+
+// Records explicites (pas d'accès dynamique m['...'] — tree-shaking + typage).
+const hoursDays: Record<(typeof site.hours)[number]['dayKey'], string> = {
+  monfri: m.footer_hours_monfri(),
+  sat: m.footer_hours_sat(),
+  sun: m.footer_hours_sun(),
+};
+const exploreLabels: Record<(typeof site.exploreLinks)[number]['key'], string> = {
+  classes: m.footer_explore_classes(),
+  schedule: m.footer_explore_schedule(),
+  coaches: m.footer_explore_coaches(),
+  pricing: m.footer_explore_pricing(),
+  dtv: m.footer_explore_dtv(),
+};
 ---
 
 <footer class="foot" id="contact">
@@ -19,7 +34,7 @@ const year = new Date().getFullYear();
         <div class="brand">
           <img src="/assets/logo-cream.png" alt={site.name} width="160" height="46" />
         </div>
-        <p class="tag">{site.tagline}</p>
+        <p class="tag">{m.site_tagline()}</p>
         <div class="social">
           {
             site.social.map((s) => (
@@ -31,24 +46,24 @@ const year = new Date().getFullYear();
         </div>
       </div>
       <div>
-        <h5>Explore</h5>
+        <h5>{m.footer_col_explore()}</h5>
         <ul>
           {
             site.exploreLinks.map((link) => (
               <li>
-                <a href={link.href}>{link.label}</a>
+                <a href={link.href}>{exploreLabels[link.key]}</a>
               </li>
             ))
           }
         </ul>
       </div>
       <div>
-        <h5>Hours</h5>
+        <h5>{m.footer_col_hours()}</h5>
         <p class="ct">
           {
             site.hours.map((h) => (
               <>
-                <b>{h.days}</b>
+                <b>{hoursDays[h.dayKey]}</b>
                 <br />
                 {h.time}
                 <br />
@@ -58,18 +73,18 @@ const year = new Date().getFullYear();
         </p>
       </div>
       <div>
-        <h5>Contact</h5>
+        <h5>{m.footer_col_contact()}</h5>
         <p class="ct">
           {site.contact.address}<br />
           <b>{site.contact.email}</b><br />
           <a href={site.contact.phoneHref}>{site.contact.phone}</a><br /><br />
-          {site.contact.note}
+          {m.footer_contact_note()}
         </p>
       </div>
     </div>
     <div class="foot-bot">
-      <span>© {year} {site.name} Chiang Mai. All rights reserved.</span>
-      <span class="mid">◆ {site.motto} ◆</span>
+      <span>{m.footer_copyright({ year: String(year), name: site.name })}</span>
+      <span class="mid">◆ {m.site_motto()} ◆</span>
       <span>{site.domain}</span>
     </div>
   </Container>
