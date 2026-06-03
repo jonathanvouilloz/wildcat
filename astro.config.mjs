@@ -1,11 +1,24 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { loadEnv } from 'vite';
 
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
+import sanity from '@sanity/astro';
+import react from '@astrojs/react';
+
+// Sanity — projectId/dataset doivent être connus au niveau config (build-time).
+// Fallback 'placeholder' : le build du site public passe tant qu'aucune page ne
+// consomme Sanity ; le studio affichera une erreur de connexion jusqu'à ce que
+// SANITY_PROJECT_ID soit rempli dans .env (projet à créer sur sanity.io).
+const { SANITY_PROJECT_ID, SANITY_DATASET } = loadEnv(
+  process.env.NODE_ENV ?? 'development',
+  process.cwd(),
+  ''
+);
 
 // https://astro.build/config
 export default defineConfig({
@@ -54,7 +67,21 @@ export default defineConfig({
 
   adapter: vercel(),
   integrations: [
-    sitemap({ i18n: { defaultLocale: 'en', locales: { en: 'en', fr: 'fr' } } }),
+    // Studio Sanity embarqué : en SSG le studio est une page statique unique,
+    // routing interne en hash router (/studio#/...). React requis par le studio
+    // uniquement — aucune island React sur le site public.
+    sanity({
+      projectId: SANITY_PROJECT_ID || 'placeholder',
+      dataset: SANITY_DATASET || 'production',
+      useCdn: false, // SSG : contenu frais au moment du build, pas de cache CDN
+      studioBasePath: '/studio',
+    }),
+    react(),
+    sitemap({
+      i18n: { defaultLocale: 'en', locales: { en: 'en', fr: 'fr' } },
+      // Le studio est un outil interne : exclu du sitemap (+ Disallow dans robots.txt).
+      filter: (page) => !page.includes('/studio'),
+    }),
     icon(),
   ]
 });

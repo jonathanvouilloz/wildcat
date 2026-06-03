@@ -5,6 +5,8 @@ dist/
 # paraglide compiled output (source = messages/*.json)
 src/paraglide/
 project.inlang/cache/
+# sanity schema extract (régénéré par npm run sanity:types)
+sanity/extract.json
 
 # dependencies
 node_modules/
