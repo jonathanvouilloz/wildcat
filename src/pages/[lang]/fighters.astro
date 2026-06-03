@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/layout/Section.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FighterCard from '../../components/sections/FighterCard.astro';
+import CtaBanner from '../../components/sections/CtaBanner.astro';
+import { site } from '../../config/site';
+import { localePath } from '../../lib/routes';
+import { safeQuery } from '../../lib/content';
+import { FIGHTERS_QUERY } from '../../lib/queries';
+import type { FIGHTERS_QUERY_RESULT } from '../../lib/sanity.types';
+import { pickLocale } from '../../lib/i18n-content';
+import { urlFor } from '../../lib/image';
+import { m } from '../../paraglide/messages.js';
+
+// Livre d'or fighters (kw : "Wild Cat Chiang Mai fighters").
+// 100 % CMS : dataset vide → état "coming soon" (pas de faux palmarès).
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+const fighterDocs = await safeQuery<FIGHTERS_QUERY_RESULT>({ query: FIGHTERS_QUERY }, []);
+const statLabels = {
+  fights: m.fighters_stat_fights(),
+  wins: m.fighters_stat_wins(),
+  losses: m.fighters_stat_losses(),
+};
+const fighters = fighterDocs.map((fighter) => ({
+  name: fighter.name ?? '',
+  nationality: fighter.nationality ?? undefined,
+  current: fighter.status === 'current',
+  statusLabel: fighter.status === 'current' ? m.fighters_status_current() : m.fighters_status_alumni(),
+  fights: fighter.fights ?? undefined,
+  wins: fighter.wins ?? undefined,
+  losses: fighter.losses ?? undefined,
+  bio: pickLocale(fighter.bio, lang) || undefined,
+  photo: fighter.photo?.asset
+    ? {
+        src: urlFor(fighter.photo).width(640).height(640).format('webp').url(),
+        alt: fighter.photo.alt ?? fighter.name ?? '',
+      }
+    : undefined,
+}));
+---
+
+<BaseLayout title={m.fighters_meta_title()} description={m.fighters_meta_desc()}>
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.fighters_hero_head() },
+      ]}
+    />
+
+    <PageHero
+      head={m.fighters_hero_head()}
+      title={m.fighters_hero_title()}
+      titleEm={m.fighters_hero_title_em()}
+      lead={m.fighters_hero_lead()}
+    />
+
+    <Section soft>
+      {
+        fighters.length > 0 ? (
+          <div class="fighter-grid">
+            {fighters.map((fighter) => (
+              <FighterCard {...fighter} statLabels={statLabels} />
+            ))}
+          </div>
+        ) : (
+          <div class="empty">
+            <h2 class="h3">{m.fighters_empty_title()}</h2>
+            <p>{m.fighters_empty_body()}</p>
+          </div>
+        )
+      }
+    </Section>
+
+    <CtaBanner
+      title={m.fighters_cta_title()}
+      titleEm={m.fighters_cta_title_em()}
+      ctaPrimary={{ label: m.fighters_cta_btn(), href: p('/classes') }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .fighter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .empty {
+    text-align: center;
+    padding: 26px 0;
+  }
+  .empty p {
+    margin: 10px auto 0;
+    max-width: 48ch;
+    font-size: 16px;
+    color: var(--ink-2);
+  }
+  @media (max-width: 1024px) {
+    .fighter-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 640px) {
+    .fighter-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

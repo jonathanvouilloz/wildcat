@@ -1,0 +1,195 @@
+---
+/**
+ * FighterCard — carte combattant (PRD §10 : photo plein format, stats overlay).
+ * Sans photo → fond soft-2 + initiales. Status badge : current (gold) / alumni.
+ * Labels (stats, status) traduits par la page via props.
+ */
+export interface Props {
+  name: string;
+  nationality?: string;
+  statusLabel: string;
+  current?: boolean;
+  fights?: number;
+  wins?: number;
+  losses?: number;
+  bio?: string;
+  photo?: { src: string; alt: string };
+  statLabels: { fights: string; wins: string; losses: string };
+}
+const { name, nationality, statusLabel, current = false, fights, wins, losses, bio, photo, statLabels } =
+  Astro.props;
+const initials = name
+  .split(/\s+/)
+  .map((part) => part[0])
+  .slice(0, 2)
+  .join('')
+  .toUpperCase();
+const stats = [
+  { n: fights, label: statLabels.fights },
+  { n: wins, label: statLabels.wins },
+  { n: losses, label: statLabels.losses },
+].filter((stat) => stat.n != null);
+---
+
+<article class="fighter">
+  <div class="media">
+    {
+      photo ? (
+        <img src={photo.src} alt={photo.alt} loading="lazy" />
+      ) : (
+        <div class="ph" aria-hidden="true">
+          {initials}
+        </div>
+      )
+    }
+    <span class:list={['status', current && 'status--current']}>{statusLabel}</span>
+    <div class="overlay">
+      <h3>{name}</h3>
+      {nationality && <div class="nat">{nationality}</div>}
+    </div>
+  </div>
+  <div class="body">
+    {
+      stats.length > 0 && (
+        <div class="stats">
+          {stats.map((stat) => (
+            <div class="stat">
+              <b>{stat.n}</b>
+              <span>{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      )
+    }
+    {bio && <p>{bio}</p>}
+  </div>
+</article>
+
+<style>
+  .fighter {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  .fighter:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .media {
+    position: relative;
+    height: 320px;
+  }
+  .media img,
+  .media .ph {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .media .ph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--soft-2);
+    color: var(--line-3);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 64px;
+    letter-spacing: 0.02em;
+  }
+  .status {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink-2);
+    border: 1px solid var(--line);
+  }
+  .status--current {
+    background: var(--gold);
+    color: #1c1407;
+    border-color: var(--gold);
+  }
+  .overlay {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 38px 18px 14px;
+    background: linear-gradient(180deg, transparent, rgba(17, 17, 17, 0.78));
+    color: var(--cream);
+  }
+  .overlay h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 21px;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+  }
+  .nat {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .body {
+    padding: 16px 18px 20px;
+  }
+  .stats {
+    display: flex;
+    gap: 22px;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .stats:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat b {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--forest);
+    line-height: 1.1;
+  }
+  .stat span {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fighter {
+      transition: none;
+    }
+    .fighter:hover {
+      transform: none;
+    }
+  }
+</style>
