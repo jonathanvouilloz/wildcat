@@ -1,0 +1,62 @@
+---
+/**
+ * Card — surface de base réutilisée par programs/pricing/coaches/fighters/blog/témoignages.
+ * Surface blanche · bordure --line · radius --r-md · --shadow-sm · hover lift (maquette).
+ * Rend <a> carte entière si href — dans ce cas, NE PAS imbriquer d'éléments
+ * interactifs (liens/boutons) dans le slot.
+ */
+export interface Props {
+  as?: keyof HTMLElementTagNameMap;
+  href?: string;
+  /** Lift au survol (translateY + ombre). Défaut : true. */
+  hover?: boolean;
+  /** Padding interne 20px. Défaut : false (les médias edge-to-edge gèrent le leur). */
+  padded?: boolean;
+  class?: string;
+}
+
+const { as, href, hover = true, padded = false, class: extra = '' } = Astro.props;
+const Tag = href ? 'a' : (as ?? 'article');
+---
+
+<Tag
+  class:list={['wc-card', hover && 'wc-card--hover', padded && 'wc-card--padded', extra]}
+  href={href}
+>
+  <slot />
+</Tag>
+
+<style>
+  .wc-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    color: inherit;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  .wc-card--hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  .wc-card--padded {
+    padding: 20px;
+  }
+  a.wc-card:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wc-card {
+      transition: none;
+    }
+    .wc-card--hover:hover {
+      transform: none;
+    }
+  }
+</style>
