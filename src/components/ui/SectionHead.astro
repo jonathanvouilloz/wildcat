@@ -1,0 +1,37 @@
+---
+/**
+ * SectionHead — label de section « ◆ CAPS ».
+ * onDark → couleur or ; center → centré (◆ de chaque côté).
+ */
+export interface Props {
+  onDark?: boolean;
+  center?: boolean;
+  class?: string;
+}
+const { onDark = false, center = false, class: extra = '' } = Astro.props;
+---
+
+<span
+  class:list={[
+    'sec-head font-display font-bold uppercase text-[13px] tracking-[0.16em] inline-flex items-center gap-3',
+    onDark ? 'text-gold' : 'text-forest',
+    center && 'justify-center',
+    extra,
+  ]}
+  data-center={center ? '' : undefined}
+>
+  <slot />
+</span>
+
+<style>
+  .sec-head::before {
+    content: '◆';
+    color: var(--orange);
+    font-size: 11px;
+  }
+  .sec-head[data-center]::after {
+    content: '◆';
+    color: var(--orange);
+    font-size: 11px;
+  }
+</style>

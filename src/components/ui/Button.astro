@@ -1,0 +1,49 @@
+---
+/**
+ * Button — primitive CTA WildCat.
+ * Variantes : gold (primaire) · forest · outline (+ onDark).
+ * Rend <a> si `href`, sinon <button>. Flèche optionnelle qui glisse au hover.
+ */
+export interface Props {
+  variant?: 'gold' | 'forest' | 'outline';
+  href?: string;
+  onDark?: boolean;
+  arrow?: boolean;
+  class?: string;
+  type?: 'button' | 'submit';
+}
+
+const {
+  variant = 'gold',
+  href,
+  onDark = false,
+  arrow = false,
+  class: extra = '',
+  type = 'button',
+} = Astro.props;
+
+const base =
+  'btn inline-flex items-center gap-2 cursor-pointer font-display font-bold uppercase tracking-[0.06em] text-[13.5px] px-6 py-[13px] rounded-[var(--r-sm)] border-[1.5px] border-transparent transition-[0.18s] whitespace-nowrap';
+
+const variants = {
+  gold: 'bg-gold text-charcoal hover:opacity-90',
+  forest: 'bg-forest text-cream hover:opacity-90',
+  outline: onDark
+    ? 'bg-transparent border-[rgba(246,241,230,0.4)] text-cream hover:border-cream hover:bg-[rgba(246,241,230,0.08)]'
+    : 'bg-transparent border-line-2 text-ink hover:border-forest',
+};
+
+const cls = `${base} ${variants[variant]} ${extra}`;
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag class={cls} href={href} type={href ? undefined : type}>
+  <slot />
+  {arrow && <span class="ar transition-transform duration-150 group-hover:translate-x-1">→</span>}
+</Tag>
+
+<style>
+  .btn:hover .ar {
+    transform: translateX(3px);
+  }
+</style>

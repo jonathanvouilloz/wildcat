@@ -1,6 +1,6 @@
 # STYLEGUIDE — WildCat Muay Thai
 
-Conventions de code **et** design system. Source de vérité visuelle : `wildcat/project/landing.css` (direction de prod verrouillée).
+Conventions de **code**. La source de vérité **visuelle** (couleurs, typo, motifs, voix) est `docs/DESIGN.md` + la page live `/styleguide`. Les tokens techniques vivent dans `src/styles/tokens.css` + `@theme` de `src/styles/global.css`.
 
 ---
 
@@ -39,10 +39,10 @@ Conventions de code **et** design system. Source de vérité visuelle : `wildcat
 
 ### Typographie
 
-- **Bricolage Grotesque** — titres (weight 700/800) ET corps de texte (400/500/600).
-- **Literata** italic — emphase uniquement (classe `.em`, ex : *home*, *belong*), couleur `--gold-deep` sur fond clair / `--gold` sur fond sombre.
-- Corps : `17px`, `line-height:1.6`. H1 hero : `clamp(40px,6.2vw,72px)`, `line-height:.98`, `letter-spacing:-0.03em`.
-- H2 : `clamp(28px,4vw,44px)`.
+- **Satoshi** (self-hostée, Fontshare) — titres (Bold 700 / Extrabold 800, Black 900 display) ET corps (Regular 400 / Medium 500). Utilitaire `font-display`.
+- **Fraunces** variable (Fontsource) — accent **72pt SemiBold Italic** uniquement (classe `.em`), en or : `--gold-deep` sur fond clair / `.em.on-dark` → `--gold` sur fond sombre. Utilitaire `font-accent`.
+- Corps : `17px`, `line-height:1.6`. H1 hero : `clamp(40px,6.2vw,72px)`, `line-height:.98`, `letter-spacing:-0.03em`. H2 : `clamp(28px,4vw,44px)`.
+- Détail complet (échelle, lockup signature, do/don't) : `docs/DESIGN.md` §4.
 
 ### Composants signature (depuis la maquette)
 

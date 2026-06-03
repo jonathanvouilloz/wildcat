@@ -1,0 +1,37 @@
+/* ============================================================
+   Satoshi (self-hosté depuis Fontshare — licence gratuite usage commercial)
+   Fichiers : public/fonts/satoshi/*.woff2 · servis sous /fonts/satoshi/
+   Poids : 400 (corps), 500 (medium), 700 (bold/titres), 900 (display)
+   ============================================================ */
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi/satoshi-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi/satoshi-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi/satoshi-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi/satoshi-900.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

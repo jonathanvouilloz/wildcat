@@ -1,0 +1,169 @@
+# DESIGN — WildCat Muay Thai
+
+Système design complet et **verrouillé**. Source de vérité visuelle pour tout le site.
+Référence vivante : page `/styleguide` (interne, `noindex`). Conventions de code : `docs/STYLEGUIDE.md`.
+Tokens techniques : `src/styles/tokens.css` + `@theme` dans `src/styles/global.css`.
+
+---
+
+## 1. Essence de marque
+
+WildCat n'est **pas** un fight camp hardcore. C'est un **jardin, une piscine et un ring** où chacun — débutant, voyageur ou nomade installé — pratique le vrai Muay Thai et se sent accueilli comme en famille. Tenu par une femme, bâti sur la chaleur humaine, pas l'intimidation.
+
+| # | Valeur | En clair |
+|---|--------|----------|
+| 01 | **Family-first** | Tout le monde est bienvenu — femmes, enfants, couples, débutants. No ego at the door. |
+| 02 | **Open-air & alive** | Jardin tropical, bananiers, piscine près du ring. Le décor EST la marque. |
+| 03 | **Real Muay Thai** | Technique et entraîneurs thaïs authentiques — sérieux à l'entraînement, chaleureux dans le ton. |
+| 04 | **Stay & belong** | Une semaine ou une saison. DTV-ready, scooter sur place, ta base à Chiang Mai. |
+
+**Personas** : (01) Expats & nomades · DTV + long terme · (02) Voyageurs · drop-in & stay-train · (03) Familles & débutants.
+
+---
+
+## 2. Voix & ton
+
+Chaleureux, simple, encourageant. Comme un·e ami·e qui tient une salle — jamais un sergent instructeur. Bilingue **EN / FR**.
+
+**Tone words** : Warm · Welcoming · Genuine · Encouraging · Down-to-earth
+**Bannis** : ~~Aggressive~~ · ~~Elitist~~ · ~~Hardcore-bro~~ · ~~bloodied/warrior imagery~~
+
+### Taglines
+- **come for the fight. *stay for the family.*** ← lockup signature (voir §4)
+- Train. Stay. *Belong.* / Entraîne-toi. Reste. *Trouve ta place.*
+- Your Muay Thai *home* in Chiang Mai. / Ton Muay Thai à Chiang Mai, *comme à la maison.*
+- Real training, *family* vibe. / Du vrai entraînement, *l'esprit famille.*
+
+### Une ligne par persona
+- **Expat / nomade · DTV** : "Settle in Chiang Mai, train every day, and we'll help with your DTV visa."
+- **Voyageur · drop-in** : "Passing through? Jump into a class or stay & train for the week."
+- **Famille & débutant** : "Never thrown a kick? Perfect. Everyone starts somewhere — and everyone's welcome."
+
+### Microcopy boutons
+`Book a class` · `Stay & Train` · `DTV Visa info` · `Rent a scooter` · `Start your DTV` · `View schedule`
+
+---
+
+## 3. Système couleur — « Tropical Garden »
+
+Palette verrouillée. Tokens dans `src/styles/tokens.css`. **Ne jamais mettre de hex en dur** dans un composant.
+
+### Core
+
+| Nom | Hex | Token | Rôle |
+|-----|-----|-------|------|
+| Forest | `#1F3B2E` | `--forest` | Nav, footer, sections sombres, titres |
+| Jungle | `#345C3E` | `--jungle` | Accents secondaires, labels, ✓ |
+| Gold | `#E0A62B` | `--gold` | CTA principal, accents, accents sur fond sombre |
+| Gold Deep | `#C98A12` | `--gold-deep` | Emphase texte / liens sur fond clair |
+| Cream | `#F6F1E6` | `--cream` | Fond clair principal, texte sur fond sombre |
+| Orange | `#D97732` | `--orange` | Terracotta — puce `◆` des section heads |
+| Charcoal | `#111111` | `--charcoal` | Contraste extrême, texte sur or |
+
+### Surfaces & lignes
+`--surface #FFFFFF` · `--soft #FAF7F0` · `--soft-2 #F2ECE1` · `--line #E6DDC9` · `--line-2 #D8CBB3` · `--line-3 #B5A98C`
+
+### Ink (texte)
+`--ink #1B2A22` (principal) · `--ink-2 #556157` (secondaire) · `--ink-3 #8A9389` (tertiaire/légendes)
+
+### Règles d'association
+- **Fond sombre** : `forest` (ou dégradé `#16271E → #1F3B2E`) + texte `cream` + accents `gold`.
+- **Fond clair** : `cream`/`surface` + texte `ink` + accents `gold-deep`.
+- CTA primaire : `gold` + texte `charcoal`. CTA sombre : `forest` + texte `cream`.
+- Sur or, le texte est toujours `charcoal` (jamais blanc).
+
+---
+
+## 4. Typographie
+
+Deux familles. **Satoshi** (self-hostée, Fontshare) porte titres et corps ; **Fraunces** (variable, Fontsource) donne l'accent éditorial.
+
+| Usage | Police | Réglage |
+|-------|--------|---------|
+| Titres (H1–H3) | **Satoshi** | Bold 700 / Extrabold 800, `letter-spacing:-0.02/-0.03em` |
+| Display géant | **Satoshi** | Black 900 (hero) |
+| Corps / lead | **Satoshi** | Regular 400 / Medium 500, `line-height:1.6` |
+| Eyebrow / label | **Satoshi** | 700, UPPERCASE, `letter-spacing:0.16em`, puce `◆` orange |
+| **Accent / variation de titre** | **Fraunces** | **72pt SemiBold Italic** — `opsz 72`, `wght 600`, italic, couleur or |
+
+### Lockup signature
+> **come for the fight.** *(Satoshi Bold, cream)*
+> ***stay for the family.*** *(Fraunces 72 SemiBold Italic, gold)*
+
+Sur fond `forest`. C'est LE pattern de marque : une affirmation directe en Satoshi + une chute chaleureuse en Fraunces or. Classe d'accent : `.em` (or profond) / `.em.on-dark` (or vif).
+
+### Échelle (références)
+- H1 hero : `clamp(40px, 6.2vw, 72px)`, lh `0.98`
+- H2 : `clamp(28px, 4vw, 44px)`
+- H3 : ~21–24px
+- Body : 17px · Lead : 18–21px · Label : 13px
+
+### Do / Don't
+- **Do** : Satoshi pour 95 % du texte ; Fraunces réservé aux accents courts (1–4 mots) et toujours en or.
+- **Don't** : Fraunces en paragraphe, en non-italique, ou dans une autre couleur que l'or. Pas de 3e police.
+
+---
+
+## 5. Spacing, radius, ombres, breakpoints
+
+- **Radius** : `--r-sm 8px` (boutons) · `--r-md 12px` (cards) · `--r-lg 20px` (blocs/médias) · `--r-xl 28px`.
+- **Ombres** : `--shadow-sm` (cards) · `--shadow-md` (hover, médias) · `--shadow-lg` (flottants).
+- **Largeur max** : `--maxw 1200px`, padding latéral `clamp(20px, 4vw, 40px)`.
+- **Breakpoints** (Tailwind) : `sm 640` · `md 768` · `lg 1024` · `xl 1280`. Bascules clés : `1024px` (nav → burger), `860px` (grilles → 1 col). **Mobile-first absolu.**
+
+---
+
+## 6. Photographie & art direction
+
+**Sun, sweat & green.** Candide et doré, pas studio-glossy. Shooter le vrai lieu : lumière du matin à travers la canopée, la piscine qui reflète le ring, des mains qu'on bande, un coach qui rit avec un élève. C'est ce qui vit déjà sur l'Instagram — on le rend cohérent.
+
+**Do**
+- Lumière naturelle, balance des blancs chaude, ombres douces
+- Vrais membres & entraîneurs — divers, tous âges, souriants
+- Jardin, piscine, verdure tropicale en décor
+- Action candide & moments calmes entre les rounds
+
+**Don't**
+- Salle sombre/gritty « warrior », tons bleus froids
+- Poses agressives, ego, imagerie sanglante
+- Filtres lourds, faux HDR, néons sursaturés
+- Photo fitness-model générique de banque d'images
+
+---
+
+## 7. Iconographie & motifs
+
+Le **tigre** est le cœur de la marque — mascotte à conserver. Autour, un petit kit de devices reproductibles, construits à partir des couleurs de marque.
+
+| Motif | Description | Usage |
+|-------|-------------|-------|
+| **Master mark** | Lock-up complet (tigre + wordmark). Clear space ≥ 1× la hauteur du tigre. | Header, footer. Safe-area solide sur photo/fond sombre. |
+| **Tiger stripes** | `repeating-linear-gradient(60deg, forest 0 14px, gold 14px 28px)` | Dividers, bords, cadrage photo |
+| **Claw slash** | 3 griffes or inclinées sur charcoal | Accent sur boutons / liens actifs (hover) |
+| **Round stamp** | Sceau circulaire bord charcoal, texte mono « WildCat · Est. Chiang Mai · Muay Thai » | Merch, stickers, story |
+| **DTV stamp** | Sceau doré radial, « DTV / Visa Friendly / Muay Thai · Soft Power » | Header/footer DTV, badge pilier |
+
+**Variantes logo** (dans `public/assets/`) : `logo-cream.png` (sur forest), `logo-knockout.png` (sur clair), `logo.png` (master / sur or), `logo-horizontal.png`, `logo-stacked*.png`.
+
+---
+
+## 8. Inventaire composants
+
+Spécifiés visuellement ici, implémentés en E2 (`src/components/ui` + `sections`) et E5.
+
+| Composant | Statut | Notes |
+|-----------|--------|-------|
+| `Button` (gold/forest/outline + on-dark) | ✅ `ui/Button.astro` | CAPS, flèche au hover |
+| `SectionHead` (◆ CAPS) | ✅ `ui/SectionHead.astro` | center / on-dark |
+| `DtvStamp` | spec | sceau doré (cf. /styleguide) |
+| Tiger stripes / Claw / Round stamp | spec | motifs CSS |
+| `FighterCard` / `CoachCard` | E5 | photo + stats (fighter) / rôle (coach) |
+| `Nav` / `MegaMenu` + `MobileDrawer` | E2 | 4 panneaux + drawer accordéon |
+| `Footer` / `UtilityBar` | E2 | 4 colonnes + barre infos |
+| `TestimonialSlider` | E9 | photo, pays, étoiles |
+| `TrainingSchedule` | E5 | grille horaires (Sanity) |
+| Pricing plan / FAQ accordion | E5 | prix publics |
+
+---
+
+_Dernière mise à jour : 2026-06-03 — typo verrouillée Satoshi + Fraunces._

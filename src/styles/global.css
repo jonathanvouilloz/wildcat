@@ -1,12 +1,13 @@
 /* ============================================================
    WildCat Muay Thai — Global stylesheet
    Ordre : fonts → tokens → tailwind → @theme (mapping tokens→utilitaires).
+   Système typo : Satoshi (titres Bold + corps) · Fraunces 72pt SemiBold Italic (accents or).
+   Voir docs/DESIGN.md.
    ============================================================ */
 
-/* Fonts (self-host via Fontsource) */
-@import '@fontsource-variable/bricolage-grotesque/wght.css';
-@import '@fontsource/literata/500-italic.css';
-@import '@fontsource/literata/600-italic.css';
+/* Fonts */
+@import './fonts.css'; /* Satoshi (self-host Fontshare) */
+@import '@fontsource-variable/fraunces/opsz-italic.css'; /* Fraunces variable — opsz + italic */
 
 /* Design tokens (variables CSS) */
 @import './tokens.css';
@@ -38,8 +39,8 @@
   --color-ink-2: #556157;
   --color-ink-3: #8a9389;
 
-  --font-display: 'Bricolage Grotesque Variable', system-ui, sans-serif;
-  --font-serif: 'Literata', Georgia, serif;
+  --font-display: 'Satoshi', system-ui, sans-serif;
+  --font-accent: 'Fraunces Variable', 'Fraunces', Georgia, serif;
 
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -79,10 +80,20 @@ a {
   text-decoration: none;
 }
 
-/* Emphase éditoriale (ex : <span class="em">home</span>) */
+/* ------------------------------------------------------------
+   Accent éditorial — Fraunces 72pt SemiBold Italic
+   Ex : <span class="em">stay for the family.</span>
+   Or profond sur fond clair ; passer .on-dark pour l'or vif sur fond sombre.
+   ------------------------------------------------------------ */
 .em {
-  font-family: var(--font-serif);
+  font-family: var(--font-accent);
+  font-optical-sizing: none;
+  font-variation-settings: 'opsz' 72;
   font-style: italic;
   font-weight: 600;
   color: var(--gold-deep);
+}
+
+.em.on-dark {
+  color: var(--gold);
 }

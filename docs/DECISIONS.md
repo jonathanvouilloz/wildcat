@@ -18,9 +18,14 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 - **Contexte** : design system précis fourni (maquettes). Cohérence couleur/typo critique.
 - **Choix** : Tailwind v4 mappé sur des variables CSS issues de `landing.css`. Single source of truth = tokens.
 
-### 2026-06-03 | Direction visuelle : Hybride "Tropical Garden" + Bricolage
-- **Contexte** : le brand board explorait 3 directions (A Golden Hour / B Tropical Garden / C Ring Side). La landing de prod (`landing.css`) verrouille la palette verte forêt + gold + cream (Direction B) avec la typo Bricolage Grotesque + Literata italic.
-- **Choix** : on suit `landing.css` comme référence verrouillée. **À confirmer formellement avec Jonathan.**
+### 2026-06-03 | Direction visuelle : palette "Tropical Garden" (Direction B)
+- **Contexte** : le brand board explorait 3 directions (A Golden Hour / B Tropical Garden / C Ring Side). La landing de prod (`landing.css`) verrouille la palette verte forêt + gold + cream (Direction B).
+- **Choix** : palette Tropical Garden verrouillée. Câblée en tokens (`src/styles/tokens.css`).
+
+### 2026-06-03 | Typographie : Satoshi + Fraunces (remplace Bricolage + Literata)
+- **Contexte** : E1 avait posé Bricolage Grotesque + Literata (issus de `landing.css`) en placeholder. Jonathan a tranché une autre direction typo, avec un lockup signature (*come for the fight / stay for the family*).
+- **Choix** : **Satoshi** Bold (titres) + Satoshi (corps) ; **Fraunces 72pt SemiBold Italic** (accents en or). Satoshi n'étant ni sur Google Fonts ni Fontsource, il est **self-hosté depuis Fontshare** (licence gratuite usage commercial) dans `public/fonts/satoshi/`. Fraunces via `@fontsource-variable/fraunces` (axe opsz + italic). Système détaillé dans `docs/DESIGN.md`, rendu sur `/styleguide`.
+- **Alternatives** : garder Bricolage/Literata ; Hanken Grotesk (Fontsource, zéro self-host) — écartées au profit du choix explicite de Jonathan.
 
 ### 2026-06-03 | Communication DTV : WhatsApp deep link
 - **Contexte** : l'owner travaille déjà sur WhatsApp. Zéro friction souhaitée.

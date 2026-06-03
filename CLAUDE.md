@@ -42,7 +42,9 @@ npm run preview        # preview du build
 |---------|---------|
 | `docs/PRD.md` | Product Requirements complet (vision, scope, data model, SEO, sécurité) |
 | `docs/PLAN.md` | Plan d'exécution maître (epics + statuts) |
-| `docs/STYLEGUIDE.md` | Conventions de code + design system (tokens, typo, composants) |
+| `docs/DESIGN.md` | **Système design complet** (essence, voix, couleurs, typo Satoshi/Fraunces, motifs, composants) |
+| `/styleguide` | Page live interne (noindex) — référence visuelle vivante |
+| `docs/STYLEGUIDE.md` | Conventions de **code** (pointe vers DESIGN.md pour le visuel) |
 | `docs/DECISIONS.md` | Log des décisions techniques |
 | `docs/features/*.md` | Détail par feature/epic |
 | `wildcat/project/` | **Bundle Claude Design** — maquettes HTML/CSS de référence (à recréer pixel-perfect) |
@@ -52,11 +54,11 @@ npm run preview        # preview du build
 
 ## Design — direction verrouillée
 
-Hybride **Direction B "Tropical Garden"** (palette) + typo Bricolage Grotesque :
+Palette **"Tropical Garden"** (Direction B) + typo Satoshi / Fraunces :
 - **Couleurs** : forest `#1F3B2E`, jungle `#345C3E`, gold `#E0A62B` (gold-deep `#C98A12`), cream `#F6F1E6`, orange/terracotta `#D97732`, charcoal `#111`.
-- **Typo** : Bricolage Grotesque (titres + corps), Literata italic (emphase `.em`).
+- **Typo** : **Satoshi** Bold (titres) + Satoshi (corps) ; **Fraunces 72pt SemiBold Italic** (accents or, classe `.em`). Lockup signature : *come for the fight / stay for the family*.
 - **Vibe** : open-air, golden hour, garden & pool. Photographie candide et dorée, jamais "warrior gym" sombre/agressif.
-- Tokens complets dans `docs/STYLEGUIDE.md`.
+- **Source de vérité design : `docs/DESIGN.md` + page live `/styleguide`.** Tokens : `src/styles/tokens.css`. Conventions code : `docs/STYLEGUIDE.md`.
 
 ## État actuel
 
@@ -66,8 +68,9 @@ Hybride **Direction B "Tropical Garden"** (palette) + typo Bricolage Grotesque :
 - [x] Bundle de design analysé (direction verrouillée identifiée)
 - [x] Documentation projet créée (CLAUDE.md, PLAN, features, DECISIONS, STYLEGUIDE)
 - [x] Décisions clés tranchées : langues **EN+FR** (V1), **Coaches + Fighters** (les 2), **prix publics**
-- [x] **E1 — Scaffold Astro 6 + Tailwind v4** : tokens, fonts (Fontsource), i18n EN/FR (`/en` `/fr`), BaseLayout placeholder, adapter Vercel + sitemap, assets copiés. `npm run build` ✅
+- [x] **E1 — Scaffold Astro 6 + Tailwind v4** : tokens, i18n EN/FR (`/en` `/fr`), BaseLayout, adapter Vercel + sitemap, assets. `npm run build` ✅
+- [x] **Base design verrouillée** : typo **Satoshi** (self-host Fontshare) + **Fraunces** ; `docs/DESIGN.md` ; page live `/styleguide` ; primitives `ui/Button` + `ui/SectionHead`. `npm run build` ✅
 - [ ] Restent ouvertes : Q1 storage DTV (avant E6), Q5 domaine, Q6 slugs traduits
-- [ ] E2 → suite : voir `docs/PLAN.md`
+- [ ] E2 (Design System & Layout : nav/mega menu, footer) → suite : voir `docs/PLAN.md`
 
 _Dernière mise à jour : 2026-06-03._

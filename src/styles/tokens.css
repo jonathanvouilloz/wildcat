@@ -27,6 +27,10 @@
   --ink-2: #556157;
   --ink-3: #8a9389;
 
+  /* typography */
+  --font-display: 'Satoshi', system-ui, sans-serif; /* titres (Bold) + corps */
+  --font-accent: 'Fraunces Variable', 'Fraunces', Georgia, serif; /* accents 72pt italic or */
+
   /* layout */
   --maxw: 1200px;
   --r-sm: 8px;
