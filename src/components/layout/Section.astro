@@ -1,0 +1,57 @@
+---
+import Container from './Container.astro';
+
+/**
+ * Section — rythme vertical de section (= section.block de la maquette).
+ * Variantes de fond : dark (forest + texte cream) · soft (var(--soft)).
+ * `dark` n'auto-flip PAS les enfants : passer onDark aux SectionHead/Button/.em.
+ * `contained` (défaut) wrappe le slot dans <Container> ; mettre false pour le full-bleed.
+ */
+export interface Props {
+  as?: keyof HTMLElementTagNameMap;
+  dark?: boolean;
+  soft?: boolean;
+  contained?: boolean;
+  containerSize?: 'default' | 'narrow';
+  id?: string;
+  class?: string;
+}
+
+const {
+  as: Tag = 'section',
+  dark = false,
+  soft = false,
+  contained = true,
+  containerSize = 'default',
+  id,
+  class: extra = '',
+} = Astro.props;
+---
+
+<Tag
+  class:list={['wc-section', dark && 'wc-section--dark', soft && 'wc-section--soft', extra]}
+  id={id}
+>
+  {
+    contained ? (
+      <Container size={containerSize}>
+        <slot />
+      </Container>
+    ) : (
+      <slot />
+    )
+  }
+</Tag>
+
+<style>
+  .wc-section {
+    padding-block: var(--section-y);
+  }
+  .wc-section--dark {
+    background: var(--forest);
+    color: var(--cream);
+  }
+  .wc-section--soft {
+    background: var(--soft);
+  }
+</style>

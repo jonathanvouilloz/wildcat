@@ -1,0 +1,29 @@
+---
+/**
+ * Container — largeur de lecture + gouttières tokenisées.
+ * Remplace les `mx-auto max-w-[...] px-...` ad hoc (= .wrap de la maquette).
+ * size "narrow" (760px) : colonne prose/formulaires (Contact, DTV).
+ */
+export interface Props {
+  as?: keyof HTMLElementTagNameMap;
+  size?: 'default' | 'narrow';
+  class?: string;
+}
+
+const { as: Tag = 'div', size = 'default', class: extra = '' } = Astro.props;
+---
+
+<Tag class:list={['wc-container', size === 'narrow' && 'wc-container--narrow', extra]}>
+  <slot />
+</Tag>
+
+<style>
+  .wc-container {
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+  .wc-container--narrow {
+    max-width: var(--maxw-narrow);
+  }
+</style>

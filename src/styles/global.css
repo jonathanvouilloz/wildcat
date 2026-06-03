@@ -64,6 +64,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Ancres in-page : compense le nav sticky (74px) + respiration */
+:where(section[id], footer[id], [id].wc-section) {
+  scroll-margin-top: 90px;
+}
+
 body {
   margin: 0;
   background: var(--cream);
