@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/layout/Section.astro';
+import SectionHead from '../../components/ui/SectionHead.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import CoachGrid from '../../components/sections/CoachGrid.astro';
+import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
+import CommunityGallery from '../../components/sections/CommunityGallery.astro';
+import CtaBanner from '../../components/sections/CtaBanner.astro';
+import { site } from '../../config/site';
+import { localePath } from '../../lib/routes';
+import { safeQuery } from '../../lib/content';
+import { COACHES_QUERY, FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
+import type {
+  COACHES_QUERY_RESULT,
+  FEATURED_TESTIMONIALS_QUERY_RESULT,
+} from '../../lib/sanity.types';
+import { pickLocale } from '../../lib/i18n-content';
+import { urlFor } from '../../lib/image';
+import { m } from '../../paraglide/messages.js';
+
+// About — histoire (familial, woman-run), coachs (#coaches), communauté, avis.
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+// Coachs — même fallback trio que la home (rôles/bios via messages)
+const coachDocs = await safeQuery<COACHES_QUERY_RESULT>({ query: COACHES_QUERY }, []);
+const coaches =
+  coachDocs.length > 0
+    ? coachDocs.map((coach) => ({
+        name: coach.name ?? '',
+        role: pickLocale(coach.role, lang),
+        bio: pickLocale(coach.bio, lang),
+        photo: coach.photo?.asset
+          ? {
+              src: urlFor(coach.photo).width(280).height(280).format('webp').url(),
+              alt: coach.photo.alt ?? coach.name ?? '',
+            }
+          : undefined,
+      }))
+    : [
+        { name: 'Kru Nut', role: m.home_coach1_role(), bio: m.home_coach1_bio() },
+        { name: 'Kru Fern', role: m.home_coach2_role(), bio: m.home_coach2_bio() },
+        { name: 'Kru Bank', role: m.home_coach3_role(), bio: m.home_coach3_bio() },
+      ];
+
+// Témoignage général — fallback : quote maquette (comme la home)
+const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
+  { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'general' } },
+  [],
+);
+const quote = testimonialDocs[0]
+  ? {
+      content: pickLocale(testimonialDocs[0].content, lang),
+      name: testimonialDocs[0].name ?? '',
+      meta: testimonialDocs[0].country ?? undefined,
+      rating: testimonialDocs[0].rating ?? 5,
+    }
+  : { content: m.home_quote_text(), name: 'James T.', meta: m.home_quote_meta(), rating: 5 };
+---
+
+<BaseLayout title={m.about_meta_title()} description={m.about_meta_desc()}>
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.nav_about() },
+      ]}
+    />
+
+    <PageHero
+      head={m.about_hero_head()}
+      title={m.about_hero_title()}
+      titleEm={m.about_hero_title_em()}
+      lead={m.about_hero_lead()}
+    />
+
+    <Section soft>
+      <div class="story">
+        <div>
+          <SectionHead>{m.about_story_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-4">
+            {m.about_story_title()} <span class="em">{m.about_story_title_em()}</span>
+          </h2>
+          <p class="body-p">{m.about_story_p1()}</p>
+          <p class="body-p">{m.about_story_p2()}</p>
+        </div>
+        <div class="imgbox">
+          <img src="/assets/gym-garden.jpg" alt={m.home_stay_img_alt()} loading="lazy" />
+        </div>
+      </div>
+    </Section>
+
+    <Section id="coaches">
+      <div class="block-head center">
+        <SectionHead center>{m.about_coaches_head()}</SectionHead>
+        <h2 class="h2 mt-2">{m.about_coaches_title()}</h2>
+      </div>
+      <CoachGrid coaches={coaches} />
+    </Section>
+
+    <Section soft>
+      <div class="comm-head">
+        <SectionHead>{m.about_comm_head()}</SectionHead>
+        <h2 class="h2 mt-2 mb-7">
+          {m.about_comm_title()} <span class="em">{m.about_comm_title_em()}</span>
+        </h2>
+      </div>
+      <div class="comm">
+        <CommunityGallery count={3} />
+        <TestimonialQuote
+          content={quote.content}
+          name={quote.name}
+          meta={quote.meta}
+          rating={quote.rating}
+          ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
+        />
+      </div>
+    </Section>
+
+    <CtaBanner
+      title={m.about_cta_title()}
+      titleEm={m.about_cta_title_em()}
+      ctaPrimary={{ label: m.cta_book_class(), href: p('/contact') }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .block-head {
+    margin-bottom: 38px;
+  }
+  .block-head.center {
+    text-align: center;
+  }
+  .body-p {
+    font-size: 17px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin: 0 0 16px;
+    max-width: 60ch;
+  }
+  .story {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 46px;
+    align-items: center;
+  }
+  .imgbox {
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    height: 320px;
+  }
+  .imgbox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .comm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+  }
+  /* la galerie passe en 3 tuiles sur une rangée dans sa demi-colonne */
+  .comm :global(.gal) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 860px) {
+    .story,
+    .comm {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
+</style>
