@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildCat Muay Thai — Navigation &amp; Site Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Literata:ital,opsz,wght@1,7..72,500;1,7..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="meganav.css">
+</head>
+<body>
+
+<!-- ============ ICON SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="i-glove"><path d="M8 7h6a4 4 0 0 1 4 4v1.5a3 3 0 0 1-3 3h-1.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 7a3 3 0 0 0-3 3v3a3 3 0 0 0 3 3h5.5V7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.5 16v1.5a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></g>
+    <g id="i-levels" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 18v-5M12 18V6M18 18v-8"/></g>
+    <g id="i-user" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 19a6.5 6.5 0 0 1 13 0"/></g>
+    <g id="i-users" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="2.8"/><circle cx="16.5" cy="9.5" r="2.2"/><path d="M4 18a5 5 0 0 1 10 0M14.5 18a4 4 0 0 1 5.5-3.7"/></g>
+    <g id="i-kids" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.2"/><circle cx="16" cy="8" r="2.2"/><path d="M5 18v-3a3 3 0 0 1 6 0v3M13 18v-3a3 3 0 0 1 6 0v3"/></g>
+    <g id="i-flame" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c1.2 3.6-1.8 4.8-1.8 7.8A3.6 3.6 0 0 0 15.6 15c1.2 3-.6 5-3.6 5s-7.2-2.4-7.2-7.8c0-4.8 4.8-5.4 7.2-8.4z"/></g>
+    <g id="i-calendar" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M4 9.5h16M8 3.5v3M16 3.5v3"/></g>
+    <g id="i-tag" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5V5.5A1.5 1.5 0 0 1 5.5 4h7l7.5 7.5a1.5 1.5 0 0 1 0 2L13 21a1.5 1.5 0 0 1-2 0z"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor" stroke="none"/></g>
+    <g id="i-spark" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></g>
+    <g id="i-bed" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18v-9M4 13h16a0 0 0 0 1 0 0v5M20 18v-3a2 2 0 0 0-2-2"/><path d="M7 13v-2a1.5 1.5 0 0 1 1.5-1.5H13a1.5 1.5 0 0 1 1.5 1.5v2"/></g>
+    <g id="i-scooter" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="2.6"/><circle cx="18" cy="17" r="2.6"/><path d="M8.5 17h7M5.5 17l3.5-8h3l4 8M11 9h4.5"/></g>
+    <g id="i-pin" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4-4.5 6.5-8 6.5-11A6.5 6.5 0 0 0 5.5 10c0 3 2.5 6.5 6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g>
+    <g id="i-map" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5 4 7v12l5-2 6 2 5-2V5l-5 2-6-2z"/><path d="M9 5v12M15 7v12"/></g>
+    <g id="i-id" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="2.5"/><circle cx="9" cy="11.5" r="2"/><path d="M6.5 16a2.8 2.8 0 0 1 5 0M14 10h4M14 13.5h4"/></g>
+    <g id="i-check" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.4 1.7 2.9-.2 1 2.8 2.3 1.8-.9 2.8.9 2.8-2.3 1.8-1 2.8-2.9-.2L12 20.5l-2.4-1.7-2.9.2-1-2.8-2.3-1.8.9-2.8-.9-2.8 2.3-1.8 1-2.8 2.9.2z"/><path d="M9 12l2 2 4-4"/></g>
+    <g id="i-clock" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4.5l3 2"/></g>
+    <g id="i-help" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4.8.9c0 1.7-2.3 2.1-2.3 3.6"/><circle cx="12" cy="17" r="0.4" fill="currentColor" stroke="currentColor"/></g>
+    <g id="i-book" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5.5A1.5 1.5 0 0 1 6.5 4H18v14H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 1 6.5 18H18v2H6.5A1.5 1.5 0 0 1 5 18.5"/></g>
+    <g id="i-star" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l2.4 4.9 5.4.8-3.9 3.8.9 5.3L12 17.1 7.2 19.6l.9-5.3L4.2 9.7l5.4-.8z"/></g>
+    <g id="i-camera" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="12" rx="2.5"/><circle cx="12" cy="13" r="3"/><path d="M8.5 7l1.2-2h4.6l1.2 2"/></g>
+    <g id="i-heart" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19.5C6.5 15.5 4 12.5 4 9.5A3.8 3.8 0 0 1 12 7.8 3.8 3.8 0 0 1 20 9.5c0 3-2.5 6-8 10z"/></g>
+    <g id="i-chat" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14a1.5 1.5 0 0 1 1.5 1.5v7A1.5 1.5 0 0 1 19 16H9l-4 3v-3H5a1.5 1.5 0 0 1-1.5-1.5v-7A1.5 1.5 0 0 1 5 6z"/></g>
+    <g id="i-leaf" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M6 18c3-5 6-7 9-8"/></g>
+    <g id="i-route" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/></g>
+    <g id="i-caret" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l5 5 5-5"/></g>
+    <g id="i-arrow" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12M11 5l5 5-5 5"/></g>
+  </defs>
+</svg>
+
+<!-- ============ UTILITY BAR ============ -->
+<div class="util">
+  <div class="wrap">
+    <div class="u-left">
+      <span class="u-item"><svg class="i"><use href="#i-pin"/></svg> Old City, Chiang Mai</span>
+      <span class="u-item hide-sm"><span class="dot-open"></span> Open today · 07:00–21:00</span>
+      <span class="u-item hide-sm"><svg class="i"><use href="#i-chat"/></svg> +66 81 234 5678</span>
+    </div>
+    <div class="u-right">
+      <div class="u-soc">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V7c0-1 .5-1.5 1.5-1.5H17V2h-3c-2.5 0-4 1.6-4 4v3H7v3.5h3V22h4v-9.5h2.7l.3-3.5H14z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 8s-.2-1.5-.8-2.1c-.8-.8-1.6-.8-2-.9C16.5 4.7 12 4.7 12 4.7s-4.5 0-7.2.3c-.4 0-1.2.1-2 .9C2.2 6.5 2 8 2 8s-.2 1.7-.2 3.5v1.1c0 1.8.2 3.5.2 3.5s.2 1.5.8 2.1c.8.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s4.5 0 7.2-.3c.4 0 1.2-.1 2-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.5v-1.1C22.2 9.7 22 8 22 8z"/></svg></a>
+      </div>
+      <span class="lang"><b>EN</b> <span>/</span> FR</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MAIN NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="WildCat Muay Thai home"><img src="assets/logo-cream.png" alt="WildCat Muay Thai"></a>
+
+    <nav class="menubar" id="menubar" aria-label="Primary">
+
+      <!-- ===== TRAIN ===== -->
+      <div class="mi wide" data-mega>
+        <button aria-haspopup="true" aria-expanded="false">Train <svg class="caret"><use href="#i-caret"/></svg></button>
+        <div class="mega" role="menu">
+          <div class="mcol">
+            <span class="lab">Classes</span>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-glove"/></svg></span><span class="mtx"><span class="mt">Beginner Muay Thai</span><span class="md">Start from zero — no experience needed</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-levels"/></svg></span><span class="mtx"><span class="mt">All-Levels Classes</span><span class="md">Daily group training for everyone</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-user"/></svg></span><span class="mtx"><span class="mt">Private Sessions</span><span class="md">One-on-one with a Kru</span></span></a>
+          </div>
+          <div class="mcol">
+            <span class="lab">For everyone</span>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-heart"/></svg></span><span class="mtx"><span class="mt">Women's Muay Thai</span><span class="md">A welcoming, supportive space</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-kids"/></svg></span><span class="mtx"><span class="mt">Kids &amp; Family</span><span class="md">Fun, safe, confidence-building</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-flame"/></svg></span><span class="mtx"><span class="mt">Fight Team</span><span class="md">Train hard &amp; compete</span></span></a>
+          </div>
+          <div class="mcol">
+            <span class="lab">Plan your training</span>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-calendar"/></svg></span><span class="mtx"><span class="mt">Class Schedule</span><span class="md">Daily timetable &amp; sessions</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-tag"/></svg></span><span class="mtx"><span class="mt">Pricing &amp; Passes</span><span class="md">Drop-in, monthly &amp; long-stay</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-spark"/></svg></span><span class="mtx"><span class="mt">Free Trial Class</span><span class="md">Try your first class on us</span></span></a>
+          </div>
+          <div class="mfeat">
+            <span class="ft-tag">New here?</span>
+            <h4>Your first class is <span class="em">free.</span></h4>
+            <p>Never thrown a kick? Perfect. Everyone starts somewhere — come as you are.</p>
+            <div class="ff"><a class="fbtn" href="#">Book a trial <svg class="i" style="width:14px;height:14px"><use href="#i-arrow"/></svg></a></div>
+          </div>
+          <div class="mfoot">
+            <div class="links">
+              <a href="#"><svg><use href="#i-calendar"/></svg> View full schedule</a>
+              <a href="#"><svg><use href="#i-tag"/></svg> Compare passes</a>
+            </div>
+            <a class="allcta" href="#">All classes <svg class="i" style="width:14px;height:14px"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== STAY & TRAIN ===== -->
+      <div class="mi wide" data-mega>
+        <button aria-haspopup="true" aria-expanded="false">Stay &amp; Train <svg class="caret"><use href="#i-caret"/></svg></button>
+        <div class="mega" role="menu">
+          <div class="mcol">
+            <span class="lab">Train &amp; stay</span>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-route"/></svg></span><span class="mtx"><span class="mt">Stay &amp; Train Packages</span><span class="md">All-in week or month plans</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-clock"/></svg></span><span class="mtx"><span class="mt">Long-Stay Training</span><span class="md">Settle in for the season</span></span></a>
+          </div>
+          <div class="mcol">
+            <span class="lab">Logistics</span>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-bed"/></svg></span><span class="mtx"><span class="mt">Where to Stay</span><span class="md">Partner accommodation nearby</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-scooter"/></svg></span><span class="mtx"><span class="mt">Scooter Rental</span><span class="md">Get around on two wheels</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-pin"/></svg></span><span class="mtx"><span class="mt">Getting Here</span><span class="md">Find &amp; reach the gym</span></span></a>
+          </div>
+          <div class="mcol">
+            <span class="lab">Explore Chiang Mai</span>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-map"/></svg></span><span class="mtx"><span class="mt">Chiang Mai Guide</span><span class="md">Food, temples &amp; nature</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-leaf"/></svg></span><span class="mtx"><span class="mt">Things to Do</span><span class="md">Make the most of your stay</span></span></a>
+          </div>
+          <div class="mfeat">
+            <span class="ft-tag">Make it home</span>
+            <h4>Your Chiang Mai <span class="em">base.</span></h4>
+            <p>Train daily, recover by the pool, find your people. Week or season — you belong here.</p>
+            <div class="ff"><a class="fbtn" href="#">Plan your stay <svg class="i" style="width:14px;height:14px"><use href="#i-arrow"/></svg></a></div>
+          </div>
+          <div class="mfoot">
+            <div class="links">
+              <a href="#"><svg><use href="#i-id"/></svg> Staying long-term? See DTV Visa</a>
+            </div>
+            <a class="allcta" href="#">Stay &amp; Train overview <svg class="i" style="width:14px;height:14px"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== DTV VISA (pillar) ===== -->
+      <div class="mi wide" data-mega>
+        <button aria-haspopup="true" aria-expanded="false">DTV Visa <svg class="caret"><use href="#i-caret"/></svg></button>
+        <div class="mega" role="menu">
+          <div class="mcol">
+            <span class="lab">The DTV guide</span>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-id"/></svg></span><span class="mtx"><span class="mt">What is the DTV Visa</span><span class="md">The 5-year soft-power visa, explained</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-check"/></svg></span><span class="mtx"><span class="mt">Am I Eligible?</span><span class="md">Requirements &amp; who qualifies</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-route"/></svg></span><span class="mtx"><span class="mt">How to Apply</span><span class="md">Step-by-step walkthrough</span></span></a>
+          </div>
+          <div class="mcol">
+            <span class="lab">Train on a DTV</span>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-glove"/></svg></span><span class="mtx"><span class="mt">Muay Thai &amp; the DTV</span><span class="md">Training as your qualifying activity</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-clock"/></svg></span><span class="mtx"><span class="mt">Long-Stay Training Plans</span><span class="md">Programs built for the DTV</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-book"/></svg></span><span class="mtx"><span class="mt">Your Training Documents</span><span class="md">We provide your enrolment letter</span></span></a>
+          </div>
+          <div class="mcol">
+            <span class="lab">Get help</span>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-help"/></svg></span><span class="mtx"><span class="mt">DTV FAQ</span><span class="md">Common questions answered</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-chat"/></svg></span><span class="mtx"><span class="mt">Talk to Us</span><span class="md">Ask about your situation</span></span></a>
+          </div>
+          <div class="mfeat gold">
+            <div class="stamp"></div>
+            <div class="dtv-mini"><b>DTV</b><i>Visa</i></div>
+            <h4>Stay up to <span class="em">5 years.</span></h4>
+            <p>Enrol long-term and we handle your training documents to support your application.</p>
+            <div class="ff"><a class="fbtn" href="#">Start your DTV <svg class="i" style="width:14px;height:14px"><use href="#i-arrow"/></svg></a></div>
+          </div>
+          <div class="mfoot">
+            <div class="links">
+              <a href="#"><svg><use href="#i-scooter"/></svg> Scooter rental for your stay</a>
+              <a href="#"><svg><use href="#i-bed"/></svg> Accommodation</a>
+            </div>
+            <a class="allcta" href="#">DTV Visa guide <svg class="i" style="width:14px;height:14px"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== ABOUT ===== -->
+      <div class="mi" data-mega>
+        <button aria-haspopup="true" aria-expanded="false">About <svg class="caret"><use href="#i-caret"/></svg></button>
+        <div class="mega" role="menu" style="grid-template-columns:1fr 1fr 0.95fr;width:min(720px,calc(100vw - 24px))">
+          <div class="mcol">
+            <span class="lab">WildCat</span>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-leaf"/></svg></span><span class="mtx"><span class="mt">Our Story</span><span class="md">Family-led, born in Chiang Mai</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-user"/></svg></span><span class="mtx"><span class="mt">Meet the Coaches</span><span class="md">Real Thai trainers &amp; warmth</span></span></a>
+          </div>
+          <div class="mcol">
+            <span class="lab">Community</span>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-users"/></svg></span><span class="mtx"><span class="mt">Our Community</span><span class="md">Members from around the world</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-camera"/></svg></span><span class="mtx"><span class="mt">Gallery</span><span class="md">Life at the gym</span></span></a>
+            <a class="mlink" href="#"><span class="mic"><svg class="i"><use href="#i-star"/></svg></span><span class="mtx"><span class="mt">Reviews</span><span class="md">What members say</span></span></a>
+          </div>
+          <div class="mfeat">
+            <span class="ft-tag">Why WildCat</span>
+            <h4>Run by a woman, built like a <span class="em">family.</span></h4>
+            <p>No ego at the door — just real training and real people.</p>
+            <div class="ff"><a class="fbtn" href="#">Our story <svg class="i" style="width:14px;height:14px"><use href="#i-arrow"/></svg></a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SIMPLE LINKS ===== -->
+      <div class="mi"><a href="#">Blog</a></div>
+      <div class="mi"><a href="#">Contact</a></div>
+      <div class="mi cta"><a class="join" href="#">Join Now</a></div>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.getElementById('drawer').classList.add('open')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- hint -->
+<div class="hint" id="hint"><svg><use href="#i-arrow"/></svg> Hover or tap <b>Train · Stay &amp; Train · DTV Visa · About</b> to open the mega menu</div>
+
+<!-- ============ INTRO ============ -->
+<section class="intro">
+  <div class="wrap">
+    <div class="ey">Navigation &amp; Site Architecture</div>
+    <h1>A mega menu built for <span class="em">growth.</span></h1>
+    <p>Six top-level entries, four with rich mega-panels. Every page sits inside an SEO topic silo with a pillar page and supporting articles — so search engines understand the structure and visitors always find their next step.</p>
+  </div>
+</section>
+
+<!-- ============ ARCHITECTURE ============ -->
+<section class="arch">
+  <div class="wrap">
+    <div class="arch-head">
+      <h2>Site architecture — SEO silos</h2>
+      <span class="sub">Pillar pages in gold · supporting pages in grey · slugs shown for reference</span>
+    </div>
+
+    <div class="home-node"><img src="assets/logo-cream.png" alt="WildCat"> Homepage <span class="u">/</span></div>
+    <div class="tree-bar"></div>
+
+    <div class="silos">
+      <!-- TRAIN -->
+      <div class="silo">
+        <div class="top">
+          <div class="sname"><span class="si"><svg class="i"><use href="#i-glove"/></svg></span> Train</div>
+          <div class="kw"><div class="kl">Target cluster</div>
+            <span class="chip">muay thai classes chiang mai</span><span class="chip">muay thai for beginners</span>
+          </div>
+        </div>
+        <ul class="pages">
+          <li><a class="pillarpg" href="#"><span class="dot"></span><span>Classes <span class="slug">/classes</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Beginner Muay Thai <span class="slug">/classes/beginners</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>All Levels <span class="slug">/classes/all-levels</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Private Sessions <span class="slug">/classes/private</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Women's Muay Thai <span class="slug">/classes/women</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Kids &amp; Family <span class="slug">/classes/kids-family</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Fight Team <span class="slug">/fight-team</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Schedule <span class="slug">/schedule</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Pricing <span class="slug">/pricing</span></span></a></li>
+        </ul>
+        <div class="note"><b>Conversion:</b> every class page links to Free Trial &amp; Pricing.</div>
+      </div>
+
+      <!-- STAY & TRAIN -->
+      <div class="silo">
+        <div class="top">
+          <div class="sname"><span class="si"><svg class="i"><use href="#i-route"/></svg></span> Stay &amp; Train</div>
+          <div class="kw"><div class="kl">Target cluster</div>
+            <span class="chip">muay thai holiday thailand</span><span class="chip">stay and train chiang mai</span>
+          </div>
+        </div>
+        <ul class="pages">
+          <li><a class="pillarpg" href="#"><span class="dot"></span><span>Stay &amp; Train <span class="slug">/stay-train</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Long-Stay Training <span class="slug">/stay-train/long-stay</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Accommodation <span class="slug">/accommodation</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Scooter Rental <span class="slug">/scooter-rental</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Getting Here <span class="slug">/location</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Chiang Mai Guide <span class="slug">/chiang-mai-guide</span></span></a></li>
+        </ul>
+        <div class="note"><b>Cross-link:</b> feeds the DTV silo for long-term visitors.</div>
+      </div>
+
+      <!-- DTV VISA (pillar silo) -->
+      <div class="silo pillar">
+        <div class="top">
+          <div class="sname"><span class="si"><svg class="i"><use href="#i-id"/></svg></span> DTV Visa</div>
+          <div class="kw"><div class="kl">Priority cluster</div>
+            <span class="chip">dtv visa muay thai</span><span class="chip">destination thailand visa</span><span class="chip">dtv soft power training</span>
+          </div>
+        </div>
+        <ul class="pages">
+          <li><a class="pillarpg" href="#"><span class="dot"></span><span>DTV Visa Guide <span class="slug">/dtv-visa</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Am I Eligible? <span class="slug">/dtv-visa/eligibility</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>How to Apply <span class="slug">/dtv-visa/how-to-apply</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Muay Thai &amp; the DTV <span class="slug">/dtv-visa/muay-thai</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Long-Stay Plans <span class="slug">/dtv-visa/long-stay-training</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>DTV FAQ <span class="slug">/dtv-visa/faq</span></span></a></li>
+        </ul>
+        <div class="note"><b>Biggest opportunity:</b> high-intent, low-competition. Deep pillar + cluster wins it.</div>
+      </div>
+
+      <!-- ABOUT -->
+      <div class="silo">
+        <div class="top">
+          <div class="sname"><span class="si"><svg class="i"><use href="#i-leaf"/></svg></span> About</div>
+          <div class="kw"><div class="kl">Trust / E-E-A-T</div>
+            <span class="chip">wildcat muay thai</span><span class="chip">muay thai gym reviews</span>
+          </div>
+        </div>
+        <ul class="pages">
+          <li><a class="pillarpg" href="#"><span class="dot"></span><span>Our Story <span class="slug">/about</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Meet the Coaches <span class="slug">/coaches</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Our Community <span class="slug">/community</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Gallery <span class="slug">/gallery</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Reviews <span class="slug">/reviews</span></span></a></li>
+        </ul>
+        <div class="note"><b>Builds trust:</b> coach bios &amp; reviews power E-E-A-T signals.</div>
+      </div>
+
+      <!-- RESOURCES -->
+      <div class="silo">
+        <div class="top">
+          <div class="sname"><span class="si"><svg class="i"><use href="#i-book"/></svg></span> Blog &amp; Contact</div>
+          <div class="kw"><div class="kl">Content engine</div>
+            <span class="chip">muay thai tips</span><span class="chip">living in chiang mai</span>
+          </div>
+        </div>
+        <ul class="pages">
+          <li><a class="pillarpg" href="#"><span class="dot"></span><span>Blog <span class="slug">/blog</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Technique guides <span class="slug">/blog/technique</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Chiang Mai living <span class="slug">/blog/chiang-mai</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Visa &amp; long-stay <span class="slug">/blog/visa</span></span></a></li>
+          <li><a href="#"><span class="dot child"></span><span>Contact <span class="slug">/contact</span></span></a></li>
+        </ul>
+        <div class="note"><b>Feeds every silo:</b> articles link up to their pillar page.</div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span class="lg"><span class="sw" style="background:var(--gold)"></span> Pillar page (silo hub)</span>
+      <span class="lg"><span class="sw" style="background:var(--line-3)"></span> Supporting / cluster page</span>
+      <span class="lg"><svg class="i" style="color:var(--gold-deep)"><use href="#i-route"/></svg> Internal links flow up to the pillar &amp; across to related silos</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOBILE PREVIEW ============ -->
+<section class="mob-sec">
+  <div class="wrap">
+    <h2>Mobile navigation</h2>
+    <p class="sub">The same architecture as a clean, thumb-friendly accordion drawer.</p>
+    <div class="phone">
+      <div class="pscr">
+        <div class="m-top">
+          <img src="assets/logo-cream.png" alt="WildCat">
+          <div class="mt-r"><a class="mjoin" href="#">Join</a></div>
+        </div>
+        <div class="m-acc">
+          <details open>
+            <summary>Train <span class="pm">+</span></summary>
+            <div class="sub-links">
+              <a href="#"><span class="dot"></span> Beginner Muay Thai</a>
+              <a href="#"><span class="dot"></span> All Levels</a>
+              <a href="#"><span class="dot"></span> Private Sessions</a>
+              <a href="#"><span class="dot"></span> Women's Muay Thai</a>
+              <a href="#"><span class="dot"></span> Kids &amp; Family</a>
+              <a href="#"><span class="dot"></span> Fight Team</a>
+              <a href="#"><span class="dot"></span> Schedule &amp; Pricing</a>
+            </div>
+          </details>
+          <details>
+            <summary>Stay &amp; Train <span class="pm">+</span></summary>
+            <div class="sub-links">
+              <a href="#"><span class="dot"></span> Stay &amp; Train Packages</a>
+              <a href="#"><span class="dot"></span> Accommodation</a>
+              <a href="#"><span class="dot"></span> Scooter Rental</a>
+              <a href="#"><span class="dot"></span> Getting Here</a>
+              <a href="#"><span class="dot"></span> Chiang Mai Guide</a>
+            </div>
+          </details>
+          <details>
+            <summary>DTV Visa <span class="pm">+</span></summary>
+            <div class="sub-links">
+              <a href="#"><span class="dot"></span> DTV Visa Guide</a>
+              <a href="#"><span class="dot"></span> Am I Eligible?</a>
+              <a href="#"><span class="dot"></span> How to Apply</a>
+              <a href="#"><span class="dot"></span> Muay Thai &amp; the DTV</a>
+              <a href="#"><span class="dot"></span> DTV FAQ</a>
+            </div>
+          </details>
+          <details>
+            <summary>About <span class="pm">+</span></summary>
+            <div class="sub-links">
+              <a href="#"><span class="dot"></span> Our Story</a>
+              <a href="#"><span class="dot"></span> Coaches</a>
+              <a href="#"><span class="dot"></span> Community</a>
+              <a href="#"><span class="dot"></span> Gallery &amp; Reviews</a>
+            </div>
+          </details>
+          <a class="flat" href="#">Blog</a>
+          <a class="flat" href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REAL MOBILE DRAWER (for the demo nav) ============ -->
+<div class="drawer" id="drawer">
+  <div class="scrim" onclick="document.getElementById('drawer').classList.remove('open')"></div>
+  <div class="panel">
+    <div class="dh"><img src="assets/logo-cream.png" alt="WildCat"><button class="x" aria-label="Close" onclick="document.getElementById('drawer').classList.remove('open')">×</button></div>
+    <div class="dbody">
+      <details open><summary>Train <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> Beginner Muay Thai</a><a href="#"><span class="dot"></span> All Levels</a><a href="#"><span class="dot"></span> Private Sessions</a><a href="#"><span class="dot"></span> Women's Muay Thai</a><a href="#"><span class="dot"></span> Kids &amp; Family</a><a href="#"><span class="dot"></span> Fight Team</a><a href="#"><span class="dot"></span> Schedule &amp; Pricing</a></div></details>
+      <details><summary>Stay &amp; Train <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> Packages</a><a href="#"><span class="dot"></span> Accommodation</a><a href="#"><span class="dot"></span> Scooter Rental</a><a href="#"><span class="dot"></span> Getting Here</a><a href="#"><span class="dot"></span> Chiang Mai Guide</a></div></details>
+      <details><summary>DTV Visa <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> DTV Visa Guide</a><a href="#"><span class="dot"></span> Am I Eligible?</a><a href="#"><span class="dot"></span> How to Apply</a><a href="#"><span class="dot"></span> Muay Thai &amp; the DTV</a><a href="#"><span class="dot"></span> DTV FAQ</a></div></details>
+      <details><summary>About <span class="pm">+</span></summary><div class="sub-links"><a href="#"><span class="dot"></span> Our Story</a><a href="#"><span class="dot"></span> Coaches</a><a href="#"><span class="dot"></span> Community</a><a href="#"><span class="dot"></span> Gallery &amp; Reviews</a></div></details>
+      <a class="flat" href="#">Blog</a>
+      <a class="flat" href="#">Contact</a>
+      <a class="djoin" href="#">Join Now</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const items = [...document.querySelectorAll('.mi[data-mega]')];
+    let closeTimer = null;
+    function closeAll(except){
+      items.forEach(it=>{ if(it!==except){ it.classList.remove('open'); it.querySelector('button').setAttribute('aria-expanded','false'); } });
+    }
+    function open(it){ clearTimeout(closeTimer); closeAll(it); it.classList.add('open'); it.querySelector('button').setAttribute('aria-expanded','true'); hideHint(); clamp(it); }
+    function close(it){ it.classList.remove('open'); it.querySelector('button').setAttribute('aria-expanded','false'); }
+    function clamp(it){
+      const p = it.querySelector('.mega'); if(!p) return;
+      p.style.setProperty('--shift','0px');
+      // reading layout forces a synchronous reflow — X is stable regardless of the opacity fade
+      const r = p.getBoundingClientRect(); const m = 12; let shift = 0;
+      if(r.right > window.innerWidth - m) shift -= (r.right - (window.innerWidth - m));
+      if(r.left + shift < m) shift += (m - (r.left + shift));
+      if(shift) p.style.setProperty('--shift', Math.round(shift) + 'px');
+    }
+
+    items.forEach(it=>{
+      const btn = it.querySelector('button');
+      it.addEventListener('mouseenter', ()=> open(it));
+      it.addEventListener('mouseleave', ()=>{ closeTimer = setTimeout(()=> close(it), 120); });
+      btn.addEventListener('click', (e)=>{ e.preventDefault(); it.classList.contains('open') ? close(it) : open(it); });
+      btn.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ close(it); btn.focus(); } });
+    });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeAll(null); });
+    document.addEventListener('click', e=>{ if(!e.target.closest('.menubar')) closeAll(null); });
+
+    // hint auto-hide
+    let hintGone=false;
+    function hideHint(){ if(hintGone) return; hintGone=true; const h=document.getElementById('hint'); if(h){ h.style.opacity='0'; setTimeout(()=>h.remove(),350); } }
+    setTimeout(hideHint, 7000);
+  })();
+</script>
+</body>
+</html>

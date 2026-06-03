@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// V1 : EN + FR. Génère /en et /fr.
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const { lang } = Astro.params;
+
+// Placeholder bilingue minimal (E5 remplacera par la vraie home).
+const copy = {
+  en: {
+    title: 'WildCat Muay Thai — your home in Chiang Mai',
+    eyebrow: 'Foundation ready',
+    h1: 'Your Muay Thai',
+    em: 'home',
+    h1b: 'in Chiang Mai.',
+    sub: 'Scaffold Astro 6 + Tailwind v4 opérationnel. Tokens, fonts et i18n branchés.',
+  },
+  fr: {
+    title: 'WildCat Muay Thai — ton camp à Chiang Mai',
+    eyebrow: 'Socle prêt',
+    h1: 'Ton Muay Thai',
+    em: 'comme à la maison',
+    h1b: 'à Chiang Mai.',
+    sub: 'Scaffold Astro 6 + Tailwind v4 opérationnel. Tokens, fonts et i18n branchés.',
+  },
+}[lang === 'fr' ? 'fr' : 'en'];
+---
+
+<BaseLayout title={copy.title}>
+  <main class="min-h-screen bg-cream text-ink">
+    <section class="mx-auto max-w-[1200px] px-6 py-24">
+      <p class="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-forest">
+        ◆ {copy.eyebrow}
+      </p>
+      <h1
+        class="font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-forest md:text-7xl"
+      >
+        {copy.h1} <span class="em">{copy.em}</span> {copy.h1b}
+      </h1>
+      <p class="mt-6 max-w-[42ch] text-lg text-ink-2">{copy.sub}</p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="#"
+          class="rounded-md bg-gold px-6 py-3 text-sm font-bold uppercase tracking-wider text-charcoal transition hover:opacity-90"
+        >
+          btn-gold
+        </a>
+        <a
+          href="#"
+          class="rounded-md bg-forest px-6 py-3 text-sm font-bold uppercase tracking-wider text-cream transition hover:opacity-90"
+        >
+          btn-forest
+        </a>
+      </div>
+
+      <p class="mt-10 text-sm text-ink-3">
+        Lang actuelle : <strong>{lang}</strong> · /en · /fr
+      </p>
+    </section>
+  </main>
+</BaseLayout>

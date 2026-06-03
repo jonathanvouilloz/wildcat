@@ -1,0 +1,41 @@
+/* ============================================================
+   WildCat Muay Thai — Design tokens
+   Source de vérité : wildcat/project/landing.css (direction "Tropical Garden" verrouillée).
+   Voir docs/STYLEGUIDE.md §1. Ne pas mettre de couleurs en dur ailleurs.
+   ============================================================ */
+
+:root {
+  /* core palette */
+  --forest: #1f3b2e;
+  --jungle: #345c3e;
+  --gold: #e0a62b;
+  --gold-deep: #c98a12;
+  --cream: #f6f1e6;
+  --charcoal: #111111;
+  --orange: #d97732;
+
+  /* surfaces & lines */
+  --surface: #ffffff;
+  --soft: #faf7f0;
+  --soft-2: #f2ece1;
+  --line: #e6ddc9;
+  --line-2: #d8cbb3;
+  --line-3: #b5a98c;
+
+  /* ink (texte) */
+  --ink: #1b2a22;
+  --ink-2: #556157;
+  --ink-3: #8a9389;
+
+  /* layout */
+  --maxw: 1200px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+
+  /* shadows */
+  --shadow-sm: 0 2px 10px -6px rgba(20, 35, 25, 0.4);
+  --shadow-md: 0 18px 44px -28px rgba(20, 35, 25, 0.5);
+  --shadow-lg: 0 36px 80px -44px rgba(20, 35, 25, 0.6);
+}

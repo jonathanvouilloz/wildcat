@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  /** Locale de la page. Par défaut, celle détectée par Astro i18n. */
+  lang?: string;
+}
+
+const {
+  title,
+  description = 'WildCat Muay Thai — your family-style Muay Thai home in Chiang Mai.',
+  lang = Astro.currentLocale ?? 'en',
+} = Astro.props;
+
+const locales = ['en', 'fr'];
+
+// hreflang alternates (E7 affinera : canonical, x-default, etc.)
+const path = Astro.url.pathname.replace(/^\/(en|fr)/, '');
+const alternates = locales.map((loc) => ({
+  lang: loc,
+  href: new URL(`/${loc}${path}`, Astro.site ?? Astro.url.origin).href,
+}));
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href} />
+    {alternates.map((alt) => <link rel="alternate" hreflang={alt.lang} href={alt.href} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(`/en${path}`, Astro.site ?? Astro.url.origin).href} />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <!-- TODO(E2): <Nav /> mega menu + utility bar -->
+    <slot />
+    <!-- TODO(E2): <Footer /> -->
+  </body>
+</html>

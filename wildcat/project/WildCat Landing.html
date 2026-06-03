@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WildCat Muay Thai — Your Muay Thai home in Chiang Mai</title>
+<meta name="description" content="WildCat Muay Thai is a warm, family-led gym in Chiang Mai. Drop-in classes, stay &amp; train, and DTV visa-friendly long-term training for expats and travellers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Literata:ital,opsz,wght@1,7..72,500;1,7..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="WildCat Muay Thai home"><img src="assets/logo-cream.png" alt="WildCat Muay Thai"></a>
+    <nav class="links">
+      <a href="#top" class="active">Home</a>
+      <a href="#programs">Classes</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#dtv">DTV Visa</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#coaches">Coaches</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <span class="lang"><b>EN</b> / FR</span>
+      <a href="#pricing" class="btn btn-gold">Join now</a>
+      <button class="nav-toggle" aria-label="Open menu" onclick="document.getElementById('drawer').classList.add('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="drawer">
+  <div class="scrim" onclick="document.getElementById('drawer').classList.remove('open')"></div>
+  <div class="panel">
+    <button class="x" aria-label="Close" onclick="document.getElementById('drawer').classList.remove('open')">×</button>
+    <a href="#top" onclick="closeDrawer()">Home</a>
+    <a href="#programs" onclick="closeDrawer()">Classes</a>
+    <a href="#schedule" onclick="closeDrawer()">Schedule</a>
+    <a href="#dtv" onclick="closeDrawer()">DTV Visa</a>
+    <a href="#pricing" onclick="closeDrawer()">Pricing</a>
+    <a href="#coaches" onclick="closeDrawer()">Coaches</a>
+    <a href="#contact" onclick="closeDrawer()">Contact</a>
+    <a href="#pricing" class="btn btn-gold" onclick="closeDrawer()">Join now</a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<main id="top">
+<section class="hero" data-screen-label="Hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-badge"><span class="pill">New</span> DTV visa-friendly long-term training</div>
+        <h1>Your Muay Thai <span class="em">home</span> in Chiang Mai.</h1>
+        <p class="sub">Real training. Real people. Real community. A warm, family-led gym where every level is welcome — from your first class to your long stay.</p>
+        <div class="cta-row">
+          <a href="#pricing" class="btn btn-gold">Start your journey <span class="ar">→</span></a>
+          <a href="#schedule" class="btn btn-outline">View schedule</a>
+        </div>
+        <div class="meta-row">
+          <div class="meta"><b>All levels</b><span>Beginners welcome</span></div>
+          <div class="meta"><b>Open-air</b><span>Garden &amp; pool</span></div>
+          <div class="meta"><b>Up to 5 yrs</b><span>DTV visa stay</span></div>
+        </div>
+      </div>
+      <div class="hero-media">
+        <image-slot id="hero" shape="rounded" radius="20" src="assets/gym-garden.jpg" placeholder="Drop a hero photo — training in the garden, golden hour"></image-slot>
+        <div class="hero-float">
+          <div class="t">Train together.</div>
+          <div class="d">Grow together. On and off the mat.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="brush"></div>
+
+<!-- ============ VALUES ============ -->
+<section class="values" data-screen-label="Values">
+  <div class="wrap">
+    <div class="values-grid">
+      <div class="val">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 14h12a8 8 0 0 1 8 8v3a6 6 0 0 1-6 6h-3"/><path d="M16 14a6 6 0 0 0-6 6v6a6 6 0 0 0 6 6h11V14z"/><path d="M27 31v4a3 3 0 0 1-3 3h-6a3 3 0 0 1-3-3v-3"/></svg>
+        <div><h4>Discipline</h4><p>Build focus and self-control, one round at a time.</p></div>
+      </div>
+      <div class="val">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="17" r="5"/><circle cx="32" cy="19" r="4"/><path d="M9 37a8 8 0 0 1 16 0"/><path d="M27 37a6 6 0 0 1 12 0"/></svg>
+        <div><h4>Family</h4><p>A welcoming community — everyone belongs here.</p></div>
+      </div>
+      <div class="val">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8c2 6-3 8-3 13a6 6 0 0 0 9 5c2 5-1 13-6 13s-12-4-12-13c0-8 8-9 12-18z"/></svg>
+        <div><h4>Intensity</h4><p>Train hard, grow stronger — at your own pace.</p></div>
+      </div>
+      <div class="val">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 40V22"/><path d="M24 22c-4-6-12-6-16-2 6 1 9 4 11 8"/><path d="M24 22c4-6 12-6 16-2-6 1-9 4-11 8"/><path d="M24 22c-1-7 3-12 8-14-1 5-3 9-3 14"/></svg>
+        <div><h4>Chiang Mai</h4><p>Experience the culture &amp; nature where we train.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DTV PILLAR ============ -->
+<section class="dtv block" id="dtv" data-screen-label="DTV Visa">
+  <div class="wrap">
+    <div class="dtv-grid">
+      <div class="dtv-stamp">
+        <div class="big">DTV</div>
+        <div class="l1">Visa Friendly</div>
+        <div class="l2">Muay Thai · Soft Power</div>
+      </div>
+      <div>
+        <div class="sec-head on-dark">Stay &amp; train long-term</div>
+        <h2>Train in Thailand for years — <span class="em">visa ready.</span></h2>
+        <p class="dlead">The Destination Thailand Visa (DTV) lets foreigners stay up to 5 years for Muay Thai training. We make it simple — enrol in a long-term program and we'll support your application.</p>
+        <div class="dtv-steps">
+          <div class="dstep"><div class="n">1</div><h4>Enrol long-term</h4><p>Pick a monthly or multi-month plan — your qualifying activity.</p></div>
+          <div class="dstep"><div class="n">2</div><h4>Get your docs</h4><p>We provide an enrolment letter &amp; training confirmation.</p></div>
+          <div class="dstep"><div class="n">3</div><h4>Settle in</h4><p>Stay up to 5 years, 180 days per entry. Chiang Mai is home.</p></div>
+        </div>
+        <div class="dtv-foot">
+          <a href="#contact" class="btn btn-gold">Ask about the DTV <span class="ar">→</span></a>
+          <span class="scooter-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M9 17h6M6 14l3-7h3l4 7M12 7h4"/></svg>
+            Scooter rental on site
+          </span>
+        </div>
+        <p class="dtv-fr">Le DTV permet de rester jusqu'à 5 ans en Thaïlande pour s'entraîner. On fournit les documents d'inscription pour appuyer ta demande — idéal pour expats &amp; nomades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS ============ -->
+<section class="block" id="programs" style="background:var(--soft);" data-screen-label="Programs">
+  <div class="wrap">
+    <div class="block-head row">
+      <div>
+        <div class="sec-head">Training Programs</div>
+        <h2 class="h2">Find your way in.</h2>
+      </div>
+      <a href="#pricing" class="btn btn-outline">See all plans</a>
+    </div>
+    <div class="prog-grid">
+      <article class="prog">
+        <image-slot id="prog1" shape="rect" placeholder="Beginners class photo"></image-slot>
+        <div class="body">
+          <span class="lvl">Beginners</span>
+          <h3>Muay Thai Basics</h3>
+          <p>Start strong. Learn the fundamentals — stance, movement and technique — in a supportive, no-ego space.</p>
+          <a href="#schedule" class="more">Learn more <span class="ar">→</span></a>
+        </div>
+      </article>
+      <article class="prog">
+        <image-slot id="prog2" shape="rect" placeholder="All-levels training photo"></image-slot>
+        <div class="body">
+          <span class="lvl">All Levels</span>
+          <h3>Pad Work &amp; Conditioning</h3>
+          <p>For everyone looking to sharpen technique, fitness and skill with real Thai coaching every session.</p>
+          <a href="#schedule" class="more">Learn more <span class="ar">→</span></a>
+        </div>
+      </article>
+      <article class="prog">
+        <image-slot id="prog3" shape="rect" placeholder="Fight team / sparring photo"></image-slot>
+        <div class="body">
+          <span class="lvl">Fight Team</span>
+          <h3>Advanced &amp; Sparring</h3>
+          <p>For dedicated athletes preparing to compete — or anyone ready to push further. Train with our fighters.</p>
+          <a href="#schedule" class="more">Learn more <span class="ar">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCHEDULE + STAY ============ -->
+<section class="block" id="schedule" data-screen-label="Schedule">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="sec-head">Today's Classes</div>
+        <h2 class="h2">Drop in any day.</h2>
+        <p class="lead" style="margin-bottom:24px">Two daily sessions, all levels welcome. Passing through Chiang Mai? Jump into a single class or stay &amp; train for the week.</p>
+        <div class="sched">
+          <div class="row"><span class="time">07:00</span><span class="cls">Morning Muay Thai<small>Kru Nut · 60 min</small></span><span class="tag">All levels</span></div>
+          <div class="row"><span class="time">10:00</span><span class="cls">Pad Work &amp; Conditioning<small>Kru Fern · 60 min</small></span><span class="tag">All levels</span></div>
+          <div class="row"><span class="time">16:30</span><span class="cls">Muay Thai Fundamentals<small>Kru Nut · 60 min</small></span><span class="tag">Beginners</span></div>
+          <div class="row"><span class="time">18:00</span><span class="cls">Advanced &amp; Sparring<small>Kru Bank · 90 min</small></span><span class="tag">Advanced</span></div>
+          <div class="sched-foot"><a href="#contact" class="more" style="color:var(--gold-deep);font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.04em;display:inline-flex;gap:7px;align-items:center">View full schedule <span class="ar">→</span></a></div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-head">Stay &amp; Train</div>
+        <h2 class="h2">More than a class — <span class="em">a base.</span></h2>
+        <p class="lead" style="margin-bottom:22px">Whether you stay a week or settle for a season, WildCat becomes your Chiang Mai home. Train daily, recover by the pool, and find your people.</p>
+        <div class="imgbox" style="border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md);height:300px">
+          <img src="assets/gym-garden.jpg" alt="The open-air WildCat gym, pool and garden in Chiang Mai">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COACHES ============ -->
+<section class="block" id="coaches" style="background:var(--soft);" data-screen-label="Coaches">
+  <div class="wrap">
+    <div class="block-head" style="text-align:center">
+      <div class="sec-head center">Meet Our Coaches</div>
+      <h2 class="h2">Real Thai trainers, real warmth.</h2>
+    </div>
+    <div class="split" style="grid-template-columns:1.5fr 1fr;align-items:center">
+      <div class="coach-grid">
+        <div class="coach">
+          <image-slot id="coach1" shape="circle" placeholder="Kru Nut"></image-slot>
+          <h4>Kru Nut</h4><div class="role">Head Coach</div>
+          <p>Experienced competitor with a passion for teaching and developing people.</p>
+        </div>
+        <div class="coach">
+          <image-slot id="coach2" shape="circle" placeholder="Kru Fern"></image-slot>
+          <h4>Kru Fern</h4><div class="role">Muay Thai Coach</div>
+          <p>Technical, patient and encouraging. Helps you level up on and off the mat.</p>
+        </div>
+        <div class="coach">
+          <image-slot id="coach3" shape="circle" placeholder="Kru Bank"></image-slot>
+          <h4>Kru Bank</h4><div class="role">Conditioning Coach</div>
+          <p>Strength, conditioning and mobility expert. Builds resilient athletes.</p>
+        </div>
+      </div>
+      <div class="quote">
+        <span class="mark">"</span>
+        <div class="stars">★★★★★</div>
+        <blockquote>WildCat is more than a gym — it's a community. The coaches care, the training is top-notch, and I feel at home every day.</blockquote>
+        <div class="who">James T. <span>Member · Australia</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMUNITY ============ -->
+<section class="block" data-screen-label="Community">
+  <div class="wrap">
+    <div class="block-head row">
+      <div>
+        <div class="sec-head">Our Community</div>
+        <h2 class="h2">Train together. <span class="em">Grow together.</span></h2>
+      </div>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="gal-foot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Follow @wildcatmuaythai
+      </a>
+    </div>
+    <div class="gal">
+      <image-slot id="g1" shape="rounded" radius="12" placeholder="Insta"></image-slot>
+      <image-slot id="g2" shape="rounded" radius="12" placeholder="Insta"></image-slot>
+      <image-slot id="g3" shape="rounded" radius="12" placeholder="Temple"></image-slot>
+      <image-slot id="g4" shape="rounded" radius="12" placeholder="Group"></image-slot>
+      <image-slot id="g5" shape="rounded" radius="12" placeholder="Training"></image-slot>
+      <image-slot id="g6" shape="rounded" radius="12" placeholder="Pool"></image-slot>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="block" id="pricing" style="background:var(--soft);" data-screen-label="Pricing">
+  <div class="wrap">
+    <div class="block-head" style="text-align:center">
+      <div class="sec-head center">Pricing Plans</div>
+      <h2 class="h2">Simple, flexible options for every goal.</h2>
+      <p class="lead" style="margin:0 auto;text-align:center">No lock-in. Train how you want — drop in, go monthly, or settle in long-term.</p>
+    </div>
+    <div class="price-grid">
+      <div class="plan">
+        <div class="pname">Drop-in</div>
+        <div class="pprice">350 <span>THB</span></div>
+        <div class="punit">Per class · pay as you go</div>
+        <ul>
+          <li>Single class, any session</li>
+          <li>All levels welcome</li>
+          <li>Gloves &amp; wraps available</li>
+          <li>Perfect for travellers</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Book a class</a>
+      </div>
+      <div class="plan pop">
+        <div class="pop-tag">Most Popular</div>
+        <div class="pname">Monthly Unlimited</div>
+        <div class="pprice">3,500 <span>THB</span></div>
+        <div class="punit">Per month · unlimited classes</div>
+        <ul>
+          <li>Unlimited classes</li>
+          <li>Open gym access</li>
+          <li>Community events</li>
+          <li>Member discounts</li>
+        </ul>
+        <a href="#contact" class="btn btn-gold">Get started</a>
+      </div>
+      <div class="plan">
+        <div class="pname">Long Stay</div>
+        <div class="pprice">From 2,800 <span>THB</span></div>
+        <div class="punit">Per month · 3+ months</div>
+        <ul>
+          <li>Best monthly rate</li>
+          <li>DTV visa documents</li>
+          <li>Scooter rental option</li>
+          <li>Your Chiang Mai base</li>
+        </ul>
+        <a href="#dtv" class="btn btn-forest">Plan your stay</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="block" data-screen-label="FAQ">
+  <div class="wrap">
+    <div class="split" style="grid-template-columns:.85fr 1.15fr;align-items:start">
+      <div>
+        <div class="sec-head">FAQ</div>
+        <h2 class="h2">Good to know.</h2>
+        <p class="lead">Still have questions? <a href="#contact" style="color:var(--gold-deep);font-weight:700">Message us</a> — we're happy to help in English or French.</p>
+      </div>
+      <div class="faq">
+        <details open><summary>Do I need experience to start? <span class="pm">+</span></summary><div class="ans">Not at all. Most of our members started as complete beginners. Our coaches meet you exactly where you are — come as you are.</div></details>
+        <details><summary>What should I bring? <span class="pm">+</span></summary><div class="ans">Just comfortable clothes, water and a towel. We have gloves and wraps you can borrow for your first sessions.</div></details>
+        <details><summary>Can I try a class before joining? <span class="pm">+</span></summary><div class="ans">Yes — drop in for a single class any day, or ask us about a free first-timer session. No commitment needed.</div></details>
+        <details><summary>How does the DTV visa work? <span class="pm">+</span></summary><div class="ans">Enrol in a long-term training program and we'll provide an enrolment letter and training confirmation to support your DTV application — letting you stay in Thailand up to 5 years.</div></details>
+        <details><summary>Do you rent scooters? <span class="pm">+</span></summary><div class="ans">Yes, we offer scooter rental on site so you can stay mobile during your training season — no separate shop needed.</div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="block" style="padding-top:0" data-screen-label="CTA">
+  <div class="wrap">
+    <div class="cta-banner">
+      <div class="imgbg"><img src="assets/gym-garden.jpg" alt=""></div>
+      <div class="inner">
+        <h2>Your Muay Thai <span class="em">home</span> in Chiang Mai.</h2>
+        <div class="cta-row">
+          <a href="#pricing" class="btn btn-gold">Book your trial today <span class="ar">→</span></a>
+          <a href="#contact" class="btn btn-outline on-dark">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot" id="contact" data-screen-label="Footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand"><img src="assets/logo-cream.png" alt="WildCat Muay Thai"></div>
+        <p class="tag">A warm, community-led Muay Thai gym in Chiang Mai, Thailand. Train together, grow together.</p>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V7c0-1 .5-1.5 1.5-1.5H17V2h-3c-2.5 0-4 1.6-4 4v3H7v3.5h3V22h4v-9.5h2.7l.3-3.5H14z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 8s-.2-1.5-.8-2.1c-.8-.8-1.6-.8-2-.9C16.5 4.7 12 4.7 12 4.7s-4.5 0-7.2.3c-.4 0-1.2.1-2 .9C2.2 6.5 2 8 2 8s-.2 1.7-.2 3.5v1.1c0 1.8.2 3.5.2 3.5s.2 1.5.8 2.1c.8.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s4.5 0 7.2-.3c.4 0 1.2-.1 2-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.5v-1.1C22.2 9.7 22 8 22 8zM10 14.5v-5l4.5 2.5L10 14.5z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#programs">Classes</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#coaches">Coaches</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#dtv">DTV Visa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Hours</h5>
+        <p class="ct">
+          <b>Mon – Fri</b><br>07:00 – 21:00<br>
+          <b>Saturday</b><br>09:00 – 16:00<br>
+          <b>Sunday</b><br>09:00 – 13:00
+        </p>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <p class="ct">
+          126/7 Chiang Mai, Thailand<br>
+          <b>hello@wildcatmuaythai.com</b><br>
+          +66 81 234 5678<br><br>
+          Closed on Thai holidays
+        </p>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 WildCat Muay Thai Chiang Mai. All rights reserved.</span>
+      <span class="mid">◆ Train together. Grow together. ◆</span>
+      <span>wildcatmuaythaichiangmai.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/image-slot.js"></script>
+<script>
+  function closeDrawer(){ document.getElementById('drawer').classList.remove('open'); }
+  // active nav link on scroll
+  const secs = [...document.querySelectorAll('section[id], main[id]')];
+  const links = [...document.querySelectorAll('.nav .links a')];
+  const map = {}; links.forEach(a=>{ map[a.getAttribute('href').slice(1)] = a; });
+  const obs = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.remove('active')); const m = map[e.target.id]; if(m) m.classList.add('active'); } });
+  }, { rootMargin:'-45% 0px -50% 0px' });
+  secs.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
