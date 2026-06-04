@@ -16,11 +16,15 @@ export const site = {
   // tagline / motto / contact.note → messages : site_tagline, site_motto, footer_contact_note
 
   contact: {
+    // Adresse confirmée 2026-06-04 (Jonathan) — Nong Kwai, Hang Dong.
     address: '132 หมู่ 7 Chaw Fa Vlg, Tambon Nong Kwai, Hang Dong District, Chiang Mai 50230, Thailand',
     email: 'hello@wildcatmuaythai.com', // TODO(real data): email réel à confirmer
     phone: '+66 85 720 9620',
     phoneHref: 'tel:+66857209620',
     whatsapp: 'https://wa.me/66857209620',
+    /** Embed Google Maps (fiche "Wildcat Muay Thai") — iframe /contact. */
+    mapEmbed:
+      'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3778.482255504113!2d98.94739027580049!3d18.73198396268106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da31b5ac152bff%3A0x4367b10faa0b58fb!2zV2lsZGNhdCBNdWF5IFRoYWkg4LmE4Lin4Lil4LmM4LiU4LmB4LiE4LiX4Lih4Lin4Lii4LmE4LiX4Lii!5e0!3m2!1sfr!2sch!4v1780584479313!5m2!1sfr!2sch',
   },
 
   // TODO(real data): horaires réels à confirmer (valeurs maquette)

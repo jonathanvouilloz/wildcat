@@ -94,6 +94,17 @@ const hoursDays: Record<(typeof site.hours)[number]['dayKey'], string> = {
           <p class="note">{m.footer_contact_note()}</p>
         </aside>
       </div>
+
+      <!-- Carte Google Maps (fiche Wildcat — adresse confirmée, Nong Kwai / Hang Dong) -->
+      <div class="map">
+        <iframe
+          src={site.contact.mapEmbed}
+          title={m.contact_map_title()}
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
     </Section>
   </main>
 
@@ -224,6 +235,19 @@ const hoursDays: Record<(typeof site.hours)[number]['dayKey'], string> = {
     margin: 0;
     font-size: 13.5px;
     color: var(--ink-3);
+  }
+  .map {
+    margin-top: 38px;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm);
+  }
+  .map iframe {
+    display: block;
+    width: 100%;
+    height: clamp(280px, 40vw, 420px);
+    border: 0;
   }
 
   @media (max-width: 860px) {

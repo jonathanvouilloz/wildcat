@@ -28,7 +28,9 @@
 - [x] **9. Commit** branche `feat/train-cluster` (conventional commits, scope `train`)
 
 ### Avant mise en prod (bloquant)
-- [ ] **10. Faits `[À VÉRIFIER]`** auprès de Meaw : adresse/quartier exacts du camp + temps de trajet depuis le centre (la copy publiée reste neutre : "easy to find, parking & scooter rental on site" — ⚠️ l'angle brief "proche Old City" est contredit par `site.ts` qui dit Hang Dong) · gants prêtés oui/non (la copy l'affirme — cohérent avec l'ancienne FAQ déjà en ligne) · âge minimum kids (omis de la copy en attendant)
+- [x] **10a. Adresse confirmée** (Jonathan, 2026-06-04) : 132 หมู่ 7 Chaw Fa Vlg, Tambon Nong Kwai, **Hang Dong District** — `site.ts` était juste, angle "proche Old City" définitivement abandonné. Copy camp ancrée ("Nong Kwai, Hang Dong — an easy ride south-west of the city") + **embed Google Maps ajouté sur `/contact`** (`site.contact.mapEmbed`)
+- [x] **10b. Gants + bandes prêtés : confirmé** (Jonathan, 2026-06-04) — la copy l'affirmait déjà, OK
+- [ ] **10c. Âge minimum kids** : non confirmé (Jonathan estime ~6 ans, à valider avec Meaw) — aucun âge publié en attendant (FAQ Q5 : "message us with your kids' ages")
 - [x] **11. MAJ docs** : `PLAN.md` (E5c Train satellites) + `CLAUDE.md` état actuel
 
 ### Hors scope de ce batch (backlog — ne pas faire maintenant)
