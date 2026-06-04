@@ -57,6 +57,18 @@ const tapeSrc = `/assets/decor/tape-${1 + seedPick(name + 't', 3)}.webp`;
 const tapeRight = seedPick(name + 's', 2) === 1;
 const tapeRot = seedRot(name + 'tape', 8);
 
+// Frame torn : 2 cadres alternés (l'historique à 104 % + le grunge t2 à
+// 106 %) × orientation seedée (quart de tour + miroir, cadres carrés →
+// rotation CSS sans perte, photo contre-tournée) = 16 variations de bord.
+const FRAMES = [
+  { url: '/assets/textures/torn-frame.png', size: '104%' },
+  { url: '/assets/textures/torn-t2.png', size: '106%' },
+];
+const frame = FRAMES[seedPick(name + 'f', FRAMES.length)];
+const maskRot = seedPick(name + 'q', 4) * 90;
+const maskFlip = seedPick(name + 'm', 2) === 0 ? 1 : -1;
+const mediaStyle = `--murl:url('${frame.url}'); --msize:${frame.size}; --mrot:${maskRot}deg; --mflip:${maskFlip}`;
+
 // Drapeau SVG inliné au build (pages prerendered only) — l'emoji drapeau ne
 // rend pas sur Chrome/Windows, le SVG flag-icons est uniforme partout.
 let flagSvg: string | undefined;
@@ -74,7 +86,7 @@ if (countryCode) {
 
 <article class="fighter" style={`--rot:${rot}deg`}>
   <div class="photo">
-    <div class="media">
+    <div class="media" style={mediaStyle}>
       {
         photo ? (
           <img src={photo.src} alt={photo.alt} width={640} height={640} loading="lazy" />
@@ -146,19 +158,23 @@ if (countryCode) {
   }
 
   /* Photo incrustée : pas de cadre — le bord déchiré fait la transition
-     avec le fond de page. Scratches légères clipées par le même mask. */
+     avec le fond de page. Frame + orientation seedés par card (--murl,
+     --msize, --mrot quart de tour, --mflip miroir) : le conteneur masqué
+     tourne, la photo est contre-tournée → le bord varie, pas la photo.
+     Scratches légères clipées par le même mask (et tournées avec lui). */
   .media {
     position: relative;
     aspect-ratio: 1;
     overflow: hidden;
-    -webkit-mask-image: url('/assets/textures/torn-frame.png');
-    mask-image: url('/assets/textures/torn-frame.png');
-    -webkit-mask-size: 112% 112%;
-    mask-size: 112% 112%;
+    -webkit-mask-image: var(--murl, url('/assets/textures/torn-frame.png'));
+    mask-image: var(--murl, url('/assets/textures/torn-frame.png'));
+    -webkit-mask-size: var(--msize, 104%) var(--msize, 104%);
+    mask-size: var(--msize, 104%) var(--msize, 104%);
     -webkit-mask-position: center;
     mask-position: center;
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
+    transform: rotate(var(--mrot, 0deg)) scaleX(var(--mflip, 1));
   }
   .media::after {
     content: '';
@@ -175,6 +191,8 @@ if (countryCode) {
     object-fit: cover;
     display: block;
     filter: contrast(1.06) saturate(0.88) sepia(0.08);
+    /* inverse exacte de la transform du conteneur masqué */
+    transform: scaleX(var(--mflip, 1)) rotate(calc(-1 * var(--mrot, 0deg)));
   }
   .ph {
     position: absolute;
@@ -187,6 +205,7 @@ if (countryCode) {
     font-weight: 800;
     font-size: 52px;
     color: var(--line-3);
+    transform: scaleX(var(--mflip, 1)) rotate(calc(-1 * var(--mrot, 0deg)));
   }
   .ph::before {
     content: '';
