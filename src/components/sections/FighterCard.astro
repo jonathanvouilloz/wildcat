@@ -41,15 +41,15 @@ const tapeRight = seedPick(name + 's', 2) === 1;
 const tapeRot = seedRot(name + 'tape', 8);
 
 // Stamps : max 3 (ordre priorité = page), tous du côté OPPOSÉ au scotch, en
-// grappe qui se chevauche légèrement — pas de 13 %/stamp (≈10 px de
-// chevauchement pour 58 px de haut, jamais de recouvrement total) + zigzag
-// horizontal alterné + jitters + rotations.
+// grappe à chevauchement très léger — pas de 15 %/stamp (les bords se
+// frôlent ou se touchent à peine pour 58 px de haut) + zigzag horizontal
+// alterné + jitters + rotations.
 const stamps = achievements.slice(0, 3);
 const stampSide: 'left' | 'right' = tapeRight ? 'left' : 'right';
-const clusterTop = 8 + seedPick(name + 'cluster', 22); // 8–29 %
+const clusterTop = 8 + seedPick(name + 'cluster', 20); // 8–27 %
 const placedStamps = stamps.map((a, i) => ({
   ...a,
-  top: clusterTop + i * 13 + seedRot(name + a.value + 'jt', 2),
+  top: clusterTop + i * 15 + seedRot(name + a.value + 'jt', 2),
   dx: seedRot(name + a.value + 'x', 6) + (i % 2 === 0 ? -7 : 7),
   rot: seedRot(name + a.value),
 }));
