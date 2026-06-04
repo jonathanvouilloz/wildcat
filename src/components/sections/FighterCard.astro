@@ -3,9 +3,10 @@
  * FighterCard — entrée du livre d'or, v2 « incrusté scrapbook » (E5d).
  * Photo posée directement sur le fond de page, bord déchiré (mask torn 112%)
  * qui fait la transition photo↔fond ; un morceau de scotch seedé (1 de 3,
- * haut gauche/droite) ; stamps achievements répartis sur les CÔTÉS de la
- * photo (max 5 : 2/3 ou 3/2, seedé) ; nom + drapeau + année sur l'ornement
- * crème ; quote Fraunces + ligne signature dessous.
+ * haut gauche/droite) ; stamps achievements sur les CÔTÉS de la photo
+ * (max 3, côtés alternés + hauteurs jitterées, seedé — jamais symétrique) ;
+ * nom + drapeau + année sur l'ornement crème (chevauche le bas de la photo) ;
+ * quote Fraunces + ligne signature dessous. Pas d'effet hover.
  * Pas de record W/L : la seule stat est la sigLine pré-composée par la page.
  * Tout l'aléatoire est seedé sur le nom → stable au build.
  */
@@ -33,12 +34,23 @@ const { name, fightName, countryCode, year, quote, photo, achievements = [], sig
 const rot = seedRot(name, 2);
 const signature = [`— ${fightName ?? name.split(/\s+/)[0]}`, sigLine].filter(Boolean).join(' · ');
 
-// Stamps latéraux : max 5 (ordre priorité = page), répartition 2/3 ou 3/2 seedée
-const stamps = achievements.slice(0, 5);
-const leftCount =
-  stamps.length <= 1 ? 0 : seedPick(name, 2) === 0 ? Math.ceil(stamps.length / 2) : Math.floor(stamps.length / 2);
-const leftStamps = stamps.slice(0, leftCount);
-const rightStamps = stamps.slice(leftCount);
+// Stamps latéraux : max 3 (ordre priorité = page), placement pseudo-aléatoire
+// seedé — côtés alternés (départ seedé → jamais symétrique) + hauteur par
+// bandes jitterées (1er stamp d'un côté en haut, 2e en bas, sans collision).
+const stamps = achievements.slice(0, 3);
+const leftFirst = seedPick(name, 2) === 0;
+const sideCount = { left: 0, right: 0 };
+const placedStamps = stamps.map((a, i) => {
+  const side: 'left' | 'right' = (i % 2 === 0) === leftFirst ? 'left' : 'right';
+  const slot = sideCount[side]++;
+  return {
+    ...a,
+    side,
+    top: (slot === 0 ? 8 : 50) + seedPick(name + a.value + 'top', 26),
+    dx: seedRot(name + a.value + 'x', 7),
+    rot: seedRot(name + a.value),
+  };
+});
 
 // Scotch : asset 1 de 3 + côté haut gauche/droite, seedés
 const tapeSrc = `/assets/decor/tape-${1 + seedPick(name + 't', 3)}.webp`;
@@ -84,26 +96,15 @@ if (countryCode) {
       style={`--trot:${tapeRot}deg`}
     />
     {
-      leftStamps.length > 0 && (
-        <div class="stamps stamps--left" aria-hidden="true">
-          {leftStamps.map((a) => (
-            <span class="srow" style={`--dx:${seedRot(name + a.value + 'x', 6)}px`}>
-              <AchievementStamp value={a.value} label={a.label} rot={seedRot(name + a.value)} />
-            </span>
-          ))}
-        </div>
-      )
-    }
-    {
-      rightStamps.length > 0 && (
-        <div class="stamps stamps--right" aria-hidden="true">
-          {rightStamps.map((a) => (
-            <span class="srow" style={`--dx:${seedRot(name + a.value + 'x', 6)}px`}>
-              <AchievementStamp value={a.value} label={a.label} rot={seedRot(name + a.value)} />
-            </span>
-          ))}
-        </div>
-      )
+      placedStamps.map((s) => (
+        <span
+          class:list={['stamp', s.side === 'left' ? 'stamp--left' : 'stamp--right']}
+          style={`--top:${s.top}%; --dx:${s.dx}px`}
+          aria-hidden="true"
+        >
+          <AchievementStamp value={s.value} label={s.label} rot={s.rot} />
+        </span>
+      ))
     }
   </div>
 
@@ -140,11 +141,6 @@ if (countryCode) {
     position: relative;
     width: 100%;
     transform: rotate(var(--rot, -1deg));
-    transition: transform 0.25s ease;
-  }
-  /* au survol la photo « se redresse » */
-  .fighter:hover .photo {
-    transform: rotate(0deg);
   }
 
   /* Photo incrustée : pas de cadre — le bord déchiré fait la transition
@@ -217,33 +213,28 @@ if (countryCode) {
     right: 14px;
   }
 
-  /* Stamps latéraux — colonnes à cheval sur les bords (≈moitié dehors) */
-  .stamps {
+  /* Stamps latéraux — placement seedé par bandes, à cheval sur les bords */
+  .stamp {
     position: absolute;
-    top: 8%;
-    bottom: 8%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    top: var(--top, 20%);
     z-index: 2;
-  }
-  .stamps--left {
-    left: -34px;
-  }
-  .stamps--right {
-    right: -34px;
-  }
-  .srow {
-    display: block;
     transform: translateX(var(--dx, 0));
   }
+  .stamp--left {
+    left: -28px;
+  }
+  .stamp--right {
+    right: -28px;
+  }
+  .stamp :global(.ach-stamp--img) {
+    height: 50px;
+  }
 
-  /* Plaque ornement — chevauche légèrement le bas de la photo */
+  /* Plaque ornement — chevauche franchement le bas de la photo */
   .plate {
     position: relative;
     z-index: 2;
-    margin-top: -16px;
+    margin-top: -30px;
     padding: 13px 34px;
     background: url('/assets/decor/ornament.webp') center / 100% 100% no-repeat;
     font-family: var(--font-accent);
@@ -299,12 +290,4 @@ if (countryCode) {
     border: 0;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .photo {
-      transition: none;
-    }
-    .fighter:hover .photo {
-      transform: rotate(var(--rot, -1deg));
-    }
-  }
 </style>
