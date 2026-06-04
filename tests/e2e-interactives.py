@@ -18,7 +18,7 @@ with sync_playwright() as p:
     errors = []
     page.on("pageerror", lambda e: errors.append(str(e)))
 
-    # ---------- 1. Quiz éligibilité ----------
+    # ---------- 1. Quiz éligibilité (wizard multistep) ----------
     r = page.goto(f"{BASE}/en/dtv-visa/eligibility", wait_until="networkidle")
     print(f"[debug] eligibility status={r.status if r else '?'} title={page.title()!r}")
     quiz = page.locator("[data-dtv-quiz]")
@@ -29,11 +29,28 @@ with sync_playwright() as p:
     check("quiz: present", quiz.count() == 1)
     fieldsets = quiz.locator("fieldset")
     n = fieldsets.count()
-    check("quiz: ~6 questions", n >= 5, f"{n} fieldsets")
-    # répondre : 1re option de chaque question (généralement la "bonne")
-    for i in range(n):
-        fieldsets.nth(i).locator("input[type=radio]").first.check()
+    check("quiz: ~6 questions (DOM)", n >= 5, f"{n} fieldsets")
+    # mode wizard activé : dots de progression + une seule question visible
+    check("quiz: mode wizard actif", page.locator("[data-dtv-quiz].js-wizard").count() == 1)
+    dots = quiz.locator("[data-quiz-dot]")
+    check("quiz: dots de progression", dots.count() == n, f"{dots.count()} dots / {n} questions")
+    visible_q = sum(1 for i in range(n) if fieldsets.nth(i).is_visible())
+    check("quiz: 1 seule question visible", visible_q == 1, f"{visible_q} visibles")
+    # répondre : 1re option de la question COURANTE → auto-advance (~250ms)
+    for step in range(n):
+        cur = quiz.locator("fieldset.is-current")
+        check_ok = cur.count() == 1
+        if not check_ok:
+            check(f"quiz: étape {step + 1} courante", False, f"{cur.count()} .is-current")
+            break
+        cur.locator("input[type=radio]").first.check()
+        page.wait_for_timeout(450)  # > délai d'auto-advance (250ms)
+    # bouton Back visible après la 1re étape... (on est à la fin : il l'est)
+    back = quiz.locator("[data-quiz-back]")
+    check("quiz: bouton Back présent", back.count() == 1)
     submit = quiz.locator("button[type=submit]")
+    check("quiz: submit visible sur la dernière étape",
+          submit.count() >= 1 and submit.first.is_visible())
     if submit.count():
         submit.first.click()
     page.wait_for_timeout(400)
@@ -43,6 +60,18 @@ with sync_playwright() as p:
     if visible:
         v = verdicts.nth(visible[0])
         check("quiz: CTA dans le verdict", v.locator("a").count() >= 1)
+    # le formulaire laisse place au verdict ; « Start over » le restaure
+    check("quiz: formulaire masqué après verdict",
+          not quiz.locator("[data-quiz-form]").first.is_visible())
+    reset = quiz.locator("[data-quiz-reset]")
+    check("quiz: Start over visible", reset.count() == 1 and reset.first.is_visible())
+    if reset.count():
+        reset.first.click()
+        page.wait_for_timeout(300)
+        check("quiz: reset → retour étape 1",
+              quiz.locator("fieldset.is-current").count() == 1
+              and quiz.locator("[data-quiz-form]").first.is_visible()
+              and len([v for v in range(verdicts.count()) if verdicts.nth(v).is_visible()]) == 0)
 
     # ---------- 2. Checklist documents ----------
     page.goto(f"{BASE}/en/dtv-visa/how-to-apply", wait_until="networkidle")

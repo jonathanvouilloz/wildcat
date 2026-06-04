@@ -8,10 +8,13 @@ import { m } from '../../paraglide/messages.js';
  * tous les verdicts rendus), JS vanilla inline (IIFE + data-*) pour la
  * navigation / scoring / verdict — pattern Nav.astro.
  *
- * Progressive enhancement : sans JS, les 6 questions restent lisibles avec
- * leurs réponses (critères réels) ; les verdicts restent visibles aussi.
- * Avec JS : on masque les verdicts, on score les réponses au clic sur
- * « Voir mon résultat », et on affiche le verdict adéquat (aria-live).
+ * Progressive enhancement : sans JS, les 6 questions restent lisibles,
+ * empilées, avec leurs réponses (critères réels) ; les verdicts restent
+ * visibles aussi. Avec JS : mode **wizard** (classe `js-wizard`) — une
+ * question à la fois, auto-advance ~250ms après sélection (0ms sous
+ * reduced-motion), bouton « Back », dots de progression cliquables jusqu'à
+ * l'étape max atteinte, barre + libellé « Question X of 6 ». Le submit
+ * « Voir mon résultat » n'apparaît que sur la dernière étape.
  *
  * Scoring (cf. brief §5) :
  *  - une réponse « red » (data-flag="red") force le verdict 3 (blocker)
@@ -19,7 +22,9 @@ import { m } from '../../paraglide/messages.js';
  *  - sinon ≥1 réponse « yellow » → verdict 2 (probably)
  *
  * A11y : fieldset/legend, radios natifs, focus-visible (hérité global),
- * aria-live="polite" sur le résultat, prefers-reduced-motion respecté.
+ * focus déplacé sur le legend à chaque étape, live region sr-only pour les
+ * annonces d'étape, aria-live="polite" sur le résultat, reduced-motion
+ * respecté (délais 0, scroll auto, transitions off).
  */
 export interface Props {
   /** Lien /contact localisé (la page importe localePath + topic dtv). */
@@ -121,14 +126,48 @@ const verdicts = [
 ];
 ---
 
-<div class="quiz" data-dtv-quiz>
+<div
+  class="quiz"
+  data-dtv-quiz
+  data-tpl-progress={m.dtv_elig_quiz_progress({ n: '{n}', total: '{total}' })}
+>
+  <!-- Suivi des étapes (wizard only) — dévoilé par le JS. -->
+  <div class="progress" data-quiz-progress hidden>
+    <div class="progress-top">
+      <ol class="steps" data-quiz-dots>
+        {
+          questions.map((_, i) => (
+            <li>
+              <button
+                type="button"
+                class="step-dot"
+                data-quiz-dot
+                data-step={i}
+                aria-label={m.dtv_elig_quiz_step_aria({ n: String(i + 1) })}
+                disabled
+              >
+                <span aria-hidden="true">{i + 1}</span>
+              </button>
+            </li>
+          ))
+        }
+      </ol>
+      <p class="progress-label" data-quiz-label aria-hidden="true"></p>
+    </div>
+    <div class="progress-bar" aria-hidden="true">
+      <span class="progress-fill" data-quiz-fill></span>
+    </div>
+  </div>
+
   <form class="quiz-form" data-quiz-form>
     {
       questions.map((q, i) => (
-        <fieldset class="q">
+        <fieldset class="q" data-step={i}>
           <legend>
-            <span class="q-num" aria-hidden="true">{i + 1}</span>
-            {q.legend}
+            <span class="q-legend-row">
+              <span class="q-num" aria-hidden="true">{i + 1}</span>
+              <span class="q-legend-text">{q.legend}</span>
+            </span>
           </legend>
           <div class="opts">
             {q.options.map((opt) => (
@@ -152,14 +191,18 @@ const verdicts = [
     }
 
     <div class="quiz-actions">
+      <button type="button" class="quiz-back" data-quiz-back hidden>
+        <span aria-hidden="true">←</span>
+        {m.dtv_elig_quiz_back()}
+      </button>
       <Button type="submit" variant="forest" arrow class="quiz-submit">
         {m.dtv_elig_quiz_submit()}
       </Button>
-      <button type="button" class="quiz-reset" data-quiz-reset hidden>
-        {m.dtv_elig_quiz_reset()}
-      </button>
     </div>
   </form>
+
+  <!-- Annonces d'étape (lecteurs d'écran). -->
+  <p class="sr-only" data-quiz-live aria-live="polite"></p>
 
   <!-- Résultats — visibles sans JS (PE) ; masqués/filtrés par le JS. -->
   <div class="results" data-quiz-results aria-live="polite">
@@ -186,6 +229,11 @@ const verdicts = [
       ))
     }
   </div>
+
+  <!-- Hors du form : reste visible quand le wizard masque le formulaire. -->
+  <button type="button" class="quiz-reset" data-quiz-reset hidden>
+    {m.dtv_elig_quiz_reset()}
+  </button>
 </div>
 
 <script>
@@ -201,6 +249,24 @@ const verdicts = [
     const verdicts = Array.from(results.querySelectorAll<HTMLElement>('[data-verdict]'));
     const under20Note = results.querySelector<HTMLElement>('[data-under20-note]');
 
+    // Wizard — éléments de navigation/progression.
+    const fieldsets = Array.from(form.querySelectorAll<HTMLFieldSetElement>('.q'));
+    const progress = root.querySelector<HTMLElement>('[data-quiz-progress]');
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-quiz-dot]'));
+    const progressLabel = root.querySelector<HTMLElement>('[data-quiz-label]');
+    const progressFill = root.querySelector<HTMLElement>('[data-quiz-fill]');
+    const backBtn = root.querySelector<HTMLButtonElement>('[data-quiz-back]');
+    const liveRegion = root.querySelector<HTMLElement>('[data-quiz-live]');
+    const submitBtn = form.querySelector<HTMLElement>('.quiz-submit');
+    const tplProgress = root.getAttribute('data-tpl-progress') || 'Question {n} / {total}';
+    const total = fieldsets.length;
+    let current = 0;
+    let maxReached = 0;
+    let advanceTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const reduce = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const answered = (i: number) => !!fieldsets[i]?.querySelector('input:checked');
+
     // JS actif → on passe en mode interactif : on masque tous les verdicts
     // (ils restaient visibles en no-JS) et on prépare le bouton reset.
     root.classList.add('js');
@@ -213,8 +279,95 @@ const verdicts = [
       });
     }
 
+    /** Affiche l'étape i et met à jour dots / barre / libellé / boutons / focus. */
+    function go(i: number, focus = true) {
+      current = i;
+      if (i > maxReached) maxReached = i;
+
+      fieldsets.forEach((f, j) => f.classList.toggle('is-current', j === i));
+      dots.forEach((d, j) => {
+        d.disabled = j > maxReached;
+        if (j === i) d.setAttribute('aria-current', 'step');
+        else d.removeAttribute('aria-current');
+        d.classList.toggle('is-done', answered(j) && j !== i);
+      });
+
+      if (progressFill) progressFill.style.width = `${((i + 1) / total) * 100}%`;
+      const text = tplProgress.replace('{n}', String(i + 1)).replace('{total}', String(total));
+      if (progressLabel) progressLabel.textContent = text;
+      if (liveRegion) liveRegion.textContent = text;
+      if (backBtn) backBtn.hidden = i === 0;
+      // Le submit n'apparaît que sur la dernière étape (pas d'auto-submit surprise).
+      submitBtn?.toggleAttribute('hidden', i !== total - 1);
+
+      if (focus) {
+        const legend = fieldsets[i]?.querySelector<HTMLElement>('legend');
+        if (legend) {
+          legend.setAttribute('tabindex', '-1');
+          legend.focus({ preventScroll: true });
+        }
+      }
+    }
+
+    /** Auto-advance différé (250ms, 0 sous reduced-motion) vers l'étape suivante. */
+    function scheduleAdvance(from: number) {
+      if (from !== current || from >= total - 1) return;
+      if (advanceTimer) clearTimeout(advanceTimer);
+      advanceTimer = setTimeout(() => go(from + 1), reduce() ? 0 : 250);
+    }
+
+    // Mode wizard — uniquement si tout le markup de progression est là.
+    const wizard = total > 1 && progress && dots.length === total && !!submitBtn;
+    if (wizard) {
+      root.classList.add('js-wizard');
+      progress!.hidden = false;
+      go(0, false);
+
+      // Sélection d'une réponse → étape suivante.
+      form.addEventListener('change', (e) => {
+        const t = e.target;
+        if (!(t instanceof HTMLInputElement) || t.type !== 'radio') return;
+        const idx = fieldsets.findIndex((f) => f.contains(t));
+        if (idx === current) scheduleAdvance(idx);
+      });
+
+      // Re-clic sur la réponse déjà cochée (retour via « Back ») → avance aussi.
+      form.addEventListener('click', (e) => {
+        const t = e.target instanceof Element ? e.target.closest('.opt') : null;
+        if (!t) return;
+        const input = t.querySelector<HTMLInputElement>('input:checked');
+        if (!input) return;
+        const idx = fieldsets.findIndex((f) => f.contains(input));
+        if (idx === current) scheduleAdvance(idx);
+      });
+
+      backBtn?.addEventListener('click', () => {
+        if (advanceTimer) clearTimeout(advanceTimer);
+        if (current > 0) go(current - 1);
+      });
+
+      dots.forEach((d) => {
+        d.addEventListener('click', () => {
+          if (advanceTimer) clearTimeout(advanceTimer);
+          const step = Number(d.getAttribute('data-step'));
+          if (step <= maxReached) go(step);
+        });
+      });
+    }
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      if (advanceTimer) clearTimeout(advanceTimer);
+
+      // Wizard : si une question est restée sans réponse, on y retourne.
+      if (wizard) {
+        const firstUnanswered = fieldsets.findIndex((_, j) => !answered(j));
+        if (firstUnanswered !== -1) {
+          go(firstUnanswered);
+          return;
+        }
+      }
+
       const data = new FormData(form);
       const names = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'];
 
@@ -241,10 +394,20 @@ const verdicts = [
       showVerdict(verdict);
       if (resetBtn) resetBtn.hidden = false;
 
-      // Scroll doux vers le résultat (respecte reduced-motion).
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // Wizard : le formulaire et la progression laissent place au verdict.
+      if (wizard) {
+        form.hidden = true;
+        progress!.hidden = true;
+      }
+
+      // Focus + scroll doux vers le résultat (respecte reduced-motion).
       const target = results!.querySelector<HTMLElement>(`[data-verdict="${verdict}"]`);
-      target?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      const title = target?.querySelector<HTMLElement>('.verdict-title');
+      if (title) {
+        title.setAttribute('tabindex', '-1');
+        title.focus({ preventScroll: true });
+      }
+      target?.scrollIntoView({ behavior: reduce() ? 'auto' : 'smooth', block: 'center' });
     });
 
     resetBtn?.addEventListener('click', () => {
@@ -252,8 +415,13 @@ const verdicts = [
       verdicts.forEach((v) => (v.hidden = true));
       if (under20Note) under20Note.hidden = true;
       resetBtn.hidden = true;
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      form.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      if (wizard) {
+        form.hidden = false;
+        progress!.hidden = false;
+        maxReached = 0;
+        go(0, false);
+      }
+      form.scrollIntoView({ behavior: reduce() ? 'auto' : 'smooth', block: 'start' });
     });
   })();
 </script>
@@ -268,6 +436,98 @@ const verdicts = [
     gap: 16px;
   }
 
+  /* Suivi des étapes (wizard) */
+  .progress {
+    display: grid;
+    gap: 12px;
+  }
+  .progress-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .steps {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+  }
+  .step-dot {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1.5px solid var(--line-3);
+    background: var(--surface);
+    color: var(--ink-3);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition:
+      background-color 0.18s ease,
+      border-color 0.18s ease,
+      color 0.18s ease;
+  }
+  .step-dot:disabled {
+    cursor: default;
+    opacity: 0.55;
+  }
+  .step-dot.is-done {
+    background: var(--soft-2);
+    border-color: var(--forest-light);
+    color: var(--forest);
+  }
+  .step-dot[aria-current='step'] {
+    background: var(--gold);
+    border-color: var(--gold-deep);
+    color: #1c1407;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold), transparent 72%);
+  }
+  .step-dot:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .progress-label {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink-3);
+  }
+  .progress-bar {
+    height: 6px;
+    border-radius: 999px;
+    background: var(--soft-2);
+    overflow: hidden;
+  }
+  .progress-fill {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: inherit;
+    background: var(--gold);
+    transition: width 0.25s ease;
+  }
+
+  /* Wizard : une seule question visible à la fois (no-JS = tout empilé). */
+  .js-wizard .q {
+    display: none;
+  }
+  .js-wizard .q.is-current {
+    display: block;
+  }
+  /* .wc-btn est inline-flex → [hidden] seul ne suffit pas. */
+  .quiz-submit[hidden] {
+    display: none !important;
+  }
+
   /* Question card */
   .q {
     margin: 0;
@@ -277,7 +537,20 @@ const verdicts = [
     padding: 20px 22px 16px;
     box-shadow: var(--shadow-sm);
   }
+  /* float = sort le legend du rendu natif "sur la bordure" du fieldset
+     (sinon le titre chevauche la ligne) tout en gardant la sémantique. */
   .q legend {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 14px;
+  }
+  .q legend:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+  .q-legend-row {
     display: flex;
     align-items: baseline;
     gap: 12px;
@@ -286,8 +559,6 @@ const verdicts = [
     font-size: 17px;
     line-height: 1.35;
     color: var(--forest);
-    padding: 0;
-    margin-bottom: 14px;
   }
   .q-num {
     flex: 0 0 auto;
@@ -304,6 +575,7 @@ const verdicts = [
   }
 
   .opts {
+    clear: both;
     display: grid;
     gap: 8px;
   }
@@ -372,7 +644,8 @@ const verdicts = [
     flex-wrap: wrap;
     margin-top: 6px;
   }
-  .quiz-reset {
+  .quiz-reset,
+  .quiz-back {
     border: 0;
     background: none;
     padding: 4px 2px;
@@ -385,13 +658,31 @@ const verdicts = [
     text-underline-offset: 3px;
     text-decoration-color: var(--line-3);
   }
-  .quiz-reset:hover {
+  .quiz-reset:hover,
+  .quiz-back:hover {
     color: var(--gold-deep);
   }
-  .quiz-reset:focus-visible {
+  .quiz-reset:focus-visible,
+  .quiz-back:focus-visible {
     outline: 3px solid var(--gold);
     outline-offset: 2px;
     border-radius: 4px;
+  }
+  .quiz-reset {
+    justify-self: start;
+  }
+
+  /* Live region (annonces d'étape) — masquée visuellement, lue par les SR. */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   /* Results */
@@ -468,7 +759,9 @@ const verdicts = [
 
   @media (prefers-reduced-motion: reduce) {
     .opt-box,
-    .dot {
+    .dot,
+    .step-dot,
+    .progress-fill {
       transition: none;
     }
   }

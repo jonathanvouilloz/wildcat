@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Section from '../../../components/layout/Section.astro';
 import SectionHead from '../../../components/ui/SectionHead.astro';
 import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import Callout from '../../../components/ui/Callout.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import FeatureGrid from '../../../components/sections/FeatureGrid.astro';
 import Faq from '../../../components/sections/Faq.astro';
@@ -63,9 +64,20 @@ const faqItems = [
       cta={{ label: m.dtv_elig_hero_cta(), href: '#quiz' }}
     />
 
+    <!-- Quiz — en tête de page : l'intention de recherche est « suis-je
+         éligible ? » → on donne la réponse tout de suite. -->
+    <Section soft id="quiz" containerSize="narrow">
+      <SectionHead>{m.dtv_elig_quiz_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-3">{m.dtv_elig_quiz_title()}</h2>
+      <p class="body-p mb-7">{m.dtv_elig_quiz_intro()}</p>
+      <DtvQuiz contactHref={contactDtv} whatsappHref={whatsapp} />
+    </Section>
+
     <!-- Intro + disclaimer YMYL + BLUF -->
     <Section containerSize="narrow">
-      <p class="disclaimer"><em>{m.dtv_elig_disclaimer()}</em></p>
+      <Callout variant="note" label={m.callout_note_label()} class="mb-6">
+        <p>{m.dtv_elig_disclaimer()}</p>
+      </Callout>
       <p class="body-p">{m.dtv_elig_intro_p1()}</p>
       <p class="body-p">{m.dtv_elig_intro_p2()}</p>
       <p class="body-p">
@@ -188,16 +200,8 @@ const faqItems = [
       </p>
     </Section>
 
-    <!-- Quiz -->
-    <Section soft id="quiz">
-      <SectionHead>{m.dtv_elig_quiz_head()}</SectionHead>
-      <h2 class="h2 mt-2 mb-3">{m.dtv_elig_quiz_title()}</h2>
-      <p class="body-p mb-7">{m.dtv_elig_quiz_intro()}</p>
-      <DtvQuiz contactHref={contactDtv} whatsappHref={whatsapp} />
-    </Section>
-
     <!-- FAQ on-page (pas de JSON-LD FAQPage) -->
-    <Section id="faq">
+    <Section soft id="faq">
       <div class="faq-split">
         <div>
           <SectionHead>{m.dtv_elig_faq_head()}</SectionHead>
@@ -212,7 +216,7 @@ const faqItems = [
     </Section>
 
     <!-- Author / E-E-A-T + freshness -->
-    <Section soft containerSize="narrow">
+    <Section containerSize="narrow">
       <div class="author">
         <p class="author-by">{m.dtv_elig_author()}</p>
         <p class="author-meta">{m.dtv_elig_reviewed()}</p>
@@ -235,17 +239,6 @@ const faqItems = [
     color: var(--ink-2);
     line-height: 1.65;
     margin: 0 0 16px;
-    max-width: 64ch;
-  }
-  .disclaimer {
-    font-size: 15px;
-    color: var(--ink-3);
-    line-height: 1.55;
-    margin: 0 0 22px;
-    padding: 12px 16px;
-    border-left: 3px solid var(--gold);
-    background: var(--soft);
-    border-radius: var(--r-sm);
     max-width: 64ch;
   }
   .h2--dark {
