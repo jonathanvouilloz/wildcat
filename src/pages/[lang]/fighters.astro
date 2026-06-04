@@ -83,11 +83,16 @@ const stats = {
   fights: fighterDocs.reduce((sum, fighter) => sum + (fighter.fights ?? 0), 0),
   nationalities: new Set(fighterDocs.map((fighter) => fighter.countryCode).filter(Boolean)).size,
 };
-const counters = [
-  { n: stats.members, label: m.fighters_count_members() },
-  { n: stats.fights, label: m.fighters_count_fights() },
-  { n: stats.nationalities, label: m.fighters_count_nationalities() },
-].filter((c) => c.n > 0);
+// Affiché à partir de 3 membres : en dessous, « 1 family members » fait
+// pluriel cassé et social proof maigre — la grille seule suffit.
+const counters =
+  stats.members >= 3
+    ? [
+        { n: stats.members, label: m.fighters_count_members() },
+        { n: stats.fights, label: m.fighters_count_fights() },
+        { n: stats.nationalities, label: m.fighters_count_nationalities() },
+      ].filter((c) => c.n > 0)
+    : [];
 ---
 
 <BaseLayout title={m.fighters_meta_title()} description={m.fighters_meta_desc()}>
@@ -111,17 +116,19 @@ const counters = [
       {
         fighters.length > 0 ? (
           <>
-            <div class="counter">
-              {counters.map((c, i) => (
-                <>
-                  {i > 0 && <i aria-hidden="true">◆</i>}
-                  <div class="count">
-                    <b>{c.n}</b>
-                    <span>{c.label}</span>
-                  </div>
-                </>
-              ))}
-            </div>
+            {counters.length > 0 && (
+              <div class="counter">
+                {counters.map((c, i) => (
+                  <>
+                    {i > 0 && <i aria-hidden="true">◆</i>}
+                    <div class="count">
+                      <b>{c.n}</b>
+                      <span>{c.label}</span>
+                    </div>
+                  </>
+                ))}
+              </div>
+            )}
             <div class="fighter-grid">
               {fighters.map((fighter) => (
                 <FighterCard {...fighter} achListLabel={m.fighters_ach_list_label()} />
