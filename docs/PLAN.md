@@ -13,7 +13,7 @@ Plan d'exécution maître. Statuts : `TODO` · `EN COURS` · `DONE` · `BLOQUÉ`
 | E2 | App shell & design-system completion | M | **DONE** | [E2-design-system.md](features/E2-design-system.md) |
 | E3 | i18n (EN/FR) | M | **DONE** | [E3-i18n.md](features/E3-i18n.md) |
 | E4 | Sanity CMS | M | **DONE** | [E4-sanity-cms.md](features/E4-sanity-cms.md) |
-| E5 | Pages cœur & silos SEO | L | **DONE** (pages prioritaires) | [E5-core-pages.md](features/E5-core-pages.md) |
+| E5 | Pages cœur & silos SEO | L | **DONE** (pages prioritaires + satellites DTV) | [E5-core-pages.md](features/E5-core-pages.md) |
 | E6 | Mini-app DTV | L | TODO | [E6-dtv-app.md](features/E6-dtv-app.md) |
 | E7 | SEO technique | M | TODO | [E7-seo-technical.md](features/E7-seo-technical.md) |
 | E8 | Blog & contenu | M | TODO | [E8-blog-content.md](features/E8-blog-content.md) |
@@ -43,9 +43,10 @@ E1 Foundation
 
 1. ✅ **E1–E4 faits** : scaffold + design system + app shell + i18n Paraglide + Sanity (studio `/studio`, projet `etmrqgb2`). Détails : entrées précédentes + `docs/DECISIONS.md`.
 2. ✅ **E5 (pages prioritaires) fait** — 7 pages EN+FR : **Home** (port fidèle de la maquette landing sur le thème), **/dtv-visa** (pillar + FAQPage JSON-LD), **/stay-train**, **/classes** (#schedule #pricing — prix publics complets), **/fighters** (CMS-only, coming soon si vide), **/about** (#coaches), **/contact** (+ **`/api/contact`** : serverless, fetch→Resend gardé par `RESEND_API_KEY`). ~20 composants sections (Hero, PageHero, ValueStrip, DtvTeaser/Steps/Stamp, Program/Coach/Fighter/Pricing cards+grids, ScheduleTable, TestimonialQuote, Faq, CtaBanner, FeatureGrid, Breadcrumb, ContactForm…). **`safeQuery`** + fallbacks messages → build vert dataset vide. Nav/Footer re-pointés (clusters → pillar+anchor, zéro 404 ; Blog `#` jusqu'à E8). 466 clés messages, parité EN/FR vérifiée. JSON-LD : SportsClub (home), FAQPage (dtv), BreadcrumbList (pages intérieures).
-3. ▶️ **Prochain** : saisir le vrai contenu dans le studio (coaches, schedule, testimonials, fighters) ; puis **E6 (DTV app)** — trancher **Q1** storage avant ; ou satellites E5 (dtv-visa/eligibility, how-to-apply, classes/*…).
-4. Trancher **Q5** (domaine) — placeholder `wildcatmuaythai.com`. Env prod à poser : `RESEND_API_KEY`, `CONTACT_EMAIL` (+ `CONTACT_FROM` après vérif domaine Resend).
-5. Données réelles manquantes : email + horaires (`src/config/site.ts` + `nav_util_open_today`) — `TODO(real data)`. Redirect `/muay-thai-training` → `/stay-train` (E7/E10).
+3. ✅ **Satellites DTV (E5b, 2026-06-04, branche `feat/dtv-satellites`)** — 5 pages EN+FR data-driven (DataForSEO + SERP scans + briefs YMYL dans `content/_drafts/pages/`) : eligibility (+quiz), how-to-apply (+checklist docs, HowTo JSON-LD), muay-thai (table DTV vs ED, kw diff 0), long-stay-training (+estimateur budget), faq (30 Q, FAQPage JSON-LD déplacé du pillar). 4 composants interactifs vanilla (`src/components/interactive/`), Nav/pillar remaillés, +563 clés (1029, parité OK), tests Playwright 26/26. Contexte SEO projet créé : `docs/identity.md`, `docs/voice.md`, `docs/seo-context.md` (auteur contenus : Meaw Boonpradub).
+4. ▶️ **Prochain** : saisir le vrai contenu dans le studio (coaches, schedule, testimonials, fighters) ; **vérifier les faits DTV marqués [À VÉRIFIER] dans les briefs avant mise en prod** ; puis **E6 (DTV app)** — trancher **Q1** storage avant ; ou satellites Stay & Train (batch 2 : /accommodation, /location, /chiang-mai-guide…).
+5. Trancher **Q5** (domaine) — placeholder `wildcatmuaythai.com`. Env prod à poser : `RESEND_API_KEY`, `CONTACT_EMAIL` (+ `CONTACT_FROM` après vérif domaine Resend).
+6. Données réelles manquantes : email + horaires (`src/config/site.ts` + `nav_util_open_today`) — `TODO(real data)`. Redirect `/muay-thai-training` → `/stay-train` (E7/E10). Pillar FR : title 68ch / meta 178ch à raccourcir (héritage E5, hors batch satellites).
 
 ## Build-as-you-go restant (à créer avec leur page)
 DTVStepper (E6), TestimonialSlider (si besoin réel — quote statique en E5), liste/article blog + `.prose` (E8), galerie + HeroVideo (E9), composants motifs additionnels (BrushDivider standalone/stripes).
