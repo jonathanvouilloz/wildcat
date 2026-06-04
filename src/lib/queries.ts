@@ -31,7 +31,11 @@ export const FEATURED_TESTIMONIALS_QUERY = defineQuery(`
   }
 `);
 
-/** Grille horaires complète, ordonnée. */
+/**
+ * Grille horaires complète, ordonnée.
+ * ⚠️ Inutilisée depuis le planning en dur (site.schedule, flyer 2026-06-04) —
+ * le schéma trainingSchedule reste en place, réactivable si les horaires varient.
+ */
 export const SCHEDULE_QUERY = defineQuery(`
   *[_type == "trainingSchedule"] | order(order asc) {
     _id, day, timeSlots, level, notes, order

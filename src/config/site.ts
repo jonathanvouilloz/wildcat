@@ -33,13 +33,25 @@ export const site = {
     googleUrl: 'https://www.google.com/maps/search/?api=1&query=Wildcat+Muay+Thai+Chiang+Mai',
   },
 
-  // TODO(real data): horaires réels à confirmer (valeurs maquette)
+  // Horaires d'ouverture = 1er cours → fin du dernier (flyer 2026-06-04), 7j/7.
   // dayKey → messages footer_hours_* (libellés des jours)
-  hours: [
-    { dayKey: 'monfri', time: '07:00 – 21:00' },
-    { dayKey: 'sat', time: '09:00 – 16:00' },
-    { dayKey: 'sun', time: '09:00 – 13:00' },
-  ],
+  hours: [{ dayKey: 'daily', time: '07:30 – 20:00' }],
+
+  /**
+   * Planning réel (flyer 2026-06-04) — horaires fixes, identiques 7j/7.
+   * "Same schedule every day" : aucune notion de jour dans les données.
+   * i18n : titres cards / sous-notes / "flexible start" → messages schedule_* ;
+   * ce bloc ne contient que les heures (data brute non traduite).
+   */
+  schedule: {
+    group: ['09:00 – 10:30', '15:30 – 17:00', '17:00 – 18:30', '18:30 – 20:00'],
+    private: [
+      { time: '07:30 – 09:00' },
+      { time: '10:30 – 12:00' },
+      // Départs décalés 13:00 / 13:30 / 14:00 condensés en un créneau flexible
+      { time: '13:00 – 15:30', flexibleStart: true },
+    ],
+  },
 
   social: [
     {

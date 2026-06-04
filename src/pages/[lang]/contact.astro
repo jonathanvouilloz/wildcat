@@ -20,9 +20,7 @@ const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
 
 const hoursDays: Record<(typeof site.hours)[number]['dayKey'], string> = {
-  monfri: m.footer_hours_monfri(),
-  sat: m.footer_hours_sat(),
-  sun: m.footer_hours_sun(),
+  daily: m.footer_hours_daily(),
 };
 ---
 

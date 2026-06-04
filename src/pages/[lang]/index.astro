@@ -19,11 +19,10 @@ import { Icon } from 'astro-icon/components';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
 import { safeQuery } from '../../lib/content';
-import { COACHES_QUERY, FEATURED_TESTIMONIALS_QUERY, SCHEDULE_QUERY } from '../../lib/queries';
+import { COACHES_QUERY, FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
 import type {
   COACHES_QUERY_RESULT,
   FEATURED_TESTIMONIALS_QUERY_RESULT,
-  SCHEDULE_QUERY_RESULT,
 } from '../../lib/sanity.types';
 import { pickLocale } from '../../lib/i18n-content';
 import { urlFor } from '../../lib/image';
@@ -76,31 +75,12 @@ const quote = testimonialDocs[0]
     }
   : { content: m.home_quote_text(), name: 'James T.', meta: m.home_quote_meta(), rating: 5 };
 
-// Planning (teaser) — Sanity : créneaux du lundi (journée type) ; fallback : rows maquette
-const scheduleDocs = await safeQuery<SCHEDULE_QUERY_RESULT>({ query: SCHEDULE_QUERY }, []);
-const levelLabels: Record<string, string> = {
-  all: m.schedule_level_all(),
-  beginner: m.schedule_level_beginner(),
-  kids: m.schedule_level_kids(),
-  fighter: m.schedule_level_fighter(),
-  women: m.schedule_level_women(),
-};
-const typicalDay = scheduleDocs.filter((doc) => doc.day === 'mon');
-const scheduleRows =
-  typicalDay.length > 0
-    ? typicalDay.flatMap((doc) =>
-        (doc.timeSlots ?? []).map((slot) => ({
-          time: slot.start ?? '',
-          cls: pickLocale(slot.label, lang),
-          tag: doc.level ? levelLabels[doc.level] : undefined,
-        })),
-      )
-    : [
-        { time: '07:00', cls: m.home_sched_r1_cls(), sub: m.home_sched_r1_sub(), tag: m.home_sched_r1_tag() },
-        { time: '10:00', cls: m.home_sched_r2_cls(), sub: m.home_sched_r2_sub(), tag: m.home_sched_r2_tag() },
-        { time: '16:30', cls: m.home_sched_r3_cls(), sub: m.home_sched_r3_sub(), tag: m.home_sched_r3_tag() },
-        { time: '18:00', cls: m.home_sched_r4_cls(), sub: m.home_sched_r4_sub(), tag: m.home_sched_r4_tag() },
-      ];
+// Planning (teaser) — site.ts : les 4 sessions de groupe (horaires fixes 7j/7)
+const scheduleRows = site.schedule.group.map((time) => ({
+  time,
+  cls: m.schedule_group_title(),
+  tag: m.schedule_level_all(),
+}));
 
 /* ---------- Contenu statique (messages + site.ts) ---------- */
 
@@ -183,14 +163,16 @@ const instagram = site.social.find((s) => s.label === 'Instagram')?.href ?? '#';
 
 /* ---------- JSON-LD SportsClub (PRD §7 : LocalBusiness sur la home) ---------- */
 const base = Astro.site ?? Astro.url.origin;
+// Ouvert 7j/7, mêmes horaires (site.hours = 1 entrée "daily")
+const [opens, closes] = site.hours[0].time.split('–').map((part) => part.trim());
 const hoursSpec = [
-  { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], time: site.hours[0].time },
-  { days: ['Saturday'], time: site.hours[1].time },
-  { days: ['Sunday'], time: site.hours[2].time },
-].map(({ days, time }) => {
-  const [opens, closes] = time.split('–').map((part) => part.trim());
-  return { '@type': 'OpeningHoursSpecification', dayOfWeek: days, opens, closes };
-});
+  {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens,
+    closes,
+  },
+];
 const jsonld = {
   '@context': 'https://schema.org',
   '@type': 'SportsClub',

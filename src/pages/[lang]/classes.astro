@@ -6,15 +6,11 @@ import Card from '../../components/ui/Card.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
 import PageHero from '../../components/sections/PageHero.astro';
 import ProgramGrid from '../../components/sections/ProgramGrid.astro';
-import ScheduleTable from '../../components/sections/ScheduleTable.astro';
+import DaySchedule from '../../components/sections/DaySchedule.astro';
 import Faq from '../../components/sections/Faq.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
-import { safeQuery } from '../../lib/content';
-import { SCHEDULE_QUERY } from '../../lib/queries';
-import type { SCHEDULE_QUERY_RESULT } from '../../lib/sanity.types';
-import { pickLocale } from '../../lib/i18n-content';
 import { m } from '../../paraglide/messages.js';
 
 // Pilier Train (kw : "Muay Thai classes Chiang Mai").
@@ -44,47 +40,24 @@ const programs = [
   { level: m.classes_prog6_lvl(), title: m.classes_prog6_t(), body: m.classes_prog6_b(), href: p('/fighters') },
 ];
 
-/* ---------- Planning complet (Sanity, fallback journée type) ---------- */
-const scheduleDocs = await safeQuery<SCHEDULE_QUERY_RESULT>({ query: SCHEDULE_QUERY }, []);
-const levelLabels: Record<string, string> = {
-  all: m.schedule_level_all(),
-  beginner: m.schedule_level_beginner(),
-  kids: m.schedule_level_kids(),
-  fighter: m.schedule_level_fighter(),
-  women: m.schedule_level_women(),
+/* ---------- Planning « journée type » (site.ts, horaires fixes 7j/7) ---------- */
+const daySchedule = {
+  note: m.schedule_same_every_day(),
+  group: {
+    title: m.schedule_group_title(),
+    subnote: m.schedule_group_sub(),
+    times: [...site.schedule.group],
+  },
+  priv: {
+    title: m.schedule_private_title(),
+    subnote: m.schedule_private_sub(),
+    flexibleLabel: m.schedule_flexible_start(),
+    items: site.schedule.private.map((slot) => ({
+      time: slot.time,
+      flexible: 'flexibleStart' in slot && slot.flexibleStart,
+    })),
+  },
 };
-const dayOrder = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'] as const;
-const dayLabels: Record<(typeof dayOrder)[number], string> = {
-  mon: m.schedule_day_mon(),
-  tue: m.schedule_day_tue(),
-  wed: m.schedule_day_wed(),
-  thu: m.schedule_day_thu(),
-  fri: m.schedule_day_fri(),
-  sat: m.schedule_day_sat(),
-  sun: m.schedule_day_sun(),
-};
-const week = dayOrder
-  .map((day) => ({
-    day,
-    label: dayLabels[day],
-    rows: scheduleDocs
-      .filter((doc) => doc.day === day)
-      .flatMap((doc) =>
-        (doc.timeSlots ?? []).map((slot) => ({
-          time: slot.start ?? '',
-          cls: pickLocale(slot.label, lang),
-          tag: doc.level ? levelLabels[doc.level] : undefined,
-        })),
-      ),
-  }))
-  .filter((group) => group.rows.length > 0);
-// Fallback dataset vide : journée type (mêmes rows que la home)
-const fallbackRows = [
-  { time: '07:00', cls: m.home_sched_r1_cls(), sub: m.home_sched_r1_sub(), tag: m.home_sched_r1_tag() },
-  { time: '10:00', cls: m.home_sched_r2_cls(), sub: m.home_sched_r2_sub(), tag: m.home_sched_r2_tag() },
-  { time: '16:30', cls: m.home_sched_r3_cls(), sub: m.home_sched_r3_sub(), tag: m.home_sched_r3_tag() },
-  { time: '18:00', cls: m.home_sched_r4_cls(), sub: m.home_sched_r4_sub(), tag: m.home_sched_r4_tag() },
-];
 
 /* ---------- Tarifs publics complets (site.ts, source de vérité) ---------- */
 const fmt = (price: number) => price.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
@@ -157,20 +130,7 @@ const faqItems = [
       <SectionHead>{m.classes_sched_head()}</SectionHead>
       <h2 class="h2 mt-2 mb-3">{m.classes_sched_title()}</h2>
       <p class="lead mb-7">{m.classes_sched_lead()}</p>
-      {
-        week.length > 0 ? (
-          <div class="week">
-            {week.map((group) => (
-              <div>
-                <h3 class="h3 day">{group.label}</h3>
-                <ScheduleTable rows={group.rows} />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <ScheduleTable rows={fallbackRows} />
-        )
-      }
+      <DaySchedule note={daySchedule.note} group={daySchedule.group} priv={daySchedule.priv} />
     </Section>
 
     <Section soft id="pricing">
@@ -281,14 +241,6 @@ const faqItems = [
     outline-offset: 2px;
     border-radius: 4px;
   }
-  .week {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 26px;
-  }
-  .day {
-    margin-bottom: 12px;
-  }
   .price-groups {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -337,7 +289,6 @@ const faqItems = [
     align-items: start;
   }
   @media (max-width: 860px) {
-    .week,
     .price-groups,
     .faq-split {
       grid-template-columns: 1fr;

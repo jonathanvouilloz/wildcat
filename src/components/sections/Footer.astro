@@ -16,9 +16,7 @@ const lang = Astro.currentLocale ?? 'en';
 
 // Records explicites (pas d'accès dynamique m['...'] — tree-shaking + typage).
 const hoursDays: Record<(typeof site.hours)[number]['dayKey'], string> = {
-  monfri: m.footer_hours_monfri(),
-  sat: m.footer_hours_sat(),
-  sun: m.footer_hours_sun(),
+  daily: m.footer_hours_daily(),
 };
 const exploreLabels: Record<(typeof site.exploreLinks)[number]['key'], string> = {
   classes: m.footer_explore_classes(),
