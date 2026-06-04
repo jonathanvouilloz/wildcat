@@ -25,8 +25,21 @@ export interface Props {
   cta?: { label: string; href: string };
   image?: { src: string; alt: string; position?: string };
   eyebrow?: string;
+  /** brush de liaison photo→bande (défaut true) — false = bord net */
+  brush?: boolean;
 }
-const { head, title, titleEm, titleAfter, lead, dark = false, cta, image, eyebrow } = Astro.props;
+const {
+  head,
+  title,
+  titleEm,
+  titleAfter,
+  lead,
+  dark = false,
+  cta,
+  image,
+  eyebrow,
+  brush = true,
+} = Astro.props;
 const hasAside = Astro.slots.has('aside');
 const onDark = dark || !!image;
 ---
@@ -42,7 +55,7 @@ const onDark = dark || !!image;
           fetchpriority="high"
           style={`object-position:${image.position ?? 'center 30%'}`}
         />
-        <BrushSeparator class="ph-brush" preserveAspectRatio="none" aria-hidden="true" />
+        {brush && <BrushSeparator class="ph-brush" preserveAspectRatio="none" aria-hidden="true" />}
       </div>
     )
   }

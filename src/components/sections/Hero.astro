@@ -17,14 +17,20 @@ export interface Props {
   ctaPrimary: { label: string; href: string };
   ctaSecondary?: { label: string; href: string };
   metas?: { b: string; s: string }[];
-  image: { src: string; alt: string };
+  image: { src: string; alt: string; position?: string };
 }
 
 const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Astro.props;
 ---
 
 <section class="hero">
-  <img class="hero-bg" src={image.src} alt={image.alt} fetchpriority="high" />
+  <img
+    class="hero-bg"
+    src={image.src}
+    alt={image.alt}
+    fetchpriority="high"
+    style={image.position && `object-position:${image.position}`}
+  />
   <div class="hero-inner">
     <h1 class="display">
       {title}<br /><span class="em on-dark">{titleEm}</span>
