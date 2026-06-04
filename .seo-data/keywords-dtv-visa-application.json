@@ -1,0 +1,86 @@
+{
+  "topic": "dtv visa application",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-04T09:37:31Z",
+  "primary": {
+    "keyword": "dtv visa application",
+    "search_volume": 20,
+    "cpc": 2.32,
+    "competition": "LOW",
+    "competition_index": 12,
+    "difficulty": null,
+    "intent": "navigational",
+    "intent_probability": 0.5422
+  },
+  "secondaries": [
+    {
+      "keyword": "thailand dtv visa application",
+      "search_volume": 30,
+      "cpc": 3.96,
+      "competition": "LOW",
+      "competition_index": 9
+    },
+    {
+      "keyword": "dtv visa application form",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 14
+    },
+    {
+      "keyword": "thai dtv visa application",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 8
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "dtv thailand visa application",
+      "search_volume": 10,
+      "cpc": 2.61,
+      "competition": "MEDIUM",
+      "competition_index": 39
+    },
+    {
+      "keyword": "dtv visa thailand online application",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "dtv visa thailand application form",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "dtv visa online application",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 21
+    },
+    {
+      "keyword": "dtv thai visa application",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "dtv visa thailand application",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 18
+    }
+  ],
+  "related": [],
+  "quick_wins": []
+}

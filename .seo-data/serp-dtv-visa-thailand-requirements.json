@@ -1,0 +1,184 @@
+{
+  "keyword": "dtv visa thailand requirements",
+  "location": "United States",
+  "scanned_at": "2026-06-04",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://thaiconsulatela.thaiembassy.org/en/publicservice/dtv-visa",
+      "title": "Destination Thailand Visa (DTV) - Royal Thai Consulate-General, Los Angeles",
+      "page_type": "official",
+      "covers": [
+        "Eligible activities: Workcation (digital nomad/remote worker/freelancer), Thai soft power (Muay Thai, culinary training, medical treatment), dependents (spouse + children under 20)",
+        "Financial requirement: 500,000 THB (~$17,000 USD)",
+        "Document checklist by category (passport 6mo validity, employment verification/portfolio, bank statements with applicant name, acceptance letters from institutions)",
+        "Dependent docs: birth/marriage certificates",
+        "Non-US citizens need permanent resident card or valid US visa; minors need notarized parental consent; non-English docs need certified translations"
+      ],
+      "missing": [
+        "Visa fee amount not listed",
+        "Processing timeframes not specified",
+        "Validity period / single-vs-multiple entry not stated on this page",
+        "Soft-power 6-month minimum program rule not explained",
+        "No real-world walkthrough or rejection-risk guidance"
+      ],
+      "eeat_signals": [
+        "Official Royal Thai government source (Consulate-General LA)",
+        "Updated 3 Dec 2025, published 16 Jul 2024",
+        "Contact info (phone, email, office hours)",
+        "Direct links to official thaievisa.go.th portal",
+        "No author attribution"
+      ]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.siam-legal.com/thailand-visa/dtv-visa-thailand.php",
+      "title": "DTV Visa Thailand 2026 | Siam Legal International",
+      "page_type": "law firm guide",
+      "covers": [
+        "Comprehensive DTV overview (typical law-firm pillar: eligibility, 500k THB funds, soft power incl. Muay Thai, fees $275-$1,150, 5-year multiple-entry validity, 180 days/entry, family eligibility, application process)"
+      ],
+      "missing": [
+        "Page returned HTTP 403 to crawler; content inferred from SERP snippet only",
+        "Likely thin on lived experience / actual case files (commercial conversion focus)"
+      ],
+      "eeat_signals": [
+        "Established Thai immigration law firm (strong authoritativeness/trust)",
+        "2026-dated title indicating freshness",
+        "Legal-entity authorship"
+      ]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.greenbacktaxservices.com/blog/digital-nomad-visa-thailand/",
+      "title": "Thailand Digital Nomad Visa: DTV Requirements & U.S. Tax Guide",
+      "page_type": "blog",
+      "covers": [
+        "Financial requirement: 500,000 THB (~$14,500 USD)",
+        "All foreign nationalities eligible",
+        "Soft power categories: Muay Thai training, Thai cooking, sports, medical treatment, seminars, music festivals",
+        "Required docs: employment contracts, portfolio, bank statements, passport photo",
+        "Fees $275-$1,150 USD by embassy; extension fee 1,900 THB",
+        "Validity 5 years, multiple entry, 180 days/stay (+180 extension)",
+        "Family: spouse + children under 20",
+        "Deep US tax angle: 180-day Thai tax residency trigger, FEIE $130k, FBAR $10k, self-employment 15.3%, Forms 1040/2555/Schedule C"
+      ],
+      "missing": [
+        "Processing timelines vague ('days to weeks')",
+        "No visa denial / rejection-rate data",
+        "Soft-power 6-month minimum program duration rule not covered",
+        "No on-the-ground experience of the soft-power (Muay Thai) route specifically"
+      ],
+      "eeat_signals": [
+        "Named credentialed authors: Mike Wallace (MBA, CEO), Allen Pfeister (MBA, CPA) with LinkedIn links",
+        "Updated April 9, 2026; 16-min read",
+        "Official refs: thaievisa.go.th, US-Thailand tax treaty, IRS reports, IRS form citations",
+        "Institutional trust: 23,000+ expats served, 71,000+ returns, 4.9 stars / 1,200+ Trustpilot reviews"
+      ]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.thingsnomadsdo.com/blog/destination-thailand-visa-dtv-explained",
+      "title": "Destination Thailand Visa (DTV): Explained - Things Nomads Do",
+      "page_type": "blog",
+      "covers": [
+        "Financial requirement: 500,000 THB (~EUR 13,800)",
+        "Soft power categories: students (Muay Thai, culinary, arts, events), medical treatment, remote work",
+        "Required docs: bank statements, employment verification, residency proof",
+        "Fees ~EUR 350 for most European countries",
+        "Validity up to 5 years, 180-day entries",
+        "Family: spouse + children under 20",
+        "Tax disclaimer + 180-day residency note"
+      ],
+      "missing": [
+        "No comprehensive eligible/ineligible country list (external link only)",
+        "Processing timelines vague ('1 week to a month')",
+        "Extension procedures missing",
+        "Soft-power 6-month program rule + gym certification not covered"
+      ],
+      "eeat_signals": [
+        "First-person lived experience: author applied in September, 3-week processing, already lived in Thailand months",
+        "Named author Nina Hoeberichts with byline",
+        "Official portal refs: thaievisa.go.th, dtv.in.th",
+        "Transparency disclaimer ('not a tax advisor'), affiliate disclosure",
+        "Publish date Oct 26 (year unclear), no update date"
+      ]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.nowmuaythai.com/blog/everything-you-need-to-know-about-DTV-Visa-in-2026",
+      "title": "Everything you need to know about DTV Visa in 2026 - NOW Muay Thai",
+      "page_type": "camp",
+      "covers": [
+        "Soft-power Muay Thai route specifics: 500,000 THB in personal savings/checking only (no investment/corporate/crypto accounts)",
+        "Program must be minimum 6 months; official enrollment letter required; ~99% rejection for 1-month courses",
+        "Must enroll in a government-certified Muay Thai gym",
+        "Letter of acceptance from gym required",
+        "Beginners fully eligible (not just pro fighters)",
+        "Apply from outside Thailand (home country or Vietnam/Laos/Malaysia)",
+        "App fee ~10,000 THB; processing 5-15 business days"
+      ],
+      "missing": [
+        "Less depth on workcation/remote-work route and tax",
+        "Single competing Muay Thai camp already ranking on this angle (validates the niche but means competition exists)"
+      ],
+      "eeat_signals": [
+        "Actual Muay Thai camp = direct soft-power experience signal",
+        "2026-dated, niche-specific practical detail (enrollment letters, gym certification)"
+      ]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "What are the financial requirements for the DTV visa?",
+      "Who is eligible for the Thailand DTV visa?",
+      "Can I work for a Thai employer on a DTV visa?",
+      "Does the DTV visa allow Muay Thai training (soft power)?",
+      "How long does the DTV visa last and how many entries?",
+      "How long can I stay in Thailand per entry on a DTV?",
+      "Can my family / dependents apply with me?",
+      "Do I need to apply from outside Thailand?",
+      "How much does the DTV visa cost?",
+      "How long does DTV processing take?",
+      "Will I owe Thai taxes on a DTV visa?",
+      "Do I still need to file U.S. taxes while living in Thailand on a DTV?",
+      "What documents do I need for the DTV visa?",
+      "Is the DTV visa right for me / how does it compare to other digital nomad visas?",
+      "What mistakes should I avoid when applying for the DTV?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "Financial proof: 500,000 THB minimum (cited variously as ~$14,500-$17,000 USD / ~EUR 13,800); for the Muay Thai route must be in a personal savings/checking account only (no investment, corporate, or crypto accounts)",
+    "Validity: 5-year, multiple-entry visa; 180 days per entry, extendable +180 days at the Immigration Bureau",
+    "Two route types: Workcation (digital nomad/remote work for foreign employer/clients) and Thai Soft Power (Muay Thai, Thai cooking, sports, medical treatment, seminars, festivals)",
+    "All foreign nationalities eligible; applicant must be 20+ with clean immigration/criminal record",
+    "Passport valid 6+ months required",
+    "Must apply from OUTSIDE Thailand (home country or nearby e.g. Vietnam/Laos/Malaysia) via the thaievisa.go.th e-Visa portal",
+    "Core documents: passport biodata page, recent passport photo, bank statements showing 500k THB with applicant's name, proof of current residence, and (soft-power) a letter of acceptance/enrollment from the institution/gym",
+    "Family/dependents: legal spouse and children under 20 can be added (proof of relationship via marriage/birth certificates), no fixed number limit",
+    "Fees: ~$275-$1,150 USD by country (~EUR 350 in Europe, ~10,000 THB); extension fee ~1,900 THB",
+    "Soft-power Muay Thai specifics (from camp-level sources): program must be MINIMUM 6 months, enrollment letter must state 6+ months, ~99% rejection for 1-month courses, gym must be government-certified",
+    "No Thai work permit allowed; remote work only for foreign employers/clients",
+    "Tax note: 180+ days in-country triggers Thai tax residency"
+  ],
+  "weakness": [
+    "Top organic results barely cover the soft-power Muay Thai route in operational detail (the 6-month enrollment-letter rule and government-certified-gym requirement appear only on the niche camp result at #5, not in the high-authority results)",
+    "Generic guides bury or omit the #1 cause of rejection: booking a short (1-month) course instead of a 6+ month program",
+    "Almost no result walks through an ACTUAL Muay Thai DTV application start-to-finish from the gym/camp's side (what letter the gym issues, what enrollment proof looks like)",
+    "Vague, conflicting processing timelines and fee figures across sources",
+    "Law-firm pages optimize for conversion over lived how-to detail; tax-focused blog over-indexes on US tax and under-serves the Muay Thai applicant",
+    "No interactive eligibility checker or document checklist tailored to the soft-power applicant"
+  ],
+  "common_ground_note": "Figures above are aggregated verbatim from competitor pages for the content brief.",
+  "gap": {
+    "description": "Every ranking page treats DTV as a generic digital-nomad/remote-work visa and relegates the Muay Thai soft-power route to a bullet point. None of the high-authority results (official, law firm, tax blog) explain the make-or-break operational rules of the soft-power route: the mandatory 6+ month training program, the government-certified-gym requirement, the exact enrollment/acceptance letter a camp must issue, and why 1-month courses get ~99% rejected. There is no first-hand, gym-side walkthrough of preparing a successful Muay Thai DTV application, and no soft-power-specific document checklist or eligibility tool.",
+    "opportunity_score": "high"
+  },
+  "recommended_angle": "Position /dtv-visa/eligibility as the only DTV requirements page written by the camp that actually files Muay Thai soft-power applications: lead with the exact eligibility + document checklist for the Muay Thai route (6-month enrollment letter, government-certified gym, 500k THB in a personal account), surface the 1-month-course rejection trap competitors omit, and back every requirement with first-hand 'we prepare your acceptance letter and walk you through the e-Visa portal' experience to win E-E-A-T the generic law-firm and tax blogs cannot match."
+}

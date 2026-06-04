@@ -1,0 +1,167 @@
+{
+  "keyword": "muay thai training thailand cost",
+  "location": "United States",
+  "scanned_at": "2026-06-04",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.khaolakmuaythai.com/blog/the-real-cost-of-living-and-training-muay-thai-in-thailand/",
+      "title": "The Real Cost of Living and Training Muay Thai in Thailand | Khao Lak Muay Thai & Muay Boran",
+      "page_type": "gym blog / cost-of-living guide",
+      "covers": [
+        "Full monthly budget benchmark: 33,000-35,000 THB (~$1,000) all-in for a non-Thai fighter",
+        "Accommodation: 6,000-7,000 THB/mo rooms + 1,000-1,500 THB utilities (~8,000 THB total)",
+        "Training: 10,000 THB/mo for twice-daily + weights + fight training",
+        "Food itemized: meals from 60 THB, omelet 30 THB, water 15 THB, beer 80 THB; ~15,000 THB/mo budget",
+        "Leisure ~2,000 THB/mo, scooter rental 3,000 THB/mo",
+        "Fight income: 3,000-4,000 THB local stadium, 6,000-10,000 THB tourist stadium",
+        "Original photos, real Khao Lak pricing"
+      ],
+      "missing": [
+        "No DTV visa connection (lists visa types in passing only, no DTV cost/process)",
+        "Khao Lak only — no Chiang Mai vs Phuket vs Bangkok comparison",
+        "No interactive budget calculator",
+        "No long-stay (6-12 month) projection or extended-stay discounts modeled"
+      ],
+      "eeat_signals": [
+        "Gym-authored (Khao Lak Muay Thai) — first-hand operator knowledge but commercially biased",
+        "Original on-site photography (fighters, food, beach)",
+        "Published 2024-09-13, references updated to 2026",
+        "No named author or fighter testimonials"
+      ]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.tigermuaythai.com/prices",
+      "title": "Prices - Tiger Muay Thai & MMA Training Camp, Phuket, Thailand",
+      "page_type": "gym pricing / commercial page",
+      "covers": [
+        "Per-session rates: $16.50 group class, $23 private session",
+        "Phuket camp packages and all-inclusive training+accommodation bundles",
+        "20% all-inclusive promo (book before 2026-06-30)",
+        "Brand authority as world's largest destination gym"
+      ],
+      "missing": [
+        "No DTV visa angle or long-stay budgeting framework",
+        "Phuket-only pricing — no city comparison",
+        "Cost-of-living context (food/transport) thin",
+        "No calculator; transactional rather than educational"
+      ],
+      "eeat_signals": [
+        "Dominant brand authority in the niche (most-recognized destination camp)",
+        "Real facility, real published rate card",
+        "Page blocks bots (403) — strong domain but limited crawlable depth for this analysis"
+      ]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.onefc.com/lifestyle/how-much-you-will-pay-for-a-training-vacation-in-thailand/",
+      "title": "How Much You Will Pay For A Training Vacation In Thailand - ONE Championship",
+      "page_type": "editorial / lifestyle article (major MMA brand)",
+      "covers": [
+        "Training day-rates by gym: Fairtex $45/day (2 sessions), Petchyindee $15/day, Tiger $16.50-$23",
+        "Accommodation: budget hotels ~$12/night, 3-5 star from $30/night, Bangkok studio $180/mo",
+        "Food: street food ~$3/meal, indoor restaurants from $4/plate",
+        "Transport breakdown (BTS/MRT, tuk-tuk, songthaew, motorbike taxi)"
+      ],
+      "missing": [
+        "No visa mention at all (no DTV)",
+        "No monthly/weekly bundled totals — only day rates",
+        "No Chiang Mai focus; cities barely compared",
+        "Severely outdated (2019, 6+ years old) — prices and FX stale",
+        "No calculator, no long-stay scenario"
+      ],
+      "eeat_signals": [
+        "High domain authority (ONE Championship, premier MMA org)",
+        "Named author byline (John Wolcott)",
+        "Published 2019-12-19 — freshness liability despite authority"
+      ]
+    },
+    {
+      "rank": 4,
+      "url": "https://bangtaomuaythai.com/prices/",
+      "title": "Prices and packages - Bangtao Muay Thai & MMA in Phuket",
+      "page_type": "gym pricing / commercial page",
+      "covers": [
+        "Phuket per-session, weekly and monthly training packages",
+        "Training + accommodation bundle options",
+        "MMA/BJJ/fitness cross-discipline pricing"
+      ],
+      "missing": [
+        "No DTV visa connection or long-stay cost projection",
+        "Phuket-only; no regional comparison",
+        "No total cost-of-living budget (food/rent/transport) beyond the package",
+        "No interactive estimator"
+      ],
+      "eeat_signals": [
+        "Established Phuket camp with real rate card",
+        "Commercial intent, light educational E-E-A-T",
+        "First-party operator pricing"
+      ]
+    },
+    {
+      "rank": 5,
+      "url": "https://hktboxingstadium.com/cheap-muay-thai-training-thailand/",
+      "title": "Budget-Friendly Muay Thai Training in Thailand: 2026 Cost Guide",
+      "page_type": "gym blog / budget cost guide (2026)",
+      "covers": [
+        "Affordable session range 300-600 THB/session positioning",
+        "Cheap monthly training packages (from ~10,000 THB) framing",
+        "2026-dated budget-focused angle for cost-conscious travelers"
+      ],
+      "missing": [
+        "No DTV visa angle",
+        "No Chiang Mai-specific or multi-city cost comparison",
+        "No interactive calculator",
+        "Page returned 410 Gone on fetch — possible thin/unstable content"
+      ],
+      "eeat_signals": [
+        "2026 freshness signal in title",
+        "Gym-affiliated content (commercial bias)",
+        "Low crawl stability (HTTP 410) suggests weak technical footing"
+      ]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "How much does it cost to train Muay Thai in Thailand per month?",
+      "Is it cheaper to train Muay Thai in Thailand?",
+      "How much money do you need to live and train Muay Thai in Thailand?",
+      "How long should you train Muay Thai in Thailand?",
+      "Can you make money fighting Muay Thai in Thailand?",
+      "What is the cost of a Muay Thai course for a DTV visa?",
+      "How much is the DTV visa for Muay Thai?",
+      "Is Chiang Mai or Phuket cheaper for Muay Thai training?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "Commercial-investigation / budget-planning. Searchers are pre-trip cost researchers deciding whether a multi-week-to-multi-month training stay in Thailand is financially feasible. The 'long-stay angle' query variants (train for a year, all-inclusive camp, DTV cost) reveal a sub-segment planning months/years — these users implicitly need a visa solution but the cost SERP and the DTV SERP are currently disconnected.",
+  "common_ground": [
+    "All-in monthly budget benchmark of ~33,000-35,000 THB (~$1,000) for a disciplined non-Thai trainee; most quote $1,200-$2,000/mo realistic",
+    "Single session 300-600 THB (~$8-17)",
+    "Monthly unlimited training from ~10,000 THB (~$280) at smaller/Chiang Mai/Khao Lak gyms; 15,000 THB+ at comprehensive camps",
+    "Accommodation ~6,000-8,000 THB/mo basic near gym, up to 16,000-20,000 THB for bungalow/condo comfort",
+    "Food ~6,000-15,000 THB/mo depending on street-food vs Western",
+    "All-inclusive training+stay packages: ~$500-$1,500/mo (THB 30,000-100,000+; premium DTV bundles 80,000-150,000+ THB/mo)",
+    "Extended stays (1 month+) commonly earn 20-40% discounts",
+    "Phuket/Bangkok pricier than Chiang Mai / smaller towns",
+    "Fight income (local 3,000-4,000 THB, tourist 6,000-10,000 THB) noted by gym-authored pages"
+  ],
+  "gap": {
+    "description": "Two SERPs that should be one are split. The cost SERP (Khao Lak, Tiger, ONE, Bangtao, hkt) quotes monthly prices but is visa-blind — none connect a long-stay budget to the DTV visa, the actual legal mechanism for training in Thailand for months or years. The DTV SERP is the mirror image: dominated by thin gym sales pages (punchit, petchnumnoi, fitfac, phuketmuaythai) selling 'acceptance-letter' course bundles with almost no honest total-cost-of-living modeling. Only topmuaythai.com bridges both (Chiang Mai costs + DTV), but it offers just three static budget scenarios — no interactive calculator, no breakdown of real recurring costs once you're ON the DTV (rent + training + food + the 500k THB bank requirement + per-entry realities over the 5-year term). Nobody offers: (1) an interactive monthly-budget estimator tied to the DTV long-stay reality, (2) honest Chiang Mai-specific long-stay figures contrasted with Phuket/Bangkok, (3) a clear 'what months/years of training actually costs and looks like' narrative that frames the DTV as the unlock rather than an afterthought.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Top organic results are either commercially biased gym rate cards or outdated editorial (ONE = 2019)",
+    "Zero featured snippet and no calculator/tool on any page — open lane for an interactive estimator to win rich engagement and possible snippet",
+    "DTV visa almost entirely absent from the cost SERP despite being the #1 long-stay enabler",
+    "No page credibly separates Chiang Mai long-stay economics from Phuket/Bangkok",
+    "DTV-cluster pages are thin sales letters with weak E-E-A-T and no genuine cost transparency",
+    "No page models the multi-month / multi-year reality (lifestyle inflation, recurring costs, what a year actually looks like)"
+  ],
+  "recommended_angle": "Position /dtv-visa/long-stay-training as the honest, Chiang-Mai-specific 'what months or years of training actually cost on a DTV visa' guide — anchored by an interactive monthly-budget estimator (training + rent + food + visa amortized over 5 years) that no competitor offers. It owns the long-stay/cost/DTV intersection the cost SERP ignores and the DTV sales pages fake, while deliberately deferring package/short-stay booking intent to the existing /stay-train pillar so the two never cannibalize."
+}

@@ -1,0 +1,51 @@
+{
+  "topic": "dtv visa muay thai",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-04T09:37:00Z",
+  "primary": {
+    "keyword": "dtv visa muay thai",
+    "search_volume": 10,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 1,
+    "difficulty": null,
+    "intent": "navigational",
+    "intent_probability": 0.5736
+  },
+  "secondaries": [
+    {
+      "keyword": "dtv visa muay thai requirements",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "dtv visa muay thai pattaya",
+      "search_volume": 10,
+      "cpc": 1.4,
+      "competition": "MEDIUM",
+      "competition_index": 36
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "muay thai dtv visa",
+      "search_volume": 20,
+      "cpc": 1.28,
+      "competition": "LOW",
+      "competition_index": 14
+    },
+    {
+      "keyword": "dtv visa thailand muay thai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 5
+    }
+  ],
+  "related": [],
+  "quick_wins": []
+}
