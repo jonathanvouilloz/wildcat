@@ -181,7 +181,10 @@ const faqItems = [
         </div>
         <div class="route-card">
           <h3 class="route-card-t">{m.dtv_elig_route_begin_t()}</h3>
-          <p class="route-card-b">{m.dtv_elig_route_begin_b()}</p>
+          <p class="route-card-b">
+            {m.dtv_elig_route_begin_b()}{' '}
+            <a class="ilink ilink--dark" href={p('/classes/beginners')}>{m.dtv_elig_link_beginners()}</a>.
+          </p>
         </div>
       </div>
     </Section>

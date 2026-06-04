@@ -27,13 +27,21 @@ const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
 
 /* ---------- Programmes (taxonomie du mega menu Train) ---------- */
+// Card Beginner → satellite /classes/beginners (lien pillar→satellite structurant,
+// ancre dédiée) · card Fight Team → /fighters. Les autres convertissent (/contact).
 const programs = [
-  { level: m.classes_prog1_lvl(), title: m.classes_prog1_t(), body: m.classes_prog1_b(), href: p('/contact') },
+  {
+    level: m.classes_prog1_lvl(),
+    title: m.classes_prog1_t(),
+    body: m.classes_prog1_b(),
+    href: p('/classes/beginners'),
+    moreLabel: m.classes_prog1_more(),
+  },
   { level: m.classes_prog2_lvl(), title: m.classes_prog2_t(), body: m.classes_prog2_b(), href: p('/contact') },
   { level: m.classes_prog3_lvl(), title: m.classes_prog3_t(), body: m.classes_prog3_b(), href: p('/contact') },
   { level: m.classes_prog4_lvl(), title: m.classes_prog4_t(), body: m.classes_prog4_b(), href: p('/contact') },
   { level: m.classes_prog5_lvl(), title: m.classes_prog5_t(), body: m.classes_prog5_b(), href: p('/contact') },
-  { level: m.classes_prog6_lvl(), title: m.classes_prog6_t(), body: m.classes_prog6_b(), href: p('/contact') },
+  { level: m.classes_prog6_lvl(), title: m.classes_prog6_t(), body: m.classes_prog6_b(), href: p('/fighters') },
 ];
 
 /* ---------- Planning complet (Sanity, fallback journée type) ---------- */
@@ -130,6 +138,21 @@ const faqItems = [
       <ProgramGrid programs={programs} moreLabel={m.home_prog_more()} />
     </Section>
 
+    <!-- Le camp — section vibe/ancrage local (gap SERP : personne ne mène
+         avec famille + open-air). Géo prudente : adresse exacte [À VÉRIFIER]. -->
+    <Section dark id="camp">
+      <SectionHead onDark>{m.classes_camp_head()}</SectionHead>
+      <h2 class="h2 h2--dark mt-2 mb-3">
+        {m.classes_camp_title()} <span class="em on-dark">{m.classes_camp_title_em()}</span>
+      </h2>
+      <p class="camp-body">{m.classes_camp_body()}</p>
+      <p class="camp-body">
+        {m.classes_camp_outro()}{' '}
+        <a class="ilink ilink--dark" href={p('/about#coaches')}>{m.classes_camp_link_coaches()}</a>{' '}
+        {m.classes_camp_outro2()}
+      </p>
+    </Section>
+
     <Section id="schedule">
       <SectionHead>{m.classes_sched_head()}</SectionHead>
       <h2 class="h2 mt-2 mb-3">{m.classes_sched_title()}</h2>
@@ -173,6 +196,12 @@ const faqItems = [
           ))
         }
       </div>
+      <p class="longstay">
+        {m.classes_price_longstay_1()}{' '}
+        <a class="ilink" href={p('/stay-train')}>{m.classes_price_link_staytrain()}</a>{' '}
+        {m.classes_price_longstay_2()}{' '}
+        <a class="ilink" href={p('/dtv-visa/long-stay-training')}>{m.classes_price_link_dtv()}</a>{m.classes_price_longstay_3()}
+      </p>
     </Section>
 
     <Section>
@@ -180,6 +209,10 @@ const faqItems = [
         <div>
           <SectionHead>{m.classes_faq_head()}</SectionHead>
           <h2 class="h2 mt-2">{m.classes_faq_title()}</h2>
+          <p class="faq-more">
+            {m.classes_faq_more()}{' '}
+            <a class="ilink" href={p('/classes/beginners')}>{m.classes_faq_link_beg()}</a>.
+          </p>
         </div>
         <Faq items={faqItems} firstOpen />
       </div>
@@ -201,6 +234,52 @@ const faqItems = [
     color: var(--ink-2);
     max-width: 60ch;
     margin-top: 0;
+  }
+  .h2--dark {
+    color: var(--cream);
+  }
+  .camp-body {
+    font-size: 17px;
+    color: rgba(246, 241, 230, 0.82);
+    line-height: 1.65;
+    margin: 0 0 16px;
+    max-width: 64ch;
+  }
+  .longstay {
+    margin: 26px 0 0;
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.6;
+    max-width: 64ch;
+  }
+  .faq-more {
+    margin: 14px 0 0;
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+  .ilink {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .ilink:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .ilink--dark {
+    color: var(--cream);
+    text-decoration-color: rgba(246, 241, 230, 0.45);
+  }
+  .ilink--dark:hover {
+    color: var(--gold);
+  }
+  .ilink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   .week {
     display: grid;

@@ -80,7 +80,7 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
         <div class="mega" role="menu">
           <div class="mcol">
             <span class="lab">{m.nav_train_col_classes()}</span>
-            <a class="mlink" href={p('/classes#programs')}><span class="mic"><Icon name="tabler:karate" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_beginner_title()}</span><span class="md">{m.nav_train_beginner_desc()}</span></span></a>
+            <a class="mlink" href={p('/classes/beginners')}><span class="mic"><Icon name="tabler:karate" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_beginner_title()}</span><span class="md">{m.nav_train_beginner_desc()}</span></span></a>
             <a class="mlink" href={p('/classes#programs')}><span class="mic"><Icon name="tabler:chart-bar" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_alllevels_title()}</span><span class="md">{m.nav_train_alllevels_desc()}</span></span></a>
             <a class="mlink" href={p('/classes#programs')}><span class="mic"><Icon name="tabler:user" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_private_title()}</span><span class="md">{m.nav_train_private_desc()}</span></span></a>
           </div>

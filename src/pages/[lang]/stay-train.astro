@@ -123,6 +123,10 @@ const plans = [
         </div>
       </div>
       <FeatureGrid items={features} />
+      <p class="beg-note">
+        {m.stay_beg_note()}{' '}
+        <a class="ilink" href={p('/classes/beginners')}>{m.stay_beg_link()}</a>.
+      </p>
       <div class="imgbox">
         <img src="/assets/gym-garden.jpg" alt={m.home_stay_img_alt()} loading="lazy" />
       </div>
@@ -194,6 +198,28 @@ const plans = [
   }
   .lead--center {
     margin-inline: auto;
+  }
+  .beg-note {
+    margin: 22px 0 0;
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+  .ilink {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .ilink:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .ilink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   .imgbox {
     margin-top: 28px;
