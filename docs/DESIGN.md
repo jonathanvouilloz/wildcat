@@ -170,13 +170,23 @@ Le **tigre** est le cœur de la marque — mascotte à conserver. Autour, un pet
 
 | Motif | Description | Usage |
 |-------|-------------|-------|
-| **Master mark** | Lock-up complet (tigre + wordmark). Clear space ≥ 1× la hauteur du tigre. | Header, footer. Safe-area solide sur photo/fond sombre. |
+| **Master mark** | Lock-up complet (tigre + wordmark), SVG vectorisé en 2 orientations (`logo-horizontal.svg`, `logo-vertical.svg`). Clear space ≥ 1× la hauteur du tigre. | Header, footer (variantes `-cream` sur forest). Safe-area solide sur photo/fond sombre. |
 | **Tiger stripes** | `repeating-linear-gradient(60deg, forest 0 14px, gold 14px 28px)` | Dividers, bords, cadrage photo |
 | **Claw slash** | 3 griffes or inclinées sur charcoal | Accent sur boutons / liens actifs (hover) |
 | **Round stamp** | Sceau circulaire bord charcoal, texte mono « Wildcat · Est. Chiang Mai · Muay Thai » | Merch, stickers, story |
 | **DTV stamp** | Sceau doré radial, « DTV / Visa Friendly / Muay Thai · Soft Power » | Header/footer DTV, badge pilier |
 
-**Variantes logo** (dans `public/assets/`) : `logo-cream.png` (sur forest), `logo-knockout.png` (sur clair), `logo.png` (master / sur or), `logo-horizontal.png`, `logo-stacked*.png`.
+**Variantes logo** (dans `public/assets/`, SVG 100 % vectorisés — texte outliné, jamais de `<text>` vivant) :
+
+| Fichier | Contenu | Fond |
+|---------|---------|------|
+| `logo-only.svg` | Tigre seul (= favicon du site) | Tous fonds (clair, forest, gold) |
+| `logo-horizontal.svg` | Tigre + script + « MUAY THAI CHIANG MAI » (wordmark sombre) | Fonds clairs |
+| `logo-horizontal-cream.svg` | Idem, wordmark cream `#F6F1E6` | Forest / fonds sombres — **utilisé nav + footer** |
+| `logo-vertical.svg` | Lockup empilé (script / tigre / baseline), wordmark sombre | Fonds clairs |
+| `logo-vertical-cream.svg` | Idem, wordmark cream | Forest / fonds sombres |
+
+⚠️ Les couleurs internes du logo (`#231f20`, `#e4b021`, `#ea8723`…) sont **fixes** — propres à la marque, jamais mappées sur les tokens. Les variantes cream sont générées par recoloration des paths du wordmark uniquement (le tigre garde ses couleurs). **Favicon** : `favicon.svg` = tigre + `favicon.ico` (16/32/48) régénéré depuis `logo-only.svg`.
 
 ---
 

@@ -70,7 +70,7 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
 <!-- ============ MAIN NAV ============ -->
 <header class:list={['nav', !sticky && 'nav--static']} id="wc-nav">
   <div class="wrap">
-    <a class="brand" href={p('/')} aria-label={m.nav_aria_home()}><img src="/assets/logo-cream.png" alt={site.name}></a>
+    <a class="brand" href={p('/')} aria-label={m.nav_aria_home()}><img src="/assets/logo-horizontal-cream.svg" alt={site.name}></a>
 
     <nav class="menubar" aria-label={m.nav_aria_primary()}>
 
@@ -226,7 +226,7 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
 <div class="drawer" id="wc-drawer">
   <div class="scrim" data-drawer-close></div>
   <div class="panel">
-    <div class="dh"><img src="/assets/logo-cream.png" alt={site.name}><button class="x" aria-label={m.nav_aria_close()} data-drawer-close>×</button></div>
+    <div class="dh"><img src="/assets/logo-horizontal-cream.svg" alt={site.name}><button class="x" aria-label={m.nav_aria_close()} data-drawer-close>×</button></div>
     <div class="dbody">
       <details open><summary>{m.nav_train()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_beginner_title()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_drawer_alllevels()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_private_title()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_women_title()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_kids_title()}</a><a href={p('/fighters')}><span class="dot"></span> {m.nav_train_fight_title()}</a><a href={p('/classes#schedule')}><span class="dot"></span> {m.nav_drawer_schedule_pricing()}</a></div></details>
       <details><summary>{m.nav_stay()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/stay-train#pricing')}><span class="dot"></span> {m.nav_drawer_packages()}</a><a href={p('/stay-train')}><span class="dot"></span> {m.nav_drawer_accommodation()}</a><a href={p('/stay-train')}><span class="dot"></span> {m.nav_stay_scooter_title()}</a><a href={p('/contact')}><span class="dot"></span> {m.nav_stay_getting_title()}</a><a href={p('/stay-train')}><span class="dot"></span> {m.nav_stay_guide_title()}</a></div></details>

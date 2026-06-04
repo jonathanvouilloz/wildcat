@@ -529,21 +529,34 @@ const semantics = [
         </div>
       </section>
 
-      <!-- Logos -->
+      <!-- Logos — kit SVG vectorisé (couleurs fixes du logo, pas les tokens) -->
       <section class="mb-10">
         <SectionHead>Logo &amp; lockups</SectionHead>
         <h2 class="h2 mt-3 mb-6">The master mark</h2>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div class="flex h-40 items-center justify-center rounded-[var(--r-md)] border border-line bg-surface p-8">
-            <img src="/assets/logo-knockout.png" alt="Wildcat logo on light" class="max-h-20 w-auto" />
+            <img src="/assets/logo-horizontal.svg" alt="Wildcat horizontal lockup on light" class="max-h-20 w-auto" />
+          </div>
+          <div class="flex h-40 items-center justify-center rounded-[var(--r-md)] border border-line bg-surface p-8">
+            <img src="/assets/logo-vertical.svg" alt="Wildcat vertical lockup on light" class="max-h-28 w-auto" />
+          </div>
+          <div class="flex h-40 items-center justify-center rounded-[var(--r-md)] border border-line bg-surface p-8">
+            <img src="/assets/logo-only.svg" alt="Wildcat tiger mark on light" class="max-h-24 w-auto" />
           </div>
           <div class="flex h-40 items-center justify-center rounded-[var(--r-md)] bg-forest p-8">
-            <img src="/assets/logo-cream.png" alt="Wildcat logo on forest" class="max-h-20 w-auto" />
+            <img src="/assets/logo-horizontal-cream.svg" alt="Wildcat horizontal lockup (cream) on forest" class="max-h-20 w-auto" />
+          </div>
+          <div class="flex h-40 items-center justify-center rounded-[var(--r-md)] bg-forest p-8">
+            <img src="/assets/logo-vertical-cream.svg" alt="Wildcat vertical lockup (cream) on forest" class="max-h-28 w-auto" />
           </div>
           <div class="flex h-40 items-center justify-center rounded-[var(--r-md)] bg-gold p-8">
-            <img src="/assets/logo.png" alt="Wildcat logo on gold" class="max-h-20 w-auto" />
+            <img src="/assets/logo-only.svg" alt="Wildcat tiger mark on gold" class="max-h-24 w-auto" />
           </div>
         </div>
+        <p class="mt-3 text-sm text-ink-3">
+          SVG vectorisés (texte outliné) · lockups cream pour fonds forest · tigre seul = favicon.
+          Fichiers : <code>/assets/logo-{'{'}only,horizontal,vertical{'}'}[-cream].svg</code>
+        </p>
       </section>
 
       <footer class="border-t border-line pt-6 text-sm text-ink-3">

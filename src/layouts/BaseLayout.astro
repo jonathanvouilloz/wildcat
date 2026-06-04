@@ -59,6 +59,10 @@ const alternates = locales.map((loc) => ({
     {alternates.map((alt) => <link rel="alternate" hreflang={alt.lang} href={alt.href} />)}
     <link rel="alternate" hreflang="x-default" href={new URL(`/en${path}`, base).href} />
 
+    <!-- Favicon — tigre (logo-only). SVG moderne + .ico fallback (16/32/48). -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+
     <!-- Fonts — preload du poids critique uniquement (Satoshi 700 : titres + nav).
          400 non préchargé (below the fold) ; Fraunces non préchargeable (bundlée
          par Vite via fontsource, accent-only, pas LCP) — voir docs/DESIGN.md. -->
