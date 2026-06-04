@@ -66,7 +66,7 @@ const personSchema = {
   name: m.coaches_meaw_name(),
   jobTitle: m.coaches_meaw_role(),
   description: m.coaches_person_desc(),
-  image: new URL('/assets/hero-team.webp', base).href,
+  image: new URL('/assets/meaw-class.webp', base).href,
   url: pageUrl,
   worksFor: { '@type': 'SportsClub', name: site.name, url: homeUrl },
 };
@@ -86,7 +86,7 @@ const personSchema = {
     />
 
     <PageHero
-      image={{ src: '/assets/hero-team.webp', alt: m.coaches_hero_img_alt(), position: 'center 28%' }}
+      image={{ src: '/assets/team-krus.webp', alt: m.coaches_hero_img_alt(), position: 'center 22%' }}
       eyebrow={m.coaches_hero_eyebrow()}
       head={m.coaches_hero_head()}
       title={m.coaches_hero_title()}
@@ -99,8 +99,8 @@ const personSchema = {
     <Section id="meaw">
       <div class="meaw">
         <div class="imgbox">
-          {/* TODO(real data): portrait de Meaw — photo équipe en attendant */}
-          <img src="/assets/hero-team.webp" alt={m.coaches_meaw_img_alt()} loading="lazy" />
+          {/* TODO(real data): portrait de Meaw — en attendant : elle au centre, en action */}
+          <img src="/assets/meaw-class.webp" alt={m.coaches_meaw_img_alt()} loading="lazy" />
         </div>
         <div>
           <SectionHead>{m.coaches_meaw_head()}</SectionHead>
