@@ -8,6 +8,7 @@
 /* Fonts */
 @import './fonts.css'; /* Satoshi (self-host Fontshare) */
 @import '@fontsource-variable/fraunces/opsz-italic.css'; /* Fraunces variable — opsz + italic */
+@import '@fontsource-variable/caveat'; /* Caveat variable — annotations manuscrites (guest book) */
 
 /* Design tokens (variables CSS) */
 @import './tokens.css';
@@ -46,6 +47,7 @@
 
   --font-display: 'Satoshi', system-ui, sans-serif;
   --font-accent: 'Fraunces Variable', 'Fraunces', Georgia, serif;
+  --font-hand: 'Caveat Variable', 'Caveat', cursive;
 
   --radius-sm: 8px;
   --radius-md: 12px;

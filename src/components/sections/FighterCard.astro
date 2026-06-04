@@ -130,17 +130,19 @@ if (countryCode) {
 </article>
 
 <style>
+  /* Rotation seedée sur la carte entière : photo, ornement et textes
+     tournent ensemble — cohérent et organique (page de scrapbook posée) */
   .fighter {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    transform: rotate(var(--rot, -1deg));
   }
 
   .photo {
     position: relative;
     width: 100%;
-    transform: rotate(var(--rot, -1deg));
   }
 
   /* Photo incrustée : pas de cadre — le bord déchiré fait la transition
@@ -269,13 +271,14 @@ if (countryCode) {
     line-height: 1.35;
     color: var(--forest);
   }
+  /* Ligne signature — manuscrite (Caveat), comme une annotation au stylo */
   .sig {
-    margin-top: 8px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--ink-3);
+    margin-top: 6px;
+    font-family: var(--font-hand);
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--ink-2);
   }
 
   .sr-only {

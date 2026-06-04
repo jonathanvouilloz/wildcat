@@ -37,6 +37,7 @@
   /* typography */
   --font-display: 'Satoshi', system-ui, sans-serif; /* titres (Bold) + corps */
   --font-accent: 'Fraunces Variable', 'Fraunces', Georgia, serif; /* accents 72pt italic or */
+  --font-hand: 'Caveat Variable', 'Caveat', cursive; /* annotations manuscrites (guest book) */
 
   /* icônes (set : Tabler via astro-icon) */
   --icon-sm: 16px;
