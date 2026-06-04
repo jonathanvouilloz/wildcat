@@ -2,24 +2,42 @@
 /**
  * DtvSteps — étapes numérotées du parcours DTV (maquette : .dtv-steps).
  * Conçu pour fond sombre (cartes cream-alpha). Numéro = index + 1.
+ * Variantes : grid (cartes côte à côte, 3 steps max) · timeline (rail vertical, longs parcours).
  */
 export interface Props {
   steps: { title: string; body: string }[];
+  variant?: 'grid' | 'timeline';
+  /** Pose id="{idPrefix}-{n}" sur chaque item (ancres, ex. JSON-LD HowTo). */
+  idPrefix?: string;
 }
-const { steps } = Astro.props;
+const { steps, variant = 'grid', idPrefix } = Astro.props;
 ---
 
-<div class="dtv-steps" style={`--steps:${steps.length}`}>
-  {
-    steps.map((step, i) => (
-      <div class="dstep">
-        <div class="n">{i + 1}</div>
-        <h4>{step.title}</h4>
-        <p>{step.body}</p>
-      </div>
-    ))
-  }
-</div>
+{
+  variant === 'timeline' ? (
+    <ol class="dtv-timeline">
+      {steps.map((step, i) => (
+        <li id={idPrefix ? `${idPrefix}-${i + 1}` : undefined}>
+          <div class="n">{i + 1}</div>
+          <div class="t-body">
+            <h4>{step.title}</h4>
+            <p>{step.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <div class="dtv-steps" style={`--steps:${steps.length}`}>
+      {steps.map((step, i) => (
+        <div class="dstep">
+          <div class="n">{i + 1}</div>
+          <h4>{step.title}</h4>
+          <p>{step.body}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 <style>
   .dtv-steps {
@@ -62,5 +80,68 @@ const { steps } = Astro.props;
     .dtv-steps {
       grid-template-columns: 1fr;
     }
+  }
+
+  /* Timeline — rail vertical (badge or + ligne connectrice) hors carte, contenu en carte */
+  .dtv-timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 760px;
+  }
+  .dtv-timeline li {
+    position: relative;
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    column-gap: 20px;
+    padding-bottom: 22px;
+    scroll-margin-top: 90px;
+  }
+  .dtv-timeline li::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 44px;
+    bottom: -4px;
+    width: 2px;
+    background: rgba(246, 241, 230, 0.15);
+  }
+  .dtv-timeline li:last-child {
+    padding-bottom: 0;
+  }
+  .dtv-timeline li:last-child::before {
+    display: none;
+  }
+  .dtv-timeline .n {
+    width: 34px;
+    height: 34px;
+    margin-top: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #1c1407;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+  }
+  .dtv-timeline .t-body {
+    background: var(--forest-light);
+    border: 1px solid rgba(246, 241, 230, 0.1);
+    border-radius: var(--r-md);
+    padding: 16px 20px 18px;
+  }
+  .dtv-timeline h4 {
+    margin: 0 0 6px;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--cream);
+  }
+  .dtv-timeline p {
+    margin: 0;
+    font-size: 15px;
+    color: rgba(246, 241, 230, 0.75);
+    line-height: 1.6;
+    max-width: 62ch;
   }
 </style>

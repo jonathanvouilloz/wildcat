@@ -4,6 +4,7 @@ import Section from '../../../components/layout/Section.astro';
 import SectionHead from '../../../components/ui/SectionHead.astro';
 import Button from '../../../components/ui/Button.astro';
 import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import Callout from '../../../components/ui/Callout.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import FeatureGrid from '../../../components/sections/FeatureGrid.astro';
 import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
@@ -147,7 +148,9 @@ const faqItems = [
     {/* BLUF + disclaimer YMYL */}
     <Section containerSize="narrow">
       <p class="bluf">{m.dtv_mt_bluf()}</p>
-      <p class="disclaimer">{m.dtv_mt_disclaimer()}</p>
+      <Callout variant="note" label={m.callout_note_label()} class="mb-4">
+        <p>{m.dtv_mt_disclaimer()}</p>
+      </Callout>
       <p class="meta-line">
         <a href={p('/dtv-visa')} class="ilink">{m.dtv_mt_link_pillar()}</a>
       </p>
@@ -316,16 +319,6 @@ const faqItems = [
     line-height: 1.6;
     color: var(--ink);
     font-weight: 500;
-    margin: 0 0 18px;
-    max-width: 66ch;
-  }
-  .disclaimer {
-    font-style: italic;
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--ink-3);
-    border-left: 3px solid var(--gold);
-    padding-left: 16px;
     margin: 0 0 18px;
     max-width: 66ch;
   }

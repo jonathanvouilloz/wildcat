@@ -1,0 +1,310 @@
+---
+import { Icon } from 'astro-icon/components';
+
+/**
+ * Callout — encart d'informations essentielles, réutilisable partout.
+ * 2 axes orthogonaux :
+ *  - `variant` (le job) : note (disclaimer/bon à savoir) · brief (BLUF, faits clés ◆) · tip (conseil terrain).
+ *  - `theme` (l'habillage) : stripe (bande tiger-stripes, passe-partout) ·
+ *    stamp (papier cream double bordure + sceau via slot `badge`, pages visa) ·
+ *    board (forest-deep inversé, fort — à doser).
+ * i18n : AUCUNE string en dur — label/meta/facts viennent des messages via props.
+ * Slots : default (prose) · badge (sceau/illustration, theme stamp) · footer (liens/CTA).
+ */
+export interface Props {
+  variant?: 'note' | 'brief' | 'tip';
+  theme?: 'stripe' | 'stamp' | 'board';
+  /** Libellé d'en-tête (ex. m.callout_note_label()). */
+  label: string;
+  /** Ligne méta optionnelle, façon cachet (ex. « As of June 2026 »). */
+  meta?: string;
+  /** Icône Tabler de l'en-tête — défaut selon variant. */
+  icon?: string;
+  /** Faits clés (variant brief) — rendus en liste ◆. */
+  facts?: string[];
+  class?: string;
+}
+
+const {
+  variant = 'note',
+  theme = 'stripe',
+  label,
+  meta,
+  icon,
+  facts = [],
+  class: extra = '',
+} = Astro.props;
+
+const defaultIcon =
+  variant === 'brief' ? 'tabler:list-details' : variant === 'tip' ? 'tabler:bulb' : 'tabler:info-circle';
+const iconName = icon ?? defaultIcon;
+const hasBadge = Astro.slots.has('badge');
+const hasFooter = Astro.slots.has('footer');
+---
+
+<aside class:list={['callout', `callout--${theme}`, `callout--${variant}`, extra]}>
+  {theme === 'stripe' && <div class="stripe" aria-hidden="true" />}
+  {
+    hasBadge && (
+      <div class="badge" aria-hidden="true">
+        <slot name="badge" />
+      </div>
+    )
+  }
+  <div class="inner">
+    <p class="head">
+      <span class="ic"><Icon name={iconName} /></span>
+      <span class="label">{label}</span>
+      {meta && <span class="meta">{meta}</span>}
+    </p>
+    {
+      facts.length > 0 && (
+        <ul class="facts">
+          {facts.map((fact) => (
+            <li>{fact}</li>
+          ))}
+        </ul>
+      )
+    }
+    <div class="body"><slot /></div>
+    {
+      hasFooter && (
+        <div class="footer">
+          <slot name="footer" />
+        </div>
+      )
+    }
+  </div>
+</aside>
+
+<style>
+  .callout {
+    position: relative;
+    border-radius: var(--r-md);
+    max-width: 72ch;
+  }
+  .inner {
+    padding: 18px 22px 20px;
+  }
+
+  /* En-tête commun — icône + label caps + méta cachet */
+  .head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 10px;
+  }
+  .ic {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+  }
+  .ic :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+  .label {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 12.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  .meta {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+
+  /* Corps prose */
+  .body {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .body :global(p) {
+    margin: 0 0 10px;
+  }
+  .body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  .body:empty {
+    display: none;
+  }
+
+  /* Faits clés ◆ (variant brief) */
+  .facts {
+    list-style: none;
+    margin: 0 0 12px;
+    padding: 0;
+    display: grid;
+    gap: 9px;
+  }
+  .facts:last-child {
+    margin-bottom: 0;
+  }
+  .facts li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .facts li::before {
+    content: '◆';
+    position: absolute;
+    left: 2px;
+    top: 1px;
+    font-size: 10px;
+    color: var(--gold-deep);
+  }
+
+  .footer {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+  }
+
+  /* ---------- Theme stripe — carte sobre, bande tiger-stripes ---------- */
+  .callout--stripe {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+  .callout--stripe .stripe {
+    height: 6px;
+    background: repeating-linear-gradient(60deg, var(--forest) 0 14px, var(--gold) 14px 28px);
+  }
+  .callout--stripe .ic {
+    background: color-mix(in srgb, var(--gold) 18%, transparent);
+    color: var(--gold-deep);
+  }
+  .callout--stripe .label {
+    color: var(--forest);
+  }
+  .callout--stripe .meta {
+    background: var(--soft);
+    border: 1px solid var(--line);
+    color: var(--ink-3);
+  }
+  .callout--stripe .body {
+    color: var(--ink-2);
+  }
+  .callout--stripe .facts li {
+    color: var(--ink);
+  }
+
+  /* ---------- Theme stamp — papier cream double bordure + sceau ---------- */
+  .callout--stamp {
+    background:
+      radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--gold) 9%, transparent), transparent 42%),
+      var(--soft);
+    border: 1.5px solid color-mix(in srgb, var(--gold) 45%, var(--line));
+  }
+  .callout--stamp::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+    border-radius: calc(var(--r-md) - 5px);
+    pointer-events: none;
+  }
+  .callout--stamp .inner {
+    padding: 22px 26px 24px;
+  }
+  /* Badge ancré sur le coin haut-droit (sticker), légère rotation, sans ombre */
+  .callout--stamp .badge {
+    position: absolute;
+    top: -30px;
+    right: -20px;
+    transform: rotate(6deg);
+  }
+  .callout--stamp .badge :global(img) {
+    display: block;
+  }
+  .callout--stamp:has(.badge) .inner {
+    padding-right: clamp(26px, 12%, 110px);
+  }
+  /* Stamp : pas d'icône (le sceau joue ce rôle) — label seul, plus grand, plus d'air */
+  .callout--stamp .ic {
+    display: none;
+  }
+  .callout--stamp .head {
+    margin-bottom: 16px;
+  }
+  .callout--stamp .label {
+    color: var(--forest-deep);
+    font-size: 14.5px;
+  }
+  .callout--stamp .meta {
+    background: transparent;
+    border: 1px dashed color-mix(in srgb, var(--gold-deep) 60%, transparent);
+    color: var(--gold-deep);
+  }
+  .callout--stamp .body {
+    color: var(--ink-2);
+  }
+  .callout--stamp .facts li {
+    color: var(--ink);
+  }
+
+  /* ---------- Theme board — panneau forest-deep inversé ---------- */
+  .callout--board {
+    background: var(--forest-deep);
+    border: 1px solid rgba(246, 241, 230, 0.12);
+  }
+  .callout--board .inner {
+    padding: 22px 26px 24px;
+  }
+  .callout--board .ic {
+    background: color-mix(in srgb, var(--gold) 24%, transparent);
+    color: var(--gold);
+  }
+  .callout--board .label {
+    color: var(--gold);
+  }
+  .callout--board .meta {
+    background: rgba(246, 241, 230, 0.08);
+    border: 1px solid rgba(246, 241, 230, 0.16);
+    color: rgba(246, 241, 230, 0.75);
+  }
+  .callout--board .body {
+    color: rgba(246, 241, 230, 0.8);
+  }
+  .callout--board .facts li {
+    color: var(--cream);
+  }
+  .callout--board .facts li::before {
+    color: var(--gold);
+  }
+
+  @media (max-width: 600px) {
+    .callout--stamp .badge {
+      top: -22px;
+      right: -10px;
+    }
+    .callout--stamp .badge :global(img) {
+      width: 82px;
+      height: 82px;
+    }
+    .inner,
+    .callout--stamp .inner,
+    .callout--board .inner {
+      padding: 16px 18px 18px;
+    }
+    .callout--stamp:has(.badge) .inner {
+      padding-top: 30px;
+      padding-right: 18px;
+    }
+  }
+</style>

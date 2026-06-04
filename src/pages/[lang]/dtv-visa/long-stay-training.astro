@@ -4,6 +4,7 @@ import Section from '../../../components/layout/Section.astro';
 import SectionHead from '../../../components/ui/SectionHead.astro';
 import Button from '../../../components/ui/Button.astro';
 import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import Callout from '../../../components/ui/Callout.astro';
 import DtvStamp from '../../../components/ui/DtvStamp.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import Faq from '../../../components/sections/Faq.astro';
@@ -126,7 +127,9 @@ const faqItems = [
     <Section containerSize="narrow">
       <SectionHead>{m.dtv_lst_intro_head()}</SectionHead>
       <h2 class="h2 mt-2 mb-4">{m.dtv_lst_intro_title()}</h2>
-      <p class="lead-disclaimer">{m.dtv_lst_disclaimer()}</p>
+      <Callout variant="note" label={m.callout_note_label()} class="mb-5">
+        <p>{m.dtv_lst_disclaimer()}</p>
+      </Callout>
       <p class="body-p">{m.dtv_lst_intro_p1()}</p>
       <p class="body-p">
         {m.dtv_lst_intro_p2()}
@@ -312,16 +315,6 @@ const faqItems = [
     line-height: 1.65;
     margin: 0 0 16px;
     max-width: 64ch;
-  }
-  .lead-disclaimer {
-    font-size: 14.5px;
-    font-style: italic;
-    color: var(--ink-3);
-    line-height: 1.55;
-    margin: 0 0 22px;
-    max-width: 66ch;
-    padding-left: 14px;
-    border-left: 2px solid var(--line-3);
   }
   .signature {
     margin: 4px 0 0;

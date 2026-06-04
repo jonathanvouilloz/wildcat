@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Button from '../components/ui/Button.astro';
 import SectionHead from '../components/ui/SectionHead.astro';
 import Card from '../components/ui/Card.astro';
+import Callout from '../components/ui/Callout.astro';
 import Container from '../components/layout/Container.astro';
 import Section from '../components/layout/Section.astro';
 import Field from '../components/ui/forms/Field.astro';
@@ -490,6 +491,65 @@ const semantics = [
               Toute la carte est cliquable (focus ring or). Pas d'interactifs imbriqués.
             </p>
           </Card>
+        </div>
+      </section>
+
+      <!-- Callout — encarts d'informations essentielles -->
+      <section class="mb-20">
+        <SectionHead>Callout</SectionHead>
+        <h2 class="h2 mt-3 mb-2">Encarts — <span class="em">essentials.</span></h2>
+        <p class="mb-7 max-w-[60ch] text-ink-2">
+          2 axes : <code>variant</code> = le job (<code>note</code> disclaimer YMYL ·
+          <code>brief</code> BLUF faits ◆ · <code>tip</code> conseil) ×
+          <code>theme</code> = l'habillage (<code>stripe</code> tiger-stripes ·
+          <code>stamp</code> papier + sceau via slot <code>badge</code> ·
+          <code>board</code> inversé). Strings via props — jamais en dur en prod.
+        </p>
+
+        <div class="grid gap-7">
+          <!-- brief × stamp -->
+          <Callout
+            variant="brief"
+            theme="stamp"
+            label="In brief"
+            meta="As of June 2026"
+            facts={[
+              'Apply from outside Thailand only — embassy, consulate or e-Visa portal',
+              'Fee: 10,000 THB, non-refundable',
+              '180 days per stay, 5-year multiple-entry validity',
+            ]}
+          >
+            <img src="/assets/dtv-stamp.webp" alt="" width={118} height={118} slot="badge" />
+            <a slot="footer" class="font-semibold text-gold-deep underline underline-offset-2" href="#"
+              >the official Thai e-Visa portal &rarr;</a
+            >
+          </Callout>
+
+          <!-- note × stripe -->
+          <Callout variant="note" label="Good to know">
+            <p>
+              Immigration rules change — always confirm the current requirements on the official
+              portal before you apply. This is not legal advice.
+            </p>
+          </Callout>
+
+          <!-- tip × stripe -->
+          <Callout variant="tip" label="Wildcat tip">
+            <p>
+              Book your enrolment letter a week before you start the e-Visa form — it's the
+              document embassies ask about first.
+            </p>
+          </Callout>
+
+          <!-- note × board -->
+          <Callout variant="brief" theme="board" label="The short version" meta="Board theme"
+            facts={[
+              'Train 6 days a week, rest like a local on Sunday',
+              'Golden-hour sessions in the open-air garden ring',
+            ]}
+          >
+            <p>Theme inversé pour poser un point fort sur une page claire — à doser.</p>
+          </Callout>
         </div>
       </section>
 

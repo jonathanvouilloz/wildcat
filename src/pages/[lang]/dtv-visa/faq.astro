@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Section from '../../../components/layout/Section.astro';
 import SectionHead from '../../../components/ui/SectionHead.astro';
 import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import Callout from '../../../components/ui/Callout.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import FaqSearch from '../../../components/interactive/FaqSearch.astro';
@@ -148,7 +149,9 @@ const faqJsonld = {
         <span class="dot" aria-hidden="true">●</span>{m.dtv_faqp_reviewed()}
       </p>
       <p class="reviewed-by">{m.dtv_faqp_reviewed_by()}</p>
-      <p class="disclaimer">{m.dtv_faqp_disclaimer()}</p>
+      <Callout variant="note" label={m.callout_note_label()} class="mb-4">
+        <p>{m.dtv_faqp_disclaimer()}</p>
+      </Callout>
       <p class="pillar-link">
         <a href={p('/dtv-visa')}>{m.dtv_faqp_pillar_link()} &rarr;</a>
       </p>
@@ -237,18 +240,6 @@ const faqJsonld = {
     color: var(--ink-2);
     line-height: 1.6;
     max-width: 64ch;
-  }
-  .disclaimer {
-    margin: 0 0 14px;
-    padding: 14px 18px;
-    border-left: 3px solid var(--gold);
-    background: var(--surface);
-    border-radius: var(--r-sm);
-    font-style: italic;
-    font-size: 14px;
-    color: var(--ink-3);
-    line-height: 1.6;
-    max-width: 72ch;
   }
   .pillar-link {
     margin: 0;

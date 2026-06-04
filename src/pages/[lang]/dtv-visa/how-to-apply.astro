@@ -4,6 +4,7 @@ import Section from '../../../components/layout/Section.astro';
 import SectionHead from '../../../components/ui/SectionHead.astro';
 import Button from '../../../components/ui/Button.astro';
 import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import Callout from '../../../components/ui/Callout.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import DtvSteps from '../../../components/sections/DtvSteps.astro';
 import Faq from '../../../components/sections/Faq.astro';
@@ -157,17 +158,39 @@ const howToSchema = {
     />
 
     <Section containerSize="narrow">
-      <p class="disclaimer"><em>{m.dtv_apply_disclaimer()}</em></p>
+      <Callout
+        variant="brief"
+        theme="stamp"
+        label={m.callout_brief_label()}
+        meta={m.dtv_apply_brief_meta()}
+        facts={[
+          m.dtv_apply_brief_f1(),
+          m.dtv_apply_brief_f2(),
+          m.dtv_apply_brief_f3(),
+          m.dtv_apply_brief_f4(),
+          m.dtv_apply_brief_f5(),
+          m.dtv_apply_brief_f6(),
+        ]}
+        class="mb-7"
+      >
+        <img src="/assets/dtv-stamp.webp" alt="" width={118} height={118} slot="badge" />
+        <a slot="footer" class="ilink" href={PORTAL} target="_blank" rel="noopener">
+          {m.dtv_apply_portal_link()} &rarr;
+        </a>
+      </Callout>
 
       <SectionHead>{m.dtv_apply_intro_head()}</SectionHead>
       <h2 class="h2 mt-2 mb-4">{m.dtv_apply_intro_title()}</h2>
-      <p class="body-p">{m.dtv_apply_intro_p1()}</p>
       <p class="body-p">{m.dtv_apply_intro_p2()}</p>
       <p class="body-p inline-links">
         <a class="ilink" href={p('/dtv-visa/eligibility')}>{m.dtv_apply_intro_link()}</a>
         <span aria-hidden="true">·</span>
         <a class="ilink" href={p('/dtv-visa')}>{m.dtv_apply_intro_pillar_link()}</a>
       </p>
+
+      <Callout variant="note" label={m.callout_note_label()} class="mt-7">
+        <p>{m.dtv_apply_disclaimer()}</p>
+      </Callout>
     </Section>
 
     <Section soft id="eligibility" containerSize="narrow">
@@ -181,25 +204,21 @@ const howToSchema = {
       </div>
     </Section>
 
-    <Section dark>
+    <Section dark containerSize="narrow">
       <SectionHead onDark>{m.dtv_apply_steps_head()}</SectionHead>
       <h2 class="h2 h2--dark mt-2 mb-3">{m.dtv_apply_steps_title()}</h2>
       <p class="body-p body-p--dark mb-7">{m.dtv_apply_steps_intro()}</p>
 
-      <ol class="steps-anchors">
-        {steps.map((_, i) => <li id={`step-${i + 1}`} aria-hidden="true" />)}
-      </ol>
-      <DtvSteps steps={steps} />
+      <DtvSteps steps={steps} variant="timeline" idPrefix="step" />
 
-      <p class="body-p body-p--dark mt-7 inline-links">
-        <a class="ilink ilink--dark" href={PORTAL} target="_blank" rel="noopener">
+      <div class="steps-cta">
+        <Button href={PORTAL} variant="gold" target="_blank" rel="noopener">
           {m.dtv_apply_portal_link()}
-        </a>
-        <span aria-hidden="true">·</span>
-        <a class="ilink ilink--dark" href={p('/dtv-visa/long-stay-training')}>
+        </Button>
+        <Button href={p('/dtv-visa/long-stay-training')} variant="outline" onDark arrow>
           {m.dtv_apply_step7_link()}
-        </a>
-      </p>
+        </Button>
+      </div>
     </Section>
 
     <Section containerSize="narrow" id="documents">
@@ -317,17 +336,6 @@ const howToSchema = {
   .h2--dark {
     color: var(--cream);
   }
-  .disclaimer {
-    border-left: 3px solid var(--gold);
-    background: var(--soft);
-    border-radius: var(--r-sm);
-    padding: 16px 20px;
-    margin: 0 0 36px;
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--ink-2);
-    max-width: 70ch;
-  }
   .ilink {
     color: var(--gold-deep);
     font-weight: 600;
@@ -336,9 +344,6 @@ const howToSchema = {
   }
   .ilink:hover {
     color: var(--forest);
-  }
-  .ilink--dark {
-    color: var(--gold);
   }
   .inline-links {
     display: flex;
@@ -349,19 +354,14 @@ const howToSchema = {
   .inline-links span {
     color: var(--line-3);
   }
-  .ilink--dark:hover {
-    color: var(--cream);
-  }
 
-  /* Ancres invisibles step-1..7 (offset scroll + cibles HowTo url) */
-  .steps-anchors {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    height: 0;
-  }
-  .steps-anchors li {
-    scroll-margin-top: 90px;
+  /* CTA de section sous la timeline — centrés (pattern .cta-row de CtaBanner) */
+  .steps-cta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 44px;
   }
 
   /* Fees table */

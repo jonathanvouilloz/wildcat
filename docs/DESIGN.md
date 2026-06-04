@@ -206,7 +206,8 @@ Spécifiés visuellement ici, implémentés en E2 (`src/components/ui` + `sectio
 | `Nav` / `MegaMenu` + `MobileDrawer` | ✅ `sections/Nav.astro` | 4 panneaux + drawer accordéon + utility bar (infos depuis `config/site.ts`) |
 | `Footer` | ✅ `sections/Footer.astro` | 4 colonnes + bottom bar — contenu depuis `config/site.ts` |
 | `BaseLayout` | ✅ `layouts/BaseLayout.astro` | head SEO complet (OG/Twitter/canonical/hreflang), slot `jsonld` (E7), preload fonts, Nav+Footer |
-| `DtvStamp` | spec | sceau doré (cf. /styleguide) |
+| `Callout` (note/brief/tip × stripe/stamp/board) | ✅ `ui/Callout.astro` | encart infos essentielles — `variant` = job (disclaimer YMYL / BLUF faits ◆ / conseil) · `theme` = habillage (bande tiger-stripes / papier cream double bordure + sceau via slot `badge` / forest-deep inversé) · slots `badge`/`footer` · strings via props (i18n) |
+| `DtvStamp` | ✅ `ui/DtvStamp.astro` | sceau doré (cf. /styleguide) — aussi badge du `Callout` stamp |
 | Tiger stripes / Claw / Round stamp | spec | motifs CSS |
 | `FighterCard` / `CoachCard` | E5 | photo + stats (fighter) / rôle (coach) |
 | `TestimonialSlider` | E9 | photo, pays, étoiles |

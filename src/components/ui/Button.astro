@@ -17,6 +17,9 @@ export interface Props {
   flat?: boolean;
   class?: string;
   type?: 'button' | 'submit';
+  /** Liens externes (rend <a> only). */
+  target?: string;
+  rel?: string;
 }
 
 const {
@@ -27,6 +30,8 @@ const {
   flat = false,
   class: extra = '',
   type = 'button',
+  target,
+  rel,
 } = Astro.props;
 
 const Tag = href ? 'a' : 'button';
@@ -47,6 +52,8 @@ const variantClass =
 <Tag
   class:list={['wc-btn', variantClass, flat && 'wc-flat', extra]}
   href={href}
+  target={href ? target : undefined}
+  rel={href ? rel : undefined}
   type={href ? undefined : type}
 >
   <span class="wc-label"><slot /></span>
