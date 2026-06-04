@@ -34,24 +34,25 @@ const { name, fightName, countryCode, year, quote, photo, achievements = [], sig
 const rot = seedRot(name, 2);
 const signature = [`— ${fightName ?? name.split(/\s+/)[0]}`, sigLine].filter(Boolean).join(' · ');
 
-// Stamps : max 3 (ordre priorité = page), tous du MÊME côté (seedé) en
-// grappe qui se chevauche — collés les uns sur les autres comme de vrais
-// stickers. Départ vertical seedé + chaîne descendante (12 %/stamp ≈
-// chevauchement léger) + jitters horizontaux/verticaux + rotations.
-const stamps = achievements.slice(0, 3);
-const stampSide: 'left' | 'right' = seedPick(name + 'side', 2) === 0 ? 'left' : 'right';
-const clusterTop = 8 + seedPick(name + 'cluster', 24); // 8–31 %
-const placedStamps = stamps.map((a, i) => ({
-  ...a,
-  top: clusterTop + i * 12 + seedRot(name + a.value + 'jt', 3),
-  dx: seedRot(name + a.value + 'x', 9),
-  rot: seedRot(name + a.value),
-}));
-
-// Scotch : asset 1 de 3 + côté haut gauche/droite, seedés
+// Scotch : asset 1 de 3 + côté haut gauche/droite, seedés (déclaré avant les
+// stamps : ils prennent le côté opposé au scotch pour équilibrer la card).
 const tapeSrc = `/assets/decor/tape-${1 + seedPick(name + 't', 3)}.webp`;
 const tapeRight = seedPick(name + 's', 2) === 1;
 const tapeRot = seedRot(name + 'tape', 8);
+
+// Stamps : max 3 (ordre priorité = page), tous du côté OPPOSÉ au scotch, en
+// grappe qui se chevauche légèrement — pas de 13 %/stamp (≈10 px de
+// chevauchement pour 58 px de haut, jamais de recouvrement total) + zigzag
+// horizontal alterné + jitters + rotations.
+const stamps = achievements.slice(0, 3);
+const stampSide: 'left' | 'right' = tapeRight ? 'left' : 'right';
+const clusterTop = 8 + seedPick(name + 'cluster', 22); // 8–29 %
+const placedStamps = stamps.map((a, i) => ({
+  ...a,
+  top: clusterTop + i * 13 + seedRot(name + a.value + 'jt', 2),
+  dx: seedRot(name + a.value + 'x', 6) + (i % 2 === 0 ? -7 : 7),
+  rot: seedRot(name + a.value),
+}));
 
 // Frame torn : 2 cadres alternés (l'historique à 104 % + le grunge t2 à
 // 106 %) × orientation seedée (quart de tour + miroir, cadres carrés →
@@ -244,7 +245,7 @@ if (countryCode) {
     right: -30px;
   }
   .stamp :global(.ach-stamp--img) {
-    height: 55px;
+    height: 58px;
   }
 
   /* Plaque ornement — chevauche franchement le bas de la photo */
