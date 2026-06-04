@@ -61,6 +61,11 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 - **Pièges notés** : titre/desc par page ET par locale via messages (`*_meta_title`/`_meta_desc`) ; JSON-LD SportsClub sur la home (horaires/adresse/sameAs depuis site.ts), FAQPage sur /dtv-visa, BreadcrumbList émis par `<Breadcrumb>` inline body (valide Google) ; parité messages vérifiée par one-liner node (466 clés EN = FR). PRD `/muay-thai-training` → slug maquette `/stay-train` : **redirect à poser en E7/E10**.
 - **Alternatives** : slugs traduits FR (rejeté V1) ; SDK `resend` (inutile, fetch suffit) ; Astro Action (couplage JS) ; seed NDJSON `sanity dataset import` (sur-ingénierie pour ~10 documents).
 
+### 2026-06-04 | CSS : styles globaux des titres dans `@layer base` (piège cascade Tailwind v4)
+- **Contexte** : audit espacement post-E5 — les marges utilitaires posées sur les titres dans toutes les pages (`mt-2`, `mb-3`, `mb-7`…) calculaient à **0px**. Cause : le bloc canonique `.display/.h1/.h2/.h3 { margin: 0; … }` de `global.css` était **non-layéré**, et en CSS un style non-layéré gagne sur **toutes** les `@layer` — y compris `@layer utilities` de Tailwind v4. Les espacements écrits en E5 n'avaient jamais été rendus.
+- **Choix** : bloc titres déplacé dans **`@layer base`** → les utilitaires (layer `utilities`, déclarée après) reprennent la main. Au passage : `Breadcrumb` en padding symétrique (`20px 0`) et top de `PageHero` réduit (`clamp(24px,3vw,44px)`) pour compenser.
+- **Règle à retenir** : **jamais de style non-layéré sur des propriétés qu'on veut pouvoir ajuster en utilitaires Tailwind** (marges des titres typiquement). Le bug est silencieux : build vert, classe présente dans le HTML, marge à 0 au computed. Vérification rapide : `getComputedStyle` dans le navigateur. Les styles scopés Astro (non-layérés eux aussi) gagnent sur les utilitaires de la même façon — OK quand c'est voulu (ex. `.h1` de PageHero), piège sinon. `.wc-control` et `.em` restent non-layérés volontairement (jamais ajustés en utilitaires).
+
 ### 2026-06-03 | Communication DTV : WhatsApp deep link
 - **Contexte** : l'owner travaille déjà sur WhatsApp. Zéro friction souhaitée.
 - **Choix** : `wa.me` avec message pré-rempli (nom + réf dossier) à la soumission du formulaire, plutôt qu'une intégration API WhatsApp Business.

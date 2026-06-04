@@ -42,7 +42,14 @@ const { title, titleEm, titleAfter, ctaPrimary, ctaSecondary, image } = Astro.pr
 
 <style>
   .cta-block {
-    padding-block: 0 var(--section-y);
+    /* respiration symétrique par défaut : après une bande soft/dark, la card
+       a besoin de sa propre marge cream au-dessus (sinon collée au seam) */
+    padding-block: var(--section-y);
+  }
+  /* après une section cream (même fond), le padding-bottom de la section
+     précédente suffit — on collapse pour éviter le double espace */
+  :global(.wc-section:not(.wc-section--soft):not(.wc-section--dark)) + .cta-block {
+    padding-top: 0;
   }
   .cta-banner {
     position: relative;
