@@ -100,6 +100,11 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
       );
   }
 
+  /* H1 home only : plus grand que le .display global (l'espace est là) —
+     la colonne passe à 1060px pour garder le lockup sur 2 lignes */
+  .hero .display {
+    font-size: clamp(46px, 7vw, 92px);
+  }
   .hero-inner {
     position: relative;
     z-index: 3; /* au-dessus du brush — le bandeau metas le chevauche */
@@ -107,7 +112,7 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 880px;
+    max-width: 1060px;
     margin: 0 auto;
     padding: clamp(140px, 20vh, 220px) var(--gutter) clamp(24px, 3vw, 44px);
   }

@@ -1,0 +1,144 @@
+---
+import SectionHead from '../ui/SectionHead.astro';
+import Button from '../ui/Button.astro';
+
+/**
+ * SplitHero — hero split direction C du styleguide (« évolution douce ») :
+ * texte sur cream à gauche (lisibilité maximale, zéro overlay), photo
+ * full-height jusqu'au bord droit, callout forest flottant optionnel.
+ * Pas de Container : la colonne copy aligne son bord gauche sur celui du
+ * Container via max(gutter, (100vw - maxw)/2), la photo file au bord.
+ * Le Breadcrumb reste au-dessus sur sa bande cream. Utilisé sur /about.
+ */
+export interface Props {
+  head: string;
+  title: string;
+  titleEm?: string;
+  lead: string;
+  eyebrow?: string;
+  cta?: { label: string; href: string };
+  image: { src: string; alt: string; position?: string };
+  float?: { title: string; body: string };
+}
+const { head, title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
+---
+
+<section class="split-hero">
+  <div class="copy">
+    {eyebrow && <p class="eyebrow"><span class="em">{eyebrow}</span></p>}
+    <SectionHead>{head}</SectionHead>
+    <h1 class="h1">
+      {title}
+      {titleEm && <span class="em">{titleEm}</span>}
+    </h1>
+    <p class="lead">{lead}</p>
+    {
+      cta && (
+        <div class="cta">
+          <Button href={cta.href} variant="gold" arrow>
+            {cta.label}
+          </Button>
+        </div>
+      )
+    }
+  </div>
+  <div class="media">
+    {/* LCP de la page → fetchpriority high */}
+    <img
+      src={image.src}
+      alt={image.alt}
+      fetchpriority="high"
+      style={image.position && `object-position:${image.position}`}
+    />
+    {
+      float && (
+        <div class="float">
+          <div class="t">{float.title}</div>
+          <div class="d">{float.body}</div>
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .split-hero {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1.04fr 1fr;
+    align-items: center;
+    gap: clamp(24px, 4vw, 46px);
+  }
+  .copy {
+    /* bord gauche aligné sur le Container, photo full-bleed à droite */
+    padding: clamp(40px, 5vw, 64px) 0 clamp(40px, 5vw, 64px)
+      max(var(--gutter), calc((100vw - var(--maxw)) / 2));
+  }
+  .eyebrow {
+    font-size: clamp(17px, 1.6vw, 21px);
+    margin: 0 0 10px;
+  }
+  .h1 {
+    margin: 8px 0 16px;
+  }
+  .lead {
+    font-size: clamp(17px, 1.4vw, 20px);
+    color: var(--ink-2);
+    max-width: 46ch;
+    margin: 0;
+  }
+  .cta {
+    margin-top: 26px;
+  }
+  .media {
+    position: relative;
+    align-self: stretch;
+    min-height: clamp(380px, 52vh, 520px);
+  }
+  .media > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* callout forest flottant — mord le bord gauche de la photo */
+  .float {
+    position: absolute;
+    left: -18px;
+    bottom: 26px;
+    background: var(--forest);
+    color: var(--cream);
+    border-radius: var(--r-md);
+    padding: 14px 18px;
+    box-shadow: var(--shadow-lg);
+    max-width: 230px;
+  }
+  .float .t {
+    color: var(--gold);
+    font-weight: 800;
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+  .float .d {
+    font-size: 12.5px;
+    color: rgba(246, 241, 230, 0.8);
+    line-height: 1.4;
+  }
+  @media (max-width: 860px) {
+    .split-hero {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .copy {
+      padding: clamp(28px, 5vw, 40px) var(--gutter);
+    }
+    .media {
+      min-height: 300px;
+    }
+    .float {
+      left: 12px;
+      bottom: 14px;
+    }
+  }
+</style>
