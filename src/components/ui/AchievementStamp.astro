@@ -57,7 +57,7 @@ const ink = INKS[value] ?? 'var(--forest)';
       class="ach-stamp ach-stamp--img"
       src={asset}
       alt=""
-      height={56}
+      height={59}
       loading="lazy"
       aria-hidden="true"
       style={`--rot:${rot}deg`}
@@ -111,14 +111,14 @@ const ink = INKS[value] ?? 'var(--forest)';
   }
 
   /* Asset die-cut (RGBA, fonds intérieurs conservés) : rendu brut, comme un
-     vrai sticker collé — pas d'ombre, pas de halo. Crops serrés aux ratios
-     variables → normalisation par la hauteur (poids visuel ≈ fallback 56px). */
+     vrai sticker collé — pas d'ombre, pas de halo, pas d'anim. Crops serrés
+     aux ratios variables → normalisation par la hauteur. */
   .ach-stamp--img {
     padding: 0;
     border: 0;
     background: transparent;
     box-shadow: none;
-    height: 56px;
+    height: 59px;
     width: auto;
   }
   .ach-stamp--img::after {
