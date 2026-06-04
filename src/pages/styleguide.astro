@@ -14,6 +14,7 @@ import Checkbox from '../components/ui/forms/Checkbox.astro';
 import FileUpload from '../components/ui/forms/FileUpload.astro';
 import Nav from '../components/sections/Nav.astro';
 import Footer from '../components/sections/Footer.astro';
+import BrushSeparator from '../assets/separator-green.svg';
 import { Icon } from 'astro-icon/components';
 
 // Inventaire des icônes (set candidat : Tabler). Swappable : changer le préfixe.
@@ -134,6 +135,88 @@ const semantics = [
   { name: 'Success', hex: '#5BB487', role: 'Validations, "open today" (nav), fichiers OK', token: '--success' },
   { name: 'Warning', hex: '#C98A12', role: 'Avertissements (= gold-deep, alias)', token: '--warning' },
   { name: 'Error', hex: '#C0492B', role: 'Erreurs formulaire, messages bloquants', token: '--error' },
+];
+
+// --- Fighter guest book — protos de cards (données factices) -----------------
+// Livre d'or : pas de record W/L. La stat = combats pris ; les victoires
+// deviennent des stamps achievements (jamais de "0-1" sur une carte).
+const flagOf = (cc: string) =>
+  String.fromCodePoint(...[...cc.toUpperCase()].map((c) => 0x1f1a5 + c.charCodeAt(0)));
+// Nom du pays au build (zéro dep) — l'emoji drapeau ne rend pas sur Chrome/Windows
+const regionName = (cc: string) =>
+  new Intl.DisplayNames(['en'], { type: 'region' }).of(cc.toUpperCase()) ?? cc;
+const initialsOf = (name: string) =>
+  name
+    .split(/\s+/)
+    .map((part) => part[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
+// Rotation pseudo-aléatoire mais stable au build (hash du seed → -max..+max deg)
+const seedRot = (seed: string, max = 6) => {
+  let h = 0;
+  for (const ch of seed) h = (h * 31 + ch.charCodeAt(0)) % 9973;
+  return (h % (max * 2 + 1)) - max;
+};
+// Zone machine façon passeport (footer de la variante F·A)
+const mrzLine = (raw: string, len = 34) =>
+  (raw.toUpperCase().replace(/[^A-Z0-9<]+/g, '<') + '<'.repeat(len)).slice(0, len);
+
+const ACH: Record<string, { label: string; ink: string }> = {
+  'first-fight': { label: 'First fight', ink: 'var(--gold-deep)' },
+  'stadium-win': { label: 'Stadium win', ink: 'var(--forest)' },
+  ko: { label: 'KO win', ink: 'var(--orange)' },
+  'five-fights': { label: '5+ fights', ink: 'var(--forest)' },
+};
+
+type GuestFighter = {
+  name: string;
+  fightName?: string;
+  countryCode: string;
+  year: number;
+  fights: number;
+  venue: string;
+  quote: string;
+  achievements: string[];
+  photo: string | null;
+  crop: string;
+};
+const guestFighters: GuestFighter[] = [
+  {
+    name: 'Sarah Keller',
+    fightName: 'Sarah Wildcat',
+    countryCode: 'FR',
+    year: 2024,
+    fights: 2,
+    venue: 'Thapae Stadium',
+    quote: 'I came for two weeks. I stayed four months.',
+    achievements: ['first-fight', 'stadium-win'],
+    photo: '/assets/hero-team.webp',
+    crop: '22% 24%',
+  },
+  {
+    name: 'Mike Donovan',
+    countryCode: 'AU',
+    year: 2023,
+    fights: 5,
+    venue: 'Kalare Stadium',
+    quote: 'Five fights in six months. This family pushed me further than I thought possible.',
+    achievements: ['first-fight', 'ko', 'five-fights', 'stadium-win'],
+    photo: '/assets/hero-team.webp',
+    crop: '78% 22%',
+  },
+  {
+    name: 'Yuki Tanaka',
+    fightName: 'Tora',
+    countryCode: 'JP',
+    year: 2025,
+    fights: 1,
+    venue: 'Loi Kroh Stadium',
+    quote: 'My first fight ever, at 34. Best night of my life.',
+    achievements: ['first-fight'],
+    photo: null,
+    crop: 'center',
+  },
 ];
 ---
 
@@ -373,12 +456,13 @@ const semantics = [
               Round stamp<small class="block font-mono text-[10px] font-normal uppercase text-ink-3">seals · stickers</small>
             </figcaption>
           </figure>
-          <figure class="flex flex-col items-center justify-center rounded-[var(--r-md)] border border-line bg-forest p-5">
-            <div class="dtv-stamp">
-              <div class="big">DTV</div>
-              <div class="l1">Visa Friendly</div>
-              <div class="l2">Muay Thai · Soft Power</div>
+          <figure class="overflow-hidden rounded-[var(--r-md)] border border-line bg-surface">
+            <div class="flex h-24 items-center justify-center bg-forest">
+              <img src="/assets/dtv-stamp.webp" alt="DTV Visa Friendly — badge tigre officiel" width={80} height={80} />
             </div>
+            <figcaption class="p-3 text-[13px] font-bold text-ink">
+              DTV stamp<small class="block font-mono text-[10px] font-normal uppercase text-ink-3">asset officiel · via &lt;DtvStamp /&gt;</small>
+            </figcaption>
           </figure>
         </div>
       </section>
@@ -625,6 +709,387 @@ const semantics = [
       </footer>
     </div>
 
+    <!-- ============================================================
+         Hero explorations — 4 directions pour le hero de la home
+         (photo équipe /assets/hero-team.webp en background).
+         Mockups internes : strings EN en dur OK ici (page noindex,
+         jamais localisée). La direction retenue sera portée dans
+         Hero.astro + messages i18n.
+         ============================================================ -->
+    <div class="mx-auto max-w-[1100px] px-6 pt-16 pb-2">
+      <SectionHead>Hero explorations</SectionHead>
+      <h2 class="h2 mt-3 mb-2">Home hero — <span class="em">4 directions.</span></h2>
+      <p class="max-w-[62ch] text-ink-2">
+        Photo équipe en background + <strong>H1 brandé</strong> (lockup signature) — le keyword
+        « Muay Thai camp in Chiang Mai » passe dans le sub et le title tag. Variantes en pleine
+        largeur ci-dessous ; redimensionner la fenêtre pour juger le crop mobile.
+      </p>
+    </div>
+
+    <!-- A — Cinématique centré (reco) -->
+    <div class="sg-vcap">
+      <b>A</b> Cinématique centré — lockup H1 sous les visages, metas ◆ en bandeau, brush vers la
+      ValueStrip <span class="reco">reco ⭐</span>
+    </div>
+    <section class="sg-hero sg-heroA">
+      <div class="sg-hero-inner">
+        <h3 class="display sg-title">
+          Come for the fight.<br /><span class="em on-dark">Stay for the family.</span>
+        </h3>
+        <p class="sg-sub">
+          A family-run Muay Thai camp in Chiang Mai — open-air training in a garden, every level
+          welcome, from your first class to a multi-year DTV stay.
+        </p>
+        <div class="sg-ctas">
+          <Button variant="gold" arrow>Start your journey</Button>
+          <Button variant="outline" onDark>View schedule</Button>
+        </div>
+        <div class="sg-metastrip">
+          <span><b>All levels</b> · beginners welcome</span>
+          <i>◆</i>
+          <span><b>Open-air</b> · garden &amp; pool</span>
+          <i>◆</i>
+          <span><b>Up to 5 yrs</b> · DTV visa stay</span>
+        </div>
+      </div>
+      <BrushSeparator class="sg-brushA" aria-hidden="true" />
+    </section>
+    <div class="sg-foreststrip">↓ la ValueStrip (bande forest) enchaîne ici, comme aujourd'hui</div>
+
+    <!-- B — Bottom-left éditorial (alternative SEO-first, pour comparer) -->
+    <div class="sg-vcap">
+      <b>B</b> Bottom-left éditorial — H1 keyword conservé, lockup en eyebrow (l'alternative
+      SEO-first, image décalée à droite)
+    </div>
+    <section class="sg-hero sg-heroB">
+      <div class="sg-hero-innerB">
+        <div class="sg-eyebrow"><span class="em on-dark">come for the fight, stay for the family</span></div>
+        <h3 class="display sg-title">
+          Your Muay Thai <span class="em on-dark">home</span><br />in Chiang Mai.
+        </h3>
+        <p class="sg-sub left">
+          Real training. Real people. Real community — open-air in a Chiang Mai garden.
+        </p>
+        <div class="sg-ctas left">
+          <Button variant="gold" arrow>Start your journey</Button>
+          <Button variant="outline" onDark>View schedule</Button>
+        </div>
+      </div>
+    </section>
+
+    <!-- C — Évolution douce (split conservé, image full-height au bord) -->
+    <div class="sg-vcap">
+      <b>C</b> Évolution douce — grille actuelle sur cream, image full-height jusqu'au bord droit,
+      lockup en H1
+    </div>
+    <section class="sg-heroC">
+      <div class="c-copy">
+        <div class="c-badge"><span class="pill">New</span> DTV visa-friendly long-term training</div>
+        <h3 class="display">
+          Come for the fight.<br /><span class="em">Stay for the family.</span>
+        </h3>
+        <p class="sg-subC">
+          A family-run Muay Thai camp in Chiang Mai — open-air, all levels, from your first class
+          to a multi-year DTV stay.
+        </p>
+        <div class="sg-ctas left">
+          <Button variant="gold" arrow>Start your journey</Button>
+          <Button variant="outline">View schedule</Button>
+        </div>
+      </div>
+      <div class="c-media">
+        <img src="/assets/hero-team.webp" alt="The Wildcat team lined up in the open-air gym" />
+        <div class="c-float">
+          <div class="t">Train together.</div>
+          <div class="d">Grow together. On and off the mat.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- D — Poster stacked (mock Illustrator traduit) -->
+    <div class="sg-vcap">
+      <b>D</b> Poster stacked — bande forest + tigre watermark (le mock Illustrator), photo
+      dessous — CTAs sous la fold ⚠️
+    </div>
+    <section class="sg-heroD">
+      <div class="d-band">
+        <div class="d-tiger" aria-hidden="true"></div>
+        <h3 class="display sg-title">
+          Come for the fight.<br /><span class="em on-dark">Stay for the family.</span>
+        </h3>
+        <img class="d-logo" src="/assets/logo-horizontal-cream.svg" alt="Wildcat" />
+      </div>
+      <div class="d-photo">
+        <img src="/assets/hero-team.webp" alt="The Wildcat team lined up in the open-air gym" />
+      </div>
+    </section>
+
+    <!-- D2 — Poster inversé : photo en haut, brush en liaison, contenu sur forest -->
+    <div class="sg-vcap">
+      <b>D2</b> Poster inversé — photo en haut, brush en liaison, lockup + CTAs sur bande forest
+      (lisibilité max, photo intacte)
+    </div>
+    <section class="sg-heroD2">
+      <div class="d2-photo">
+        <img src="/assets/hero-team.webp" alt="The Wildcat team lined up in the open-air gym" />
+        <BrushSeparator class="d2-brush" aria-hidden="true" />
+      </div>
+      <div class="d2-band">
+        <div class="d-tiger" aria-hidden="true"></div>
+        <h3 class="display sg-title">
+          Come for the fight.<br /><span class="em on-dark">Stay for the family.</span>
+        </h3>
+        <p class="sg-sub">
+          A family-run Muay Thai camp in Chiang Mai — open-air training in a garden, every level
+          welcome, from your first class to a multi-year DTV stay.
+        </p>
+        <div class="sg-ctas">
+          <Button variant="gold" arrow>Start your journey</Button>
+          <Button variant="outline" onDark>View schedule</Button>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-[1100px] px-6 pb-16 pt-8">
+      <p class="text-sm text-ink-3">
+        À valider sur la direction retenue : crop mobile (5 personnes en ligne → ~3 au centre en
+        portrait, sinon crop dédié via <code>&lt;picture&gt;</code>), variantes responsive de
+        <code>hero-team.webp</code> (recompressé 1920px / 207 KB — source 2000px dans
+        <code>PNG/</code>), et un grade golden-hour léger sur la photo (lumière de midi un peu
+        plate vs. la vibe DESIGN.md).
+      </p>
+    </div>
+
+    <!-- ============================================================
+         Fighter guest book — 4 directions de FighterCard
+         Livre d'or des guests qui ont combattu à Chiang Mai grâce à
+         Wildcat Family. Données factices (3e carte = fallback sans
+         photo). La direction retenue sera portée dans FighterCard.astro
+         + schéma Sanity (fightName, countryCode, year, venues, quote,
+         achievements). Strings EN en dur OK (page noindex).
+         ============================================================ -->
+    <div class="mx-auto max-w-[1100px] px-6 pt-16 pb-2">
+      <SectionHead>Fighter cards explorations</SectionHead>
+      <h2 class="h2 mt-3 mb-2">The fight family <span class="em">guest book.</span></h2>
+      <p class="max-w-[62ch] text-ink-2">
+        Un livre d'or, pas un roster : chaque guest monté sur un ring de Chiang Mai a sa page.
+        <strong>Aucun record W/L</strong> — la stat unique est le nombre de combats pris, les
+        victoires deviennent des <strong>stamps</strong> façon visas de passeport. 4 directions,
+        mêmes données factices partout.
+      </p>
+
+      <!-- Bandeau compteur agrégé (sera calculé depuis Sanity au build) -->
+      <div class="fg-counter mt-8">
+        <div class="fg-count"><b>27</b><span>family members</span></div>
+        <i>◆</i>
+        <div class="fg-count"><b>41</b><span>fights taken</span></div>
+        <i>◆</i>
+        <div class="fg-count"><b>12</b><span>nationalities</span></div>
+      </div>
+    </div>
+
+    <!-- F·A — Passport entry -->
+    <div class="sg-vcap">
+      <b>F·A</b> Passport entry — page de passeport : photo ID double cadre, champs mono, stamps
+      encreurs, footer MRZ <span class="reco">reco ⭐</span>
+    </div>
+    <div class="mx-auto max-w-[1100px] px-6 py-10">
+      <div class="grid gap-6 md:grid-cols-3">
+        {
+          guestFighters.map((f) => (
+            <article class="fga">
+              <div class="fga-head">
+                <div class="fga-photo">
+                  {f.photo ? (
+                    <img src={f.photo} alt={f.name} style={`object-position:${f.crop}`} loading="lazy" />
+                  ) : (
+                    <span class="fg-ph">{initialsOf(f.name)}</span>
+                  )}
+                </div>
+                <div class="fga-id">
+                  <div class="fga-kicker">Wildcat Family · Guest record</div>
+                  <h3>{f.name}</h3>
+                  {f.fightName && <div class="fga-fightname">“{f.fightName}”</div>}
+                </div>
+              </div>
+              <dl class="fga-fields">
+                <div>
+                  <dt>Nationality</dt>
+                  <dd>{flagOf(f.countryCode)} {regionName(f.countryCode)}</dd>
+                </div>
+                <div>
+                  <dt>Year</dt>
+                  <dd>{f.year}</dd>
+                </div>
+                <div>
+                  <dt>Fights</dt>
+                  <dd>{f.fights}</dd>
+                </div>
+                <div>
+                  <dt>Venue</dt>
+                  <dd>{f.venue}</dd>
+                </div>
+              </dl>
+              <dl class="fga-quote">
+                <dt>Remarks</dt>
+                <dd>“{f.quote}”</dd>
+              </dl>
+              <div class="fga-stamps">
+                {f.achievements.map((a) => (
+                  <span class="fg-stamp" style={`--rot:${seedRot(f.name + a)}deg; --ink:${ACH[a].ink}`}>
+                    <small>Wildcat · CNX</small>
+                    <b>{ACH[a].label}</b>
+                    <small>{f.year}</small>
+                  </span>
+                ))}
+              </div>
+              <div class="fga-mrz" aria-hidden="true">
+                <div>{mrzLine(`WILDCAT<FAMILY<<${f.name.split(' ').join('<<')}`)}</div>
+                <div>{mrzLine(`WC${f.countryCode}${f.year}<${f.fights}<FIGHTS<${f.venue}`)}</div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- F·B — Guest book polaroid -->
+    <div class="sg-vcap">
+      <b>F·B</b> Guest book polaroid — photo punaisée + washi tape, la quote en grand (l'entrée
+      manuscrite du livre d'or), stamps sur le coin
+    </div>
+    <div class="mx-auto max-w-[1100px] px-6 py-12">
+      <div class="grid gap-8 md:grid-cols-3">
+        {
+          guestFighters.map((f) => (
+            <article class="fgb" style={`--rot:${seedRot(f.name, 3)}deg`}>
+              <div class="fgb-pol">
+                <span class="fgb-tape" aria-hidden="true" />
+                <div class="fgb-photo">
+                  {f.photo ? (
+                    <img src={f.photo} alt={f.name} style={`object-position:${f.crop}`} loading="lazy" />
+                  ) : (
+                    <span class="fg-ph fg-ph--lg">{initialsOf(f.name)}</span>
+                  )}
+                </div>
+                <div class="fgb-cap">
+                  {f.name} {flagOf(f.countryCode)} · {f.year}
+                </div>
+                <div class="fgb-stamps">
+                  {f.achievements.slice(0, 3).map((a) => (
+                    <span class="fg-stamp" style={`--rot:${seedRot(f.name + a)}deg; --ink:${ACH[a].ink}`}>
+                      <small>Wildcat · CNX</small>
+                      <b>{ACH[a].label}</b>
+                      <small>{f.year}</small>
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <blockquote class="fgb-quote">“{f.quote}”</blockquote>
+              <div class="fgb-sig">
+                — {f.fightName ?? f.name.split(' ')[0]} · {f.fights} {f.fights > 1 ? 'fights' : 'fight'} at {f.venue}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- F·C — Stadium night -->
+    <div class="sg-vcap">
+      <b>F·C</b> Stadium night — fight poster golden hour : photo duotone, claw marks, gros chiffre
+      = combats pris, venue letterspaced
+    </div>
+    <div class="mx-auto max-w-[1100px] px-6 py-10">
+      <div class="grid gap-6 md:grid-cols-3">
+        {
+          guestFighters.map((f) => (
+            <article class="fgc">
+              <div class="fgc-media">
+                {f.photo ? (
+                  <img src={f.photo} alt={f.name} style={`object-position:${f.crop}`} loading="lazy" />
+                ) : (
+                  <span class="fg-ph fg-ph--dark fg-ph--lg">{initialsOf(f.name)}</span>
+                )}
+                <span class="fgc-claw" aria-hidden="true"><i /><i /><i /></span>
+              </div>
+              <div class="fgc-body">
+                <h3 class="fgc-name">{f.name}</h3>
+                {f.fightName && <div class="fgc-fightname">“{f.fightName}”</div>}
+                <div class="fgc-row">
+                  <div class="fgc-venue">
+                    {f.venue}
+                    <small>{regionName(f.countryCode)} · Chiang Mai</small>
+                  </div>
+                  <div class="fgc-fights">
+                    <b>{f.fights}</b>
+                    <span>{f.fights > 1 ? 'fights' : 'fight'}</span>
+                  </div>
+                </div>
+                <div class="fgc-ach">
+                  {f.achievements.map((a) => (
+                    <span>{ACH[a].label}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- F·D — Ticket stub -->
+    <div class="sg-vcap">
+      <b>F·D</b> Ticket stub — billet de stade : perforation + talon détachable (année + combats),
+      stamps minis
+    </div>
+    <div class="mx-auto max-w-[1100px] px-6 py-10">
+      <div class="grid gap-5">
+        {
+          guestFighters.map((f) => (
+            <article class="fgd">
+              <div class="fgd-photo">
+                {f.photo ? (
+                  <img src={f.photo} alt={f.name} style={`object-position:${f.crop}`} loading="lazy" />
+                ) : (
+                  <span class="fg-ph">{initialsOf(f.name)}</span>
+                )}
+              </div>
+              <div class="fgd-main">
+                <div class="fgd-kicker">Wildcat Family · Fight night</div>
+                <h3>{f.name}{f.fightName ? ` “${f.fightName}”` : ''}</h3>
+                <div class="fgd-meta">{f.venue} · {flagOf(f.countryCode)} {regionName(f.countryCode)}</div>
+                <div class="fgd-stamps">
+                  {f.achievements.map((a) => (
+                    <span class="fg-stamp" style={`--rot:${seedRot(f.name + a)}deg; --ink:${ACH[a].ink}`}>
+                      <small>Wildcat · CNX</small>
+                      <b>{ACH[a].label}</b>
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div class="fgd-perf" aria-hidden="true" />
+              <div class="fgd-stub">
+                <b>{f.year}</b>
+                <span>{f.fights} {f.fights > 1 ? 'fights' : 'fight'}</span>
+                <small>CNX · THA</small>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-[1100px] px-6 pb-16 pt-6">
+      <p class="text-sm text-ink-3">
+        Assets bienvenus pour la suite : <strong>claw scratch divider</strong> SVG (encre gold +
+        forest — remplacera les barres CSS de F·C), <strong>tampon rond « Wildcat Family »</strong>
+        version encre (stamp d'entrée + filigrane fallback sans photo), texture papier grain léger
+        (optionnel). La direction retenue sera portée dans <code>FighterCard.astro</code> + schéma
+        Sanity (<code>fightName, countryCode, year, venues, quote, achievements</code>).
+      </p>
+    </div>
+
     <!-- Layout primitives — full-bleed (hors wrapper), composants réels -->
     <Section soft>
       <SectionHead>Primitives de layout</SectionHead>
@@ -703,51 +1168,808 @@ const semantics = [
         padding: 6px;
       }
 
-      /* DTV stamp (repris de landing.css) */
-      .dtv-stamp {
-        width: 150px;
-        height: 150px;
+      /* DTV stamp : désormais un asset image (/assets/dtv-stamp.webp) servi
+         par le composant <DtvStamp /> — l'ancien sceau CSS est retiré. */
+
+      details summary::-webkit-details-marker { display: none; }
+      details[open] summary span { transform: rotate(45deg); display: inline-block; }
+
+      /* ============================================================
+         Hero explorations (mockups A/B/C/D)
+         Overlays : toujours forest-deep teinté (jamais de noir pur —
+         anti "warrior gym") + voile gold ~6% pour réchauffer la photo.
+         ============================================================ */
+      .sg-vcap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        margin-top: 44px;
+        padding: 10px var(--gutter);
+        background: var(--charcoal);
+        color: var(--cream);
+        font-size: 13px;
+      }
+      .sg-vcap b {
+        background: var(--gold);
+        color: #1c1407;
+        border-radius: 6px;
+        padding: 1px 9px;
+        font-family: var(--font-display);
+      }
+      .sg-vcap .reco {
+        margin-left: auto;
+        color: var(--gold);
+        font-weight: 700;
+      }
+
+      /* --- full-bleed photo heroes (A + B) --- */
+      .sg-hero {
+        position: relative;
+        overflow: hidden;
+        min-height: clamp(540px, 78vh, 760px);
+        background-image: url('/assets/hero-team.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+      }
+      .sg-title { color: var(--cream); }
+      .sg-sub {
+        color: rgba(246, 241, 230, 0.88);
+        font-size: clamp(17px, 1.5vw, 20px);
+        max-width: 52ch;
+        margin: 20px 0 28px;
+      }
+      .sg-ctas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+      .sg-ctas.left { justify-content: flex-start; }
+
+      /* A — centré, ancré bas, gradient vertical + voile gold.
+         Plus haut que B (88vh) : la place verticale permet visages intacts
+         en haut ET texte lisible en bas, qui chevauche le brush. */
+      .sg-heroA {
+        background-position: center 60%;
+        align-items: flex-end;
+        justify-content: center;
+        min-height: clamp(600px, 88vh, 860px);
+      }
+      .sg-heroA::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(224, 166, 43, 0.06), rgba(224, 166, 43, 0.06)),
+          linear-gradient(
+            180deg,
+            rgba(33, 66, 44, 0.55) 0%,
+            rgba(33, 66, 44, 0.26) 26%,
+            rgba(33, 66, 44, 0.58) 54%,
+            rgba(33, 66, 44, 0.95) 100%
+          );
+      }
+      .sg-hero-inner {
+        position: relative;
+        z-index: 2; /* au-dessus du brush — le texte le chevauche un peu */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 880px;
+        margin: 0 auto;
+        padding: clamp(140px, 20vh, 220px) var(--gutter) clamp(24px, 3vw, 44px);
+      }
+      /* brush DANS le hero, absolu sur le bas de la photo → overlap complet,
+         jamais de cream visible. La bande forest enchaîne au ras dessous. */
+      .sg-brushA {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        width: 100%;
+        height: auto;
+        z-index: 1;
+      }
+      .sg-brushA :global(path) { fill: var(--forest); }
+      .sg-metastrip {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 14px 18px;
+        margin-top: 34px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(246, 241, 230, 0.25);
+        color: rgba(246, 241, 230, 0.85);
+        font-size: 13.5px;
+      }
+      .sg-metastrip b { color: var(--cream); font-weight: 800; }
+      .sg-metastrip i { color: var(--gold); font-style: normal; font-size: 10px; }
+
+      .sg-foreststrip {
+        background: var(--forest);
+        color: rgba(246, 241, 230, 0.6);
+        text-align: center;
+        font-size: 12px;
+        padding: 14px 0 18px;
+      }
+
+      /* B — bottom-left, image décalée à droite, gradient diagonal */
+      .sg-heroB {
+        background-position: 70% 68%;
+        align-items: flex-end;
+      }
+      .sg-heroB::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(224, 166, 43, 0.05), rgba(224, 166, 43, 0.05)),
+          linear-gradient(
+            76deg,
+            rgba(33, 66, 44, 0.94) 0%,
+            rgba(33, 66, 44, 0.62) 34%,
+            rgba(33, 66, 44, 0.12) 64%,
+            rgba(33, 66, 44, 0.3) 100%
+          );
+      }
+      .sg-hero-innerB {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: clamp(160px, 22vh, 220px) var(--gutter) clamp(56px, 6vw, 84px);
+      }
+      .sg-hero-innerB .sg-sub { margin-bottom: 26px; }
+      .sg-eyebrow { font-size: clamp(17px, 1.6vw, 21px); margin-bottom: 14px; }
+
+      /* C — split cream, image full-height jusqu'au bord droit */
+      .sg-heroC {
+        background: var(--cream);
+        display: grid;
+        grid-template-columns: 1.04fr 1fr;
+        align-items: center;
+        gap: clamp(24px, 4vw, 46px);
+      }
+      .sg-heroC .c-copy {
+        padding: clamp(48px, 6vw, 80px) 0 clamp(48px, 6vw, 80px)
+          max(var(--gutter), calc((100vw - var(--maxw)) / 2));
+      }
+      .c-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 22px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 7px 14px 7px 8px;
+        font-size: 12.5px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: var(--forest);
+        box-shadow: var(--shadow-sm);
+      }
+      .c-badge .pill {
+        background: var(--gold);
+        color: #1c1407;
+        font-size: 11px;
+        padding: 3px 9px;
+        border-radius: 999px;
+        letter-spacing: 0.04em;
+      }
+      .sg-subC {
+        color: var(--ink-2);
+        font-size: clamp(17px, 1.5vw, 20px);
+        max-width: 40ch;
+        margin: 18px 0 28px;
+      }
+      .sg-heroC .c-media {
+        position: relative;
+        align-self: stretch;
+        min-height: 480px;
+      }
+      .sg-heroC .c-media > img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 45% 30%;
+      }
+      .c-float {
+        position: absolute;
+        left: -18px;
+        bottom: 26px;
+        background: var(--forest);
+        color: var(--cream);
+        border-radius: var(--r-md);
+        padding: 14px 18px;
+        box-shadow: var(--shadow-lg);
+        max-width: 210px;
+      }
+      .c-float .t { color: var(--gold); font-weight: 800; font-size: 15px; margin-bottom: 2px; }
+      .c-float .d { font-size: 12.5px; color: rgba(246, 241, 230, 0.8); line-height: 1.4; }
+
+      /* D — poster stacked : bande forest + tigre watermark, photo dessous */
+      .sg-heroD .d-band {
+        position: relative;
+        overflow: hidden;
+        background: var(--forest);
+        text-align: center;
+        padding: clamp(48px, 7vw, 90px) var(--gutter);
+      }
+      .d-tiger {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: min(480px, 70%);
+        background: var(--cream);
+        opacity: 0.07;
+        -webkit-mask: url('/assets/logo-only.svg') center / contain no-repeat;
+        mask: url('/assets/logo-only.svg') center / contain no-repeat;
+      }
+      .sg-heroD .sg-title { position: relative; }
+      .d-logo {
+        position: relative;
+        display: block;
+        height: 30px;
+        width: auto;
+        margin: 28px auto 0;
+        opacity: 0.92;
+      }
+      .d-photo img {
+        display: block;
+        width: 100%;
+        height: clamp(280px, 38vw, 440px);
+        object-fit: cover;
+        object-position: center 30%;
+      }
+
+      /* D2 — poster inversé : photo en haut + brush (forest) qui mord le bas
+         de la photo, contenu 100% lisible sur la bande forest dessous */
+      .sg-heroD2 .d2-photo {
+        position: relative;
+      }
+      .sg-heroD2 .d2-photo > img {
+        display: block;
+        width: 100%;
+        height: clamp(380px, 62vh, 640px);
+        object-fit: cover;
+        object-position: center 28%;
+      }
+      .sg-heroD2 .d2-photo::after {
+        /* léger voile forest+gold pour lier la photo à la palette */
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(224, 166, 43, 0.05), rgba(224, 166, 43, 0.05)),
+          rgba(33, 66, 44, 0.16);
+      }
+      .d2-brush {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        width: 100%;
+        height: auto;
+        z-index: 1;
+      }
+      .d2-brush :global(path) { fill: var(--forest); }
+      .d2-band {
+        position: relative;
+        overflow: hidden;
+        background: var(--forest);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        /* compacte : la photo domine, la bande porte juste lockup + sub + CTAs */
+        padding: clamp(12px, 1.6vw, 24px) var(--gutter) clamp(36px, 4vw, 56px);
+      }
+      .d2-band .sg-sub { margin: 14px 0 22px; }
+
+      @media (max-width: 860px) {
+        .sg-heroC { grid-template-columns: 1fr; gap: 0; }
+        .sg-heroC .c-copy { padding: 40px var(--gutter) 36px; }
+        .sg-heroC .c-media { min-height: 380px; margin: 0 0 0 var(--gutter); }
+        .c-float { left: 12px; }
+        .sg-vcap .reco { margin-left: 0; }
+      }
+
+      /* ============================================================
+         Fighter guest book explorations (F·A → F·D)
+         Briques partagées : .fg-stamp (tampon encreur), .fg-ph
+         (fallback sans photo, tigre en filigrane), .fg-counter.
+         ============================================================ */
+
+      /* Compteur agrégé — social proof de tête de section */
+      .fg-counter {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 14px 26px;
+        background: var(--forest);
+        color: var(--cream);
+        border-radius: var(--r-lg);
+        padding: 24px 30px;
+        box-shadow: var(--shadow-md);
+      }
+      .fg-count { display: flex; align-items: baseline; gap: 10px; }
+      .fg-count b {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(28px, 3vw, 38px);
+        line-height: 1;
+        color: var(--gold);
+      }
+      .fg-count span { font-size: 13.5px; color: rgba(246, 241, 230, 0.85); }
+      .fg-counter > i { color: var(--gold); font-style: normal; font-size: 11px; }
+
+      /* Tampon encreur — bordure double, encre inégale (mask), rotation seedée */
+      .fg-stamp {
+        --ink: var(--forest);
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        padding: 7px 13px 6px;
+        border: 2px solid var(--ink);
+        border-radius: 7px;
+        color: var(--ink);
+        transform: rotate(var(--rot, -3deg));
+        opacity: 0.85;
+        mix-blend-mode: multiply;
+        -webkit-mask-image: linear-gradient(
+          105deg,
+          rgba(0, 0, 0, 0.96) 0%,
+          rgba(0, 0, 0, 0.7) 28%,
+          rgba(0, 0, 0, 0.95) 52%,
+          rgba(0, 0, 0, 0.62) 78%,
+          rgba(0, 0, 0, 0.9) 100%
+        );
+        mask-image: linear-gradient(
+          105deg,
+          rgba(0, 0, 0, 0.96) 0%,
+          rgba(0, 0, 0, 0.7) 28%,
+          rgba(0, 0, 0, 0.95) 52%,
+          rgba(0, 0, 0, 0.62) 78%,
+          rgba(0, 0, 0, 0.9) 100%
+        );
+        font-family: ui-monospace, monospace;
+        text-transform: uppercase;
+        line-height: 1;
+        white-space: nowrap;
+      }
+      .fg-stamp::after {
+        content: '';
+        position: absolute;
+        inset: 2px;
+        border: 1px solid var(--ink);
+        border-radius: 4px;
+        pointer-events: none;
+      }
+      .fg-stamp small { font-size: 7.5px; letter-spacing: 0.16em; font-weight: 700; }
+      .fg-stamp b { font-size: 11px; letter-spacing: 0.08em; font-weight: 800; }
+
+      /* Anim "tamponné" du dernier stamp au hover de la carte */
+      @media (hover: hover) {
+        .fga:hover .fg-stamp:last-child,
+        .fgb-pol:hover .fg-stamp:last-child,
+        .fgd:hover .fg-stamp:last-child {
+          animation: fg-stampin 0.3s ease;
+        }
+      }
+      @keyframes fg-stampin {
+        0% { transform: rotate(var(--rot, -3deg)) scale(1.3); opacity: 0; }
+        60% { transform: rotate(var(--rot, -3deg)) scale(0.96); opacity: 0.9; }
+        100% { transform: rotate(var(--rot, -3deg)) scale(1); opacity: 0.85; }
+      }
+
+      /* Fallback sans photo — initiales + tigre en filigrane */
+      .fg-ph {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 28px;
+        color: var(--line-3);
+        background: var(--soft-2);
+      }
+      .fg-ph::before {
+        content: '';
+        position: absolute;
+        inset: 10%;
+        background: var(--forest);
+        opacity: 0.09;
+        -webkit-mask: url('/assets/logo-only.svg') center / contain no-repeat;
+        mask: url('/assets/logo-only.svg') center / contain no-repeat;
+      }
+      .fg-ph--lg { font-size: 52px; }
+      .fg-ph--dark { background: var(--forest-deep); color: rgba(246, 241, 230, 0.4); }
+      .fg-ph--dark::before { background: var(--cream); opacity: 0.1; }
+
+      /* --- F·A — Passport entry ------------------------------------ */
+      .fga {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--line-2);
+        border-radius: var(--r-md);
+        /* lignes guillochées très subtiles = papier sécurisé */
+        background:
+          repeating-linear-gradient(0deg, rgba(46, 93, 60, 0.04) 0 1px, transparent 1px 8px),
+          var(--soft);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+      }
+      .fga-head { display: flex; gap: 14px; padding: 16px 16px 10px; }
+      .fga-photo {
+        position: relative;
+        flex: 0 0 86px;
+        height: 104px;
+        border: 1px solid var(--line-3);
+        outline: 1px solid var(--line-3);
+        outline-offset: 3px;
+        background: var(--soft-2);
+        overflow: hidden;
+      }
+      .fga-photo img { width: 100%; height: 100%; object-fit: cover; }
+      .fga-id { min-width: 0; }
+      .fga-kicker {
+        font-family: ui-monospace, monospace;
+        font-size: 9px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-bottom: 6px;
+      }
+      .fga-id h3 {
+        margin: 0;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 19px;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+      .fga-fightname {
+        font-family: var(--font-accent);
+        font-style: italic;
+        font-weight: 600;
+        font-variation-settings: 'opsz' 40;
+        font-size: 16px;
+        color: var(--gold-deep);
+        margin-top: 2px;
+      }
+      .fga-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 14px;
+        margin: 0;
+        padding: 8px 16px 0;
+      }
+      .fga-fields dt,
+      .fga-quote dt {
+        font-family: ui-monospace, monospace;
+        font-size: 8.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+      }
+      .fga-fields dd { margin: 1px 0 0; font-weight: 700; font-size: 14px; color: var(--ink); }
+      .fga-quote { margin: 0; padding: 12px 16px 4px; }
+      .fga-quote dd {
+        margin: 2px 0 0;
+        font-family: var(--font-accent);
+        font-style: italic;
+        font-weight: 600;
+        font-variation-settings: 'opsz' 30;
+        font-size: 15px;
+        line-height: 1.4;
+        color: var(--ink-2);
+      }
+      .fga-stamps {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 12px 16px 16px;
+        margin-top: auto;
+      }
+      .fga-stamps .fg-stamp:nth-child(even) { margin-top: 7px; }
+      .fga-mrz {
+        background: var(--soft-2);
+        border-top: 1px solid var(--line);
+        padding: 10px 16px;
+        font-family: ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        line-height: 1.6;
+        color: var(--ink-2);
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      /* --- F·B — Guest book polaroid -------------------------------- */
+      .fgb { display: flex; flex-direction: column; align-items: center; text-align: center; }
+      .fgb-pol {
+        position: relative;
+        width: 100%;
+        background: #fff;
+        padding: 10px 10px 12px;
+        box-shadow: var(--shadow-md);
+        transform: rotate(var(--rot, -2deg));
+      }
+      .fgb-photo { position: relative; aspect-ratio: 1; background: var(--soft-2); overflow: hidden; }
+      .fgb-photo img { width: 100%; height: 100%; object-fit: cover; }
+      .fgb-tape {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        width: 92px;
+        height: 26px;
+        transform: translateX(-50%) rotate(calc(var(--rot, -2deg) * -1.6));
+        background: linear-gradient(100deg, rgba(224, 166, 43, 0.5), rgba(224, 166, 43, 0.34));
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        z-index: 2;
+      }
+      .fgb-cap {
+        margin-top: 10px;
+        font-family: var(--font-accent);
+        font-style: italic;
+        font-weight: 600;
+        font-variation-settings: 'opsz' 30;
+        font-size: 15px;
+        color: var(--ink);
+      }
+      .fgb-stamps {
+        position: absolute;
+        right: -10px;
+        bottom: 34px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      .fgb-stamps .fg-stamp + .fg-stamp { margin-top: -10px; }
+      /* F·B : fond papier sous les stamps — sans ça l'encre se perd sur la
+         photo. Placeholder en attendant les assets stamps générés (PNG
+         transparents, texture encre réelle). */
+      .fgb-stamps .fg-stamp {
+        background: rgba(255, 255, 255, 0.94);
+        mix-blend-mode: normal;
+        -webkit-mask-image: none;
+        mask-image: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+        opacity: 1;
+      }
+      .fgb-quote {
+        margin: 20px 8px 0;
+        font-family: var(--font-accent);
+        font-style: italic;
+        font-weight: 600;
+        font-variation-settings: 'opsz' 50;
+        font-size: clamp(18px, 2vw, 21px);
+        line-height: 1.35;
+        color: var(--forest);
+      }
+      .fgb-sig {
+        margin-top: 8px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+      }
+      @media (min-width: 768px) {
+        .fgb:nth-child(even) { margin-top: 34px; } /* punaisé, pas aligné au cordeau */
+      }
+
+      /* --- F·C — Stadium night -------------------------------------- */
+      .fgc {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border-radius: var(--r-md);
+        background: linear-gradient(170deg, #1a1a18 0%, var(--forest-deep) 92%);
+        color: var(--cream);
+        box-shadow: var(--shadow-md);
+      }
+      .fgc-media { position: relative; height: 230px; overflow: hidden; }
+      .fgc-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* duotone golden hour — jamais de noir froid */
+        filter: grayscale(0.25) sepia(0.32) hue-rotate(-12deg) saturate(1.35);
+      }
+      .fgc-media::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(26, 26, 24, 0.18) 0%, rgba(26, 26, 24, 0) 38%, rgba(26, 26, 24, 0.92) 100%);
+      }
+      .fgc-claw { position: absolute; top: 14px; right: 18px; z-index: 1; display: flex; gap: 7px; }
+      .fgc-claw i {
+        width: 6px;
+        height: 44px;
+        background: var(--gold);
+        border-radius: 6px;
+        transform: rotate(16deg);
+        opacity: 0.9;
+      }
+      .fgc-claw i:nth-child(1) { height: 32px; margin-top: 9px; }
+      .fgc-claw i:nth-child(3) { height: 37px; margin-top: 5px; }
+      .fgc-body { position: relative; z-index: 1; padding: 0 20px 20px; margin-top: -46px; }
+      .fgc-name {
+        margin: 0;
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 23px;
+        line-height: 1.05;
+        letter-spacing: 0.015em;
+        text-transform: uppercase;
+        color: var(--cream);
+      }
+      .fgc-fightname {
+        margin-top: 3px;
+        font-family: var(--font-accent);
+        font-style: italic;
+        font-weight: 600;
+        font-variation-settings: 'opsz' 40;
+        font-size: 17px;
+        color: var(--gold);
+      }
+      .fgc-row {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 14px;
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(246, 241, 230, 0.16);
+      }
+      .fgc-venue {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(246, 241, 230, 0.75);
+      }
+      .fgc-venue small {
+        display: block;
+        margin-top: 4px;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        color: var(--gold);
+      }
+      .fgc-fights { text-align: right; }
+      .fgc-fights b {
+        display: block;
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 40px;
+        line-height: 0.9;
+        color: var(--gold);
+      }
+      .fgc-fights span {
+        font-size: 9.5px;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(246, 241, 230, 0.7);
+      }
+      .fgc-ach { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+      .fgc-ach span {
+        border: 1px solid rgba(224, 166, 43, 0.55);
+        color: var(--gold);
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* --- F·D — Ticket stub ----------------------------------------- */
+      .fgd {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        max-width: 680px;
+        margin: 0 auto;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--r-md);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+      }
+      .fgd-photo { position: relative; flex: 0 0 120px; min-height: 132px; background: var(--soft-2); }
+      .fgd-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .fgd-main { flex: 1; min-width: 0; padding: 14px 18px; }
+      .fgd-kicker {
+        font-family: ui-monospace, monospace;
+        font-size: 9px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+      }
+      .fgd-main h3 {
+        margin: 4px 0 2px;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 18px;
+        color: var(--ink);
+      }
+      .fgd-meta { font-size: 12.5px; font-weight: 600; color: var(--ink-2); }
+      .fgd-stamps { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+      .fgd-stamps .fg-stamp { padding: 5px 9px 4px; }
+      .fgd-stamps .fg-stamp b { font-size: 9.5px; }
+      .fgd-stamps .fg-stamp small { font-size: 6.5px; }
+      .fgd-perf { position: relative; border-left: 2px dashed var(--line-2); }
+      .fgd-perf::before,
+      .fgd-perf::after {
+        content: '';
+        position: absolute;
+        left: -8px;
+        width: 14px;
+        height: 14px;
         border-radius: 50%;
-        background: radial-gradient(circle at 50% 34%, #efb63a, #db9a14);
+        background: var(--cream); /* trous poinçonnés = fond de page */
+        border: 1px solid var(--line);
+      }
+      .fgd-perf::before { top: -8px; }
+      .fgd-perf::after { bottom: -8px; }
+      .fgd-stub {
+        flex: 0 0 110px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 2px;
+        padding: 12px;
         text-align: center;
-        color: #1c1407;
-        border: 3px solid #1c1407;
-        box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.7);
-        position: relative;
+        background: var(--soft-2);
       }
-      .dtv-stamp::before {
-        content: '';
-        position: absolute;
-        inset: 9px;
-        border: 1.5px solid rgba(28, 20, 7, 0.45);
-        border-radius: 50%;
-      }
-      .dtv-stamp .big {
-        font-family: var(--font-display);
+      .fgd-stub b { font-family: var(--font-display); font-weight: 900; font-size: 24px; color: var(--forest); }
+      .fgd-stub span {
+        font-size: 11px;
         font-weight: 800;
-        font-size: 34px;
-        line-height: 0.85;
-      }
-      .dtv-stamp .l1 {
-        font-weight: 800;
-        font-size: 9px;
-        letter-spacing: 0.16em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        margin-top: 6px;
+        color: var(--gold-deep);
       }
-      .dtv-stamp .l2 {
-        font-size: 8px;
-        font-weight: 700;
-        margin-top: 3px;
-        opacity: 0.85;
+      .fgd-stub small {
+        margin-top: 4px;
+        font-family: ui-monospace, monospace;
+        font-size: 9px;
+        letter-spacing: 0.14em;
+        color: var(--ink-3);
+      }
+      @media (max-width: 560px) {
+        .fgd-photo { flex-basis: 88px; }
+        .fgd-stub { flex-basis: 88px; }
+        .fgd-stamps .fg-stamp small { display: none; }
       }
 
-      details summary::-webkit-details-marker { display: none; }
-      details[open] summary span { transform: rotate(45deg); display: inline-block; }
+      @media (prefers-reduced-motion: reduce) {
+        .fga:hover .fg-stamp:last-child,
+        .fgb-pol:hover .fg-stamp:last-child,
+        .fgd:hover .fg-stamp:last-child {
+          animation: none;
+        }
+      }
     </style>
   </body>
 </html>

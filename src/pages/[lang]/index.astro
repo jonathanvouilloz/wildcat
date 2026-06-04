@@ -216,11 +216,8 @@ const jsonld = {
 
   <main>
     <Hero
-      badgePill={m.home_hero_badge_pill()}
-      badge={m.home_hero_badge()}
-      title={m.home_h1()}
-      titleEm={m.home_h1_em()}
-      titleAfter={m.home_h1b()}
+      title={m.home_hero_title()}
+      titleEm={m.home_hero_title_em()}
       sub={m.home_hero_sub()}
       ctaPrimary={{ label: m.home_hero_cta1(), href: p('/classes#pricing') }}
       ctaSecondary={{ label: m.home_hero_cta2(), href: p('/classes#schedule') }}
@@ -229,8 +226,7 @@ const jsonld = {
         { b: m.home_hero_meta2_b(), s: m.home_hero_meta2_s() },
         { b: m.home_hero_meta3_b(), s: m.home_hero_meta3_s() },
       ]}
-      image={{ src: '/assets/gym-garden.jpg', alt: m.home_hero_img_alt() }}
-      float={{ t: m.home_hero_float_t(), d: m.home_hero_float_d() }}
+      image={{ src: '/assets/hero-team.webp', alt: m.home_hero_img_alt() }}
     />
 
     <ValueStrip items={values} />

@@ -41,6 +41,29 @@ export default defineConfig({
   },
 
   vite: {
+    server: {
+      watch: {
+        // Windows EMFILE ("too many open files") : sans ces ignores, le
+        // watcher scanne dist/ et .vercel/ (node_modules bundlés = milliers
+        // de fichiers), épuise les handles et meurt → HMR cassé, vieux
+        // modules servis (page "à moitié stylée").
+        // ⚠️ Piège : PAS de '**/wildcat/**' ici — le repo s'appelle wildcat,
+        // ce glob ignorerait tout le projet. Le bundle design est ciblé en
+        // relatif depuis la racine.
+        ignored: [
+          '**/node_modules/**',
+          '**/.git/**',
+          '**/dist/**',
+          '**/.vercel/**',
+          '**/.seo-data/**',
+          '**/PNG/**',
+          '**/content/**',
+          '**/tests/**',
+          'wildcat/**', // bundle design (maquettes HTML/CSS), relatif racine
+          '**/moodboard/**',
+        ],
+      },
+    },
     plugins: [
       tailwindcss(),
       // Paraglide — strings UI typées (source : messages/{locale}.json, output compilé : src/paraglide/).

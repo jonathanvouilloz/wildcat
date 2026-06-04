@@ -53,18 +53,13 @@ const { id, head, title, titleEm, lead, steps, cta, scooterTag } = Astro.props;
 
 <style>
   .dtv {
-    background: linear-gradient(180deg, #16271e, var(--forest-deep));
+    /* part de --forest pour enchaîner sans rupture avec la ValueStrip
+       (flux hero → brush → values → dtv : une seule coulée verte) */
+    background: linear-gradient(180deg, var(--forest), var(--forest-deep));
     color: var(--cream);
     position: relative;
     overflow: hidden;
     padding-block: var(--section-y);
-  }
-  .dtv::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: repeating-linear-gradient(58deg, transparent 0 34px, rgba(224, 166, 43, 0.05) 34px 40px);
   }
   .dtv :global(.wc-container) {
     position: relative;

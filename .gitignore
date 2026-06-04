@@ -1,5 +1,7 @@
 # build output
 dist/
+# screenshots Playwright (régénérés par tests/screenshot-*.py)
+tests/_shots/
 # generated types
 .astro/
 # paraglide compiled output (source = messages/*.json)
