@@ -110,19 +110,14 @@ const ink = INKS[value] ?? 'var(--forest)';
     font-weight: 800;
   }
 
-  /* Asset encre : RGBA (blanc → alpha, seule l'encre subsiste). Halo blanc
-     en drop-shadow empilés (suit la forme de l'encre, façon sticker die-cut)
-     → lisible même quand le stamp mord sur la photo. Crops serrés aux ratios
+  /* Asset die-cut (RGBA, fonds intérieurs conservés) : rendu brut, comme un
+     vrai sticker collé — pas d'ombre, pas de halo. Crops serrés aux ratios
      variables → normalisation par la hauteur (poids visuel ≈ fallback 56px). */
   .ach-stamp--img {
     padding: 0;
     border: 0;
     background: transparent;
     box-shadow: none;
-    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 1))
-      drop-shadow(0 0 1px rgba(255, 255, 255, 1))
-      drop-shadow(0 0 2.5px rgba(255, 255, 255, 0.95))
-      drop-shadow(0 1px 3px rgba(0, 0, 0, 0.22));
     height: 56px;
     width: auto;
   }
