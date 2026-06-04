@@ -31,19 +31,20 @@ const INKS: Record<string, string> = {
   'main-event': 'var(--orange)',
 };
 
-// Assets encre générés (fond blanc #FFF, rendus en multiply). Remplir à
-// réception : 'first-fight': '/assets/stamps/stamp-first-fight.webp', …
+// Assets encre générés (fond blanc, rendus en multiply) — set complet
+// 2026-06-04, pipeline tests/process-stamp.py (trim + h240 + webp).
+// Le fallback CSS ci-dessous reste pour toute valeur future sans asset.
 const STAMP_ASSETS: Record<string, string | null> = {
-  'first-fight': null,
-  'stadium-win': null,
-  'ko-win': null,
-  'five-fights': null,
-  'zero-to-hero': null,
-  'title-belt': null,
+  'first-fight': '/assets/stamps/stamp-first-fight.webp',
+  'stadium-win': '/assets/stamps/stamp-stadium-win.webp',
+  'ko-win': '/assets/stamps/stamp-ko-win.webp',
+  'five-fights': '/assets/stamps/stamp-five-fights.webp',
+  'zero-to-hero': '/assets/stamps/stamp-zero-to-hero.webp',
+  'title-belt': '/assets/stamps/stamp-title-belt.webp',
   'main-event': '/assets/stamps/stamp-main-event.webp',
-  'round-two': null,
-  'long-stay': null,
-  'family-og': null,
+  'round-two': '/assets/stamps/stamp-round-two.webp',
+  'long-stay': '/assets/stamps/stamp-long-stay.webp',
+  'family-og': '/assets/stamps/stamp-family-og.webp',
 };
 
 const asset = STAMP_ASSETS[value] ?? null;
@@ -109,15 +110,19 @@ const ink = INKS[value] ?? 'var(--forest)';
     font-weight: 800;
   }
 
-  /* Asset encre : fond blanc mangé par multiply, pas de cadre CSS.
-     Crops serrés aux ratios variables → normalisation par la hauteur
-     (même poids visuel que le fallback CSS ~56px). */
+  /* Asset encre : RGBA (blanc → alpha, seule l'encre subsiste). Halo blanc
+     en drop-shadow empilés (suit la forme de l'encre, façon sticker die-cut)
+     → lisible même quand le stamp mord sur la photo. Crops serrés aux ratios
+     variables → normalisation par la hauteur (poids visuel ≈ fallback 56px). */
   .ach-stamp--img {
     padding: 0;
     border: 0;
     background: transparent;
     box-shadow: none;
-    mix-blend-mode: multiply;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 1))
+      drop-shadow(0 0 1px rgba(255, 255, 255, 1))
+      drop-shadow(0 0 2.5px rgba(255, 255, 255, 0.95))
+      drop-shadow(0 1px 3px rgba(0, 0, 0, 0.22));
     height: 56px;
     width: auto;
   }
