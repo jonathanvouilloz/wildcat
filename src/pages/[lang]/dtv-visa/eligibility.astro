@@ -222,7 +222,10 @@ const faqItems = [
     <Section containerSize="narrow">
       <div class="author">
         <p class="author-by">{m.dtv_elig_author()}</p>
-        <p class="author-meta">{m.dtv_elig_reviewed()}</p>
+        <p class="author-meta">
+          {m.dtv_elig_reviewed()}
+          <a class="ilink" href={p('/about/coaches')}>{m.byline_author_link()}</a>
+        </p>
       </div>
     </Section>
 

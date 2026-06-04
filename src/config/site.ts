@@ -27,6 +27,12 @@ export const site = {
       'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3778.482255504113!2d98.94739027580049!3d18.73198396268106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da31b5ac152bff%3A0x4367b10faa0b58fb!2zV2lsZGNhdCBNdWF5IFRoYWkg4LmE4Lin4Lil4LmM4LiU4LmB4LiE4LiX4Lih4Lin4Lii4LmE4LiX4Lii!5e0!3m2!1sfr!2sch!4v1780584479313!5m2!1sfr!2sch',
   },
 
+  /** Avis Google (fiche "Wildcat Muay Thai") — CTA /about#reviews. */
+  // TODO(real data): lien direct vers l'onglet avis de la fiche Business Profile
+  reviews: {
+    googleUrl: 'https://www.google.com/maps/search/?api=1&query=Wildcat+Muay+Thai+Chiang+Mai',
+  },
+
   // TODO(real data): horaires réels à confirmer (valeurs maquette)
   // dayKey → messages footer_hours_* (libellés des jours)
   hours: [
@@ -54,7 +60,7 @@ export const site = {
   exploreLinks: [
     { key: 'classes', href: '/classes' },
     { key: 'schedule', href: '/classes#schedule' },
-    { key: 'coaches', href: '/about#coaches' },
+    { key: 'coaches', href: '/about/coaches' },
     { key: 'pricing', href: '/classes#pricing' },
     { key: 'dtv', href: '/dtv-visa' },
   ],

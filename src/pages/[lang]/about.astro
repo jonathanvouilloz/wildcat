@@ -4,6 +4,7 @@ import Section from '../../components/layout/Section.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
 import PageHero from '../../components/sections/PageHero.astro';
+import Button from '../../components/ui/Button.astro';
 import CoachGrid from '../../components/sections/CoachGrid.astro';
 import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
 import CommunityGallery from '../../components/sections/CommunityGallery.astro';
@@ -20,7 +21,9 @@ import { pickLocale } from '../../lib/i18n-content';
 import { urlFor } from '../../lib/image';
 import { m } from '../../paraglide/messages.js';
 
-// About — histoire (familial, woman-run), coachs (#coaches), communauté, avis.
+// About — pillar du silo : histoire (familial, woman-run), coachs en teaser
+// (#coaches conservé — footer + liens legacy ; la page complète vit sur
+// /about/coaches), communauté (#community), avis (#reviews — ancres du mega menu).
 export function getStaticPaths() {
   return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
 }
@@ -49,19 +52,25 @@ const coaches =
         { name: 'Kru Bank', role: m.home_coach3_role(), bio: m.home_coach3_bio() },
       ];
 
-// Témoignage général — fallback : quote maquette (comme la home)
+// Avis (#reviews) — TOUS les témoignages featured ; fallback : 3 quotes messages
+// (la section ne doit jamais paraître vide, dataset vide compris).
 const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
   { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'general' } },
   [],
 );
-const quote = testimonialDocs[0]
-  ? {
-      content: pickLocale(testimonialDocs[0].content, lang),
-      name: testimonialDocs[0].name ?? '',
-      meta: testimonialDocs[0].country ?? undefined,
-      rating: testimonialDocs[0].rating ?? 5,
-    }
-  : { content: m.home_quote_text(), name: 'James T.', meta: m.home_quote_meta(), rating: 5 };
+const reviews =
+  testimonialDocs.length > 0
+    ? testimonialDocs.map((doc) => ({
+        content: pickLocale(doc.content, lang),
+        name: doc.name ?? '',
+        meta: doc.country ?? undefined,
+        rating: doc.rating ?? 5,
+      }))
+    : [
+        { content: m.home_quote_text(), name: 'James T.', meta: m.home_quote_meta(), rating: 5 },
+        { content: m.about_reviews_fb1_text(), name: 'Sofia R.', meta: m.about_reviews_fb1_meta(), rating: 5 },
+        { content: m.about_reviews_fb2_text(), name: 'Marc D.', meta: m.about_reviews_fb2_meta(), rating: 5 },
+      ];
 ---
 
 <BaseLayout title={m.about_meta_title()} description={m.about_meta_desc()}>
@@ -75,6 +84,8 @@ const quote = testimonialDocs[0]
     />
 
     <PageHero
+      image={{ src: '/assets/gym-garden.jpg', alt: m.about_hero_img_alt() }}
+      eyebrow={m.about_hero_eyebrow()}
       head={m.about_hero_head()}
       title={m.about_hero_title()}
       titleEm={m.about_hero_title_em()}
@@ -97,30 +108,57 @@ const quote = testimonialDocs[0]
       </div>
     </Section>
 
+    <!-- Coachs en teaser — la page complète vit sur /about/coaches.
+         L'id #coaches reste ici (footer + liens legacy). -->
     <Section id="coaches">
       <div class="block-head center">
         <SectionHead center>{m.about_coaches_head()}</SectionHead>
-        <h2 class="h2 mt-2">{m.about_coaches_title()}</h2>
+        <h2 class="h2 mt-2 mb-3">{m.about_coaches_title()}</h2>
+        <p class="body-p centered">{m.about_coaches_teaser_lead()}</p>
       </div>
-      <CoachGrid coaches={coaches} />
+      <CoachGrid coaches={coaches.slice(0, 3)} />
+      <div class="teaser-cta">
+        <Button href={p('/about/coaches')} variant="outline" arrow>
+          {m.about_coaches_teaser_cta()}
+        </Button>
+      </div>
     </Section>
 
-    <Section soft>
+    <Section soft id="community">
       <div class="comm-head">
         <SectionHead>{m.about_comm_head()}</SectionHead>
         <h2 class="h2 mt-2 mb-7">
           {m.about_comm_title()} <span class="em">{m.about_comm_title_em()}</span>
         </h2>
       </div>
-      <div class="comm">
-        <CommunityGallery count={3} />
-        <TestimonialQuote
-          content={quote.content}
-          name={quote.name}
-          meta={quote.meta}
-          rating={quote.rating}
-          ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
-        />
+      <CommunityGallery count={6} />
+    </Section>
+
+    <Section id="reviews">
+      <div class="block-head center">
+        <SectionHead center>{m.about_reviews_head()}</SectionHead>
+        <h2 class="h2 mt-2 mb-3">
+          {m.about_reviews_title()} <span class="em">{m.about_reviews_title_em()}</span>
+        </h2>
+        <p class="body-p centered">{m.about_reviews_lead()}</p>
+      </div>
+      <div class="reviews">
+        {
+          reviews.map((review) => (
+            <TestimonialQuote
+              content={review.content}
+              name={review.name}
+              meta={review.meta}
+              rating={review.rating}
+              ratingLabel={m.testimonial_rating_label({ rating: String(review.rating) })}
+            />
+          ))
+        }
+      </div>
+      <div class="teaser-cta">
+        <Button href={site.reviews.googleUrl} variant="outline" arrow>
+          {m.about_reviews_google_cta()}
+        </Button>
       </div>
     </Section>
 
@@ -148,6 +186,9 @@ const quote = testimonialDocs[0]
     margin: 0 0 16px;
     max-width: 60ch;
   }
+  .body-p.centered {
+    margin-inline: auto;
+  }
   .story {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
@@ -165,19 +206,19 @@ const quote = testimonialDocs[0]
     height: 100%;
     object-fit: cover;
   }
-  .comm {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: center;
+  .teaser-cta {
+    margin-top: 34px;
+    text-align: center;
   }
-  /* la galerie passe en 3 tuiles sur une rangée dans sa demi-colonne */
-  .comm :global(.gal) {
-    grid-template-columns: repeat(3, 1fr);
+  /* Avis — grille de quotes (1 seule rangée propre même avec 2-3 avis) */
+  .reviews {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+    align-items: start;
   }
   @media (max-width: 860px) {
-    .story,
-    .comm {
+    .story {
       grid-template-columns: 1fr;
       gap: 28px;
     }

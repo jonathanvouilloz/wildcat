@@ -117,6 +117,8 @@ const howToSchema = {
     '@type': 'Person',
     name: m.dtv_apply_author_name(),
     jobTitle: m.dtv_apply_author_role(),
+    // Entité auteur canonique — Person JSON-LD sur /about/coaches (E-E-A-T)
+    url: new URL(p('/about/coaches'), base).href,
     worksFor: { '@type': 'Organization', name: site.name },
   },
   supply: [
@@ -308,7 +310,10 @@ const howToSchema = {
         <p class="author-name">{m.dtv_apply_author_name()}</p>
         <p class="author-role">{m.dtv_apply_author_role()}</p>
         <p class="body-p mt-3">{m.dtv_apply_author_bio()}</p>
-        <p class="reviewed">{m.dtv_apply_reviewed()}</p>
+        <p class="reviewed">
+          {m.dtv_apply_reviewed()}
+          <a class="ilink" href={p('/about/coaches')}>{m.byline_author_link()}</a>
+        </p>
       </div>
     </Section>
 

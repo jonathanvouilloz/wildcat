@@ -293,7 +293,10 @@ const faqItems = [
         <span class="sig-name">{m.dtv_mt_author_name()}</span>
         <span class="sig-role">{m.dtv_mt_author_role()}</span>
       </p>
-      <p class="reviewed">{m.dtv_mt_reviewed()}</p>
+      <p class="reviewed">
+        {m.dtv_mt_reviewed()}
+        <a class="ilink" href={p('/about/coaches')}>{m.byline_author_link()}</a>
+      </p>
     </Section>
 
     <CtaBanner

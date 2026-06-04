@@ -78,6 +78,8 @@ const articleSchema = {
     '@type': 'Person',
     name: m.classes_beg_author_name(),
     jobTitle: m.classes_beg_author_role(),
+    // Entité auteur canonique — Person JSON-LD sur /about/coaches (E-E-A-T)
+    url: new URL(p('/about/coaches'), base).href,
     worksFor: { '@type': 'Organization', name: site.name },
   },
   datePublished: '2026-06-04',
@@ -140,7 +142,7 @@ const articleSchema = {
       <p class="body-p">{m.classes_beg_walk4_p1()}</p>
       <p class="body-p">
         {m.classes_beg_walk4_p2()}{' '}
-        <a class="ilink" href={p('/about#coaches')}>{m.classes_beg_link_coaches()}</a>{' '}
+        <a class="ilink" href={p('/about/coaches')}>{m.classes_beg_link_coaches()}</a>{' '}
         {m.classes_beg_walk4_p2b()}
       </p>
 
@@ -248,7 +250,10 @@ const articleSchema = {
     <Section containerSize="narrow">
       <div class="author">
         <p class="author-by">{m.classes_beg_author()}</p>
-        <p class="author-meta">{m.classes_beg_updated()}</p>
+        <p class="author-meta">
+          {m.classes_beg_updated()}
+          <a class="ilink" href={p('/about/coaches')}>{m.byline_author_link()}</a>
+        </p>
       </div>
     </Section>
 

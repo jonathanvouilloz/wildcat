@@ -7,6 +7,10 @@ import Button from '../ui/Button.astro';
  * PageHero — hero compact des pages intérieures (pillars, contact…).
  * Variante dark = gradient forest (comme DtvTeaser). Slot `aside` optionnel
  * (sceau DTV, média) → passe en grille 2 colonnes.
+ * Variante photo (prop `image`) = direction B du styleguide en compact :
+ * photo full-bleed, gradient forest 76° + voile gold, contenu bottom-left,
+ * eyebrow lockup optionnel (Fraunces gold). Le Breadcrumb reste au-dessus
+ * sur sa bande cream. Utilisée sur /about et /about/coaches.
  */
 export interface Props {
   head: string;
@@ -16,19 +20,25 @@ export interface Props {
   lead: string;
   dark?: boolean;
   cta?: { label: string; href: string };
+  image?: { src: string; alt: string };
+  eyebrow?: string;
 }
-const { head, title, titleEm, titleAfter, lead, dark = false, cta } = Astro.props;
+const { head, title, titleEm, titleAfter, lead, dark = false, cta, image, eyebrow } = Astro.props;
 const hasAside = Astro.slots.has('aside');
+const onDark = dark || !!image;
 ---
 
-<section class:list={['page-hero', dark && 'page-hero--dark']}>
+<section class:list={['page-hero', dark && 'page-hero--dark', image && 'page-hero--photo']}>
+  {/* LCP des pages qui l'utilisent → fetchpriority high */}
+  {image && <img class="ph-bg" src={image.src} alt={image.alt} fetchpriority="high" />}
   <Container>
     <div class:list={['grid', hasAside && 'grid--aside']}>
       <div>
-        <SectionHead onDark={dark}>{head}</SectionHead>
+        {eyebrow && <p class="ph-eyebrow"><span class="em on-dark">{eyebrow}</span></p>}
+        <SectionHead onDark={onDark}>{head}</SectionHead>
         <h1 class="h1">
           {title}
-          {titleEm && <span class:list={['em', dark && 'on-dark']}>{titleEm}</span>}{
+          {titleEm && <span class:list={['em', onDark && 'on-dark']}>{titleEm}</span>}{
             titleAfter && ` ${titleAfter}`
           }
         </h1>
@@ -63,6 +73,63 @@ const hasAside = Astro.slots.has('aside');
   .page-hero--dark {
     background: linear-gradient(180deg, #16271e, var(--forest-deep));
     color: var(--cream);
+  }
+
+  /* --- variante photo (direction B compacte) --- */
+  .page-hero--photo {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    min-height: clamp(360px, 48vh, 520px);
+    /* fallback pendant le chargement de la photo */
+    background: var(--forest-deep);
+    color: var(--cream);
+    /* le top vit dans le padding de l'inner (présence photo au-dessus du texte) */
+    padding: 0;
+  }
+  .ph-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% 68%;
+    z-index: 0;
+  }
+  /* voile gold + gradient diagonal forest (lisibilité bottom-left) */
+  .page-hero--photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(rgba(224, 166, 43, 0.05), rgba(224, 166, 43, 0.05)),
+      linear-gradient(
+        76deg,
+        rgba(33, 66, 44, 0.94) 0%,
+        rgba(33, 66, 44, 0.62) 34%,
+        rgba(33, 66, 44, 0.12) 64%,
+        rgba(33, 66, 44, 0.3) 100%
+      );
+  }
+  .page-hero--photo :global(.wc-container) {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding-top: clamp(96px, 14vh, 150px);
+    padding-bottom: clamp(36px, 5vw, 56px);
+  }
+  .ph-eyebrow {
+    font-size: clamp(17px, 1.6vw, 21px);
+    margin: 0 0 10px;
+  }
+  .page-hero--photo .h1 {
+    color: var(--cream);
+  }
+  .page-hero--photo .lead {
+    color: rgba(246, 241, 230, 0.88);
+    max-width: 52ch;
   }
   .grid--aside {
     display: grid;
