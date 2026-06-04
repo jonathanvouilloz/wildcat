@@ -1,0 +1,219 @@
+{
+  "topic": "muay thai thailande",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-06-04T13:32:40Z",
+  "primary": {
+    "keyword": "muay thai thailande",
+    "search_volume": 90,
+    "cpc": 0.84,
+    "competition": "LOW",
+    "competition_index": 17,
+    "difficulty": 0,
+    "intent": "informational",
+    "intent_probability": 0.782
+  },
+  "secondaries": [
+    {
+      "keyword": "camp muay thai thailande",
+      "search_volume": 210,
+      "cpc": 0.56,
+      "competition": "LOW",
+      "competition_index": 29
+    },
+    {
+      "keyword": "stage muay thai thailande",
+      "search_volume": 140,
+      "cpc": 0.53,
+      "competition": "LOW",
+      "competition_index": 31
+    },
+    {
+      "keyword": "camp d'entrainement muay thai thailande",
+      "search_volume": 70,
+      "cpc": 0.4,
+      "competition": "LOW",
+      "competition_index": 17
+    },
+    {
+      "keyword": "muay thai thailande camp",
+      "search_volume": 50,
+      "cpc": 0.72,
+      "competition": "LOW",
+      "competition_index": 21
+    },
+    {
+      "keyword": "camp muay thai thailande francais",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "combat muay thai thailande",
+      "search_volume": 10,
+      "cpc": 1.65,
+      "competition": "LOW",
+      "competition_index": 29
+    },
+    {
+      "keyword": "camp d'entrainement muay thai thailande boughanem",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 29
+    },
+    {
+      "keyword": "entrainement muay thai thailande",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "tiger muay thai",
+      "search_volume": 880,
+      "cpc": 1.2,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "stage boxe thaï thaïlande prix",
+      "search_volume": 140,
+      "cpc": 0.67,
+      "competition": "LOW",
+      "competition_index": 16
+    },
+    {
+      "keyword": "camp muay thai bangkok",
+      "search_volume": 140,
+      "cpc": 0.38,
+      "competition": "LOW",
+      "competition_index": 15
+    },
+    {
+      "keyword": "camp muay thai koh samui",
+      "search_volume": 110,
+      "cpc": 0.79,
+      "competition": "LOW",
+      "competition_index": 14
+    },
+    {
+      "keyword": "muay thai en thailande",
+      "search_volume": 90,
+      "cpc": 0.84,
+      "competition": "LOW",
+      "competition_index": 17
+    },
+    {
+      "keyword": "camp muay thai phuket",
+      "search_volume": 90,
+      "cpc": 0.7,
+      "competition": "LOW",
+      "competition_index": 25
+    },
+    {
+      "keyword": "camp muay thai thaïlande français",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "camp muay thai chiang mai",
+      "search_volume": 40,
+      "cpc": 1.69,
+      "competition": "LOW",
+      "competition_index": 27
+    },
+    {
+      "keyword": "thailande muay thai",
+      "search_volume": 20,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "stage de muay thai en thailande",
+      "search_volume": 10,
+      "cpc": 0.3,
+      "competition": "MEDIUM",
+      "competition_index": 36
+    },
+    {
+      "keyword": "camp d entrainement muay thai thailande boughanem",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 29
+    },
+    {
+      "keyword": "apprendre le muay thai en thailande",
+      "search_volume": 10,
+      "cpc": 0.26,
+      "competition": "LOW",
+      "competition_index": 14
+    },
+    {
+      "keyword": "short muay thai thailande",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "HIGH",
+      "competition_index": 100
+    },
+    {
+      "keyword": "stage boxe thaï thaïlande débutant",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "MEDIUM",
+      "competition_index": 57
+    },
+    {
+      "keyword": "stage muay thai bangkok",
+      "search_volume": 10,
+      "cpc": 0.76,
+      "competition": "MEDIUM",
+      "competition_index": 60
+    }
+  ],
+  "related": [
+    {
+      "keyword": "camp muay thai france",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "cours de boxe thai bangkok",
+      "search_volume": 10,
+      "cpc": 0.66,
+      "competition": "HIGH",
+      "competition_index": 69
+    },
+    {
+      "keyword": "camp muay thai thaïlande",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 16
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "tiger muay thai",
+      "search_volume": 880,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "camp muay thai thailande",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

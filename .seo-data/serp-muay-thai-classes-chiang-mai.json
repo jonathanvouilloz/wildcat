@@ -1,0 +1,216 @@
+{
+  "keyword": "muay thai classes chiang mai",
+  "location": "United States (global EN)",
+  "scanned_at": "2026-06-04T13:38:20Z",
+  "sample_size": 8,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.dangmuaythai.com/",
+      "title": "Dang Muay Thai Gym - The Best Place To Train Muay Thai [2026]",
+      "page_type": "homepage",
+      "competitor_type": "local-business",
+      "covers": [
+        "Group/private pricing shown (450 / 650 THB)",
+        "Gym schedule",
+        "16 named trainer profiles",
+        "Stay & Train accommodation packages",
+        "Kids & Teen Muay Thai dedicated pages",
+        "DTV & ED visa offer (DTV 20,000 THB)",
+        "Stadium ticket sales",
+        "Blog"
+      ],
+      "missing": [
+        "Open-air/garden vibe (it's an indoor gym)",
+        "Family-camp warmth positioning (markets as 'best/biggest')"
+      ],
+      "eeat_signals": [
+        "3,500+ five-star Google reviews",
+        "'Highest-rated in Thailand' claim",
+        "~400 years combined trainer experience, former champions",
+        "Named & photographed krus with profile pages"
+      ]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.tigermuaythaichiangmai.com/",
+      "title": "Muay Thai training & Yoga in Chiang Mai, Tiger Muay Thai Chiang Mai",
+      "page_type": "homepage",
+      "competitor_type": "local-business",
+      "covers": [
+        "Large camp facility (4,000+ sqm, pool, weight room)",
+        "Beginner-to-advanced courses",
+        "Trainer credentials (WMA certified, Lumpinee/Rajadamnern titles)",
+        "News feed",
+        "Yoga add-on",
+        "Guest testimonials"
+      ],
+      "missing": [
+        "No pricing on homepage (buried in Price & Packages)",
+        "No family/women/kids angle",
+        "Located 24km out of town (less convenient for city-based travelers)"
+      ],
+      "eeat_signals": [
+        "World Muay Thai Alliance certification (Oct 2024)",
+        "Former pro fighters, stadium title holders",
+        "15+ year brand heritage",
+        "Named guest testimonials"
+      ]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.muaythaifever.com/",
+      "title": "Muay Thai Fever - Chiang Mai's Best Muay Thai",
+      "page_type": "homepage",
+      "competitor_type": "local-business",
+      "covers": [
+        "Group classes 400 THB / private 700 THB",
+        "Clean modern facility 10 min from city",
+        "Cost-of-training blog content"
+      ],
+      "missing": [
+        "Page render truncated on fetch; thin on-page detail captured",
+        "No explicit family/open-air positioning surfaced"
+      ],
+      "eeat_signals": [
+        "Pricing transparency in copy",
+        "Educational blog (cost-to-train article)"
+      ]
+    },
+    {
+      "rank": 4,
+      "url": "https://topmuaythai.com/",
+      "title": "Best Muay Thai Gyms in Chiang Mai 2026 | Complete Training Guide",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": [
+        "Top 12 ranked gyms listicle (incl. Dang, Santai, Lanna, Tiger, Hongthong, The Camp)",
+        "Why train in Chiang Mai",
+        "Price ranges (300-600 THB/class, 5k-12k monthly)",
+        "Gear, visa & packing guides",
+        "FAQ"
+      ],
+      "missing": [
+        "Not a gym (no booking) — review/aggregator intent",
+        "Does not feature Wildcat"
+      ],
+      "eeat_signals": [
+        "Author '20-year local', 'no paid promotions'",
+        "In-depth comparative reviews"
+      ]
+    },
+    {
+      "rank": 5,
+      "url": "https://muay-thai-santai.com/",
+      "title": "Santai Muay Thai Gym Chiang Mai - Muay Thai Training",
+      "page_type": "homepage",
+      "competitor_type": "local-business",
+      "covers": [
+        "Established camp brand (Hang Dong)",
+        "Stay & train / accommodation",
+        "Beginner-friendly group classes"
+      ],
+      "missing": [
+        "Out-of-town location",
+        "No family/kids-first positioning surfaced"
+      ],
+      "eeat_signals": [
+        "Long-standing reputable camp brand",
+        "Experienced trainers"
+      ]
+    },
+    {
+      "rank": 6,
+      "url": "https://www.thecamp-chiangmai.com/",
+      "title": "Muay Thai Training in Chiang Mai with Semi-Private Coaching | The Camp",
+      "page_type": "homepage",
+      "competitor_type": "local-business",
+      "covers": [
+        "Semi-private coaching angle",
+        "Long-stay / recovery-focused resort",
+        "All levels, beginner-safe intensity",
+        "Training Pass pricing tiers"
+      ],
+      "missing": [
+        "Serious/training-resort tone, not family-warm",
+        "No kids/women emphasis"
+      ],
+      "eeat_signals": [
+        "Coach-led semi-private framing",
+        "Long-stay routine credibility"
+      ]
+    },
+    {
+      "rank": 7,
+      "url": "https://muaythaichiangmai.com/classes",
+      "title": "Thai Boxing Classes at Best Muay Thai Gyms in Chiang Mai",
+      "page_type": "directory",
+      "competitor_type": "marketplace",
+      "covers": [
+        "Class listings across multiple gyms",
+        "Booking aggregation"
+      ],
+      "missing": [
+        "Aggregator, not a single brand",
+        "Generic, low brand trust"
+      ],
+      "eeat_signals": [
+        "Multi-gym coverage breadth"
+      ]
+    },
+    {
+      "rank": 8,
+      "url": "https://www.gymbangarang.com/best-muay-thai-gyms-in-chiang-mai-for-beginners-fighters/",
+      "title": "Best Muay Thai Gyms in Chiang Mai for Beginners & Fighters",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": [
+        "Beginner vs fighter gym breakdown",
+        "Gym comparison content"
+      ],
+      "missing": [
+        "Editorial, not bookable",
+        "Gym's own blog promoting itself"
+      ],
+      "eeat_signals": [
+        "First-hand gym operator perspective"
+      ]
+    }
+  ],
+  "serp_features": {
+    "local_pack": true,
+    "people_also_ask": [
+      "How much does a Muay Thai class cost in Chiang Mai?",
+      "Is Chiang Mai good for Muay Thai?",
+      "Do you need experience to join a Muay Thai class in Chiang Mai?",
+      "How much does it cost to train Muay Thai in Thailand?",
+      "Which is the best Muay Thai gym in Chiang Mai?",
+      "Can beginners do Muay Thai in Chiang Mai?"
+    ],
+    "featured_snippet": false,
+    "image_pack": true,
+    "video": false
+  },
+  "intent_signal": "mixed",
+  "common_ground": [
+    "Group + private class pricing (300-700 THB drop-in benchmark)",
+    "Visible training schedule / timetable",
+    "Trainer credibility (former champions, stadium titles, certifications)",
+    "Beginner-welcome statements",
+    "Stay & train / accommodation cross-sell",
+    "Strong Google review social proof drives the Local Pack"
+  ],
+  "gap": {
+    "description": "The SERP is dominated by indoor 'best/biggest' fight-gym branding (Dang) and out-of-town training resorts (Tiger, Santai, The Camp), plus editorial listicles that rank gyms by size/reputation. Almost none lead with a warm, FAMILY + OPEN-AIR positioning, and few combine fully transparent public pricing WITH a clear scannable schedule on the main classes page. Inclusivity is stated generically ('all levels welcome') but rarely owned as a brand promise for women, kids, nervous first-timers, and solo travelers. There is a clean opening for an in-/near-town camp that pairs honest published prices + a clear weekly timetable + a genuinely beginner-and-family-friendly, golden-hour garden vibe rather than the hardcore warrior-gym aesthetic.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Tiger / Santai / The Camp hide pricing behind a separate packages page",
+    "Top-ranked brands sell on 'biggest/best/hardest', not warmth or inclusivity",
+    "Generic 'all levels welcome' line with no real reassurance for women/kids/first-timers",
+    "Editorial listicles (topmuaythai, gymbangarang) capture the comparison query but offer no booking",
+    "Few pages present prices AND a clear weekly schedule together on one classes page",
+    "Open-air / garden / golden-hour experience essentially unrepresented on page-one gyms"
+  ],
+  "recommended_angle": "Position /classes as the transparent, beginner-and-family-friendly alternative: lead with fully public prices and a clean weekly schedule right on the page, framed around Wildcat's open-air garden, golden-hour camp where women, kids, and first-timers feel welcome — 'come for the fight, stay for the family' — instead of the biggest-gym/hardcore-fighter pitch the page-one competitors all repeat."
+}

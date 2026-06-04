@@ -1,0 +1,316 @@
+{
+  "topic": "beginner muay thai",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-04T13:27:00Z",
+  "primary": {
+    "keyword": "beginner muay thai",
+    "search_volume": 590,
+    "cpc": 4.07,
+    "competition": "LOW",
+    "competition_index": 27,
+    "difficulty": 0,
+    "intent": "informational",
+    "intent_probability": 0.5092
+  },
+  "secondaries": [
+    {
+      "keyword": "beginner muay thai class",
+      "search_volume": 1000,
+      "cpc": 2.79,
+      "competition": "LOW",
+      "competition_index": 13
+    },
+    {
+      "keyword": "beginner muay thai classes",
+      "search_volume": 1000,
+      "cpc": 2.79,
+      "competition": "LOW",
+      "competition_index": 13
+    },
+    {
+      "keyword": "beginner muay thai gloves",
+      "search_volume": 260,
+      "cpc": 1.92,
+      "competition": "HIGH",
+      "competition_index": 84
+    },
+    {
+      "keyword": "beginner muay thai basic moves",
+      "search_volume": 170,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "beginner muay thai near me",
+      "search_volume": 90,
+      "cpc": 0.79,
+      "competition": "MEDIUM",
+      "competition_index": 51
+    },
+    {
+      "keyword": "beginner muay thai training",
+      "search_volume": 70,
+      "cpc": 4.49,
+      "competition": "LOW",
+      "competition_index": 17
+    },
+    {
+      "keyword": "beginner muay thai drills",
+      "search_volume": 50,
+      "cpc": 1.94,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "best beginner muay thai gloves",
+      "search_volume": 50,
+      "cpc": 1.18,
+      "competition": "HIGH",
+      "competition_index": 100
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "muay thai near me",
+      "search_volume": 49500,
+      "cpc": 2.35,
+      "competition": "MEDIUM",
+      "competition_index": 41
+    },
+    {
+      "keyword": "muay thai classes near me",
+      "search_volume": 14800,
+      "cpc": 2.47,
+      "competition": "LOW",
+      "competition_index": 12
+    },
+    {
+      "keyword": "muay thai stance",
+      "search_volume": 4400,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "heritage muay thai",
+      "search_volume": 2400,
+      "cpc": 0.76,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "muay thai boxing",
+      "search_volume": 1600,
+      "cpc": 2.28,
+      "competition": "LOW",
+      "competition_index": 17
+    },
+    {
+      "keyword": "muay thai martial arts",
+      "search_volume": 1300,
+      "cpc": 1.66,
+      "competition": "LOW",
+      "competition_index": 12
+    },
+    {
+      "keyword": "muay thai beginner class",
+      "search_volume": 1000,
+      "cpc": 2.79,
+      "competition": "LOW",
+      "competition_index": 13
+    },
+    {
+      "keyword": "muay thai beginner classes",
+      "search_volume": 1000,
+      "cpc": 2.79,
+      "competition": "LOW",
+      "competition_index": 13
+    },
+    {
+      "keyword": "muay thai training near me",
+      "search_volume": 880,
+      "cpc": 2.22,
+      "competition": "MEDIUM",
+      "competition_index": 49
+    },
+    {
+      "keyword": "muay thai beginner",
+      "search_volume": 590,
+      "cpc": 4.07,
+      "competition": "LOW",
+      "competition_index": 27
+    },
+    {
+      "keyword": "muay thai thailand beginner",
+      "search_volume": 590,
+      "cpc": 4.07,
+      "competition": "LOW",
+      "competition_index": 27
+    },
+    {
+      "keyword": "muay thai for beginner",
+      "search_volume": 590,
+      "cpc": 4.07,
+      "competition": "LOW",
+      "competition_index": 27
+    },
+    {
+      "keyword": "muay thai near me for adults",
+      "search_volume": 480,
+      "cpc": 1.46,
+      "competition": "MEDIUM",
+      "competition_index": 49
+    },
+    {
+      "keyword": "mango tree muay thai",
+      "search_volume": 390,
+      "cpc": 5.11,
+      "competition": "LOW",
+      "competition_index": 10
+    },
+    {
+      "keyword": "muay thai training at home",
+      "search_volume": 260,
+      "cpc": 1.79,
+      "competition": "LOW",
+      "competition_index": 26
+    }
+  ],
+  "related": [
+    {
+      "keyword": "main street boxing and muay thai",
+      "search_volume": 260,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "muay thai books",
+      "search_volume": 260,
+      "cpc": 0.69,
+      "competition": "HIGH",
+      "competition_index": 91
+    },
+    {
+      "keyword": "master lek's muay thai",
+      "search_volume": 170,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 3
+    },
+    {
+      "keyword": "muay thai beginner classes near me",
+      "search_volume": 110,
+      "cpc": 2.74,
+      "competition": "HIGH",
+      "competition_index": 69
+    },
+    {
+      "keyword": "muay thai beginner class near me",
+      "search_volume": 110,
+      "cpc": 2.74,
+      "competition": "HIGH",
+      "competition_index": 69
+    },
+    {
+      "keyword": "muay thai training video",
+      "search_volume": 90,
+      "cpc": 4.16,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "best muay thai near me",
+      "search_volume": 90,
+      "cpc": 1.6,
+      "competition": "MEDIUM",
+      "competition_index": 42
+    },
+    {
+      "keyword": "how to learn muay thai at home",
+      "search_volume": 90,
+      "cpc": 0.93,
+      "competition": "LOW",
+      "competition_index": 10
+    },
+    {
+      "keyword": "muay thai conditioning workout",
+      "search_volume": 90,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "muay thai beginner training",
+      "search_volume": 70,
+      "cpc": 4.49,
+      "competition": "LOW",
+      "competition_index": 17
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "muay thai classes near me",
+      "search_volume": 14800,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai stance",
+      "search_volume": 4400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "heritage muay thai",
+      "search_volume": 2400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai boxing",
+      "search_volume": 1600,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai martial arts",
+      "search_volume": 1300,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai beginner class",
+      "search_volume": 1000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai beginner classes",
+      "search_volume": 1000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "beginner muay thai class",
+      "search_volume": 1000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "beginner muay thai classes",
+      "search_volume": 1000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai beginner",
+      "search_volume": 590,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}
