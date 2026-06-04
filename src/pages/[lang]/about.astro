@@ -103,7 +103,8 @@ const reviews =
           <p class="body-p">{m.about_story_p2()}</p>
         </div>
         <div class="imgbox">
-          <img src="/assets/family-about.webp" alt={m.home_stay_img_alt()} loading="lazy" />
+          {/* l'enseigne dans la végétation — pas de doublon avec la photo famille du hero */}
+          <img src="/assets/gym-place.webp" alt={m.home_stay_img_alt()} loading="lazy" />
         </div>
       </div>
     </Section>
