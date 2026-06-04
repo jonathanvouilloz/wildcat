@@ -1,0 +1,475 @@
+---
+import Button from '../ui/Button.astro';
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * DtvQuiz — quiz d'éligibilité DTV (route Muay Thai soft-power).
+ * Îlot interactif minimal : markup serveur complet (toutes les questions +
+ * tous les verdicts rendus), JS vanilla inline (IIFE + data-*) pour la
+ * navigation / scoring / verdict — pattern Nav.astro.
+ *
+ * Progressive enhancement : sans JS, les 6 questions restent lisibles avec
+ * leurs réponses (critères réels) ; les verdicts restent visibles aussi.
+ * Avec JS : on masque les verdicts, on score les réponses au clic sur
+ * « Voir mon résultat », et on affiche le verdict adéquat (aria-live).
+ *
+ * Scoring (cf. brief §5) :
+ *  - une réponse « red » (data-flag="red") force le verdict 3 (blocker)
+ *  - sinon 0 réponse « yellow » → verdict 1 (eligible)
+ *  - sinon ≥1 réponse « yellow » → verdict 2 (probably)
+ *
+ * A11y : fieldset/legend, radios natifs, focus-visible (hérité global),
+ * aria-live="polite" sur le résultat, prefers-reduced-motion respecté.
+ */
+export interface Props {
+  /** Lien /contact localisé (la page importe localePath + topic dtv). */
+  contactHref: string;
+  /** Lien WhatsApp (la page le lit depuis site.contact.whatsapp). */
+  whatsappHref: string;
+}
+const { contactHref, whatsappHref } = Astro.props;
+
+// Questions — chaque option porte un data-flag (green | yellow | red).
+// Contenu (label + options) en messages dtv_elig_q* (zéro string en dur).
+const questions = [
+  {
+    legend: m.dtv_elig_q1(),
+    name: 'q1',
+    options: [
+      { value: 'a', flag: 'green', label: m.dtv_elig_q1_a() },
+      { value: 'b', flag: 'yellow', label: m.dtv_elig_q1_b() },
+      { value: 'c', flag: 'red', label: m.dtv_elig_q1_c() },
+    ],
+  },
+  {
+    legend: m.dtv_elig_q2(),
+    name: 'q2',
+    options: [
+      { value: 'a', flag: 'green', label: m.dtv_elig_q2_a() },
+      { value: 'b', flag: 'yellow', label: m.dtv_elig_q2_b() },
+      { value: 'c', flag: 'red', label: m.dtv_elig_q2_c() },
+    ],
+  },
+  {
+    legend: m.dtv_elig_q3(),
+    name: 'q3',
+    options: [
+      { value: 'a', flag: 'green', label: m.dtv_elig_q3_a() },
+      { value: 'b', flag: 'yellow', label: m.dtv_elig_q3_b() },
+      // Q3c (sous 20 ans) : red + déclenche la note dépendant dans verdict 3.
+      { value: 'c', flag: 'red', label: m.dtv_elig_q3_c(), under20: true },
+    ],
+  },
+  {
+    legend: m.dtv_elig_q4(),
+    name: 'q4',
+    options: [
+      { value: 'a', flag: 'green', label: m.dtv_elig_q4_a() },
+      { value: 'b', flag: 'yellow', label: m.dtv_elig_q4_b() },
+      { value: 'c', flag: 'red', label: m.dtv_elig_q4_c() },
+    ],
+  },
+  {
+    legend: m.dtv_elig_q5(),
+    name: 'q5',
+    options: [
+      { value: 'a', flag: 'green', label: m.dtv_elig_q5_a() },
+      { value: 'b', flag: 'yellow', label: m.dtv_elig_q5_b() },
+      { value: 'c', flag: 'yellow', label: m.dtv_elig_q5_c() },
+    ],
+  },
+  {
+    legend: m.dtv_elig_q6(),
+    name: 'q6',
+    options: [
+      { value: 'a', flag: 'green', label: m.dtv_elig_q6_a() },
+      { value: 'b', flag: 'green', label: m.dtv_elig_q6_b() },
+      { value: 'c', flag: 'yellow', label: m.dtv_elig_q6_c() },
+    ],
+  },
+];
+
+// Verdicts — 3 cartes rendues côté serveur. data-verdict = clé ; le JS en
+// affiche une seule. CTA différenciés (brief §5).
+const verdicts = [
+  {
+    key: '1',
+    tone: 'green',
+    title: m.dtv_elig_verdict1_title(),
+    body: m.dtv_elig_verdict1_body(),
+    primary: { label: m.dtv_elig_verdict1_cta(), href: contactHref },
+    secondary: { label: m.dtv_elig_whatsapp(), href: whatsappHref },
+  },
+  {
+    key: '2',
+    tone: 'yellow',
+    title: m.dtv_elig_verdict2_title(),
+    body: m.dtv_elig_verdict2_body(),
+    primary: { label: m.dtv_elig_verdict2_cta(), href: whatsappHref },
+    secondary: { label: m.dtv_elig_verdict2_cta2(), href: contactHref },
+  },
+  {
+    key: '3',
+    tone: 'red',
+    title: m.dtv_elig_verdict3_title(),
+    body: m.dtv_elig_verdict3_body(),
+    // note dépendant (< 20 ans) — masquée par défaut, révélée si Q3c.
+    note: m.dtv_elig_verdict3_note(),
+    primary: { label: m.dtv_elig_verdict3_cta(), href: contactHref },
+    secondary: { label: m.dtv_elig_whatsapp(), href: whatsappHref },
+  },
+];
+---
+
+<div class="quiz" data-dtv-quiz>
+  <form class="quiz-form" data-quiz-form>
+    {
+      questions.map((q, i) => (
+        <fieldset class="q">
+          <legend>
+            <span class="q-num" aria-hidden="true">{i + 1}</span>
+            {q.legend}
+          </legend>
+          <div class="opts">
+            {q.options.map((opt) => (
+              <label class="opt">
+                <input
+                  type="radio"
+                  name={q.name}
+                  value={opt.value}
+                  data-flag={opt.flag}
+                  data-under20={'under20' in opt && opt.under20 ? '' : undefined}
+                />
+                <span class="opt-box">
+                  <span class="dot" aria-hidden="true" />
+                  <span class="opt-label">{opt.label}</span>
+                </span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+      ))
+    }
+
+    <div class="quiz-actions">
+      <Button type="submit" variant="forest" arrow class="quiz-submit">
+        {m.dtv_elig_quiz_submit()}
+      </Button>
+      <button type="button" class="quiz-reset" data-quiz-reset hidden>
+        {m.dtv_elig_quiz_reset()}
+      </button>
+    </div>
+  </form>
+
+  <!-- Résultats — visibles sans JS (PE) ; masqués/filtrés par le JS. -->
+  <div class="results" data-quiz-results aria-live="polite">
+    {
+      verdicts.map((v) => (
+        <div class={`verdict verdict--${v.tone}`} data-verdict={v.key}>
+          <h3 class="verdict-title">{v.title}</h3>
+          <p class="verdict-body">{v.body}</p>
+          {v.note && (
+            <p class="verdict-note" data-under20-note hidden>
+              {v.note}
+            </p>
+          )}
+          <div class="verdict-cta">
+            <Button href={v.primary.href} variant="gold" arrow>
+              {v.primary.label}
+            </Button>
+            <Button href={v.secondary.href} variant="outline">
+              {v.secondary.label}
+            </Button>
+          </div>
+          <p class="verdict-disclaimer">{m.dtv_elig_quiz_disclaimer()}</p>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  (function () {
+    const root = document.querySelector<HTMLElement>('[data-dtv-quiz]');
+    if (!root) return;
+
+    const form = root.querySelector<HTMLFormElement>('[data-quiz-form]');
+    const results = root.querySelector<HTMLElement>('[data-quiz-results]');
+    const resetBtn = root.querySelector<HTMLButtonElement>('[data-quiz-reset]');
+    if (!form || !results) return;
+
+    const verdicts = Array.from(results.querySelectorAll<HTMLElement>('[data-verdict]'));
+    const under20Note = results.querySelector<HTMLElement>('[data-under20-note]');
+
+    // JS actif → on passe en mode interactif : on masque tous les verdicts
+    // (ils restaient visibles en no-JS) et on prépare le bouton reset.
+    root.classList.add('js');
+    verdicts.forEach((v) => (v.hidden = true));
+    if (under20Note) under20Note.hidden = true;
+
+    function showVerdict(key: string) {
+      verdicts.forEach((v) => {
+        v.hidden = v.getAttribute('data-verdict') !== key;
+      });
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const names = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'];
+
+      let yellow = 0;
+      let red = 0;
+      let under20 = false;
+
+      names.forEach((name) => {
+        const val = data.get(name);
+        if (val == null) return;
+        const input = form!.querySelector<HTMLInputElement>(
+          `input[name="${name}"][value="${val}"]`,
+        );
+        if (!input) return;
+        const flag = input.getAttribute('data-flag');
+        if (flag === 'yellow') yellow++;
+        else if (flag === 'red') red++;
+        if (input.hasAttribute('data-under20')) under20 = true;
+      });
+
+      const verdict = red > 0 ? '3' : yellow > 0 ? '2' : '1';
+      if (under20Note) under20Note.hidden = !(verdict === '3' && under20);
+
+      showVerdict(verdict);
+      if (resetBtn) resetBtn.hidden = false;
+
+      // Scroll doux vers le résultat (respecte reduced-motion).
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const target = results!.querySelector<HTMLElement>(`[data-verdict="${verdict}"]`);
+      target?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    });
+
+    resetBtn?.addEventListener('click', () => {
+      form.reset();
+      verdicts.forEach((v) => (v.hidden = true));
+      if (under20Note) under20Note.hidden = true;
+      resetBtn.hidden = true;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      form.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    });
+  })();
+</script>
+
+<style>
+  .quiz {
+    display: grid;
+    gap: 28px;
+  }
+  .quiz-form {
+    display: grid;
+    gap: 16px;
+  }
+
+  /* Question card */
+  .q {
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    padding: 20px 22px 16px;
+    box-shadow: var(--shadow-sm);
+  }
+  .q legend {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 1.35;
+    color: var(--forest);
+    padding: 0;
+    margin-bottom: 14px;
+  }
+  .q-num {
+    flex: 0 0 auto;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--soft-2);
+    color: var(--forest);
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .opts {
+    display: grid;
+    gap: 8px;
+  }
+  .opt {
+    display: block;
+    cursor: pointer;
+  }
+  .opt input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+  .opt-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    background: var(--soft);
+    padding: 12px 14px;
+    transition:
+      border-color 0.18s ease,
+      background-color 0.18s ease;
+  }
+  .opt:hover .opt-box {
+    border-color: var(--line-3);
+  }
+  .dot {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    border-radius: 50%;
+    border: 2px solid var(--line-3);
+    background: var(--surface);
+    transition:
+      border-color 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+  .opt-label {
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .opt input:checked + .opt-box {
+    border-color: var(--forest-light);
+    background: var(--soft-2);
+  }
+  .opt input:checked + .opt-box .dot {
+    border-color: var(--forest);
+    box-shadow: inset 0 0 0 4px var(--forest);
+  }
+  .opt input:checked + .opt-box .opt-label {
+    color: var(--ink);
+  }
+  .opt input:focus-visible + .opt-box {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .quiz-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+  .quiz-reset {
+    border: 0;
+    background: none;
+    padding: 4px 2px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink-2);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-3);
+  }
+  .quiz-reset:hover {
+    color: var(--gold-deep);
+  }
+  .quiz-reset:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Results */
+  .results {
+    display: grid;
+    gap: 16px;
+  }
+  .verdict {
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--line-3);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    padding: 24px 26px;
+    box-shadow: var(--shadow-sm);
+  }
+  .verdict--green {
+    border-left-color: var(--success);
+  }
+  .verdict--yellow {
+    border-left-color: var(--warning);
+  }
+  .verdict--red {
+    border-left-color: var(--error);
+  }
+  .verdict-title {
+    margin: 0 0 10px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 21px;
+    line-height: 1.2;
+    color: var(--forest);
+  }
+  .verdict-body {
+    margin: 0 0 14px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 64ch;
+  }
+  .verdict-note {
+    margin: 0 0 14px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    background: var(--soft-2);
+    border-radius: var(--r-sm);
+    padding: 12px 14px;
+    max-width: 64ch;
+  }
+  .verdict-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .verdict-disclaimer {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-3);
+  }
+
+  /* No-JS : on sépare visuellement les verdicts (ils sont tous montrés) par
+     un petit label implicite via la bordure colorée — déjà géré ci-dessus. */
+
+  @media (max-width: 520px) {
+    .q {
+      padding: 18px 16px 14px;
+    }
+    .verdict {
+      padding: 20px 18px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .opt-box,
+    .dot {
+      transition: none;
+    }
+  }
+</style>

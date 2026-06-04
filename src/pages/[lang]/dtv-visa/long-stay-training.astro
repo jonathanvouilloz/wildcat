@@ -1,0 +1,461 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/layout/Section.astro';
+import SectionHead from '../../../components/ui/SectionHead.astro';
+import Button from '../../../components/ui/Button.astro';
+import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import DtvStamp from '../../../components/ui/DtvStamp.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import Faq from '../../../components/sections/Faq.astro';
+import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
+import BudgetEstimator from '../../../components/interactive/BudgetEstimator.astro';
+import { site } from '../../../config/site';
+import { localePath } from '../../../lib/routes';
+import { safeQuery } from '../../../lib/content';
+import { FEATURED_TESTIMONIALS_QUERY } from '../../../lib/queries';
+import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../../lib/sanity.types';
+import { pickLocale } from '../../../lib/i18n-content';
+import { m } from '../../../paraglide/messages.js';
+
+// Satellite DTV — intersection long-stay × coût × DTV (brief dtv-long-stay-training.md).
+// Ne vend PAS de package (renvoi /stay-train) et ne re-explique PAS le process visa
+// (renvoi eligibility / how-to-apply). Prix training = site.ts uniquement.
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+// ── Prix réels (site.ts) ────────────────────────────────────────────────────
+const priceOf = (list: readonly { key: string; price: number }[], key: string) =>
+  list.find((item) => item.key === key)?.price ?? 0;
+const adults = site.pricing.groupAdults;
+const dropin = priceOf(adults, 'dropin'); // 350
+const times10 = priceOf(adults, 'times10'); // 3000
+const monthOnce = priceOf(adults, 'month_once'); // 4000
+const monthUnlimited = priceOf(adults, 'month_unlimited'); // 5000
+const fighterMonth = priceOf(site.pricing.fighter, 'fighter_month'); // 7000
+const privateHead = priceOf(site.pricing.private, 'private_head'); // 1000
+const privateNormal = priceOf(site.pricing.private, 'private_normal'); // 800
+
+const fmt = (n: number) => n.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
+const cur = site.pricing.currency;
+
+// Lignes du tableau « Training at Wildcat (real prices) » — toutes depuis site.ts.
+const priceRows = [
+  { label: m.dtv_lst_price_dropin(), value: `${fmt(dropin)} ${cur}` },
+  { label: m.dtv_lst_price_times10(), value: `${fmt(times10)} ${cur}` },
+  { label: m.dtv_lst_price_month_once(), value: `${fmt(monthOnce)} ${cur}` },
+  { label: m.dtv_lst_price_month_unlimited(), value: `${fmt(monthUnlimited)} ${cur}`, popular: true },
+  { label: m.dtv_lst_price_fighter(), value: `${fmt(fighterMonth)} ${cur}` },
+  { label: m.dtv_lst_price_private(), value: `${fmt(privateNormal)}–${fmt(privateHead)} ${cur}` },
+];
+
+// ── Estimateur : formules training dérivées de site.ts (jamais en dur dans le JS) ─
+// dropin ~22 sessions/mo ; 10-pack ~2 carnets/mo ; month_unlimited & fighter directs.
+const SESSIONS_PER_MONTH = 22;
+const PACKS_PER_MONTH = 2;
+const estTraining = [
+  { key: 'month', label: m.dtv_lst_est_training_month(), monthly: monthUnlimited },
+  { key: 'fighter', label: m.dtv_lst_est_training_fighter(), monthly: fighterMonth },
+  { key: 'pack', label: m.dtv_lst_est_training_pack(), monthly: times10 * PACKS_PER_MONTH },
+  { key: 'dropin', label: m.dtv_lst_est_training_dropin(), monthly: dropin * SESSIONS_PER_MONTH },
+];
+
+// Fourchettes logement marché Chiang Mai (common_ground du brief §5).
+const estHousing = [
+  { key: 'shared', label: m.dtv_lst_est_housing_shared(), low: 4000, high: 6000 },
+  { key: 'basic', label: m.dtv_lst_est_housing_basic(), low: 6000, high: 9000 },
+  { key: 'comfort', label: m.dtv_lst_est_housing_comfort(), low: 14000, high: 20000 },
+];
+
+const estDurations = [
+  { value: '1', label: m.dtv_lst_est_duration_1() },
+  { value: '3', label: m.dtv_lst_est_duration_3() },
+  { value: '6', label: m.dtv_lst_est_duration_6() },
+  { value: '12', label: m.dtv_lst_est_duration_12() },
+];
+
+// FX THB → USD indicatif. [À VÉRIFIER] — constante documentée (≈ 1 THB = 0.029 USD).
+const FX_THB_USD = 0.029;
+
+// ── Témoignage long-stay (service training) — CMS only, jamais inventé ───────
+const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
+  { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'training' } },
+  [],
+);
+const quote = testimonialDocs[0]
+  ? {
+      content: pickLocale(testimonialDocs[0].content, lang),
+      name: testimonialDocs[0].name ?? '',
+      meta: testimonialDocs[0].country ?? undefined,
+      rating: testimonialDocs[0].rating ?? 5,
+    }
+  : null;
+
+const faqItems = [
+  { q: m.dtv_lst_faq_q1(), a: m.dtv_lst_faq_a1() },
+  { q: m.dtv_lst_faq_q2(), a: m.dtv_lst_faq_a2() },
+  { q: m.dtv_lst_faq_q3(), a: m.dtv_lst_faq_a3() },
+  { q: m.dtv_lst_faq_q4(), a: m.dtv_lst_faq_a4() },
+];
+// Pas de JSON-LD FAQPage ici (brief §9) — FAQPage appartient à /dtv-visa/faq.
+---
+
+<BaseLayout title={m.dtv_lst_meta_title()} description={m.dtv_lst_meta_desc()}>
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.nav_dtv(), href: p('/dtv-visa') },
+        { label: m.dtv_lst_breadcrumb() },
+      ]}
+    />
+
+    <PageHero
+      head={m.dtv_lst_hero_head()}
+      title={m.dtv_lst_hero_title()}
+      titleEm={m.dtv_lst_hero_title_em()}
+      lead={m.dtv_lst_hero_lead()}
+    />
+
+    <!-- Intro BLUF + disclaimer prix + signature Meaw (E-E-A-T / YMYL) -->
+    <Section containerSize="narrow">
+      <SectionHead>{m.dtv_lst_intro_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-4">{m.dtv_lst_intro_title()}</h2>
+      <p class="lead-disclaimer">{m.dtv_lst_disclaimer()}</p>
+      <p class="body-p">{m.dtv_lst_intro_p1()}</p>
+      <p class="body-p">
+        {m.dtv_lst_intro_p2()}
+        <a class="ilink" href={p('/dtv-visa')}>{m.dtv_lst_legal_pillar_link()}</a>.
+      </p>
+      <p class="signature">{m.dtv_lst_intro_signature()}</p>
+    </Section>
+
+    <!-- H2 — what 6–12 months actually looks like -->
+    <Section soft>
+      <SectionHead>{m.dtv_lst_real_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-6">{m.dtv_lst_real_title()}</h2>
+
+      <div class="blocks">
+        <article>
+          <h3 class="h3">{m.dtv_lst_week_title()}</h3>
+          <p class="body-p">{m.dtv_lst_week_body()}</p>
+        </article>
+        <article>
+          <h3 class="h3">{m.dtv_lst_progress_title()}</h3>
+          <p class="body-p">
+            {m.dtv_lst_progress_body()}
+            <a class="ilink" href={p('/fighters')}>{m.dtv_lst_who_fighters_link()}</a>.
+          </p>
+        </article>
+        <article>
+          <h3 class="h3">{m.dtv_lst_who_title()}</h3>
+          <p class="body-p">
+            {m.dtv_lst_who_body()}
+            <a class="ilink" href={`${p('/about')}#coaches`}>{m.dtv_lst_who_coaches_link()}</a>.
+          </p>
+        </article>
+      </div>
+    </Section>
+
+    <!-- H2 — the real monthly budget, broken down -->
+    <Section>
+      <SectionHead>{m.dtv_lst_budget_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-3">{m.dtv_lst_budget_title()}</h2>
+      <p class="body-p">{m.dtv_lst_budget_intro()}</p>
+
+      <h3 class="h3 mt-7">{m.dtv_lst_training_title()}</h3>
+      <p class="body-p">
+        {m.dtv_lst_training_body()}
+      </p>
+      <table class="price-table">
+        <tbody>
+          {
+            priceRows.map((row) => (
+              <tr class:list={[row.popular && 'is-pop']}>
+                <th scope="row">{row.label}</th>
+                <td>{row.value}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+      <p class="body-p">
+        <a class="ilink" href={`${p('/classes')}#pricing`}>{m.dtv_lst_training_rates_link()}</a>.
+      </p>
+
+      <div class="blocks mt-7">
+        <article>
+          <h3 class="h3">{m.dtv_lst_accom_title()}</h3>
+          <p class="body-p">{m.dtv_lst_accom_body()}</p>
+        </article>
+        <article>
+          <h3 class="h3">{m.dtv_lst_food_title()}</h3>
+          <p class="body-p">{m.dtv_lst_food_body()}</p>
+        </article>
+        <article>
+          <h3 class="h3">{m.dtv_lst_scooter_title()}</h3>
+          <p class="body-p">{m.dtv_lst_scooter_body()}</p>
+        </article>
+        <article>
+          <h3 class="h3">{m.dtv_lst_extras_title()}</h3>
+          <p class="body-p">{m.dtv_lst_extras_body()}</p>
+        </article>
+      </div>
+
+      <div class="callout mt-7">
+        <h3 class="h3">{m.dtv_lst_total_title()}</h3>
+        <p class="body-p">{m.dtv_lst_total_body()}</p>
+      </div>
+
+      <h3 class="h3 mt-7">{m.dtv_lst_cities_title()}</h3>
+      <p class="body-p">{m.dtv_lst_cities_body()}</p>
+    </Section>
+
+    <!-- H2 — how the DTV makes it legal (short version, renvois anti-duplication) -->
+    <Section dark>
+      <div class="legal">
+        <DtvStamp size={170} />
+        <div>
+          <SectionHead onDark>{m.dtv_lst_legal_head()}</SectionHead>
+          <h2 class="h2 h2--dark mt-2 mb-3">
+            {m.dtv_lst_legal_title()} <span class="em on-dark">{m.dtv_lst_legal_title_em()}</span>
+          </h2>
+          <p class="dtv-body">{m.dtv_lst_legal_body()}</p>
+          <div class="legal-links">
+            <Button href={p('/dtv-visa/eligibility')} variant="gold" arrow>
+              {m.dtv_lst_legal_elig_link()}
+            </Button>
+            <Button href={p('/dtv-visa/how-to-apply')} variant="outline" onDark>
+              {m.dtv_lst_legal_apply_link()}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- H2 — estimateur interactif -->
+    <Section soft id="estimator">
+      <div class="block-head">
+        <SectionHead>{m.dtv_lst_est_head()}</SectionHead>
+        <h2 class="h2 mt-2 mb-3">{m.dtv_lst_est_title()}</h2>
+        <p class="body-p">{m.dtv_lst_est_intro()}</p>
+      </div>
+      <BudgetEstimator
+        lang={lang}
+        training={estTraining}
+        housingRanges={estHousing}
+        durations={estDurations}
+        whatsappHref={site.contact.whatsapp}
+        contactHref={p('/contact')}
+        fxUsd={FX_THB_USD}
+      />
+    </Section>
+
+    {
+      quote && (
+        <Section>
+          <div class="quote-wrap">
+            <TestimonialQuote
+              content={quote.content}
+              name={quote.name}
+              meta={quote.meta}
+              rating={quote.rating}
+              ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
+            />
+          </div>
+        </Section>
+      )
+    }
+
+    <!-- H2 — long-stay FAQ (coût uniquement, distincte de /dtv-visa/faq) -->
+    <Section id="faq">
+      <div class="faq-split">
+        <div>
+          <SectionHead>{m.dtv_lst_faq_head()}</SectionHead>
+          <h2 class="h2 mt-2">{m.dtv_lst_faq_title()}</h2>
+        </div>
+        <Faq items={faqItems} firstOpen />
+      </div>
+    </Section>
+
+    <!-- Encart anti-cannibalisation (obligatoire, avant le CTA final) -->
+    <Section soft>
+      <aside class="cross">
+        <div>
+          <h2 class="h3">{m.dtv_lst_cross_title()}</h2>
+          <p class="body-p">{m.dtv_lst_cross_body()}</p>
+        </div>
+        <Button href={p('/stay-train')} variant="forest" arrow>{m.dtv_lst_cross_cta()}</Button>
+      </aside>
+      <p class="reviewed">{m.dtv_lst_reviewed()}</p>
+    </Section>
+
+    <CtaBanner
+      title={m.dtv_lst_cta_title()}
+      titleEm={m.dtv_lst_cta_title_em()}
+      ctaPrimary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      ctaSecondary={{ label: m.nav_contact(), href: p('/contact') }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .body-p {
+    font-size: 17px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin: 0 0 16px;
+    max-width: 64ch;
+  }
+  .lead-disclaimer {
+    font-size: 14.5px;
+    font-style: italic;
+    color: var(--ink-3);
+    line-height: 1.55;
+    margin: 0 0 22px;
+    max-width: 66ch;
+    padding-left: 14px;
+    border-left: 2px solid var(--line-3);
+  }
+  .signature {
+    margin: 4px 0 0;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 600;
+    color: var(--gold-deep);
+    font-size: 18px;
+  }
+  .ilink {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 3px;
+  }
+  .ilink:hover {
+    color: var(--gold-deep);
+  }
+  .h2--dark {
+    color: var(--cream);
+  }
+  .blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 46px;
+  }
+  .blocks article {
+    min-width: 0;
+  }
+  .price-table {
+    width: 100%;
+    max-width: 560px;
+    border-collapse: collapse;
+    margin: 6px 0 18px;
+  }
+  .price-table tr {
+    border-bottom: 1px solid var(--line);
+  }
+  .price-table th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    padding: 12px 0;
+  }
+  .price-table td {
+    text-align: right;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--forest);
+    padding: 12px 0;
+    white-space: nowrap;
+  }
+  .price-table tr.is-pop th::after {
+    content: '◆';
+    color: var(--gold);
+    font-size: 10px;
+    margin-left: 8px;
+  }
+  .callout {
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--r-md);
+    padding: 22px 24px;
+  }
+  .callout .body-p {
+    margin-bottom: 0;
+  }
+  /* H2 légalité — dark (cf. stay-train .dtv-cross) */
+  .legal {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .dtv-body {
+    font-size: 17px;
+    color: rgba(246, 241, 230, 0.78);
+    max-width: 56ch;
+    margin: 0;
+  }
+  .legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .block-head {
+    margin-bottom: 32px;
+  }
+  .quote-wrap {
+    max-width: 760px;
+    margin-inline: auto;
+  }
+  .faq-split {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 46px;
+    align-items: start;
+  }
+  .cross {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    flex-wrap: wrap;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 28px 32px;
+    box-shadow: var(--shadow-sm);
+  }
+  .cross .body-p {
+    margin-bottom: 0;
+  }
+  .reviewed {
+    margin: 22px 0 0;
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+  @media (max-width: 860px) {
+    .blocks {
+      grid-template-columns: 1fr;
+    }
+    .legal {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .faq-split {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+</style>

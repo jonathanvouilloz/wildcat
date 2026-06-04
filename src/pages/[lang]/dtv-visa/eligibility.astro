@@ -1,0 +1,404 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/layout/Section.astro';
+import SectionHead from '../../../components/ui/SectionHead.astro';
+import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FeatureGrid from '../../../components/sections/FeatureGrid.astro';
+import Faq from '../../../components/sections/Faq.astro';
+import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import DtvQuiz from '../../../components/interactive/DtvQuiz.astro';
+import { site } from '../../../config/site';
+import { localePath } from '../../../lib/routes';
+import { m } from '../../../paraglide/messages.js';
+
+// Satellite DTV — page "requirements & eligibility" (kw : "dtv visa thailand
+// requirements"). Module C / YMYL : disclaimer + date de revue + signature Meaw.
+// Quiz interactif = différenciateur (aucun concurrent). CTA → /contact + WhatsApp.
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+// CTA /contact pré-ciblé sur le sujet DTV (topic supporté par ContactForm).
+const contactDtv = `${p('/contact')}?topic=dtv`;
+const whatsapp = site.contact.whatsapp;
+
+// Récap "at a glance" — réutilise FeatureGrid (cartes scannables = snippet-bait).
+const glance = [
+  { icon: 'tabler:cash-banknote', title: m.dtv_elig_glance1_t(), body: m.dtv_elig_glance1_b() },
+  { icon: 'tabler:user-check', title: m.dtv_elig_glance2_t(), body: m.dtv_elig_glance2_b() },
+  { icon: 'tabler:id', title: m.dtv_elig_glance3_t(), body: m.dtv_elig_glance3_b() },
+  { icon: 'tabler:calendar-stats', title: m.dtv_elig_glance4_t(), body: m.dtv_elig_glance4_b() },
+];
+
+// FAQ on-page (3-4 Q, DISTINCTES du pillar et de /dtv-visa/faq).
+// Pas de JSON-LD FAQPage ici (réservé à /dtv-visa/faq — cf. brief §9).
+const faqItems = [
+  { q: m.dtv_elig_faq_q1(), a: m.dtv_elig_faq_a1() },
+  { q: m.dtv_elig_faq_q2(), a: m.dtv_elig_faq_a2() },
+  { q: m.dtv_elig_faq_q3(), a: m.dtv_elig_faq_a3() },
+  { q: m.dtv_elig_faq_q4(), a: m.dtv_elig_faq_a4() },
+];
+---
+
+<BaseLayout title={m.dtv_elig_meta_title()} description={m.dtv_elig_meta_desc()}>
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.nav_dtv(), href: p('/dtv-visa') },
+        { label: m.dtv_elig_crumb() },
+      ]}
+    />
+
+    <PageHero
+      head={m.dtv_elig_hero_head()}
+      title={m.dtv_elig_hero_title()}
+      titleEm={m.dtv_elig_hero_title_em()}
+      lead={m.dtv_elig_hero_lead()}
+      cta={{ label: m.dtv_elig_hero_cta(), href: '#quiz' }}
+    />
+
+    <!-- Intro + disclaimer YMYL + BLUF -->
+    <Section containerSize="narrow">
+      <p class="disclaimer"><em>{m.dtv_elig_disclaimer()}</em></p>
+      <p class="body-p">{m.dtv_elig_intro_p1()}</p>
+      <p class="body-p">{m.dtv_elig_intro_p2()}</p>
+      <p class="body-p">
+        {m.dtv_elig_intro_p3()}{' '}
+        <a class="ilink" href={p('/dtv-visa')}>{m.dtv_elig_link_pillar()}</a>.
+      </p>
+    </Section>
+
+    <!-- Requirements at a glance -->
+    <Section soft>
+      <SectionHead>{m.dtv_elig_glance_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-3">{m.dtv_elig_glance_title()}</h2>
+      <p class="body-p mb-7">{m.dtv_elig_glance_intro()}</p>
+      <FeatureGrid items={glance} />
+    </Section>
+
+    <!-- Who is eligible -->
+    <Section containerSize="narrow">
+      <SectionHead>{m.dtv_elig_who_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-5">{m.dtv_elig_who_title()}</h2>
+
+      <h3 class="h3 mt-6 mb-2">{m.dtv_elig_who_nat_t()}</h3>
+      <p class="body-p">{m.dtv_elig_who_nat_b()}</p>
+
+      <h3 class="h3 mt-6 mb-2">{m.dtv_elig_who_age_t()}</h3>
+      <p class="body-p">{m.dtv_elig_who_age_b()}</p>
+
+      <h3 class="h3 mt-6 mb-2">{m.dtv_elig_who_apply_t()}</h3>
+      <p class="body-p">{m.dtv_elig_who_apply_b()}</p>
+
+      <p class="body-p">
+        {m.dtv_elig_who_routes()}{' '}
+        <a class="ilink" href={p('/dtv-visa/muay-thai')}>{m.dtv_elig_link_softpower()}</a>.
+      </p>
+    </Section>
+
+    <!-- Financial / income -->
+    <Section soft containerSize="narrow">
+      <SectionHead>{m.dtv_elig_funds_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-5">{m.dtv_elig_funds_title()}</h2>
+      <p class="body-p">{m.dtv_elig_funds_p1()}</p>
+      <p class="body-p">{m.dtv_elig_funds_p2()}</p>
+      <p class="body-p">{m.dtv_elig_funds_p3()}</p>
+    </Section>
+
+    <!-- Required documents -->
+    <Section containerSize="narrow">
+      <SectionHead>{m.dtv_elig_docs_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-5">{m.dtv_elig_docs_title()}</h2>
+      <p class="body-p">{m.dtv_elig_docs_intro()}</p>
+      <ul class="check">
+        <li>{m.dtv_elig_docs_li1()}</li>
+        <li>{m.dtv_elig_docs_li2()}</li>
+        <li>{m.dtv_elig_docs_li3()}</li>
+        <li>{m.dtv_elig_docs_li4()}</li>
+        <li>{m.dtv_elig_docs_li5()}</li>
+        <li>{m.dtv_elig_docs_li6()}</li>
+      </ul>
+
+      <div class="split">
+        <div class="split-card">
+          <h3 class="split-head">{m.dtv_elig_docs_bring_t()}</h3>
+          <p class="body-p">{m.dtv_elig_docs_bring_b()}</p>
+        </div>
+        <div class="split-card split-card--gold">
+          <h3 class="split-head">{m.dtv_elig_docs_issue_t()}</h3>
+          <p class="body-p">{m.dtv_elig_docs_issue_b()}</p>
+        </div>
+      </div>
+
+      <p class="body-p">{m.dtv_elig_docs_dep()}</p>
+      <p class="body-p">
+        {m.dtv_elig_docs_portal()}{' '}
+        <a class="ilink" href={p('/dtv-visa/how-to-apply')}>{m.dtv_elig_link_apply()}</a>.
+      </p>
+    </Section>
+
+    <!-- Muay Thai soft-power route (le gap différenciant) -->
+    <Section dark>
+      <SectionHead onDark>{m.dtv_elig_route_head()}</SectionHead>
+      <h2 class="h2 h2--dark mt-2 mb-6">
+        {m.dtv_elig_route_title()} <span class="em on-dark">{m.dtv_elig_route_title_em()}</span>
+      </h2>
+
+      <div class="route-grid">
+        <div class="route-card">
+          <h3 class="route-card-t">{m.dtv_elig_route_6m_t()}</h3>
+          <p class="route-card-b">
+            {m.dtv_elig_route_6m_b()}{' '}
+            <a class="ilink ilink--dark" href={p('/dtv-visa/long-stay-training')}>
+              {m.dtv_elig_link_longstay()}</a>.
+          </p>
+        </div>
+        <div class="route-card">
+          <h3 class="route-card-t">{m.dtv_elig_route_trap_t()}</h3>
+          <p class="route-card-b">{m.dtv_elig_route_trap_b()}</p>
+        </div>
+        <div class="route-card">
+          <h3 class="route-card-t">{m.dtv_elig_route_gym_t()}</h3>
+          <p class="route-card-b">{m.dtv_elig_route_gym_b()}</p>
+        </div>
+        <div class="route-card">
+          <h3 class="route-card-t">{m.dtv_elig_route_begin_t()}</h3>
+          <p class="route-card-b">{m.dtv_elig_route_begin_b()}</p>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Cost -->
+    <Section containerSize="narrow">
+      <SectionHead>{m.dtv_elig_cost_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-5">{m.dtv_elig_cost_title()}</h2>
+      <p class="body-p">{m.dtv_elig_cost_p1()}</p>
+      <p class="body-p">{m.dtv_elig_cost_p2()}</p>
+      <p class="body-p">
+        {m.dtv_elig_cost_p3()}{' '}
+        <a class="ilink" href={p('/classes')}>{m.dtv_elig_link_classes()}</a>{' '}
+        {m.dtv_elig_cost_and()}{' '}
+        <a class="ilink" href={p('/stay-train')}>{m.dtv_elig_link_staytrain()}</a>.
+      </p>
+    </Section>
+
+    <!-- Quiz -->
+    <Section soft id="quiz">
+      <SectionHead>{m.dtv_elig_quiz_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-3">{m.dtv_elig_quiz_title()}</h2>
+      <p class="body-p mb-7">{m.dtv_elig_quiz_intro()}</p>
+      <DtvQuiz contactHref={contactDtv} whatsappHref={whatsapp} />
+    </Section>
+
+    <!-- FAQ on-page (pas de JSON-LD FAQPage) -->
+    <Section id="faq">
+      <div class="faq-split">
+        <div>
+          <SectionHead>{m.dtv_elig_faq_head()}</SectionHead>
+          <h2 class="h2 mt-2">{m.dtv_elig_faq_title()}</h2>
+          <p class="body-p mt-3">
+            {m.dtv_elig_faq_more()}{' '}
+            <a class="ilink" href={p('/dtv-visa/faq')}>{m.dtv_elig_link_faq()}</a>.
+          </p>
+        </div>
+        <Faq items={faqItems} firstOpen />
+      </div>
+    </Section>
+
+    <!-- Author / E-E-A-T + freshness -->
+    <Section soft containerSize="narrow">
+      <div class="author">
+        <p class="author-by">{m.dtv_elig_author()}</p>
+        <p class="author-meta">{m.dtv_elig_reviewed()}</p>
+      </div>
+    </Section>
+
+    <CtaBanner
+      title={m.dtv_elig_cta_title()}
+      titleEm={m.dtv_elig_cta_title_em()}
+      ctaPrimary={{ label: m.dtv_elig_cta_primary(), href: contactDtv }}
+      ctaSecondary={{ label: m.dtv_elig_whatsapp(), href: whatsapp }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .body-p {
+    font-size: 17px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin: 0 0 16px;
+    max-width: 64ch;
+  }
+  .disclaimer {
+    font-size: 15px;
+    color: var(--ink-3);
+    line-height: 1.55;
+    margin: 0 0 22px;
+    padding: 12px 16px;
+    border-left: 3px solid var(--gold);
+    background: var(--soft);
+    border-radius: var(--r-sm);
+    max-width: 64ch;
+  }
+  .h2--dark {
+    color: var(--cream);
+  }
+  .ilink {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .ilink:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .ilink--dark {
+    color: var(--cream);
+    text-decoration-color: rgba(246, 241, 230, 0.45);
+  }
+  .ilink--dark:hover {
+    color: var(--gold);
+  }
+  .ilink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Checklist documents */
+  .check {
+    list-style: none;
+    margin: 0 0 26px;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+    max-width: 64ch;
+  }
+  .check li {
+    position: relative;
+    padding-left: 30px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .check li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--soft-2);
+    color: var(--forest);
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* What you bring vs what Wildcat issues */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 6px 0 22px;
+  }
+  .split-card {
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    padding: 20px 22px;
+    box-shadow: var(--shadow-sm);
+  }
+  .split-card--gold {
+    border-color: var(--gold);
+    background: var(--soft);
+  }
+  .split-card .body-p {
+    margin: 0;
+  }
+  .split-head {
+    margin: 0 0 8px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--forest);
+  }
+
+  /* Soft-power route grid (dark) */
+  .route-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .route-card {
+    border: 1px solid rgba(246, 241, 230, 0.16);
+    border-radius: var(--r-md);
+    background: rgba(246, 241, 230, 0.05);
+    padding: 22px 24px;
+  }
+  .route-card-t {
+    margin: 0 0 8px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--gold);
+  }
+  .route-card-b {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(246, 241, 230, 0.82);
+  }
+
+  /* FAQ split (= pillar) */
+  .faq-split {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 46px;
+    align-items: start;
+  }
+
+  /* Author block */
+  .author {
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+  }
+  .author-by {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    font-weight: 600;
+    margin: 0 0 6px;
+    max-width: 64ch;
+  }
+  .author-meta {
+    font-size: 14px;
+    color: var(--ink-3);
+    margin: 0;
+  }
+
+  @media (max-width: 860px) {
+    .split,
+    .route-grid,
+    .faq-split {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .faq-split {
+      gap: 30px;
+    }
+  }
+</style>

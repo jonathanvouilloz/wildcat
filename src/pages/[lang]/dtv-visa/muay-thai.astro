@@ -1,0 +1,506 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/layout/Section.astro';
+import SectionHead from '../../../components/ui/SectionHead.astro';
+import Button from '../../../components/ui/Button.astro';
+import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FeatureGrid from '../../../components/sections/FeatureGrid.astro';
+import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
+import Faq from '../../../components/sections/Faq.astro';
+import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import { site } from '../../../config/site';
+import { localePath } from '../../../lib/routes';
+import { safeQuery } from '../../../lib/content';
+import { FEATURED_TESTIMONIALS_QUERY } from '../../../lib/queries';
+import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../../lib/sanity.types';
+import { pickLocale } from '../../../lib/i18n-content';
+import { m } from '../../../paraglide/messages.js';
+
+// Satellite transactionnelle du silo DTV (kw : "muay thai visa thailand").
+// Hub de conversion : table comparative DTV vs ED vs Tourist + cross-sell.
+// Frères pointés vers les ancres du pillar tant que les satellites ne sont pas livrés.
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+// Témoignage DTV — uniquement si le CMS en a un (pas de fausse review en fallback)
+const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
+  { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'dtv' } },
+  [],
+);
+const quote = testimonialDocs[0]
+  ? {
+      content: pickLocale(testimonialDocs[0].content, lang),
+      name: testimonialDocs[0].name ?? '',
+      meta: testimonialDocs[0].country ?? undefined,
+      rating: testimonialDocs[0].rating ?? 5,
+    }
+  : null;
+
+// Table comparative DTV / ED / Tourist — chaque cellule = message i18n.
+// Lignes = critères de décision (durée, coût, fonds, gym, admin, etc.).
+const compareRows = [
+  {
+    label: m.dtv_mt_tbl_row_validity(),
+    dtv: m.dtv_mt_tbl_validity_dtv(),
+    ed: m.dtv_mt_tbl_validity_ed(),
+    tourist: m.dtv_mt_tbl_validity_tourist(),
+  },
+  {
+    label: m.dtv_mt_tbl_row_cost(),
+    dtv: m.dtv_mt_tbl_cost_dtv(),
+    ed: m.dtv_mt_tbl_cost_ed(),
+    tourist: m.dtv_mt_tbl_cost_tourist(),
+  },
+  {
+    label: m.dtv_mt_tbl_row_funds(),
+    dtv: m.dtv_mt_tbl_funds_dtv(),
+    ed: m.dtv_mt_tbl_funds_ed(),
+    tourist: m.dtv_mt_tbl_funds_tourist(),
+  },
+  {
+    label: m.dtv_mt_tbl_row_gym(),
+    dtv: m.dtv_mt_tbl_gym_dtv(),
+    ed: m.dtv_mt_tbl_gym_ed(),
+    tourist: m.dtv_mt_tbl_gym_tourist(),
+  },
+  {
+    label: m.dtv_mt_tbl_row_admin(),
+    dtv: m.dtv_mt_tbl_admin_dtv(),
+    ed: m.dtv_mt_tbl_admin_ed(),
+    tourist: m.dtv_mt_tbl_admin_tourist(),
+  },
+  {
+    label: m.dtv_mt_tbl_row_change(),
+    dtv: m.dtv_mt_tbl_change_dtv(),
+    ed: m.dtv_mt_tbl_change_ed(),
+    tourist: m.dtv_mt_tbl_change_tourist(),
+  },
+  {
+    label: m.dtv_mt_tbl_row_apply(),
+    dtv: m.dtv_mt_tbl_apply_dtv(),
+    ed: m.dtv_mt_tbl_apply_ed(),
+    tourist: m.dtv_mt_tbl_apply_tourist(),
+  },
+  {
+    label: m.dtv_mt_tbl_row_remote(),
+    dtv: m.dtv_mt_tbl_remote_dtv(),
+    ed: m.dtv_mt_tbl_remote_ed(),
+    tourist: m.dtv_mt_tbl_remote_tourist(),
+  },
+  {
+    label: m.dtv_mt_tbl_row_suits(),
+    dtv: m.dtv_mt_tbl_suits_dtv(),
+    ed: m.dtv_mt_tbl_suits_ed(),
+    tourist: m.dtv_mt_tbl_suits_tourist(),
+  },
+];
+
+// Verdicts par profil
+const verdicts = [
+  { profile: m.dtv_mt_verdict1_who(), pick: m.dtv_mt_verdict1_pick() },
+  { profile: m.dtv_mt_verdict2_who(), pick: m.dtv_mt_verdict2_pick() },
+  { profile: m.dtv_mt_verdict3_who(), pick: m.dtv_mt_verdict3_pick() },
+];
+
+// Les 3 documents émis par le camp (alignés sur les dtv_inc_* du pillar)
+const provided = [
+  { icon: 'tabler:file-text', title: m.dtv_mt_prov1_t(), body: m.dtv_mt_prov1_b() },
+  { icon: 'tabler:calendar-week', title: m.dtv_mt_prov2_t(), body: m.dtv_mt_prov2_b() },
+  { icon: 'tabler:receipt', title: m.dtv_mt_prov3_t(), body: m.dtv_mt_prov3_b() },
+];
+
+// Mini-FAQ on-page (PAS de FAQPage schema — réservé à /dtv-visa/faq)
+const faqItems = [
+  { q: m.dtv_mt_faq_q1(), a: m.dtv_mt_faq_a1() },
+  { q: m.dtv_mt_faq_q2(), a: m.dtv_mt_faq_a2() },
+  { q: m.dtv_mt_faq_q3(), a: m.dtv_mt_faq_a3() },
+  { q: m.dtv_mt_faq_q4(), a: m.dtv_mt_faq_a4() },
+];
+---
+
+<BaseLayout title={m.dtv_mt_meta_title()} description={m.dtv_mt_meta_desc()}>
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.nav_dtv(), href: p('/dtv-visa') },
+        { label: m.dtv_mt_crumb() },
+      ]}
+    />
+
+    <PageHero
+      dark
+      head={m.dtv_mt_hero_head()}
+      title={m.dtv_mt_hero_title()}
+      titleEm={m.dtv_mt_hero_title_em()}
+      titleAfter={m.dtv_mt_hero_title_after()}
+      lead={m.dtv_mt_hero_lead()}
+      cta={{ label: m.cta_start_dtv(), href: p('/contact') }}
+    />
+
+    {/* BLUF + disclaimer YMYL */}
+    <Section containerSize="narrow">
+      <p class="bluf">{m.dtv_mt_bluf()}</p>
+      <p class="disclaimer">{m.dtv_mt_disclaimer()}</p>
+      <p class="meta-line">
+        <a href={p('/dtv-visa')} class="ilink">{m.dtv_mt_link_pillar()}</a>
+      </p>
+    </Section>
+
+    {/* Soft-power basis */}
+    <Section soft containerSize="narrow">
+      <SectionHead>{m.dtv_mt_soft_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-4">{m.dtv_mt_soft_title()}</h2>
+      <p class="body-p">{m.dtv_mt_soft_p1()}</p>
+      <p class="body-p">{m.dtv_mt_soft_p2()}</p>
+      <p class="body-p">
+        {m.dtv_mt_soft_p3()}{' '}
+        <a href={p('/classes')} class="ilink">{m.dtv_mt_link_classes()}</a>.
+      </p>
+    </Section>
+
+    {/* Comparative table — cœur de la page */}
+    <Section id="compare">
+      <SectionHead>{m.dtv_mt_cmp_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-3">{m.dtv_mt_cmp_title()}</h2>
+      <p class="body-p mb-7">{m.dtv_mt_cmp_intro()}</p>
+
+      <div class="tbl-scroll" tabindex="0" role="region" aria-label={m.dtv_mt_cmp_table_label()}>
+        <table class="cmp">
+          <caption class="sr-only">{m.dtv_mt_cmp_caption()}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{m.dtv_mt_tbl_col_criteria()}</th>
+              <th scope="col" class="hot">{m.dtv_mt_tbl_col_dtv()}</th>
+              <th scope="col">{m.dtv_mt_tbl_col_ed()}</th>
+              <th scope="col">{m.dtv_mt_tbl_col_tourist()}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              compareRows.map((row) => (
+                <tr>
+                  <th scope="row">{row.label}</th>
+                  <td class="hot" data-label={m.dtv_mt_tbl_col_dtv()}>{row.dtv}</td>
+                  <td data-label={m.dtv_mt_tbl_col_ed()}>{row.ed}</td>
+                  <td data-label={m.dtv_mt_tbl_col_tourist()}>{row.tourist}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h3 mt-9 mb-4">{m.dtv_mt_verdict_title()}</h3>
+      <ul class="verdicts">
+        {
+          verdicts.map((v) => (
+            <li>
+              <span class="who">{v.profile}</span>
+              <span class="pick">{v.pick}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="note mt-6">{m.dtv_mt_verdict_note()}</p>
+      <div class="mt-6 link-row">
+        <Button href={p('/dtv-visa/eligibility')} variant="forest" arrow>
+          {m.dtv_mt_cmp_elig_cta()}
+        </Button>
+        <a href={p('/dtv-visa/how-to-apply')} class="ilink">{m.dtv_mt_link_howto()}</a>
+      </div>
+    </Section>
+
+    {/* Cost */}
+    <Section soft id="cost" containerSize="narrow">
+      <SectionHead>{m.dtv_mt_cost_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-4">{m.dtv_mt_cost_title()}</h2>
+      <p class="body-p">{m.dtv_mt_cost_p1()}</p>
+      <p class="body-p">
+        {m.dtv_mt_cost_p2_pre()}{' '}
+        <strong>{site.pricing.groupAdults[3].price.toLocaleString('en-US')} {site.pricing.currency}</strong>
+        {m.dtv_mt_cost_p2_mid()}{' '}
+        <strong>{site.pricing.groupAdults[4].price.toLocaleString('en-US')} {site.pricing.currency}</strong>
+        {m.dtv_mt_cost_p2_post()}
+      </p>
+      <p class="body-p">{m.dtv_mt_cost_p3()}</p>
+      <p class="body-p">
+        <a href={p('/classes#pricing')} class="ilink">{m.dtv_mt_link_pricing()}</a>
+        {' · '}
+        <a href={p('/stay-train')} class="ilink">{m.dtv_mt_link_staytrain()}</a>
+      </p>
+    </Section>
+
+    {/* What Wildcat provides */}
+    <Section id="provided">
+      <SectionHead>{m.dtv_mt_prov_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-4">
+        {m.dtv_mt_prov_title()} <span class="em">{m.dtv_mt_prov_title_em()}</span>
+      </h2>
+      <p class="body-p mb-7">{m.dtv_mt_prov_intro()}</p>
+      <FeatureGrid items={provided} />
+      <p class="body-p mt-7">{m.dtv_mt_prov_outro()}</p>
+      <p class="body-p">
+        <a href={p('/dtv-visa/how-to-apply')} class="ilink">{m.dtv_mt_link_howto()}</a>
+        {' · '}
+        <a href={p('/stay-train')} class="ilink">{m.dtv_mt_link_staytrain()}</a>
+      </p>
+    </Section>
+
+    {/* Social proof — témoignage CMS only */}
+    {
+      quote && (
+        <Section soft containerSize="narrow">
+          <SectionHead>{m.dtv_mt_proof_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-7">{m.dtv_mt_proof_title()}</h2>
+          <TestimonialQuote
+            content={quote.content}
+            name={quote.name}
+            meta={quote.meta}
+            rating={quote.rating}
+            ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
+          />
+        </Section>
+      )
+    }
+
+    {/* Mini-FAQ on-page (no FAQPage schema) */}
+    <Section id="faq">
+      <div class="faq-split">
+        <div>
+          <SectionHead>{m.dtv_mt_faq_head()}</SectionHead>
+          <h2 class="h2 mt-2">{m.dtv_mt_faq_title()}</h2>
+          <p class="body-p mt-4">
+            <a href={p('/dtv-visa/faq')} class="ilink">{m.dtv_mt_faq_more()}</a>
+          </p>
+        </div>
+        <Faq items={faqItems} firstOpen />
+      </div>
+    </Section>
+
+    {/* Author signature — E-E-A-T */}
+    <Section soft containerSize="narrow">
+      <p class="sig">
+        <span class="sig-name">{m.dtv_mt_author_name()}</span>
+        <span class="sig-role">{m.dtv_mt_author_role()}</span>
+      </p>
+      <p class="reviewed">{m.dtv_mt_reviewed()}</p>
+    </Section>
+
+    <CtaBanner
+      title={m.dtv_mt_cta_title()}
+      titleEm={m.dtv_mt_cta_title_em()}
+      ctaPrimary={{ label: m.cta_start_dtv(), href: p('/contact') }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .body-p {
+    font-size: 17px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin: 0 0 16px;
+    max-width: 64ch;
+  }
+  .bluf {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink);
+    font-weight: 500;
+    margin: 0 0 18px;
+    max-width: 66ch;
+  }
+  .disclaimer {
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-3);
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin: 0 0 18px;
+    max-width: 66ch;
+  }
+  .meta-line {
+    margin: 0;
+    font-size: 15px;
+  }
+  .ilink {
+    color: var(--gold-deep);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+  }
+  .ilink:hover {
+    color: var(--forest);
+  }
+  .ilink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Comparative table */
+  .tbl-scroll {
+    overflow-x: auto;
+    border-radius: var(--r-md);
+    -webkit-overflow-scrolling: touch;
+  }
+  .tbl-scroll:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .cmp {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    min-width: 720px;
+  }
+  .cmp caption.sr-only,
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .cmp thead th {
+    background: var(--soft-2);
+    color: var(--forest);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: bottom;
+  }
+  .cmp thead th.hot {
+    background: var(--forest);
+    color: var(--cream);
+  }
+  .cmp tbody th[scope='row'] {
+    text-align: left;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--soft);
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    width: 22%;
+  }
+  .cmp td {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .cmp td.hot {
+    background: var(--soft-2);
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .cmp tbody tr:last-child th,
+  .cmp tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  /* Verdicts */
+  .verdicts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .verdicts li {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--r-md);
+    padding: 16px 20px;
+  }
+  .verdicts .who {
+    display: block;
+    font-weight: 700;
+    color: var(--forest);
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .verdicts .pick {
+    display: block;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+  .note {
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.6;
+    max-width: 66ch;
+    margin: 0;
+  }
+  .link-row {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* Author signature */
+  .sig {
+    margin: 0 0 8px;
+  }
+  .sig-name {
+    display: block;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--gold-deep);
+  }
+  .sig-role {
+    display: block;
+    font-size: 14px;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+  .reviewed {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+
+  .faq-split {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 46px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .faq-split {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+</style>

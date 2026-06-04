@@ -1,0 +1,439 @@
+---
+import Button from '../ui/Button.astro';
+
+/**
+ * DocChecklist — checklist documents interactive (îlot vanilla JS).
+ * Cases natives custom-stylées, barre de progression accessible, persistance
+ * localStorage (clé wc-dtv-checklist-v1), bouton reset. Sans JS : liste de
+ * cases utilisable, progression statique à 0. reduced-motion respecté.
+ *
+ * i18n : toutes les chaînes sont passées en props (page = source des m.xxx()).
+ * Les `data-*` portent les états wording → le script bascule sans toucher au DOM texte.
+ */
+export interface Props {
+  title: string;
+  intro: string;
+  /** Groupes de documents. `wildcat: true` → badge "We prepare these". */
+  groups: {
+    legend: string;
+    wildcat?: boolean;
+    items: { id: string; label: string }[];
+  }[];
+  badgeLabel: string;
+  hintLabel: string;
+  progressLabel: string;
+  /** Gabarit du compteur, contient {n}. Ex : "{n} of 10 documents ready". */
+  countTemplate: string;
+  total: number;
+  subZero: string;
+  subPartial: string;
+  doneLabel: string;
+  doneSub: string;
+  resetLabel: string;
+  doneCta: { label: string; href: string };
+}
+
+const {
+  title,
+  intro,
+  groups,
+  badgeLabel,
+  hintLabel,
+  progressLabel,
+  countTemplate,
+  total,
+  subZero,
+  subPartial,
+  doneLabel,
+  doneSub,
+  resetLabel,
+  doneCta,
+} = Astro.props;
+
+// Compteur initial (sans JS = 0 prêt) — le script réhydrate depuis localStorage.
+const countZero = countTemplate.replace('{n}', '0');
+---
+
+<section
+  class="checklist"
+  data-checklist
+  data-storage-key="wc-dtv-checklist-v1"
+  data-total={total}
+  data-count-template={countTemplate}
+  data-sub-zero={subZero}
+  data-sub-partial={subPartial}
+  data-sub-done={doneSub}
+  data-count-zero={countZero}
+  data-done-label={doneLabel}
+  aria-label={title}
+>
+  <header class="cl-head">
+    <h3 class="cl-title">{title}</h3>
+    <p class="cl-intro">{intro}</p>
+  </header>
+
+  <div class="cl-progress">
+    <div class="cl-progress-top">
+      <span class="cl-count" data-count>{countZero}</span>
+      <span class="cl-pct" data-pct aria-hidden="true">0%</span>
+    </div>
+    <div
+      class="cl-bar"
+      role="progressbar"
+      aria-label={progressLabel}
+      aria-valuemin="0"
+      aria-valuemax={total}
+      aria-valuenow="0"
+      data-bar
+    >
+      <span class="cl-fill" data-fill style="width:0%"></span>
+    </div>
+    <p class="cl-sub" data-sub>{subZero}</p>
+  </div>
+
+  <div class="cl-groups">
+    {
+      groups.map((group) => (
+        <fieldset class:list={['cl-group', group.wildcat && 'cl-group--wildcat']}>
+          <legend class="cl-legend">
+            {group.legend}
+            {group.wildcat && <span class="cl-badge">{badgeLabel}</span>}
+          </legend>
+          <ul class="cl-items">
+            {group.items.map((item) => (
+              <li>
+                <label class="cl-item">
+                  <input
+                    type="checkbox"
+                    class="cl-check"
+                    data-doc
+                    data-id={item.id}
+                  />
+                  <span class="cl-box" aria-hidden="true" />
+                  <span class="cl-label">
+                    {item.label}
+                    {group.wildcat && <span class="cl-hint">{hintLabel}</span>}
+                  </span>
+                </label>
+              </li>
+            ))}
+          </ul>
+        </fieldset>
+      ))
+    }
+  </div>
+
+  <div class="cl-foot">
+    <div class="cl-done" data-done hidden>
+      <Button href={doneCta.href} variant="gold" arrow>{doneCta.label}</Button>
+    </div>
+    <button type="button" class="cl-reset" data-reset>{resetLabel}</button>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const root = document.querySelector('[data-checklist]') as HTMLElement | null;
+    if (!root) return;
+
+    const key = root.dataset.storageKey || 'wc-dtv-checklist-v1';
+    const total = Number(root.dataset.total || '0') || 1;
+    const tpl = root.dataset.countTemplate || '{n}';
+    const subZero = root.dataset.subZero || '';
+    const subPartial = root.dataset.subPartial || '';
+    const subDone = root.dataset.subDone || '';
+    const doneLabel = root.dataset.doneLabel || '';
+
+    const boxes = Array.from(root.querySelectorAll<HTMLInputElement>('[data-doc]'));
+    const countEl = root.querySelector('[data-count]') as HTMLElement | null;
+    const pctEl = root.querySelector('[data-pct]') as HTMLElement | null;
+    const barEl = root.querySelector('[data-bar]') as HTMLElement | null;
+    const fillEl = root.querySelector('[data-fill]') as HTMLElement | null;
+    const subEl = root.querySelector('[data-sub]') as HTMLElement | null;
+    const doneEl = root.querySelector('[data-done]') as HTMLElement | null;
+    const resetBtn = root.querySelector('[data-reset]') as HTMLButtonElement | null;
+
+    function read(): Record<string, boolean> {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? (JSON.parse(raw) as Record<string, boolean>) : {};
+      } catch {
+        return {};
+      }
+    }
+    function write(state: Record<string, boolean>) {
+      try {
+        localStorage.setItem(key, JSON.stringify(state));
+      } catch {
+        /* localStorage indisponible — on dégrade silencieusement */
+      }
+    }
+
+    function render() {
+      const n = boxes.filter((b) => b.checked).length;
+      const pct = Math.round((n / total) * 100);
+      const done = n >= total;
+
+      if (countEl) {
+        countEl.textContent = done ? doneLabel : tpl.replace('{n}', String(n));
+      }
+      if (pctEl) pctEl.textContent = pct + '%';
+      if (fillEl) fillEl.style.width = pct + '%';
+      if (barEl) barEl.setAttribute('aria-valuenow', String(n));
+      if (subEl) subEl.textContent = done ? subDone : n === 0 ? subZero : subPartial;
+      if (doneEl) doneEl.hidden = !done;
+      root.classList.toggle('is-done', done);
+    }
+
+    // Réhydratation depuis localStorage
+    const state = read();
+    boxes.forEach((b) => {
+      const id = b.dataset.id || '';
+      if (state[id]) b.checked = true;
+      b.addEventListener('change', () => {
+        const s = read();
+        s[b.dataset.id || ''] = b.checked;
+        write(s);
+        render();
+      });
+    });
+
+    resetBtn?.addEventListener('click', () => {
+      try {
+        localStorage.removeItem(key);
+      } catch {
+        /* ignore */
+      }
+      boxes.forEach((b) => (b.checked = false));
+      render();
+    });
+
+    render();
+  })();
+</script>
+
+<style>
+  .checklist {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: clamp(20px, 3vw, 32px);
+  }
+  .cl-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.1;
+    color: var(--forest);
+    margin: 0 0 8px;
+  }
+  .cl-intro {
+    margin: 0;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.55;
+    max-width: 60ch;
+  }
+
+  /* Progress */
+  .cl-progress {
+    margin: 22px 0 26px;
+  }
+  .cl-progress-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .cl-count {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--forest);
+  }
+  .cl-pct {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--gold-deep);
+  }
+  .cl-bar {
+    height: 10px;
+    border-radius: 999px;
+    background: var(--soft-2);
+    overflow: hidden;
+  }
+  .cl-fill {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 999px;
+    background: var(--gold);
+    transition: width 0.35s ease;
+  }
+  .is-done .cl-fill {
+    background: var(--success);
+  }
+  .cl-sub {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+
+  /* Groups */
+  .cl-groups {
+    display: grid;
+    gap: 16px;
+  }
+  .cl-group {
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 16px 18px 18px;
+    margin: 0;
+    min-width: 0;
+  }
+  .cl-group--wildcat {
+    border-color: var(--gold);
+    background: color-mix(in srgb, var(--gold) 7%, transparent);
+  }
+  .cl-legend {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--forest);
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cl-badge {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: #1c1407;
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
+  .cl-items {
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+  }
+
+  /* Item — checkbox native masquée + box custom */
+  .cl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 9px 8px;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+  }
+  .cl-item:hover {
+    background: var(--soft);
+  }
+  .cl-check {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    margin: 0;
+  }
+  .cl-box {
+    flex: 0 0 auto;
+    margin-top: 1px;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 2px solid var(--line-3);
+    background: var(--cream);
+    position: relative;
+    transition:
+      background-color 0.18s ease,
+      border-color 0.18s ease;
+  }
+  .cl-box::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 11px;
+    border: solid #1c1407;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg) scale(0);
+    transition: transform 0.18s ease;
+  }
+  .cl-check:checked + .cl-box {
+    background: var(--gold);
+    border-color: var(--gold-deep);
+  }
+  .cl-check:checked + .cl-box::after {
+    transform: rotate(45deg) scale(1);
+  }
+  .cl-check:focus-visible + .cl-box {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .cl-label {
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .cl-check:checked ~ .cl-label {
+    color: var(--ink-2);
+  }
+  .cl-hint {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold-deep);
+    margin-top: 2px;
+  }
+
+  /* Footer */
+  .cl-foot {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+  }
+  .cl-reset {
+    background: none;
+    border: 0;
+    padding: 4px 2px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink-2);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-3);
+  }
+  .cl-reset:hover {
+    color: var(--forest);
+  }
+  .cl-reset:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cl-fill,
+    .cl-box,
+    .cl-box::after {
+      transition: none;
+    }
+  }
+</style>

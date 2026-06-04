@@ -1,0 +1,308 @@
+---
+import Field from '../ui/forms/Field.astro';
+import Select from '../ui/forms/Select.astro';
+import Button from '../ui/Button.astro';
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * BudgetEstimator — îlot interactif (vanilla JS IIFE) qui estime un budget
+ * mensuel d'entraînement longue durée à Chiang Mai.
+ *
+ * Prix d'ENTRAÎNEMENT = injectés depuis site.ts par la page (props `training`),
+ * jamais hardcodés ici. Les coûts de la vie (logement/food/scooter/extras) sont
+ * des FOURCHETTES MARCHÉ Chiang Mai (common_ground du brief), passées en props
+ * `housingRanges` + constantes `living` (documentées ci-dessous).
+ *
+ * Tous les nombres sont sérialisés en data-* sur le conteneur ; le JS lit ces
+ * data-* (zéro prix en dur dans le script). Sans JS : la table statique des
+ * fourchettes + le résultat plancher par défaut restent visibles (progressive
+ * enhancement). Sortie = fourchette THB/mois + total séjour — « estimate, not a
+ * quote ». aria-live="polite" sur le bloc résultat. Formatage : Intl.NumberFormat.
+ */
+
+/** Valeur mensuelle THB d'une formule training (calculée par la page depuis site.ts). */
+export interface TrainingOption {
+  /** clé select (dropin | pack | month | fighter) */
+  key: string;
+  label: string;
+  /** THB/mois retenu pour le calcul */
+  monthly: number;
+}
+
+/** Fourchette marché d'un type de logement (THB/mois). */
+export interface HousingOption {
+  key: string;
+  label: string;
+  low: number;
+  high: number;
+}
+
+export interface Props {
+  /** Locale courante (formatage des nombres). */
+  lang: string;
+  /** Options d'entraînement — montants dérivés de site.ts par la page. */
+  training: TrainingOption[];
+  /** Fourchettes logement marché (common_ground). */
+  housingRanges: HousingOption[];
+  /** Durées proposées (mois) + libellés. */
+  durations: { value: string; label: string }[];
+  /** Liens / coordonnées (depuis site.ts via la page). */
+  whatsappHref: string;
+  contactHref: string;
+  /** Taux de change indicatif THB → USD (1 THB = fxUsd USD). [À VÉRIFIER] */
+  fxUsd: number;
+}
+
+const {
+  lang,
+  training,
+  housingRanges,
+  durations,
+  whatsappHref,
+  contactHref,
+  fxUsd,
+} = Astro.props;
+
+/**
+ * Constantes coût de la vie (common_ground Chiang Mai, brief §5).
+ * Documentées ici, sérialisées en data-* pour le JS. Aucune valeur inventée.
+ */
+const LIVING = {
+  food_low: 6000,
+  food_high: 15000,
+  scooter_low: 3000,
+  scooter_high: 3500,
+  extras_low: 2000,
+  extras_high: 4000,
+} as const;
+
+const locale = lang === 'fr' ? 'fr-FR' : 'en-US';
+const fmt = new Intl.NumberFormat(locale);
+
+// Valeurs plancher par défaut (premier choix de chaque select) — rendu no-JS.
+const t0 = training[0];
+const h0 = housingRanges[0];
+const defLow = t0.monthly + h0.low + LIVING.food_low + LIVING.scooter_low + LIVING.extras_low;
+const defHigh = t0.monthly + h0.high + LIVING.food_high + LIVING.scooter_high + LIVING.extras_high;
+
+const durationOpts = durations.map((d) => ({ value: d.value, label: d.label }));
+const trainingOpts = training.map((t) => ({ value: t.key, label: t.label }));
+const housingOpts = housingRanges.map((h) => ({ value: h.key, label: h.label }));
+
+// Payloads sérialisés (le JS reconstruit les maps depuis ces data-*).
+const trainingData = JSON.stringify(
+  Object.fromEntries(training.map((t) => [t.key, t.monthly])),
+);
+const housingData = JSON.stringify(
+  Object.fromEntries(housingRanges.map((h) => [h.key, [h.low, h.high]])),
+);
+const livingData = JSON.stringify(LIVING);
+---
+
+<div
+  class="estimator"
+  data-estimator
+  data-training={trainingData}
+  data-housing={housingData}
+  data-living={livingData}
+  data-fx={String(fxUsd)}
+  data-locale={locale}
+>
+  <form class="controls" data-est-form>
+    <Field label={m.dtv_lst_est_label_duration()} for="est-duration">
+      <Select id="est-duration" name="duration" options={durationOpts} value={durationOpts[0]?.value} />
+    </Field>
+    <Field label={m.dtv_lst_est_label_training()} for="est-training">
+      <Select id="est-training" name="training" options={trainingOpts} value={trainingOpts[0]?.value} />
+    </Field>
+    <Field label={m.dtv_lst_est_label_housing()} for="est-housing">
+      <Select id="est-housing" name="housing" options={housingOpts} value={housingOpts[0]?.value} />
+    </Field>
+    <noscript>
+      <Button type="submit" variant="forest">{m.dtv_lst_est_calc()}</Button>
+    </noscript>
+  </form>
+
+  <div class="result" aria-live="polite">
+    <p class="result-label">{m.dtv_lst_est_result_label()}</p>
+    <p class="result-figure">
+      <span data-est-range>~{fmt.format(defLow)}–{fmt.format(defHigh)}</span>
+      <span class="cur">{'THB'}</span>
+      <span class="unit">{m.dtv_lst_est_unit_month()}</span>
+    </p>
+    <p class="result-usd" data-est-usd>
+      (~${fmt.format(Math.round(defLow * fxUsd))}–${fmt.format(Math.round(defHigh * fxUsd))})
+    </p>
+
+    <p class="result-total">
+      <span class="total-label">{m.dtv_lst_est_result_total_label()}:</span>
+      <span data-est-total>~{fmt.format(defLow)}–{fmt.format(defHigh)} THB</span>
+    </p>
+
+    <p class="longstay" data-est-longstay hidden>{m.dtv_lst_est_longstay_badge()}</p>
+
+    <p class="result-note">{m.dtv_lst_est_result_note()}</p>
+
+    <div class="result-cta">
+      <Button href={whatsappHref} variant="gold" arrow>{m.dtv_lst_est_cta_whatsapp()}</Button>
+      <Button href={contactHref} variant="outline">{m.dtv_lst_est_cta_contact()}</Button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const root = document.querySelector('[data-estimator]') as HTMLElement | null;
+    if (!root) return;
+
+    const training = JSON.parse(root.dataset.training || '{}') as Record<string, number>;
+    const housing = JSON.parse(root.dataset.housing || '{}') as Record<string, [number, number]>;
+    const living = JSON.parse(root.dataset.living || '{}') as Record<string, number>;
+    const fx = parseFloat(root.dataset.fx || '0');
+    const locale = root.dataset.locale || 'en-US';
+    const fmt = new Intl.NumberFormat(locale);
+
+    const form = root.querySelector('[data-est-form]') as HTMLFormElement | null;
+    const durationEl = root.querySelector('[name="duration"]') as HTMLSelectElement | null;
+    const trainingEl = root.querySelector('[name="training"]') as HTMLSelectElement | null;
+    const housingEl = root.querySelector('[name="housing"]') as HTMLSelectElement | null;
+
+    const rangeOut = root.querySelector('[data-est-range]') as HTMLElement | null;
+    const usdOut = root.querySelector('[data-est-usd]') as HTMLElement | null;
+    const totalOut = root.querySelector('[data-est-total]') as HTMLElement | null;
+    const longstayOut = root.querySelector('[data-est-longstay]') as HTMLElement | null;
+
+    if (!durationEl || !trainingEl || !housingEl) return;
+
+    function recalc() {
+      const months = parseInt(durationEl!.value, 10) || 1;
+      const tMonthly = training[trainingEl!.value] ?? 0;
+      const hRange = housing[housingEl!.value] ?? [0, 0];
+
+      const low =
+        tMonthly + hRange[0] + living.food_low + living.scooter_low + living.extras_low;
+      const high =
+        tMonthly + hRange[1] + living.food_high + living.scooter_high + living.extras_high;
+
+      if (rangeOut) rangeOut.textContent = `~${fmt.format(low)}–${fmt.format(high)}`;
+      if (usdOut && fx > 0) {
+        usdOut.textContent = `(~$${fmt.format(Math.round(low * fx))}–$${fmt.format(
+          Math.round(high * fx),
+        )})`;
+      }
+      if (totalOut) {
+        totalOut.textContent = `~${fmt.format(low * months)}–${fmt.format(high * months)} THB`;
+      }
+      // duration >= 6 : afficher la note remise SANS modifier le chiffre.
+      if (longstayOut) longstayOut.hidden = months < 6;
+    }
+
+    [durationEl, trainingEl, housingEl].forEach((el) =>
+      el.addEventListener('change', recalc),
+    );
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      recalc();
+    });
+
+    recalc();
+  })();
+</script>
+
+<style>
+  .estimator {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 40px;
+    align-items: start;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: clamp(24px, 3vw, 40px);
+    box-shadow: var(--shadow-sm);
+  }
+  .controls {
+    display: grid;
+    gap: 18px;
+  }
+  .result {
+    background: var(--soft);
+    border-radius: var(--r-md);
+    padding: clamp(20px, 2.4vw, 30px);
+    height: 100%;
+  }
+  .result-label {
+    margin: 0 0 6px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--forest-light);
+  }
+  .result-figure {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--forest);
+  }
+  .result-figure .cur {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink-3);
+  }
+  .result-figure .unit {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink-2);
+  }
+  .result-usd {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .result-total {
+    margin: 18px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .result-total .total-label {
+    font-weight: 700;
+    color: var(--forest);
+  }
+  .longstay {
+    margin: 16px 0 0;
+    padding: 12px 14px;
+    background: color-mix(in srgb, var(--gold) 16%, transparent);
+    border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+    border-radius: var(--r-md);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--gold-deep);
+    line-height: 1.45;
+  }
+  .result-note {
+    margin: 16px 0 0;
+    font-size: 12.5px;
+    font-style: italic;
+    color: var(--ink-3);
+    line-height: 1.5;
+  }
+  .result-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  @media (max-width: 860px) {
+    .estimator {
+      grid-template-columns: 1fr;
+      gap: 26px;
+    }
+  }
+</style>

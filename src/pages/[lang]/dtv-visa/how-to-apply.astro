@@ -1,0 +1,455 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/layout/Section.astro';
+import SectionHead from '../../../components/ui/SectionHead.astro';
+import Button from '../../../components/ui/Button.astro';
+import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import DtvSteps from '../../../components/sections/DtvSteps.astro';
+import Faq from '../../../components/sections/Faq.astro';
+import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import DocChecklist from '../../../components/interactive/DocChecklist.astro';
+import { site } from '../../../config/site';
+import { localePath } from '../../../lib/routes';
+import { m } from '../../../paraglide/messages.js';
+
+// Satellite procédural du pillar /dtv-visa (Module C — YMYL).
+// Guide pas-à-pas + checklist documents interactive + JSON-LD HowTo.
+// Seul lien hot = /contact ; /dtv-visa/apply (E6) reste en #.
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+const PORTAL = 'https://thaievisa.go.th';
+
+// Étapes — mappent 1:1 le JSON-LD HowTo (§6 du brief).
+const steps = [
+  { title: m.dtv_apply_step1_t(), body: m.dtv_apply_step1_b() },
+  { title: m.dtv_apply_step2_t(), body: m.dtv_apply_step2_b() },
+  { title: m.dtv_apply_step3_t(), body: m.dtv_apply_step3_b() },
+  { title: m.dtv_apply_step4_t(), body: m.dtv_apply_step4_b() },
+  { title: m.dtv_apply_step5_t(), body: m.dtv_apply_step5_b() },
+  { title: m.dtv_apply_step6_t(), body: m.dtv_apply_step6_b() },
+  { title: m.dtv_apply_step7_t(), body: m.dtv_apply_step7_b() },
+];
+
+// Checklist documents — 3 groupes (perso / financier / fournis par Wildcat).
+const checklistGroups = [
+  {
+    legend: m.dtv_apply_checklist_group_a(),
+    items: [
+      { id: 'passport', label: m.dtv_apply_doc_passport() },
+      { id: 'photo', label: m.dtv_apply_doc_photo() },
+      { id: 'accommodation', label: m.dtv_apply_doc_accommodation() },
+      { id: 'flight', label: m.dtv_apply_doc_flight() },
+    ],
+  },
+  {
+    legend: m.dtv_apply_checklist_group_b(),
+    items: [
+      { id: 'statements', label: m.dtv_apply_doc_statements() },
+      { id: 'funds', label: m.dtv_apply_doc_funds() },
+      { id: 'insurance', label: m.dtv_apply_doc_insurance() },
+    ],
+  },
+  {
+    legend: m.dtv_apply_checklist_group_c(),
+    wildcat: true,
+    items: [
+      { id: 'enrolment', label: m.dtv_apply_doc_enrolment() },
+      { id: 'schedule', label: m.dtv_apply_doc_schedule() },
+      { id: 'receipt', label: m.dtv_apply_doc_receipt() },
+    ],
+  },
+];
+
+const fees = [
+  {
+    item: m.dtv_apply_fees_row1_item(),
+    amount: m.dtv_apply_fees_row1_amount(),
+    note: m.dtv_apply_fees_row1_note(),
+  },
+  {
+    item: m.dtv_apply_fees_row2_item(),
+    amount: m.dtv_apply_fees_row2_amount(),
+    note: m.dtv_apply_fees_row2_note(),
+  },
+  {
+    item: m.dtv_apply_fees_row3_item(),
+    amount: m.dtv_apply_fees_row3_amount(),
+    note: m.dtv_apply_fees_row3_note(),
+  },
+];
+
+const mistakes = [
+  m.dtv_apply_mistake1(),
+  m.dtv_apply_mistake2(),
+  m.dtv_apply_mistake3(),
+  m.dtv_apply_mistake4(),
+  m.dtv_apply_mistake5(),
+  m.dtv_apply_mistake6(),
+];
+
+const faqItems = [
+  { q: m.dtv_apply_faq_q1(), a: m.dtv_apply_faq_a1() },
+  { q: m.dtv_apply_faq_q2(), a: m.dtv_apply_faq_a2() },
+  { q: m.dtv_apply_faq_q3(), a: m.dtv_apply_faq_a3() },
+  { q: m.dtv_apply_faq_q4(), a: m.dtv_apply_faq_a4() },
+];
+
+// JSON-LD HowTo (§6) — steps = MÊMES textes que le visible. URLs absolues.
+const base = Astro.site ?? Astro.url.origin;
+const pageUrl = new URL(p('/dtv-visa/how-to-apply'), base).href;
+const stepUrl = (n: number) => `${pageUrl}#step-${n}`;
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: m.dtv_apply_hero_title() + ' ' + m.dtv_apply_hero_title_em(),
+  description: m.dtv_apply_meta_desc(),
+  totalTime: 'P15D',
+  estimatedCost: { '@type': 'MonetaryAmount', currency: 'THB', value: '10000' },
+  author: {
+    '@type': 'Person',
+    name: m.dtv_apply_author_name(),
+    jobTitle: m.dtv_apply_author_role(),
+    worksFor: { '@type': 'Organization', name: site.name },
+  },
+  supply: [
+    { '@type': 'HowToSupply', name: m.dtv_apply_doc_passport() },
+    { '@type': 'HowToSupply', name: m.dtv_apply_doc_statements() },
+    { '@type': 'HowToSupply', name: m.dtv_apply_doc_enrolment() },
+  ],
+  tool: [{ '@type': 'HowToTool', name: `Thai e-Visa portal (${PORTAL})` }],
+  step: steps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.title,
+    text: s.body,
+    url: stepUrl(i + 1),
+  })),
+};
+---
+
+<BaseLayout title={m.dtv_apply_meta_title()} description={m.dtv_apply_meta_desc()}>
+  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(howToSchema)} />
+
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.nav_dtv(), href: p('/dtv-visa') },
+        { label: m.dtv_apply_breadcrumb() },
+      ]}
+    />
+
+    <PageHero
+      dark
+      head={m.dtv_apply_hero_head()}
+      title={m.dtv_apply_hero_title()}
+      titleEm={m.dtv_apply_hero_title_em()}
+      lead={m.dtv_apply_hero_lead()}
+      cta={{ label: m.cta_start_dtv(), href: p('/contact') }}
+    />
+
+    <Section containerSize="narrow">
+      <p class="disclaimer"><em>{m.dtv_apply_disclaimer()}</em></p>
+
+      <SectionHead>{m.dtv_apply_intro_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-4">{m.dtv_apply_intro_title()}</h2>
+      <p class="body-p">{m.dtv_apply_intro_p1()}</p>
+      <p class="body-p">{m.dtv_apply_intro_p2()}</p>
+      <p class="body-p inline-links">
+        <a class="ilink" href={p('/dtv-visa/eligibility')}>{m.dtv_apply_intro_link()}</a>
+        <span aria-hidden="true">·</span>
+        <a class="ilink" href={p('/dtv-visa')}>{m.dtv_apply_intro_pillar_link()}</a>
+      </p>
+    </Section>
+
+    <Section soft id="eligibility" containerSize="narrow">
+      <SectionHead>{m.dtv_apply_elig_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-3">{m.dtv_apply_elig_title()}</h2>
+      <p class="body-p">{m.dtv_apply_elig_body()}</p>
+      <div class="mt-5">
+        <Button href={p('/dtv-visa/eligibility')} variant="forest" arrow>
+          {m.dtv_apply_elig_link()}
+        </Button>
+      </div>
+    </Section>
+
+    <Section dark>
+      <SectionHead onDark>{m.dtv_apply_steps_head()}</SectionHead>
+      <h2 class="h2 h2--dark mt-2 mb-3">{m.dtv_apply_steps_title()}</h2>
+      <p class="body-p body-p--dark mb-7">{m.dtv_apply_steps_intro()}</p>
+
+      <ol class="steps-anchors">
+        {steps.map((_, i) => <li id={`step-${i + 1}`} aria-hidden="true" />)}
+      </ol>
+      <DtvSteps steps={steps} />
+
+      <p class="body-p body-p--dark mt-7 inline-links">
+        <a class="ilink ilink--dark" href={PORTAL} target="_blank" rel="noopener">
+          {m.dtv_apply_portal_link()}
+        </a>
+        <span aria-hidden="true">·</span>
+        <a class="ilink ilink--dark" href={p('/dtv-visa/long-stay-training')}>
+          {m.dtv_apply_step7_link()}
+        </a>
+      </p>
+    </Section>
+
+    <Section containerSize="narrow" id="documents">
+      <SectionHead>{m.dtv_apply_docs_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-4">{m.dtv_apply_docs_title()}</h2>
+      <p class="body-p">{m.dtv_apply_docs_intro()}</p>
+      <p class="body-p">
+        {m.dtv_apply_docs_wildcat()}{' '}
+        <a class="ilink" href={p('/dtv-visa/muay-thai')}>{m.dtv_apply_docs_wildcat_link()}</a>.
+      </p>
+
+      <div class="mt-7">
+        <DocChecklist
+          title={m.dtv_apply_checklist_title()}
+          intro={m.dtv_apply_checklist_intro()}
+          groups={checklistGroups}
+          badgeLabel={m.dtv_apply_checklist_badge()}
+          hintLabel={m.dtv_apply_doc_wildcat_hint()}
+          progressLabel={m.dtv_apply_progress_label()}
+          countTemplate={m.dtv_apply_progress_count({ n: '{n}' })}
+          total={10}
+          subZero={m.dtv_apply_progress_zero_sub()}
+          subPartial={m.dtv_apply_progress_partial_sub()}
+          doneLabel={m.dtv_apply_progress_done_label()}
+          doneSub={m.dtv_apply_progress_done_sub()}
+          resetLabel={m.dtv_apply_checklist_reset()}
+          doneCta={{ label: m.dtv_apply_checklist_done_cta(), href: p('/contact') }}
+        />
+      </div>
+    </Section>
+
+    <Section soft containerSize="narrow">
+      <SectionHead>{m.dtv_apply_fees_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-4">{m.dtv_apply_fees_title()}</h2>
+      <p class="body-p">{m.dtv_apply_fees_intro()}</p>
+
+      <div class="table-wrap mt-5">
+        <table class="fees">
+          <thead>
+            <tr>
+              <th>{m.dtv_apply_fees_col_item()}</th>
+              <th>{m.dtv_apply_fees_col_amount()}</th>
+              <th>{m.dtv_apply_fees_col_note()}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              fees.map((row) => (
+                <tr>
+                  <td>{row.item}</td>
+                  <td class="amount">{row.amount}</td>
+                  <td>{row.note}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <p class="body-p mt-5">
+        {m.dtv_apply_fees_future()}{' '}
+        <a class="ilink" href="#">{m.dtv_apply_fees_future_link()}</a>
+      </p>
+    </Section>
+
+    <Section containerSize="narrow">
+      <SectionHead>{m.dtv_apply_mistakes_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-4">{m.dtv_apply_mistakes_title()}</h2>
+      <p class="body-p">{m.dtv_apply_mistakes_intro()}</p>
+      <ul class="mistakes mt-4">
+        {mistakes.map((mk) => <li>{mk}</li>)}
+      </ul>
+    </Section>
+
+    <Section soft id="faq" containerSize="narrow">
+      <SectionHead>{m.dtv_apply_faq_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-5">{m.dtv_apply_faq_title()}</h2>
+      <Faq items={faqItems} firstOpen />
+      <p class="body-p mt-5">
+        <a class="ilink" href={p('/dtv-visa/faq')}>{m.dtv_apply_faq_more_link()}</a>
+      </p>
+    </Section>
+
+    <Section containerSize="narrow">
+      <div class="author">
+        <SectionHead>{m.dtv_apply_author_label()}</SectionHead>
+        <p class="author-name">{m.dtv_apply_author_name()}</p>
+        <p class="author-role">{m.dtv_apply_author_role()}</p>
+        <p class="body-p mt-3">{m.dtv_apply_author_bio()}</p>
+        <p class="reviewed">{m.dtv_apply_reviewed()}</p>
+      </div>
+    </Section>
+
+    <CtaBanner
+      title={m.dtv_apply_cta_title()}
+      titleEm={m.dtv_apply_cta_title_em()}
+      ctaPrimary={{ label: m.cta_start_dtv(), href: p('/contact') }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .body-p {
+    font-size: 17px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin: 0 0 16px;
+    max-width: 64ch;
+  }
+  .body-p--dark {
+    color: rgba(246, 241, 230, 0.78);
+  }
+  .h2--dark {
+    color: var(--cream);
+  }
+  .disclaimer {
+    border-left: 3px solid var(--gold);
+    background: var(--soft);
+    border-radius: var(--r-sm);
+    padding: 16px 20px;
+    margin: 0 0 36px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 70ch;
+  }
+  .ilink {
+    color: var(--gold-deep);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .ilink:hover {
+    color: var(--forest);
+  }
+  .ilink--dark {
+    color: var(--gold);
+  }
+  .inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+  .inline-links span {
+    color: var(--line-3);
+  }
+  .ilink--dark:hover {
+    color: var(--cream);
+  }
+
+  /* Ancres invisibles step-1..7 (offset scroll + cibles HowTo url) */
+  .steps-anchors {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 0;
+  }
+  .steps-anchors li {
+    scroll-margin-top: 90px;
+  }
+
+  /* Fees table */
+  .table-wrap {
+    overflow-x: auto;
+  }
+  .fees {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  .fees th,
+  .fees td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-2);
+  }
+  .fees th {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--forest);
+    border-bottom: 2px solid var(--line-2);
+  }
+  .fees .amount {
+    font-weight: 700;
+    color: var(--forest);
+    white-space: nowrap;
+  }
+
+  /* Mistakes */
+  .mistakes {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-width: 70ch;
+  }
+  .mistakes li {
+    position: relative;
+    padding-left: 30px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .mistakes li::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--error) 14%, transparent);
+    color: var(--error);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Author */
+  .author {
+    border-top: 1px solid var(--line);
+    padding-top: 26px;
+  }
+  .author-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 19px;
+    color: var(--forest);
+    margin: 8px 0 2px;
+  }
+  .author-role {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+  .reviewed {
+    margin: 14px 0 0;
+    font-size: 13px;
+    color: var(--ink-3);
+    font-style: italic;
+  }
+</style>

@@ -1,0 +1,416 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/layout/Section.astro';
+import SectionHead from '../../../components/ui/SectionHead.astro';
+import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import FaqSearch from '../../../components/interactive/FaqSearch.astro';
+import { site } from '../../../config/site';
+import { localePath } from '../../../lib/routes';
+import { m } from '../../../paraglide/messages.js';
+
+// Satellite FAQ du silo DTV — porteuse UNIQUE du FAQPage JSON-LD (le pillar le
+// perd, cf. brief §6 Option A). 30 questions / 7 thèmes + filtre live (FaqSearch).
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+// Liens frères — les satellites du silo DTV sont livrés ensemble (batch E5b).
+const eligibilityHref = p('/dtv-visa/eligibility');
+const muayThaiHref = p('/dtv-visa/muay-thai');
+const howToApplyHref = p('/dtv-visa/how-to-apply');
+const longStayHref = p('/dtv-visa/long-stay-training');
+
+// Sources officielles citées (externes, non nofollow — confiance YMYL).
+const EVISA_URL = 'https://www.thaievisa.go.th/';
+const CONSULATE_URL = 'https://thaiconsulatela.thaiembassy.org/en/publicservice/dtv-visa';
+
+// 7 thèmes × leurs questions (clés séquentielles q1..q30 / a1..a30).
+const themes = [
+  {
+    t: m.dtv_faqp_theme1_t(),
+    intro: m.dtv_faqp_theme1_intro(),
+    link: { label: m.dtv_faqp_theme1_link(), href: eligibilityHref },
+    items: [
+      { q: m.dtv_faqp_q1(), a: m.dtv_faqp_a1() },
+      { q: m.dtv_faqp_q2(), a: m.dtv_faqp_a2() },
+      { q: m.dtv_faqp_q3(), a: m.dtv_faqp_a3() },
+      { q: m.dtv_faqp_q4(), a: m.dtv_faqp_a4() },
+      { q: m.dtv_faqp_q5(), a: m.dtv_faqp_a5() },
+      { q: m.dtv_faqp_q6(), a: m.dtv_faqp_a6() },
+      { q: m.dtv_faqp_q7(), a: m.dtv_faqp_a7() },
+      { q: m.dtv_faqp_q8(), a: m.dtv_faqp_a8() },
+    ],
+  },
+  {
+    t: m.dtv_faqp_theme2_t(),
+    intro: m.dtv_faqp_theme2_intro(),
+    items: [
+      { q: m.dtv_faqp_q9(), a: m.dtv_faqp_a9() },
+      { q: m.dtv_faqp_q10(), a: m.dtv_faqp_a10() },
+      { q: m.dtv_faqp_q11(), a: m.dtv_faqp_a11() },
+      { q: m.dtv_faqp_q12(), a: m.dtv_faqp_a12() },
+    ],
+  },
+  {
+    t: m.dtv_faqp_theme3_t(),
+    intro: m.dtv_faqp_theme3_intro(),
+    link: { label: m.dtv_faqp_theme3_link(), href: howToApplyHref },
+    items: [
+      { q: m.dtv_faqp_q13(), a: m.dtv_faqp_a13() },
+      { q: m.dtv_faqp_q14(), a: m.dtv_faqp_a14() },
+      { q: m.dtv_faqp_q15(), a: m.dtv_faqp_a15() },
+      { q: m.dtv_faqp_q16(), a: m.dtv_faqp_a16() },
+      { q: m.dtv_faqp_q17(), a: m.dtv_faqp_a17() },
+      { q: m.dtv_faqp_q18(), a: m.dtv_faqp_a18() },
+    ],
+  },
+  {
+    t: m.dtv_faqp_theme4_t(),
+    intro: m.dtv_faqp_theme4_intro(),
+    items: [
+      { q: m.dtv_faqp_q19(), a: m.dtv_faqp_a19() },
+      { q: m.dtv_faqp_q20(), a: m.dtv_faqp_a20() },
+      { q: m.dtv_faqp_q21(), a: m.dtv_faqp_a21() },
+      { q: m.dtv_faqp_q22(), a: m.dtv_faqp_a22() },
+      { q: m.dtv_faqp_q23(), a: m.dtv_faqp_a23() },
+    ],
+  },
+  {
+    t: m.dtv_faqp_theme5_t(),
+    intro: m.dtv_faqp_theme5_intro(),
+    note: m.dtv_faqp_theme5_note(),
+    items: [
+      { q: m.dtv_faqp_q24(), a: m.dtv_faqp_a24() },
+      { q: m.dtv_faqp_q25(), a: m.dtv_faqp_a25() },
+      { q: m.dtv_faqp_q26(), a: m.dtv_faqp_a26() },
+    ],
+  },
+  {
+    t: m.dtv_faqp_theme6_t(),
+    intro: m.dtv_faqp_theme6_intro(),
+    items: [
+      { q: m.dtv_faqp_q27(), a: m.dtv_faqp_a27() },
+      { q: m.dtv_faqp_q28(), a: m.dtv_faqp_a28() },
+    ],
+  },
+  {
+    t: m.dtv_faqp_theme7_t(),
+    intro: m.dtv_faqp_theme7_intro(),
+    link: { label: m.dtv_faqp_theme7_link(), href: longStayHref },
+    items: [
+      { q: m.dtv_faqp_q29(), a: m.dtv_faqp_a29() },
+      { q: m.dtv_faqp_q30(), a: m.dtv_faqp_a30() },
+    ],
+  },
+];
+
+// FAQPage JSON-LD — construit depuis les MÊMES messages que le contenu visible
+// (les 30 questions). Le BreadcrumbList est émis par <Breadcrumb>.
+const allItems = themes.flatMap((th) => th.items);
+const faqJsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: allItems.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<BaseLayout title={m.dtv_faqp_meta_title()} description={m.dtv_faqp_meta_desc()}>
+  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(faqJsonld)} />
+
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.nav_dtv(), href: p('/dtv-visa') },
+        { label: m.dtv_faqp_breadcrumb() },
+      ]}
+    />
+
+    <PageHero
+      head={m.dtv_faqp_hero_head()}
+      title={m.dtv_faqp_hero_title()}
+      titleEm={m.dtv_faqp_hero_title_em()}
+      lead={m.dtv_faqp_hero_lead()}
+    />
+
+    <Section containerSize="narrow" class="trust-band">
+      <p class="reviewed">
+        <span class="dot" aria-hidden="true">●</span>{m.dtv_faqp_reviewed()}
+      </p>
+      <p class="reviewed-by">{m.dtv_faqp_reviewed_by()}</p>
+      <p class="disclaimer">{m.dtv_faqp_disclaimer()}</p>
+      <p class="pillar-link">
+        <a href={p('/dtv-visa')}>{m.dtv_faqp_pillar_link()} &rarr;</a>
+      </p>
+    </Section>
+
+    <Section soft containerSize="narrow">
+      <FaqSearch whatsapp={site.contact.whatsapp} contactHref={p('/contact')} />
+
+      <div class="faq-root" data-faq-root>
+        {
+          themes.map((theme) => (
+            <section class="theme" data-faq-theme>
+              <SectionHead>{theme.t}</SectionHead>
+              <h2 class="h3 theme-title">{theme.t}</h2>
+              <p class="theme-intro">{theme.intro}</p>
+              {theme.note && <p class="theme-note">{theme.note}</p>}
+              <div class="faq">
+                {theme.items.map((item) => (
+                  <details data-faq-item>
+                    <summary>
+                      {item.q} <span class="pm" aria-hidden="true">+</span>
+                    </summary>
+                    <div class="ans">{item.a}</div>
+                  </details>
+                ))}
+              </div>
+              {theme.link && (
+                <p class="theme-link">
+                  <a href={theme.link.href}>{theme.link.label} &rarr;</a>
+                </p>
+              )}
+            </section>
+          ))
+        }
+      </div>
+
+      <div class="sources">
+        <SectionHead>{m.dtv_faqp_sources_title()}</SectionHead>
+        <p class="sources-intro">{m.dtv_faqp_sources_intro()}</p>
+        <ul>
+          <li><a href={EVISA_URL} target="_blank" rel="noopener">{m.dtv_faqp_source_evisa()} &rarr;</a></li>
+          <li><a href={CONSULATE_URL} target="_blank" rel="noopener">{m.dtv_faqp_source_consulate()} &rarr;</a></li>
+        </ul>
+      </div>
+
+      <p class="reviewed-foot">{m.dtv_faqp_reviewed_foot()}</p>
+    </Section>
+
+    <CtaBanner
+      title={m.dtv_faqp_cta_title()}
+      titleEm={m.dtv_faqp_cta_title_em()}
+      ctaPrimary={{ label: m.dtv_faqp_cta_primary(), href: p('/contact') }}
+      ctaSecondary={{ label: m.dtv_faqp_cta_whatsapp(), href: site.contact.whatsapp }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  /* Bandeau de confiance (E-E-A-T / YMYL) — date de revue TRÈS visible. */
+  .trust-band {
+    padding-block: clamp(24px, 3vw, 40px);
+  }
+  .reviewed {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 12px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--soft-2);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--forest);
+  }
+  .reviewed .dot {
+    font-size: 9px;
+    color: var(--success, var(--forest-light));
+  }
+  .reviewed-by {
+    margin: 0 0 16px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink-2);
+    line-height: 1.6;
+    max-width: 64ch;
+  }
+  .disclaimer {
+    margin: 0 0 14px;
+    padding: 14px 18px;
+    border-left: 3px solid var(--gold);
+    background: var(--surface);
+    border-radius: var(--r-sm);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-3);
+    line-height: 1.6;
+    max-width: 72ch;
+  }
+  .pillar-link {
+    margin: 0;
+  }
+  .pillar-link a {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .pillar-link a:hover {
+    color: var(--gold-deep);
+  }
+
+  /* Thèmes FAQ */
+  .faq-root {
+    display: grid;
+    gap: 44px;
+  }
+  .theme[hidden] {
+    display: none;
+  }
+  .theme-title {
+    margin: 8px 0 6px;
+    color: var(--forest);
+  }
+  .theme-intro {
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.55;
+    max-width: 64ch;
+  }
+  .theme-note {
+    margin: 0 0 18px;
+    padding: 12px 16px;
+    border-left: 3px solid var(--gold);
+    background: var(--surface);
+    border-radius: var(--r-sm);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-3);
+    line-height: 1.55;
+    max-width: 68ch;
+  }
+  .theme-intro + .faq {
+    margin-top: 16px;
+  }
+  .theme-link {
+    margin: 16px 0 0;
+  }
+  .theme-link a {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .theme-link a:hover {
+    color: var(--gold-deep);
+  }
+
+  /* Accordéon <details> — markup/style repris de Faq.astro (+ data-faq-item). */
+  .faq {
+    display: grid;
+    gap: 10px;
+  }
+  .faq details {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+  }
+  .faq details[hidden] {
+    display: none;
+  }
+  .faq summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--forest);
+  }
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq summary:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: -3px;
+    border-radius: var(--r-md);
+  }
+  .pm {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--soft-2);
+    color: var(--forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: 0.2s;
+  }
+  .faq details[open] summary .pm {
+    background: var(--gold);
+    color: #1c1407;
+    transform: rotate(45deg);
+  }
+  .ans {
+    padding: 0 22px 20px;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.55;
+    max-width: 64ch;
+  }
+
+  /* Sources + pied de revue */
+  .sources {
+    margin-top: 44px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .sources-intro {
+    margin: 8px 0 12px;
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+  .sources ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+  .sources a {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .sources a:hover {
+    color: var(--gold-deep);
+  }
+  .reviewed-foot {
+    margin: 28px 0 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pm {
+      transition: none;
+    }
+  }
+</style>

@@ -63,20 +63,11 @@ const faqItems = [
   { q: m.dtv_faq_q5(), a: m.dtv_faq_a5() },
 ];
 
-// JSON-LD FAQPage (PRD §7) — le BreadcrumbList est émis par <Breadcrumb>
-const faqJsonld = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqItems.map((item) => ({
-    '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: { '@type': 'Answer', text: item.a },
-  })),
-};
+// JSON-LD : le FAQPage du silo est porté par /dtv-visa/faq (un seul FAQPage par
+// contenu — Option A, cf. brief dtv-faq). Le BreadcrumbList est émis par <Breadcrumb>.
 ---
 
 <BaseLayout title={m.dtv_meta_title()} description={m.dtv_meta_desc()}>
-  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(faqJsonld)} />
 
   <main>
     <Breadcrumb
@@ -103,6 +94,10 @@ const faqJsonld = {
       <h2 class="h2 mt-2 mb-4">{m.dtv_intro_title()}</h2>
       <p class="body-p">{m.dtv_intro_p1()}</p>
       <p class="body-p">{m.dtv_intro_p2()}</p>
+      <ul class="sat-links">
+        <li><a href={p('/dtv-visa/muay-thai')}>{m.dtv_link_mt()} &rarr;</a></li>
+        <li><a href={p('/dtv-visa/long-stay-training')}>{m.dtv_link_lst()} &rarr;</a></li>
+      </ul>
     </Section>
 
     <Section dark>
@@ -111,6 +106,9 @@ const faqJsonld = {
         {m.dtv_how_title()} <span class="em on-dark">{m.dtv_how_title_em()}</span>
       </h2>
       <DtvSteps steps={steps} />
+      <p class="sat-link sat-link--dark">
+        <a href={p('/dtv-visa/how-to-apply')}>{m.dtv_link_full_apply()} &rarr;</a>
+      </p>
     </Section>
 
     <Section soft>
@@ -127,6 +125,7 @@ const faqJsonld = {
           <SectionHead>{m.dtv_elig_head()}</SectionHead>
           <h2 class="h2 mt-2 mb-3">{m.dtv_elig_title()}</h2>
           <p class="body-p">{m.dtv_elig_body()}</p>
+          <p class="sat-link"><a href={p('/dtv-visa/eligibility')}>{m.dtv_link_full_elig()} &rarr;</a></p>
           <div class="mt-6">
             <Button href={p('/contact')} variant="forest" arrow>{m.dtv_elig_cta()}</Button>
           </div>
@@ -150,6 +149,7 @@ const faqJsonld = {
         <div>
           <SectionHead>{m.dtv_faq_head()}</SectionHead>
           <h2 class="h2 mt-2">{m.dtv_faq_title()}</h2>
+          <p class="sat-link"><a href={p('/dtv-visa/faq')}>{m.dtv_link_full_faq()} &rarr;</a></p>
         </div>
         <Faq items={faqItems} firstOpen />
       </div>
@@ -172,6 +172,36 @@ const faqJsonld = {
     line-height: 1.65;
     margin: 0 0 16px;
     max-width: 64ch;
+  }
+  /* Liens satellites (maillage pillar → cluster) */
+  .sat-links {
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .sat-links a,
+  .sat-link a {
+    font-weight: 700;
+    color: var(--forest);
+    text-decoration: none;
+    border-bottom: 2px solid color-mix(in srgb, var(--gold) 55%, transparent);
+  }
+  .sat-links a:hover,
+  .sat-link a:hover {
+    color: var(--forest-deep);
+    border-bottom-color: var(--gold);
+  }
+  .sat-link {
+    margin: 14px 0 0;
+  }
+  .sat-link--dark a {
+    color: var(--cream);
+    border-bottom-color: color-mix(in srgb, var(--gold) 70%, transparent);
+  }
+  .sat-link--dark a:hover {
+    color: var(--gold);
   }
   .h2--dark {
     color: var(--cream);

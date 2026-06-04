@@ -1,0 +1,277 @@
+---
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * FaqSearch — îlot vanilla JS (progressive enhancement) qui filtre en direct
+ * les <details data-faq-item> rendus PLUS BAS dans la page (dans [data-faq-root]).
+ *
+ * Sans JS : l'input n'a aucun effet, tous les <details> et leurs réponses restent
+ * visibles et fonctionnels → la FAQPage JSON-LD et le contenu indexable restent
+ * intacts. Le filtre masque (hidden), il ne retire JAMAIS le DOM.
+ *
+ * Props :
+ *  - whatsapp : lien wa.me (état vide, depuis site.ts)
+ *  - contactHref : lien /contact localisé (état vide)
+ */
+export interface Props {
+  whatsapp: string;
+  contactHref: string;
+}
+const { whatsapp, contactHref } = Astro.props;
+---
+
+<div class="faq-search" data-faq-search>
+  <label class="lbl" for="faq-search-input">{m.dtv_faqp_search_label()}</label>
+  <div class="field">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="7"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input
+      id="faq-search-input"
+      class="wc-control inp"
+      type="search"
+      autocomplete="off"
+      placeholder={m.dtv_faqp_search_placeholder()}
+      data-faq-input
+    />
+    <button type="button" class="clear" data-faq-clear hidden aria-label={m.dtv_faqp_search_clear()}>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <p class="count" data-faq-count aria-live="polite"></p>
+
+  <div class="empty" data-faq-empty hidden>
+    <p class="empty-title">{m.dtv_faqp_empty_title()}</p>
+    <p class="empty-body">{m.dtv_faqp_empty_body()}</p>
+    <div class="empty-cta">
+      <a class="wa" href={whatsapp} target="_blank" rel="noopener">{m.dtv_faqp_empty_whatsapp()}</a>
+      <a class="lk" href={contactHref}>{m.dtv_faqp_empty_contact()}</a>
+    </div>
+  </div>
+</div>
+
+<script
+  define:vars={{
+    countOneTpl: m.dtv_faqp_count_one(),
+    countOtherTpl: m.dtv_faqp_count_other({ count: '{count}' }),
+    emptyCountTpl: m.dtv_faqp_empty_count({ query: '{query}' }),
+  }}
+>
+  function initFaqSearch() {
+    const wrap = document.querySelector('[data-faq-search]');
+    const root = document.querySelector('[data-faq-root]');
+    if (!wrap || !root) return;
+
+    const input = wrap.querySelector('[data-faq-input]');
+    const clearBtn = wrap.querySelector('[data-faq-clear]');
+    const countEl = wrap.querySelector('[data-faq-count]');
+    const emptyEl = wrap.querySelector('[data-faq-empty]');
+
+    const items = Array.from(root.querySelectorAll('[data-faq-item]'));
+    const themes = Array.from(root.querySelectorAll('[data-faq-theme]'));
+
+    // textContent figé une fois (la recherche porte sur question + réponse).
+    const haystacks = items.map((el) => (el.textContent || '').toLowerCase());
+    const openState = items.map((el) => el.hasAttribute('open'));
+
+    function fmtCount(n) {
+      const tpl = n === 1 ? countOneTpl : countOtherTpl;
+      return tpl.replace('{count}', String(n));
+    }
+
+    function render(q) {
+      const query = q.trim().toLowerCase();
+      const active = query.length > 0;
+      let matches = 0;
+
+      items.forEach((el, i) => {
+        const hit = !active || haystacks[i].indexOf(query) !== -1;
+        el.hidden = !hit;
+        if (hit) {
+          matches++;
+          // ouvre les <details> matchés pendant une recherche ; restaure à vide.
+          if (active) el.setAttribute('open', '');
+          else if (openState[i]) el.setAttribute('open', '');
+          else el.removeAttribute('open');
+        }
+      });
+
+      // masque les sections de thème dont toutes les questions sont cachées
+      themes.forEach((theme) => {
+        const visible = theme.querySelectorAll('[data-faq-item]:not([hidden])').length;
+        theme.hidden = visible === 0;
+      });
+
+      if (active && matches === 0) {
+        countEl.textContent = emptyCountTpl.replace('{query}', q.trim());
+        emptyEl.hidden = false;
+      } else {
+        countEl.textContent = fmtCount(matches);
+        emptyEl.hidden = true;
+      }
+
+      clearBtn.hidden = !active;
+    }
+
+    let t = null;
+    input.addEventListener('input', function () {
+      if (t) clearTimeout(t);
+      const val = input.value;
+      t = setTimeout(function () {
+        render(val);
+      }, 150);
+    });
+
+    clearBtn.addEventListener('click', function () {
+      input.value = '';
+      render('');
+      input.focus();
+    });
+
+    // état initial : compteur total, rien de masqué.
+    render('');
+  }
+
+  // Le script (define:vars) est rendu inline AVANT [data-faq-root] dans le DOM →
+  // on attend que le document soit prêt pour cibler les <details>.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFaqSearch);
+  } else {
+    initFaqSearch();
+  }
+</script>
+
+<style>
+  .faq-search {
+    margin-bottom: 28px;
+  }
+  .lbl {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--forest);
+    margin-bottom: 8px;
+  }
+  .field {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .ico {
+    position: absolute;
+    left: 16px;
+    width: 20px;
+    height: 20px;
+    color: var(--ink-3);
+    pointer-events: none;
+  }
+  .inp {
+    padding-left: 46px;
+    padding-right: 46px;
+  }
+  /* masque la croix native du type=search (on fournit notre propre bouton) */
+  .inp::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .clear {
+    position: absolute;
+    right: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: var(--soft-2);
+    color: var(--forest);
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .clear:hover {
+    background: var(--gold);
+    color: #1c1407;
+  }
+  .clear:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .clear svg {
+    width: 16px;
+    height: 16px;
+  }
+  .count {
+    margin: 12px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-3);
+  }
+  .empty {
+    margin-top: 20px;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+  }
+  .empty-title {
+    margin: 0 0 6px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--forest);
+  }
+  .empty-body {
+    margin: 0 0 16px;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+  .empty-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+  .wa {
+    display: inline-flex;
+    align-items: center;
+    padding: 11px 20px;
+    border-radius: 999px;
+    background: var(--gold);
+    color: #1c1407;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .wa:hover {
+    background: var(--gold-deep);
+    color: var(--cream);
+  }
+  .lk {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .lk:hover {
+    color: var(--gold-deep);
+  }
+  .wa:focus-visible,
+  .lk:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .clear {
+      transition: none;
+    }
+  }
+</style>
