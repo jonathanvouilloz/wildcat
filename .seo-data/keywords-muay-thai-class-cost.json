@@ -1,0 +1,104 @@
+{
+  "topic": "muay thai class cost",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-04T15:05:40Z",
+  "primary": {
+    "keyword": "muay thai class cost",
+    "search_volume": 50,
+    "cpc": 1.61,
+    "competition": "LOW",
+    "competition_index": 16,
+    "difficulty": 0,
+    "intent": "commercial",
+    "intent_probability": 0.8925
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "muay thai near me",
+      "search_volume": 49500,
+      "cpc": 2.35,
+      "competition": "MEDIUM",
+      "competition_index": 41
+    },
+    {
+      "keyword": "muay thai training",
+      "search_volume": 8100,
+      "cpc": 1.8,
+      "competition": "LOW",
+      "competition_index": 15
+    },
+    {
+      "keyword": "muay thai vs kickboxing",
+      "search_volume": 2900,
+      "cpc": 0.45,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "muay thai near me for adults",
+      "search_volume": 480,
+      "cpc": 1.46,
+      "competition": "MEDIUM",
+      "competition_index": 49
+    },
+    {
+      "keyword": "how much is muay thai classes",
+      "search_volume": 210,
+      "cpc": 3.29,
+      "competition": "LOW",
+      "competition_index": 13
+    },
+    {
+      "keyword": "best muay thai near me",
+      "search_volume": 90,
+      "cpc": 1.6,
+      "competition": "MEDIUM",
+      "competition_index": 42
+    },
+    {
+      "keyword": "muay thai near me for beginners",
+      "search_volume": 70,
+      "cpc": 2.41,
+      "competition": "HIGH",
+      "competition_index": 70
+    },
+    {
+      "keyword": "how much does muay thai cost per month",
+      "search_volume": 20,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "muay thai near me prices",
+      "search_volume": 20,
+      "cpc": 0.94,
+      "competition": "MEDIUM",
+      "competition_index": 37
+    }
+  ],
+  "related": [],
+  "quick_wins": [
+    {
+      "keyword": "muay thai training",
+      "search_volume": 8100,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai vs kickboxing",
+      "search_volume": 2900,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "how much is muay thai classes",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

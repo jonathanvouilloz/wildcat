@@ -1,0 +1,29 @@
+{
+  "topic": "muay thai gym prices chiang mai",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-04T15:05:49Z",
+  "primary": {
+    "keyword": "muay thai gym prices chiang mai",
+    "search_volume": 0,
+    "cpc": 0,
+    "competition": null,
+    "competition_index": null,
+    "difficulty": null,
+    "intent": "commercial",
+    "intent_probability": 0.5044
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "chiang mai muay thai gym prices",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 4
+    }
+  ],
+  "related": [],
+  "quick_wins": []
+}

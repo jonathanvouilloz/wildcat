@@ -34,9 +34,11 @@
 - [x] **11. MAJ docs** : `PLAN.md` (E5c Train satellites) + `CLAUDE.md` état actuel
 
 ### Hors scope de ce batch (backlog — ne pas faire maintenant)
-- [ ] Stay & Train batch 2 avec l'insight FR "camp/stage" (§5)
+- [ ] Stay & Train batch 2 avec l'insight FR "camp/stage" (§5) **+ insight EN "coût séjour" (vérif prix du 2026-06-04)** : `all inclusive muay thai camps in thailand` (140/mo LOW) · `best muay thai camps in thailand` (70) · `cost of muay thai training in thailand` (40) · `thailand muay thai camp packages` (30) — l'intent prix réel est côté séjours, angle EN+FR cohérent "packages + prix transparents". Data : `keywords-muay-thai-prices.json`, `keywords-muay-thai-training-thailand-cost.json`, `keywords-private-muay-thai-lessons.json`, `keywords-muay-thai-class-cost.json`
 - [ ] Blog E8 : "Where to watch fights in Chiang Mai" (90/mo spectateur) · "Basic moves" tuto (170/mo)
 - [ ] FAQPage JSON-LD silo Train (décision à l'implémentation, jamais 2 par silo)
+
+> **Vérif post-batch (2026-06-04)** — pages prix/private dédiées : décision "ne pas créer" **re-confirmée par la data**. "muay thai prices" (110/mo) = quasi 100% branded "{gym} prices" + local US ; `muay thai gym prices chiang mai` = 0/mo ; "private muay thai lessons" (260/mo) = 140 "near me" US + ~10/mo par géo thaïe. Le branded "wildcat muay thai prices" sera servi par `/classes#pricing` + la fiche Google Business.
 
 ---
 
