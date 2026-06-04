@@ -32,6 +32,13 @@ export function seedRot(seed: string, max = 6): number {
   return (h % (max * 2 + 1)) - max;
 }
 
+/** Choix pseudo-aléatoire stable au build : index 0..n-1 dérivé du seed. */
+export function seedPick(seed: string, n: number): number {
+  let h = 0;
+  for (const ch of seed) h = (h * 31 + ch.charCodeAt(0)) % 9973;
+  return h % n;
+}
+
 /** Initiales (fallback sans photo). */
 export function initialsOf(name: string): string {
   return name

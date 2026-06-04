@@ -1,9 +1,11 @@
-# Pipeline assets stamps du livre d'or : trim du blanc (bbox de l'encre + marge),
-# decoupe "die-cut" (exterieur transparent, TOUT l'interieur du tampon opaque —
-# les fonds interieurs cream/vert pale font partie du design et sont conserves),
-# resize hauteur max, export webp -> public/assets/stamps/stamp-{slug}.webp.
-# Le rendu carte ajoute un halo blanc (drop-shadow) pour la lisibilite sur photo.
-# Usage : python tests/process-stamp.py "<input>" <slug>
+# Pipeline assets die-cut du livre d'or : trim du blanc (bbox + marge), decoupe
+# "die-cut" (exterieur transparent, TOUT l'interieur opaque — fonds clairs du
+# design conserves), resize hauteur max, export webp.
+# Sert les stamps achievements ET les decors (scotch, ornement nom).
+# Usage : python tests/process-stamp.py "<input>" <slug> [outprefix] [maxheight]
+#   defaut : public/assets/stamps/stamp-{slug}.webp, h240
+#   decor  : python tests/process-stamp.py scotch-1.webp tape-1 decor/ 160
+#            -> public/assets/decor/tape-1.webp
 import sys
 from pathlib import Path
 
@@ -14,7 +16,7 @@ from PIL import Image, ImageFilter
 MAX_HEIGHT = 240
 WHITE_THRESHOLD = 242  # en dessous (luminance min) = encre, pour la bbox
 MARGIN_PCT = 0.02  # 2% de marge autour de la bbox
-OUT_DIR = Path(__file__).resolve().parent.parent / "public" / "assets" / "stamps"
+ASSETS_DIR = Path(__file__).resolve().parent.parent / "public" / "assets"
 
 
 def flatten_on_white(img: Image.Image) -> Image.Image:
@@ -84,7 +86,7 @@ def die_cut_alpha(img: Image.Image) -> Image.Image:
     return out
 
 
-def process(src: Path, slug: str) -> Path:
+def process(src: Path, slug: str, out_prefix: str = "stamps/stamp-", max_height: int = MAX_HEIGHT) -> Path:
     img = flatten_on_white(Image.open(src))
 
     # Bbox de l'encre : pixel dont la luminance passe sous le seuil
@@ -104,14 +106,14 @@ def process(src: Path, slug: str) -> Path:
     )
     img = img.crop(bbox)
 
-    if img.height > MAX_HEIGHT:
-        ratio = MAX_HEIGHT / img.height
-        img = img.resize((round(img.width * ratio), MAX_HEIGHT), Image.LANCZOS)
+    if img.height > max_height:
+        ratio = max_height / img.height
+        img = img.resize((round(img.width * ratio), max_height), Image.LANCZOS)
 
     img = die_cut_alpha(img)
 
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    out = OUT_DIR / f"stamp-{slug}.webp"
+    out = ASSETS_DIR / f"{out_prefix}{slug}.webp"
+    out.parent.mkdir(parents=True, exist_ok=True)
     img.save(out, "WEBP", quality=85)
     kb = out.stat().st_size / 1024
     print(f"{out.name}: {img.width}x{img.height} RGBA, {kb:.0f} KB (source {src.name})")
@@ -119,6 +121,11 @@ def process(src: Path, slug: str) -> Path:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        raise SystemExit("Usage: python tests/process-stamp.py <input> <slug>")
-    process(Path(sys.argv[1]), sys.argv[2])
+    if len(sys.argv) < 3 or len(sys.argv) > 5:
+        raise SystemExit("Usage: python tests/process-stamp.py <input> <slug> [outprefix] [maxheight]")
+    process(
+        Path(sys.argv[1]),
+        sys.argv[2],
+        sys.argv[3] if len(sys.argv) > 3 else "stamps/stamp-",
+        int(sys.argv[4]) if len(sys.argv) > 4 else MAX_HEIGHT,
+    )

@@ -1,16 +1,18 @@
 ---
 /**
- * FighterCard — entrée du livre d'or (direction « Guest Book Polaroid », E5d).
- * Polaroid punaisée (tape gold, rotation seedée) + quote Fraunces en grand +
- * stamps achievements (max 3, ordre de priorité géré par la page).
- * Pas de record W/L : la seule stat est la ligne signature (« 2 fights ·
- * Thapae Stadium »), pré-composée par la page. Sans photo → initiales +
- * tigre en filigrane. Labels et drapeaux pré-résolus par la page (i18n).
+ * FighterCard — entrée du livre d'or, v2 « incrusté scrapbook » (E5d).
+ * Photo posée directement sur le fond de page, bord déchiré (mask torn 112%)
+ * qui fait la transition photo↔fond ; un morceau de scotch seedé (1 de 3,
+ * haut gauche/droite) ; stamps achievements répartis sur les CÔTÉS de la
+ * photo (max 5 : 2/3 ou 3/2, seedé) ; nom + drapeau + année sur l'ornement
+ * crème ; quote Fraunces + ligne signature dessous.
+ * Pas de record W/L : la seule stat est la sigLine pré-composée par la page.
+ * Tout l'aléatoire est seedé sur le nom → stable au build.
  */
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import AchievementStamp from '../ui/AchievementStamp.astro';
-import { initialsOf, seedRot } from '../../lib/guestbook';
+import { initialsOf, seedPick, seedRot } from '../../lib/guestbook';
 
 export interface Props {
   name: string;
@@ -28,9 +30,20 @@ export interface Props {
 const { name, fightName, countryCode, year, quote, photo, achievements = [], sigLine, achListLabel } =
   Astro.props;
 
-const rot = seedRot(name, 3);
-const stamps = achievements.slice(0, 3); // au-delà ça dévalue chaque tampon
+const rot = seedRot(name, 2);
 const signature = [`— ${fightName ?? name.split(/\s+/)[0]}`, sigLine].filter(Boolean).join(' · ');
+
+// Stamps latéraux : max 5 (ordre priorité = page), répartition 2/3 ou 3/2 seedée
+const stamps = achievements.slice(0, 5);
+const leftCount =
+  stamps.length <= 1 ? 0 : seedPick(name, 2) === 0 ? Math.ceil(stamps.length / 2) : Math.floor(stamps.length / 2);
+const leftStamps = stamps.slice(0, leftCount);
+const rightStamps = stamps.slice(leftCount);
+
+// Scotch : asset 1 de 3 + côté haut gauche/droite, seedés
+const tapeSrc = `/assets/decor/tape-${1 + seedPick(name + 't', 3)}.webp`;
+const tapeRight = seedPick(name + 's', 2) === 1;
+const tapeRot = seedRot(name + 'tape', 8);
 
 // Drapeau SVG inliné au build (pages prerendered only) — l'emoji drapeau ne
 // rend pas sur Chrome/Windows, le SVG flag-icons est uniforme partout.
@@ -42,14 +55,13 @@ if (countryCode) {
       'utf8',
     );
   } catch {
-    flagSvg = undefined; // code inconnu → caption sans drapeau
+    flagSvg = undefined; // code inconnu → plaque sans drapeau
   }
 }
 ---
 
 <article class="fighter" style={`--rot:${rot}deg`}>
-  <div class="pol">
-    <span class="tape" aria-hidden="true"></span>
+  <div class="photo">
     <div class="media">
       {
         photo ? (
@@ -61,20 +73,44 @@ if (countryCode) {
         )
       }
     </div>
-    <div class="cap">
-      {flagSvg && <span class="cap-flag" role="img" aria-label={countryCode} set:html={flagSvg} />}
-      {name}
-      {year != null && <span> · {year}</span>}
-    </div>
+    <img
+      class:list={['tape', tapeRight ? 'tape--right' : 'tape--left']}
+      src={tapeSrc}
+      alt=""
+      width={110}
+      height={28}
+      loading="lazy"
+      aria-hidden="true"
+      style={`--trot:${tapeRot}deg`}
+    />
     {
-      stamps.length > 0 && (
-        <div class="stamps" aria-hidden="true">
-          {stamps.map((a) => (
-            <AchievementStamp value={a.value} label={a.label} rot={seedRot(name + a.value)} />
+      leftStamps.length > 0 && (
+        <div class="stamps stamps--left" aria-hidden="true">
+          {leftStamps.map((a) => (
+            <span class="srow" style={`--dx:${seedRot(name + a.value + 'x', 6)}px`}>
+              <AchievementStamp value={a.value} label={a.label} rot={seedRot(name + a.value)} />
+            </span>
           ))}
         </div>
       )
     }
+    {
+      rightStamps.length > 0 && (
+        <div class="stamps stamps--right" aria-hidden="true">
+          {rightStamps.map((a) => (
+            <span class="srow" style={`--dx:${seedRot(name + a.value + 'x', 6)}px`}>
+              <AchievementStamp value={a.value} label={a.label} rot={seedRot(name + a.value)} />
+            </span>
+          ))}
+        </div>
+      )
+    }
+  </div>
+
+  <div class="plate">
+    {flagSvg && <span class="plate-flag" role="img" aria-label={countryCode} set:html={flagSvg} />}
+    {name}
+    {year != null && <span> · {year}</span>}
   </div>
 
   {quote && <blockquote class="quote">“{quote}”</blockquote>}
@@ -100,42 +136,47 @@ if (countryCode) {
     text-align: center;
   }
 
-  .pol {
+  .photo {
     position: relative;
     width: 100%;
-    background: #fff;
-    padding: 10px 10px 12px;
-    box-shadow: var(--shadow-md);
-    transform: rotate(var(--rot, -2deg));
+    transform: rotate(var(--rot, -1deg));
     transition: transform 0.25s ease;
   }
-  /* au survol la photo « se redresse » — et le dernier stamp se tamponne */
-  .fighter:hover .pol {
+  /* au survol la photo « se redresse » */
+  .fighter:hover .photo {
     transform: rotate(0deg);
   }
 
-  .tape {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    width: 92px;
-    height: 26px;
-    transform: translateX(-50%) rotate(calc(var(--rot, -2deg) * -1.6));
-    background: linear-gradient(100deg, rgba(224, 166, 43, 0.5), rgba(224, 166, 43, 0.34));
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    z-index: 2;
-  }
-
+  /* Photo incrustée : pas de cadre — le bord déchiré fait la transition
+     avec le fond de page. Scratches légères clipées par le même mask. */
   .media {
     position: relative;
     aspect-ratio: 1;
-    background: var(--soft-2);
     overflow: hidden;
+    -webkit-mask-image: url('/assets/textures/torn-frame.png');
+    mask-image: url('/assets/textures/torn-frame.png');
+    -webkit-mask-size: 112% 112%;
+    mask-size: 112% 112%;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/assets/textures/photo-scratches.png') center / 100% 100% no-repeat;
+    mix-blend-mode: screen;
+    opacity: 0.18;
+    pointer-events: none;
   }
   .media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+    filter: contrast(1.06) saturate(0.88) sepia(0.08);
   }
   .ph {
     position: absolute;
@@ -143,6 +184,7 @@ if (countryCode) {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--soft-2);
     font-family: var(--font-display);
     font-weight: 800;
     font-size: 52px;
@@ -158,41 +200,76 @@ if (countryCode) {
     mask: url('/assets/logo-only.svg') center / contain no-repeat;
   }
 
-  .cap {
-    margin-top: 10px;
+  /* Scotch — à cheval sur le bord haut, asset + côté + rotation seedés */
+  .tape {
+    position: absolute;
+    top: -15px;
+    width: 110px;
+    height: auto;
+    z-index: 3;
+    transform: rotate(var(--trot, 4deg));
+    opacity: 0.92;
+  }
+  .tape--left {
+    left: 14px;
+  }
+  .tape--right {
+    right: 14px;
+  }
+
+  /* Stamps latéraux — colonnes à cheval sur les bords (≈moitié dehors) */
+  .stamps {
+    position: absolute;
+    top: 8%;
+    bottom: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 2;
+  }
+  .stamps--left {
+    left: -34px;
+  }
+  .stamps--right {
+    right: -34px;
+  }
+  .srow {
+    display: block;
+    transform: translateX(var(--dx, 0));
+  }
+
+  /* Plaque ornement — chevauche légèrement le bas de la photo */
+  .plate {
+    position: relative;
+    z-index: 2;
+    margin-top: -16px;
+    padding: 13px 34px;
+    background: url('/assets/decor/ornament.webp') center / 100% 100% no-repeat;
     font-family: var(--font-accent);
     font-style: italic;
     font-weight: 600;
     font-variation-settings: 'opsz' 30;
-    font-size: 18px;
+    font-size: 17px;
+    line-height: 1;
     color: var(--ink);
+    white-space: nowrap;
+    max-width: 100%;
   }
-  .cap-flag {
+  .plate-flag {
     display: inline-block;
     margin-right: 2px;
   }
-  .cap-flag :global(svg) {
-    width: 21px;
+  .plate-flag :global(svg) {
+    width: 20px;
     height: auto;
     border-radius: 2px;
     vertical-align: -2px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
   }
 
-  .stamps {
-    position: absolute;
-    right: -10px;
-    bottom: 34px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  .stamps > :global(* + *) {
-    margin-top: -10px;
-  }
-
   .quote {
-    margin: 20px 8px 0;
+    margin: 16px 8px 0;
     font-family: var(--font-accent);
     font-style: italic;
     font-weight: 600;
@@ -223,11 +300,11 @@ if (countryCode) {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .pol {
+    .photo {
       transition: none;
     }
-    .fighter:hover .pol {
-      transform: rotate(var(--rot, -2deg));
+    .fighter:hover .photo {
+      transform: rotate(var(--rot, -1deg));
     }
   }
 </style>
