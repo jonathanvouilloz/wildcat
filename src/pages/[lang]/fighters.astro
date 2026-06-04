@@ -12,7 +12,7 @@ import { FIGHTERS_QUERY } from '../../lib/queries';
 import type { FIGHTERS_QUERY_RESULT } from '../../lib/sanity.types';
 import { pickLocale } from '../../lib/i18n-content';
 import { urlFor } from '../../lib/image';
-import { ACHIEVEMENT_VALUES, flagOf } from '../../lib/guestbook';
+import { ACHIEVEMENT_VALUES } from '../../lib/guestbook';
 import { m } from '../../paraglide/messages.js';
 
 // Livre d'or fighters (kw : "Wild Cat Chiang Mai fighters") — les guests qui
@@ -63,7 +63,7 @@ const fighters = fighterDocs.map((fighter) => {
   return {
     name: fighter.name ?? '',
     fightName: fighter.fightName ?? undefined,
-    flag: fighter.countryCode ? flagOf(fighter.countryCode) : undefined,
+    countryCode: fighter.countryCode ?? undefined,
     year: fighter.year ?? undefined,
     quote: pickLocale(fighter.quote, lang) || undefined,
     achievements,

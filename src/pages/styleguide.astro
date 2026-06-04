@@ -17,7 +17,7 @@ import Footer from '../components/sections/Footer.astro';
 import BrushSeparator from '../assets/separator-green.svg';
 import FighterCard from '../components/sections/FighterCard.astro';
 import AchievementStamp from '../components/ui/AchievementStamp.astro';
-import { flagOf, seedRot } from '../lib/guestbook';
+import { seedRot } from '../lib/guestbook';
 import { Icon } from 'astro-icon/components';
 
 // Inventaire des icônes (set candidat : Tabler). Swappable : changer le préfixe.
@@ -158,7 +158,7 @@ const guestFighters = [
   {
     name: 'Sarah Keller',
     fightName: 'Sarah Wildcat',
-    flag: flagOf('FR'),
+    countryCode: 'FR',
     year: 2024,
     quote: 'I came for two weeks. I stayed four months.',
     sigLine: '2 fights · Thapae Stadium',
@@ -167,7 +167,7 @@ const guestFighters = [
   },
   {
     name: 'Mike Donovan',
-    flag: flagOf('AU'),
+    countryCode: 'AU',
     year: 2023,
     quote: 'Five fights in six months. This family pushed me further than I thought possible.',
     sigLine: '5 fights · Kalare Stadium · Thapae Stadium',
@@ -178,7 +178,7 @@ const guestFighters = [
   {
     name: 'Yuki Tanaka',
     fightName: 'Tora',
-    flag: flagOf('JP'),
+    countryCode: 'JP',
     year: 2025,
     quote: 'My first fight ever, at 34. Best night of my life.',
     sigLine: '1 fight · Loi Kroh Stadium',

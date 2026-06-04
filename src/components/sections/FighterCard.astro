@@ -7,13 +7,16 @@
  * Thapae Stadium »), pré-composée par la page. Sans photo → initiales +
  * tigre en filigrane. Labels et drapeaux pré-résolus par la page (i18n).
  */
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
 import AchievementStamp from '../ui/AchievementStamp.astro';
 import { initialsOf, seedRot } from '../../lib/guestbook';
 
 export interface Props {
   name: string;
   fightName?: string;
-  flag?: string;
+  /** ISO alpha-2 → drapeau SVG (flag-icons) inliné au build, rendu identique partout. */
+  countryCode?: string;
   year?: number;
   quote?: string;
   photo?: { src: string; alt: string };
@@ -22,12 +25,26 @@ export interface Props {
   /** Label a11y de la liste des achievements (« Achievements » / « Tampons »). */
   achListLabel: string;
 }
-const { name, fightName, flag, year, quote, photo, achievements = [], sigLine, achListLabel } = Astro.props;
+const { name, fightName, countryCode, year, quote, photo, achievements = [], sigLine, achListLabel } =
+  Astro.props;
 
 const rot = seedRot(name, 3);
 const stamps = achievements.slice(0, 3); // au-delà ça dévalue chaque tampon
-const caption = [name, flag, year != null ? `· ${year}` : null].filter(Boolean).join(' ');
 const signature = [`— ${fightName ?? name.split(/\s+/)[0]}`, sigLine].filter(Boolean).join(' · ');
+
+// Drapeau SVG inliné au build (pages prerendered only) — l'emoji drapeau ne
+// rend pas sur Chrome/Windows, le SVG flag-icons est uniforme partout.
+let flagSvg: string | undefined;
+if (countryCode) {
+  try {
+    flagSvg = await readFile(
+      path.resolve(process.cwd(), 'node_modules/flag-icons/flags/4x3', `${countryCode.toLowerCase()}.svg`),
+      'utf8',
+    );
+  } catch {
+    flagSvg = undefined; // code inconnu → caption sans drapeau
+  }
+}
 ---
 
 <article class="fighter" style={`--rot:${rot}deg`}>
@@ -44,7 +61,11 @@ const signature = [`— ${fightName ?? name.split(/\s+/)[0]}`, sigLine].filter(B
         )
       }
     </div>
-    <div class="cap">{caption}</div>
+    <div class="cap">
+      {name}
+      {flagSvg && <span class="cap-flag" role="img" aria-label={countryCode} set:html={flagSvg} />}
+      {year != null && <span> · {year}</span>}
+    </div>
     {
       stamps.length > 0 && (
         <div class="stamps" aria-hidden="true">
@@ -145,6 +166,17 @@ const signature = [`— ${fightName ?? name.split(/\s+/)[0]}`, sigLine].filter(B
     font-variation-settings: 'opsz' 30;
     font-size: 18px;
     color: var(--ink);
+  }
+  .cap-flag {
+    display: inline-block;
+    margin-left: 2px;
+  }
+  .cap-flag :global(svg) {
+    width: 21px;
+    height: auto;
+    border-radius: 2px;
+    vertical-align: -2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
   }
 
   .stamps {
