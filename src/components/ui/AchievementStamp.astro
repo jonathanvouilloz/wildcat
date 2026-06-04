@@ -40,7 +40,7 @@ const STAMP_ASSETS: Record<string, string | null> = {
   'five-fights': null,
   'zero-to-hero': null,
   'title-belt': null,
-  'main-event': null,
+  'main-event': '/assets/stamps/stamp-main-event.webp',
   'round-two': null,
   'long-stay': null,
   'family-og': null,
@@ -56,8 +56,7 @@ const ink = INKS[value] ?? 'var(--forest)';
       class="ach-stamp ach-stamp--img"
       src={asset}
       alt=""
-      width={104}
-      height={104}
+      height={56}
       loading="lazy"
       aria-hidden="true"
       style={`--rot:${rot}deg`}
@@ -110,15 +109,17 @@ const ink = INKS[value] ?? 'var(--forest)';
     font-weight: 800;
   }
 
-  /* Asset encre : fond blanc mangé par multiply, pas de cadre CSS */
+  /* Asset encre : fond blanc mangé par multiply, pas de cadre CSS.
+     Crops serrés aux ratios variables → normalisation par la hauteur
+     (même poids visuel que le fallback CSS ~56px). */
   .ach-stamp--img {
     padding: 0;
     border: 0;
     background: transparent;
     box-shadow: none;
     mix-blend-mode: multiply;
-    width: 104px;
-    height: auto;
+    height: 56px;
+    width: auto;
   }
   .ach-stamp--img::after {
     display: none;
