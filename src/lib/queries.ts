@@ -10,17 +10,17 @@ export const COACHES_QUERY = defineQuery(`
   }
 `);
 
-/** Fighters mis en avant (livre d'or / fight team). */
+/** Fighters mis en avant (livre d'or / home future). */
 export const FEATURED_FIGHTERS_QUERY = defineQuery(`
-  *[_type == "fighter" && featured == true] | order(name asc) {
-    _id, name, slug, photo, nationality, status, fights, wins, losses, bio
+  *[_type == "fighter" && featured == true] | order(year desc, name asc) {
+    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements
   }
 `);
 
-/** Tous les fighters, current d'abord. */
+/** Tout le livre d'or, passages récents d'abord. */
 export const FIGHTERS_QUERY = defineQuery(`
-  *[_type == "fighter"] | order(status asc, name asc) {
-    _id, name, slug, photo, nationality, status, fights, wins, losses, bio, featured
+  *[_type == "fighter"] | order(year desc, name asc) {
+    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements, featured
   }
 `);
 

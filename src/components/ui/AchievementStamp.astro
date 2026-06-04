@@ -1,0 +1,126 @@
+---
+/**
+ * AchievementStamp — tampon achievement du livre d'or fighters.
+ * Rendu CSS « fond papier » (bordure double, encre par valeur, kicker
+ * WILDCAT · CNX) tant que l'asset encre n'existe pas ; dès qu'un webp est
+ * livré dans public/assets/stamps/, remplir STAMP_ASSETS → <img> en
+ * mix-blend multiply (le fond blanc disparaît sur le papier).
+ * Décoratif (aria-hidden) : le label accessible est porté par la liste
+ * sr-only de FighterCard. Rotation seedée passée par la carte (prop rot).
+ */
+import type { AchievementValue } from '../../lib/guestbook';
+
+export interface Props {
+  value: AchievementValue | string;
+  label: string;
+  rot?: number;
+}
+const { value, label, rot = -3 } = Astro.props;
+
+// Encres : gold = jalons personnels · forest = camp & constance · terracotta = exploits ring.
+const INKS: Record<string, string> = {
+  'first-fight': 'var(--gold-deep)',
+  'zero-to-hero': 'var(--gold-deep)',
+  'title-belt': 'var(--gold-deep)',
+  'family-og': 'var(--gold-deep)',
+  'stadium-win': 'var(--forest)',
+  'five-fights': 'var(--forest)',
+  'long-stay': 'var(--forest)',
+  'round-two': 'var(--forest)',
+  'ko-win': 'var(--orange)',
+  'main-event': 'var(--orange)',
+};
+
+// Assets encre générés (fond blanc #FFF, rendus en multiply). Remplir à
+// réception : 'first-fight': '/assets/stamps/stamp-first-fight.webp', …
+const STAMP_ASSETS: Record<string, string | null> = {
+  'first-fight': null,
+  'stadium-win': null,
+  'ko-win': null,
+  'five-fights': null,
+  'zero-to-hero': null,
+  'title-belt': null,
+  'main-event': null,
+  'round-two': null,
+  'long-stay': null,
+  'family-og': null,
+};
+
+const asset = STAMP_ASSETS[value] ?? null;
+const ink = INKS[value] ?? 'var(--forest)';
+---
+
+{
+  asset ? (
+    <img
+      class="ach-stamp ach-stamp--img"
+      src={asset}
+      alt=""
+      width={104}
+      height={104}
+      loading="lazy"
+      aria-hidden="true"
+      style={`--rot:${rot}deg`}
+    />
+  ) : (
+    <span class="ach-stamp" aria-hidden="true" style={`--rot:${rot}deg; --ink:${ink}`}>
+      <small>Wildcat · CNX</small>
+      <b>{label}</b>
+      <small>Chiang Mai</small>
+    </span>
+  )
+}
+
+<style>
+  .ach-stamp {
+    --ink: var(--forest);
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 7px 13px 6px;
+    border: 2px solid var(--ink);
+    border-radius: 7px;
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+    transform: rotate(var(--rot, -3deg));
+    font-family: ui-monospace, monospace;
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .ach-stamp::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border: 1px solid var(--ink);
+    border-radius: 4px;
+    pointer-events: none;
+  }
+  .ach-stamp small {
+    font-size: 7.5px;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+  }
+  .ach-stamp b {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+  }
+
+  /* Asset encre : fond blanc mangé par multiply, pas de cadre CSS */
+  .ach-stamp--img {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    mix-blend-mode: multiply;
+    width: 104px;
+    height: auto;
+  }
+  .ach-stamp--img::after {
+    display: none;
+  }
+</style>

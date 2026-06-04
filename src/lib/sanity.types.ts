@@ -75,6 +75,7 @@ export type Fighter = {
   _rev: string;
   name?: string;
   slug?: Slug;
+  fightName?: string;
   photo?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
@@ -83,12 +84,12 @@ export type Fighter = {
     alt?: string;
     _type: "image";
   };
-  nationality?: string;
-  status?: "current" | "alumni";
+  countryCode?: string;
+  year?: number;
   fights?: number;
-  wins?: number;
-  losses?: number;
-  bio?: LocaleText;
+  venues?: Array<string>;
+  quote?: LocaleString;
+  achievements?: Array<string>;
   featured?: boolean;
 };
 
@@ -389,7 +390,7 @@ export type COACHES_QUERY_RESULT = Array<{
 
 // Source: src/lib/queries.ts
 // Variable: FEATURED_FIGHTERS_QUERY
-// Query: *[_type == "fighter" && featured == true] | order(name asc) {    _id, name, slug, photo, nationality, status, fights, wins, losses, bio  }
+// Query: *[_type == "fighter" && featured == true] | order(year desc, name asc) {    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements  }
 export type FEATURED_FIGHTERS_QUERY_RESULT = Array<{
   _id: string;
   name: string | null;
@@ -402,17 +403,18 @@ export type FEATURED_FIGHTERS_QUERY_RESULT = Array<{
     alt?: string;
     _type: "image";
   } | null;
-  nationality: string | null;
-  status: "alumni" | "current" | null;
+  fightName: string | null;
+  countryCode: string | null;
+  year: number | null;
   fights: number | null;
-  wins: number | null;
-  losses: number | null;
-  bio: LocaleText | null;
+  venues: Array<string> | null;
+  quote: LocaleString | null;
+  achievements: Array<string> | null;
 }>;
 
 // Source: src/lib/queries.ts
 // Variable: FIGHTERS_QUERY
-// Query: *[_type == "fighter"] | order(status asc, name asc) {    _id, name, slug, photo, nationality, status, fights, wins, losses, bio, featured  }
+// Query: *[_type == "fighter"] | order(year desc, name asc) {    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements, featured  }
 export type FIGHTERS_QUERY_RESULT = Array<{
   _id: string;
   name: string | null;
@@ -425,12 +427,13 @@ export type FIGHTERS_QUERY_RESULT = Array<{
     alt?: string;
     _type: "image";
   } | null;
-  nationality: string | null;
-  status: "alumni" | "current" | null;
+  fightName: string | null;
+  countryCode: string | null;
+  year: number | null;
   fights: number | null;
-  wins: number | null;
-  losses: number | null;
-  bio: LocaleText | null;
+  venues: Array<string> | null;
+  quote: LocaleString | null;
+  achievements: Array<string> | null;
   featured: boolean | null;
 }>;
 
@@ -569,8 +572,8 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     '\n  *[_type == "coach"] | order(order asc) {\n    _id, name, slug, photo, role, bio, featured, order\n  }\n': COACHES_QUERY_RESULT;
-    '\n  *[_type == "fighter" && featured == true] | order(name asc) {\n    _id, name, slug, photo, nationality, status, fights, wins, losses, bio\n  }\n': FEATURED_FIGHTERS_QUERY_RESULT;
-    '\n  *[_type == "fighter"] | order(status asc, name asc) {\n    _id, name, slug, photo, nationality, status, fights, wins, losses, bio, featured\n  }\n': FIGHTERS_QUERY_RESULT;
+    '\n  *[_type == "fighter" && featured == true] | order(year desc, name asc) {\n    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements\n  }\n': FEATURED_FIGHTERS_QUERY_RESULT;
+    '\n  *[_type == "fighter"] | order(year desc, name asc) {\n    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements, featured\n  }\n': FIGHTERS_QUERY_RESULT;
     '\n  *[_type == "testimonial" && featured == true && ($service == null || service == $service)] {\n    _id, name, country, service, content, rating\n  }\n': FEATURED_TESTIMONIALS_QUERY_RESULT;
     '\n  *[_type == "trainingSchedule"] | order(order asc) {\n    _id, day, timeSlots, level, notes, order\n  }\n': SCHEDULE_QUERY_RESULT;
     '\n  *[_type == "blogPost" && language == $lang && defined(publishedAt)] | order(publishedAt desc) {\n    _id, title, slug, mainImage, seoDescription, publishedAt,\n    category->{ _id, name, slug }\n  }\n': BLOG_POSTS_BY_LANG_QUERY_RESULT;
