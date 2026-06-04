@@ -1,5 +1,6 @@
 # Pipeline assets stamps du livre d'or : trim du blanc (bbox de l'encre + marge),
-# conversion blanc -> alpha (unmultiply : seule l'encre subsiste, en RGBA),
+# decoupe "die-cut" (exterieur transparent, TOUT l'interieur du tampon opaque —
+# les fonds interieurs cream/vert pale font partie du design et sont conserves),
 # resize hauteur max, export webp -> public/assets/stamps/stamp-{slug}.webp.
 # Le rendu carte ajoute un halo blanc (drop-shadow) pour la lisibilite sur photo.
 # Usage : python tests/process-stamp.py "<input>" <slug>
@@ -7,7 +8,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFilter
 
 # L'encre est rendue a ~56px de haut ; 240px = marge retina x4 confortable.
 MAX_HEIGHT = 240
@@ -26,18 +27,61 @@ def flatten_on_white(img: Image.Image) -> Image.Image:
     return img.convert("RGB")
 
 
-def white_to_alpha(img: Image.Image) -> Image.Image:
-    """Unmultiply depuis un fond blanc : alpha = 1 - min(R,G,B)/255,
-    couleur = (C - (1-a)*255) / a. Composite sur blanc == source exacte ;
-    sur fond sombre, seule l'encre apparait (vrai tampon)."""
-    arr = np.asarray(img, dtype=np.float64) / 255.0
-    alpha = 1.0 - arr.min(axis=2)
-    safe = np.maximum(alpha, 1e-6)[..., None]
-    color = (arr - (1.0 - alpha[..., None])) / safe
-    color = np.clip(color, 0.0, 1.0)
-    color[alpha < 1e-3] = 0.0
-    out = np.dstack([color, alpha[..., None]])
-    return Image.fromarray((out * 255.0 + 0.5).astype(np.uint8), "RGBA")
+def _spread(mask: np.ndarray) -> np.ndarray:
+    """Dilatation binaire 4-connexe d'1 pixel (numpy pur)."""
+    return (
+        mask
+        | np.roll(mask, 1, 0)
+        | np.roll(mask, -1, 0)
+        | np.roll(mask, 1, 1)
+        | np.roll(mask, -1, 1)
+    )
+
+
+def die_cut_alpha(img: Image.Image) -> Image.Image:
+    """Decoupe die-cut : flood du blanc exterieur depuis les bords de l'image,
+    tout le reste (bordure + fond interieur clair + texture) reste opaque.
+    Les fonds interieurs (cream, vert pale) sont conserves tels quels."""
+    arr = np.asarray(img, dtype=np.uint8)
+    ink = arr.min(axis=2) < 252  # tout pixel non quasi-blanc
+
+    # Ferme les trous d'encre de la bordure (texture tamponnee) pour que le
+    # flood exterieur ne fuie pas a l'interieur du tampon.
+    wall = ink
+    for _ in range(2):
+        wall = _spread(wall)
+    background = ~wall
+
+    # Flood de l'exterieur : graines = pixels de fond touchant les bords
+    ext = np.zeros_like(background)
+    ext[0, :] = background[0, :]
+    ext[-1, :] = background[-1, :]
+    ext[:, 0] |= background[:, 0]
+    ext[:, -1] |= background[:, -1]
+    while True:
+        grown = _spread(ext) & background
+        grown |= ext
+        if np.array_equal(grown, ext):
+            break
+        ext = grown
+
+    inside = ~ext
+    # Compense la dilatation du mur (sinon 2px de frange blanche autour)
+    for _ in range(2):
+        inside = (
+            inside
+            & np.roll(inside, 1, 0)
+            & np.roll(inside, -1, 0)
+            & np.roll(inside, 1, 1)
+            & np.roll(inside, -1, 1)
+        )
+
+    alpha = Image.fromarray((inside * 255).astype(np.uint8), "L").filter(
+        ImageFilter.GaussianBlur(0.8)
+    )
+    out = img.convert("RGBA")
+    out.putalpha(alpha)
+    return out
 
 
 def process(src: Path, slug: str) -> Path:
@@ -64,7 +108,7 @@ def process(src: Path, slug: str) -> Path:
         ratio = MAX_HEIGHT / img.height
         img = img.resize((round(img.width * ratio), MAX_HEIGHT), Image.LANCZOS)
 
-    img = white_to_alpha(img)
+    img = die_cut_alpha(img)
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out = OUT_DIR / f"stamp-{slug}.webp"
