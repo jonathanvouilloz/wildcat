@@ -62,8 +62,8 @@ if (countryCode) {
       }
     </div>
     <div class="cap">
-      {name}
       {flagSvg && <span class="cap-flag" role="img" aria-label={countryCode} set:html={flagSvg} />}
+      {name}
       {year != null && <span> · {year}</span>}
     </div>
     {
@@ -169,7 +169,7 @@ if (countryCode) {
   }
   .cap-flag {
     display: inline-block;
-    margin-left: 2px;
+    margin-right: 2px;
   }
   .cap-flag :global(svg) {
     width: 21px;
