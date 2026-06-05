@@ -4,7 +4,8 @@ import BrushSeparator from '../../assets/separator-green.svg';
 
 /**
  * Hero — hero principal de la home (direction A validée sur /styleguide).
- * Photo équipe full-bleed + overlay forest-deep (jamais de noir) + voile gold,
+ * Photo équipe full-bleed + overlay charcoal (validé 2026-06-05 : le noir rend
+ * mieux que le vert sur les photos — "sinon ça fait trop green partout") + voile gold,
  * lockup signature en H1 centré, metas ◆ en bandeau, brush intégré qui mord
  * le bas de la photo (la section suivante doit être forest — ValueStrip).
  * Toutes les strings arrivent traduites en props (la page appelle m.*()).
@@ -83,7 +84,7 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
     object-position: center 60%;
     z-index: 0;
   }
-  /* overlay : voile gold (réchauffe) + gradient forest-deep (lisibilité) */
+  /* overlay : voile gold (réchauffe) + gradient charcoal (lisibilité) */
   .hero::after {
     content: '';
     position: absolute;
@@ -93,10 +94,10 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
       linear-gradient(rgba(224, 166, 43, 0.06), rgba(224, 166, 43, 0.06)),
       linear-gradient(
         180deg,
-        rgba(33, 66, 44, 0.55) 0%,
-        rgba(33, 66, 44, 0.26) 26%,
-        rgba(33, 66, 44, 0.58) 54%,
-        rgba(33, 66, 44, 0.95) 100%
+        rgba(17, 17, 17, 0.6) 0%,
+        rgba(17, 17, 17, 0.32) 26%,
+        rgba(17, 17, 17, 0.65) 54%,
+        rgba(17, 17, 17, 0.92) 100%
       );
   }
 

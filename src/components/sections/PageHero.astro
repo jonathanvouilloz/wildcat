@@ -85,7 +85,7 @@ const onDark = dark || !!image;
         {eyebrow && <p class="ph-eyebrow"><span class="em on-dark">{eyebrow}</span></p>}
         <h1 class="h1">
           {title}
-          {titleEm && <span class:list={['em', onDark && 'on-dark']}>{titleEm}</span>}{
+          {titleEm && ' '}{titleEm && <span class:list={['em', onDark && 'on-dark']}>{titleEm}</span>}{
             titleAfter && ` ${titleAfter}`
           }
         </h1>
@@ -186,7 +186,8 @@ const onDark = dark || !!image;
     object-fit: cover;
     z-index: 0;
   }
-  /* overlay type A : voile gold (réchauffe) + gradient vertical forest-deep */
+  /* overlay type A : voile gold (réchauffe) + gradient vertical charcoal
+     (aligné sur le hero home — validé 2026-06-05, le noir rend mieux que le vert) */
   .page-hero--photo::after {
     content: '';
     position: absolute;
@@ -196,10 +197,10 @@ const onDark = dark || !!image;
       linear-gradient(rgba(224, 166, 43, 0.06), rgba(224, 166, 43, 0.06)),
       linear-gradient(
         180deg,
-        rgba(33, 66, 44, 0.55) 0%,
-        rgba(33, 66, 44, 0.26) 26%,
-        rgba(33, 66, 44, 0.58) 54%,
-        rgba(33, 66, 44, 0.95) 100%
+        rgba(17, 17, 17, 0.6) 0%,
+        rgba(17, 17, 17, 0.32) 26%,
+        rgba(17, 17, 17, 0.65) 54%,
+        rgba(17, 17, 17, 0.92) 100%
       );
   }
   .page-hero--photo :global(.wc-container) {
