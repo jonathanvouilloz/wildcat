@@ -1,0 +1,246 @@
+{
+  "topic": "scooter rental chiang mai",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-05T08:00:36Z",
+  "primary": {
+    "keyword": "scooter rental chiang mai",
+    "search_volume": 210,
+    "cpc": 0.89,
+    "competition": "LOW",
+    "competition_index": 19,
+    "difficulty": 24,
+    "intent": "transactional",
+    "intent_probability": 0.9944
+  },
+  "secondaries": [
+    {
+      "keyword": "scooter rental chiang mai price",
+      "search_volume": 50,
+      "cpc": 0.96,
+      "competition": "LOW",
+      "competition_index": 21
+    },
+    {
+      "keyword": "mango scooter rental chiang mai",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "scooter rental chiang mai to pai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "mango scooter rental chiang mai photos",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "best scooter rental chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "monthly scooter rental chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "aa scooter rental chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "mango scooter rental chiang mai reviews",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "scooter rental in chiang mai",
+      "search_volume": 210,
+      "cpc": 0.89,
+      "competition": "LOW",
+      "competition_index": 19
+    },
+    {
+      "keyword": "chiang mai scooter rental",
+      "search_volume": 210,
+      "cpc": 0.89,
+      "competition": "LOW",
+      "competition_index": 19
+    },
+    {
+      "keyword": "rental scooter chiang mai",
+      "search_volume": 210,
+      "cpc": 0.89,
+      "competition": "LOW",
+      "competition_index": 19
+    },
+    {
+      "keyword": "chiang mai scooter rental price",
+      "search_volume": 50,
+      "cpc": 0.96,
+      "competition": "LOW",
+      "competition_index": 21
+    },
+    {
+      "keyword": "chiang mai big bike rental",
+      "search_volume": 20,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "big bike rental chiang mai",
+      "search_volume": 20,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "cat motors motorbike & scooter rental in chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "pop scooter rental chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 28
+    },
+    {
+      "keyword": "cat scooter rental chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "cheapest scooter rental chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "scooter rental chiang mai airport",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "cheap scooter rental chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "chiang mai to pai scooter rental",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "electric scooter rental chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "scooter rental chiang mai reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "related": [
+    {
+      "keyword": "aya scooter rental chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "scooter rental chiang rai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "best motorbike rental chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai motorbike rental monthly",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "mango bike rental chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "motorbike rental chiang mai airport",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "scooter rental in chiang mai",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "chiang mai scooter rental",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "rental scooter chiang mai",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

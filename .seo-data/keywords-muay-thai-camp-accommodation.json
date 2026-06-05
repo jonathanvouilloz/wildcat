@@ -1,0 +1,37 @@
+{
+  "topic": "muay thai camp accommodation",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-05T08:00:29Z",
+  "primary": {
+    "keyword": "muay thai camp accommodation",
+    "search_volume": 0,
+    "cpc": 0,
+    "competition": null,
+    "competition_index": null,
+    "difficulty": null,
+    "intent": "transactional",
+    "intent_probability": 0.5469
+  },
+  "secondaries": [
+    {
+      "keyword": "lamai muay thai camp accommodation",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "muay thai training camp with accommodation",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 14
+    }
+  ],
+  "related": [],
+  "quick_wins": []
+}

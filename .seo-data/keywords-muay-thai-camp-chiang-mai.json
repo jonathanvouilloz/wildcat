@@ -1,0 +1,223 @@
+{
+  "topic": "muay thai camp chiang mai",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-05T08:00:24Z",
+  "primary": {
+    "keyword": "muay thai camp chiang mai",
+    "search_volume": 70,
+    "cpc": 2.89,
+    "competition": "LOW",
+    "competition_index": 15,
+    "difficulty": 28,
+    "intent": "transactional",
+    "intent_probability": 0.7078
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "tiger muay thai location",
+      "search_volume": 4400,
+      "cpc": 1.28,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "tiger muay thai",
+      "search_volume": 4400,
+      "cpc": 1.28,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "tiger muay thai phuket",
+      "search_volume": 590,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "lanna muay thai",
+      "search_volume": 260,
+      "cpc": 0.32,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "dang muay thai",
+      "search_volume": 170,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "all inclusive muay thai camps in thailand",
+      "search_volume": 140,
+      "cpc": 0.67,
+      "competition": "LOW",
+      "competition_index": 21
+    },
+    {
+      "keyword": "chiang mai muay thai camp",
+      "search_volume": 70,
+      "cpc": 2.89,
+      "competition": "LOW",
+      "competition_index": 15
+    },
+    {
+      "keyword": "tiger muay thai chiang mai",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "best muay thai camps in thailand",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "best muay thai gym chiang mai",
+      "search_volume": 40,
+      "cpc": 0.3,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "boon lanna muay thai",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "tiger muay thai bangkok",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "thailand muay thai camp packages",
+      "search_volume": 30,
+      "cpc": 1.13,
+      "competition": "LOW",
+      "competition_index": 22
+    },
+    {
+      "keyword": "the camp chiang mai",
+      "search_volume": 20,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 12
+    },
+    {
+      "keyword": "tiger muay thai prices",
+      "search_volume": 20,
+      "cpc": 2.66,
+      "competition": "LOW",
+      "competition_index": 2
+    }
+  ],
+  "related": [
+    {
+      "keyword": "the camp muay thai chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "the camp chiang mai muay thai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 14
+    },
+    {
+      "keyword": "muay thai training camp chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "camp muay thai chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "MEDIUM",
+      "competition_index": 37
+    },
+    {
+      "keyword": "chiang mai muay thai gym prices",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "boon lanna chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai muay thai beginner",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "tiger muay thai chiang mai reviews",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "tiger muay thai accommodation",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "cheap all inclusive muay thai camps in thailand",
+      "search_volume": 10,
+      "cpc": 1.58,
+      "competition": "LOW",
+      "competition_index": 18
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "tiger muay thai location",
+      "search_volume": 4400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "tiger muay thai",
+      "search_volume": 4400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "tiger muay thai phuket",
+      "search_volume": 590,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "lanna muay thai",
+      "search_volume": 260,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

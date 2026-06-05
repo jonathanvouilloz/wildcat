@@ -1,0 +1,247 @@
+{
+  "keyword": "camp muay thai thailande",
+  "location": "France",
+  "scanned_at": "2026-06-05",
+  "sample_size": 9,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.rawaimuaythai.com/camp-de-muay-thai-en-thailande/",
+      "title": "Camp de Muay Thai en Thailande | Rawai Muay Thai",
+      "page_type": "service",
+      "competitor_type": "camp",
+      "covers": [
+        "page d'un vrai camp en français (camp = auteur)",
+        "prix transparents en THB (3000 B/sem cours groupe, 10000 B/mois)",
+        "hébergement, restaurant, location moto, massage, transferts aéroport",
+        "fondé en 2003 (ancienneté = signal d'autorité)",
+        "accueille débutants à pros, page multilingue (FR/TH/ES/IT/DE)"
+      ],
+      "missing": [
+        "localisation = Khao Lak (sud), pas Chiang Mai ni Phuket",
+        "aucun témoignage client / avis",
+        "ne se positionne pas sur l'angle Chiang Mai ni sur 'familial' explicite",
+        "pas de comparatif régions, pas de guide débutant/coût d'un séjour complet",
+        "français traduit, pas d'équipe réellement francophone mise en avant"
+      ],
+      "eeat_signals": [
+        "camp réel établi depuis 2003",
+        "photos nombreuses des installations et classes",
+        "certificat coach signé par le gym",
+        "page directement publiée par l'exploitant (réservation directe)"
+      ]
+    },
+    {
+      "rank": 2,
+      "url": "https://poing-boxe.fr/meilleurs-camps-muay-thai/",
+      "title": "Les Meilleurs Camps de Muay Thai en Thaïlande : Où S'entraîner ? - Le Poing Boxe",
+      "page_type": "listicle",
+      "competitor_type": "éditorial",
+      "covers": [
+        "Top 10 camps classés (Phuket x5, Chiang Mai x2, Bangkok x2, Samui, Phangan)",
+        "Lanna Muay Thai (Chiang Mai) cité en #2",
+        "prix de référence convertis EUR (~3€/session, 450-600€/mois intensif)",
+        "critères de sélection, à quoi s'attendre, coûts",
+        "mentions débutants (patience, tous niveaux) pour plusieurs camps"
+      ],
+      "missing": [
+        "aucune mention familles (cadré solo / femmes voyageant seules)",
+        "auteur non identifié, crédibilité E-E-A-T faible",
+        "CTA pousse vers le coaching payant de l'auteur (Nice) — conflit d'intérêt",
+        "pas de réservation directe d'un camp, juste une liste",
+        "aucun avis daté ni témoignage attribué"
+      ],
+      "eeat_signals": [
+        "blog daté (10/02/2026)",
+        "images produit par camp",
+        "ton 'expérience perso' non vérifiable",
+        "pas de credentials auteur"
+      ]
+    },
+    {
+      "rank": 3,
+      "url": "https://odysway.com/voyages/stage-boxe-thai-nord-thailande",
+      "title": "Stage boxe thaï en immersion dans le nord de la Thaïlande",
+      "page_type": "booking-platform",
+      "competitor_type": "agence-voyage",
+      "covers": [
+        "formule tout-inclus packagée (15j/14n) à partir de 770€/pers",
+        "destination Pai (nord), accès via Chiang Mai, transferts organisés",
+        "2 entraînements/jour lun-sam, matériel + short fournis, hébergement AC",
+        "débutants et femmes explicitement welcome, tarif accompagnateur",
+        "FAQ, détail du prix, accompagnateurs (coach Bee, 300+ combats)"
+      ],
+      "missing": [
+        "prix élevé avec marge d'agence (intermédiaire entre client et camp)",
+        "petits-déjeuners/dîners et vols non inclus",
+        "pas de réservation directe au camp",
+        "Chiang Mai = simple point de transit, pas la destination",
+        "expérience cadrée 'voyage organisé' pas 'vie au camp en autonomie'"
+      ],
+      "eeat_signals": [
+        "agence FR identifiée (Romain, fondateur Odysway)",
+        "note 4,9/5 (16 avis)",
+        "inscription France Diplomatie, partenariat camp établi",
+        "assistance continue WhatsApp/email/téléphone",
+        "fondateur ayant visité le site"
+      ]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.francothai.fr/infos-pratiques/camp-muay-thai-thailande/",
+      "title": "Camp muay thai Thaïlande : guide 2026 (Phuket, Chiang Mai, Bangkok)",
+      "page_type": "blog",
+      "competitor_type": "éditorial",
+      "covers": [
+        "guide comparatif des 3 grandes régions (Phuket, Chiang Mai, Bangkok)",
+        "fourchettes de prix (8000-25000 THB/sem selon camp/hébergement)",
+        "profils de voyageurs par destination",
+        "tous niveaux débutants à compétiteurs"
+      ],
+      "missing": [
+        "éditorial généraliste, pas un camp réservable",
+        "pas d'angle familial ni francophone réel",
+        "auteur expat/éditeur, pas de coach sur place"
+      ],
+      "eeat_signals": [
+        "média francophone d'expatriés (FrancoThai)",
+        "guide daté 2026"
+      ]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.tripadvisor.com/Attractions-g293915-Activities-c61-t130-Thailand.html",
+      "title": "THE 15 BEST Thailand Sports Camps & Clinics (2026) - Tripadvisor",
+      "page_type": "booking-platform",
+      "competitor_type": "marketplace",
+      "covers": [
+        "agrégateur d'activités sportives avec avis",
+        "classement par notes utilisateurs"
+      ],
+      "missing": [
+        "page EN, pas FR (intent francophone mal servi)",
+        "aucune profondeur éditoriale ni angle camp spécifique",
+        "pas de focus muay thai ni Chiang Mai"
+      ],
+      "eeat_signals": [
+        "volume d'avis utilisateurs",
+        "marque de confiance Tripadvisor"
+      ]
+    },
+    {
+      "rank": 6,
+      "url": "https://www.tigermuaythai.com/",
+      "title": "Muay Thai, MMA & Fitness training Camp Phuket Thailand",
+      "page_type": "service",
+      "competitor_type": "camp",
+      "covers": [
+        "plus gros camp MMA/muay thai au monde (Phuket)",
+        "installations massives, ~12000 THB/sem",
+        "site officiel du camp (réservation directe)"
+      ],
+      "missing": [
+        "site en anglais, pas d'angle francophone",
+        "positionnement industriel/hardcore, opposé au familial",
+        "Phuket, pas Chiang Mai"
+      ],
+      "eeat_signals": [
+        "camp réel de très grande notoriété",
+        "site officiel exploitant"
+      ]
+    },
+    {
+      "rank": 7,
+      "url": "https://epicfitness.fr/camps-muay-thai-thailande/",
+      "title": "Muay-Thaï en Thaïlande : Guide 2025 pour un Camp Réussi",
+      "page_type": "blog",
+      "competitor_type": "éditorial",
+      "covers": [
+        "guide pratique 'réussir son camp' en français",
+        "conseils préparation, choix du camp, déroulé d'un séjour"
+      ],
+      "missing": [
+        "blog fitness FR, pas un camp réservable",
+        "pas d'angle familial/Chiang Mai dédié",
+        "daté 2025 (vieillissant)"
+      ],
+      "eeat_signals": [
+        "blog fitness francophone",
+        "ton conseil pratique"
+      ]
+    },
+    {
+      "rank": 8,
+      "url": "https://www.youtube.com/playlist?list=PLwSZmm73aOwVHRo-CgR2LN6gEbv3mdMVN",
+      "title": "🇹🇭 CAMP DE MUAY-THAI THAILANDE - YouTube",
+      "page_type": "other",
+      "competitor_type": "éditorial",
+      "covers": [
+        "playlist vidéo immersion camp (vlog FR)",
+        "contenu expérientiel visuel"
+      ],
+      "missing": [
+        "pas une page de service/réservation",
+        "pas de prix ni d'info structurée"
+      ],
+      "eeat_signals": [
+        "preuve visuelle / immersion vidéo (vlogger)"
+      ]
+    },
+    {
+      "rank": 9,
+      "url": "https://www.chiangmai-news.com/camps-entrainement-muay-thai-boxe-thailandaise/",
+      "title": "Les Camps d'Entrainement au Muay Thai/Boxe Thaïlandaise",
+      "page_type": "blog",
+      "competitor_type": "éditorial",
+      "covers": [
+        "éditorial FR centré Chiang Mai (média local francophone)",
+        "présentation de camps d'entraînement du nord"
+      ],
+      "missing": [
+        "média/annuaire, pas un camp en propre",
+        "pas de réservation directe ni d'angle familial fort"
+      ],
+      "eeat_signals": [
+        "média francophone ancré à Chiang Mai",
+        "connaissance locale"
+      ]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Combien coûte un camp de muay thai en Thaïlande ?",
+      "Quel est le meilleur camp de muay thai en Thaïlande ?",
+      "Où s'entraîner au muay thai en Thaïlande (Phuket, Chiang Mai ou Bangkok) ?",
+      "Peut-on faire un camp de muay thai en tant que débutant ?",
+      "Combien de temps rester pour un stage de muay thai ?",
+      "Faut-il un visa pour s'entraîner au muay thai en Thaïlande ?"
+    ],
+    "featured_snippet": "Fourchette de prix d'un camp (8 000 à 25 000 THB/semaine selon camp et hébergement) — extrait des guides éditoriaux (FrancoThai / Le Poing Boxe).",
+    "image_pack": true,
+    "video": true
+  },
+  "intent_signal": "Intent commercial/recherche dominant : l'internaute français compare des camps avant de réserver un séjour d'entraînement (souvent 1 sem à 1 mois). Mélange de requêtes 'meilleur camp / où s'entraîner' (commercial investigation) et 'combien ça coûte / comment ça se passe' (informationnel pré-achat). La SERP est dominée par des éditoriaux/listicles FR et des agences de voyage ; peu de camps réels classés en français — et aucun ne possède l'angle 'camp familial + équipe qui parle vraiment français + Chiang Mai + réservation directe'.",
+  "common_ground": [
+    "Fourchettes de prix d'un camp (souvent converties EUR ou données en THB)",
+    "Comparatif des régions Phuket vs Chiang Mai vs Bangkok (parfois Pai/Samui)",
+    "Accueil débutants annoncé (mais rarement détaillé concrètement)",
+    "Déroulé type d'une journée : 2 sessions/jour, matin + après-midi",
+    "Hébergement sur place ou à proximité, location moto, restauration",
+    "Durées de séjour (semaine / mois) et notion de séjour immersif"
+  ],
+  "gap": {
+    "description": "Aucun résultat ne combine (a) un camp RÉEL réservable en direct, (b) un angle 'familial / accueillant / open-air' explicite, (c) une équipe qui parle réellement français (pas juste une page traduite), (d) un ancrage Chiang Mai assumé, et (e) des prix transparents sans marge d'agence. Le top FR est soit des listicles éditoriaux sans réservation (Le Poing Boxe, FrancoThai, epicfitness), soit des agences de voyage qui packagent avec une marge (Odysway 770€ pour Pai), soit des camps en anglais ou hors Chiang Mai (Tiger=Phuket, Rawai=Khao Lak). La niche 'camp muay thai thailande français' (70-80/mo) est quasi vierge : personne ne possède réellement le claim 'on vous accueille en français'.",
+    "opportunity_score": 8
+  },
+  "weakness": [
+    "Listicles (Le Poing Boxe, FrancoThai, epicfitness) : pas de réservation, E-E-A-T faible, auteurs non identifiés, parfois conflit d'intérêt (CTA coaching perso)",
+    "Agences de voyage (Odysway) : prix gonflé par la marge, intermédiation, Chiang Mai = simple transit vers Pai",
+    "Camps réels classés (Rawai, Tiger) : soit hors Chiang Mai (Khao Lak/Phuket), soit en anglais, soit positionnés gros/industriel — pas familial",
+    "Quasi aucun camp réel se positionne explicitement comme francophone ni familial",
+    "Tripadvisor en anglais : intent FR mal servi, zéro profondeur",
+    "Aucun ne traite la transparence prix THB réels + 'sans intermédiaire' comme argument"
+  ],
+  "recommended_angle": "Positionner la version FR de /stay-train comme LE camp francophone et familial de Chiang Mai : 'On vous accueille en français, vous réservez en direct (sans marge d'agence), au tarif réel en bahts.' Capitaliser sur Meaw Boonpradub (camp dirigé par une femme, esprit famille open-air), opposer Chiang Mai authentique au tourisme de Phuket/Bangkok, et rassurer les débutants/familles avec un déroulé concret + prix transparents, là où la SERP n'offre que des listicles sans réservation ou des agences qui prennent une commission.",
+  "serp_diff_stage_vs_camp": "Les deux SERPs se recouvrent largement (Rawai, Le Poing Boxe, Odysway, la playlist YouTube apparaissent dans les deux). Différence de nuance : 'stage muay thai thailande' fait remonter davantage d'agences/voyages organisés et de séjours datés à durée fixe (voyage-en-liberte, Odysway, muaythaitv 'du 19 au 28 août', histoiresdetongs 'stage 7 jours Bangkok', taekwondo77 'comment choisir son stage') — intent plus 'séjour packagé / événement encadré'. 'camp muay thai thailande' penche vers les camps eux-mêmes et les comparatifs/annuaires (Tiger, francothai guide régions, chiangmai-news) — intent plus 'choisir un lieu où s'entraîner en autonomie'. Pratique : viser 'camp' comme H1 principal, intégrer 'stage' en H2/variante sémantique pour couvrir l'intent séjour encadré sans créer de page séparée."
+}
