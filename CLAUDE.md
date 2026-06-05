@@ -28,6 +28,12 @@ npm run preview        # preview du build
 npm run sanity:types   # extract schéma + typegen → src/lib/sanity.types.ts (100% local)
 ```
 
+## Workflow dev — serveur & tests
+
+- **Un seul serveur dev, déjà actif** : Jonathan lance `npm run dev` (**http://localhost:4321**) en permanence à l'ouverture du projet. **Ne jamais lancer un nouveau serveur** (`npm run dev`, `npm run preview`, serveur statique…) — même avec plusieurs sessions/features en parallèle, toujours se baser sur ce serveur live. Pour les tests Playwright, le cibler via `WC_BASE=http://localhost:4321`.
+- **Pas de tests spontanés** : ne pas lancer Playwright, screenshots ou autres vérifications navigateur sans demande explicite. En cas de doute, demander d'abord : « Tu veux que je teste, ou tu vérifies toi-même sur ton serveur ? ». Exception : `npm run build` reste OK pour valider que ça compile.
+- Priorité au code et à la fonctionnalité — la vérification visuelle, c'est Jonathan qui la fait sur sa session live.
+
 ## Conventions de code
 
 - **Commits** : Conventional Commits (`feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `test:`, `chore:`) avec scope. Ex : `feat(dtv): add multi-step form stepper`.
