@@ -1,6 +1,11 @@
 ---
 title: "Burning season à Chiang Mai : le guide honnête pour s'entraîner"
 description: "Ce que la saison des brûlis change vraiment pour l'entraînement de muay thai à Chiang Mai — le calendrier honnête, nos adaptations, et les mois où l'air est excellent."
+tldr:
+  - "La burning season va de fin février à mi-avril environ — certains jours corrects, d'autres franchement mauvais."
+  - "Novembre à janvier = la fenêtre parfaite : air excellent, meilleurs mois d'entraînement de l'année."
+  - "Les jours de mauvais air, on décale les sessions plus tôt et le travail technique passe sous le ring couvert."
+  - "Vos dates tombent en mars ? Écrivez-nous d'abord — on vous dira honnêtement à quoi ressemble la semaine."
 publishDate: 2026-06-05
 category: chiang-mai-life
 cover: ../covers/burning-season-demo.webp

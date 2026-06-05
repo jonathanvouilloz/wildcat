@@ -1431,5 +1431,6 @@
   "blog_helpful_form_placeholder": "Dites-nous ce que vous cherchiez — on lit tout.",
   "blog_helpful_send": "Envoyer",
   "blog_helpful_sent": "Merci — ça nous aide à écrire de meilleurs guides.",
-  "footer_explore_blog": "Blog"
+  "footer_explore_blog": "Blog",
+  "blog_tldr_label": "L'essentiel"
 }

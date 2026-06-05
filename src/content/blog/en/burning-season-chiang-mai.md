@@ -1,6 +1,11 @@
 ---
 title: "Burning season in Chiang Mai: the honest guide for training"
 description: "What the smoky months really mean for muay thai training in Chiang Mai — the honest calendar, how we adapt sessions, and when the air is genuinely great."
+tldr:
+  - "Burning season runs roughly late February to mid-April — some days fine, some genuinely bad."
+  - "November to January is the sweet spot: excellent air, best training months of the year."
+  - "On bad-air days we shift sessions earlier and move technical work under the covered ring."
+  - "Dates falling in March? Message us first — we'll tell you honestly what the week looks like."
 publishDate: 2026-06-05
 category: chiang-mai-life
 cover: ../covers/burning-season-demo.webp

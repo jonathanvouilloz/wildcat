@@ -39,6 +39,12 @@ const blog = defineCollection({
       title: z.string(),
       /** Meta description SEO — ~150 car. max (audit /seo-review). */
       description: z.string().max(170),
+      /**
+       * TL;DR — 2 à 5 points à retenir, rendus en Callout brief (◆) sous la
+       * byline. REQUIS (décision 2026-06-06) : le pipeline /seo-write produit
+       * toujours un TLDR ; un article sans = erreur de build volontaire.
+       */
+      tldr: z.array(z.string()).min(2).max(5),
       publishDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       category: z.enum(BLOG_CATEGORIES),

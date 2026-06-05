@@ -1,6 +1,11 @@
 ---
 title: "Muay thai stance & basic moves, explained simply"
 description: "The four basics every first-timer learns at a Chiang Mai camp — stance, guard, footwork and the jab — and the mistakes coaches fix the most."
+tldr:
+  - "Everything starts from the stance: feet shoulder-width, weight 50/50, knees soft."
+  - "The classic beginner mistake is dropping the rear hand while jabbing — every coach fixes it daily."
+  - "Footwork before fists: step and slide, never cross your feet."
+  - "The jab is a measuring tool, not a weapon — power comes from the hips later."
 publishDate: 2026-05-09
 category: beginners
 draft: false

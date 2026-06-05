@@ -5,6 +5,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Section from '../../../components/layout/Section.astro';
 import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
 import SectionHead from '../../../components/ui/SectionHead.astro';
+import Callout from '../../../components/ui/Callout.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import BlogCard from '../../../components/blog/BlogCard.astro';
 import BlogToc from '../../../components/blog/BlogToc.astro';
@@ -194,6 +195,16 @@ const articleSchema = {
             }
           </p>
         </div>
+
+        <!-- TL;DR — les points à retenir (frontmatter, Callout brief stripe) -->
+        <Callout
+          variant="brief"
+          theme="stripe"
+          label={m.blog_tldr_label()}
+          facts={post.data.tldr}
+          class="tldr"
+        />
+
         <ShareButtons url={pageUrl} title={post.data.title} />
       </div>
     </header>
@@ -254,13 +265,18 @@ const articleSchema = {
 </BaseLayout>
 
 <style>
-  /* Header éditorial — colonne narrow centrée */
+  /* Header éditorial — aligné à GAUCHE sur la largeur Container (même bord
+     que le breadcrumb et la prose), colonne texte limitée à 760px. */
   .head {
+    max-width: var(--maxw);
+    margin: 0 auto;
     padding: clamp(28px, 4vw, 48px) var(--gutter) 0;
   }
   .head-in {
     max-width: var(--maxw-narrow);
-    margin: 0 auto;
+  }
+  .head-in :global(.tldr) {
+    margin: 22px 0;
   }
   .cat {
     display: inline-block;
@@ -291,7 +307,7 @@ const articleSchema = {
     flex-wrap: wrap;
     align-items: baseline;
     gap: 4px 14px;
-    margin: 22px 0 18px;
+    margin: 22px 0 0;
     padding-top: 18px;
     border-top: 1px solid var(--line);
   }
@@ -307,26 +323,35 @@ const articleSchema = {
     color: var(--ink-3);
   }
 
-  /* Corps : 1 colonne mobile (TOC repliable au-dessus), grille en desktop */
+  /* Corps : 1 colonne mobile (TOC repliable au-dessus), grille en desktop.
+     Largeur Container : la prose (gauche) partage son bord gauche avec le
+     breadcrumb et le header ; la TOC sticky vit à DROITE (le contenu prime). */
   .layout {
     display: grid;
     grid-template-columns: 1fr;
     gap: 28px;
-    max-width: var(--maxw-narrow);
+    max-width: var(--maxw);
     margin: 0 auto;
     padding: clamp(28px, 4vw, 44px) var(--gutter) clamp(40px, 5vw, 64px);
   }
   @media (min-width: 1140px) {
     .layout {
-      /* TOC à gauche, prose à droite — l'ensemble reste centré */
-      grid-template-columns: 250px minmax(0, 1fr);
+      grid-template-columns: minmax(0, var(--maxw-narrow)) 250px;
+      justify-content: space-between;
       gap: 56px;
-      max-width: calc(250px + 56px + 760px + 2 * var(--gutter));
     }
+    /* DOM inchangé (aside avant article → mobile garde la TOC en haut) :
+       placement explicite pour l'envoyer à droite en desktop. */
     .side {
+      grid-column: 2;
+      grid-row: 1;
       position: sticky;
       top: 100px;
       align-self: start;
+    }
+    .content {
+      grid-column: 1;
+      grid-row: 1;
     }
   }
   .after {
