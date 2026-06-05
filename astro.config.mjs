@@ -22,7 +22,7 @@ const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO(Q5): confirmer le domaine définitif (wildcatmuaythai.com ?). Sert au sitemap, hreflang et canonical.
+  // Q5 tranchée (2026-06-05) : wildcatmuaythai.com. Sert au sitemap, hreflang et canonical.
   site: 'https://wildcatmuaythai.com',
 
   // i18n — V1 : EN + FR (TH/DE/ES/RU repoussés en V1.1). URLs préfixées : /en, /fr.
@@ -38,6 +38,16 @@ export default defineConfig({
   // La racine renvoie vers la langue par défaut (les pages vivent sous /[lang]).
   redirects: {
     '/': '/en',
+  },
+
+  // Images distantes autorisées pour <Image> (astro:assets) — en SSG elles
+  // sont TÉLÉCHARGÉES et ré-hébergées en local au build. Indispensable pour
+  // le feed Instagram : les URLs CDN scontent sont signées et expirent.
+  image: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '**.cdninstagram.com' },
+      { protocol: 'https', hostname: '**.fbcdn.net' },
+    ],
   },
 
   vite: {

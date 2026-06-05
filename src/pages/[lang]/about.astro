@@ -7,7 +7,7 @@ import SplitHero from '../../components/sections/SplitHero.astro';
 import Button from '../../components/ui/Button.astro';
 import CoachGrid from '../../components/sections/CoachGrid.astro';
 import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
-import CommunityGallery from '../../components/sections/CommunityGallery.astro';
+import InstagramFeed from '../../components/sections/InstagramFeed.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
@@ -133,7 +133,7 @@ const reviews =
           {m.about_comm_title()} <span class="em">{m.about_comm_title_em()}</span>
         </h2>
       </div>
-      <CommunityGallery count={6} />
+      <InstagramFeed count={6} />
     </Section>
 
     <Section id="reviews">
