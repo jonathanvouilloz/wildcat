@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/layout/Section.astro';
+import TornDivider from '../../components/layout/TornDivider.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
 import Card from '../../components/ui/Card.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
@@ -116,6 +117,8 @@ const faqItems = [
 
     <!-- Le camp — section vibe/ancrage local (gap SERP : personne ne mène
          avec famille + open-air). Géo prudente : adresse exacte [À VÉRIFIER]. -->
+    {/* le camp (forest) mord vers le haut sur programs (soft) — wave = open-air/garden */}
+    <TornDivider variant="wave-seg-a" color="var(--forest)" bg="var(--soft)" />
     <Section dark id="camp">
       <SectionHead onDark>{m.classes_camp_head()}</SectionHead>
       <h2 class="h2 h2--dark mt-2 mb-3">
@@ -128,6 +131,9 @@ const faqItems = [
         {m.classes_camp_outro2()}
       </p>
     </Section>
+
+    {/* le camp (forest) déchire vers le bas sur schedule (cream) */}
+    <TornDivider variant="wave-seg-b" color="var(--forest)" flipY />
 
     <Section id="schedule">
       <SectionHead>{m.classes_sched_head()}</SectionHead>
