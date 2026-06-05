@@ -23,8 +23,8 @@ import ProgramCard from '../components/sections/ProgramCard.astro';
 import PricingCard from '../components/sections/PricingCard.astro';
 import Faq from '../components/sections/Faq.astro';
 import CtaBanner from '../components/sections/CtaBanner.astro';
-import ArrowWild from '../components/ui/ArrowWild.astro';
-import { seedRot, seedPick } from '../lib/guestbook';
+import BlogCard from '../components/blog/BlogCard.astro';
+import { seedRot } from '../lib/guestbook';
 import { Icon } from 'astro-icon/components';
 
 // Inventaire des icônes (set candidat : Tabler). Swappable : changer le préfixe.
@@ -197,8 +197,9 @@ const cxPlans = [
     features: ['Twice-daily training', 'Personal fight plan', 'Stadium matchmaking'],
   },
 ];
-// --- Blog cards — 4 directions explorées (E8, données factices) -------------
-// Mêmes 3 articles dans les 4 directions : comparaison à données égales.
+// --- BlogCard — démo du composant final (E8, données factices) --------------
+// Direction validée 2026-06-05 : A éditoriale + couture de B. Explorations
+// (scratch incrustée, coupure de presse, photo magazine) : historique git.
 const sgBlogPosts = [
   {
     cat: 'Chiang Mai life',
@@ -225,18 +226,6 @@ const sgBlogPosts = [
     image: { src: '/assets/meaw-training.webp', alt: '' },
   },
 ];
-// Seeds direction B (scratch) — pattern ProgramCard : frame + miroir + couture.
-const sgbFrame = (t: string) => {
-  const frame = seedPick(t + 'f', 2) === 0 ? 'torn-frame' : 'torn-t2';
-  const msize = frame === 'torn-frame' ? '112% 104%' : '106% 106%';
-  const flip = seedPick(t + 'm', 2) === 0 ? 1 : -1;
-  const tears = ['rough-seg-a', 'rough-seg-b', 'rough-base'] as const;
-  return `--frame: url('/assets/textures/${frame}.png'); --msize:${msize}; --mflip:${flip}; --tear: url('/assets/dividers/torn-${tears[seedPick(t + 't', 3)]}.png')`;
-};
-// Seeds direction C (coupure) — scotch + rotation légère.
-const sgbClip = (t: string) =>
-  `--rot:${seedRot(t, 2)}deg; --tape: url('/assets/decor/tape-${seedPick(t + 'tp', 3) + 1}.webp')`;
-
 // --- FAQ v2 — proto accordéon animé (données factices, avant/après) ---------
 const sgFaqItems = [
   {
@@ -710,116 +699,38 @@ const guestFighters = [
       </section>
 
       <!-- ============================================================
-           Blog cards — 4 directions explorées (E8). Mêmes 3 articles
-           partout : comparaison à données égales. Le winner deviendra
-           src/components/blog/BlogCard.astro.
+           BlogCard — composant final (validé 2026-06-05) : éditoriale
+           A + couture déchirée de B. Explorations (scratch incrustée,
+           coupure de presse, photo magazine) : historique git.
+           Composant réel, données factices.
            ============================================================ -->
       <section class="mb-20">
-        <SectionHead>Blog cards</SectionHead>
-        <h2 class="h2 mt-3 mb-2">Blog cards — <span class="em">4 directions.</span></h2>
+        <SectionHead>Blog card</SectionHead>
+        <h2 class="h2 mt-3 mb-2">Blog card — <span class="em">éditoriale cousue.</span></h2>
         <p class="mb-7 max-w-[62ch] text-ink-2">
-          La grille de la page <code>/blog</code> doit rester scannable avec 24+ articles et des
-          filtres live. <strong>A</strong> éditoriale classique (UX d'abord) · <strong>B</strong>
-          scratch incrustée (famille ProgramCard) · <strong>C</strong> coupure de presse
-          (scrapbook texte-first) · <strong>D</strong> photo magazine (overlay charcoal).
+          La grille <code>/blog</code> doit rester scannable avec 24+ articles et des filtres
+          live : surface Card de base (bordure, hover lift), catégorie manuscrite, extrait
+          clampé 2 lignes, date discrète — et la <strong>couture déchirée</strong> photo→corps
+          seedée sur le titre (famille ProgramCard). Sans cover : placeholder soft-2, la card
+          tient.
         </p>
-
-        <!-- A — Éditoriale classique -->
-        <div class="sg-vcap">
-          <b>A — Éditoriale.</b> Card de base + cover, catégorie manuscrite, extrait clampé 2
-          lignes, date discrète. La plus lisible en grille dense — zéro friction au scan.
-        </div>
         <div class="grid gap-6 md:grid-cols-3">
           {
-            sgBlogPosts.map((post) => (
-              <a class="sgbA" href="#">
-                <img class="sgbA-img" src={post.image.src} alt="" loading="lazy" />
-                <div class="sgbA-body">
-                  <span class="sgbA-cat">{post.cat}</span>
-                  <h3 class="sgbA-title">{post.title}</h3>
-                  <p class="sgbA-x">{post.excerpt}</p>
-                  <span class="sgbA-meta">
-                    <span class="sgbA-diamond" aria-hidden="true">
-                      ◆
-                    </span>
-                    {post.date}
-                  </span>
-                </div>
-              </a>
+            sgBlogPosts.map((post, i) => (
+              <BlogCard
+                href="#"
+                title={post.title}
+                excerpt={post.excerpt}
+                category={post.cat}
+                date={{ iso: '2026-06-12', label: post.date }}
+                image={i === 2 ? undefined : post.image}
+              />
             ))
           }
         </div>
-
-        <!-- B — Scratch incrustée -->
-        <div class="sg-vcap mt-12">
-          <b>B — Scratch incrustée.</b> La déclinaison directe de ProgramCard : frame déchirée
-          seedée sur le titre, couture photo→corps, zéro ombre/bordure. Cohérence maximale avec
-          programs &amp; guest book — fonds cream/soft uniquement.
-        </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          {
-            sgBlogPosts.map((post) => (
-              <a class="sgbB" href="#" style={sgbFrame(post.title)}>
-                <div class="sgbB-inner">
-                  <div class="sgbB-photo">
-                    <img class="sgbB-img" src={post.image.src} alt="" loading="lazy" />
-                    <span class="sgbB-tear" aria-hidden="true" />
-                  </div>
-                  <div class="sgbB-body">
-                    <span class="sgbB-cat">{post.cat}</span>
-                    <h3 class="sgbB-title">{post.title}</h3>
-                    <p class="sgbB-x">{post.excerpt}</p>
-                    <span class="sgbB-meta">
-                      {post.date} <ArrowWild size={20} class="sgbB-ar" />
-                    </span>
-                  </div>
-                </div>
-              </a>
-            ))
-          }
-        </div>
-
-        <!-- C — Coupure de presse -->
-        <div class="sg-vcap mt-12">
-          <b>C — Coupure de presse.</b> Texte-first : pas de cover, scotch seedé, rotation
-          légère, filet typo journal, date manuscrite. Très scrapbook, dense et rapide — mais
-          sans photo, moins de pouvoir d'appel sur les sujets visuels.
-        </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          {
-            sgBlogPosts.map((post) => (
-              <a class="sgbC" href="#" style={sgbClip(post.title)}>
-                <span class="sgbC-tape" aria-hidden="true" />
-                <span class="sgbC-cat">{post.cat}</span>
-                <h3 class="sgbC-title">{post.title}</h3>
-                <p class="sgbC-x">{post.excerpt}</p>
-                <span class="sgbC-date">{post.date}</span>
-              </a>
-            ))
-          }
-        </div>
-
-        <!-- D — Photo magazine -->
-        <div class="sg-vcap mt-12">
-          <b>D — Photo magazine.</b> Cover plein cadre + overlay charcoal (doctrine heroes
-          2026-06-05), titre cream par-dessus. Le plus immersif — exige une vraie cover par
-          article (pipeline <code>/generate-cover</code>), fallback à prévoir.
-        </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          {
-            sgBlogPosts.map((post) => (
-              <a class="sgbD" href="#">
-                <img class="sgbD-img" src={post.image.src} alt="" loading="lazy" />
-                <div class="sgbD-veil" aria-hidden="true" />
-                <div class="sgbD-body">
-                  <span class="sgbD-cat">{post.cat}</span>
-                  <h3 class="sgbD-title">{post.title}</h3>
-                  <span class="sgbD-date">{post.date}</span>
-                </div>
-              </a>
-            ))
-          }
-        </div>
+        <p class="mt-3 text-sm text-ink-3">
+          La 3<sup>e</sup> card montre le fallback sans cover.
+        </p>
       </section>
 
       <!-- Callout — encarts d'informations essentielles -->
@@ -1457,323 +1368,6 @@ const guestFighters = [
         margin-left: auto;
         color: var(--gold);
         font-weight: 700;
-      }
-
-      /* ============================================================
-         Blog cards — 4 directions (E8)
-         ============================================================ */
-      /* A — Éditoriale classique (famille Card de base) */
-      .sgbA {
-        display: block;
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--r-md);
-        box-shadow: var(--shadow-sm);
-        overflow: hidden;
-        color: inherit;
-        text-decoration: none;
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
-      }
-      .sgbA:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-md);
-      }
-      .sgbA:focus-visible {
-        outline: 3px solid var(--gold);
-        outline-offset: 2px;
-      }
-      .sgbA-img {
-        display: block;
-        width: 100%;
-        height: 168px;
-        object-fit: cover;
-      }
-      .sgbA-body {
-        padding: 16px 20px 20px;
-      }
-      .sgbA-cat {
-        display: inline-block;
-        font-family: var(--font-hand);
-        font-size: 20px;
-        line-height: 1;
-        color: var(--gold-deep);
-        margin-bottom: 7px;
-        transform: rotate(-1.5deg);
-      }
-      .sgbA-title {
-        font-family: var(--font-display);
-        font-weight: 800;
-        font-size: 19px;
-        line-height: 1.2;
-        letter-spacing: -0.01em;
-        color: var(--forest);
-        margin: 0 0 7px;
-      }
-      .sgbA-x {
-        margin: 0 0 14px;
-        font-size: 14px;
-        line-height: 1.55;
-        color: var(--ink-2);
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-      .sgbA-meta {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        color: var(--ink-3);
-      }
-      .sgbA-diamond {
-        color: var(--orange);
-        font-size: 9px;
-      }
-
-      /* B — Scratch incrustée (famille ProgramCard, fonds cream/soft only) */
-      .sgbB {
-        display: block;
-        background: var(--surface);
-        color: inherit;
-        text-decoration: none;
-        -webkit-mask-image: var(--frame);
-        mask-image: var(--frame);
-        -webkit-mask-size: var(--msize, 104% 104%);
-        mask-size: var(--msize, 104% 104%);
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        mask-position: center;
-        transform: scaleX(var(--mflip, 1));
-      }
-      .sgbB:focus-visible {
-        outline: 3px solid var(--gold);
-        outline-offset: 2px;
-      }
-      .sgbB-inner {
-        transform: scaleX(var(--mflip, 1));
-      }
-      .sgbB-photo {
-        position: relative;
-      }
-      .sgbB-img {
-        display: block;
-        width: 100%;
-        height: 168px;
-        object-fit: cover;
-      }
-      .sgbB-tear {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -1px;
-        height: 26px;
-        background: var(--surface);
-        -webkit-mask-image: var(--tear);
-        mask-image: var(--tear);
-        -webkit-mask-size: 100% 100%;
-        mask-size: 100% 100%;
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-      }
-      .sgbB-body {
-        padding: 14px 30px 36px;
-      }
-      .sgbB-cat {
-        display: inline-block;
-        font-family: var(--font-hand);
-        font-size: 20px;
-        line-height: 1;
-        color: var(--gold-deep);
-        margin-bottom: 7px;
-        transform: rotate(-1.5deg);
-      }
-      .sgbB-title {
-        font-family: var(--font-display);
-        font-weight: 800;
-        font-size: 19px;
-        line-height: 1.2;
-        letter-spacing: -0.01em;
-        color: var(--forest);
-        margin: 0 0 7px;
-      }
-      .sgbB-x {
-        margin: 0 0 14px;
-        font-size: 14px;
-        line-height: 1.55;
-        color: var(--ink-2);
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-      .sgbB-meta {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        color: var(--gold-deep);
-      }
-      .sgbB-meta :global(.sgbB-ar) {
-        flex: none;
-      }
-
-      /* C — Coupure de presse (texte-first, scotch + rotation seedées) */
-      .sgbC {
-        position: relative;
-        display: block;
-        background: var(--surface);
-        box-shadow: var(--shadow-sm);
-        padding: 26px 24px 22px;
-        color: inherit;
-        text-decoration: none;
-        transform: rotate(var(--rot, 0deg));
-      }
-      .sgbC:focus-visible {
-        outline: 3px solid var(--gold);
-        outline-offset: 2px;
-      }
-      .sgbC-tape {
-        position: absolute;
-        top: -14px;
-        left: 50%;
-        width: 92px;
-        height: 34px;
-        transform: translateX(-50%) rotate(-2deg);
-        background-image: var(--tape);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-      }
-      .sgbC-cat {
-        display: block;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--gold-deep);
-        padding-bottom: 9px;
-        margin-bottom: 12px;
-        border-bottom: 1px solid var(--line-2);
-      }
-      .sgbC-title {
-        font-family: var(--font-display);
-        font-weight: 800;
-        font-size: 21px;
-        line-height: 1.15;
-        letter-spacing: -0.01em;
-        color: var(--ink);
-        margin: 0 0 9px;
-      }
-      .sgbC-x {
-        margin: 0 0 16px;
-        font-size: 14px;
-        line-height: 1.55;
-        color: var(--ink-2);
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-      .sgbC-date {
-        font-family: var(--font-hand);
-        font-size: 19px;
-        line-height: 1;
-        color: var(--forest);
-        transform: rotate(-1deg);
-        display: inline-block;
-      }
-
-      /* D — Photo magazine (overlay charcoal, doctrine heroes 2026-06-05) */
-      .sgbD {
-        position: relative;
-        display: block;
-        min-height: 300px;
-        border-radius: var(--r-md);
-        overflow: hidden;
-        color: inherit;
-        text-decoration: none;
-        box-shadow: var(--shadow-sm);
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
-      }
-      .sgbD:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-md);
-      }
-      .sgbD:focus-visible {
-        outline: 3px solid var(--gold);
-        outline-offset: 2px;
-      }
-      .sgbD-img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .sgbD-veil {
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(
-            180deg,
-            color-mix(in srgb, var(--charcoal) 18%, transparent) 0%,
-            transparent 32%,
-            color-mix(in srgb, var(--charcoal) 62%, transparent) 72%,
-            color-mix(in srgb, var(--charcoal) 88%, transparent) 100%
-          ),
-          color-mix(in srgb, var(--gold) 6%, transparent);
-      }
-      .sgbD-body {
-        position: absolute;
-        inset: auto 0 0 0;
-        padding: 18px 20px 20px;
-      }
-      .sgbD-cat {
-        display: inline-block;
-        font-family: var(--font-hand);
-        font-size: 20px;
-        line-height: 1;
-        color: var(--gold);
-        margin-bottom: 8px;
-        transform: rotate(-1.5deg);
-      }
-      .sgbD-title {
-        font-family: var(--font-display);
-        font-weight: 800;
-        font-size: 20px;
-        line-height: 1.2;
-        letter-spacing: -0.01em;
-        color: var(--cream);
-        margin: 0 0 8px;
-      }
-      .sgbD-date {
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        color: color-mix(in srgb, var(--cream) 72%, transparent);
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .sgbA,
-        .sgbD {
-          transition: none;
-        }
-        .sgbA:hover,
-        .sgbD:hover {
-          transform: none;
-        }
       }
 
       /* --- full-bleed photo heroes (A + B) --- */
