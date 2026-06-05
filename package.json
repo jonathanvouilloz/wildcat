@@ -15,7 +15,9 @@
     "sanity:types": "npm run sanity:extract && npm run sanity:typegen"
   },
   "dependencies": {
+    "@astrojs/mdx": "^6.0.2",
     "@astrojs/react": "^5.0.7",
+    "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/vercel": "^10.0.8",
     "@fontsource-variable/caveat": "^5.2.8",
