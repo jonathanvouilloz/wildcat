@@ -1,5 +1,4 @@
 ---
-import SectionHead from '../ui/SectionHead.astro';
 import Button from '../ui/Button.astro';
 
 /**
@@ -11,7 +10,6 @@ import Button from '../ui/Button.astro';
  * Le Breadcrumb reste au-dessus sur sa bande cream. Utilisé sur /about.
  */
 export interface Props {
-  head: string;
   title: string;
   titleEm?: string;
   lead: string;
@@ -20,13 +18,12 @@ export interface Props {
   image: { src: string; alt: string; position?: string };
   float?: { title: string; body: string };
 }
-const { head, title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
+const { title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
 ---
 
 <section class="split-hero">
   <div class="copy">
     {eyebrow && <p class="eyebrow"><span class="em">{eyebrow}</span></p>}
-    <SectionHead>{head}</SectionHead>
     <h1 class="h1">
       {title}
       {titleEm && <span class="em">{titleEm}</span>}
@@ -78,8 +75,11 @@ const { head, title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
     font-size: clamp(17px, 1.6vw, 21px);
     margin: 0 0 10px;
   }
+  /* H1 de hero : un cran au-dessus du .h1 global (56px max), sous la home (92px).
+     Pas de kicker ◆ CAPS en hero (redondant avec le breadcrumb) → margin-top 0. */
   .h1 {
-    margin: 8px 0 16px;
+    margin: 0 0 16px;
+    font-size: clamp(40px, 5.6vw, 68px);
   }
   .lead {
     font-size: clamp(17px, 1.4vw, 20px);

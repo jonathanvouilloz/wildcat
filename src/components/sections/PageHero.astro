@@ -1,6 +1,5 @@
 ---
 import Container from '../layout/Container.astro';
-import SectionHead from '../ui/SectionHead.astro';
 import Button from '../ui/Button.astro';
 import BrushSeparator from '../../assets/separator-green.svg';
 
@@ -12,11 +11,12 @@ import BrushSeparator from '../../assets/separator-green.svg';
  * photo full-bleed + voile gold + gradient vertical forest-deep (lisibilité),
  * contenu bottom-left sur la photo, brush en bas du hero (fill cream = la
  * section suivante). `image.position` = crop par page, `brush={false}` = bord
- * net. Le Breadcrumb reste au-dessus sur sa bande cream.
+ * net. Le Breadcrumb reste au-dessus sur sa bande cream — sauf via le slot
+ * `crumbs` (+ prop `overlay` du Breadcrumb) qui le fait flotter en haut du hero
+ * (utilisé par la variante `full`, ex. /classes/beginners).
  * Utilisée sur /about/coaches (/about utilise SplitHero).
  */
 export interface Props {
-  head: string;
   title: string;
   titleEm?: string;
   titleAfter?: string;
@@ -27,9 +27,13 @@ export interface Props {
   eyebrow?: string;
   /** brush de liaison photo→bande (défaut true) — false = bord net */
   brush?: boolean;
+  /** fond décoratif full-bleed (URL) de la variante cream — webp cream + motif
+      très faible (rayures + tête de tigre), cover, tête ancrée à droite */
+  texture?: string;
+  /** hero pleine hauteur (comme la home) — contenu centré verticalement */
+  full?: boolean;
 }
 const {
-  head,
   title,
   titleEm,
   titleAfter,
@@ -39,12 +43,30 @@ const {
   image,
   eyebrow,
   brush = true,
+  texture,
+  full = false,
 } = Astro.props;
 const hasAside = Astro.slots.has('aside');
 const onDark = dark || !!image;
 ---
 
-<section class:list={['page-hero', dark && 'page-hero--dark', image && 'page-hero--photo']}>
+<section
+  class:list={[
+    'page-hero',
+    dark && 'page-hero--dark',
+    image && 'page-hero--photo',
+    texture && 'page-hero--texture',
+    full && 'page-hero--full',
+  ]}
+  style={texture ? `--ph-texture:url('${texture}')` : undefined}
+>
+  {
+    Astro.slots.has('crumbs') && (
+      <div class="ph-crumbs">
+        <slot name="crumbs" />
+      </div>
+    )
+  }
   {/* LCP des pages qui l'utilisent → fetchpriority high */}
   {
     image && (
@@ -61,7 +83,6 @@ const onDark = dark || !!image;
     <div class:list={['grid', hasAside && 'grid--aside']}>
       <div>
         {eyebrow && <p class="ph-eyebrow"><span class="em on-dark">{eyebrow}</span></p>}
-        <SectionHead onDark={onDark}>{head}</SectionHead>
         <h1 class="h1">
           {title}
           {titleEm && <span class:list={['em', onDark && 'on-dark']}>{titleEm}</span>}{
@@ -93,13 +114,56 @@ const onDark = dark || !!image;
 
 <style>
   .page-hero {
+    position: relative;
     background: var(--cream);
     /* top réduit : le Breadcrumb au-dessus apporte déjà 20px */
     padding: clamp(24px, 3vw, 44px) 0 clamp(48px, 6vw, 72px);
   }
+  /* breadcrumb flottant (slot crumbs) — par-dessus le hero, pas de bande dédiée */
+  .ph-crumbs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+  }
   .page-hero--dark {
     background: linear-gradient(180deg, #16271e, var(--forest-deep));
     color: var(--cream);
+  }
+  /* fond décoratif full-bleed — le motif est assez faible pour passer sous le
+     texte à toutes les tailles ; tête de tigre ancrée côté droit */
+  .page-hero--texture {
+    background-image: var(--ph-texture);
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
+  }
+  /* fondu de sortie : le cream de l'image ≠ exactement var(--cream) → gradient
+     vers la section suivante pour éviter la cassure nette en bas du hero */
+  .page-hero--texture::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: clamp(80px, 12vh, 140px);
+    background: linear-gradient(180deg, transparent, var(--cream));
+    pointer-events: none;
+  }
+  .page-hero--texture :global(.wc-container) {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* variante full : pleine hauteur (même clamp que la home), contenu centré */
+  .page-hero--full {
+    display: flex;
+    align-items: center;
+    min-height: clamp(560px, 88vh, 860px);
+  }
+  .page-hero--full :global(.wc-container) {
+    width: 100%;
   }
 
   /* --- variante photo (direction A compacte : overlay + brush en bas) --- */
@@ -177,8 +241,11 @@ const onDark = dark || !!image;
     gap: 48px;
     align-items: center;
   }
+  /* H1 de hero : un cran au-dessus du .h1 global (56px max), sous la home (92px).
+     Pas de kicker ◆ CAPS en hero (redondant avec le breadcrumb) → margin-top 0. */
   .h1 {
-    margin: 8px 0 16px;
+    margin: 0 0 16px;
+    font-size: clamp(40px, 5.6vw, 68px);
   }
   .page-hero--dark .h1 {
     color: var(--cream);

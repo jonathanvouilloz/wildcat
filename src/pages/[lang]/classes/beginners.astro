@@ -91,22 +91,25 @@ const articleSchema = {
   <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(articleSchema)} />
 
   <main>
-    <Breadcrumb
-      ariaLabel={m.breadcrumb_aria()}
-      items={[
-        { label: m.breadcrumb_home(), href: p('/') },
-        { label: m.nav_train(), href: p('/classes') },
-        { label: m.classes_beg_crumb() },
-      ]}
-    />
-
     <PageHero
-      head={m.classes_beg_hero_head()}
       title={m.classes_beg_hero_title()}
       titleEm={m.classes_beg_hero_title_em()}
       lead={m.classes_beg_hero_lead()}
       cta={{ label: m.classes_beg_cta_book(), href: p('/contact') }}
-    />
+      texture="/assets/decor/tiger-hero-bg.webp"
+      full
+    >
+      <Breadcrumb
+        slot="crumbs"
+        overlay
+        ariaLabel={m.breadcrumb_aria()}
+        items={[
+          { label: m.breadcrumb_home(), href: p('/') },
+          { label: m.nav_train(), href: p('/classes') },
+          { label: m.classes_beg_crumb() },
+        ]}
+      />
+    </PageHero>
 
     <!-- Byline (LE gap E-E-A-T : auteur nommé visible) + intro BLUF -->
     <Section containerSize="narrow">
