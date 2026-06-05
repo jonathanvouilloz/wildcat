@@ -26,7 +26,7 @@ const { title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
     {eyebrow && <p class="eyebrow"><span class="em">{eyebrow}</span></p>}
     <h1 class="h1">
       {title}
-      {titleEm && <span class="em">{titleEm}</span>}
+      {titleEm && ' '}{titleEm && <span class="em">{titleEm}</span>}
     </h1>
     <p class="lead">{lead}</p>
     {

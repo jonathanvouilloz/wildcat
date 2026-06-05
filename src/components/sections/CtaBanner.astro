@@ -66,7 +66,7 @@ const tapeRight = seedPick(title + 's', 2) === 1;
           <div class="t-inner">
             {hand && <p class="hand">{hand}</p>}
             <h2>
-              {title} <span class="em on-dark">{titleEm}</span>
+              {title}{' '}<span class="em on-dark">{titleEm}</span>
               {titleAfter && ` ${titleAfter}`}
             </h2>
             {sub && <p class="sub">{sub}</p>}
@@ -95,7 +95,7 @@ const tapeRight = seedPick(title + 's', 2) === 1;
             <div class="s-inner">
               {hand && <p class="hand">{hand}</p>}
               <h2>
-                {title} <span class="em on-dark">{titleEm}</span>
+                {title}{' '}<span class="em on-dark">{titleEm}</span>
                 {titleAfter && ` ${titleAfter}`}
               </h2>
               {sub && <p class="sub">{sub}</p>}
@@ -125,7 +125,7 @@ const tapeRight = seedPick(title + 's', 2) === 1;
         <div class="sp-copy">
           {hand && <p class="hand">{hand}</p>}
           <h2>
-            {title} <span class="em">{titleEm}</span>
+            {title}{' '}<span class="em">{titleEm}</span>
             {titleAfter && ` ${titleAfter}`}
           </h2>
           {sub && <p class="sub">{sub}</p>}

@@ -31,7 +31,7 @@ const { id, head, title, titleEm, lead, steps, cta, scooterTag } = Astro.props;
       <div>
         <SectionHead onDark>{head}</SectionHead>
         <h2 class="h2">
-          {title} <span class="em on-dark">{titleEm}</span>
+          {title}{' '}<span class="em on-dark">{titleEm}</span>
         </h2>
         <p class="dlead">{lead}</p>
         <DtvSteps steps={steps} />
