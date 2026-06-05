@@ -1,21 +1,23 @@
-﻿---
+---
 /**
- * DtvStamp â€” badge DTV officiel (asset /assets/dtv-stamp.webp : tigre +
- * Â« DTV Visa Friendly Â», fond transparent, 627Ã—627).
- * Remplace l'ancien sceau dessinÃ© en CSS (motif maquette).
- * Texte de marque, JAMAIS traduit (comme Â« Wildcat Â») â€” voir docs/DESIGN.md.
- * DÃ©coratif : alt vide, le contexte textuel vit dans la section parente.
+ * DtvStamp — badge DTV officiel (asset /assets/dtv-stamp.webp : tigre +
+ * « DTV Visa Friendly », fond transparent, 627×627).
+ * SEUL rendu autorisé du sceau — jamais d'<img> brut ni de sceau CSS.
+ * Texte de marque, JAMAIS traduit (comme « Wildcat ») — voir docs/DESIGN.md.
+ * Décoratif : alt vide, le contexte textuel vit dans la section parente.
  */
 export interface Props {
-  /** Largeur/hauteur en px (asset carrÃ©). Maquette landing : 240 Â· styleguide : 150. */
+  /** Largeur/hauteur en px (asset carré). Heros/teaser : 240 · mega menu : 88 · badge Callout : 118. */
   size?: number;
+  /** Drop-shadow (calibré pour les grandes tailles) — false en usage sticker/badge. */
+  shadow?: boolean;
   class?: string;
 }
-const { size = 150, class: extra = '' } = Astro.props;
+const { size = 150, shadow = true, class: extra = '' } = Astro.props;
 ---
 
 <img
-  class:list={['dtv-stamp', extra]}
+  class:list={['dtv-stamp', shadow && 'dtv-stamp--shadow', extra]}
   src="/assets/dtv-stamp.webp"
   alt=""
   width={size}
@@ -27,11 +29,9 @@ const { size = 150, class: extra = '' } = Astro.props;
 <style>
   .dtv-stamp {
     flex: 0 0 auto;
-    /* drop-shadow (suit le contour alpha) â€” Ã©quivalent du box-shadow de l'ancien sceau */
+  }
+  /* drop-shadow (suit le contour alpha) — équivalent du box-shadow de l'ancien sceau */
+  .dtv-stamp--shadow {
     filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.4));
   }
 </style>
-
-<!-- hmr-probe -->
-
-

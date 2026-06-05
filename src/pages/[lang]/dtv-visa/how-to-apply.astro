@@ -5,6 +5,7 @@ import SectionHead from '../../../components/ui/SectionHead.astro';
 import Button from '../../../components/ui/Button.astro';
 import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
 import Callout from '../../../components/ui/Callout.astro';
+import DtvStamp from '../../../components/ui/DtvStamp.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import DtvSteps from '../../../components/sections/DtvSteps.astro';
 import Faq from '../../../components/sections/Faq.astro';
@@ -174,7 +175,7 @@ const howToSchema = {
         ]}
         class="mb-7"
       >
-        <img src="/assets/dtv-stamp.webp" alt="" width={118} height={118} slot="badge" />
+        <DtvStamp size={118} shadow={false} slot="badge" />
         <a slot="footer" class="ilink" href={PORTAL} target="_blank" rel="noopener">
           {m.dtv_apply_portal_link()} &rarr;
         </a>

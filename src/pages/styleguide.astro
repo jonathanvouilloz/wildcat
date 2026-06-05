@@ -4,6 +4,7 @@ import Button from '../components/ui/Button.astro';
 import SectionHead from '../components/ui/SectionHead.astro';
 import Card from '../components/ui/Card.astro';
 import Callout from '../components/ui/Callout.astro';
+import DtvStamp from '../components/ui/DtvStamp.astro';
 import Container from '../components/layout/Container.astro';
 import Section from '../components/layout/Section.astro';
 import TornDivider from '../components/layout/TornDivider.astro';
@@ -427,7 +428,7 @@ const guestFighters = [
           </figure>
           <figure class="overflow-hidden rounded-[var(--r-md)] border border-line bg-surface">
             <div class="flex h-24 items-center justify-center bg-forest">
-              <img src="/assets/dtv-stamp.webp" alt="DTV Visa Friendly — badge tigre officiel" width={80} height={80} />
+              <DtvStamp size={80} shadow={false} />
             </div>
             <figcaption class="p-3 text-[13px] font-bold text-ink">
               DTV stamp<small class="block font-mono text-[10px] font-normal uppercase text-ink-3">asset officiel · via &lt;DtvStamp /&gt;</small>
@@ -572,7 +573,7 @@ const guestFighters = [
               '180 days per stay, 5-year multiple-entry validity',
             ]}
           >
-            <img src="/assets/dtv-stamp.webp" alt="" width={118} height={118} slot="badge" />
+            <DtvStamp size={118} shadow={false} slot="badge" />
             <a slot="footer" class="font-semibold text-gold-deep underline underline-offset-2" href="#"
               >the official Thai e-Visa portal &rarr;</a
             >

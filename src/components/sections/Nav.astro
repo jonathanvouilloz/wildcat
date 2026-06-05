@@ -1,6 +1,7 @@
 ---
 import Button from '../ui/Button.astro';
 import ArrowWild from '../ui/ArrowWild.astro';
+import DtvStamp from '../ui/DtvStamp.astro';
 import LangSwitcher from '../ui/LangSwitcher.astro';
 import { Icon } from 'astro-icon/components';
 import { site } from '../../config/site';
@@ -169,8 +170,7 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
             <a class="mlink" href={p('/contact')}><span class="mic"><Icon name="tabler:message-circle" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_talk_title()}</span><span class="md">{m.nav_dtv_talk_desc()}</span></span></a>
           </div>
           <div class="mfeat gold">
-            <span class="stamp"></span>
-            <div class="dtv-mini"><b>DTV</b><i>Visa</i></div>
+            <DtvStamp size={88} shadow={false} class="feat-stamp" />
             <h4>{m.nav_dtv_feat_title()} <span class="em">{m.nav_dtv_feat_title_em()}</span></h4>
             <p>{m.nav_dtv_feat_body()}</p>
             <div class="ff"><a class="fbtn" href={p('/dtv-visa')}>{m.cta_start_dtv()} <ArrowWild class="fbtn-ar" size={20} /></a></div>
@@ -403,10 +403,8 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
   .fbtn:hover { background: color-mix(in srgb, var(--gold), #fff 10%); }
   .fbtn-ar { transition: transform 0.18s ease; }
   .fbtn:hover .fbtn-ar { transform: translateX(3px); }
-  .mfeat .stamp { position: absolute; right: -26px; top: -26px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle at 50% 38%, #efb63a, #db9a14); border: 2px solid #1c1407; opacity: 0.16; }
-  .dtv-mini { width: 62px; height: 62px; border-radius: 50%; background: radial-gradient(circle at 50% 36%, #efb63a, #db9a14); border: 2px solid #1c1407; color: #1c1407; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; line-height: 0.85; margin-bottom: 14px; position: relative; }
-  .dtv-mini b { font-size: 21px; }
-  .dtv-mini i { font-style: normal; font-size: 7px; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3px; }
+  /* sceau DTV : asset officiel via <DtvStamp /> (l'ancien sceau CSS .dtv-mini est retiré) */
+  .mfeat :global(.feat-stamp) { margin: 0 0 14px; }
 
   /* mega footer strip */
   .mega .mfoot { grid-column: 1 / -1; margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
