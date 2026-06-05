@@ -1,0 +1,364 @@
+---
+import { render } from 'astro:content';
+import { getImage } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/layout/Section.astro';
+import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import SectionHead from '../../../components/ui/SectionHead.astro';
+import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import BlogCard from '../../../components/blog/BlogCard.astro';
+import BlogToc from '../../../components/blog/BlogToc.astro';
+import ShareButtons from '../../../components/blog/ShareButtons.astro';
+import AuthorBio from '../../../components/blog/AuthorBio.astro';
+import HelpfulWidget from '../../../components/interactive/HelpfulWidget.astro';
+import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
+import { site } from '../../../config/site';
+import {
+  getPostsByLang,
+  getAlternates,
+  getRelated,
+  parseBlogId,
+  type BlogEntry,
+} from '../../../lib/blog';
+import { m } from '../../../paraglide/messages.js';
+
+// Template article (E8) — markdown rendu en .wc-prose, TOC sticky (H2),
+// partage, quiz optionnel (.mdx), widget helpful, articles liés, BlogPosting
+// JSON-LD (author = entité Person #meaw, E-E-A-T). Hreflang : slugs traduits
+// par locale → alternates calculées par translationKey (jamais vers un 404).
+export async function getStaticPaths() {
+  const langs = ['en', 'fr'] as const;
+  const paths = [];
+  for (const lang of langs) {
+    for (const post of await getPostsByLang(lang)) {
+      paths.push({ params: { lang, slug: parseBlogId(post.id).slug }, props: { post } });
+    }
+  }
+  return paths;
+}
+
+interface Props {
+  post: BlogEntry;
+}
+const { post } = Astro.props;
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+const { slug } = parseBlogId(post.id);
+
+const { Content, headings } = await render(post);
+const tocHeadings = headings.filter((h) => h.depth === 2);
+
+const alternates = await getAlternates(post);
+const related = await getRelated(post);
+
+const base = Astro.site ?? Astro.url.origin;
+const pageUrl = new URL(p(`/blog/${slug}`), base).href;
+
+const dateFmt = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const published = {
+  iso: post.data.publishDate.toISOString().slice(0, 10),
+  label: dateFmt.format(post.data.publishDate),
+};
+const updated = post.data.updatedDate
+  ? {
+      iso: post.data.updatedDate.toISOString().slice(0, 10),
+      label: dateFmt.format(post.data.updatedDate),
+    }
+  : undefined;
+
+const catLabels: Record<string, string> = {
+  'choosing-a-camp': m.blog_cat_choosing_a_camp(),
+  beginners: m.blog_cat_beginners(),
+  benefits: m.blog_cat_benefits(),
+  'chiang-mai-life': m.blog_cat_chiang_mai_life(),
+  visa: m.blog_cat_visa(),
+  culture: m.blog_cat_culture(),
+};
+
+// Cover : hero d'article (1200w) + version OG absolue.
+const cover = post.data.cover
+  ? await getImage({ src: post.data.cover, width: 1200, format: 'webp' })
+  : undefined;
+const ogImage = cover ? cover.src : undefined;
+
+// Cards "à lire ensuite" (même mapping que la page liste).
+const cardDateFmt = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+const relatedCards = await Promise.all(
+  related.map(async (rel) => ({
+    href: p(`/blog/${parseBlogId(rel.id).slug}`),
+    title: rel.data.title,
+    excerpt: rel.data.description,
+    category: catLabels[rel.data.category],
+    date: {
+      iso: rel.data.publishDate.toISOString().slice(0, 10),
+      label: cardDateFmt.format(rel.data.publishDate),
+    },
+    image: rel.data.cover
+      ? {
+          src: (await getImage({ src: rel.data.cover, width: 640, format: 'webp' })).src,
+          alt: rel.data.coverAlt ?? '',
+        }
+      : undefined,
+  }))
+);
+
+// BlogPosting JSON-LD — author = entité Person canonique (#meaw, E-E-A-T).
+const coachesUrl = new URL(p('/about/coaches'), base).href;
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  ...(ogImage ? { image: new URL(ogImage, base).href } : {}),
+  mainEntityOfPage: pageUrl,
+  inLanguage: lang,
+  datePublished: published.iso,
+  dateModified: updated?.iso ?? published.iso,
+  author: {
+    '@type': 'Person',
+    '@id': `${coachesUrl}#meaw`,
+    name: m.blog_authorbio_name(),
+    url: coachesUrl,
+  },
+  publisher: { '@type': 'SportsClub', name: site.name, url: new URL(p('/'), base).href },
+  isPartOf: { '@type': 'Blog', '@id': new URL(p('/blog'), base).href },
+};
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogType="article"
+  image={ogImage}
+  alternates={alternates}
+>
+  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(articleSchema)} />
+
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.blog_hero_head(), href: p('/blog') },
+        { label: post.data.title },
+      ]}
+    />
+
+    <!-- Header éditorial -->
+    <header class="head">
+      <div class="head-in">
+        <a class="cat" href={`${p('/blog')}?category=${post.data.category}`}>
+          {catLabels[post.data.category]}
+        </a>
+        <h1 class="h1">{post.data.title}</h1>
+        <p class="lead">{post.data.description}</p>
+        <div class="byline">
+          <p class="by">{m.blog_byline_by()}</p>
+          <p class="dates">
+            <time datetime={published.iso}>{m.blog_published({ date: published.label })}</time>
+            {
+              updated && (
+                <>
+                  {' · '}
+                  <time datetime={updated.iso}>{m.blog_updated({ date: updated.label })}</time>
+                </>
+              )
+            }
+          </p>
+        </div>
+        <ShareButtons url={pageUrl} title={post.data.title} />
+      </div>
+    </header>
+
+    {
+      cover && (
+        <div class="cover">
+          <img
+            src={cover.src}
+            alt={post.data.coverAlt ?? ''}
+            width={cover.attributes.width}
+            height={cover.attributes.height}
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      )
+    }
+
+    <!-- Corps : TOC sticky (desktop) + prose -->
+    <div class="layout">
+      {
+        tocHeadings.length >= 2 && (
+          <aside class="side">
+            <BlogToc headings={headings} />
+          </aside>
+        )
+      }
+      <article class="content">
+        <div class="wc-prose">
+          <Content />
+        </div>
+
+        <div class="after">
+          <HelpfulWidget slug={slug} />
+          <AuthorBio coachesHref={p('/about/coaches')} />
+        </div>
+      </article>
+    </div>
+
+    <!-- À lire ensuite -->
+    {
+      relatedCards.length > 0 && (
+        <Section soft>
+          <SectionHead>{m.blog_related_head()}</SectionHead>
+          <h2 class="h2 mt-3 mb-7">
+            {m.blog_related_title()} <span class="em">{m.blog_related_title_em()}</span>
+          </h2>
+          <ul class="rel-grid">
+            {relatedCards.map((card) => (
+              <li>
+                <BlogCard {...card} />
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )
+    }
+
+    <CtaBanner
+      variant="split"
+      hand={m.blog_cta_hand()}
+      title={m.blog_cta_title()}
+      titleEm={m.blog_cta_title_em()}
+      sub={m.blog_cta_sub()}
+      ctaPrimary={{ label: m.blog_cta_btn(), href: `${p('/contact')}?intent=class` }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_class()) }}
+      image={{ src: '/assets/family-party.webp' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  /* Header éditorial — colonne narrow centrée */
+  .head {
+    padding: clamp(28px, 4vw, 48px) var(--gutter) 0;
+  }
+  .head-in {
+    max-width: var(--maxw-narrow);
+    margin: 0 auto;
+  }
+  .cat {
+    display: inline-block;
+    font-family: var(--font-hand);
+    font-size: 23px;
+    line-height: 1;
+    color: var(--gold-deep);
+    margin-bottom: 10px;
+    transform: rotate(-1.5deg);
+  }
+  .cat:hover {
+    color: var(--forest);
+  }
+  .cat:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .lead {
+    margin: 16px 0 0;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 62ch;
+  }
+  .byline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 14px;
+    margin: 22px 0 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .by {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .dates {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-3);
+  }
+
+  /* Cover */
+  .cover {
+    max-width: 960px;
+    margin: clamp(26px, 4vw, 40px) auto 0;
+    padding: 0 var(--gutter);
+  }
+  .cover img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Corps : 1 colonne mobile (TOC repliable au-dessus), grille en desktop */
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: var(--maxw-narrow);
+    margin: 0 auto;
+    padding: clamp(28px, 4vw, 44px) var(--gutter) clamp(40px, 5vw, 64px);
+  }
+  @media (min-width: 1140px) {
+    .layout {
+      /* TOC à gauche, prose à droite — l'ensemble reste centré */
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 56px;
+      max-width: calc(250px + 56px + 760px + 2 * var(--gutter));
+    }
+    .side {
+      position: sticky;
+      top: 100px;
+      align-self: start;
+    }
+  }
+  .after {
+    display: grid;
+    gap: 30px;
+    margin-top: 44px;
+  }
+
+  /* Grille à lire ensuite */
+  .rel-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  @media (max-width: 1024px) {
+    .rel-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 640px) {
+    .rel-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

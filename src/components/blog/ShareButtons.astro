@@ -1,0 +1,147 @@
+---
+import { Icon } from 'astro-icon/components';
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * ShareButtons — partage discret : copy link + WhatsApp + X + Facebook.
+ * Liens d'intent natifs, zéro JS tiers. Le bouton copy (seul vrai JS) est
+ * masqué tant que le JS ne l'a pas révélé (progressive enhancement) ;
+ * confirmation « copié » en aria-live.
+ */
+export interface Props {
+  /** URL absolue de l'article. */
+  url: string;
+  title: string;
+}
+const { url, title } = Astro.props;
+
+const enc = encodeURIComponent;
+const links = [
+  {
+    label: m.blog_share_whatsapp(),
+    icon: 'tabler:brand-whatsapp',
+    href: `https://wa.me/?text=${enc(`${title} — ${url}`)}`,
+  },
+  {
+    label: m.blog_share_x(),
+    icon: 'tabler:brand-x',
+    href: `https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(title)}`,
+  },
+  {
+    label: m.blog_share_facebook(),
+    icon: 'tabler:brand-facebook',
+    href: `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`,
+  },
+];
+---
+
+<div class="share" data-share data-url={url}>
+  <span class="lbl">{m.blog_share_label()}</span>
+  <div class="btns">
+    <button type="button" class="btn" data-share-copy hidden title={m.blog_share_copy()}>
+      <Icon name="tabler:link" aria-hidden="true" />
+      <span class="sr-only">{m.blog_share_copy()}</span>
+    </button>
+    {
+      links.map((link) => (
+        <a class="btn" href={link.href} target="_blank" rel="noopener" title={link.label}>
+          <Icon name={link.icon} aria-hidden="true" />
+          <span class="sr-only">{link.label}</span>
+        </a>
+      ))
+    }
+  </div>
+  <span class="copied" data-share-copied aria-live="polite"></span>
+</div>
+
+<script define:vars={{ copiedLabel: m.blog_share_copied() }}>
+  (function () {
+    const root = document.querySelector('[data-share]');
+    if (!root || !navigator.clipboard) return;
+    const btn = root.querySelector('[data-share-copy]');
+    const copied = root.querySelector('[data-share-copied]');
+    const url = root.getAttribute('data-url') || window.location.href;
+    if (!btn) return;
+    btn.hidden = false;
+    let t = null;
+    btn.addEventListener('click', function () {
+      navigator.clipboard.writeText(url).then(function () {
+        copied.textContent = copiedLabel;
+        if (t) clearTimeout(t);
+        t = setTimeout(function () {
+          copied.textContent = '';
+        }, 2500);
+      });
+    });
+  })();
+</script>
+
+<style>
+  .share {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .lbl {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .btns {
+    display: inline-flex;
+    gap: 8px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--line-2);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--forest);
+    cursor: pointer;
+    transition:
+      background 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+  .btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--charcoal);
+  }
+  .btn:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .btn :global(svg) {
+    width: 18px;
+    height: 18px;
+  }
+  .copied {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--success);
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn {
+      transition: none;
+    }
+  }
+</style>

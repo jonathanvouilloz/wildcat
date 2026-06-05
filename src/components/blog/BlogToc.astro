@@ -1,0 +1,106 @@
+---
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * BlogToc — sommaire d'article (H2 only, depuis les `headings` retournés par
+ * `render()` d'Astro — ids auto-générés, on consomme `heading.slug` tel quel).
+ *
+ * <details open> natif : repliable en mobile, zéro JS. En desktop la page le
+ * place dans une colonne sticky (le sticky est géré par le layout de la page,
+ * pas ici). La page ne le rend pas si < 2 H2.
+ */
+export interface Props {
+  headings: { depth: number; slug: string; text: string }[];
+}
+const { headings } = Astro.props;
+const items = headings.filter((h) => h.depth === 2);
+---
+
+<nav class="toc" aria-label={m.blog_toc_title()}>
+  <details open>
+    <summary>
+      <span class="t">{m.blog_toc_title()}</span>
+      <span class="chev" aria-hidden="true">▾</span>
+    </summary>
+    <ol>
+      {
+        items.map((item) => (
+          <li>
+            <a href={`#${item.slug}`}>{item.text}</a>
+          </li>
+        ))
+      }
+    </ol>
+  </details>
+</nav>
+
+<style>
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 4px 18px;
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+    list-style: none;
+    padding: 12px 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .chev {
+    font-size: 12px;
+    color: var(--ink-3);
+    transition: transform 0.15s ease;
+  }
+  details[open] .chev {
+    transform: rotate(180deg);
+  }
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 2px 0 14px;
+  }
+  li + li {
+    margin-top: 2px;
+  }
+  a {
+    display: block;
+    padding: 6px 10px;
+    border-left: 2px solid var(--line);
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--ink-2);
+  }
+  a:hover {
+    color: var(--forest);
+    border-left-color: var(--gold);
+    background: var(--soft);
+  }
+  a:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .chev {
+      transition: none;
+    }
+  }
+</style>

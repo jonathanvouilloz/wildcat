@@ -1,0 +1,89 @@
+---
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * AuthorBio — bloc E-E-A-T de fin d'article (pattern .author de
+ * /classes/beginners, enrichi). Byline cliquable vers /about/coaches
+ * (entité Person JSON-LD #meaw). Strings via messages blog_authorbio_*.
+ */
+export interface Props {
+  /** Lien /about/coaches localisé. */
+  coachesHref: string;
+}
+const { coachesHref } = Astro.props;
+---
+
+<aside class="bio">
+  <div class="head">
+    <span class="ava" aria-hidden="true">{m.blog_authorbio_name().charAt(0)}</span>
+    <div>
+      <p class="name">{m.blog_authorbio_name()}</p>
+      <p class="role">{m.blog_authorbio_role()}</p>
+    </div>
+  </div>
+  <p class="body">{m.blog_authorbio_body()}</p>
+  <a class="lk" href={coachesHref}>{m.byline_author_link()}</a>
+</aside>
+
+<style>
+  .bio {
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+  .head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  .ava {
+    flex: none;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--soft-2);
+    color: var(--forest);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .name {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .role {
+    margin: 2px 0 0;
+    font-size: 13.5px;
+    color: var(--ink-3);
+  }
+  .body {
+    margin: 0 0 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    max-width: 64ch;
+  }
+  .lk {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .lk:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .lk:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+</style>

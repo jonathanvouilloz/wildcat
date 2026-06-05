@@ -201,3 +201,128 @@ a {
     letter-spacing: -0.01em;
   }
 }
+
+/* ------------------------------------------------------------
+   Prose blog (E8) — typographie du markdown rendu (Content
+   Collections). Appliquée au wrapper du <Content /> des articles :
+   le HTML vient du .md, pas de classes utilitaires dedans. Tokens
+   only. Les tableaux (raison du choix .md vs Portable Text) scrollent
+   en mobile via le wrapper overflow.
+   ------------------------------------------------------------ */
+.wc-prose {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+.wc-prose h2,
+.wc-prose h3 {
+  font-family: var(--font-display);
+  color: var(--forest);
+  text-wrap: balance;
+  /* ancres TOC : compense le nav sticky (74px) + respiration */
+  scroll-margin-top: 96px;
+}
+.wc-prose h2 {
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 42px 0 14px;
+}
+.wc-prose h3 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 30px 0 10px;
+}
+.wc-prose p {
+  margin: 0 0 16px;
+  max-width: 68ch;
+}
+.wc-prose a {
+  color: var(--forest);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line-2);
+}
+.wc-prose a:hover {
+  color: var(--gold-deep);
+  text-decoration-color: var(--gold);
+}
+.wc-prose a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.wc-prose ul,
+.wc-prose ol {
+  margin: 0 0 16px;
+  padding-left: 24px;
+  max-width: 66ch;
+}
+.wc-prose li {
+  margin-bottom: 7px;
+}
+.wc-prose ul > li::marker {
+  color: var(--gold-deep);
+}
+.wc-prose ol > li::marker {
+  color: var(--gold-deep);
+  font-weight: 700;
+}
+.wc-prose blockquote {
+  margin: 24px 0;
+  padding: 4px 0 4px 20px;
+  border-left: 4px solid var(--gold);
+  color: var(--ink);
+  font-size: 18px;
+}
+.wc-prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+.wc-prose code {
+  background: var(--soft-2);
+  border-radius: var(--r-sm);
+  padding: 2px 7px;
+  font-size: 0.88em;
+}
+.wc-prose img {
+  border-radius: var(--r-md);
+  margin: 24px 0;
+}
+.wc-prose hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 36px 0;
+}
+/* Tableaux — markdown natif. Astro ne wrappe pas : on rend la table
+   elle-même scrollable (display block) sous sa largeur naturelle. */
+.wc-prose table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.wc-prose th,
+.wc-prose td {
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+.wc-prose th {
+  background: var(--soft-2);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--forest);
+  white-space: nowrap;
+}
+.wc-prose tbody tr:nth-child(even) {
+  background: var(--soft);
+}
