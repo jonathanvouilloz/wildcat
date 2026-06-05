@@ -6,11 +6,24 @@ import { m } from '../../paraglide/messages.js';
  * Strip du préfixe locale identique aux alternates hreflang de BaseLayout.
  * Locale active en <b> gold (non cliquable), autres locales en lien.
  * Pur HTML (zéro JS) : le changement de langue est une navigation.
+ *
+ * Blog (E8) : les slugs d'articles sont TRADUITS par locale → le calcul
+ * symétrique est faux. Les pages article passent `alternates` (via
+ * BaseLayout → Nav) ; locale absente des alternates (article non traduit)
+ * → fallback vers l'index /blog de la locale cible, jamais un 404.
  */
+export interface Props {
+  alternates?: { lang: string; href: string }[];
+}
+const { alternates } = Astro.props;
+
 const locales = ['en', 'fr'] as const;
 const current = Astro.currentLocale ?? 'en';
 const path = Astro.url.pathname.replace(/^\/(en|fr)(?=\/|$)/, '');
-const hrefFor = (loc: string) => `/${loc}${path}`;
+const hrefFor = (loc: string) => {
+  if (alternates) return alternates.find((alt) => alt.lang === loc)?.href ?? `/${loc}/blog`;
+  return `/${loc}${path}`;
+};
 ---
 
 <nav class="lang" aria-label={m.nav_aria_lang_switch()}>

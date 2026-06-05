@@ -18,12 +18,15 @@ import { m } from '../../paraglide/messages.js';
  * Props :
  *  - sticky (def. true) : position sticky ; false = relative (démo styleguide).
  *  - cta : libellé du CTA Join (sinon déduit de la page courante).
+ *  - alternates : hreflang asymétriques (articles blog, slugs traduits) —
+ *    transmis tel quel au LangSwitcher (vient de BaseLayout).
  */
 export interface Props {
   sticky?: boolean;
   cta?: string;
+  alternates?: { lang: string; href: string }[];
 }
-const { sticky = true, cta } = Astro.props;
+const { sticky = true, cta, alternates } = Astro.props;
 
 // Liens localisés (slugs EN dans toutes les locales — src/lib/routes.ts).
 // E5 : les clusters pas encore construits pointent vers leur pillar (+ anchor)
@@ -72,7 +75,7 @@ const ctaHref = cta ? p('/contact') : ctaTargets[ctaKey];
           <a href={s.href} aria-label={s.label} target="_blank" rel="noopener"><Icon name={s.icon} /></a>
         ))}
       </div>
-      <LangSwitcher />
+      <LangSwitcher alternates={alternates} />
     </div>
   </div>
 </div>
