@@ -9,6 +9,7 @@ import icon from 'astro-icon';
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import sanity from '@sanity/astro';
 import react from '@astrojs/react';
+import mdx from '@astrojs/mdx';
 
 // Sanity — projectId/dataset doivent être connus au niveau config (build-time).
 // Préfixe PUBLIC_ : le studio embarqué (island React) lit ces valeurs côté
@@ -67,7 +68,9 @@ export default defineConfig({
           '**/.vercel/**',
           '**/.seo-data/**',
           '**/PNG/**',
-          '**/content/**',
+          // ⚠️ relatif racine ('content/**', drafts skills SEO), PAS '**/content/**'
+          // qui matcherait aussi src/content/ (articles blog E8) → HMR mort dessus.
+          'content/**',
           '**/tests/**',
           'wildcat/**', // bundle design (maquettes HTML/CSS), relatif racine
           '**/moodboard/**',
@@ -110,6 +113,9 @@ export default defineConfig({
       studioBasePath: '/studio',
     }),
     react(),
+    // MDX — opt-in par article de blog (quiz interactif mid-contenu). Les
+    // articles standards restent en .md pur (pipeline /seo-write → commit).
+    mdx(),
     sitemap({
       i18n: { defaultLocale: 'en', locales: { en: 'en', fr: 'fr' } },
       // Le studio est un outil interne : exclu du sitemap (+ Disallow dans robots.txt).
