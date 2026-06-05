@@ -88,10 +88,19 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 ### 2026-06-03 | Q4 — Pricing : prix publics
 - Drop-in 350 / Monthly 3500 / Long Stay dès 2800 THB. Transparence + conversion. Éditables via Sanity.
 
+### 2026-06-05 | Q5 — Domaine : **wildcatmuaythai.com**
+- **Contexte** : trancher entre le placeholder maquette et `wildcatchiangmai.com` (PRD). Disponibilité vérifiée par RDAP le 2026-06-05 : les deux libres.
+- **Choix** : **`wildcatmuaythai.com`** — identique au nom de marque (cohérence domaine = entité = JSON-LD SportsClub), dit l'activité (CTR SERP sur "muay thai chiang mai"), pas verrouillé sur la localisation (future-proof). La géo vit déjà dans les titles/copy/JSON-LD address/GMB.
+- **Défensif** : acheter aussi `wildcatchiangmai.com` (~10 $/an) en redirect 301 (protection marque locale + typing direct).
+- **Alternatives rejetées** : `wildcatmuaythaichiangmai.com` (28 ch, illisible) ; `wildcat-muaythai.com` (tirets spammy) ; `trainatwildcat.com` (campagne, pas domaine principal) ; `.co.th` (exige société enregistrée en Thaïlande — à revoir plus tard si pertinent).
+
+### 2026-06-05 | Hero home : direction actuelle conservée
+- Les explorations A/B/C/D2 du styleguide ont servi aux pages About ; pour la home, Jonathan garde le hero actuel (`hero-home.webp` + `.display` agrandi). Seule l'image pourra être remplacée par une version de meilleure qualité.
+
 ## Décisions EN ATTENTE (questions ouvertes restantes)
 
 | # | Sujet | Options | Impact |
 |---|-------|---------|--------|
 | Q1 | **Storage DTV** | Google Drive API ⟷ Supabase Storage | ⏳ **Tranché avant E6.** On construit E1→E5 d'abord. |
-| Q5 | **Domaine** | wildcatmuaythai.com (maquette) ⟷ wildcatchiangmai.com (PRD) | hreflang, sitemap, env (avant E10) |
+| ~~Q5~~ | ~~Domaine~~ | **RÉGLÉE (2026-06-05)** : `wildcatmuaythai.com` + `wildcatchiangmai.com` en redirect défensif. Achat à faire. | — |
 | ~~Q6~~ | ~~Slugs traduits~~ | **RÉGLÉE (E4)** : blogPost en document-level i18n → un slug par langue, traduits gratuitement par document. | — |
