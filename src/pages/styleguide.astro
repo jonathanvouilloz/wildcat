@@ -19,6 +19,8 @@ import Footer from '../components/sections/Footer.astro';
 import BrushSeparator from '../assets/separator-green.svg';
 import FighterCard from '../components/sections/FighterCard.astro';
 import AchievementStamp from '../components/ui/AchievementStamp.astro';
+import ProgramCard from '../components/sections/ProgramCard.astro';
+import PricingCard from '../components/sections/PricingCard.astro';
 import { seedRot } from '../lib/guestbook';
 import { Icon } from 'astro-icon/components';
 
@@ -142,6 +144,56 @@ const semantics = [
   { name: 'Error', hex: '#C0492B', role: 'Erreurs formulaire, messages bloquants', token: '--error' },
 ];
 
+// --- Program & Pricing cards — démo des composants finaux (données factices)
+const cxPrograms = [
+  {
+    level: 'Beginners',
+    title: 'Muay Thai Basics',
+    body: 'Stance, movement and real technique — built from zero in a no-ego space.',
+    image: { src: '/assets/gym-place.webp', alt: 'The open-air gym at Wildcat' },
+  },
+  {
+    level: 'All levels',
+    title: 'Group Training',
+    body: 'Morning and evening sessions, six days a week — pads, bags and clinch.',
+    image: { src: '/assets/night-session.webp', alt: 'Evening group session under the lights' },
+  },
+  {
+    level: 'Fight team',
+    title: 'Fight Camp',
+    body: 'Train for a real fight at a Chiang Mai stadium — we handle the rest.',
+    image: { src: '/assets/meaw-training.webp', alt: 'Pad work with Kru Meaw' },
+  },
+];
+// Prix réels (site.ts) : dropin 350 · month_unlimited 5000 (popular) · fighter 7000.
+const cxPlans = [
+  {
+    name: 'Drop-in',
+    price: '350',
+    unit: 'Per class',
+    popular: false,
+    features: ['Any group class', 'Gloves & wraps to borrow', 'Garden & pool access'],
+  },
+  {
+    name: 'Monthly',
+    price: '5,000',
+    unit: 'Unlimited classes',
+    popular: true,
+    features: [
+      'Unlimited group classes',
+      'Gloves & wraps to borrow',
+      'Garden & pool access',
+      'Fight night outings',
+    ],
+  },
+  {
+    name: 'Fighter',
+    price: '7,000',
+    unit: 'Per month — fight camp',
+    popular: false,
+    features: ['Twice-daily training', 'Personal fight plan', 'Stadium matchmaking'],
+  },
+];
 // --- Fighter guest book — démo du composant final (données factices) --------
 const GB_ACH_LABELS: Record<string, string> = {
   'first-fight': 'First fight',
@@ -524,8 +576,9 @@ const guestFighters = [
         <h2 class="h2 mt-3 mb-2">Surface de base</h2>
         <p class="mb-7 max-w-[60ch] text-ink-2">
           Surface blanche · bordure <code>--line</code> · radius <code>--r-md</code> ·
-          <code>--shadow-sm</code> · hover lift. Réutilisée par programs, pricing, coaches,
-          fighters, blog, témoignages.
+          <code>--shadow-sm</code> · hover lift. Pour les cartes texte simples (blocs prix
+          /classes, blog E8…) — programs &amp; pricing ont leurs composants dédiés (ci-dessous),
+          fighters le scrapbook.
         </p>
         <div class="grid gap-5 md:grid-cols-3">
           <Card>
@@ -545,6 +598,50 @@ const guestFighters = [
               Toute la carte est cliquable (focus ring or). Pas d'interactifs imbriqués.
             </p>
           </Card>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           Program & Pricing cards — composants finaux (validés
+           2026-06-05) : ProgramCard « incrustée scratch » + PricingCard
+           « scrapbook ». Explorations (relief, ticket, poster sombre,
+           scotch…) : historique git. Composants réels, données factices.
+           ============================================================ -->
+      <section class="mb-20">
+        <SectionHead>Program &amp; Pricing cards</SectionHead>
+        <h2 class="h2 mt-3 mb-2">Cards — <span class="em">scratch &amp; scrapbook.</span></h2>
+        <p class="mb-7 max-w-[62ch] text-ink-2">
+          <strong>ProgramCard</strong> « incrustée » : zéro ombre/bordure, carte entière masquée
+          par une frame déchirée du guest book (2 assets × 2 miroirs, seed sur le titre),
+          transition déchirée photo→carte, niveau manuscrit — réservée aux fonds cream/soft.
+          <strong>PricingCard</strong> « scrapbook » : coches manuscrites, prix cerclé au
+          marqueur + tampon encre sur la populaire — aucune bordure colorée.
+        </p>
+        <div class="grid gap-6 md:grid-cols-3">
+          {cxPrograms.map((p) => (
+            <ProgramCard
+              level={p.level}
+              title={p.title}
+              body={p.body}
+              href="#"
+              moreLabel="Learn more"
+              image={p.image}
+            />
+          ))}
+        </div>
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          {cxPlans.map((plan) => (
+            <PricingCard
+              name={plan.name}
+              price={plan.price}
+              currency="THB"
+              unit={plan.unit}
+              features={[...plan.features]}
+              popular={plan.popular}
+              popularLabel="Most popular"
+              cta={{ label: 'Get started', href: '#', variant: plan.popular ? 'gold' : 'outline' }}
+            />
+          ))}
         </div>
       </section>
 
@@ -607,28 +704,12 @@ const guestFighters = [
         </div>
       </section>
 
-      <!-- Components sample -->
+      <!-- Components sample (program/pricing : mocks retirés — composants
+           réels démo'd dans « Program & Pricing cards » ci-dessus) -->
       <section class="mb-20">
         <SectionHead>Composants</SectionHead>
         <h2 class="h2 mt-3 mb-6">Aperçu</h2>
         <div class="grid gap-5 md:grid-cols-3">
-          <!-- program card -->
-          <article class="overflow-hidden rounded-[var(--r-md)] border border-line bg-surface" style="box-shadow:var(--shadow-sm)">
-            <div class="h-32 bg-soft-2"></div>
-            <div class="p-5">
-              <span class="inline-block rounded-full bg-soft-2 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-forest">Beginners</span>
-              <h3 class="mt-3 font-display text-xl font-bold text-forest">Muay Thai Basics</h3>
-              <p class="mt-1 text-sm text-ink-2">Start strong — stance, movement and technique in a no-ego space.</p>
-            </div>
-          </article>
-          <!-- pricing plan -->
-          <article class="relative flex flex-col rounded-[var(--r-md)] border-[1.5px] border-gold bg-surface p-7" style="box-shadow:var(--shadow-md)">
-            <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-charcoal">Most popular</span>
-            <div class="text-[13px] font-bold uppercase tracking-wider text-forest">Monthly</div>
-            <div class="font-display text-4xl font-extrabold text-forest">3,500 <span class="text-base font-bold text-ink-3">THB</span></div>
-            <div class="mt-1 text-sm text-ink-2">Unlimited classes</div>
-            <Button variant="gold" class="mt-5 w-full justify-center">Get started</Button>
-          </article>
           <!-- faq -->
           <article class="rounded-[var(--r-md)] border border-line bg-surface p-2">
             <details open class="rounded-[var(--r-sm)] p-3">
