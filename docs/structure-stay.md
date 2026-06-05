@@ -13,23 +13,24 @@
 ### Préparation
 - [x] Recherche keywords ×7 (US + FR) → `.seo-data/keywords-*` (synthèse §7) — 2026-06-05
 - [x] Scans SERP ×3 → `serp-muay-thai-camp-thailand.json` + `serp-all-inclusive-muay-thai-camps-thailand.json` + `serp-camp-muay-thai-thailande-FR.json`
-- [ ] Architecture tranchée : 5 satellites maquette → **0 satellite, 1 re-cadrage majeur du pillar** (à valider par Jonathan, ce doc)
-- [ ] **Question bloquante** : modèle accommodation (§5) — à trancher AVANT le brief
-- [ ] Brief rédigé et validé : `content/_drafts/pages/stay-pillar.md`
+- [x] Architecture tranchée : 5 satellites maquette → **0 satellite, 1 re-cadrage majeur du pillar** (validée par Jonathan, 2026-06-05)
+- [x] **Question bloquante** : modèle accommodation (§5) — tranchée (condos de Meaw)
+- [x] Brief rédigé et validé : `content/_drafts/pages/stay-pillar.md` — **variante B retenue**
 
-### Rédaction & intégration
-- [ ] **1. `/seo-write` re-cadrage `/stay-train`** (édition lourde) — depuis `stay-pillar.md`. EN : head "muay thai camp thailand" (1900/mo) ; FR : "camp/stage muay thai thailande" (210+140/mo, copy ré-anglée, pas une traduction)
-- [ ] **2. `/humanizer`** sur le contenu
-- [ ] **3. Intégration Astro** : nouvelles sections pillar (#packages transparent, #accommodation, vie au camp/Chiang Mai) + clés `stay_*` EN/FR (parité)
-- [ ] **4. Repointage Nav** : entrées mega menu Stay & Train → ancres réelles (§3)
-- [ ] **5. Maillage entrant** : home (teaser stay), `/classes` (lien long-stay existant à vérifier), `/dtv-visa/long-stay-training` (encart cross existant), `/dtv-visa` pillar
-- [ ] **6. Vérifs** : `npm run build` ✅ · parité clés EN/FR · zéro lien cassé · `/seo-review` = PASS
-- [ ] **7. Tests Playwright** : 51/51 existants + tests des nouvelles ancres/sections si interactif ajouté
-- [ ] **8. Commit** branche courante (conventional commits, scope `stay`)
+### Rédaction & intégration (fait ✅ — exécuté le 2026-06-05, branche `feat/train-cluster`)
+- [x] **1. Rédaction re-cadrage `/stay-train`** — 2 sub-agents parallèles (EN + FR ré-anglé) → `stay-pillar-draft-{en,fr}.md`. Arbitrages : "works out cheaper" retiré (comparatif non chiffré), "770 €" → générique (datable), "on gère ces dossiers depuis des années" FR → reformulé (non vérifié)
+- [x] **2. Humanizer** : appliqué à la rédaction (consignes anti-patterns dans les prompts) + passe em-dashes post-audit
+- [x] **3. Intégration Astro** : sections #packages (table inclus/à organiser + `stay_pack_honest`), #accommodation, #life, FAQ 6 PAA + **FAQPage JSON-LD** (porteur unique du silo Stay) ; composant `Faq` étendu (prop `link` par item) ; **+40 clés** `stay_*` (1236/1236, parité OK), rename `stay_price_*` → `stay_pack_*`
+- [x] **4. Repointage Nav** : 6 entrées mega + drawer (§3 appliqué, dont Long-Stay → `/dtv-visa/long-stay-training`) + `nav_stay_accom_desc` corrigé ("partner accommodation" → condos de Meaw)
+- [x] **5. Maillage sortant brief complet** : beginners (note + FAQ), classes#schedule (note #life), dtv pillar (DTV + FAQ), dtv/long-stay-training (FAQ), about/coaches (FAQ Q3), contact ×3
+- [x] **6. Vérifs** : `npm run build` ✅ · parité 1236/1236 · audit SEO custom EN+FR (title 51c, meta 154/137c, H1 unique, kw H1+H2, JSON-LD valide, 6 cibles internes, zéro pattern IA, accents FR OK)
+- [x] **7. Tests Playwright** : +18 tests Stay (ancres, table packages, FAQ accordéon+liens, FAQPage, nav, FR H1/H2) — **69/69 PASS** (`WC_BASE` paramétrable, run sur build statique :4322)
+- [x] **8. Commit** branche `feat/train-cluster` (scope `stay`)
 
 ### Avant mise en prod (bloquant)
-- [ ] **9a. Modèle accommodation confirmé** (Jonathan/Meaw) : Wildcat loge-t-il les guests (chambres on-site ?) ou aide-t-il à organiser un logement à proximité ? → conditionne #accommodation ET le discours "all inclusive" (§5)
-- [ ] **9b. Prix séjour** : les packages week/month/fighter de `site.ts` incluent quoi exactement (training only ?) — la transparence est l'angle n°1, il faut le détail exact
+- [x] **9a. Modèle accommodation confirmé** (Jonathan, 2026-06-05) : Meaw loue des condos + aide à trouver à proximité — copy écrite pour ne dépendre d'aucun chiffre. ⏳ Détails condos (prix/nombre/distance) à préciser avec Meaw (non bloquant, copy robuste)
+- [ ] **9b. Prix séjour** : détail exact "what's included" des packages à confirmer avec Meaw — la copy ne liste que le confirmé (sessions illimitées, gants+bandes, garden/pool)
+- [ ] **9c. Photos** : sections #accommodation et #life livrées sans image (aucune photo condo/vie-au-camp dans la réserve `PNG/`, règle zéro doublon) — à ajouter quand Jonathan fournit les photos réelles
 
 ### Hors scope de ce batch (backlog — ne pas faire maintenant)
 - [ ] Blog E8 : "Best muay thai camps in Thailand" (70/mo, intent listicle — un camp ne peut pas ranker dessus en page service, mais un article comparatif honnête oui) · "Chiang Mai vs Phuket for muay thai" (PAA récurrent ×2 SERPs) · guide Chiang Mai (zéro volume muay-thai-spécifique, contenu E8/E9)

@@ -1,9 +1,13 @@
-# Test E2E des composants interactifs DTV + Train (vanilla JS, dev server :4321)
+# Test E2E des composants interactifs DTV + Train (vanilla JS).
+# Cible le dev server :4321 par défaut — override : WC_BASE=http://localhost:4322
+# (utile pour tester un `npm run preview` quand le dev server est occupé/wedgé).
+import os
 import sys
 sys.stdout.reconfigure(encoding="utf-8")
 from playwright.sync_api import sync_playwright
 
-BASE = "http://localhost:4321"
+BASE = os.environ.get("WC_BASE", "http://localhost:4321")
+print(f"[debug] BASE = {BASE}")
 results = []
 
 
@@ -197,10 +201,51 @@ with sync_playwright() as p:
     check("nav: Beginner Muay Thai → /classes/beginners",
           page.locator('header.nav a[href$="/classes/beginners"]').count() >= 1)
 
-    # ---------- 7. Pages FR + erreurs JS ----------
+    # ---------- 7. Pillar /stay-train re-cadré (batch Stay 2026-06-05) ----------
+    page.goto(f"{BASE}/en/stay-train", wait_until="networkidle")
+    # .first : robuste face aux h1 du dev-toolbar Astro (shadow DOM percé par Playwright)
+    stay_h1 = page.locator("main h1").first.inner_text().lower()
+    check("stay: H1 contient 'camp' + 'Thailand'",
+          "camp" in stay_h1 and "thailand" in stay_h1)
+    for anchor in ["packages", "accommodation", "life"]:
+        check(f"stay: ancre #{anchor}", page.locator(f"#{anchor}").count() == 1)
+    # table d'honnêteté : 2 cards, 3 items chacune
+    check("stay: table inclus/à organiser", page.locator(".pack-card").count() == 2
+          and page.locator(".pack-list li").count() == 6)
+    # FAQ : 6 questions, accordéon fonctionnel, 3 liens de maillage
+    faq = page.locator(".faq details")
+    check("stay: FAQ 6 questions", faq.count() == 6)
+    faq.nth(1).locator("summary").click()
+    page.wait_for_timeout(150)
+    check("stay: FAQ accordéon s'ouvre", faq.nth(1).get_attribute("open") is not None)
+    check("stay: FAQ lien → beginners",
+          page.locator('.faq a[href*="/classes/beginners"]').count() == 1)
+    check("stay: FAQ lien → long-stay-training",
+          page.locator('.faq a[href*="/dtv-visa/long-stay-training"]').count() == 1)
+    check("stay: FAQ lien → dtv pillar",
+          page.locator('.faq a[href$="/dtv-visa"]').count() >= 1)
+    # FAQPage JSON-LD : présent ici (porteur unique du silo Stay)
+    ld = page.locator('script[type="application/ld+json"]').all_inner_texts()
+    check("stay: FAQPage JSON-LD présent", any('"FAQPage"' in s for s in ld))
+    # nav mega : entrées Stay repointées (ancres + long-stay → dtv)
+    check("nav: Packages → #packages",
+          page.locator('header.nav a[href$="/stay-train#packages"]').count() >= 1)
+    check("nav: Where to Stay → #accommodation",
+          page.locator('header.nav a[href$="/stay-train#accommodation"]').count() >= 1)
+    check("nav: entrées → #life", page.locator('header.nav a[href$="/stay-train#life"]').count() >= 3)
+    check("nav: Long-Stay → /dtv-visa/long-stay-training",
+          page.locator('header.nav a[href$="/dtv-visa/long-stay-training"]').count() >= 1)
+    # FR : H1 re-anglé "camp … Thaïlande" + "stage" présent en H2
+    page.goto(f"{BASE}/fr/stay-train", wait_until="networkidle")
+    fr_h1 = page.locator("main h1").first.inner_text().lower()
+    check("stay FR: H1 'camp … thaïlande'", "camp" in fr_h1 and "thaïlande" in fr_h1)
+    h2s = " ".join(page.locator("h2").all_inner_texts()).lower()
+    check("stay FR: 'stage' présent en H2", "stage" in h2s)
+
+    # ---------- 8. Pages FR + erreurs JS ----------
     for path in ["/fr/dtv-visa/eligibility", "/fr/dtv-visa/faq", "/fr/dtv-visa/muay-thai",
                  "/fr/dtv-visa/how-to-apply", "/fr/dtv-visa/long-stay-training",
-                 "/fr/classes/beginners", "/fr/classes"]:
+                 "/fr/classes/beginners", "/fr/classes", "/fr/stay-train"]:
         r = page.goto(f"{BASE}{path}", wait_until="networkidle")
         check(f"FR 200: {path}", r and r.status == 200)
     check("zéro erreur JS console (toutes pages)", len(errors) == 0, "; ".join(errors[:3]))

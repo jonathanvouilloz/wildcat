@@ -4,7 +4,8 @@
  * Le « + » pivote en « × » à l'ouverture (pattern styleguide).
  */
 export interface Props {
-  items: { q: string; a: string }[];
+  /** `link` optionnel : lien interne rendu à la suite de la réponse (maillage). */
+  items: { q: string; a: string; link?: { label: string; href: string } }[];
   /** Ouvre le premier item au chargement (maquette home). */
   firstOpen?: boolean;
 }
@@ -18,7 +19,10 @@ const { items, firstOpen = false } = Astro.props;
         <summary>
           {item.q} <span class="pm" aria-hidden="true">+</span>
         </summary>
-        <div class="ans">{item.a}</div>
+        <div class="ans">
+          {item.a}
+          {item.link && <a class="alink" href={item.link.href}>{item.link.label}</a>}
+        </div>
       </details>
     ))
   }
@@ -79,6 +83,24 @@ const { items, firstOpen = false } = Astro.props;
     color: var(--ink-2);
     line-height: 1.55;
     max-width: 64ch;
+  }
+  .alink {
+    display: inline-block;
+    margin-left: 6px;
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .alink:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .alink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   @media (prefers-reduced-motion: reduce) {
     .pm {
