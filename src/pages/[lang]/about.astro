@@ -11,6 +11,7 @@ import InstagramFeed from '../../components/sections/InstagramFeed.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
+import { waLink } from '../../lib/whatsapp';
 import { safeQuery } from '../../lib/content';
 import { COACHES_QUERY, FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
 import type {
@@ -170,8 +171,8 @@ const reviews =
       titleEm={m.about_cta_title_em()}
       sub={m.about_cta_sub()}
       caption={m.about_cta_caption()}
-      ctaPrimary={{ label: m.cta_book_class(), href: p('/contact') }}
-      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      ctaPrimary={{ label: m.cta_book_class(), href: `${p('/contact')}?intent=class` }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_class()) }}
       image={{ src: '/assets/hero-team.webp', alt: m.about_cta_img_alt() }}
     />
   </main>

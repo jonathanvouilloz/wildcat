@@ -13,6 +13,7 @@ import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import DocChecklist from '../../../components/interactive/DocChecklist.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
 import { m } from '../../../paraglide/messages.js';
 
 // Satellite procédural du pillar /dtv-visa (Module C — YMYL).
@@ -156,7 +157,7 @@ const howToSchema = {
       title={m.dtv_apply_hero_title()}
       titleEm={m.dtv_apply_hero_title_em()}
       lead={m.dtv_apply_hero_lead()}
-      cta={{ label: m.cta_start_dtv(), href: p('/contact') }}
+      cta={{ label: m.cta_start_dtv(), href: `${p('/contact')}?intent=dtv` }}
     />
 
     <Section containerSize="narrow">
@@ -247,7 +248,7 @@ const howToSchema = {
           doneLabel={m.dtv_apply_progress_done_label()}
           doneSub={m.dtv_apply_progress_done_sub()}
           resetLabel={m.dtv_apply_checklist_reset()}
-          doneCta={{ label: m.dtv_apply_checklist_done_cta(), href: p('/contact') }}
+          doneCta={{ label: m.dtv_apply_checklist_done_cta(), href: `${p('/contact')}?intent=dtv` }}
         />
       </div>
     </Section>
@@ -323,8 +324,8 @@ const howToSchema = {
       title={m.dtv_apply_cta_title()}
       titleEm={m.dtv_apply_cta_title_em()}
       sub={m.dtv_apply_cta_sub()}
-      ctaPrimary={{ label: m.cta_start_dtv(), href: p('/contact') }}
-      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      ctaPrimary={{ label: m.cta_start_dtv(), href: `${p('/contact')}?intent=dtv` }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_dtv()) }}
       image={{ src: '/assets/night-session.webp' }}
     />
   </main>

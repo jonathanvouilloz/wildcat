@@ -45,7 +45,16 @@ function ctaKeyFor(p: string): keyof typeof ctaLabels {
   if (p.includes('/classes') || p.includes('/schedule') || p.includes('/pricing')) return 'book_class';
   return 'join_now';
 }
-const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
+// La cible suit le label : form pré-ciblé (?intent=) ou form séjour inline.
+const ctaTargets: Record<keyof typeof ctaLabels, string> = {
+  start_dtv: `${p('/contact')}?intent=dtv`,
+  plan_stay: `${p('/stay-train')}#plan`,
+  book_class: `${p('/contact')}?intent=class`,
+  join_now: `${p('/contact')}?intent=class`,
+};
+const ctaKey = ctaKeyFor(Astro.url.pathname);
+const ctaLabel = cta ?? ctaLabels[ctaKey];
+const ctaHref = cta ? p('/contact') : ctaTargets[ctaKey];
 ---
 
 
@@ -95,13 +104,13 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
             <span class="lab">{m.nav_train_col_plan()}</span>
             <a class="mlink" href={p('/classes#schedule')}><span class="mic"><Icon name="tabler:calendar-event" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_schedule_title()}</span><span class="md">{m.nav_train_schedule_desc()}</span></span></a>
             <a class="mlink" href={p('/classes#pricing')}><span class="mic"><Icon name="tabler:tag" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_pricing_title()}</span><span class="md">{m.nav_train_pricing_desc()}</span></span></a>
-            <a class="mlink" href={p('/contact')}><span class="mic"><Icon name="tabler:sparkles" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_trial_title()}</span><span class="md">{m.nav_train_trial_desc()}</span></span></a>
+            <a class="mlink" href={`${p('/contact')}?intent=class`}><span class="mic"><Icon name="tabler:sparkles" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_trial_title()}</span><span class="md">{m.nav_train_trial_desc()}</span></span></a>
           </div>
           <div class="mfeat">
             <span class="ft-tag">{m.nav_train_feat_tag()}</span>
             <h4>{m.nav_train_feat_title()} <span class="em">{m.nav_train_feat_title_em()}</span></h4>
             <p>{m.nav_train_feat_body()}</p>
-            <div class="ff"><a class="fbtn" href={p('/contact')}>{m.nav_train_feat_btn()} <ArrowWild class="fbtn-ar" size={20} /></a></div>
+            <div class="ff"><a class="fbtn" href={`${p('/contact')}?intent=class`}>{m.nav_train_feat_btn()} <ArrowWild class="fbtn-ar" size={20} /></a></div>
           </div>
           <div class="mfoot">
             <div class="links">
@@ -167,7 +176,7 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
           <div class="mcol">
             <span class="lab">{m.nav_dtv_col_help()}</span>
             <a class="mlink" href={p('/dtv-visa/faq')}><span class="mic"><Icon name="tabler:help-circle" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_faq_title()}</span><span class="md">{m.nav_dtv_faq_desc()}</span></span></a>
-            <a class="mlink" href={p('/contact')}><span class="mic"><Icon name="tabler:message-circle" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_talk_title()}</span><span class="md">{m.nav_dtv_talk_desc()}</span></span></a>
+            <a class="mlink" href={`${p('/contact')}?intent=dtv`}><span class="mic"><Icon name="tabler:message-circle" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_talk_title()}</span><span class="md">{m.nav_dtv_talk_desc()}</span></span></a>
           </div>
           <div class="mfeat gold">
             <DtvStamp size={88} shadow={false} class="feat-stamp" />
@@ -213,7 +222,7 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
       <!-- Blog : href="#" jusqu'à E8 -->
       <div class="mi"><a href="#"><span class="lbl">{m.nav_blog()}</span></a></div>
       <div class="mi"><a href={p('/contact')}><span class="lbl">{m.nav_contact()}</span></a></div>
-      <div class="mi cta"><Button variant="gold" flat arrow href={p('/contact')}>{ctaLabel}</Button></div>
+      <div class="mi cta"><Button variant="gold" flat arrow href={ctaHref}>{ctaLabel}</Button></div>
     </nav>
 
     <button class="nav-toggle" aria-label={m.nav_aria_open_menu()} data-drawer-open>
@@ -235,7 +244,7 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
       <!-- Blog : href="#" jusqu'à E8 -->
       <a class="flat" href="#">{m.nav_blog()}</a>
       <a class="flat" href={p('/contact')}>{m.nav_contact()}</a>
-      <Button variant="gold" flat arrow href={p('/contact')} class="djoin">{ctaLabel}</Button>
+      <Button variant="gold" flat arrow href={ctaHref} class="djoin">{ctaLabel}</Button>
     </div>
   </div>
 </div>

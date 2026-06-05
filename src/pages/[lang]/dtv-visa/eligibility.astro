@@ -11,6 +11,7 @@ import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import DtvQuiz from '../../../components/interactive/DtvQuiz.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
 import { m } from '../../../paraglide/messages.js';
 
 // Satellite DTV — page "requirements & eligibility" (kw : "dtv visa thailand
@@ -24,8 +25,8 @@ const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
 
 // CTA /contact pré-ciblé sur le sujet DTV (topic supporté par ContactForm).
-const contactDtv = `${p('/contact')}?topic=dtv`;
-const whatsapp = site.contact.whatsapp;
+const contactDtv = `${p('/contact')}?intent=dtv`;
+const whatsapp = waLink(m.contact_wa_text_dtv());
 
 // Récap "at a glance" — réutilise FeatureGrid (cartes scannables = snippet-bait).
 const glance = [

@@ -7,13 +7,16 @@ import Button from '../../components/ui/Button.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
 import DtvStamp from '../../components/ui/DtvStamp.astro';
 import PageHero from '../../components/sections/PageHero.astro';
+import StayInquiryForm from '../../components/sections/StayInquiryForm.astro';
 import FeatureGrid from '../../components/sections/FeatureGrid.astro';
+import { Icon } from 'astro-icon/components';
 import PricingTable from '../../components/sections/PricingTable.astro';
 import Faq from '../../components/sections/Faq.astro';
 import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
+import { waLink } from '../../lib/whatsapp';
 import { safeQuery } from '../../lib/content';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../lib/sanity.types';
@@ -69,7 +72,7 @@ const plans = [
       m.pricing_card_week_f3(),
       m.pricing_card_week_f4(),
     ],
-    cta: { label: m.cta_book_class(), href: p('/contact'), variant: 'outline' as const },
+    cta: { label: m.cta_book_class(), href: '#plan', variant: 'outline' as const },
   },
   {
     name: m.pricing_card_monthly_name(),
@@ -82,7 +85,7 @@ const plans = [
       m.pricing_card_monthly_f3(),
       m.pricing_card_monthly_f4(),
     ],
-    cta: { label: m.pricing_card_monthly_cta(), href: p('/contact'), variant: 'gold' as const },
+    cta: { label: m.pricing_card_monthly_cta(), href: '#plan', variant: 'gold' as const },
     popular: true,
   },
   {
@@ -96,7 +99,7 @@ const plans = [
       m.pricing_card_fighter_f3(),
       m.pricing_card_fighter_f4(),
     ],
-    cta: { label: m.cta_plan_stay(), href: p('/contact'), variant: 'forest' as const },
+    cta: { label: m.cta_plan_stay(), href: '#plan', variant: 'forest' as const },
   },
 ];
 
@@ -159,7 +162,7 @@ const faqJsonld = {
       title={m.stay_hero_title()}
       titleEm={m.stay_hero_title_em()}
       lead={m.stay_hero_lead()}
-      cta={{ label: m.cta_plan_stay(), href: p('/contact') }}
+      cta={{ label: m.cta_plan_stay(), href: '#plan' }}
     />
 
     <Section soft>
@@ -215,13 +218,41 @@ const faqJsonld = {
           <p class="body-copy">{m.stay_acc_body1()}</p>
           <p class="body-copy">{m.stay_acc_body2()}</p>
           <div class="mt-6">
-            <Button href={p('/contact')} variant="forest" arrow>{m.stay_acc_cta()}</Button>
+            <Button href="#plan" variant="forest" arrow>{m.stay_acc_cta()}</Button>
           </div>
         </div>
       </div>
     </Section>
 
-    <Section id="life">
+    <!-- Form séjour inline — la conversion à plus forte valeur du site reste
+         sur la page (zéro rebond /contact) ; POST /api/contact intent=stay. -->
+    <Section id="plan">
+      <div class="banner banner--ok" id="plan-ok" hidden>
+        <Icon name="tabler:circle-check" aria-hidden="true" />
+        <div>
+          <b>{m.contact_success_title()}</b>
+          <p>{m.contact_success_body()}</p>
+        </div>
+      </div>
+      <div class="banner banner--err" id="plan-err" hidden>
+        <Icon name="tabler:alert-circle" aria-hidden="true" />
+        <p>{m.contact_error_body()}</p>
+      </div>
+      <div class="plan-split">
+        <div>
+          <SectionHead>{m.stay_plan_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-4">
+            {m.stay_plan_title()} <span class="em">{m.stay_plan_title_em()}</span>
+          </h2>
+          <p class="body-copy">{m.stay_plan_lead()}</p>
+        </div>
+        <div class="plan-form">
+          <StayInquiryForm lang={lang} />
+        </div>
+      </div>
+    </Section>
+
+    <Section id="life" soft>
       <div class="life">
         <div>
           <SectionHead>{m.stay_life_head()}</SectionHead>
@@ -240,7 +271,7 @@ const faqJsonld = {
       </div>
     </Section>
 
-    {/* la section DTV (forest) mord vers le haut sur le life (cream) */}
+    {/* la section DTV (forest) mord vers le haut sur le life (soft) */}
     <TornDivider variant="rough-flipx" color="var(--forest)" />
 
     <Section dark>
@@ -291,14 +322,86 @@ const faqJsonld = {
       title={m.stay_cta_title()}
       titleEm={m.stay_cta_title_em()}
       sub={m.stay_cta_sub()}
-      ctaPrimary={{ label: m.cta_plan_stay(), href: p('/contact') }}
-      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      ctaPrimary={{ label: m.cta_plan_stay(), href: '#plan' }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_stay()) }}
       image={{ src: '/assets/gym-garden.jpg' }}
     />
   </main>
+
+  <script is:inline>
+    // Affiche la bannière succès/erreur après redirect du POST /api/contact
+    // (from=stay-train → retour ici avec ?sent=1#plan).
+    (function () {
+      var sent = new URLSearchParams(location.search).get('sent');
+      if (sent === '1') document.getElementById('plan-ok').hidden = false;
+      if (sent === 'error') document.getElementById('plan-err').hidden = false;
+    })();
+  </script>
 </BaseLayout>
 
 <style>
+  /* ---- #plan : form séjour inline + bannières post-POST ---- */
+  .banner {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    border-radius: var(--r-md);
+    padding: 16px 18px;
+    margin-bottom: 26px;
+    font-size: 15px;
+  }
+  .banner :global(svg) {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    margin-top: 1px;
+  }
+  .banner p {
+    margin: 0;
+    line-height: 1.5;
+  }
+  .banner b {
+    display: block;
+    margin-bottom: 2px;
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+  .banner--ok {
+    background: color-mix(in srgb, var(--success), #fff 82%);
+    border: 1px solid var(--success);
+    color: var(--ink);
+  }
+  .banner--ok :global(svg) {
+    color: var(--success);
+  }
+  .banner--err {
+    background: color-mix(in srgb, var(--error), #fff 86%);
+    border: 1px solid var(--error);
+    color: var(--ink);
+  }
+  .banner--err :global(svg) {
+    color: var(--error);
+  }
+  .plan-split {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 46px;
+    align-items: start;
+  }
+  .plan-form {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: clamp(22px, 3vw, 34px);
+    box-shadow: var(--shadow-sm);
+  }
+  @media (max-width: 860px) {
+    .plan-split {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
   .block-head {
     margin-bottom: 38px;
   }

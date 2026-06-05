@@ -19,6 +19,7 @@ import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { Icon } from 'astro-icon/components';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
+import { waLink } from '../../lib/whatsapp';
 import { safeQuery } from '../../lib/content';
 import { COACHES_QUERY, FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
 import type {
@@ -121,7 +122,7 @@ const plans = [
       m.pricing_card_dropin_f3(),
       m.pricing_card_dropin_f4(),
     ],
-    cta: { label: m.cta_book_class(), href: p('/contact'), variant: 'outline' as const },
+    cta: { label: m.cta_book_class(), href: `${p('/contact')}?intent=class`, variant: 'outline' as const },
   },
   {
     name: m.pricing_card_monthly_name(),
@@ -134,7 +135,7 @@ const plans = [
       m.pricing_card_monthly_f3(),
       m.pricing_card_monthly_f4(),
     ],
-    cta: { label: m.pricing_card_monthly_cta(), href: p('/contact'), variant: 'gold' as const },
+    cta: { label: m.pricing_card_monthly_cta(), href: `${p('/contact')}?intent=class`, variant: 'gold' as const },
     popular: true,
   },
   {
@@ -324,8 +325,8 @@ const jsonld = {
       titleEm={m.home_h1_em()}
       titleAfter={m.home_h1b()}
       sub={m.home_cta_sub()}
-      ctaPrimary={{ label: m.home_cta_banner1(), href: p('/contact') }}
-      ctaSecondary={{ label: m.home_cta_banner2(), href: site.contact.whatsapp }}
+      ctaPrimary={{ label: m.home_cta_banner1(), href: `${p('/contact')}?intent=class` }}
+      ctaSecondary={{ label: m.home_cta_banner2(), href: waLink(m.contact_wa_text_class()) }}
       image={{ src: '/assets/family-party.webp' }}
     />
   </main>

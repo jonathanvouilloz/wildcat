@@ -14,6 +14,7 @@ import Faq from '../../components/sections/Faq.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
+import { waLink } from '../../lib/whatsapp';
 import { safeQuery } from '../../lib/content';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../lib/sanity.types';
@@ -84,7 +85,7 @@ const faqItems = [
       title={m.dtv_hero_title()}
       titleEm={m.dtv_hero_title_em()}
       lead={m.dtv_hero_lead()}
-      cta={{ label: m.cta_start_dtv(), href: p('/contact') }}
+      cta={{ label: m.cta_start_dtv(), href: `${p('/contact')}?intent=dtv` }}
     >
       <DtvStamp size={240} slot="aside" />
     </PageHero>
@@ -133,7 +134,7 @@ const faqItems = [
           <p class="body-p">{m.dtv_elig_body()}</p>
           <p class="sat-link"><a href={p('/dtv-visa/eligibility')}>{m.dtv_link_full_elig()} &rarr;</a></p>
           <div class="mt-6">
-            <Button href={p('/contact')} variant="forest" arrow>{m.dtv_elig_cta()}</Button>
+            <Button href={`${p('/contact')}?intent=dtv`} variant="forest" arrow>{m.dtv_elig_cta()}</Button>
           </div>
         </div>
         {
@@ -167,8 +168,8 @@ const faqItems = [
       title={m.dtv_cta_title()}
       titleEm={m.dtv_cta_title_em()}
       sub={m.dtv_cta_sub()}
-      ctaPrimary={{ label: m.cta_start_dtv(), href: p('/contact') }}
-      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      ctaPrimary={{ label: m.cta_start_dtv(), href: `${p('/contact')}?intent=dtv` }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_dtv()) }}
       image={{ src: '/assets/gym-garden.jpg' }}
     />
   </main>

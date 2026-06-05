@@ -9,6 +9,7 @@ import CoachGrid from '../../../components/sections/CoachGrid.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
 import { safeQuery } from '../../../lib/content';
 import { COACHES_QUERY } from '../../../lib/queries';
 import type { COACHES_QUERY_RESULT } from '../../../lib/sanity.types';
@@ -91,7 +92,7 @@ const personSchema = {
       title={m.coaches_hero_title()}
       titleEm={m.coaches_hero_title_em()}
       lead={m.coaches_hero_lead()}
-      cta={{ label: m.cta_book_class(), href: p('/contact') }}
+      cta={{ label: m.cta_book_class(), href: `${p('/contact')}?intent=class` }}
     />
 
     <!-- Meaw en vedette — l'entité E-E-A-T (message-driven, jamais Sanity) -->
@@ -160,8 +161,8 @@ const personSchema = {
       title={m.coaches_cta_title()}
       titleEm={m.coaches_cta_title_em()}
       sub={m.coaches_cta_sub()}
-      ctaPrimary={{ label: m.cta_book_class(), href: p('/contact') }}
-      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      ctaPrimary={{ label: m.cta_book_class(), href: `${p('/contact')}?intent=class` }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_class()) }}
       image={{ src: '/assets/gym-garden.jpg' }}
     />
   </main>

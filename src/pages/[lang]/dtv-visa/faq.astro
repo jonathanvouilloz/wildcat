@@ -9,6 +9,7 @@ import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import FaqSearch from '../../../components/interactive/FaqSearch.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
 import { m } from '../../../paraglide/messages.js';
 
 // Satellite FAQ du silo DTV — porteuse UNIQUE du FAQPage JSON-LD (le pillar le
@@ -157,7 +158,7 @@ const faqJsonld = {
     </Section>
 
     <Section soft containerSize="narrow">
-      <FaqSearch whatsapp={site.contact.whatsapp} contactHref={p('/contact')} />
+      <FaqSearch whatsapp={waLink(m.contact_wa_text_dtv())} contactHref={`${p('/contact')}?intent=dtv`} />
 
       <div class="faq-root" data-faq-root>
         {
@@ -207,8 +208,8 @@ const faqJsonld = {
       title={m.dtv_faqp_cta_title()}
       titleEm={m.dtv_faqp_cta_title_em()}
       sub={m.dtv_faqp_cta_sub()}
-      ctaPrimary={{ label: m.dtv_faqp_cta_primary(), href: p('/contact') }}
-      ctaSecondary={{ label: m.dtv_faqp_cta_whatsapp(), href: site.contact.whatsapp }}
+      ctaPrimary={{ label: m.dtv_faqp_cta_primary(), href: `${p('/contact')}?intent=dtv` }}
+      ctaSecondary={{ label: m.dtv_faqp_cta_whatsapp(), href: waLink(m.contact_wa_text_dtv()) }}
       image={{ src: '/assets/gym-garden.jpg' }}
     />
   </main>

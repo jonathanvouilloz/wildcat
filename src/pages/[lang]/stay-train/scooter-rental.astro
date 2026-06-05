@@ -12,6 +12,7 @@ import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import { Icon } from 'astro-icon/components';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
 import { safeQuery } from '../../../lib/content';
 import { SCOOTERS_QUERY } from '../../../lib/queries';
 import type { SCOOTERS_QUERY_RESULT } from '../../../lib/sanity.types';
@@ -30,7 +31,9 @@ export function getStaticPaths() {
 
 const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
-const whatsapp = site.contact.whatsapp;
+// wa.me pré-rempli — canal primaire du satellite (location = conversation,
+// pas formulaire) ; le form /contact?intent=scooter reste la voie secondaire.
+const waScooter = waLink(m.contact_wa_text_scooter());
 
 // Flotte : CMS d'abord, sinon fallback site.ts (notes localisées par record).
 const fallbackNotes: Record<string, string> = {
@@ -157,7 +160,7 @@ const serviceSchema = {
       title={m.scooter_hero_title()}
       titleEm={m.scooter_hero_title_em()}
       lead={m.scooter_hero_lead()}
-      cta={{ label: m.cta_whatsapp(), href: whatsapp }}
+      cta={{ label: m.cta_whatsapp(), href: waScooter }}
     />
 
     <Section containerSize="narrow">
@@ -210,6 +213,16 @@ const serviceSchema = {
                     )
                   }
                 </div>
+                {/* wa.me pré-rempli avec le modèle — zéro friction pour demander la dispo */}
+                <a
+                  class="scoot-wa"
+                  href={waLink(m.scooter_wa_model({ model: s.name }))}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <Icon name="tabler:brand-whatsapp" aria-hidden="true" />
+                  {m.scooter_card_cta()}
+                </a>
               </div>
             </Card>
           ))
@@ -237,7 +250,7 @@ const serviceSchema = {
       {/* conditions exactes en attente de Meaw (docs/checklist.md §D) — copy prudente */}
       <p class="how-note">{m.scooter_how_note()}</p>
       <div class="mt-5">
-        <Button href={whatsapp} variant="gold" arrow>{m.cta_whatsapp()}</Button>
+        <Button href={waScooter} variant="gold" arrow>{m.cta_whatsapp()}</Button>
       </div>
     </Section>
 
@@ -272,8 +285,8 @@ const serviceSchema = {
       title={m.scooter_cta_title()}
       titleEm={m.scooter_cta_title_em()}
       sub={m.scooter_cta_sub()}
-      ctaPrimary={{ label: m.cta_whatsapp(), href: whatsapp }}
-      ctaSecondary={{ label: m.cta_plan_stay(), href: p('/contact') }}
+      ctaPrimary={{ label: m.cta_whatsapp(), href: waScooter }}
+      ctaSecondary={{ label: m.scooter_cta_msg(), href: `${p('/contact')}?intent=scooter` }}
       image={{ src: '/assets/night-session.webp' }}
     />
   </main>
@@ -409,6 +422,23 @@ const serviceSchema = {
   .scoot-price--ask {
     font-weight: 600;
     color: var(--forest);
+  }
+  .scoot-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--forest);
+  }
+  .scoot-wa:hover {
+    color: var(--gold-deep);
+  }
+  .scoot-wa :global(svg) {
+    width: 19px;
+    height: 19px;
   }
 
   /* --- How it works --- */

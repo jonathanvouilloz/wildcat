@@ -7,6 +7,7 @@ import FighterCard from '../../components/sections/FighterCard.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
+import { waLink } from '../../lib/whatsapp';
 import { safeQuery } from '../../lib/content';
 import { FIGHTERS_QUERY } from '../../lib/queries';
 import type { FIGHTERS_QUERY_RESULT } from '../../lib/sanity.types';
@@ -150,7 +151,7 @@ const counters =
       titleEm={m.fighters_cta_title_em()}
       sub={m.fighters_cta_sub()}
       ctaPrimary={{ label: m.fighters_cta_btn(), href: p('/classes') }}
-      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_general()) }}
       image={{ src: '/assets/night-session.webp' }}
     />
   </main>

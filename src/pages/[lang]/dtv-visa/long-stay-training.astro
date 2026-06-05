@@ -13,6 +13,7 @@ import TestimonialQuote from '../../../components/sections/TestimonialQuote.astr
 import BudgetEstimator from '../../../components/interactive/BudgetEstimator.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
 import { safeQuery } from '../../../lib/content';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../../lib/sanity.types';
@@ -255,8 +256,8 @@ const faqItems = [
         training={estTraining}
         housingRanges={estHousing}
         durations={estDurations}
-        whatsappHref={site.contact.whatsapp}
-        contactHref={p('/contact')}
+        whatsappHref={waLink(m.contact_wa_text_dtv())}
+        contactHref={`${p('/contact')}?intent=dtv`}
         fxUsd={FX_THB_USD}
       />
     </Section>
@@ -307,8 +308,8 @@ const faqItems = [
       titleEm={m.dtv_lst_cta_title_em()}
       sub={m.dtv_lst_cta_sub()}
       caption={m.dtv_lst_cta_caption()}
-      ctaPrimary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
-      ctaSecondary={{ label: m.nav_contact(), href: p('/contact') }}
+      ctaPrimary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_dtv()) }}
+      ctaSecondary={{ label: m.nav_contact(), href: `${p('/contact')}?intent=dtv` }}
       image={{ src: '/assets/night-session.webp', alt: m.dtv_lst_cta_img_alt() }}
     />
   </main>

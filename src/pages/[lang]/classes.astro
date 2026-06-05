@@ -11,6 +11,7 @@ import Faq from '../../components/sections/Faq.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
+import { waLink } from '../../lib/whatsapp';
 import { m } from '../../paraglide/messages.js';
 
 // Pilier Train (kw : "Muay Thai classes Chiang Mai").
@@ -24,7 +25,10 @@ const p = (path: string) => localePath(lang, path);
 
 /* ---------- Programmes (taxonomie du mega menu Train) ---------- */
 // Card Beginner → satellite /classes/beginners (lien pillar→satellite structurant,
-// ancre dédiée) · card Fight Team → /fighters. Les autres convertissent (/contact).
+// ancre dédiée) · card Fight Team → /fighters. Les autres convertissent en
+// CTA explicite « Book this class » → form pré-ciblé /contact?intent=class
+// (fin du learn-more déguisé qui atterrissait sur un form générique).
+const bookClass = `${p('/contact')}?intent=class`;
 const programs = [
   {
     level: m.classes_prog1_lvl(),
@@ -33,10 +37,10 @@ const programs = [
     href: p('/classes/beginners'),
     moreLabel: m.classes_prog1_more(),
   },
-  { level: m.classes_prog2_lvl(), title: m.classes_prog2_t(), body: m.classes_prog2_b(), href: p('/contact') },
-  { level: m.classes_prog3_lvl(), title: m.classes_prog3_t(), body: m.classes_prog3_b(), href: p('/contact') },
-  { level: m.classes_prog4_lvl(), title: m.classes_prog4_t(), body: m.classes_prog4_b(), href: p('/contact') },
-  { level: m.classes_prog5_lvl(), title: m.classes_prog5_t(), body: m.classes_prog5_b(), href: p('/contact') },
+  { level: m.classes_prog2_lvl(), title: m.classes_prog2_t(), body: m.classes_prog2_b(), href: bookClass, moreLabel: m.classes_prog_book() },
+  { level: m.classes_prog3_lvl(), title: m.classes_prog3_t(), body: m.classes_prog3_b(), href: bookClass, moreLabel: m.classes_prog_book() },
+  { level: m.classes_prog4_lvl(), title: m.classes_prog4_t(), body: m.classes_prog4_b(), href: bookClass, moreLabel: m.classes_prog_book() },
+  { level: m.classes_prog5_lvl(), title: m.classes_prog5_t(), body: m.classes_prog5_b(), href: bookClass, moreLabel: m.classes_prog_book() },
   { level: m.classes_prog6_lvl(), title: m.classes_prog6_t(), body: m.classes_prog6_b(), href: p('/fighters') },
 ];
 
@@ -101,7 +105,7 @@ const faqItems = [
       title={m.classes_hero_title()}
       titleEm={m.classes_hero_title_em()}
       lead={m.classes_hero_lead()}
-      cta={{ label: m.cta_book_class(), href: p('/contact') }}
+      cta={{ label: m.cta_book_class(), href: bookClass }}
     />
 
     <Section soft id="programs">
@@ -183,8 +187,8 @@ const faqItems = [
       title={m.classes_cta_title()}
       titleEm={m.classes_cta_title_em()}
       sub={m.classes_cta_sub()}
-      ctaPrimary={{ label: m.cta_book_class(), href: p('/contact') }}
-      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      ctaPrimary={{ label: m.cta_book_class(), href: bookClass }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_class()) }}
       image={{ src: '/assets/gym-garden.jpg' }}
     />
   </main>
