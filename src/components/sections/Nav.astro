@@ -125,7 +125,7 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
           <div class="mcol">
             <span class="lab">{m.nav_stay_col_logistics()}</span>
             <a class="mlink" href={p('/stay-train#accommodation')}><span class="mic"><Icon name="tabler:bed" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_accom_title()}</span><span class="md">{m.nav_stay_accom_desc()}</span></span></a>
-            <a class="mlink" href={p('/stay-train#life')}><span class="mic"><Icon name="tabler:motorbike" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_scooter_title()}</span><span class="md">{m.nav_stay_scooter_desc()}</span></span></a>
+            <a class="mlink" href={p('/stay-train/scooter-rental')}><span class="mic"><Icon name="tabler:motorbike" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_scooter_title()}</span><span class="md">{m.nav_stay_scooter_desc()}</span></span></a>
             <a class="mlink" href={p('/contact')}><span class="mic"><Icon name="tabler:map-pin" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_getting_title()}</span><span class="md">{m.nav_stay_getting_desc()}</span></span></a>
           </div>
           <div class="mcol">
@@ -177,7 +177,7 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
           </div>
           <div class="mfoot">
             <div class="links">
-              <a href={p('/stay-train')}><Icon name="tabler:motorbike" /> {m.nav_dtv_foot_scooter()}</a>
+              <a href={p('/stay-train/scooter-rental')}><Icon name="tabler:motorbike" /> {m.nav_dtv_foot_scooter()}</a>
               <a href={p('/stay-train')}><Icon name="tabler:bed" /> {m.nav_dtv_foot_accom()}</a>
             </div>
             <a class="allcta" href={p('/dtv-visa')}>{m.nav_dtv_allcta()} <ArrowWild size={18} /></a>
@@ -229,7 +229,7 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
     <div class="dh"><img src="/assets/logo-horizontal-cream.svg" alt={site.name}><button class="x" aria-label={m.nav_aria_close()} data-drawer-close>×</button></div>
     <div class="dbody">
       <details open><summary>{m.nav_train()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_beginner_title()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_drawer_alllevels()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_private_title()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_women_title()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_kids_title()}</a><a href={p('/fighters')}><span class="dot"></span> {m.nav_train_fight_title()}</a><a href={p('/classes#schedule')}><span class="dot"></span> {m.nav_drawer_schedule_pricing()}</a></div></details>
-      <details><summary>{m.nav_stay()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/stay-train#packages')}><span class="dot"></span> {m.nav_drawer_packages()}</a><a href={p('/stay-train#accommodation')}><span class="dot"></span> {m.nav_drawer_accommodation()}</a><a href={p('/stay-train#life')}><span class="dot"></span> {m.nav_stay_scooter_title()}</a><a href={p('/contact')}><span class="dot"></span> {m.nav_stay_getting_title()}</a><a href={p('/stay-train#life')}><span class="dot"></span> {m.nav_stay_guide_title()}</a></div></details>
+      <details><summary>{m.nav_stay()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/stay-train#packages')}><span class="dot"></span> {m.nav_drawer_packages()}</a><a href={p('/stay-train#accommodation')}><span class="dot"></span> {m.nav_drawer_accommodation()}</a><a href={p('/stay-train/scooter-rental')}><span class="dot"></span> {m.nav_stay_scooter_title()}</a><a href={p('/contact')}><span class="dot"></span> {m.nav_stay_getting_title()}</a><a href={p('/stay-train#life')}><span class="dot"></span> {m.nav_stay_guide_title()}</a></div></details>
       <details><summary>{m.nav_dtv()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/dtv-visa')}><span class="dot"></span> {m.nav_drawer_dtv_guide()}</a><a href={p('/dtv-visa/eligibility')}><span class="dot"></span> {m.nav_dtv_eligible_title()}</a><a href={p('/dtv-visa/how-to-apply')}><span class="dot"></span> {m.nav_dtv_apply_title()}</a><a href={p('/dtv-visa/muay-thai')}><span class="dot"></span> {m.nav_dtv_muaythai_title()}</a><a href={p('/dtv-visa/long-stay-training')}><span class="dot"></span> {m.nav_dtv_plans_title()}</a><a href={p('/dtv-visa/faq')}><span class="dot"></span> {m.nav_dtv_faq_title()}</a></div></details>
       <details><summary>{m.nav_about()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/about')}><span class="dot"></span> {m.nav_about_story_title()}</a><a href={p('/about/coaches')}><span class="dot"></span> {m.nav_drawer_coaches()}</a><a href={p('/about#community')}><span class="dot"></span> {m.nav_about_col_community()}</a><a href={p('/about#reviews')}><span class="dot"></span> {m.nav_about_reviews_title()}</a></div></details>
       <!-- Blog : href="#" jusqu'à E8 -->

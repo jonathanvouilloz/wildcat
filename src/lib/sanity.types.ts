@@ -15,6 +15,60 @@
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: sanity/extract.json
+export type SanityImageAssetReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+};
+
+export type Scooter = {
+  _id: string;
+  _type: "scooter";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  year?: number;
+  color?: string;
+  cc?: number;
+  priceDaily?: number;
+  priceMonthly?: number;
+  photo?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  note?: LocaleString;
+  available?: boolean;
+  order?: number;
+};
+
+export type LocaleString = {
+  _type: "localeString";
+  en?: string;
+  fr?: string;
+};
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
+};
+
 export type Testimonial = {
   _id: string;
   _type: "testimonial";
@@ -54,19 +108,6 @@ export type TrainingSchedule = {
   order?: number;
 };
 
-export type LocaleString = {
-  _type: "localeString";
-  en?: string;
-  fr?: string;
-};
-
-export type SanityImageAssetReference = {
-  _ref: string;
-  _type: "reference";
-  _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-};
-
 export type Fighter = {
   _id: string;
   _type: "fighter";
@@ -91,22 +132,6 @@ export type Fighter = {
   quote?: LocaleString;
   achievements?: Array<string>;
   featured?: boolean;
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
-};
-
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
 };
 
 export type Slug = {
@@ -341,14 +366,15 @@ export type Geopoint = {
 };
 
 export type AllSanitySchemaTypes =
+  | SanityImageAssetReference
+  | Scooter
+  | LocaleString
+  | SanityImageCrop
+  | SanityImageHotspot
   | Testimonial
   | LocaleText
   | TrainingSchedule
-  | LocaleString
-  | SanityImageAssetReference
   | Fighter
-  | SanityImageCrop
-  | SanityImageHotspot
   | Slug
   | Coach
   | TranslationMetadata
@@ -559,6 +585,29 @@ export type BLOG_POST_QUERY_RESULT = {
 } | null;
 
 // Source: src/lib/queries.ts
+// Variable: SCOOTERS_QUERY
+// Query: *[_type == "scooter"] | order(order asc, name asc) {    _id, name, year, color, cc, priceDaily, priceMonthly, photo, note, available  }
+export type SCOOTERS_QUERY_RESULT = Array<{
+  _id: string;
+  name: string | null;
+  year: number | null;
+  color: string | null;
+  cc: number | null;
+  priceDaily: number | null;
+  priceMonthly: number | null;
+  photo: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  note: LocaleString | null;
+  available: boolean | null;
+}>;
+
+// Source: src/lib/queries.ts
 // Variable: CATEGORIES_QUERY
 // Query: *[_type == "category"] | order(name.en asc) {    _id, name, slug  }
 export type CATEGORIES_QUERY_RESULT = Array<{
@@ -578,6 +627,7 @@ declare module "@sanity/client" {
     '\n  *[_type == "trainingSchedule"] | order(order asc) {\n    _id, day, timeSlots, level, notes, order\n  }\n': SCHEDULE_QUERY_RESULT;
     '\n  *[_type == "blogPost" && language == $lang && defined(publishedAt)] | order(publishedAt desc) {\n    _id, title, slug, mainImage, seoDescription, publishedAt,\n    category->{ _id, name, slug }\n  }\n': BLOG_POSTS_BY_LANG_QUERY_RESULT;
     '\n  *[_type == "blogPost" && slug.current == $slug && language == $lang][0] {\n    _id, title, language, slug, mainImage, content,\n    seoTitle, seoDescription, publishedAt,\n    category->{ _id, name, slug },\n    "translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{\n      language, slug\n    }\n  }\n': BLOG_POST_QUERY_RESULT;
+    '\n  *[_type == "scooter"] | order(order asc, name asc) {\n    _id, name, year, color, cc, priceDaily, priceMonthly, photo, note, available\n  }\n': SCOOTERS_QUERY_RESULT;
     '\n  *[_type == "category"] | order(name.en asc) {\n    _id, name, slug\n  }\n': CATEGORIES_QUERY_RESULT;
   }
 }

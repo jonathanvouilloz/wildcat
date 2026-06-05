@@ -81,6 +81,33 @@ export const site = {
   defaultOgImage: '/assets/gym-garden.jpg',
 
   /**
+   * Flotte scooters (location aux guests) — données brutes, fallback de la
+   * collection Sanity `scooter` (page /stay-train/scooter-rental) + JSON-LD.
+   * `key` → messages scooter_fb*_note (record explicite dans la page).
+   * TODO(real data): prix/année Honda Click + nombre total (docs/checklist.md §D).
+   */
+  scooterFleet: [
+    {
+      key: 'scoopy',
+      name: 'Honda Scoopy i Prestige',
+      year: 2024,
+      color: 'Grey',
+      cc: 110,
+      priceDaily: 350,
+      priceMonthly: 3000,
+    },
+    {
+      key: 'click',
+      name: 'Honda Click',
+      year: null,
+      color: null,
+      cc: null,
+      priceDaily: null,
+      priceMonthly: null,
+    },
+  ],
+
+  /**
    * Tarifs réels (THB) — fournis 2026-06-03, prix publics (E5).
    * i18n : `key` → messages pricing_label_* (record explicite dans les composants).
    * `popular` → badge "Most popular" (PricingCard).

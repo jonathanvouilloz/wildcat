@@ -1,0 +1,479 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/layout/Section.astro';
+import SectionHead from '../../../components/ui/SectionHead.astro';
+import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import Card from '../../../components/ui/Card.astro';
+import Button from '../../../components/ui/Button.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import FeatureGrid from '../../../components/sections/FeatureGrid.astro';
+import Faq from '../../../components/sections/Faq.astro';
+import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import { Icon } from 'astro-icon/components';
+import { site } from '../../../config/site';
+import { localePath } from '../../../lib/routes';
+import { safeQuery } from '../../../lib/content';
+import { SCOOTERS_QUERY } from '../../../lib/queries';
+import type { SCOOTERS_QUERY_RESULT } from '../../../lib/sanity.types';
+import { pickLocale } from '../../../lib/i18n-content';
+import { urlFor } from '../../../lib/image';
+import { m } from '../../../paraglide/messages.js';
+
+// Satellite Stay & Train — location de scooters au camp (kw : "scooter rental
+// chiang mai", 210/mo · diff 24). Le verdict E5f "hors silo" supposait que
+// Wildcat n'était pas loueur — renversé 2026-06-05 : Meaw loue réellement.
+// Flotte CMS (collection `scooter`, toggle available) + fallback site.scooterFleet.
+// Pas de FAQPage JSON-LD (porteur unique du silo = /stay-train) — Service + Breadcrumb only.
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+const whatsapp = site.contact.whatsapp;
+
+// Flotte : CMS d'abord, sinon fallback site.ts (notes localisées par record).
+const fallbackNotes: Record<string, string> = {
+  scoopy: m.scooter_fb_scoopy_note(),
+  click: m.scooter_fb_click_note(),
+};
+type FleetItem = {
+  name: string;
+  year: number | null;
+  color: string | null;
+  cc: number | null;
+  priceDaily: number | null;
+  priceMonthly: number | null;
+  available: boolean;
+  note: string | null;
+  photoUrl: string | null;
+  photoAlt: string | null;
+};
+const cmsScooters = await safeQuery<SCOOTERS_QUERY_RESULT>({ query: SCOOTERS_QUERY }, []);
+const fleet: FleetItem[] = cmsScooters.length
+  ? cmsScooters.map((s) => ({
+      name: s.name ?? '',
+      year: s.year ?? null,
+      color: s.color ?? null,
+      cc: s.cc ?? null,
+      priceDaily: s.priceDaily ?? null,
+      priceMonthly: s.priceMonthly ?? null,
+      available: s.available !== false,
+      note: pickLocale(s.note, lang),
+      photoUrl: s.photo?.asset ? urlFor(s.photo).width(720).height(480).format('webp').url() : null,
+      photoAlt: s.photo?.alt ?? s.name ?? null,
+    }))
+  : site.scooterFleet.map((s) => ({
+      name: s.name,
+      year: s.year,
+      color: s.color,
+      cc: s.cc,
+      priceDaily: s.priceDaily,
+      priceMonthly: s.priceMonthly,
+      available: true,
+      note: fallbackNotes[s.key] ?? null,
+      photoUrl: null,
+      photoAlt: null,
+    }));
+
+const fmt = (price: number) => price.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
+const specOf = (s: FleetItem) =>
+  [s.year, s.cc ? `${s.cc} cc` : null, s.color].filter(Boolean).join(' · ');
+
+// How it works — 3 étapes (un message, les clés, la route).
+const howSteps = [
+  { title: m.scooter_how1_t(), body: m.scooter_how1_b() },
+  { title: m.scooter_how2_t(), body: m.scooter_how2_b() },
+  { title: m.scooter_how3_t(), body: m.scooter_how3_b() },
+];
+
+const whyItems = [
+  { icon: 'tabler:map-pin', title: m.scooter_why1_t(), body: m.scooter_why1_b() },
+  { icon: 'tabler:coin', title: m.scooter_why2_t(), body: m.scooter_why2_b() },
+  { icon: 'tabler:route', title: m.scooter_why3_t(), body: m.scooter_why3_b() },
+  { icon: 'tabler:message-circle', title: m.scooter_why4_t(), body: m.scooter_why4_b() },
+];
+
+// FAQ on-page — réponses prudentes (conditions exactes : checklist Meaw §D),
+// PAS de FAQPage JSON-LD (cohérence silo Stay).
+const faqItems = [
+  { q: m.scooter_faq_q1(), a: m.scooter_faq_a1() },
+  { q: m.scooter_faq_q2(), a: m.scooter_faq_a2() },
+  { q: m.scooter_faq_q3(), a: m.scooter_faq_a3() },
+  { q: m.scooter_faq_q4(), a: m.scooter_faq_a4() },
+  { q: m.scooter_faq_q5(), a: m.scooter_faq_a5() },
+];
+
+// Service JSON-LD — loueur local au camp (prix réels site.ts, offres jour/mois).
+const base = Astro.site ?? Astro.url.origin;
+const pageUrl = new URL(p('/stay-train/scooter-rental'), base).href;
+const scoopy = site.scooterFleet[0];
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Scooter rental',
+  name: m.scooter_meta_title(),
+  description: m.scooter_meta_desc(),
+  url: pageUrl,
+  inLanguage: lang,
+  provider: {
+    '@type': 'SportsClub',
+    name: site.name,
+    address: site.contact.address,
+    telephone: site.contact.phone,
+  },
+  areaServed: ['Chiang Mai', 'Hang Dong'],
+  offers: [
+    {
+      '@type': 'Offer',
+      price: scoopy.priceDaily,
+      priceCurrency: site.pricing.currency,
+      description: m.scooter_card_day(),
+    },
+    {
+      '@type': 'Offer',
+      price: scoopy.priceMonthly,
+      priceCurrency: site.pricing.currency,
+      description: m.scooter_card_month(),
+    },
+  ],
+};
+---
+
+<BaseLayout title={m.scooter_meta_title()} description={m.scooter_meta_desc()}>
+  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(serviceSchema)} />
+
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.nav_stay(), href: p('/stay-train') },
+        { label: m.scooter_crumb() },
+      ]}
+    />
+
+    <PageHero
+      title={m.scooter_hero_title()}
+      titleEm={m.scooter_hero_title_em()}
+      lead={m.scooter_hero_lead()}
+      cta={{ label: m.cta_whatsapp(), href: whatsapp }}
+    />
+
+    <Section containerSize="narrow">
+      <p class="body-p">{m.scooter_intro_p1()}</p>
+      <p class="body-p">{m.scooter_intro_p2()}</p>
+    </Section>
+
+    <!-- La flotte — CMS (toggle available au studio) + fallback site.ts -->
+    <Section soft id="fleet">
+      <div class="block-head">
+        <SectionHead>{m.scooter_fleet_head()}</SectionHead>
+        <h2 class="h2 mt-2 mb-3">{m.scooter_fleet_title()}</h2>
+        <p class="lead">{m.scooter_fleet_intro()}</p>
+      </div>
+      <div class="fleet-grid">
+        {
+          fleet.map((s) => (
+            <Card hover={false} class="scoot">
+              <div class="scoot-media">
+                {s.photoUrl ? (
+                  <img src={s.photoUrl} alt={s.photoAlt ?? s.name} loading="lazy" width="720" height="480" />
+                ) : (
+                  <span class="scoot-ph">
+                    <Icon name="tabler:motorbike" aria-hidden="true" />
+                  </span>
+                )}
+                <span class:list={['scoot-badge', s.available ? 'is-free' : 'is-out']}>
+                  {s.available ? m.scooter_card_available() : m.scooter_card_rented()}
+                </span>
+              </div>
+              <div class="scoot-body">
+                <h3 class="scoot-name">{s.name}</h3>
+                {specOf(s) && <p class="scoot-spec">{specOf(s)}</p>}
+                {s.note && <p class="scoot-note">{s.note}</p>}
+                <div class="scoot-prices">
+                  {
+                    s.priceDaily != null && s.priceMonthly != null ? (
+                      <>
+                        <p class="scoot-price">
+                          <strong>{fmt(s.priceDaily)}</strong> {site.pricing.currency}{' '}
+                          <span class="unit">{m.scooter_card_day()}</span>
+                        </p>
+                        <p class="scoot-price">
+                          <strong>{fmt(s.priceMonthly)}</strong> {site.pricing.currency}{' '}
+                          <span class="unit">{m.scooter_card_month()}</span>
+                        </p>
+                      </>
+                    ) : (
+                      <p class="scoot-price scoot-price--ask">{m.scooter_card_ask()}</p>
+                    )
+                  }
+                </div>
+              </div>
+            </Card>
+          ))
+        }
+      </div>
+    </Section>
+
+    <!-- How it works — un message, les clés, la route -->
+    <Section containerSize="narrow">
+      <SectionHead>{m.scooter_how_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-5">{m.scooter_how_title()}</h2>
+      <ol class="how">
+        {
+          howSteps.map((step, i) => (
+            <li class="how-step">
+              <span class="how-n" aria-hidden="true">{i + 1}</span>
+              <div>
+                <h3 class="how-t">{step.title}</h3>
+                <p class="how-b">{step.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+      {/* conditions exactes en attente de Meaw (docs/checklist.md §D) — copy prudente */}
+      <p class="how-note">{m.scooter_how_note()}</p>
+      <div class="mt-5">
+        <Button href={whatsapp} variant="gold" arrow>{m.cta_whatsapp()}</Button>
+      </div>
+    </Section>
+
+    <!-- Pourquoi louer au camp plutôt qu'en ville -->
+    <Section soft>
+      <div class="block-head">
+        <SectionHead>{m.scooter_why_head()}</SectionHead>
+        <h2 class="h2 mt-2 mb-5">{m.scooter_why_title()}</h2>
+      </div>
+      <FeatureGrid items={whyItems} />
+    </Section>
+
+    <!-- FAQ visible only — le FAQPage JSON-LD du silo vit sur /stay-train -->
+    <Section id="faq">
+      <div class="faq-split">
+        <div>
+          <SectionHead>{m.scooter_faq_head()}</SectionHead>
+          <h2 class="h2 mt-2">{m.scooter_faq_title()}</h2>
+          <p class="body-p mt-3">
+            {m.scooter_more_a()}{' '}
+            <a class="ilink" href={p('/stay-train#packages')}>{m.scooter_link_packages()}</a>{m.scooter_more_b()}{' '}
+            <a class="ilink" href={p('/dtv-visa/long-stay-training')}>{m.scooter_link_budget()}</a>.
+          </p>
+        </div>
+        <Faq items={faqItems} firstOpen />
+      </div>
+    </Section>
+
+    <CtaBanner
+      title={m.scooter_cta_title()}
+      titleEm={m.scooter_cta_title_em()}
+      ctaPrimary={{ label: m.cta_whatsapp(), href: whatsapp }}
+      ctaSecondary={{ label: m.cta_plan_stay(), href: p('/contact') }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .body-p {
+    font-size: 17px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin: 0 0 16px;
+    max-width: 64ch;
+  }
+  .lead {
+    font-size: 18px;
+    color: var(--ink-2);
+    max-width: 60ch;
+    margin-top: 0;
+  }
+  .block-head {
+    margin-bottom: 30px;
+  }
+  .ilink {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .ilink:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .ilink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* --- Flotte --- */
+  .fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 380px));
+    gap: 22px;
+    justify-content: center;
+  }
+  .scoot-media {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    background: var(--soft-2);
+  }
+  .scoot-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .scoot-ph {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .scoot-ph :global(svg) {
+    width: 64px;
+    height: 64px;
+    color: var(--forest);
+    opacity: 0.35;
+  }
+  .scoot-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+  .scoot-badge.is-free {
+    background: var(--forest);
+    color: var(--cream);
+  }
+  .scoot-badge.is-out {
+    background: var(--gold);
+    color: var(--charcoal, #111);
+  }
+  .scoot-body {
+    padding: 18px 20px 22px;
+  }
+  .scoot-name {
+    margin: 0 0 4px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 19px;
+    color: var(--forest);
+  }
+  .scoot-spec {
+    margin: 0 0 10px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .scoot-note {
+    margin: 0 0 14px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .scoot-prices {
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    display: grid;
+    gap: 4px;
+  }
+  .scoot-price {
+    margin: 0;
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+  .scoot-price strong {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .scoot-price .unit {
+    color: var(--ink-3);
+  }
+  .scoot-price--ask {
+    font-weight: 600;
+    color: var(--forest);
+  }
+
+  /* --- How it works --- */
+  .how {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 22px;
+    max-width: 64ch;
+  }
+  .how-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .how-n {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--soft-2);
+    color: var(--forest);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 15px;
+  }
+  .how-t {
+    margin: 4px 0 4px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .how-b {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-2);
+  }
+  .how-note {
+    margin: 26px 0 0;
+    max-width: 64ch;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    border-left: 3px solid var(--gold);
+    padding: 4px 0 4px 16px;
+  }
+
+  /* --- FAQ split (= pillar) --- */
+  .faq-split {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 46px;
+    align-items: start;
+  }
+
+  @media (max-width: 860px) {
+    .faq-split {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .fleet-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

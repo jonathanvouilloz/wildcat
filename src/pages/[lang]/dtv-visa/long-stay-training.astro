@@ -201,7 +201,10 @@ const faqItems = [
         </article>
         <article>
           <h3 class="h3">{m.dtv_lst_scooter_title()}</h3>
-          <p class="body-p">{m.dtv_lst_scooter_body()}</p>
+          <p class="body-p">
+            {m.dtv_lst_scooter_body()}{' '}
+            <a class="ilink" href={p('/stay-train/scooter-rental')}>{m.dtv_lst_scooter_link()}</a>.
+          </p>
         </article>
         <article>
           <h3 class="h3">{m.dtv_lst_extras_title()}</h3>

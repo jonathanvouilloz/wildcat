@@ -62,6 +62,13 @@ export const BLOG_POST_QUERY = defineQuery(`
   }
 `);
 
+/** Flotte de scooters à louer, ordre d'affichage (page scooter-rental). */
+export const SCOOTERS_QUERY = defineQuery(`
+  *[_type == "scooter"] | order(order asc, name asc) {
+    _id, name, year, color, cc, priceDaily, priceMonthly, photo, note, available
+  }
+`);
+
 /** Toutes les catégories. */
 export const CATEGORIES_QUERY = defineQuery(`
   *[_type == "category"] | order(name.en asc) {

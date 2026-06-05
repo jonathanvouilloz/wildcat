@@ -9,6 +9,7 @@ import { blogPost } from './documents/blogPost';
 import { trainingSchedule } from './documents/trainingSchedule';
 import { testimonial } from './documents/testimonial';
 import { category } from './documents/category';
+import { scooter } from './documents/scooter';
 
 export const schemaTypes = [
   // Objects
@@ -21,4 +22,5 @@ export const schemaTypes = [
   trainingSchedule,
   testimonial,
   category,
+  scooter,
 ];
