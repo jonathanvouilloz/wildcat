@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/layout/Section.astro';
+import TornDivider from '../../components/layout/TornDivider.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
 import Button from '../../components/ui/Button.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
@@ -88,6 +89,9 @@ const faqItems = [
       <DtvStamp size={210} slot="aside" />
     </PageHero>
 
+    {/* le hero dark (forest-deep) déchire sur l'intro (cream) */}
+    <TornDivider variant="rough-seg-a" color="var(--forest-deep)" flipY />
+
     <Section containerSize="narrow">
       <SectionHead>{m.dtv_intro_head()}</SectionHead>
       <h2 class="h2 mt-2 mb-4">{m.dtv_intro_title()}</h2>
@@ -98,6 +102,9 @@ const faqItems = [
         <li><a href={p('/dtv-visa/long-stay-training')}>{m.dtv_link_lst()} &rarr;</a></li>
       </ul>
     </Section>
+
+    {/* la section how-to (forest) mord vers le haut sur l'intro (cream) */}
+    <TornDivider variant="rough-seg-b" color="var(--forest)" />
 
     <Section dark>
       <SectionHead onDark>{m.dtv_how_head()}</SectionHead>

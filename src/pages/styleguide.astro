@@ -6,6 +6,7 @@ import Card from '../components/ui/Card.astro';
 import Callout from '../components/ui/Callout.astro';
 import Container from '../components/layout/Container.astro';
 import Section from '../components/layout/Section.astro';
+import TornDivider from '../components/layout/TornDivider.astro';
 import Field from '../components/ui/forms/Field.astro';
 import Input from '../components/ui/forms/Input.astro';
 import Textarea from '../components/ui/forms/Textarea.astro';
@@ -873,9 +874,42 @@ const guestFighters = [
         ))}
       </div>
       <p class="mt-4 text-sm text-ink-3">
-        Assets bienvenus : 10 stamps encre (prompts fournis à Jonathan), claw scratch divider SVG,
-        tampon rond « Wildcat Family » (filigrane fallback sans photo).
+        Assets bienvenus : 10 stamps encre (prompts fournis à Jonathan), tampon rond « Wildcat
+        Family » (filigrane fallback sans photo).
       </p>
+    </div>
+
+    <!-- ============================================================
+         Torn dividers — coutures déchirées entre sections full-bleed.
+         Asset = bande alpha (public/assets/dividers/) générée par
+         tests/process-divider.py depuis une silhouette N/B stagée dans
+         PNG/dividers/. 4 variantes par source (base/flipx/seg-a/seg-b),
+         flip-Y fait en CSS (1 asset = 2 orientations). Composant :
+         TornDivider (layout/) — props variant/color/bg/flipX/flipY.
+         Le brush SVG des heroes reste un vocabulaire distinct.
+         ============================================================ -->
+    <div class="mx-auto max-w-[1100px] px-6 pt-16 pb-8">
+      <SectionHead>Torn dividers</SectionHead>
+      <h2 class="h2 mt-3 mb-2">Coutures <span class="em">déchirées.</span></h2>
+      <p class="max-w-[62ch] text-ink-2">
+        À poser <strong>entre deux sections full-bleed</strong> à fort contraste.
+        <code>color</code> = la couleur qui déborde (l'encre) ; <code>flipY</code> oriente le tear
+        (défaut : la section du dessous mord vers le haut) ; <code>bg</code> = couleur révélée si
+        la section adjacente n'est pas cream (ex. <code>var(--soft)</code>). Nouvelle source :
+        <code>python tests/process-divider.py "PNG/dividers/&lt;img&gt;.webp" &lt;slug&gt;</code>.
+      </p>
+    </div>
+
+    <div class="td-demo" aria-label="Démo torn dividers">
+      <div class="td-band td-band--deep"><span>rough-base · flipY — le dessus (forest-deep) déchire vers le bas</span></div>
+      <TornDivider variant="rough-base" color="var(--forest-deep)" flipY />
+      <div class="td-band td-band--cream"><span>rough-flipx — le dessous (forest) mord vers le haut</span></div>
+      <TornDivider variant="rough-flipx" color="var(--forest)" />
+      <div class="td-band td-band--forest"><span>rough-seg-a · flipY · bg soft — révèle une Section soft</span></div>
+      <TornDivider variant="rough-seg-a" color="var(--forest)" bg="var(--soft)" flipY />
+      <div class="td-band td-band--soft"><span>rough-seg-b · bg soft — gold pour mémoire (tout token passe)</span></div>
+      <TornDivider variant="rough-seg-b" color="var(--gold)" bg="var(--soft)" />
+      <div class="td-band td-band--gold"><span>fin de démo</span></div>
     </div>
 
     <!-- Layout primitives — full-bleed (hors wrapper), composants réels -->
@@ -917,6 +951,26 @@ const guestFighters = [
     <Footer />
 
     <style>
+      /* Démo torn dividers — bandes mock pleine largeur */
+      .td-band {
+        min-height: 110px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px var(--gutter);
+      }
+      .td-band span {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        opacity: 0.75;
+      }
+      .td-band--deep { background: var(--forest-deep); color: var(--cream); }
+      .td-band--forest { background: var(--forest); color: var(--cream); }
+      .td-band--cream { background: var(--cream); color: var(--ink-2); }
+      .td-band--soft { background: var(--soft); color: var(--ink-2); }
+      .td-band--gold { background: var(--gold); color: var(--charcoal); }
+
       /* Motifs (repris de brand-board.css, adaptés aux tokens) */
       .m-stripes {
         background: repeating-linear-gradient(60deg, var(--forest) 0 14px, var(--gold) 14px 28px);

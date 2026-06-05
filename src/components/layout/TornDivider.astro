@@ -1,0 +1,72 @@
+---
+/**
+ * TornDivider — couture déchirée entre deux sections full-bleed.
+ * Bloc in-flow à placer ENTRE les deux sections : il peint `color` (la couleur
+ * de la section qui « déborde ») masqué par un asset alpha torn/scratch
+ * (`public/assets/dividers/`, généré par `tests/process-divider.py`).
+ * Asset par défaut : tear en HAUT, solide en BAS → la section du DESSOUS mord
+ * vers le haut ; `flipY` retourne le tear (la section du DESSUS déchire vers
+ * le bas). `flipX` = variété gratuite. Décoratif pur : aria-hidden, zéro JS.
+ */
+export interface Props {
+  /** slug+variante de l'asset (torn-{variant}.png) */
+  variant?: string;
+  /** couleur qui déborde — token CSS de la section adjacente */
+  color?: string;
+  /** couleur révélée par le tear — à poser si la section révélée n'est pas
+      cream (le body) : ex. bg="var(--soft)" devant une Section soft */
+  bg?: string;
+  /** miroir horizontal (variété, sans nouvel asset) */
+  flipX?: boolean;
+  /** tear vers le bas (la section du dessus déchire sur celle du dessous) */
+  flipY?: boolean;
+  /** hauteur rendue (même clamp que le brush des heroes) */
+  height?: string;
+  class?: string;
+}
+
+const {
+  variant = 'rough-base',
+  color = 'var(--forest)',
+  bg,
+  flipX = false,
+  flipY = false,
+  height = 'clamp(28px, 4vw, 56px)',
+  class: extra = '',
+} = Astro.props;
+---
+
+<div
+  class:list={['torn-divider', extra]}
+  aria-hidden="true"
+  style={`--td-url:url('/assets/dividers/torn-${variant}.png');--td-color:${color};${bg ? `--td-bg:${bg};` : ''}--td-h:${height};--td-sx:${flipX ? -1 : 1};--td-sy:${flipY ? -1 : 1};`}
+>
+</div>
+
+<style>
+  .torn-divider {
+    display: block;
+    width: 100%;
+    height: var(--td-h);
+    background-color: var(--td-bg, transparent);
+    position: relative;
+    /* avale les hairlines de sous-pixel aux jonctions */
+    margin-block: -1px;
+    pointer-events: none;
+  }
+  /* la couche encrée : `color` masquée par le tear */
+  .torn-divider::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--td-color);
+    -webkit-mask-image: var(--td-url);
+    mask-image: var(--td-url);
+    /* étiré comme le brush des heroes (preserveAspectRatio="none") */
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    transform: scaleX(var(--td-sx)) scaleY(var(--td-sy));
+  }
+</style>

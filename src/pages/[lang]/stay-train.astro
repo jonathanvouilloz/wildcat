@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/layout/Section.astro';
+import TornDivider from '../../components/layout/TornDivider.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
 import Button from '../../components/ui/Button.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
@@ -140,6 +141,9 @@ const plans = [
       </div>
       <PricingTable plans={plans} popularLabel={m.pricing_popular()} />
     </Section>
+
+    {/* la section DTV (forest) mord vers le haut sur le pricing (cream) */}
+    <TornDivider variant="rough-flipx" color="var(--forest)" />
 
     <Section dark>
       <div class="dtv-cross">
