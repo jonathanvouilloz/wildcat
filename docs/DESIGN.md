@@ -188,6 +188,15 @@ Le **tigre** est le cœur de la marque — mascotte à conserver. Autour, un pet
 
 ⚠️ Les couleurs internes du logo (`#231f20`, `#e4b021`, `#ea8723`…) sont **fixes** — propres à la marque, jamais mappées sur les tokens. Les variantes cream sont générées par recoloration des paths du wordmark uniquement (le tigre garde ses couleurs). **Favicon** : `favicon.svg` = tigre + `favicon.ico` (16/32/48) régénéré depuis `logo-only.svg`.
 
+**Sources vectorielles (`docs/`, jamais servies au client)** :
+
+| Fichier | Contenu | Dérivés en prod |
+|---------|---------|-----------------|
+| `docs/shape-logo.svg` | **Silhouette monochrome du tigre** (même viewBox 265×273 que `logo-only.svg`, fill unique `#231f20`) — la forme die-cut de la mascotte. Source officielle pour tout usage graphique de la silhouette : `mask-image` CSS, watermark, tampon, motif. | `decor/tiger-hero-bg.webp` (texture hero `/classes/beginners`) · `decor/tiger-head.webp` (mask alpha) + `decor/tiger-shape.webp` (silhouette alpha) — proto CTA « tiger card » sur `/styleguide` · le line-art de `decor/cta-texture.webp` (footer) |
+| `docs/frame-fighter.svg` | Cadre scratch vectorisé (centaines de KB de paths) — source des frames déchirées du guest book. Rasterisé via `tests/process-frame.py` (render/mask). | `textures/torn-frame.png` + `textures/photo-scratches.png` (+ variantes) |
+
+Pour rasteriser un nouveau dérivé : `python tests/process-frame.py render <svg> <slug>` (préview) puis `mask` (masque alpha léger) — les SVG bruts sont trop lourds pour le client.
+
 ---
 
 ## 8. Inventaire composants

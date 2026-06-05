@@ -8,17 +8,19 @@ Plan d'exécution maître. Statuts : `TODO` · `EN COURS` · `DONE` · `BLOQUÉ`
 
 | # | Epic | Complexité | Statut | Détail |
 |---|------|:---:|:---:|--------|
-| E1 | Foundation & Setup | M | **DONE** | [E1-foundation.md](features/E1-foundation.md) |
+| E1 | Foundation & Setup | M | **DONE** | historique : `DECISIONS.md` + entrées ci-dessous |
 | — | Design system (typo, boutons, nav/mega menu, icônes Tabler) | M | **DONE** | `docs/DESIGN.md` + `/styleguide` |
-| E2 | App shell & design-system completion | M | **DONE** | [E2-design-system.md](features/E2-design-system.md) |
-| E3 | i18n (EN/FR) | M | **DONE** | [E3-i18n.md](features/E3-i18n.md) |
-| E4 | Sanity CMS | M | **DONE** | [E4-sanity-cms.md](features/E4-sanity-cms.md) |
-| E5 | Pages cœur & silos SEO | L | **DONE** (pages prioritaires + satellites DTV) | [E5-core-pages.md](features/E5-core-pages.md) |
+| E2 | App shell & design-system completion | M | **DONE** | historique : `DECISIONS.md` + entrées ci-dessous |
+| E3 | i18n (EN/FR) | M | **DONE** | historique : `DECISIONS.md` + entrées ci-dessous |
+| E4 | Sanity CMS | M | **DONE** | historique : `DECISIONS.md` + entrées ci-dessous |
+| E5 | Pages cœur & silos SEO | L | **DONE** (E5 + E5b→f) | historique : `DECISIONS.md` + entrées ci-dessous |
 | E6 | Mini-app DTV | L | TODO | [E6-dtv-app.md](features/E6-dtv-app.md) |
 | E7 | SEO technique | M | TODO | [E7-seo-technical.md](features/E7-seo-technical.md) |
 | E8 | Blog & contenu | M | TODO | [E8-blog-content.md](features/E8-blog-content.md) |
 | E9 | Médias & galerie | S | TODO | [E9-media.md](features/E9-media.md) |
 | E10 | Déploiement Vercel | S | TODO | [E10-deploy.md](features/E10-deploy.md) |
+
+> `docs/features/` ne contient que les epics **restants** (E6→E10) — les specs des epics livrés sont supprimées, leur historique vit dans `DECISIONS.md` et les entrées datées ci-dessous.
 
 ---
 
@@ -57,7 +59,7 @@ E1 Foundation
    - **Contenu studio Sanity** : coaches, schedule, testimonials, fighters du livre d'or (le testimonial `/stay-train` n'apparaît que si saisi)
    - **Admin** : acheter `wildcatmuaythai.com` + `wildcatchiangmai.com` (Q5) · env prod `RESEND_API_KEY`, `CONTACT_EMAIL` (+ `CONTACT_FROM` après vérif domaine Resend), `APIFY_TOKEN` · email réel dans `site.ts` (`TODO(real data)`) · lien avis Google (`site.reviews.googleUrl`)
    - **Dev** : **E6 DTV app** (trancher **Q1** storage avant : Google Drive API vs Supabase Storage) · corriger les faits DTV selon `docs/dtv-fact-check.md` · redirect `/muay-thai-training` → `/stay-train` (E7/E10) · cron deploy hook Instagram tous les 3-4 j (E10)
-   - **Backlog blog E8** : "best muay thai camps in thailand" (70/mo, listicle) · "Chiang Mai vs Phuket for muay thai" (PAA ×2 SERPs) · "Where to watch fights in Chiang Mai" (90/mo) · "Basic moves" tuto (170/mo)
+   - **Backlog blog E8** : "best muay thai camps in thailand" (70/mo, listicle) · "Chiang Mai vs Phuket for muay thai" (PAA ×2 SERPs) · "Where to watch fights in Chiang Mai" (90/mo) · "Basic moves" tuto (170/mo) · **input recherche : `docs/report-kimi.md`** (étude de marché 2026-06-05 — 3 piliers : guides débutants, hub DTV, récits de transformation ; angles sous-exploités : santé mentale + données scientifiques, assurance sports de combat, burning season, digital nomads)
    - **Backlog SEO** : re-vérifier le ranking `/stay-train` post-deploy (kw 1900/mo) · niche FR "camp muay thai thailande français" servie par le contenu — suivre en GSC
 11. Données réelles manquantes : email (`src/config/site.ts`) — `TODO(real data)` ; ~~horaires~~ (✅ planning réel du flyer committé 2026-06-05, `site.schedule` + DaySchedule) ; détail packages séjour + condos Meaw (`structure-stay.md` §0 9b/9c). Redirect `/muay-thai-training` → `/stay-train` (E7/E10). ~~Pillar FR : title/meta à raccourcir~~ (réglé par le re-cadrage E5c — title 50ch / meta 143ch).
 
