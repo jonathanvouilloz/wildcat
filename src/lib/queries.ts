@@ -42,36 +42,12 @@ export const SCHEDULE_QUERY = defineQuery(`
   }
 `);
 
-/** Articles publiés d'une langue (document-level i18n), plus récents d'abord. */
-export const BLOG_POSTS_BY_LANG_QUERY = defineQuery(`
-  *[_type == "blogPost" && language == $lang && defined(publishedAt)] | order(publishedAt desc) {
-    _id, title, slug, mainImage, seoDescription, publishedAt,
-    category->{ _id, name, slug }
-  }
-`);
-
-/** Un article par slug + langue, avec ses traductions (pour hreflang / LangSwitcher). */
-export const BLOG_POST_QUERY = defineQuery(`
-  *[_type == "blogPost" && slug.current == $slug && language == $lang][0] {
-    _id, title, language, slug, mainImage, content,
-    seoTitle, seoDescription, publishedAt,
-    category->{ _id, name, slug },
-    "translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
-      language, slug
-    }
-  }
-`);
+// Blog : Content Collections .md depuis E8 (src/lib/blog.ts) — les queries
+// blogPost/category sont retirées avec leurs schémas (DECISIONS.md 2026-06-05).
 
 /** Flotte de scooters à louer, ordre d'affichage (page scooter-rental). */
 export const SCOOTERS_QUERY = defineQuery(`
   *[_type == "scooter"] | order(order asc, name asc) {
     _id, name, year, color, cc, priceDaily, priceMonthly, photo, note, available
-  }
-`);
-
-/** Toutes les catégories. */
-export const CATEGORIES_QUERY = defineQuery(`
-  *[_type == "category"] | order(name.en asc) {
-    _id, name, slug
   }
 `);

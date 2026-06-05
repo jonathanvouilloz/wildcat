@@ -6,7 +6,6 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
-import { documentInternationalization } from '@sanity/document-internationalization';
 
 import { schemaTypes } from './sanity/schemaTypes';
 
@@ -30,18 +29,12 @@ export default defineConfig({
   // NB : pas de basePath ici — l'intégration @sanity/astro l'ignore ;
   // le chemin du studio est studioBasePath dans astro.config.mjs.
 
+  // i18n : field-level only (localeString/localeText). Le plugin
+  // documentInternationalization (blogPost) est retiré — blog = Content
+  // Collections .md depuis E8 (DECISIONS.md 2026-06-05).
   plugins: [
     structureTool(),
     visionTool(), // playground GROQ (onglet Vision)
-    // i18n document-level : un document blogPost PAR langue → slugs traduits
-    // gratuits (règle Q6). Les autres types restent en field-level (localeString/localeText).
-    documentInternationalization({
-      supportedLanguages: [
-        { id: 'en', title: 'English' },
-        { id: 'fr', title: 'Français' },
-      ],
-      schemaTypes: ['blogPost'],
-    }),
   ],
 
   schema: {
