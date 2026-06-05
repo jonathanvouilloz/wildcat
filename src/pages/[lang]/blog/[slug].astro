@@ -14,6 +14,10 @@ import HelpfulWidget from '../../../components/interactive/HelpfulWidget.astro';
 import { localePath } from '../../../lib/routes';
 import { waLink } from '../../../lib/whatsapp';
 import { site } from '../../../config/site';
+import { safeQuery } from '../../../lib/content';
+import { COACHES_QUERY } from '../../../lib/queries';
+import type { COACHES_QUERY_RESULT } from '../../../lib/sanity.types';
+import { urlFor } from '../../../lib/image';
 import {
   getPostsByLang,
   getAlternates,
@@ -80,11 +84,25 @@ const catLabels: Record<string, string> = {
   culture: m.blog_cat_culture(),
 };
 
-// Cover : hero d'article (1200w) + version OG absolue.
-const cover = post.data.cover
-  ? await getImage({ src: post.data.cover, width: 1200, format: 'webp' })
+// Cover : PAS affichée dans l'article (décision 2026-06-06 — le header
+// éditorial suffit, la photo pleine largeur poussait le contenu sous la
+// ligne de flottaison). Elle garde ses deux jobs : card grille /blog +
+// og:image (partages + JSON-LD).
+const ogImage = post.data.cover
+  ? (await getImage({ src: post.data.cover, width: 1200, format: 'webp' })).src
   : undefined;
-const ogImage = cover ? cover.src : undefined;
+
+// Photo auteur — résolue depuis le studio (fiche coach « Meaw ») dès qu'elle
+// est saisie ; en attendant, AuthorBio affiche le placeholder initiales.
+// Pas de schéma "author" dédié : l'entité existe déjà côté coachs.
+const coaches = await safeQuery<COACHES_QUERY_RESULT>({ query: COACHES_QUERY }, []);
+const meawCoach = coaches.find((coach) => coach.name?.toLowerCase().includes('meaw'));
+const authorPhoto = meawCoach?.photo?.asset
+  ? {
+      src: urlFor(meawCoach.photo).width(120).height(120).format('webp').url(),
+      alt: meawCoach.name ?? m.blog_authorbio_name(),
+    }
+  : undefined;
 
 // Cards "à lire ensuite" (même mapping que la page liste).
 const cardDateFmt = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
@@ -128,6 +146,7 @@ const articleSchema = {
     '@id': `${coachesUrl}#meaw`,
     name: m.blog_authorbio_name(),
     url: coachesUrl,
+    ...(authorPhoto ? { image: authorPhoto.src } : {}),
   },
   publisher: { '@type': 'SportsClub', name: site.name, url: new URL(p('/'), base).href },
   isPartOf: { '@type': 'Blog', '@id': new URL(p('/blog'), base).href },
@@ -179,22 +198,9 @@ const articleSchema = {
       </div>
     </header>
 
-    {
-      cover && (
-        <div class="cover">
-          <img
-            src={cover.src}
-            alt={post.data.coverAlt ?? ''}
-            width={cover.attributes.width}
-            height={cover.attributes.height}
-            loading="eager"
-            decoding="async"
-          />
-        </div>
-      )
-    }
-
     <!-- Corps : TOC sticky (desktop) + prose -->
+    <!-- NB : la cover n'est volontairement PAS rendue ici (card + og only) -->
+
     <div class="layout">
       {
         tocHeadings.length >= 2 && (
@@ -210,7 +216,7 @@ const articleSchema = {
 
         <div class="after">
           <HelpfulWidget slug={slug} />
-          <AuthorBio coachesHref={p('/about/coaches')} />
+          <AuthorBio coachesHref={p('/about/coaches')} photo={authorPhoto} />
         </div>
       </article>
     </div>
@@ -299,19 +305,6 @@ const articleSchema = {
     margin: 0;
     font-size: 13.5px;
     color: var(--ink-3);
-  }
-
-  /* Cover */
-  .cover {
-    max-width: 960px;
-    margin: clamp(26px, 4vw, 40px) auto 0;
-    padding: 0 var(--gutter);
-  }
-  .cover img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--r-lg);
-    box-shadow: var(--shadow-md);
   }
 
   /* Corps : 1 colonne mobile (TOC repliable au-dessus), grille en desktop */

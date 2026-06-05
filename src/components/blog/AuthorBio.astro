@@ -5,17 +5,30 @@ import { m } from '../../paraglide/messages.js';
  * AuthorBio — bloc E-E-A-T de fin d'article (pattern .author de
  * /classes/beginners, enrichi). Byline cliquable vers /about/coaches
  * (entité Person JSON-LD #meaw). Strings via messages blog_authorbio_*.
+ *
+ * Photo : résolue par la page depuis le studio (fiche coach Meaw) — tant
+ * qu'elle n'est pas saisie, placeholder initiales (pattern CoachCard).
  */
 export interface Props {
   /** Lien /about/coaches localisé. */
   coachesHref: string;
+  /** Portrait de l'auteur (Sanity, résolu par la page). Absent = initiales. */
+  photo?: { src: string; alt: string };
 }
-const { coachesHref } = Astro.props;
+const { coachesHref, photo } = Astro.props;
 ---
 
 <aside class="bio">
   <div class="head">
-    <span class="ava" aria-hidden="true">{m.blog_authorbio_name().charAt(0)}</span>
+    {
+      photo ? (
+        <img class="ava-img" src={photo.src} alt={photo.alt} width="52" height="52" loading="lazy" />
+      ) : (
+        <span class="ava" aria-hidden="true">
+          {m.blog_authorbio_name().charAt(0)}
+        </span>
+      )
+    }
     <div>
       <p class="name">{m.blog_authorbio_name()}</p>
       <p class="role">{m.blog_authorbio_role()}</p>
@@ -49,6 +62,14 @@ const { coachesHref } = Astro.props;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+  .ava-img {
+    flex: none;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--line);
   }
   .name {
     margin: 0;
