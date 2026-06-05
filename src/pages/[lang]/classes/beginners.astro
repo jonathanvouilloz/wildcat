@@ -261,11 +261,15 @@ const articleSchema = {
     </Section>
 
     <CtaBanner
+      variant="split"
+      hand={m.classes_beg_cta_hand()}
       title={m.classes_beg_cta_title()}
       titleEm={m.classes_beg_cta_title_em()}
+      sub={m.classes_beg_cta_sub()}
+      caption={m.classes_beg_cta_caption()}
       ctaPrimary={{ label: m.classes_beg_cta_book(), href: p('/contact') }}
       ctaSecondary={{ label: m.cta_whatsapp(), href: whatsapp }}
-      image={{ src: '/assets/gym-garden.jpg' }}
+      image={{ src: '/assets/meaw-training.webp', alt: m.classes_beg_cta_img_alt() }}
     />
   </main>
 </BaseLayout>

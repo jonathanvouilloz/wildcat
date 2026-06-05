@@ -164,11 +164,15 @@ const reviews =
     </Section>
 
     <CtaBanner
+      variant="split"
+      hand={m.about_cta_hand()}
       title={m.about_cta_title()}
       titleEm={m.about_cta_title_em()}
+      sub={m.about_cta_sub()}
+      caption={m.about_cta_caption()}
       ctaPrimary={{ label: m.cta_book_class(), href: p('/contact') }}
       ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
-      image={{ src: '/assets/gym-garden.jpg' }}
+      image={{ src: '/assets/hero-team.webp', alt: m.about_cta_img_alt() }}
     />
   </main>
 </BaseLayout>

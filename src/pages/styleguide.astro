@@ -21,6 +21,8 @@ import FighterCard from '../components/sections/FighterCard.astro';
 import AchievementStamp from '../components/ui/AchievementStamp.astro';
 import ProgramCard from '../components/sections/ProgramCard.astro';
 import PricingCard from '../components/sections/PricingCard.astro';
+import Faq from '../components/sections/Faq.astro';
+import CtaBanner from '../components/sections/CtaBanner.astro';
 import { seedRot } from '../lib/guestbook';
 import { Icon } from 'astro-icon/components';
 
@@ -194,6 +196,27 @@ const cxPlans = [
     features: ['Twice-daily training', 'Personal fight plan', 'Stadium matchmaking'],
   },
 ];
+// --- FAQ v2 — proto accordéon animé (données factices, avant/après) ---------
+const sgFaqItems = [
+  {
+    q: 'Do I need experience to join?',
+    a: 'Not at all — most members started as complete beginners. Come as you are, the family takes it from there.',
+  },
+  {
+    q: 'What should I bring to my first class?',
+    a: 'Comfortable clothes, water and a towel. Gloves and wraps are free to borrow at the gym.',
+    link: { label: 'Your first class, minute by minute', href: '#' },
+  },
+  {
+    q: 'Can I train if I am only in Chiang Mai for a week?',
+    a: 'Absolutely. Drop in for a single class (350 THB) or train every day — no commitment needed.',
+  },
+  {
+    q: 'How do I book?',
+    a: 'Message us on WhatsApp or just show up 15 minutes before a session. No paperwork, no pressure.',
+  },
+];
+
 // --- Fighter guest book — démo du composant final (données factices) --------
 const GB_ACH_LABELS: Record<string, string> = {
   'first-fight': 'First fight',
@@ -724,6 +747,27 @@ const guestFighters = [
         </div>
       </section>
 
+      <!-- ============================================================
+           FAQ — composant final (v2 portée 2026-06-05) : accordéon
+           <details> animé (WAAPI ~300/260ms) + exclusif (scopé par
+           instance), respiration gauche 30px. Sans JS : natif (snap).
+           reduced-motion : toggle instantané. La page DTV FAQ (FaqSearch)
+           a la même anim SANS exclusivité (multi-ouverte).
+           ============================================================ -->
+      <section class="mb-20">
+        <SectionHead>FAQ</SectionHead>
+        <h2 class="h2 mt-3 mb-2">Accordéon <span class="em">fluide.</span></h2>
+        <p class="mb-7 max-w-[62ch] text-ink-2">
+          Composant réel <code>Faq</code> : animation WAAPI, <strong>exclusif</strong> (ouvrir un
+          item referme l'autre en douceur), <code>firstOpen</code> pour ouvrir le premier item,
+          <code>link</code> optionnel par réponse (maillage). Fallback no-JS = natif ;
+          <code>prefers-reduced-motion</code> = instantané.
+        </p>
+        <div class="max-w-[640px]">
+          <Faq items={sgFaqItems} firstOpen />
+        </div>
+      </section>
+
       <!-- Logos — kit SVG vectorisé (couleurs fixes du logo, pas les tokens) -->
       <section class="mb-10">
         <SectionHead>Logo &amp; lockups</SectionHead>
@@ -992,6 +1036,132 @@ const guestFighters = [
       <div class="td-band td-band--soft"><span>rough-seg-b · bg soft — gold pour mémoire (tout token passe)</span></div>
       <TornDivider variant="rough-seg-b" color="var(--gold)" bg="var(--soft)" />
       <div class="td-band td-band--gold"><span>fin de démo</span></div>
+    </div>
+
+    <!-- ============================================================
+         CtaBanner — composant final à variantes (explorations validées
+         et portées 2026-06-05 : torn / scrapbook / split, l'ancienne
+         carte forest arrondie est retirée). Démos = composant réel,
+         strings EN en dur OK (noindex). La direction D (tiger card)
+         reste un proto — retravaillée par Jonathan.
+         ============================================================ -->
+    <div class="mx-auto max-w-[1100px] px-6 pt-16 pb-2">
+      <SectionHead>CTA banner</SectionHead>
+      <h2 class="h2 mt-3 mb-2">CtaBanner — <span class="em">3 variantes.</span></h2>
+      <p class="max-w-[62ch] text-ink-2">
+        Composant réel <code>CtaBanner</code>, prop <code>variant</code> choisie selon le contexte
+        de la page : <code>torn</code> (grand finale full-bleed — home, pillars),
+        <code>scrapbook</code> (frame guest book — classes, fighters, satellites),
+        <code>split</code> (copy + photo — beginners, about). Aléatoire seedé sur le titre
+        (miroir du mask, tape). Props : <code>hand</code> (Caveat), <code>sub</code>,
+        <code>caption</code> + <code>image.alt</code> (split).
+      </p>
+    </div>
+
+    <div class="sg-vcap">
+      <b>torn</b> full-bleed déchiré — photo jusque dans les dents, base <code>--night</code>,
+      grade + voile gold
+    </div>
+    <CtaBanner
+      variant="torn"
+      hand="Ready when you are —"
+      title="Come for the fight."
+      titleEm="Stay for the family."
+      sub="One class or one season — the garden is open and there's always a seat at the table."
+      ctaPrimary={{ label: 'Book your first class', href: '#' }}
+      ctaSecondary={{ label: 'Chat on WhatsApp', href: '#' }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+
+    <div class="sg-vcap">
+      <b>scrapbook</b> bannière masquée torn-t2 plein cadre (4 côtés déchirés), tape seedé,
+      vignette noire teintée
+    </div>
+    <CtaBanner
+      variant="scrapbook"
+      hand="From the guest book —"
+      title="Your page starts"
+      titleEm="here."
+      sub="Train with the family, fight if you want to — and leave your mark in Chiang Mai."
+      ctaPrimary={{ label: 'Start your journey', href: '#' }}
+      ctaSecondary={{ label: 'Meet the family', href: '#' }}
+      image={{ src: '/assets/night-session.webp' }}
+    />
+
+    <div class="sg-vcap">
+      <b>split</b> bande soft entre deux coutures — copy + photo incrustée guest book (tape +
+      légende Caveat)
+    </div>
+    <CtaBanner
+      variant="split"
+      hand="Come for the fight —"
+      title="Stay for the"
+      titleEm="family."
+      sub="A family-run camp in a Chiang Mai garden. Drop in for one class, stay for a season — train, eat, recover and laugh with us either way."
+      caption="fight night with the family ♥"
+      ctaPrimary={{ label: 'Book your first class', href: '#' }}
+      ctaSecondary={{ label: 'Plan your stay', href: '#' }}
+      image={{ src: '/assets/family-party.webp', alt: 'The Wildcat family at a night out' }}
+    />
+
+    <!-- D — Tiger card (inspiration Jonathan) : carte arrondie texturée
+         (asset decor/cta-texture.webp — suède forest + tigre line-art +
+         moustaches or), copy à gauche, photo masquée dans la silhouette
+         tigre (decor/tiger-shape.webp, alpha natif) à droite. -->
+    <div class="sg-vcap">
+      <b>D</b> Tiger card — carte texturée (asset fourni), copy + features row à gauche, photo
+      incrustée dans la silhouette tigre à droite (mask alpha)
+    </div>
+    <div class="sg-ctaD-zone">
+      <section class="sg-cta2 sg-cta2D">
+        <div class="d2c-copy">
+          <h3 class="display d2c-title">
+            Train hard,<br /><span class="em on-dark">belong</span> longer.
+          </h3>
+          <p class="d2c-sub">
+            More than training — we help you settle into camp life in Chiang Mai, with
+            accommodation, wheels and local support.
+          </p>
+          <div class="sg-ctas2 left">
+            <Button variant="gold" arrow>Start your stay</Button>
+            <Button variant="outline" onDark>See packages</Button>
+          </div>
+          <a class="d2c-wa" href="#">
+            <Icon name="tabler:brand-whatsapp" class="h-5 w-5" /> Chat on WhatsApp
+          </a>
+          <div class="d2c-feats">
+            <span><Icon name="tabler:bed" class="h-5 w-5" /> Comfortable rooms</span>
+            <span><Icon name="tabler:motorbike" class="h-5 w-5" /> Scooter rental</span>
+            <span><Icon name="tabler:calendar-event" class="h-5 w-5" /> Weekly rates</span>
+            <span><Icon name="tabler:users" class="h-5 w-5" /> Local support</span>
+          </div>
+        </div>
+        <div class="d2c-media">
+          <div class="d2c-tigerwrap">
+            <img
+              class="d2c-tiger"
+              src="/assets/gym-garden.jpg"
+              alt="Open-air training in the Wildcat garden"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="mx-auto max-w-[1100px] px-6 pb-16 pt-10">
+      <p class="max-w-[72ch] text-sm text-ink-3">
+        <strong>Option « forme custom » (asset Jonathan)</strong> — deux voies possibles :
+        <strong>mask (reco)</strong> : PNG <em>alpha</em> (opaque = visible, transparent = coupé),
+        la couleur du PNG est ignorée — le fond reste pilotable par token CSS (forest, soft…).
+        Ratio proche de la bannière (~3:1, le mask est étiré), garder 6–12&nbsp;% de marge pleine
+        sur les bords (le mask est posé en 104–112&nbsp;% pour mordre sans entamer le texte) ;
+        une silhouette N&amp;B passe par <code>tests/process-divider.py</code>.
+        <strong>background</strong> : forme die-cut déjà colorée/texturée (PNG/WebP fond
+        transparent, 2× retina, ratio = bloc) posée en <code>background</code>, texte en overlay —
+        à réserver à une illustration riche non reproductible en aplat (zone centrale assez
+        sombre/unie pour le contraste cream).
+      </p>
     </div>
 
     <!-- Layout primitives — full-bleed (hors wrapper), composants réels -->
@@ -1436,6 +1606,143 @@ const guestFighters = [
       @media (min-width: 768px) {
         /* punaisé, pas aligné au cordeau */
         .fg-demo-grid > :global(*:nth-child(even)) { margin-top: 34px; }
+      }
+
+      /* ============================================================
+         CTA — proto D « tiger card » (les variantes A/B2/C portées dans
+         CtaBanner.astro ; leurs styles vivent dans le composant).
+         ============================================================ */
+      .sg-ctas2 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+      .sg-ctas2.left {
+        justify-content: flex-start;
+      }
+
+      /* --- D : tiger card (texture + silhouette fournies) --- */
+      .sg-ctaD-zone {
+        max-width: 1240px;
+        margin-inline: auto;
+        padding: clamp(36px, 5vw, 56px) var(--gutter);
+      }
+      .sg-cta2D {
+        position: relative; /* ancrage du tigre bas/droite */
+        /* aplat forest simple (la texture, gardée pour le footer, jurait
+           avec la silhouette photo — l'aplat la fait mieux ressortir) */
+        background: var(--forest);
+        border-radius: var(--r-xl);
+        color: var(--cream);
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: clamp(24px, 4vw, 56px);
+        align-items: center;
+        padding: clamp(40px, 6vw, 84px) clamp(28px, 5vw, 72px);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+      .d2c-title {
+        color: var(--cream);
+        font-size: clamp(36px, 4.6vw, 62px);
+      }
+      .d2c-sub {
+        color: rgba(246, 241, 230, 0.85);
+        font-size: clamp(16px, 1.4vw, 19px);
+        max-width: 44ch;
+        margin: 16px 0 26px;
+      }
+      .d2c-wa {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 20px;
+        color: var(--cream);
+        font-weight: 700;
+        font-size: 15px;
+        text-decoration: none;
+      }
+      .d2c-wa:hover {
+        color: var(--gold);
+      }
+      .d2c-wa :global(svg) {
+        color: var(--gold);
+      }
+      .d2c-feats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 26px;
+        margin-top: 28px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(246, 241, 230, 0.18);
+        font-size: 13.5px;
+        color: rgba(246, 241, 230, 0.85);
+      }
+      .d2c-feats span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+      }
+      .d2c-feats :global(svg) {
+        color: var(--gold);
+        flex: none;
+      }
+      .d2c-media {
+        /* réserve la hauteur de carte pour le tigre absolu */
+        min-height: clamp(280px, 30vw, 460px);
+      }
+      .d2c-tigerwrap {
+        /* tête de profil collée au bas/droite de la CARTE (échappe au
+           padding via absolute — la silhouette touche les vrais bords,
+           clippée par le radius : rendu « intégré ») */
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: min(52%, 620px);
+        aspect-ratio: 1008 / 972;
+        -webkit-mask-image: url('/assets/decor/tiger-head.webp');
+        mask-image: url('/assets/decor/tiger-head.webp');
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: bottom right;
+        mask-position: bottom right;
+      }
+      .d2c-tigerwrap::after {
+        /* scratches légères (pattern FighterCard) — masquées avec la photo */
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('/assets/textures/photo-scratches.png') center / cover;
+        mix-blend-mode: screen;
+        opacity: 0.18;
+        pointer-events: none;
+      }
+      .d2c-tiger {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @media (max-width: 860px) {
+        .sg-cta2D {
+          grid-template-columns: 1fr;
+          gap: 36px;
+          /* le tigre repasse in-flow, collé au bord bas de la carte */
+          padding-bottom: 0;
+        }
+        .d2c-media {
+          min-height: 0;
+        }
+        .d2c-tigerwrap {
+          position: static;
+          width: 100%;
+          margin-left: auto;
+        }
       }
 
     </style>

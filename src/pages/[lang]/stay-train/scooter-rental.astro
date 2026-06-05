@@ -267,11 +267,14 @@ const serviceSchema = {
     </Section>
 
     <CtaBanner
+      variant="scrapbook"
+      hand={m.scooter_cta_hand()}
       title={m.scooter_cta_title()}
       titleEm={m.scooter_cta_title_em()}
+      sub={m.scooter_cta_sub()}
       ctaPrimary={{ label: m.cta_whatsapp(), href: whatsapp }}
       ctaSecondary={{ label: m.cta_plan_stay(), href: p('/contact') }}
-      image={{ src: '/assets/gym-garden.jpg' }}
+      image={{ src: '/assets/night-session.webp' }}
     />
   </main>
 </BaseLayout>

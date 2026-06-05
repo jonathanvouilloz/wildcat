@@ -286,8 +286,11 @@ const faqJsonld = {
     }
 
     <CtaBanner
+      variant="torn"
+      hand={m.stay_cta_hand()}
       title={m.stay_cta_title()}
       titleEm={m.stay_cta_title_em()}
+      sub={m.stay_cta_sub()}
       ctaPrimary={{ label: m.cta_plan_stay(), href: p('/contact') }}
       ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
       image={{ src: '/assets/gym-garden.jpg' }}

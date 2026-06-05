@@ -155,8 +155,11 @@ const personSchema = {
     </Section>
 
     <CtaBanner
+      variant="torn"
+      hand={m.coaches_cta_hand()}
       title={m.coaches_cta_title()}
       titleEm={m.coaches_cta_title_em()}
+      sub={m.coaches_cta_sub()}
       ctaPrimary={{ label: m.cta_book_class(), href: p('/contact') }}
       ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
       image={{ src: '/assets/gym-garden.jpg' }}

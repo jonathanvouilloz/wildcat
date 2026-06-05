@@ -318,11 +318,14 @@ const howToSchema = {
     </Section>
 
     <CtaBanner
+      variant="torn"
+      hand={m.dtv_apply_cta_hand()}
       title={m.dtv_apply_cta_title()}
       titleEm={m.dtv_apply_cta_title_em()}
+      sub={m.dtv_apply_cta_sub()}
       ctaPrimary={{ label: m.cta_start_dtv(), href: p('/contact') }}
       ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
-      image={{ src: '/assets/gym-garden.jpg' }}
+      image={{ src: '/assets/night-session.webp' }}
     />
   </main>
 </BaseLayout>

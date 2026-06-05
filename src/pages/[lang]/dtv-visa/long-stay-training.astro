@@ -301,11 +301,15 @@ const faqItems = [
     </Section>
 
     <CtaBanner
+      variant="split"
+      hand={m.dtv_lst_cta_hand()}
       title={m.dtv_lst_cta_title()}
       titleEm={m.dtv_lst_cta_title_em()}
+      sub={m.dtv_lst_cta_sub()}
+      caption={m.dtv_lst_cta_caption()}
       ctaPrimary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
       ctaSecondary={{ label: m.nav_contact(), href: p('/contact') }}
-      image={{ src: '/assets/gym-garden.jpg' }}
+      image={{ src: '/assets/night-session.webp', alt: m.dtv_lst_cta_img_alt() }}
     />
   </main>
 </BaseLayout>

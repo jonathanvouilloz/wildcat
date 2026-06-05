@@ -299,11 +299,15 @@ const faqItems = [
     </Section>
 
     <CtaBanner
+      variant="split"
+      hand={m.dtv_mt_cta_hand()}
       title={m.dtv_mt_cta_title()}
       titleEm={m.dtv_mt_cta_title_em()}
+      sub={m.dtv_mt_cta_sub()}
+      caption={m.dtv_mt_cta_caption()}
       ctaPrimary={{ label: m.cta_start_dtv(), href: p('/contact') }}
       ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
-      image={{ src: '/assets/gym-garden.jpg' }}
+      image={{ src: '/assets/meaw-training.webp', alt: m.dtv_mt_cta_img_alt() }}
     />
   </main>
 </BaseLayout>
