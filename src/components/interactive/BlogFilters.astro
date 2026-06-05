@@ -1,0 +1,367 @@
+---
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * BlogFilters — îlot vanilla JS (progressive enhancement, pattern FaqSearch)
+ * qui filtre en direct les cards [data-blog-item] rendues PLUS BAS dans la
+ * page (dans [data-blog-root]) : chips catégories × recherche texte.
+ *
+ * Sans JS : toutes les cards restent visibles, les chips sont inertes (le
+ * filtrage est client-side) — le contenu indexable est intact. Le filtre
+ * masque (hidden), il ne retire JAMAIS le DOM.
+ *
+ * URL : `?category=slug` lu au chargement (présélection partageable) et
+ * réécrit via history.replaceState au clic — la recherche texte, elle,
+ * n'est pas persistée (éphémère).
+ *
+ * Props :
+ *  - categories : chips à afficher ('all' ajouté par le composant) — déjà
+ *    filtrées par la page (catégories non vides uniquement), labels localisés
+ *  - whatsapp : lien wa.me (état « aucun résultat »)
+ */
+export interface Props {
+  categories: { value: string; label: string }[];
+  whatsapp: string;
+}
+const { categories, whatsapp } = Astro.props;
+const chips = [{ value: 'all', label: m.blog_cat_all() }, ...categories];
+---
+
+<div class="blog-filters" data-blog-filters>
+  <label class="lbl" for="blog-search-input">{m.blog_search_label()}</label>
+  <div class="field">
+    <svg
+      class="ico"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="11" cy="11" r="7"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input
+      id="blog-search-input"
+      class="wc-control inp"
+      type="search"
+      autocomplete="off"
+      placeholder={m.blog_search_placeholder()}
+      data-blog-input
+    />
+    <button type="button" class="clear" data-blog-clear hidden aria-label={m.blog_search_clear()}>
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <div class="chips" role="group" aria-label={m.blog_filter_aria()}>
+    {
+      chips.map((chip) => (
+        <button
+          type="button"
+          class="chip"
+          data-blog-cat={chip.value}
+          aria-pressed={chip.value === 'all' ? 'true' : 'false'}
+        >
+          {chip.label}
+        </button>
+      ))
+    }
+  </div>
+
+  <p class="count" data-blog-count aria-live="polite"></p>
+
+  <div class="empty" data-blog-empty hidden>
+    <p class="empty-title">{m.blog_noresults_title()}</p>
+    <p class="empty-body">{m.blog_noresults_body()}</p>
+    <div class="empty-cta">
+      <button type="button" class="reset" data-blog-reset>{m.blog_noresults_reset()}</button>
+      <a class="lk" href={whatsapp} target="_blank" rel="noopener">{m.blog_noresults_whatsapp()}</a>
+    </div>
+  </div>
+</div>
+
+<script
+  define:vars={{
+    countOneTpl: m.blog_count_one(),
+    countOtherTpl: m.blog_count_other({ count: '{count}' }),
+  }}
+>
+  function initBlogFilters() {
+    const wrap = document.querySelector('[data-blog-filters]');
+    const root = document.querySelector('[data-blog-root]');
+    if (!wrap || !root) return;
+
+    const input = wrap.querySelector('[data-blog-input]');
+    const clearBtn = wrap.querySelector('[data-blog-clear]');
+    const countEl = wrap.querySelector('[data-blog-count]');
+    const emptyEl = wrap.querySelector('[data-blog-empty]');
+    const resetBtn = wrap.querySelector('[data-blog-reset]');
+    const chips = Array.from(wrap.querySelectorAll('[data-blog-cat]'));
+
+    const items = Array.from(root.querySelectorAll('[data-blog-item]'));
+    // textContent figé une fois (titre + catégorie + extrait + date).
+    const haystacks = items.map((el) => (el.textContent || '').toLowerCase());
+    const cats = items.map((el) => el.getAttribute('data-category') || '');
+
+    let activeCat = 'all';
+    let query = '';
+
+    function fmtCount(n) {
+      const tpl = n === 1 ? countOneTpl : countOtherTpl;
+      return tpl.replace('{count}', String(n));
+    }
+
+    function render() {
+      const q = query.trim().toLowerCase();
+      let matches = 0;
+      items.forEach(function (el, i) {
+        const hit =
+          (activeCat === 'all' || cats[i] === activeCat) &&
+          (q.length === 0 || haystacks[i].indexOf(q) !== -1);
+        el.hidden = !hit;
+        if (hit) matches++;
+      });
+      chips.forEach(function (chip) {
+        chip.setAttribute(
+          'aria-pressed',
+          chip.getAttribute('data-blog-cat') === activeCat ? 'true' : 'false'
+        );
+      });
+      countEl.textContent = fmtCount(matches);
+      emptyEl.hidden = matches > 0;
+      clearBtn.hidden = q.length === 0;
+    }
+
+    function setCategory(cat, updateUrl) {
+      activeCat = cat;
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (cat === 'all') url.searchParams.delete('category');
+        else url.searchParams.set('category', cat);
+        window.history.replaceState(null, '', url);
+      }
+      render();
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        setCategory(chip.getAttribute('data-blog-cat'), true);
+      });
+    });
+
+    let t = null;
+    input.addEventListener('input', function () {
+      if (t) clearTimeout(t);
+      const val = input.value;
+      t = setTimeout(function () {
+        query = val;
+        render();
+      }, 150);
+    });
+
+    clearBtn.addEventListener('click', function () {
+      input.value = '';
+      query = '';
+      render();
+      input.focus();
+    });
+
+    resetBtn.addEventListener('click', function () {
+      input.value = '';
+      query = '';
+      setCategory('all', true);
+    });
+
+    // présélection ?category= (partageable) — validée contre les chips réelles.
+    const preset = new URL(window.location.href).searchParams.get('category');
+    const valid = preset && chips.some((c) => c.getAttribute('data-blog-cat') === preset);
+    setCategory(valid ? preset : 'all', false);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBlogFilters);
+  } else {
+    initBlogFilters();
+  }
+</script>
+
+<style>
+  .blog-filters {
+    margin-bottom: 30px;
+  }
+  .lbl {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--forest);
+    margin-bottom: 8px;
+  }
+  .field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 560px;
+  }
+  .ico {
+    position: absolute;
+    left: 16px;
+    width: 20px;
+    height: 20px;
+    color: var(--ink-3);
+    pointer-events: none;
+  }
+  .inp {
+    padding-left: 46px;
+    padding-right: 46px;
+  }
+  .inp::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .clear {
+    position: absolute;
+    right: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: var(--soft-2);
+    color: var(--forest);
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .clear:hover {
+    background: var(--gold);
+    color: var(--charcoal);
+  }
+  .clear:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .clear svg {
+    width: 16px;
+    height: 16px;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 16px;
+  }
+  .chip {
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink-2);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition:
+      background 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+  .chip:hover {
+    border-color: var(--line-3);
+    color: var(--ink);
+  }
+  .chip[aria-pressed='true'] {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--charcoal);
+  }
+  .chip:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .count {
+    margin: 14px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-3);
+  }
+  .empty {
+    margin-top: 20px;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+  }
+  .empty-title {
+    margin: 0 0 6px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--forest);
+  }
+  .empty-body {
+    margin: 0 0 16px;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+  .empty-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+  .reset {
+    display: inline-flex;
+    align-items: center;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .reset:hover {
+    background: var(--gold-deep);
+    color: var(--cream);
+  }
+  .lk {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .lk:hover {
+    color: var(--gold-deep);
+  }
+  .reset:focus-visible,
+  .lk:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .clear,
+    .chip {
+      transition: none;
+    }
+  }
+</style>

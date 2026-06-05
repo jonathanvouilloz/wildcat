@@ -1,0 +1,171 @@
+---
+import { getImage } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/layout/Section.astro';
+import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import BlogCard from '../../../components/blog/BlogCard.astro';
+import BlogFilters from '../../../components/interactive/BlogFilters.astro';
+import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
+import { getPostsByLang, getCategoryCounts, parseBlogId, BLOG_CATEGORIES } from '../../../lib/blog';
+import { m } from '../../../paraglide/messages.js';
+
+// Page liste du blog (E8) — grille BlogCard filtrable (chips catégories ×
+// recherche, BlogFilters). Contenu : Content Collections (src/content/blog),
+// zéro article → état "coming soon" (pattern fighters). Pas de pagination V1
+// (≤30 articles prévus, filtrage client).
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+const posts = await getPostsByLang(lang);
+const counts = await getCategoryCounts(lang);
+
+// Records explicites valeur → message (pattern achLabels de /fighters).
+const catLabels: Record<string, string> = {
+  'choosing-a-camp': m.blog_cat_choosing_a_camp(),
+  beginners: m.blog_cat_beginners(),
+  benefits: m.blog_cat_benefits(),
+  'chiang-mai-life': m.blog_cat_chiang_mai_life(),
+  visa: m.blog_cat_visa(),
+  culture: m.blog_cat_culture(),
+};
+// Chips = catégories non vides uniquement (ordre canonique du schéma).
+const categories = BLOG_CATEGORIES.filter((cat) => (counts[cat] ?? 0) > 0).map((cat) => ({
+  value: cat as string,
+  label: catLabels[cat],
+}));
+
+const dateFmt = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+
+// Covers résolues au build (astro:assets) — BlogCard reste muet (src/alt).
+const cards = await Promise.all(
+  posts.map(async (post) => {
+    const { slug } = parseBlogId(post.id);
+    const cover = post.data.cover
+      ? {
+          src: (await getImage({ src: post.data.cover, width: 640, format: 'webp' })).src,
+          alt: post.data.coverAlt ?? '',
+        }
+      : undefined;
+    return {
+      href: p(`/blog/${slug}`),
+      title: post.data.title,
+      excerpt: post.data.description,
+      category: catLabels[post.data.category],
+      categoryValue: post.data.category as string,
+      date: { iso: post.data.publishDate.toISOString().slice(0, 10), label: dateFmt.format(post.data.publishDate) },
+      image: cover,
+    };
+  })
+);
+
+const whatsapp = waLink(m.contact_wa_text_general());
+
+// JSON-LD Blog — cible du isPartOf des BlogPosting (template article).
+const blogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  '@id': new URL(`/${lang}/blog`, Astro.site).href,
+  name: `${m.blog_hero_title()} ${m.blog_hero_title_em()}`,
+  description: m.blog_meta_desc(),
+  url: new URL(`/${lang}/blog`, Astro.site).href,
+  inLanguage: lang,
+};
+---
+
+<BaseLayout title={m.blog_meta_title()} description={m.blog_meta_desc()}>
+  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(blogSchema)} />
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[{ label: m.breadcrumb_home(), href: p('/') }, { label: m.blog_hero_head() }]}
+    />
+
+    <PageHero
+      title={m.blog_hero_title()}
+      titleEm={m.blog_hero_title_em()}
+      lead={m.blog_hero_lead()}
+    />
+
+    <Section soft>
+      {
+        cards.length > 0 ? (
+          <>
+            <BlogFilters categories={categories} whatsapp={whatsapp} />
+            <ul class="blog-grid" data-blog-root>
+              {cards.map((card) => (
+                <li data-blog-item data-category={card.categoryValue}>
+                  <BlogCard
+                    href={card.href}
+                    title={card.title}
+                    excerpt={card.excerpt}
+                    category={card.category}
+                    date={card.date}
+                    image={card.image}
+                  />
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <div class="empty">
+            <h2 class="h3">{m.blog_empty_title()}</h2>
+            <p>{m.blog_empty_body()}</p>
+          </div>
+        )
+      }
+    </Section>
+
+    <CtaBanner
+      variant="split"
+      hand={m.blog_cta_hand()}
+      title={m.blog_cta_title()}
+      titleEm={m.blog_cta_title_em()}
+      sub={m.blog_cta_sub()}
+      ctaPrimary={{ label: m.blog_cta_btn(), href: `${p('/contact')}?intent=class` }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_class()) }}
+      image={{ src: '/assets/family-party.webp' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .blog-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  @media (max-width: 1024px) {
+    .blog-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 640px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .empty {
+    text-align: center;
+    padding: 26px 0;
+  }
+  .empty p {
+    margin: 10px auto 0;
+    max-width: 48ch;
+    font-size: 16px;
+    color: var(--ink-2);
+  }
+</style>
