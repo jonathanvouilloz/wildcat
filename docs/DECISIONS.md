@@ -97,10 +97,16 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 ### 2026-06-05 | Hero home : direction actuelle conservée
 - Les explorations A/B/C/D2 du styleguide ont servi aux pages About ; pour la home, Jonathan garde le hero actuel (`hero-home.webp` + `.display` agrandi). Seule l'image pourra être remplacée par une version de meilleure qualité.
 
+### 2026-06-05 | Blog E8 : **Astro Content Collections (.md)**, pas Sanity — renverse Q6/E4
+- **Contexte** : la décision E4 (blogPost en document-level i18n Sanity) avait été prise avant de connaître le workflow de production réel : les articles sont produits en `.md` par le pipeline skills (`/seo-brief` → `/seo-write` → `/humanizer` → `/seo-enrich`), et Meaw n'écrira pas d'articles — le Studio n'apporte rien au blog.
+- **Choix** : blog en **content collections** (`src/content/blog/{en,fr}/*.md`) — 1 article = 1 commit = 1 deploy (qui rafraîchit aussi le feed Instagram). Slugs traduits par fichier, appariement EN/FR par `translationKey` en frontmatter (alimente hreflang + LangSwitcher). Sanity garde son rôle : données vivantes gérées par Meaw (coaches, schedule, testimonials, fighters, scooters).
+- **Alternative rejetée — push API vers Sanity** : faisable (`@sanity/client` Mutations + conversion MD → Portable Text + upload assets + documents `translation.metadata`), mais friction à vie : **Portable Text ne gère pas les tableaux nativement** (types custom + serializers) alors que le calendrier éditorial est bourré de comparatifs (M1, M5, M6), et chaque publication paierait la conversion pour un éditeur que personne n'utilise.
+- **Conséquence (à exécuter en E8)** : retirer le schéma `blogPost`, les queries `BLOG_*`, le plugin `@sanity/document-internationalization` (seul blogPost l'utilise) + re-typegen (`npm run sanity:types`). Les pièges du plugin notés dans l'entrée E4 deviennent caducs pour le blog.
+
 ## Décisions EN ATTENTE (questions ouvertes restantes)
 
 | # | Sujet | Options | Impact |
 |---|-------|---------|--------|
 | Q1 | **Storage DTV** | Google Drive API ⟷ Supabase Storage | ⏳ **Tranché avant E6.** On construit E1→E5 d'abord. |
 | ~~Q5~~ | ~~Domaine~~ | **RÉGLÉE (2026-06-05)** : `wildcatmuaythai.com` + `wildcatchiangmai.com` en redirect défensif. Achat à faire. | — |
-| ~~Q6~~ | ~~Slugs traduits~~ | **RÉGLÉE (E4)** : blogPost en document-level i18n → un slug par langue, traduits gratuitement par document. | — |
+| ~~Q6~~ | ~~Slugs traduits~~ | ~~RÉGLÉE (E4) : blogPost document-level i18n~~ → **RENVERSÉE (2026-06-05)** : blog en content collections `.md`, slugs traduits par fichier + `translationKey` (cf. entrée du 2026-06-05). | — |

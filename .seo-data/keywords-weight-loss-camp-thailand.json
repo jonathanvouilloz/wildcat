@@ -1,0 +1,142 @@
+{
+  "topic": "weight loss camp thailand",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-05T13:57:12Z",
+  "primary": {
+    "keyword": "weight loss camp thailand",
+    "search_volume": 30,
+    "cpc": 2.77,
+    "competition": "MEDIUM",
+    "competition_index": 47,
+    "difficulty": 7,
+    "intent": "informational",
+    "intent_probability": 0.6691
+  },
+  "secondaries": [
+    {
+      "keyword": "muay thai weight loss camp thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "HIGH",
+      "competition_index": 71
+    },
+    {
+      "keyword": "best weight loss camp thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "thailand weight loss camp",
+      "search_volume": 30,
+      "cpc": 2.77,
+      "competition": "MEDIUM",
+      "competition_index": 47
+    },
+    {
+      "keyword": "weight loss camp in thailand",
+      "search_volume": 30,
+      "cpc": 2.77,
+      "competition": "MEDIUM",
+      "competition_index": 47
+    },
+    {
+      "keyword": "weight loss retreat bali",
+      "search_volume": 20,
+      "cpc": 5.53,
+      "competition": "LOW",
+      "competition_index": 24
+    },
+    {
+      "keyword": "thailand weight loss pills",
+      "search_volume": 20,
+      "cpc": 1.67,
+      "competition": "HIGH",
+      "competition_index": 90
+    },
+    {
+      "keyword": "weight loss boot camp thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "HIGH",
+      "competition_index": 71
+    },
+    {
+      "keyword": "thailand boot camp weight loss",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "HIGH",
+      "competition_index": 71
+    },
+    {
+      "keyword": "best weight loss camp in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "1 month weight loss retreat thailand",
+      "search_volume": 10,
+      "cpc": 3.42,
+      "competition": "MEDIUM",
+      "competition_index": 62
+    },
+    {
+      "keyword": "weight loss retreat thailand cheap",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "MEDIUM",
+      "competition_index": 38
+    },
+    {
+      "keyword": "thailand weight loss treatment",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "MEDIUM",
+      "competition_index": 63
+    },
+    {
+      "keyword": "weight loss retreat asia",
+      "search_volume": 10,
+      "cpc": 5.55,
+      "competition": "HIGH",
+      "competition_index": 79
+    },
+    {
+      "keyword": "weight loss bangkok",
+      "search_volume": 10,
+      "cpc": 4.39,
+      "competition": "MEDIUM",
+      "competition_index": 36
+    },
+    {
+      "keyword": "weight loss retreat germany",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "detox resort thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "phuket weight loss retreat",
+      "search_volume": 10,
+      "cpc": 1.77,
+      "competition": "HIGH",
+      "competition_index": 76
+    }
+  ],
+  "related": [],
+  "quick_wins": []
+}

@@ -1,0 +1,297 @@
+{
+  "topic": "chiang mai or phuket",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-05T13:57:07Z",
+  "primary": {
+    "keyword": "chiang mai or phuket",
+    "search_volume": 110,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 1,
+    "difficulty": 0,
+    "intent": "informational",
+    "intent_probability": 0.9751
+  },
+  "secondaries": [
+    {
+      "keyword": "chiang mai or phuket which is better",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai or phuket reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "from chiang mai or phuket",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "from chiang mai or phuket crossword clue",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "visit chiang mai or phuket",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "chiang mai or phuket first",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "is chiang mai or phuket better",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 8
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "bangkok to chiang mai",
+      "search_volume": 4400,
+      "cpc": 2.31,
+      "competition": "LOW",
+      "competition_index": 22
+    },
+    {
+      "keyword": "bangkok to koh samui",
+      "search_volume": 1600,
+      "cpc": 2.38,
+      "competition": "MEDIUM",
+      "competition_index": 34
+    },
+    {
+      "keyword": "koh samui or phuket",
+      "search_volume": 880,
+      "cpc": 8.38,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "bangkok to chiang mai train",
+      "search_volume": 720,
+      "cpc": 1.08,
+      "competition": "LOW",
+      "competition_index": 30
+    },
+    {
+      "keyword": "chiang mai to koh samui",
+      "search_volume": 390,
+      "cpc": 2.95,
+      "competition": "LOW",
+      "competition_index": 29
+    },
+    {
+      "keyword": "krabi vs koh samui",
+      "search_volume": 390,
+      "cpc": 0.09,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "chiang mai vs bangkok",
+      "search_volume": 390,
+      "cpc": 1.65,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "chiang mai vs chiang rai",
+      "search_volume": 320,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai vs phuket",
+      "search_volume": 210,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai or bangkok",
+      "search_volume": 170,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "phuket or chiang mai",
+      "search_volume": 110,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "chiang mai chiang rai flight",
+      "search_volume": 70,
+      "cpc": 1.5,
+      "competition": "LOW",
+      "competition_index": 33
+    },
+    {
+      "keyword": "chiang mai vs koh samui",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai or krabi",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "is chiang mai cheaper than bangkok",
+      "search_volume": 20,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "related": [
+    {
+      "keyword": "phuket or chiang mai reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "phuket or chiang mai which is better",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "chiang mai to krabi or phuket",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "bangkok vs chiang mai vs phuket",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai and phuket distance",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "bangkok and chiang mai distance",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai vs bangkok cost of living",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai vs chiang rai reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai and chiang rai distance",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai vs chiang rai vs pai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "bangkok to chiang mai",
+      "search_volume": 4400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "koh samui or phuket",
+      "search_volume": 880,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "bangkok to chiang mai train",
+      "search_volume": 720,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "chiang mai to koh samui",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "krabi vs koh samui",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "chiang mai vs bangkok",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "chiang mai vs chiang rai",
+      "search_volume": 320,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "chiang mai vs phuket",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

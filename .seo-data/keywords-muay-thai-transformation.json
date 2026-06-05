@@ -1,0 +1,157 @@
+{
+  "topic": "muay thai transformation",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-05T13:57:15Z",
+  "primary": {
+    "keyword": "muay thai transformation",
+    "search_volume": 20,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 0,
+    "difficulty": 0,
+    "intent": "informational",
+    "intent_probability": 0.9818
+  },
+  "secondaries": [
+    {
+      "keyword": "3 months muay thai transformation",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "1 year muay thai transformation",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "muay thai near me",
+      "search_volume": 49500,
+      "cpc": 2.35,
+      "competition": "MEDIUM",
+      "competition_index": 41
+    },
+    {
+      "keyword": "muay thai near me for adults",
+      "search_volume": 480,
+      "cpc": 1.46,
+      "competition": "MEDIUM",
+      "competition_index": 49
+    },
+    {
+      "keyword": "muay thai body transformation",
+      "search_volume": 90,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "best muay thai near me",
+      "search_volume": 90,
+      "cpc": 1.6,
+      "competition": "MEDIUM",
+      "competition_index": 42
+    },
+    {
+      "keyword": "muay thai near me for beginners",
+      "search_volume": 70,
+      "cpc": 2.41,
+      "competition": "HIGH",
+      "competition_index": 70
+    },
+    {
+      "keyword": "muay thai before and after",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "is muay thai a good workout",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "muay thai before and after female",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai body transformation female",
+      "search_volume": 20,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai near me prices",
+      "search_volume": 20,
+      "cpc": 0.94,
+      "competition": "MEDIUM",
+      "competition_index": 37
+    },
+    {
+      "keyword": "muay thai near me for women",
+      "search_volume": 20,
+      "cpc": 0.97,
+      "competition": "MEDIUM",
+      "competition_index": 63
+    },
+    {
+      "keyword": "muay thai weight loss transformation",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai body transformation reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai body transformation male",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai body transformation female reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "related": [
+    {
+      "keyword": "muay thai benefits reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai before and after reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "quick_wins": []
+}

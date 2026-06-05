@@ -1,0 +1,213 @@
+{
+  "topic": "digital nomad chiang mai",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-05T13:56:24Z",
+  "primary": {
+    "keyword": "digital nomad chiang mai",
+    "search_volume": 50,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 1,
+    "difficulty": 0,
+    "intent": "navigational",
+    "intent_probability": 0.4948
+  },
+  "secondaries": [
+    {
+      "keyword": "digital nomad chiang mai apartment",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "thailand digital nomad visa",
+      "search_volume": 1000,
+      "cpc": 3.2,
+      "competition": "LOW",
+      "competition_index": 3
+    },
+    {
+      "keyword": "coworking space chiang mai",
+      "search_volume": 90,
+      "cpc": 3.53,
+      "competition": "LOW",
+      "competition_index": 7
+    },
+    {
+      "keyword": "thailand digital nomad visa requirements",
+      "search_volume": 90,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai thailand digital nomad",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "digital nomad in chiang mai",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "chiang mai digital nomad",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "alt chiang mai",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 3
+    },
+    {
+      "keyword": "punspace wiang kaew",
+      "search_volume": 20,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai digital nomad whatsapp",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "digital nomad cafe chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "digital nomad conference chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "digital nomad summit chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "chiang mai digital nomad cafe",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai digital nomad accommodation",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "digital nomad community chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "related": [
+    {
+      "keyword": "chiang mai digital nomad reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai digital nomad meetup",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai digital nomad guide",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "nomadlist chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "punspace chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 11
+    },
+    {
+      "keyword": "nomad rentals chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "long stay chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "MEDIUM",
+      "competition_index": 39
+    },
+    {
+      "keyword": "starwork chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "yellow coworking chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "one workspace chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "thailand digital nomad visa",
+      "search_volume": 1000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}
