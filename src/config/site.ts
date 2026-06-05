@@ -77,6 +77,7 @@ export const site = {
     { key: 'coaches', href: '/about/coaches' },
     { key: 'pricing', href: '/classes#pricing' },
     { key: 'dtv', href: '/dtv-visa' },
+    { key: 'blog', href: '/blog' },
   ],
 
   /** Image OG par défaut (chemin public, résolu via Astro.site). TODO: vraie cover OG. */

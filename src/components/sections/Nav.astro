@@ -223,7 +223,7 @@ const ctaHref = cta ? p('/contact') : ctaTargets[ctaKey];
 
       <!-- SIMPLE LINKS -->
       <!-- Blog : href="#" jusqu'à E8 -->
-      <div class="mi"><a href="#"><span class="lbl">{m.nav_blog()}</span></a></div>
+      <div class="mi"><a href={p('/blog')}><span class="lbl">{m.nav_blog()}</span></a></div>
       <div class="mi"><a href={p('/contact')}><span class="lbl">{m.nav_contact()}</span></a></div>
       <div class="mi cta"><Button variant="gold" flat arrow href={ctaHref}>{ctaLabel}</Button></div>
     </nav>
@@ -245,7 +245,7 @@ const ctaHref = cta ? p('/contact') : ctaTargets[ctaKey];
       <details><summary>{m.nav_dtv()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/dtv-visa')}><span class="dot"></span> {m.nav_drawer_dtv_guide()}</a><a href={p('/dtv-visa/eligibility')}><span class="dot"></span> {m.nav_dtv_eligible_title()}</a><a href={p('/dtv-visa/how-to-apply')}><span class="dot"></span> {m.nav_dtv_apply_title()}</a><a href={p('/dtv-visa/muay-thai')}><span class="dot"></span> {m.nav_dtv_muaythai_title()}</a><a href={p('/dtv-visa/long-stay-training')}><span class="dot"></span> {m.nav_dtv_plans_title()}</a><a href={p('/dtv-visa/faq')}><span class="dot"></span> {m.nav_dtv_faq_title()}</a></div></details>
       <details><summary>{m.nav_about()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/about')}><span class="dot"></span> {m.nav_about_story_title()}</a><a href={p('/about/coaches')}><span class="dot"></span> {m.nav_drawer_coaches()}</a><a href={p('/about#community')}><span class="dot"></span> {m.nav_about_col_community()}</a><a href={p('/about#reviews')}><span class="dot"></span> {m.nav_about_reviews_title()}</a></div></details>
       <!-- Blog : href="#" jusqu'à E8 -->
-      <a class="flat" href="#">{m.nav_blog()}</a>
+      <a class="flat" href={p('/blog')}>{m.nav_blog()}</a>
       <a class="flat" href={p('/contact')}>{m.nav_contact()}</a>
       <Button variant="gold" flat arrow href={ctaHref} class="djoin">{ctaLabel}</Button>
     </div>
