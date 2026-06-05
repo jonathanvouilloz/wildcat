@@ -113,7 +113,8 @@ export default defineConfig({
     sitemap({
       i18n: { defaultLocale: 'en', locales: { en: 'en', fr: 'fr' } },
       // Le studio est un outil interne : exclu du sitemap (+ Disallow dans robots.txt).
-      filter: (page) => !page.includes('/studio'),
+      // /api/* : routes on-demand (POST only), jamais indexables — exclusion explicite.
+      filter: (page) => !page.includes('/studio') && !page.includes('/api/'),
     }),
     icon(),
   ]

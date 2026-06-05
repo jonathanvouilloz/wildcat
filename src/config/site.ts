@@ -25,6 +25,8 @@ export const site = {
     /** Embed Google Maps (fiche "Wildcat Muay Thai") — iframe /contact. */
     mapEmbed:
       'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3778.482255504113!2d98.94739027580049!3d18.73198396268106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da31b5ac152bff%3A0x4367b10faa0b58fb!2zV2lsZGNhdCBNdWF5IFRoYWkg4LmE4Lin4Lil4LmM4LiU4LmB4LiE4LiX4Lih4Lin4Lii4LmE4LiX4Lii!5e0!3m2!1sfr!2sch!4v1780584479313!5m2!1sfr!2sch',
+    /** Coordonnées de la fiche (extraites de mapEmbed) — GeoCoordinates du SportsClub JSON-LD. */
+    geo: { latitude: 18.732, longitude: 98.9474 },
   },
 
   /** Avis Google (fiche "Wildcat Muay Thai") — CTA /about#reviews. */

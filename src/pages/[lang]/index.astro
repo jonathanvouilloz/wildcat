@@ -175,6 +175,14 @@ const hoursSpec = [
     closes,
   },
 ];
+// priceRange dérivé des prix publics réels (site.pricing) — jamais en dur.
+const allPrices = [
+  ...site.pricing.groupAdults,
+  ...site.pricing.groupKids,
+  ...site.pricing.fighter,
+  ...site.pricing.private,
+].map((p) => p.price);
+const priceRange = `${Math.min(...allPrices)}–${Math.max(...allPrices)} THB`;
 const jsonld = {
   '@context': 'https://schema.org',
   '@type': 'SportsClub',
@@ -184,11 +192,17 @@ const jsonld = {
   image: new URL(site.defaultOgImage, base).href,
   telephone: site.contact.phone,
   email: site.contact.email,
+  priceRange,
   address: {
     '@type': 'PostalAddress',
     streetAddress: site.contact.address,
     addressLocality: 'Chiang Mai',
     addressCountry: 'TH',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.contact.geo.latitude,
+    longitude: site.contact.geo.longitude,
   },
   sameAs: site.social.map((s) => s.href),
   openingHoursSpecification: hoursSpec,
