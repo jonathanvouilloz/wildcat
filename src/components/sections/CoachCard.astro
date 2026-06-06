@@ -1,7 +1,12 @@
 ---
+import { seedPick, seedRot } from '../../lib/guestbook';
+
 /**
- * CoachCard — portrait coach (maquette : .coach).
- * Photo circulaire 140px ; sans photo → pastille initiales soft-2 (E9 : vraies photos).
+ * CoachCard v2 — « polaroid de famille » (direction B validée 2026-06-07).
+ * Photo carrée incrustée frame déchirée (mask + contre-transform, pattern
+ * FighterCard : 2 frames × 4 rotations × 2 miroirs seedés sur le nom),
+ * scotch seedé, rôle manuscrit Caveat. Sans photo → pastille initiales
+ * dans le même carré masqué.
  */
 export interface Props {
   name: string;
@@ -16,18 +21,39 @@ const initials = name
   .slice(0, 2)
   .join('')
   .toUpperCase();
+
+// Tout l'aléatoire est seedé sur le nom — stable au build (grammaire guest book).
+const FRAMES = [
+  { url: '/assets/textures/torn-frame.png', size: '104%' },
+  { url: '/assets/textures/torn-t2.png', size: '106%' },
+];
+const frame = FRAMES[seedPick(name + 'f', FRAMES.length)];
+const maskRot = seedPick(name + 'q', 4) * 90;
+const maskFlip = seedPick(name + 'm', 2) === 0 ? 1 : -1;
+const mediaStyle = `--murl:url('${frame.url}'); --msize:${frame.size}; --mrot:${maskRot}deg; --mflip:${maskFlip}`;
+const tapeSrc = `/assets/decor/tape-${1 + seedPick(name + 't', 3)}.webp`;
+const tapeRot = seedRot(name + 'tape', 8);
+const cardRot = seedRot(name, 2);
 ---
 
-<div class="coach">
-  {
-    photo ? (
-      <img class="pic" src={photo.src} alt={photo.alt} loading="lazy" width="140" height="140" />
-    ) : (
-      <div class="pic pic--placeholder" aria-hidden="true">
-        {initials}
-      </div>
-    )
-  }
+<div class="coach" style={`--crot:${cardRot}deg`}>
+  <img
+    class="tape"
+    src={tapeSrc}
+    alt=""
+    style={`transform: translateX(-50%) rotate(${tapeRot}deg)`}
+  />
+  <div class="media" style={mediaStyle}>
+    {
+      photo ? (
+        <img src={photo.src} alt={photo.alt} loading="lazy" />
+      ) : (
+        <div class="placeholder" aria-hidden="true">
+          {initials}
+        </div>
+      )
+    }
+  </div>
   <h4>{name}</h4>
   <div class="role">{role}</div>
   {bio && <p>{bio}</p>}
@@ -35,24 +61,52 @@ const initials = name
 
 <style>
   .coach {
+    position: relative;
     text-align: center;
+    transform: rotate(var(--crot, 0deg));
   }
-  .pic {
+  .tape {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    width: 96px;
+    z-index: 2;
+    filter: drop-shadow(0 2px 3px rgba(20, 35, 25, 0.18));
+    pointer-events: none;
+  }
+  .media {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    margin-bottom: 16px;
+    -webkit-mask-image: var(--murl, url('/assets/textures/torn-frame.png'));
+    mask-image: var(--murl, url('/assets/textures/torn-frame.png'));
+    -webkit-mask-size: var(--msize, 104%) var(--msize, 104%);
+    mask-size: var(--msize, 104%) var(--msize, 104%);
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    transform: rotate(var(--mrot, 0deg)) scaleX(var(--mflip, 1));
+  }
+  .media img,
+  .media .placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* contre-transform : le mask tourne, le contenu reste droit */
+    transform: scaleX(var(--mflip, 1)) rotate(calc(-1 * var(--mrot, 0deg)));
+  }
+  .media .placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    margin: 0 auto 16px;
-    object-fit: cover;
-  }
-  .pic--placeholder {
     background: var(--soft-2);
     color: var(--forest-light);
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: 34px;
+    font-size: 44px;
     letter-spacing: 0.02em;
   }
   h4 {
@@ -61,23 +115,21 @@ const initials = name
     font-size: 18px;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    margin: 0 0 2px;
+    margin: 0;
     color: var(--forest);
   }
   .role {
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    font-family: var(--font-hand);
+    font-size: 22px;
+    line-height: 1.15;
     color: var(--gold-deep);
-    margin-bottom: 9px;
+    margin: 2px 0 8px;
   }
   p {
-    margin: 0;
+    margin: 0 auto;
     font-size: 14px;
     color: var(--ink-2);
     line-height: 1.5;
     max-width: 28ch;
-    margin-inline: auto;
   }
 </style>

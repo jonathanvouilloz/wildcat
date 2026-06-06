@@ -19,6 +19,7 @@ import type {
   FEATURED_TESTIMONIALS_QUERY_RESULT,
 } from '../../lib/sanity.types';
 import { pickLocale } from '../../lib/i18n-content';
+import { mapTestimonial } from '../../lib/testimonials';
 import { urlFor } from '../../lib/image';
 import { m } from '../../paraglide/messages.js';
 
@@ -42,7 +43,8 @@ const coaches = coachDocs.map((coach) => ({
   bio: pickLocale(coach.bio, lang),
   photo: coach.photo?.asset
     ? {
-        src: urlFor(coach.photo).width(280).height(280).format('webp').url(),
+        // 640 carré : la card v2 « polaroid » remplit la colonne (~340px + retina)
+        src: urlFor(coach.photo).width(640).height(640).format('webp').url(),
         alt: coach.photo.alt ?? coach.name ?? '',
       }
     : undefined,
@@ -56,12 +58,7 @@ const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
   { query: FEATURED_TESTIMONIALS_QUERY, params: { service: null } },
   [],
 );
-const reviews = testimonialDocs.map((doc) => ({
-  content: pickLocale(doc.content, lang),
-  name: doc.name ?? '',
-  meta: doc.country ?? undefined,
-  rating: doc.rating ?? 5,
-}));
+const reviews = testimonialDocs.map((doc) => mapTestimonial(doc, lang));
 ---
 
 <BaseLayout title={m.about_meta_title()} description={m.about_meta_desc()}>
@@ -141,10 +138,7 @@ const reviews = testimonialDocs.map((doc) => ({
           <div class="reviews">
             {reviews.map((review) => (
               <TestimonialQuote
-                content={review.content}
-                name={review.name}
-                meta={review.meta}
-                rating={review.rating}
+                {...review}
                 ratingLabel={m.testimonial_rating_label({ rating: String(review.rating) })}
               />
             ))}

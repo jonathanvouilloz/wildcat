@@ -1,76 +1,163 @@
 ---
 import Stars from '../ui/Stars.astro';
+import { seedPick, seedRot } from '../../lib/guestbook';
 
 /**
- * TestimonialQuote — citation témoignage statique (maquette : .quote).
- * Boîte forest arrondie, guillemet Fraunces, étoiles or. Pas de slider en E5
- * (zéro island) — plusieurs témoignages = grille de quotes.
+ * TestimonialQuote v2 — « marge de carnet incrustée » (direction C validée
+ * 2026-06-07). Carte surface masquée entière par une frame déchirée (pattern
+ * ProgramCard : zéro ombre/bordure/radius, contre-flip du contenu, seed sur
+ * le nom) — ⚠️ fonds cream/soft uniquement. Corps Satoshi (lisibilité d'abord),
+ * signature manuscrite Caveat + country · date, tampon encre par service
+ * (CSS double bordure, swappable webp via STAMP_ASSETS).
  */
 export interface Props {
   content: string;
   name: string;
-  /** Ex : « Member · Australia » — traduit par la page. */
-  meta?: string;
+  /** Nationalité — affichée dans la ligne méta si renseignée. */
+  country?: string;
+  /** Ex : « June 2026 » — formaté par la page (formatMonthYear). */
+  dateLabel?: string;
+  /** Libellé du tampon, localisé par la page (dtv/training) — absent = pas de tampon. */
+  stamp?: string;
+  /** Encre du tampon — gold (dtv, défaut) ou forest (training). */
+  stampTone?: 'gold' | 'forest';
   rating?: number;
   /** Libellé accessible des étoiles (ex : « Rated 5 out of 5 »). */
   ratingLabel?: string;
 }
-const { content, name, meta, rating = 5, ratingLabel } = Astro.props;
+const {
+  content,
+  name,
+  country,
+  dateLabel,
+  stamp,
+  stampTone = 'gold',
+  rating = 5,
+  ratingLabel,
+} = Astro.props;
+
+// Tampons encre webp (pipeline die-cut, comme les stamps fighters) — tant que
+// null, le fallback CSS double bordure rend le tampon.
+const STAMP_ASSETS: Record<string, string | null> = {};
+const stampAsset = stamp ? (STAMP_ASSETS[stamp.toLowerCase()] ?? null) : null;
+
+// Incrustation seedée sur le nom (même grammaire que ProgramCard).
+const frame = seedPick(name + 'f', 2) === 0 ? 'torn-frame' : 'torn-t2';
+const msize = frame === 'torn-frame' ? '108% 106%' : '106% 108%';
+const flip = seedPick(name + 'm', 2) === 0 ? 1 : -1;
+const stampRot = seedRot(name + 'stamp', 5);
+const meta = [country, dateLabel].filter(Boolean).join(' · ');
 ---
 
-<figure class="quote">
-  <span class="mark" aria-hidden="true">“</span>
-  <Stars rating={rating} label={ratingLabel} class="stars" />
-  <blockquote>{content}</blockquote>
-  <figcaption class="who">
-    {name}
-    {meta && <span>{meta}</span>}
-  </figcaption>
+<figure
+  class="quote"
+  style={`--frame:url('/assets/textures/${frame}.png'); --msize:${msize}; --mflip:${flip}`}
+>
+  <div class="inner">
+    {
+      stamp &&
+        (stampAsset ? (
+          <img class="stamp stamp--img" src={stampAsset} alt={stamp} style={`--srot:${stampRot}deg`} />
+        ) : (
+          <span
+            class:list={['stamp', { 'stamp--forest': stampTone === 'forest' }]}
+            style={`--srot:${stampRot}deg`}
+          >
+            {stamp}
+          </span>
+        ))
+    }
+    <Stars rating={rating} label={ratingLabel} class="stars" />
+    <blockquote>{content}</blockquote>
+    <figcaption class="who">
+      <span class="sig">{name}</span>
+      {meta && <span class="meta">{meta}</span>}
+    </figcaption>
+  </div>
 </figure>
 
 <style>
+  /* Carte incrustée : le fond est découpé par la frame, le contenu est
+     contre-flippé pour rester lisible. Réservée aux fonds cream/soft. */
   .quote {
-    background: var(--forest);
-    color: var(--cream);
-    border-radius: var(--r-lg);
-    padding: 36px 36px 34px;
-    position: relative;
     margin: 0;
+    background: var(--surface);
+    padding: 30px 30px 26px;
+    -webkit-mask-image: var(--frame);
+    mask-image: var(--frame);
+    -webkit-mask-size: var(--msize, 106% 106%);
+    mask-size: var(--msize, 106% 106%);
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    transform: scaleX(var(--mflip, 1));
   }
-  .mark {
-    font-family: var(--font-accent);
-    font-style: italic;
-    font-size: 64px;
-    line-height: 0.6;
-    color: var(--gold);
-    height: 34px;
-    display: block;
+  .inner {
+    position: relative;
+    transform: scaleX(var(--mflip, 1));
+    height: 100%;
+  }
+  /* Tampon encre — fallback CSS (pattern AchievementStamp) tant que les
+     assets webp die-cut n'existent pas (STAMP_ASSETS). */
+  .stamp {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 2px solid var(--gold-deep);
+    outline: 1px solid var(--gold-deep);
+    outline-offset: 2px;
+    border-radius: 4px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    transform: rotate(var(--srot, -4deg));
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  .stamp--forest {
+    border-color: var(--forest);
+    outline-color: var(--forest);
+    color: var(--forest);
+  }
+  .stamp--img {
+    padding: 0;
+    border: 0;
+    outline: 0;
+    height: 52px;
+    width: auto;
+    mix-blend-mode: multiply;
   }
   .quote :global(.stars) {
     display: block;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
   blockquote {
-    margin: 0 0 18px;
-    font-family: var(--font-accent);
-    font-variation-settings: 'opsz' 72;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 1.4;
+    margin: 0 0 16px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
   }
   .who {
-    font-weight: 800;
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
   }
-  .who span {
-    display: block;
+  .sig {
+    font-family: var(--font-hand);
+    font-size: 24px;
+    line-height: 1;
+    color: var(--gold-deep);
+  }
+  .meta {
+    font-size: 12.5px;
     font-weight: 600;
-    letter-spacing: 0;
-    text-transform: none;
-    color: rgba(246, 241, 230, 0.6);
-    font-size: 13px;
+    color: var(--ink-3);
   }
 </style>

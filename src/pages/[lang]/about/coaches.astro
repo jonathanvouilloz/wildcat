@@ -38,7 +38,8 @@ const coaches = coachDocs.map((coach) => ({
   bio: pickLocale(coach.bio, lang),
   photo: coach.photo?.asset
     ? {
-        src: urlFor(coach.photo).width(280).height(280).format('webp').url(),
+        // 640 carré : card coach v2 « polaroid » pleine colonne (+ retina)
+        src: urlFor(coach.photo).width(640).height(640).format('webp').url(),
         alt: coach.photo.alt ?? coach.name ?? '',
       }
     : undefined,

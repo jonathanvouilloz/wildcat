@@ -17,6 +17,7 @@ import { safeQuery } from '../../../lib/content';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../../lib/sanity.types';
 import { pickLocale } from '../../../lib/i18n-content';
+import { mapTestimonial } from '../../../lib/testimonials';
 import { m } from '../../../paraglide/messages.js';
 
 // Satellite DTV — page "requirements & eligibility" (kw : "dtv visa thailand
@@ -40,14 +41,7 @@ const reviewDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
   [],
 );
 const reviewDoc = reviewDocs[2] ?? reviewDocs[0];
-const dtvReview = reviewDoc
-  ? {
-      content: pickLocale(reviewDoc.content, lang),
-      name: reviewDoc.name ?? '',
-      meta: reviewDoc.country ?? undefined,
-      rating: reviewDoc.rating ?? 5,
-    }
-  : null;
+const dtvReview = reviewDoc ? mapTestimonial(reviewDoc, lang) : null;
 
 // Récap "at a glance" — réutilise FeatureGrid (cartes scannables = snippet-bait).
 const glance = [
@@ -256,10 +250,7 @@ const faqItems = [
           <SectionHead>{m.dtv_reviews_head()}</SectionHead>
           <h2 class="h2 mt-2 mb-6">{m.dtv_reviews_title()}</h2>
           <TestimonialQuote
-            content={dtvReview.content}
-            name={dtvReview.name}
-            meta={dtvReview.meta}
-            rating={dtvReview.rating}
+            {...dtvReview}
             ratingLabel={m.testimonial_rating_label({ rating: String(dtvReview.rating) })}
           />
         </Section>

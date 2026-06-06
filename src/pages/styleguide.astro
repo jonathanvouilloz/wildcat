@@ -24,6 +24,8 @@ import PricingCard from '../components/sections/PricingCard.astro';
 import Faq from '../components/sections/Faq.astro';
 import CtaBanner from '../components/sections/CtaBanner.astro';
 import BlogCard from '../components/blog/BlogCard.astro';
+import CoachCard from '../components/sections/CoachCard.astro';
+import TestimonialQuote from '../components/sections/TestimonialQuote.astro';
 import { seedRot } from '../lib/guestbook';
 import { Icon } from 'astro-icon/components';
 
@@ -224,6 +226,50 @@ const sgBlogPosts = [
       'Why fighters dance before they fight — and what the ritual means when you step in for your first stadium bout.',
     date: 'May 9, 2026',
     image: { src: '/assets/meaw-training.webp', alt: '' },
+  },
+];
+// --- Coach & Testimonial — données factices des démos (composants réels) ----
+const sgCoaches = [
+  {
+    name: 'Meaw Boonpradub',
+    role: 'Owner · Head of family',
+    bio: 'Runs the camp, files the DTV applications herself, and knows every guest by name.',
+    photo: { src: '/assets/meaw-portrait.webp', alt: 'Meaw Boonpradub' },
+  },
+  {
+    name: 'Kru Peter',
+    role: 'Head Trainer',
+    bio: 'Twenty years in the ring, endless patience on the pads.',
+    photo: { src: '/assets/meaw-training.webp', alt: 'Kru Peter' },
+  },
+  {
+    name: 'Kru Arun',
+    role: 'Pads & clinch',
+    bio: 'Grew up ringside in Chiang Mai. Will fix your kicks, gently.',
+    photo: { src: '/assets/night-session.webp', alt: 'Kru Arun' },
+  },
+];
+const sgQuotes = [
+  {
+    content:
+      'Meaw handled my whole DTV file over WhatsApp — approved in nine days. I just showed up and trained.',
+    name: 'Sarah K.',
+    meta: 'DTV member · France',
+    rating: 5,
+  },
+  {
+    content:
+      'Best decision of my trip. Real training, zero ego, and the family dinners after Saturday sparring.',
+    name: 'Tom R.',
+    meta: 'Stay & Train · UK',
+    rating: 5,
+  },
+  {
+    content:
+      'I came for two weeks and stayed six months. The garden ring at golden hour is something else.',
+    name: 'Lena M.',
+    meta: 'Long-stay · Germany',
+    rating: 5,
   },
 ];
 // --- FAQ v2 — proto accordéon animé (données factices, avant/après) ---------
@@ -730,6 +776,76 @@ const guestFighters = [
         </div>
         <p class="mt-3 text-sm text-ink-3">
           La 3<sup>e</sup> card montre le fallback sans cover.
+        </p>
+      </section>
+
+      <!-- ============================================================
+           Coach card — composant final (direction B « polaroid de famille »
+           validée 2026-06-07). Explorations (split album, tamponné) :
+           historique git. Composant réel, données factices.
+           ============================================================ -->
+      <section class="mb-20">
+        <SectionHead>Coach card</SectionHead>
+        <h2 class="h2 mt-3 mb-2">Coach — <span class="em">polaroid de famille.</span></h2>
+        <p class="mb-7 max-w-[62ch] text-ink-2">
+          Photo carrée incrustée frame déchirée (2 frames × 4 rotations × 2 miroirs seedés
+          sur le nom + scotch, grammaire FighterCard), rôle manuscrit Caveat. Sans photo →
+          pastille initiales dans le même carré. Grille <code>CoachGrid</code> « punaisée »
+          (offset alterné).
+        </p>
+        <div class="coach-demo-grid grid gap-x-7 gap-y-9 md:grid-cols-3">
+          {sgCoaches.map((c, i) => <CoachCard {...c} photo={i === 2 ? undefined : c.photo} />)}
+        </div>
+        <p class="mt-4 text-sm text-ink-3">
+          La 3<sup>e</sup> card montre le fallback initiales sans photo.
+        </p>
+      </section>
+
+      <!-- ============================================================
+           Testimonial — composant final (direction C « marge de carnet
+           incrustée » validée 2026-06-07) : carte masquée torn (pattern
+           ProgramCard), tampon encre par service (CSS, swappable webp via
+           STAMP_ASSETS), signature Caveat + country · date. Explorations
+           (note scotchée, forest cousue) : historique git.
+           ============================================================ -->
+      <section class="mb-20">
+        <SectionHead>Testimonial</SectionHead>
+        <h2 class="h2 mt-3 mb-2">Citations — <span class="em">marge de carnet.</span></h2>
+        <p class="mb-7 max-w-[62ch] text-ink-2">
+          Corps Satoshi (lisibilité d'abord), carte incrustée scratch — réservée aux fonds
+          cream/soft. Tampon par <code>service</code> : DTV (gold) · training (forest) ·
+          general (aucun). La 3<sup>e</sup> montre la signature minimale (ni pays ni date).
+        </p>
+        <div class="grid gap-7 md:grid-cols-3">
+          <TestimonialQuote
+            content={sgQuotes[0].content}
+            name={sgQuotes[0].name}
+            country="France"
+            dateLabel="May 2026"
+            stamp="DTV approved"
+            rating={5}
+            ratingLabel="Rated 5 out of 5"
+          />
+          <TestimonialQuote
+            content={sgQuotes[1].content}
+            name={sgQuotes[1].name}
+            country="United Kingdom"
+            dateLabel="March 2026"
+            stamp="Trained here"
+            stampTone="forest"
+            rating={5}
+            ratingLabel="Rated 5 out of 5"
+          />
+          <TestimonialQuote
+            content={sgQuotes[2].content}
+            name={sgQuotes[2].name}
+            rating={5}
+            ratingLabel="Rated 5 out of 5"
+          />
+        </div>
+        <p class="mt-4 text-sm text-ink-3">
+          Assets bienvenus : 2 tampons encre webp (« DTV approved », « Trained here ») via le
+          pipeline die-cut — brancher dans <code>STAMP_ASSETS</code> (TestimonialQuote.astro).
         </p>
       </section>
 

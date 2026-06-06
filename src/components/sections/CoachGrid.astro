@@ -23,11 +23,18 @@ const { coaches } = Astro.props;
   .coach-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 34px 28px;
+  }
+  @media (min-width: 861px) {
+    /* punaisé, pas aligné au cordeau (pattern guest book) */
+    .coach-grid > :global(*:nth-child(even)) {
+      margin-top: 26px;
+    }
   }
   @media (max-width: 860px) {
     .coach-grid {
       grid-template-columns: 1fr;
+      gap: 44px;
     }
   }
 </style>

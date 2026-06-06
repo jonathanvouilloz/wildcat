@@ -21,6 +21,7 @@ import { FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../lib/sanity.types';
 import { urlFor } from '../../lib/image';
 import { pickLocale } from '../../lib/i18n-content';
+import { mapTestimonial } from '../../lib/testimonials';
 import { m } from '../../paraglide/messages.js';
 
 // Pilier DTV — page commerciale du silo n°1 (kw : "DTV visa Chiang Mai").
@@ -39,12 +40,7 @@ const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
   { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'dtv' } },
   [],
 );
-const dtvReviews = testimonialDocs.map((doc) => ({
-  content: pickLocale(doc.content, lang),
-  name: doc.name ?? '',
-  meta: doc.country ?? undefined,
-  rating: doc.rating ?? 5,
-}));
+const dtvReviews = testimonialDocs.map((doc) => mapTestimonial(doc, lang));
 const quote = dtvReviews[0] ?? null;
 const moreReviews = dtvReviews.slice(1, 4);
 
@@ -155,10 +151,7 @@ const faqItems = [
         {
           quote && (
             <TestimonialQuote
-              content={quote.content}
-              name={quote.name}
-              meta={quote.meta}
-              rating={quote.rating}
+              {...quote}
               ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
             />
           )
@@ -169,10 +162,7 @@ const faqItems = [
           <div class="reviews-grid">
             {moreReviews.map((review) => (
               <TestimonialQuote
-                content={review.content}
-                name={review.name}
-                meta={review.meta}
-                rating={review.rating}
+                {...review}
                 ratingLabel={m.testimonial_rating_label({ rating: String(review.rating) })}
               />
             ))}

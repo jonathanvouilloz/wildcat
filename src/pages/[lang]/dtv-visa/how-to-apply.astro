@@ -21,6 +21,7 @@ import { FEATURED_TESTIMONIALS_QUERY } from '../../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../../lib/sanity.types';
 import { urlFor } from '../../../lib/image';
 import { pickLocale } from '../../../lib/i18n-content';
+import { mapTestimonial } from '../../../lib/testimonials';
 import { m } from '../../../paraglide/messages.js';
 
 // Satellite procédural du pillar /dtv-visa (Module C — YMYL).
@@ -41,12 +42,7 @@ const reviewDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
   { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'dtv' } },
   [],
 );
-const dtvReviews = reviewDocs.slice(0, 2).map((doc) => ({
-  content: pickLocale(doc.content, lang),
-  name: doc.name ?? '',
-  meta: doc.country ?? undefined,
-  rating: doc.rating ?? 5,
-}));
+const dtvReviews = reviewDocs.slice(0, 2).map((doc) => mapTestimonial(doc, lang));
 
 // Captures d'écran 9:16 des approvals (stories Insta de Meaw) — bande de
 // preuve sociale brute sous les quotes. CMS only, masquée si vide.
@@ -360,10 +356,7 @@ const howToSchema = {
             <div class="reviews-grid">
               {dtvReviews.map((review) => (
                 <TestimonialQuote
-                  content={review.content}
-                  name={review.name}
-                  meta={review.meta}
-                  rating={review.rating}
+                  {...review}
                   ratingLabel={m.testimonial_rating_label({ rating: String(review.rating) })}
                 />
               ))}

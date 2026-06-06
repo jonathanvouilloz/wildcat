@@ -27,6 +27,7 @@ import type {
   FEATURED_TESTIMONIALS_QUERY_RESULT,
 } from '../../lib/sanity.types';
 import { pickLocale } from '../../lib/i18n-content';
+import { mapTestimonial } from '../../lib/testimonials';
 import { urlFor } from '../../lib/image';
 import { m } from '../../paraglide/messages.js';
 
@@ -51,7 +52,8 @@ const coaches = coachDocs.slice(0, 3).map((coach) => ({
   bio: pickLocale(coach.bio, lang),
   photo: coach.photo?.asset
     ? {
-        src: urlFor(coach.photo).width(280).height(280).format('webp').url(),
+        // 640 carré : card coach v2 « polaroid » pleine colonne (+ retina)
+        src: urlFor(coach.photo).width(640).height(640).format('webp').url(),
         alt: coach.photo.alt ?? coach.name ?? '',
       }
     : undefined,
@@ -65,14 +67,7 @@ const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
   [],
 );
 const quoteDoc = testimonialDocs.find((doc) => doc.service !== 'dtv');
-const quote = quoteDoc
-  ? {
-      content: pickLocale(quoteDoc.content, lang),
-      name: quoteDoc.name ?? '',
-      meta: quoteDoc.country ?? undefined,
-      rating: quoteDoc.rating ?? 5,
-    }
-  : null;
+const quote = quoteDoc ? mapTestimonial(quoteDoc, lang) : null;
 const dtvQuoteDoc = testimonialDocs.find((doc) => doc.service === 'dtv');
 const dtvQuote = dtvQuoteDoc
   ? {
@@ -293,10 +288,7 @@ const jsonld = {
             {coaches.length > 0 && <CoachGrid coaches={coaches} />}
             {quote && (
               <TestimonialQuote
-                content={quote.content}
-                name={quote.name}
-                meta={quote.meta}
-                rating={quote.rating}
+                {...quote}
                 ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
               />
             )}

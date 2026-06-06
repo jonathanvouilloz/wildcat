@@ -21,6 +21,7 @@ import { safeQuery } from '../../lib/content';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../lib/sanity.types';
 import { pickLocale } from '../../lib/i18n-content';
+import { mapTestimonial } from '../../lib/testimonials';
 import { m } from '../../paraglide/messages.js';
 
 // Pilier Stay & Train — re-cadrage 2026-06-05 (brief content/_drafts/pages/stay-pillar.md).
@@ -40,14 +41,7 @@ const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
   { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'training' } },
   [],
 );
-const quote = testimonialDocs[0]
-  ? {
-      content: pickLocale(testimonialDocs[0].content, lang),
-      name: testimonialDocs[0].name ?? '',
-      meta: testimonialDocs[0].country ?? undefined,
-      rating: testimonialDocs[0].rating ?? 5,
-    }
-  : null;
+const quote = testimonialDocs[0] ? mapTestimonial(testimonialDocs[0], lang) : null;
 
 const features = [
   { icon: 'tabler:calendar-event', title: m.stay_feat1_t(), body: m.stay_feat1_b() },
@@ -309,10 +303,7 @@ const faqJsonld = {
         <Section soft>
           <div class="quote-wrap">
             <TestimonialQuote
-              content={quote.content}
-              name={quote.name}
-              meta={quote.meta}
-              rating={quote.rating}
+              {...quote}
               ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
             />
           </div>

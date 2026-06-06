@@ -17,6 +17,7 @@ import { safeQuery } from '../../../lib/content';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../../lib/sanity.types';
 import { pickLocale } from '../../../lib/i18n-content';
+import { mapTestimonial } from '../../../lib/testimonials';
 import { m } from '../../../paraglide/messages.js';
 
 // Satellite transactionnelle du silo DTV (kw : "muay thai visa thailand").
@@ -34,14 +35,7 @@ const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
   { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'dtv' } },
   [],
 );
-const quote = testimonialDocs[0]
-  ? {
-      content: pickLocale(testimonialDocs[0].content, lang),
-      name: testimonialDocs[0].name ?? '',
-      meta: testimonialDocs[0].country ?? undefined,
-      rating: testimonialDocs[0].rating ?? 5,
-    }
-  : null;
+const quote = testimonialDocs[0] ? mapTestimonial(testimonialDocs[0], lang) : null;
 
 // Table comparative DTV / ED / Tourist — chaque cellule = message i18n.
 // Lignes = critères de décision (durée, coût, fonds, gym, admin, etc.).
@@ -263,10 +257,7 @@ const faqItems = [
           <SectionHead>{m.dtv_mt_proof_head()}</SectionHead>
           <h2 class="h2 mt-2 mb-7">{m.dtv_mt_proof_title()}</h2>
           <TestimonialQuote
-            content={quote.content}
-            name={quote.name}
-            meta={quote.meta}
-            rating={quote.rating}
+            {...quote}
             ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
           />
         </Section>

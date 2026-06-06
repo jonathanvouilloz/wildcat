@@ -39,6 +39,12 @@ export const testimonial = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'date',
+      title: 'Date',
+      type: 'date',
+      description: 'Mois de l’avis — affiché « June 2026 » sur le site (le jour est ignoré).',
+    }),
+    defineField({
       name: 'screenshot',
       title: 'Screenshot (9:16)',
       type: 'image',
