@@ -334,6 +334,11 @@ const articleSchema = {
     margin: 0 auto;
     padding: clamp(28px, 4vw, 44px) var(--gutter) clamp(40px, 5vw, 64px);
   }
+  /* min-width:auto des grid items : un tableau .wc-prose (width: max-content)
+     gonflait la track 1fr mobile → scroll horizontal. */
+  .layout > * {
+    min-width: 0;
+  }
   @media (min-width: 1140px) {
     .layout {
       grid-template-columns: minmax(0, var(--maxw-narrow)) 250px;

@@ -279,6 +279,14 @@ const ctaHref = cta ? p('/contact') : ctaTargets[ctaKey];
   .util .u-soc a { display: flex; opacity: 0.8; transition: 0.15s; }
   .util .u-soc a:hover { opacity: 1; color: var(--gold); }
   .util .u-soc svg { width: 15px; height: 15px; }
+  /* mobile : ne garder que la localisation à gauche (règle de la maquette meganav.css,
+     jamais portée — les items nowrap débordaient → scroll horizontal) */
+  @media (max-width: 780px) {
+    .util .u-item.hide-sm { display: none; }
+    .util .wrap { gap: 12px; }
+    .util .u-left { gap: 12px; min-width: 0; }
+    .util .u-item { overflow: hidden; }
+  }
   /* styles du switch EN/FR : voir LangSwitcher.astro */
 
   /* MAIN NAV */

@@ -3,6 +3,9 @@ dist/
 # screenshots Playwright (régénérés par tests/screenshot-*.py)
 tests/_shots/
 tests/.shots/
+# audit responsive (régénérés par tests/responsive-audit.py)
+tests/shots-responsive/
+tests/.responsive-audit.json
 # generated types
 .astro/
 # paraglide compiled output (source = messages/*.json)

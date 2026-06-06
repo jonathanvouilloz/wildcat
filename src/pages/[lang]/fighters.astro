@@ -224,6 +224,16 @@ const counters =
       margin-top: 28px;
     }
   }
+  @media (max-width: 700px) {
+    /* les débords décoratifs seedés (stamps, rotation des cards) créaient un
+       scroll horizontal : on clippe au bord du viewport (gutter réabsorbé en
+       padding pour que l'overhang des stamps reste visible dans la gouttière) */
+    .fighter-grid {
+      margin-inline: calc(-1 * var(--gutter));
+      padding-inline: var(--gutter);
+      overflow-x: clip;
+    }
+  }
   @media (max-width: 640px) {
     .fighter-grid {
       grid-template-columns: 1fr;

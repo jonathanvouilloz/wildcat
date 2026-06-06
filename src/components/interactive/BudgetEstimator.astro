@@ -224,7 +224,12 @@ const livingData = JSON.stringify(LIVING);
   .controls {
     display: grid;
     gap: 18px;
+    min-width: 0;
   }
+  /* un <select> ne rétrécit pas sous sa plus longue option → il gonflait la
+     track de la grid et faisait déborder l'estimator du viewport mobile */
+  .estimator > * { min-width: 0; }
+  .controls :global(select) { min-width: 0; max-width: 100%; }
   .result {
     background: var(--soft);
     border-radius: var(--r-md);

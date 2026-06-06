@@ -244,6 +244,12 @@ if (countryCode) {
   .stamp--right {
     right: -30px;
   }
+  /* Mobile : la carte touche presque le bord du viewport — l'overhang de 30px
+     des stamps créait un scroll horizontal. On le réduit sous le gutter (18px). */
+  @media (max-width: 700px) {
+    .stamp--left { left: -12px; }
+    .stamp--right { right: -12px; }
+  }
   .stamp :global(.ach-stamp--img) {
     height: 58px;
   }

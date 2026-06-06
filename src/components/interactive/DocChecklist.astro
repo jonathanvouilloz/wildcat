@@ -312,9 +312,13 @@ const countZero = countTemplate.replace('{n}', '0');
     padding: 0;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    /* wrap : en mobile le titre passe sur 2 lignes — sans ça le badge
+       chevauchait la 2e ligne au lieu de descendre dessous */
+    flex-wrap: wrap;
+    gap: 6px 10px;
   }
   .cl-badge {
+    white-space: nowrap;
     font-family: var(--font-display);
     font-weight: 700;
     font-size: 11px;

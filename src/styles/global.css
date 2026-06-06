@@ -304,10 +304,21 @@ a {
   width: max-content;
   max-width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-collapse: collapse;
   margin: 24px 0;
   font-size: 15px;
   line-height: 1.5;
+  /* affordance de scroll (mobile) : ombres de bord qui n'apparaissent que
+     quand du contenu est masqué — sans elles, une table plus large que le
+     viewport semblait coupée net (vu sur l'article FR burning season) */
+  background:
+    linear-gradient(to right, var(--cream) 30%, transparent) left/24px 100%,
+    linear-gradient(to left, var(--cream) 30%, transparent) right/24px 100%,
+    radial-gradient(farthest-side at 0 50%, rgba(17, 17, 17, 0.18), transparent) left/14px 100%,
+    radial-gradient(farthest-side at 100% 50%, rgba(17, 17, 17, 0.18), transparent) right/14px 100%;
+  background-repeat: no-repeat;
+  background-attachment: local, local, scroll, scroll;
 }
 .wc-prose th,
 .wc-prose td {
@@ -316,13 +327,15 @@ a {
   text-align: left;
   vertical-align: top;
 }
+/* fonds de cellules quasi-opaques (pas 100 %) : laissent transparaître les
+   ombres de scroll de la table — visuellement identiques aux tokens pleins */
 .wc-prose th {
-  background: var(--soft-2);
+  background: color-mix(in srgb, var(--soft-2) 82%, transparent);
   font-family: var(--font-display);
   font-weight: 700;
   color: var(--forest);
   white-space: nowrap;
 }
 .wc-prose tbody tr:nth-child(even) {
-  background: var(--soft);
+  background: color-mix(in srgb, var(--soft) 82%, transparent);
 }
