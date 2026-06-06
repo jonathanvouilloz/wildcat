@@ -142,6 +142,12 @@ const articleSchema = {
         ))
       }
 
+      {/* respiration visuelle au milieu du walkthrough — gants prêtés, jardin
+          en bokeh (renforce aussi le « gloves to borrow » de la checklist) */}
+      <div class="imgbox mt-8 mb-8">
+        <img src="/assets/camp-boxing-gloves.webp" alt={m.classes_beg_img_alt()} loading="lazy" />
+      </div>
+
       <h3 class="h3 mt-6 mb-2">{m.classes_beg_walk4_t()}</h3>
       <p class="body-p">{m.classes_beg_walk4_p1()}</p>
       <p class="body-p">
@@ -311,6 +317,25 @@ const articleSchema = {
     outline: 3px solid var(--gold);
     outline-offset: 2px;
     border-radius: 4px;
+  }
+
+  /* photo intro « incrustée scratch » (pattern about.astro) — le mask fait le bord */
+  .imgbox {
+    height: clamp(220px, 32vw, 320px);
+    -webkit-mask-image: url('/assets/textures/torn-frame.png');
+    mask-image: url('/assets/textures/torn-frame.png');
+    -webkit-mask-size: 106% 106%;
+    mask-size: 106% 106%;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .imgbox img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   /* Byline sous le hero (E-E-A-T) */

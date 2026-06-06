@@ -41,6 +41,14 @@ export default defineConfig({
     '/': '/en',
   },
 
+  // LCP : les <link rel="stylesheet"> bloquaient le first paint (~14 Ko sur 3
+  // requêtes, audit 2026-06-07). 'always' inline tout le CSS dans le HTML —
+  // zéro requête bloquante ; perte du cache inter-pages acceptable à cette
+  // taille (SSG vitrine).
+  build: {
+    inlineStylesheets: 'always',
+  },
+
   // Images distantes autorisées pour <Image> (astro:assets) — en SSG elles
   // sont TÉLÉCHARGÉES et ré-hébergées en local au build. Indispensable pour
   // le feed Instagram : les URLs CDN scontent sont signées et expirent.

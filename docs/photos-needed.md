@@ -9,6 +9,13 @@
 > ✅ vie du camp (#life) · ✅ portrait Meaw · ✅ portraits coachs (à uploader
 > au studio) · ✅ 6 photos cards programmes /classes · ✅ 2 photos fighters.
 > Reste : condos, scooters, cover OG.
+>
+> **MAJ 2026-06-07** : ✅ hero home = **`hero-home-v3.webp`** (groupe de jour,
+> choix final Jonathan ; v1 `hero-home.webp` + v2 `hero-home-v2.webp` conservés
+> en réserve — ⚠️ v3 = 1080px de large, upscalé sur grands écrans : remplacer
+> par la pleine résolution si dispo) · ✅ `camp-boxing-gloves.webp` (étagère de
+> gants, jardin en bokeh, 2000px) **placée sur `/classes/beginners`** (intro,
+> respiration avant le walkthrough).
 
 ## P1 — Pages de conversion (urgent)
 

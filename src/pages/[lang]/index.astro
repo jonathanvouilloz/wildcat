@@ -225,7 +225,12 @@ const jsonld = {
         { b: m.home_hero_meta2_b(), s: m.home_hero_meta2_s() },
         { b: m.home_hero_meta3_b(), s: m.home_hero_meta3_s() },
       ]}
-      image={{ src: '/assets/hero-home.webp', alt: m.home_hero_img_alt(), position: 'center 60%' }}
+      image={{
+        src: '/assets/hero-home-v3.webp',
+        srcset: '/assets/hero-home-v3-768.webp 768w, /assets/hero-home-v3.webp 1080w',
+        alt: m.home_hero_img_alt(),
+        position: 'center 45%',
+      }}
     />
 
     <ValueStrip items={values} />

@@ -42,8 +42,11 @@ const STAMP_ASSETS: Record<string, string | null> = {};
 const stampAsset = stamp ? (STAMP_ASSETS[stamp.toLowerCase()] ?? null) : null;
 
 // Incrustation seedée sur le nom (même grammaire que ProgramCard).
+// ⚠️ Garde-fou crop (2026-06-07) : les bords irréguliers des frames mangent
+// le contenu — mask surdimensionné (la déchirure sort du cadre) + padding
+// large dans le CSS. Ne pas redescendre sous 112 %.
 const frame = seedPick(name + 'f', 2) === 0 ? 'torn-frame' : 'torn-t2';
-const msize = frame === 'torn-frame' ? '108% 106%' : '106% 108%';
+const msize = frame === 'torn-frame' ? '114% 112%' : '112% 114%';
 const flip = seedPick(name + 'm', 2) === 0 ? 1 : -1;
 const stampRot = seedRot(name + 'stamp', 5);
 const meta = [country, dateLabel].filter(Boolean).join(' · ');
@@ -82,7 +85,9 @@ const meta = [country, dateLabel].filter(Boolean).join(' · ');
   .quote {
     margin: 0;
     background: var(--surface);
-    padding: 30px 30px 26px;
+    /* padding large = zone de sécurité : la déchirure du mask ne doit jamais
+       atteindre le texte/la signature (garde-fou crop 2026-06-07) */
+    padding: 36px 38px 32px;
     -webkit-mask-image: var(--frame);
     mask-image: var(--frame);
     -webkit-mask-size: var(--msize, 106% 106%);
@@ -102,8 +107,8 @@ const meta = [country, dateLabel].filter(Boolean).join(' · ');
      assets webp die-cut n'existent pas (STAMP_ASSETS). */
   .stamp {
     position: absolute;
-    top: -4px;
-    right: -4px;
+    top: 0;
+    right: 0;
     display: inline-block;
     padding: 5px 10px;
     border: 2px solid var(--gold-deep);

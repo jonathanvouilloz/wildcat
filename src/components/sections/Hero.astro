@@ -18,7 +18,13 @@ export interface Props {
   ctaPrimary: { label: string; href: string };
   ctaSecondary?: { label: string; href: string };
   metas?: { b: string; s: string }[];
-  image: { src: string; alt: string; position?: string };
+  image: {
+    src: string;
+    alt: string;
+    position?: string;
+    /** Variantes responsive (LCP) — ex : `${src768} 768w, ${src} 1080w`. */
+    srcset?: string;
+  };
 }
 
 const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Astro.props;
@@ -28,8 +34,11 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
   <img
     class="hero-bg"
     src={image.src}
+    srcset={image.srcset}
+    sizes={image.srcset ? '100vw' : undefined}
     alt={image.alt}
     fetchpriority="high"
+    decoding="async"
     style={image.position && `object-position:${image.position}`}
   />
   <div class="hero-inner">
