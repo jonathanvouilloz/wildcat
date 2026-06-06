@@ -2,10 +2,12 @@
 import Button from '../ui/Button.astro';
 
 /**
- * DocChecklist — checklist documents interactive (îlot vanilla JS).
+ * DocChecklist — checklist interactive générique (îlot vanilla JS).
  * Cases natives custom-stylées, barre de progression accessible, persistance
- * localStorage (clé wc-dtv-checklist-v1), bouton reset. Sans JS : liste de
- * cases utilisable, progression statique à 0. reduced-motion respecté.
+ * localStorage (clé via prop `storageKey`, défaut wc-dtv-checklist-v1),
+ * bouton reset. Sans JS : liste de cases utilisable, progression statique à 0.
+ * reduced-motion respecté. Réutilisée telle quelle pour la FirstClassChecklist
+ * de /classes/beginners (storageKey dédiée, 1 groupe, pas de badge).
  *
  * i18n : toutes les chaînes sont passées en props (page = source des m.xxx()).
  * Les `data-*` portent les états wording → le script bascule sans toucher au DOM texte.
@@ -13,14 +15,16 @@ import Button from '../ui/Button.astro';
 export interface Props {
   title: string;
   intro: string;
-  /** Groupes de documents. `wildcat: true` → badge "We prepare these". */
+  /** Groupes d'items. `wildcat: true` → badge "We prepare these". */
   groups: {
     legend: string;
     wildcat?: boolean;
     items: { id: string; label: string }[];
   }[];
-  badgeLabel: string;
-  hintLabel: string;
+  /** Clé localStorage — une par checklist pour ne pas mélanger les états. */
+  storageKey?: string;
+  badgeLabel?: string;
+  hintLabel?: string;
   progressLabel: string;
   /** Gabarit du compteur, contient {n}. Ex : "{n} of 10 documents ready". */
   countTemplate: string;
@@ -37,8 +41,9 @@ const {
   title,
   intro,
   groups,
-  badgeLabel,
-  hintLabel,
+  storageKey = 'wc-dtv-checklist-v1',
+  badgeLabel = '',
+  hintLabel = '',
   progressLabel,
   countTemplate,
   total,
@@ -57,7 +62,7 @@ const countZero = countTemplate.replace('{n}', '0');
 <section
   class="checklist"
   data-checklist
-  data-storage-key="wc-dtv-checklist-v1"
+  data-storage-key={storageKey}
   data-total={total}
   data-count-template={countTemplate}
   data-sub-zero={subZero}

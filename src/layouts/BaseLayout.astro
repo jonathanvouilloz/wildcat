@@ -16,6 +16,13 @@ export interface Props {
   ogType?: 'website' | 'article';
   /** Pages à exclure de l'index (ex : confirmation formulaire). */
   noindex?: boolean;
+  /**
+   * Hreflang asymétriques (E8) — les slugs d'articles blog sont TRADUITS par
+   * locale, le calcul symétrique /en↔/fr serait un 404. Hrefs ABSOLUS,
+   * uniquement les locales où la traduction existe (lib/blog getAlternates).
+   * Absent = calcul symétrique (toutes les autres pages, inchangé).
+   */
+  alternates?: { lang: string; href: string }[];
 }
 
 const {
@@ -25,6 +32,7 @@ const {
   image = site.defaultOgImage,
   ogType = 'website',
   noindex = false,
+  alternates: alternatesProp,
 } = Astro.props;
 
 // Default évalué dans le corps (pas en destructuration) : la locale Paraglide
@@ -39,12 +47,18 @@ const base = Astro.site ?? Astro.url.origin;
 const canonical = new URL(Astro.url.pathname, base).href;
 const ogImage = new URL(image, base).href;
 
-// hreflang alternates (E7 affinera : canonical, x-default, etc.)
+// hreflang alternates — override par prop (blog, slugs traduits) ou calcul
+// symétrique (pages service : paths identiques EN/FR).
 const path = Astro.url.pathname.replace(/^\/(en|fr)/, '');
-const alternates = locales.map((loc) => ({
-  lang: loc,
-  href: new URL(`/${loc}${path}`, base).href,
-}));
+const alternates =
+  alternatesProp ??
+  locales.map((loc) => ({
+    lang: loc,
+    href: new URL(`/${loc}${path}`, base).href,
+  }));
+// x-default = la version EN si elle existe — jamais de lien vers un 404
+// (article FR-only : pas de x-default plutôt qu'un x-default cassé).
+const xDefault = alternates.find((alt) => alt.lang === 'en')?.href;
 ---
 
 <!doctype html>
@@ -57,7 +71,7 @@ const alternates = locales.map((loc) => ({
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     {alternates.map((alt) => <link rel="alternate" hreflang={alt.lang} href={alt.href} />)}
-    <link rel="alternate" hreflang="x-default" href={new URL(`/en${path}`, base).href} />
+    {xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
 
     <!-- Favicon — tigre (logo-only). SVG moderne + .ico fallback (16/32/48). -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -96,7 +110,7 @@ const alternates = locales.map((loc) => ({
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-    <Nav />
+    <Nav alternates={alternatesProp} />
     <slot />
     <Footer />
   </body>

@@ -1,9 +1,16 @@
 ---
-import Card from '../ui/Card.astro';
+import ArrowWild from '../ui/ArrowWild.astro';
+import { seedPick } from '../../lib/guestbook';
 
 /**
- * ProgramCard — carte programme (maquette : .prog).
- * Carte entière cliquable (Card href) — le « Learn more » est un span, pas un lien.
+ * ProgramCard — carte programme « incrustée scratch » (direction validée
+ * 2026-06-05, explorations /styleguide). Plus de Card de base : zéro
+ * ombre/bordure, toute la carte est masquée par une frame déchirée (assets
+ * guest book, 2 frames × 2 miroirs) et s'incruste dans le fond de section —
+ * fonds cream/soft uniquement (sur section dark, prévoir un fond de carte).
+ * Carte entière cliquable — le « Learn more » est un span, pas un lien.
+ * Aléatoire seedé sur le titre (pattern FighterCard) : stable au build,
+ * variantes distinctes entre cartes voisines.
  * Sans image : bloc placeholder soft-2 (pattern styleguide) jusqu'à E9.
  */
 export interface Props {
@@ -15,25 +22,71 @@ export interface Props {
   image?: { src: string; alt: string };
 }
 const { level, title, body, href, moreLabel, image } = Astro.props;
+
+// Frame déchirée seedée : 2 assets × 2 miroirs = 4 variantes. Le mask est
+// étiré au-delà de la carte (104-112 %) pour que les morsures les plus
+// profondes n'entament pas le texte (réglé au screenshot, styleguide).
+const frame = seedPick(title + 'f', 2) === 0 ? 'torn-frame' : 'torn-t2';
+const msize = frame === 'torn-frame' ? '112% 104%' : '106% 106%';
+const flip = seedPick(title + 'm', 2) === 0 ? 1 : -1;
+// Transition photo→carte : une couture déchirée par carte (assets TornDivider).
+const tears = ['rough-seg-a', 'rough-seg-b', 'rough-base'] as const;
+const tear = tears[seedPick(title + 't', 3)];
 ---
 
-<Card href={href} class="prog">
-  {
-    image ? (
-      <img class="media" src={image.src} alt={image.alt} loading="lazy" />
-    ) : (
-      <div class="media media--placeholder" aria-hidden="true" />
-    )
-  }
-  <div class="body">
-    <span class="lvl">{level}</span>
-    <h3>{title}</h3>
-    <p>{body}</p>
-    <span class="more">{moreLabel} <span class="ar">→</span></span>
+<a
+  href={href}
+  class="prog"
+  style={`--frame: url('/assets/textures/${frame}.png'); --msize:${msize}; --mflip:${flip}; --tear: url('/assets/dividers/torn-${tear}.png')`}
+>
+  <div class="inner">
+    <div class="photo">
+      {
+        image ? (
+          <img class="media" src={image.src} alt={image.alt} loading="lazy" />
+        ) : (
+          <div class="media media--placeholder" aria-hidden="true" />
+        )
+      }
+      <span class="tear" aria-hidden="true"></span>
+    </div>
+    <div class="body">
+      <span class="lvl">{level}</span>
+      <h3>{title}</h3>
+      <p>{body}</p>
+      <span class="more">{moreLabel} <ArrowWild size={22} class="ar" /></span>
+    </div>
   </div>
-</Card>
+</a>
 
 <style>
+  .prog {
+    display: block;
+    background: var(--surface);
+    color: inherit;
+    text-decoration: none;
+    -webkit-mask-image: var(--frame);
+    mask-image: var(--frame);
+    -webkit-mask-size: var(--msize, 104% 104%);
+    mask-size: var(--msize, 104% 104%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    transform: scaleX(var(--mflip, 1));
+  }
+  /* contre-flip : le mask est miroité, le contenu reste lisible.
+     Pas d'effet hover (décision 2026-06-05) — le cursor pointer suffit. */
+  .inner {
+    transform: scaleX(var(--mflip, 1));
+  }
+  .prog:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .photo {
+    position: relative;
+  }
   .media {
     display: block;
     width: 100%;
@@ -43,25 +96,36 @@ const { level, title, body, href, moreLabel, image } = Astro.props;
   .media--placeholder {
     background: var(--soft-2);
   }
+  .tear {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 26px;
+    background: var(--surface);
+    -webkit-mask-image: var(--tear);
+    mask-image: var(--tear);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
   .body {
-    padding: 20px 22px 24px;
+    padding: 16px 30px 38px;
   }
   .lvl {
     display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--forest-light);
-    background: var(--soft-2);
-    padding: 4px 10px;
-    border-radius: 999px;
-    margin-bottom: 12px;
+    font-family: var(--font-hand);
+    font-size: 21px;
+    line-height: 1;
+    color: var(--gold-deep);
+    margin-bottom: 6px;
+    transform: rotate(-1.5deg);
   }
   h3 {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: 21px;
+    font-size: 23px;
     letter-spacing: -0.01em;
     margin: 0 0 7px;
     color: var(--forest);
@@ -74,23 +138,15 @@ const { level, title, body, href, moreLabel, image } = Astro.props;
   }
   .more {
     font-weight: 700;
-    font-size: 13px;
+    font-size: 14px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--gold-deep);
     display: inline-flex;
-    gap: 7px;
+    gap: 8px;
     align-items: center;
   }
-  .more .ar {
-    transition: transform 0.18s;
-  }
-  :global(.prog:hover) .more .ar {
-    transform: translateX(3px);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .more .ar {
-      transition: none;
-    }
+  .more :global(.ar) {
+    flex: none;
   }
 </style>

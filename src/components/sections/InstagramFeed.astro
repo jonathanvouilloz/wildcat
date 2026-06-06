@@ -1,0 +1,86 @@
+---
+/**
+ * InstagramFeed — grille des derniers posts Instagram (fetch build-time, lib instagram.ts).
+ *
+ * Réutilisable partout (home #community, /about#community, /stay-train…) :
+ * même grille 6 colonnes que CommunityGallery, chaque tuile lie vers le post.
+ * Les images CDN Instagram (signées, expirantes) passent par <Image>
+ * (astro:assets) → téléchargées et ré-hébergées en local au build.
+ *
+ * Fallback : feed indisponible (pas de APIFY_TOKEN, échec réseau, dev) →
+ * placeholders CommunityGallery. Build toujours vert, zéro JS client.
+ */
+import { Image } from 'astro:assets';
+import * as m from '../../paraglide/messages';
+import { fetchInstagramPosts } from '../../lib/instagram';
+import CommunityGallery from './CommunityGallery.astro';
+
+export interface Props {
+  /** Nombre de posts (et de tuiles placeholder en fallback). */
+  count?: number;
+}
+const { count = 6 } = Astro.props;
+
+const posts = await fetchInstagramPosts(count);
+---
+
+{
+  posts ? (
+    <div class="gal">
+      {posts.map((post) => (
+        <a href={post.permalink} target="_blank" rel="noopener">
+          <Image
+            src={post.src}
+            alt={post.alt || m.ig_alt_fallback()}
+            inferSize
+            widths={[240, 480]}
+            sizes="(max-width: 860px) 33vw, 190px"
+            loading="lazy"
+          />
+        </a>
+      ))}
+    </div>
+  ) : (
+    <CommunityGallery count={count} />
+  )
+}
+
+<style>
+  /* Même grammaire visuelle que CommunityGallery (.gal de la maquette). */
+  .gal {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+  .gal a {
+    display: block;
+    border-radius: var(--r-md);
+    overflow: hidden;
+  }
+  .gal a:hover img,
+  .gal a:focus-visible img {
+    transform: scale(1.04);
+  }
+  .gal img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  @media (max-width: 860px) {
+    .gal {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gal img {
+      transition: none;
+    }
+    .gal a:hover img,
+    .gal a:focus-visible img {
+      transform: none;
+    }
+  }
+</style>

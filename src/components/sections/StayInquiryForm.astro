@@ -1,0 +1,151 @@
+---
+import { Icon } from 'astro-icon/components';
+import Field from '../ui/forms/Field.astro';
+import Input from '../ui/forms/Input.astro';
+import Select from '../ui/forms/Select.astro';
+import Textarea from '../ui/forms/Textarea.astro';
+import Checkbox from '../ui/forms/Checkbox.astro';
+import Button from '../ui/Button.astro';
+import { site } from '../../config/site';
+import { waLink } from '../../lib/whatsapp';
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * StayInquiryForm — mini-form séjour *inline* sur /stay-train (#plan).
+ * Même endpoint que le contact (POST /api/contact) avec intent=stay figé +
+ * from=stay-train (retour post-POST sur la page, ancre #plan). Le textarea
+ * est optionnel : dates + durée suffisent à qualifier la demande (l'API
+ * n'exige le message que pour l'intent general). Honeypot identique.
+ */
+export interface Props {
+  lang: string;
+  action?: string;
+}
+const { lang, action = '/api/contact' } = Astro.props;
+
+const durationOptions = [
+  { value: '1-week', label: m.contact_stay_dur_1w() },
+  { value: '1-2-weeks', label: m.contact_stay_dur_2w() },
+  { value: '1-month', label: m.contact_stay_dur_1m() },
+  { value: '2-3-months', label: m.contact_stay_dur_3m() },
+  { value: '6-months-plus', label: m.contact_stay_dur_6m() },
+];
+const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: v }));
+---
+
+<form method="POST" action={action} class="sform">
+  <input type="hidden" name="lang" value={lang} />
+  <input type="hidden" name="from" value="stay-train" />
+  <input type="hidden" name="intent" value="stay" />
+  <!-- honeypot — invisible pour les humains, rempli par les bots -->
+  <div class="hp" aria-hidden="true">
+    <label>
+      Website
+      <input type="text" name="website" tabindex="-1" autocomplete="off" />
+    </label>
+  </div>
+
+  <div class="pair">
+    <Field label={m.contact_form_name()} for="sp-name" required>
+      <Input id="sp-name" name="name" placeholder={m.contact_form_name_ph()} autocomplete="name" required />
+    </Field>
+    <Field label={m.contact_form_email()} for="sp-email" required>
+      <Input
+        id="sp-email"
+        name="email"
+        type="email"
+        placeholder={m.contact_form_email_ph()}
+        autocomplete="email"
+        required
+      />
+    </Field>
+  </div>
+
+  <div class="trio">
+    <Field label={m.contact_stay_arrival()} for="sp-arrival">
+      <Input id="sp-arrival" name="stay_arrival" type="date" />
+    </Field>
+    <Field label={m.contact_stay_duration()} for="sp-duration">
+      <Select id="sp-duration" name="stay_duration" placeholder={m.contact_form_choose_ph()} options={durationOptions} />
+    </Field>
+    <Field label={m.contact_stay_people()} for="sp-people">
+      <Select id="sp-people" name="stay_people" placeholder={m.contact_form_choose_ph()} options={peopleOptions} />
+    </Field>
+  </div>
+
+  <div class="checks">
+    <Checkbox name="stay_acc" value="yes">{m.contact_stay_acc()}</Checkbox>
+    <Checkbox name="stay_scoot" value="yes">{m.contact_stay_scoot()}</Checkbox>
+  </div>
+
+  <Field label={m.stay_plan_msg()} for="sp-msg">
+    <Textarea id="sp-msg" name="message" rows={3} placeholder={m.stay_plan_msg_ph()} />
+  </Field>
+  <Checkbox name="consent" required>{m.contact_form_consent()}</Checkbox>
+
+  <div class="actions">
+    <Button type="submit" variant="gold" arrow>{m.stay_plan_submit()}</Button>
+    <a class="wa-alt" href={waLink(m.contact_wa_text_stay())} target="_blank" rel="noopener">
+      <Icon name="tabler:brand-whatsapp" aria-hidden="true" />
+      {m.stay_plan_wa()}
+    </a>
+  </div>
+</form>
+
+<style>
+  .sform {
+    display: grid;
+    gap: 18px;
+  }
+  .hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+  }
+  .checks {
+    display: grid;
+    gap: 10px;
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+  .wa-alt {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--forest);
+  }
+  .wa-alt:hover {
+    color: var(--gold-deep);
+  }
+  .wa-alt svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media (max-width: 760px) {
+    .pair,
+    .trio {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

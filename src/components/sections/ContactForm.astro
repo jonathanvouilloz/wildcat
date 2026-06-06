@@ -1,33 +1,75 @@
 ---
+import { Icon } from 'astro-icon/components';
 import Field from '../ui/forms/Field.astro';
 import Input from '../ui/forms/Input.astro';
 import Select from '../ui/forms/Select.astro';
 import Textarea from '../ui/forms/Textarea.astro';
 import Checkbox from '../ui/forms/Checkbox.astro';
 import Button from '../ui/Button.astro';
+import { site } from '../../config/site';
+import { waLink } from '../../lib/whatsapp';
 import { m } from '../../paraglide/messages.js';
 
 /**
- * ContactForm — formulaire contact natif (POST /api/contact, zéro JS,
- * progressive enhancement). Honeypot `website` (champ caché) anti-spam.
- * La locale part en champ caché pour le redirect retour.
+ * ContactForm v2 — formulaire *intent-driven* (POST /api/contact).
+ * - 5 intentions en radios stylées cards (class/stay/scooter/dtv/general) ;
+ *   les champs contextuels par intention sont togglés en pur CSS `:has()`
+ *   → fonctionne sans JS. Champs contextuels jamais `required` (un champ
+ *   caché requis bloquerait le submit).
+ * - `?intent=` (+ legacy `?topic=`) présélectionne la card via un mini script.
+ * - Fast lane WhatsApp : lien wa.me pré-rempli, re-câblé par intention en JS
+ *   (fallback no-JS : texte « general »).
+ * - Honeypot `website` anti-spam ; locale + page de retour en champs cachés.
  */
 export interface Props {
   lang: string;
   action?: string;
+  /** Page de retour post-POST (whitelist côté API). */
+  from?: string;
 }
-const { lang, action = '/api/contact' } = Astro.props;
+const { lang, action = '/api/contact', from = 'contact' } = Astro.props;
 
-const topics = [
-  { value: 'classes', label: m.contact_form_topic_classes() },
-  { value: 'stay', label: m.contact_form_topic_stay() },
-  { value: 'dtv', label: m.contact_form_topic_dtv() },
-  { value: 'other', label: m.contact_form_topic_other() },
+const intents = [
+  { value: 'class', icon: 'tabler:karate', label: m.contact_intent_class() },
+  { value: 'stay', icon: 'tabler:bed', label: m.contact_intent_stay() },
+  { value: 'scooter', icon: 'tabler:motorbike', label: m.contact_intent_scooter() },
+  { value: 'dtv', icon: 'tabler:id', label: m.contact_intent_dtv() },
+  { value: 'general', icon: 'tabler:message-circle', label: m.contact_intent_general() },
 ];
+
+const levelOptions = [
+  { value: 'first-time', label: m.contact_cls_level_first() },
+  { value: 'some-experience', label: m.contact_cls_level_some() },
+  { value: 'experienced', label: m.contact_cls_level_exp() },
+];
+const durationOptions = [
+  { value: '1-week', label: m.contact_stay_dur_1w() },
+  { value: '1-2-weeks', label: m.contact_stay_dur_2w() },
+  { value: '1-month', label: m.contact_stay_dur_1m() },
+  { value: '2-3-months', label: m.contact_stay_dur_3m() },
+  { value: '6-months-plus', label: m.contact_stay_dur_6m() },
+];
+const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: v }));
+// Modèles réels de la flotte (site.ts) + « pas encore décidé ».
+const modelOptions = [
+  ...site.scooterFleet.map((s) => ({ value: s.key, label: s.name })),
+  { value: 'not-sure', label: m.contact_sct_model_any() },
+];
+
+// Textes wa.me pré-remplis par intention (le script swap le href ; fallback
+// no-JS = texte general).
+const waTexts: Record<string, string> = {
+  class: m.contact_wa_text_class(),
+  stay: m.contact_wa_text_stay(),
+  scooter: m.contact_wa_text_scooter(),
+  dtv: m.contact_wa_text_dtv(),
+  general: m.contact_wa_text_general(),
+};
 ---
 
-<form method="POST" action={action} class="cform">
+<form method="POST" action={action} class="cform" data-cform>
   <input type="hidden" name="lang" value={lang} />
+  <input type="hidden" name="from" value={from} />
   <!-- honeypot — invisible pour les humains, rempli par les bots -->
   <div class="hp" aria-hidden="true">
     <label>
@@ -36,22 +78,91 @@ const topics = [
     </label>
   </div>
 
-  <Field label={m.contact_form_name()} for="ct-name" required>
-    <Input id="ct-name" name="name" placeholder={m.contact_form_name_ph()} autocomplete="name" required />
-  </Field>
-  <Field label={m.contact_form_email()} for="ct-email" required>
-    <Input
-      id="ct-email"
-      name="email"
-      type="email"
-      placeholder={m.contact_form_email_ph()}
-      autocomplete="email"
-      required
-    />
-  </Field>
-  <Field label={m.contact_form_topic()} for="ct-topic">
-    <Select id="ct-topic" name="topic" placeholder={m.contact_form_topic_ph()} options={topics} />
-  </Field>
+  <fieldset class="intents">
+    <legend class="intents-legend">{m.contact_intent_legend()}</legend>
+    <div class="intents-grid">
+      {
+        intents.map((it) => (
+          <label class="icard">
+            <input
+              type="radio"
+              name="intent"
+              value={it.value}
+              checked={it.value === 'general'}
+            />
+            <Icon name={it.icon} class="icard-ic" aria-hidden="true" />
+            <span class="icard-lb">{it.label}</span>
+          </label>
+        ))
+      }
+    </div>
+  </fieldset>
+
+  <div class="pair">
+    <Field label={m.contact_form_name()} for="ct-name" required>
+      <Input id="ct-name" name="name" placeholder={m.contact_form_name_ph()} autocomplete="name" required />
+    </Field>
+    <Field label={m.contact_form_email()} for="ct-email" required>
+      <Input
+        id="ct-email"
+        name="email"
+        type="email"
+        placeholder={m.contact_form_email_ph()}
+        autocomplete="email"
+        required
+      />
+    </Field>
+  </div>
+
+  <!-- Champs contextuels — affichés par :has() selon l'intention cochée -->
+  <div class="xtra" data-i="class">
+    <div class="pair">
+      <Field label={m.contact_cls_date()} for="ct-cls-date" helper={m.contact_cls_date_help()}>
+        <Input id="ct-cls-date" name="cls_date" type="date" />
+      </Field>
+      <Field label={m.contact_cls_level()} for="ct-cls-level">
+        <Select id="ct-cls-level" name="cls_level" placeholder={m.contact_form_choose_ph()} options={levelOptions} />
+      </Field>
+    </div>
+  </div>
+
+  <div class="xtra" data-i="stay">
+    <div class="pair">
+      <Field label={m.contact_stay_arrival()} for="ct-stay-arrival">
+        <Input id="ct-stay-arrival" name="stay_arrival" type="date" />
+      </Field>
+      <Field label={m.contact_stay_duration()} for="ct-stay-duration">
+        <Select
+          id="ct-stay-duration"
+          name="stay_duration"
+          placeholder={m.contact_form_choose_ph()}
+          options={durationOptions}
+        />
+      </Field>
+    </div>
+    <Field label={m.contact_stay_people()} for="ct-stay-people" class="narrow">
+      <Select id="ct-stay-people" name="stay_people" placeholder={m.contact_form_choose_ph()} options={peopleOptions} />
+    </Field>
+    <div class="checks">
+      <Checkbox name="stay_acc" value="yes">{m.contact_stay_acc()}</Checkbox>
+      <Checkbox name="stay_scoot" value="yes">{m.contact_stay_scoot()}</Checkbox>
+    </div>
+  </div>
+
+  <div class="xtra" data-i="scooter">
+    <div class="pair">
+      <Field label={m.contact_sct_from()} for="ct-sct-from">
+        <Input id="ct-sct-from" name="sct_from" type="date" />
+      </Field>
+      <Field label={m.contact_sct_to()} for="ct-sct-to">
+        <Input id="ct-sct-to" name="sct_to" type="date" />
+      </Field>
+    </div>
+    <Field label={m.contact_sct_model()} for="ct-sct-model" class="narrow">
+      <Select id="ct-sct-model" name="sct_model" placeholder={m.contact_form_choose_ph()} options={modelOptions} />
+    </Field>
+  </div>
+
   <Field label={m.contact_form_msg()} for="ct-msg" required>
     <Textarea id="ct-msg" name="message" rows={6} placeholder={m.contact_form_msg_ph()} required />
   </Field>
@@ -60,7 +171,61 @@ const topics = [
   <div class="submit">
     <Button type="submit" variant="gold" arrow>{m.contact_form_submit()}</Button>
   </div>
+
+  <!-- Fast lane WhatsApp — pré-rempli selon l'intention cochée -->
+  <div
+    class="wa"
+    data-wa
+    data-wa-base={site.contact.whatsapp}
+    data-wa-class={waTexts.class}
+    data-wa-stay={waTexts.stay}
+    data-wa-scooter={waTexts.scooter}
+    data-wa-dtv={waTexts.dtv}
+    data-wa-general={waTexts.general}
+  >
+    <Icon name="tabler:brand-whatsapp" class="wa-ic" aria-hidden="true" />
+    <div class="wa-tx">
+      <b>{m.contact_wa_title()}</b>
+      <p>{m.contact_wa_body()}</p>
+    </div>
+    <Button href={waLink(waTexts.general)} variant="outline" target="_blank" rel="noopener">
+      {m.cta_whatsapp()}
+    </Button>
+  </div>
 </form>
+
+<script>
+  // Présélection ?intent= (+ legacy ?topic=) et re-câblage du lien WhatsApp
+  // pré-rempli quand l'intention change. Tout fonctionne sans ce script —
+  // il n'apporte que le confort (deep links + texte wa.me contextualisé).
+  const LEGACY: Record<string, string> = { classes: 'class', other: 'general' };
+
+  document.querySelectorAll<HTMLFormElement>('form[data-cform]').forEach((form) => {
+    const params = new URLSearchParams(location.search);
+    const raw = params.get('intent') ?? params.get('topic');
+    if (raw) {
+      const want = LEGACY[raw] ?? raw;
+      const radio = form.querySelector<HTMLInputElement>(`input[name="intent"][value="${want}"]`);
+      if (radio) radio.checked = true;
+    }
+
+    const wrap = form.querySelector<HTMLElement>('[data-wa]');
+    const link = wrap?.querySelector<HTMLAnchorElement>('a');
+    const base = wrap?.dataset.waBase;
+    if (!wrap || !link || !base) return;
+
+    const update = () => {
+      const v =
+        form.querySelector<HTMLInputElement>('input[name="intent"]:checked')?.value ?? 'general';
+      const text = wrap.dataset['wa' + v[0].toUpperCase() + v.slice(1)];
+      if (text) link.href = `${base}?text=${encodeURIComponent(text)}`;
+    };
+    form.addEventListener('change', (e) => {
+      if ((e.target as HTMLInputElement).name === 'intent') update();
+    });
+    update();
+  });
+</script>
 
 <style>
   .cform {
@@ -74,7 +239,149 @@ const topics = [
     height: 1px;
     overflow: hidden;
   }
+
+  /* ---- Cards d'intention ---- */
+  .intents {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .intents-legend {
+    padding: 0;
+    margin-bottom: 10px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .intents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    gap: 8px;
+  }
+  .icard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    padding: 13px 8px 11px;
+    background: var(--field-bg);
+    border: 1.5px solid var(--field-border);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    text-align: center;
+    transition:
+      border-color 0.15s ease,
+      background-color 0.15s ease;
+  }
+  .icard input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .icard:hover {
+    border-color: var(--field-border-hover);
+  }
+  .icard:has(input:checked) {
+    border-color: var(--forest);
+    background: color-mix(in srgb, var(--forest), #fff 92%);
+  }
+  .icard:has(input:focus-visible) {
+    border-color: var(--field-border-focus);
+    box-shadow: var(--field-ring);
+  }
+  .icard-ic {
+    width: 24px;
+    height: 24px;
+    color: var(--ink-2);
+  }
+  .icard:has(input:checked) .icard-ic {
+    color: var(--forest);
+  }
+  .icard-lb {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 12.5px;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+
+  /* ---- Champs contextuels (CSS only, :has) ---- */
+  .xtra {
+    display: none;
+    gap: 18px;
+  }
+  .cform:has(input[name='intent'][value='class']:checked) .xtra[data-i='class'],
+  .cform:has(input[name='intent'][value='stay']:checked) .xtra[data-i='stay'],
+  .cform:has(input[name='intent'][value='scooter']:checked) .xtra[data-i='scooter'] {
+    display: grid;
+  }
+
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .narrow {
+    max-width: 240px;
+  }
+  .checks {
+    display: grid;
+    gap: 10px;
+  }
+
   .submit {
     margin-top: 6px;
+  }
+
+  /* ---- Fast lane WhatsApp ---- */
+  .wa {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 8px;
+    padding: 16px 18px;
+    border: 1px dashed var(--line);
+    border-radius: var(--r-md);
+    background: color-mix(in srgb, var(--cream), #fff 40%);
+  }
+  .wa-ic {
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    color: var(--forest);
+  }
+  .wa-tx {
+    flex: 1;
+    min-width: 0;
+  }
+  .wa-tx b {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+  .wa-tx p {
+    margin: 2px 0 0;
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.45;
+  }
+
+  @media (max-width: 640px) {
+    .pair {
+      grid-template-columns: 1fr;
+    }
+    .wa {
+      flex-wrap: wrap;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .icard {
+      transition: none;
+    }
   }
 </style>

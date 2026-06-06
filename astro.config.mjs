@@ -9,6 +9,7 @@ import icon from 'astro-icon';
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import sanity from '@sanity/astro';
 import react from '@astrojs/react';
+import mdx from '@astrojs/mdx';
 
 // Sanity — projectId/dataset doivent être connus au niveau config (build-time).
 // Préfixe PUBLIC_ : le studio embarqué (island React) lit ces valeurs côté
@@ -22,7 +23,7 @@ const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO(Q5): confirmer le domaine définitif (wildcatmuaythai.com ?). Sert au sitemap, hreflang et canonical.
+  // Q5 tranchée (2026-06-05) : wildcatmuaythai.com. Sert au sitemap, hreflang et canonical.
   site: 'https://wildcatmuaythai.com',
 
   // i18n — V1 : EN + FR (TH/DE/ES/RU repoussés en V1.1). URLs préfixées : /en, /fr.
@@ -40,7 +41,42 @@ export default defineConfig({
     '/': '/en',
   },
 
+  // Images distantes autorisées pour <Image> (astro:assets) — en SSG elles
+  // sont TÉLÉCHARGÉES et ré-hébergées en local au build. Indispensable pour
+  // le feed Instagram : les URLs CDN scontent sont signées et expirent.
+  image: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '**.cdninstagram.com' },
+      { protocol: 'https', hostname: '**.fbcdn.net' },
+    ],
+  },
+
   vite: {
+    server: {
+      watch: {
+        // Windows EMFILE ("too many open files") : sans ces ignores, le
+        // watcher scanne dist/ et .vercel/ (node_modules bundlés = milliers
+        // de fichiers), épuise les handles et meurt → HMR cassé, vieux
+        // modules servis (page "à moitié stylée").
+        // ⚠️ Piège : PAS de '**/wildcat/**' ici — le repo s'appelle wildcat,
+        // ce glob ignorerait tout le projet. Le bundle design est ciblé en
+        // relatif depuis la racine.
+        ignored: [
+          '**/node_modules/**',
+          '**/.git/**',
+          '**/dist/**',
+          '**/.vercel/**',
+          '**/.seo-data/**',
+          '**/PNG/**',
+          // ⚠️ relatif racine ('content/**', drafts skills SEO), PAS '**/content/**'
+          // qui matcherait aussi src/content/ (articles blog E8) → HMR mort dessus.
+          'content/**',
+          '**/tests/**',
+          'wildcat/**', // bundle design (maquettes HTML/CSS), relatif racine
+          '**/moodboard/**',
+        ],
+      },
+    },
     plugins: [
       tailwindcss(),
       // Paraglide — strings UI typées (source : messages/{locale}.json, output compilé : src/paraglide/).
@@ -77,10 +113,25 @@ export default defineConfig({
       studioBasePath: '/studio',
     }),
     react(),
+    // MDX — opt-in par article de blog (quiz interactif mid-contenu). Les
+    // articles standards restent en .md pur (pipeline /seo-write → commit).
+    mdx(),
     sitemap({
       i18n: { defaultLocale: 'en', locales: { en: 'en', fr: 'fr' } },
       // Le studio est un outil interne : exclu du sitemap (+ Disallow dans robots.txt).
-      filter: (page) => !page.includes('/studio'),
+      // /api/* : routes on-demand (POST only), jamais indexables — exclusion explicite.
+      // /rss.xml : feed, pas une page.
+      filter: (page) =>
+        !page.includes('/studio') && !page.includes('/api/') && !page.includes('/rss.xml'),
+      // Articles blog (E8) : slugs TRADUITS par locale → le mapping i18n du
+      // sitemap (symétrique) émettrait des xhtml:link vers des 404. On retire
+      // les links des entrées articles (l'URL reste listée ; les hreflang
+      // corrects sont dans le <head> des pages). L'index /blog, lui, est
+      // symétrique → links conservés.
+      serialize: (item) =>
+        /\/(en|fr)\/blog\/.+/.test(new URL(item.url).pathname)
+          ? { ...item, links: undefined }
+          : item,
     }),
     icon(),
   ]

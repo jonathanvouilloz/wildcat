@@ -13,6 +13,7 @@
   --gold-deep: #c98a12;
   --cream: #f6f1e6;
   --charcoal: #111111;
+  --night: #121b14; /* noir teinté forest — fonds CTA torn/scrapbook (validé 2026-06-05) */
   --orange: #d97732;
 
   /* surfaces & lines */
@@ -37,6 +38,7 @@
   /* typography */
   --font-display: 'Satoshi', system-ui, sans-serif; /* titres (Bold) + corps */
   --font-accent: 'Fraunces Variable', 'Fraunces', Georgia, serif; /* accents 72pt italic or */
+  --font-hand: 'Caveat Variable', 'Caveat', cursive; /* annotations manuscrites (guest book) */
 
   /* icônes (set : Tabler via astro-icon) */
   --icon-sm: 16px;

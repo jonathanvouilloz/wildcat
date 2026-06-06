@@ -13,6 +13,7 @@ import TestimonialQuote from '../../../components/sections/TestimonialQuote.astr
 import BudgetEstimator from '../../../components/interactive/BudgetEstimator.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
 import { safeQuery } from '../../../lib/content';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../../lib/sanity.types';
@@ -117,7 +118,6 @@ const faqItems = [
     />
 
     <PageHero
-      head={m.dtv_lst_hero_head()}
       title={m.dtv_lst_hero_title()}
       titleEm={m.dtv_lst_hero_title_em()}
       lead={m.dtv_lst_hero_lead()}
@@ -159,7 +159,7 @@ const faqItems = [
           <h3 class="h3">{m.dtv_lst_who_title()}</h3>
           <p class="body-p">
             {m.dtv_lst_who_body()}
-            <a class="ilink" href={`${p('/about')}#coaches`}>{m.dtv_lst_who_coaches_link()}</a>.
+            <a class="ilink" href={p('/about/coaches')}>{m.dtv_lst_who_coaches_link()}</a>.
           </p>
         </article>
       </div>
@@ -202,7 +202,10 @@ const faqItems = [
         </article>
         <article>
           <h3 class="h3">{m.dtv_lst_scooter_title()}</h3>
-          <p class="body-p">{m.dtv_lst_scooter_body()}</p>
+          <p class="body-p">
+            {m.dtv_lst_scooter_body()}{' '}
+            <a class="ilink" href={p('/stay-train/scooter-rental')}>{m.dtv_lst_scooter_link()}</a>.
+          </p>
         </article>
         <article>
           <h3 class="h3">{m.dtv_lst_extras_title()}</h3>
@@ -253,8 +256,8 @@ const faqItems = [
         training={estTraining}
         housingRanges={estHousing}
         durations={estDurations}
-        whatsappHref={site.contact.whatsapp}
-        contactHref={p('/contact')}
+        whatsappHref={waLink(m.contact_wa_text_dtv())}
+        contactHref={`${p('/contact')}?intent=dtv`}
         fxUsd={FX_THB_USD}
       />
     </Section>
@@ -299,11 +302,15 @@ const faqItems = [
     </Section>
 
     <CtaBanner
+      variant="split"
+      hand={m.dtv_lst_cta_hand()}
       title={m.dtv_lst_cta_title()}
       titleEm={m.dtv_lst_cta_title_em()}
-      ctaPrimary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
-      ctaSecondary={{ label: m.nav_contact(), href: p('/contact') }}
-      image={{ src: '/assets/gym-garden.jpg' }}
+      sub={m.dtv_lst_cta_sub()}
+      caption={m.dtv_lst_cta_caption()}
+      ctaPrimary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_dtv()) }}
+      ctaSecondary={{ label: m.nav_contact(), href: `${p('/contact')}?intent=dtv` }}
+      image={{ src: '/assets/night-session.webp', alt: m.dtv_lst_cta_img_alt() }}
     />
   </main>
 </BaseLayout>

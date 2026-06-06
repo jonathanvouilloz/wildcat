@@ -1,0 +1,21 @@
+{
+  "topic": "muay thai travel insurance",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-05T13:56:13Z",
+  "primary": {
+    "keyword": "muay thai travel insurance",
+    "search_volume": 10,
+    "cpc": 8.77,
+    "competition": "MEDIUM",
+    "competition_index": 61,
+    "difficulty": null,
+    "intent": "commercial",
+    "intent_probability": 0.9736
+  },
+  "secondaries": [],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}

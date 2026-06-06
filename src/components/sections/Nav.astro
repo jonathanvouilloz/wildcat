@@ -1,6 +1,7 @@
 ---
 import Button from '../ui/Button.astro';
 import ArrowWild from '../ui/ArrowWild.astro';
+import DtvStamp from '../ui/DtvStamp.astro';
 import LangSwitcher from '../ui/LangSwitcher.astro';
 import { Icon } from 'astro-icon/components';
 import { site } from '../../config/site';
@@ -17,12 +18,15 @@ import { m } from '../../paraglide/messages.js';
  * Props :
  *  - sticky (def. true) : position sticky ; false = relative (démo styleguide).
  *  - cta : libellé du CTA Join (sinon déduit de la page courante).
+ *  - alternates : hreflang asymétriques (articles blog, slugs traduits) —
+ *    transmis tel quel au LangSwitcher (vient de BaseLayout).
  */
 export interface Props {
   sticky?: boolean;
   cta?: string;
+  alternates?: { lang: string; href: string }[];
 }
-const { sticky = true, cta } = Astro.props;
+const { sticky = true, cta, alternates } = Astro.props;
 
 // Liens localisés (slugs EN dans toutes les locales — src/lib/routes.ts).
 // E5 : les clusters pas encore construits pointent vers leur pillar (+ anchor)
@@ -44,7 +48,16 @@ function ctaKeyFor(p: string): keyof typeof ctaLabels {
   if (p.includes('/classes') || p.includes('/schedule') || p.includes('/pricing')) return 'book_class';
   return 'join_now';
 }
-const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
+// La cible suit le label : form pré-ciblé (?intent=) ou form séjour inline.
+const ctaTargets: Record<keyof typeof ctaLabels, string> = {
+  start_dtv: `${p('/contact')}?intent=dtv`,
+  plan_stay: `${p('/stay-train')}#plan`,
+  book_class: `${p('/contact')}?intent=class`,
+  join_now: `${p('/contact')}?intent=class`,
+};
+const ctaKey = ctaKeyFor(Astro.url.pathname);
+const ctaLabel = cta ?? ctaLabels[ctaKey];
+const ctaHref = cta ? p('/contact') : ctaTargets[ctaKey];
 ---
 
 
@@ -62,7 +75,7 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
           <a href={s.href} aria-label={s.label} target="_blank" rel="noopener"><Icon name={s.icon} /></a>
         ))}
       </div>
-      <LangSwitcher />
+      <LangSwitcher alternates={alternates} />
     </div>
   </div>
 </div>
@@ -80,7 +93,7 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
         <div class="mega" role="menu">
           <div class="mcol">
             <span class="lab">{m.nav_train_col_classes()}</span>
-            <a class="mlink" href={p('/classes#programs')}><span class="mic"><Icon name="tabler:karate" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_beginner_title()}</span><span class="md">{m.nav_train_beginner_desc()}</span></span></a>
+            <a class="mlink" href={p('/classes/beginners')}><span class="mic"><Icon name="tabler:karate" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_beginner_title()}</span><span class="md">{m.nav_train_beginner_desc()}</span></span></a>
             <a class="mlink" href={p('/classes#programs')}><span class="mic"><Icon name="tabler:chart-bar" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_alllevels_title()}</span><span class="md">{m.nav_train_alllevels_desc()}</span></span></a>
             <a class="mlink" href={p('/classes#programs')}><span class="mic"><Icon name="tabler:user" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_private_title()}</span><span class="md">{m.nav_train_private_desc()}</span></span></a>
           </div>
@@ -94,13 +107,13 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
             <span class="lab">{m.nav_train_col_plan()}</span>
             <a class="mlink" href={p('/classes#schedule')}><span class="mic"><Icon name="tabler:calendar-event" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_schedule_title()}</span><span class="md">{m.nav_train_schedule_desc()}</span></span></a>
             <a class="mlink" href={p('/classes#pricing')}><span class="mic"><Icon name="tabler:tag" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_pricing_title()}</span><span class="md">{m.nav_train_pricing_desc()}</span></span></a>
-            <a class="mlink" href={p('/contact')}><span class="mic"><Icon name="tabler:sparkles" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_trial_title()}</span><span class="md">{m.nav_train_trial_desc()}</span></span></a>
+            <a class="mlink" href={`${p('/contact')}?intent=class`}><span class="mic"><Icon name="tabler:sparkles" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_trial_title()}</span><span class="md">{m.nav_train_trial_desc()}</span></span></a>
           </div>
           <div class="mfeat">
             <span class="ft-tag">{m.nav_train_feat_tag()}</span>
             <h4>{m.nav_train_feat_title()} <span class="em">{m.nav_train_feat_title_em()}</span></h4>
             <p>{m.nav_train_feat_body()}</p>
-            <div class="ff"><a class="fbtn" href={p('/contact')}>{m.nav_train_feat_btn()} <ArrowWild class="fbtn-ar" size={20} /></a></div>
+            <div class="ff"><a class="fbtn" href={`${p('/contact')}?intent=class`}>{m.nav_train_feat_btn()} <ArrowWild class="fbtn-ar" size={20} /></a></div>
           </div>
           <div class="mfoot">
             <div class="links">
@@ -118,19 +131,19 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
         <div class="mega" role="menu">
           <div class="mcol">
             <span class="lab">{m.nav_stay_col_train()}</span>
-            <a class="mlink" href={p('/stay-train#pricing')}><span class="mic"><Icon name="tabler:route" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_packages_title()}</span><span class="md">{m.nav_stay_packages_desc()}</span></span></a>
-            <a class="mlink" href={p('/stay-train')}><span class="mic"><Icon name="tabler:home-2" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_longstay_title()}</span><span class="md">{m.nav_stay_longstay_desc()}</span></span></a>
+            <a class="mlink" href={p('/stay-train#packages')}><span class="mic"><Icon name="tabler:route" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_packages_title()}</span><span class="md">{m.nav_stay_packages_desc()}</span></span></a>
+            <a class="mlink" href={p('/dtv-visa/long-stay-training')}><span class="mic"><Icon name="tabler:home-2" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_longstay_title()}</span><span class="md">{m.nav_stay_longstay_desc()}</span></span></a>
           </div>
           <div class="mcol">
             <span class="lab">{m.nav_stay_col_logistics()}</span>
-            <a class="mlink" href={p('/stay-train')}><span class="mic"><Icon name="tabler:bed" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_accom_title()}</span><span class="md">{m.nav_stay_accom_desc()}</span></span></a>
-            <a class="mlink" href={p('/stay-train')}><span class="mic"><Icon name="tabler:motorbike" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_scooter_title()}</span><span class="md">{m.nav_stay_scooter_desc()}</span></span></a>
+            <a class="mlink" href={p('/stay-train#accommodation')}><span class="mic"><Icon name="tabler:bed" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_accom_title()}</span><span class="md">{m.nav_stay_accom_desc()}</span></span></a>
+            <a class="mlink" href={p('/stay-train/scooter-rental')}><span class="mic"><Icon name="tabler:motorbike" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_scooter_title()}</span><span class="md">{m.nav_stay_scooter_desc()}</span></span></a>
             <a class="mlink" href={p('/contact')}><span class="mic"><Icon name="tabler:map-pin" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_getting_title()}</span><span class="md">{m.nav_stay_getting_desc()}</span></span></a>
           </div>
           <div class="mcol">
             <span class="lab">{m.nav_stay_col_explore()}</span>
-            <a class="mlink" href={p('/stay-train')}><span class="mic"><Icon name="tabler:map-2" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_guide_title()}</span><span class="md">{m.nav_stay_guide_desc()}</span></span></a>
-            <a class="mlink" href={p('/stay-train')}><span class="mic"><Icon name="tabler:leaf" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_todo_title()}</span><span class="md">{m.nav_stay_todo_desc()}</span></span></a>
+            <a class="mlink" href={p('/stay-train#life')}><span class="mic"><Icon name="tabler:map-2" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_guide_title()}</span><span class="md">{m.nav_stay_guide_desc()}</span></span></a>
+            <a class="mlink" href={p('/stay-train#life')}><span class="mic"><Icon name="tabler:leaf" class="i" /></span><span class="mtx"><span class="mt">{m.nav_stay_todo_title()}</span><span class="md">{m.nav_stay_todo_desc()}</span></span></a>
           </div>
           <div class="mfeat">
             <span class="ft-tag">{m.nav_stay_feat_tag()}</span>
@@ -166,18 +179,17 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
           <div class="mcol">
             <span class="lab">{m.nav_dtv_col_help()}</span>
             <a class="mlink" href={p('/dtv-visa/faq')}><span class="mic"><Icon name="tabler:help-circle" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_faq_title()}</span><span class="md">{m.nav_dtv_faq_desc()}</span></span></a>
-            <a class="mlink" href={p('/contact')}><span class="mic"><Icon name="tabler:message-circle" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_talk_title()}</span><span class="md">{m.nav_dtv_talk_desc()}</span></span></a>
+            <a class="mlink" href={`${p('/contact')}?intent=dtv`}><span class="mic"><Icon name="tabler:message-circle" class="i" /></span><span class="mtx"><span class="mt">{m.nav_dtv_talk_title()}</span><span class="md">{m.nav_dtv_talk_desc()}</span></span></a>
           </div>
           <div class="mfeat gold">
-            <span class="stamp"></span>
-            <div class="dtv-mini"><b>DTV</b><i>Visa</i></div>
+            <DtvStamp size={88} shadow={false} class="feat-stamp" />
             <h4>{m.nav_dtv_feat_title()} <span class="em">{m.nav_dtv_feat_title_em()}</span></h4>
             <p>{m.nav_dtv_feat_body()}</p>
             <div class="ff"><a class="fbtn" href={p('/dtv-visa')}>{m.cta_start_dtv()} <ArrowWild class="fbtn-ar" size={20} /></a></div>
           </div>
           <div class="mfoot">
             <div class="links">
-              <a href={p('/stay-train')}><Icon name="tabler:motorbike" /> {m.nav_dtv_foot_scooter()}</a>
+              <a href={p('/stay-train/scooter-rental')}><Icon name="tabler:motorbike" /> {m.nav_dtv_foot_scooter()}</a>
               <a href={p('/stay-train')}><Icon name="tabler:bed" /> {m.nav_dtv_foot_accom()}</a>
             </div>
             <a class="allcta" href={p('/dtv-visa')}>{m.nav_dtv_allcta()} <ArrowWild size={18} /></a>
@@ -192,13 +204,13 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
           <div class="mcol">
             <span class="lab">{m.nav_about_col_wildcat()}</span>
             <a class="mlink" href={p('/about')}><span class="mic"><Icon name="tabler:leaf" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_story_title()}</span><span class="md">{m.nav_about_story_desc()}</span></span></a>
-            <a class="mlink" href={p('/about#coaches')}><span class="mic"><Icon name="tabler:user" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_coaches_title()}</span><span class="md">{m.nav_about_coaches_desc()}</span></span></a>
+            <a class="mlink" href={p('/about/coaches')}><span class="mic"><Icon name="tabler:user" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_coaches_title()}</span><span class="md">{m.nav_about_coaches_desc()}</span></span></a>
           </div>
           <div class="mcol">
             <span class="lab">{m.nav_about_col_community()}</span>
-            <a class="mlink" href={p('/about')}><span class="mic"><Icon name="tabler:users" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_community_title()}</span><span class="md">{m.nav_about_community_desc()}</span></span></a>
-            <a class="mlink" href={p('/about')}><span class="mic"><Icon name="tabler:camera" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_gallery_title()}</span><span class="md">{m.nav_about_gallery_desc()}</span></span></a>
-            <a class="mlink" href={p('/about')}><span class="mic"><Icon name="tabler:star" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_reviews_title()}</span><span class="md">{m.nav_about_reviews_desc()}</span></span></a>
+            <a class="mlink" href={p('/about#community')}><span class="mic"><Icon name="tabler:users" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_community_title()}</span><span class="md">{m.nav_about_community_desc()}</span></span></a>
+            {/* Gallery : réintégrer avec la vraie galerie (E9) */}
+            <a class="mlink" href={p('/about#reviews')}><span class="mic"><Icon name="tabler:star" class="i" /></span><span class="mtx"><span class="mt">{m.nav_about_reviews_title()}</span><span class="md">{m.nav_about_reviews_desc()}</span></span></a>
           </div>
           <div class="mfeat">
             <span class="ft-tag">{m.nav_about_feat_tag()}</span>
@@ -211,9 +223,9 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
 
       <!-- SIMPLE LINKS -->
       <!-- Blog : href="#" jusqu'à E8 -->
-      <div class="mi"><a href="#"><span class="lbl">{m.nav_blog()}</span></a></div>
+      <div class="mi"><a href={p('/blog')}><span class="lbl">{m.nav_blog()}</span></a></div>
       <div class="mi"><a href={p('/contact')}><span class="lbl">{m.nav_contact()}</span></a></div>
-      <div class="mi cta"><Button variant="gold" flat arrow href={p('/contact')}>{ctaLabel}</Button></div>
+      <div class="mi cta"><Button variant="gold" flat arrow href={ctaHref}>{ctaLabel}</Button></div>
     </nav>
 
     <button class="nav-toggle" aria-label={m.nav_aria_open_menu()} data-drawer-open>
@@ -229,13 +241,13 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
     <div class="dh"><img src="/assets/logo-horizontal-cream.svg" alt={site.name}><button class="x" aria-label={m.nav_aria_close()} data-drawer-close>×</button></div>
     <div class="dbody">
       <details open><summary>{m.nav_train()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_beginner_title()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_drawer_alllevels()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_private_title()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_women_title()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_kids_title()}</a><a href={p('/fighters')}><span class="dot"></span> {m.nav_train_fight_title()}</a><a href={p('/classes#schedule')}><span class="dot"></span> {m.nav_drawer_schedule_pricing()}</a></div></details>
-      <details><summary>{m.nav_stay()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/stay-train#pricing')}><span class="dot"></span> {m.nav_drawer_packages()}</a><a href={p('/stay-train')}><span class="dot"></span> {m.nav_drawer_accommodation()}</a><a href={p('/stay-train')}><span class="dot"></span> {m.nav_stay_scooter_title()}</a><a href={p('/contact')}><span class="dot"></span> {m.nav_stay_getting_title()}</a><a href={p('/stay-train')}><span class="dot"></span> {m.nav_stay_guide_title()}</a></div></details>
+      <details><summary>{m.nav_stay()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/stay-train#packages')}><span class="dot"></span> {m.nav_drawer_packages()}</a><a href={p('/stay-train#accommodation')}><span class="dot"></span> {m.nav_drawer_accommodation()}</a><a href={p('/stay-train/scooter-rental')}><span class="dot"></span> {m.nav_stay_scooter_title()}</a><a href={p('/contact')}><span class="dot"></span> {m.nav_stay_getting_title()}</a><a href={p('/stay-train#life')}><span class="dot"></span> {m.nav_stay_guide_title()}</a></div></details>
       <details><summary>{m.nav_dtv()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/dtv-visa')}><span class="dot"></span> {m.nav_drawer_dtv_guide()}</a><a href={p('/dtv-visa/eligibility')}><span class="dot"></span> {m.nav_dtv_eligible_title()}</a><a href={p('/dtv-visa/how-to-apply')}><span class="dot"></span> {m.nav_dtv_apply_title()}</a><a href={p('/dtv-visa/muay-thai')}><span class="dot"></span> {m.nav_dtv_muaythai_title()}</a><a href={p('/dtv-visa/long-stay-training')}><span class="dot"></span> {m.nav_dtv_plans_title()}</a><a href={p('/dtv-visa/faq')}><span class="dot"></span> {m.nav_dtv_faq_title()}</a></div></details>
-      <details><summary>{m.nav_about()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/about')}><span class="dot"></span> {m.nav_about_story_title()}</a><a href={p('/about#coaches')}><span class="dot"></span> {m.nav_drawer_coaches()}</a><a href={p('/about')}><span class="dot"></span> {m.nav_about_col_community()}</a><a href={p('/about')}><span class="dot"></span> {m.nav_drawer_gallery_reviews()}</a></div></details>
+      <details><summary>{m.nav_about()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/about')}><span class="dot"></span> {m.nav_about_story_title()}</a><a href={p('/about/coaches')}><span class="dot"></span> {m.nav_drawer_coaches()}</a><a href={p('/about#community')}><span class="dot"></span> {m.nav_about_col_community()}</a><a href={p('/about#reviews')}><span class="dot"></span> {m.nav_about_reviews_title()}</a></div></details>
       <!-- Blog : href="#" jusqu'à E8 -->
-      <a class="flat" href="#">{m.nav_blog()}</a>
+      <a class="flat" href={p('/blog')}>{m.nav_blog()}</a>
       <a class="flat" href={p('/contact')}>{m.nav_contact()}</a>
-      <Button variant="gold" flat arrow href={p('/contact')} class="djoin">{ctaLabel}</Button>
+      <Button variant="gold" flat arrow href={ctaHref} class="djoin">{ctaLabel}</Button>
     </div>
   </div>
 </div>
@@ -403,10 +415,8 @@ const ctaLabel = cta ?? ctaLabels[ctaKeyFor(Astro.url.pathname)];
   .fbtn:hover { background: color-mix(in srgb, var(--gold), #fff 10%); }
   .fbtn-ar { transition: transform 0.18s ease; }
   .fbtn:hover .fbtn-ar { transform: translateX(3px); }
-  .mfeat .stamp { position: absolute; right: -26px; top: -26px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle at 50% 38%, #efb63a, #db9a14); border: 2px solid #1c1407; opacity: 0.16; }
-  .dtv-mini { width: 62px; height: 62px; border-radius: 50%; background: radial-gradient(circle at 50% 36%, #efb63a, #db9a14); border: 2px solid #1c1407; color: #1c1407; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; line-height: 0.85; margin-bottom: 14px; position: relative; }
-  .dtv-mini b { font-size: 21px; }
-  .dtv-mini i { font-style: normal; font-size: 7px; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3px; }
+  /* sceau DTV : asset officiel via <DtvStamp /> (l'ancien sceau CSS .dtv-mini est retiré) */
+  .mfeat :global(.feat-stamp) { margin: 0 0 14px; }
 
   /* mega footer strip */
   .mega .mfoot { grid-column: 1 / -1; margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }

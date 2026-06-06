@@ -1,0 +1,158 @@
+---
+/**
+ * DaySchedule — planning « journée type » (horaires fixes, identiques 7j/7).
+ * Deux cards : sessions de groupe (forest, mise en avant) + cours privés (surface).
+ * Data brute : site.schedule (src/config/site.ts) ; libellés déjà traduits passés
+ * par la page (pattern ScheduleTable — le composant ne fait que rendre).
+ */
+export interface Props {
+  /** « Same schedule, every day of the week. » */
+  note: string;
+  group: { title: string; subnote: string; times: string[] };
+  /** `priv` (pas `private`, mot réservé) — flexibleLabel rendu sous les créneaux flagués. */
+  priv: {
+    title: string;
+    subnote: string;
+    flexibleLabel: string;
+    items: { time: string; flexible?: boolean }[];
+  };
+}
+const { note, group, priv } = Astro.props;
+---
+
+<p class="same-day"><span class="dia" aria-hidden="true">◆</span> {note}</p>
+<div class="day-grid">
+  <section class="card card--group" aria-label={group.title}>
+    <h3 class="card-title">{group.title}</h3>
+    <ul class="slots" role="list">
+      {
+        group.times.map((time) => (
+          <li class="slot">
+            <span class="time">{time}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="subnote">{group.subnote}</p>
+  </section>
+
+  <section class="card card--private" aria-label={priv.title}>
+    <h3 class="card-title">{priv.title}</h3>
+    <ul class="slots" role="list">
+      {
+        priv.items.map((item) => (
+          <li class="slot">
+            <span class="time">{item.time}</span>
+            {item.flexible && <small class="flex-note">{priv.flexibleLabel}</small>}
+          </li>
+        ))
+      }
+    </ul>
+    <p class="subnote">{priv.subnote}</p>
+  </section>
+</div>
+
+<style>
+  .same-day {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+    font-weight: 600;
+    color: var(--ink-2);
+    margin-bottom: 22px;
+  }
+  .dia {
+    color: var(--gold-deep);
+    font-size: 11px;
+  }
+
+  .day-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--r-md);
+    padding: 28px 30px;
+    box-shadow: var(--shadow-sm);
+  }
+  .card--group {
+    background: var(--forest);
+    color: var(--cream);
+  }
+  .card--private {
+    background: var(--surface);
+    border: 1px solid var(--line);
+  }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .card--group .card-title {
+    color: var(--gold);
+  }
+  .card--private .card-title {
+    color: var(--forest-light);
+  }
+
+  .slots {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+  }
+  .slot {
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  /* Cream-alpha en rgba brut, cohérent avec Nav/Footer (pas de token cream-alpha). */
+  .card--group .slot {
+    border-bottom-color: rgba(246, 241, 230, 0.16);
+  }
+  .slot:last-child {
+    border-bottom: 0;
+  }
+
+  .time {
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--forest);
+    font-variant-numeric: tabular-nums;
+  }
+  .card--group .time {
+    color: var(--cream);
+  }
+  .flex-note {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-3);
+  }
+
+  .subnote {
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-3);
+  }
+  .card--group .subnote {
+    color: rgba(246, 241, 230, 0.74);
+  }
+
+  @media (max-width: 860px) {
+    .day-grid {
+      grid-template-columns: 1fr;
+    }
+    .card {
+      padding: 24px 22px;
+    }
+  }
+</style>

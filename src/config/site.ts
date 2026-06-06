@@ -16,20 +16,44 @@ export const site = {
   // tagline / motto / contact.note → messages : site_tagline, site_motto, footer_contact_note
 
   contact: {
+    // Adresse confirmée 2026-06-04 (Jonathan) — Nong Kwai, Hang Dong.
     address: '132 หมู่ 7 Chaw Fa Vlg, Tambon Nong Kwai, Hang Dong District, Chiang Mai 50230, Thailand',
     email: 'hello@wildcatmuaythai.com', // TODO(real data): email réel à confirmer
     phone: '+66 85 720 9620',
     phoneHref: 'tel:+66857209620',
     whatsapp: 'https://wa.me/66857209620',
+    /** Embed Google Maps (fiche "Wildcat Muay Thai") — iframe /contact. */
+    mapEmbed:
+      'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3778.482255504113!2d98.94739027580049!3d18.73198396268106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da31b5ac152bff%3A0x4367b10faa0b58fb!2zV2lsZGNhdCBNdWF5IFRoYWkg4LmE4Lin4Lil4LmM4LiU4LmB4LiE4LiX4Lih4Lin4Lii4LmE4LiX4Lii!5e0!3m2!1sfr!2sch!4v1780584479313!5m2!1sfr!2sch',
+    /** Coordonnées de la fiche (extraites de mapEmbed) — GeoCoordinates du SportsClub JSON-LD. */
+    geo: { latitude: 18.732, longitude: 98.9474 },
   },
 
-  // TODO(real data): horaires réels à confirmer (valeurs maquette)
+  /** Avis Google (fiche "Wildcat Muay Thai") — CTA /about#reviews. */
+  // TODO(real data): lien direct vers l'onglet avis de la fiche Business Profile
+  reviews: {
+    googleUrl: 'https://www.google.com/maps/search/?api=1&query=Wildcat+Muay+Thai+Chiang+Mai',
+  },
+
+  // Horaires d'ouverture = 1er cours → fin du dernier (flyer 2026-06-04), 7j/7.
   // dayKey → messages footer_hours_* (libellés des jours)
-  hours: [
-    { dayKey: 'monfri', time: '07:00 – 21:00' },
-    { dayKey: 'sat', time: '09:00 – 16:00' },
-    { dayKey: 'sun', time: '09:00 – 13:00' },
-  ],
+  hours: [{ dayKey: 'daily', time: '07:30 – 20:00' }],
+
+  /**
+   * Planning réel (flyer 2026-06-04) — horaires fixes, identiques 7j/7.
+   * "Same schedule every day" : aucune notion de jour dans les données.
+   * i18n : titres cards / sous-notes / "flexible start" → messages schedule_* ;
+   * ce bloc ne contient que les heures (data brute non traduite).
+   */
+  schedule: {
+    group: ['09:00 – 10:30', '15:30 – 17:00', '17:00 – 18:30', '18:30 – 20:00'],
+    private: [
+      { time: '07:30 – 09:00' },
+      { time: '10:30 – 12:00' },
+      // Départs décalés 13:00 / 13:30 / 14:00 condensés en un créneau flexible
+      { time: '13:00 – 15:30', flexibleStart: true },
+    ],
+  },
 
   social: [
     {
@@ -50,13 +74,41 @@ export const site = {
   exploreLinks: [
     { key: 'classes', href: '/classes' },
     { key: 'schedule', href: '/classes#schedule' },
-    { key: 'coaches', href: '/about#coaches' },
+    { key: 'coaches', href: '/about/coaches' },
     { key: 'pricing', href: '/classes#pricing' },
     { key: 'dtv', href: '/dtv-visa' },
+    { key: 'blog', href: '/blog' },
   ],
 
   /** Image OG par défaut (chemin public, résolu via Astro.site). TODO: vraie cover OG. */
   defaultOgImage: '/assets/gym-garden.jpg',
+
+  /**
+   * Flotte scooters (location aux guests) — données brutes, fallback de la
+   * collection Sanity `scooter` (page /stay-train/scooter-rental) + JSON-LD.
+   * `key` → messages scooter_fb*_note (record explicite dans la page).
+   * TODO(real data): prix/année Honda Click + nombre total (docs/checklist.md §D).
+   */
+  scooterFleet: [
+    {
+      key: 'scoopy',
+      name: 'Honda Scoopy i Prestige',
+      year: 2024,
+      color: 'Grey',
+      cc: 110,
+      priceDaily: 350,
+      priceMonthly: 3000,
+    },
+    {
+      key: 'click',
+      name: 'Honda Click',
+      year: null,
+      color: null,
+      cc: null,
+      priceDaily: null,
+      priceMonthly: null,
+    },
+  ],
 
   /**
    * Tarifs réels (THB) — fournis 2026-06-03, prix publics (E5).

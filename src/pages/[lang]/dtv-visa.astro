@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/layout/Section.astro';
+import TornDivider from '../../components/layout/TornDivider.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
 import Button from '../../components/ui/Button.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
@@ -13,6 +14,7 @@ import Faq from '../../components/sections/Faq.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
+import { waLink } from '../../lib/whatsapp';
 import { safeQuery } from '../../lib/content';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../lib/sanity.types';
@@ -80,14 +82,16 @@ const faqItems = [
 
     <PageHero
       dark
-      head={m.dtv_hero_head()}
       title={m.dtv_hero_title()}
       titleEm={m.dtv_hero_title_em()}
       lead={m.dtv_hero_lead()}
-      cta={{ label: m.cta_start_dtv(), href: p('/contact') }}
+      cta={{ label: m.cta_start_dtv(), href: `${p('/contact')}?intent=dtv` }}
     >
-      <DtvStamp size={210} slot="aside" />
+      <DtvStamp size={240} slot="aside" />
     </PageHero>
+
+    {/* le hero dark (forest-deep) déchire sur l'intro (cream) */}
+    <TornDivider variant="ridge-seg-a" color="var(--forest-deep)" flipY />
 
     <Section containerSize="narrow">
       <SectionHead>{m.dtv_intro_head()}</SectionHead>
@@ -99,6 +103,9 @@ const faqItems = [
         <li><a href={p('/dtv-visa/long-stay-training')}>{m.dtv_link_lst()} &rarr;</a></li>
       </ul>
     </Section>
+
+    {/* la section how-to (forest) mord vers le haut sur l'intro (cream) */}
+    <TornDivider variant="ridge-seg-b" color="var(--forest)" />
 
     <Section dark>
       <SectionHead onDark>{m.dtv_how_head()}</SectionHead>
@@ -127,7 +134,7 @@ const faqItems = [
           <p class="body-p">{m.dtv_elig_body()}</p>
           <p class="sat-link"><a href={p('/dtv-visa/eligibility')}>{m.dtv_link_full_elig()} &rarr;</a></p>
           <div class="mt-6">
-            <Button href={p('/contact')} variant="forest" arrow>{m.dtv_elig_cta()}</Button>
+            <Button href={`${p('/contact')}?intent=dtv`} variant="forest" arrow>{m.dtv_elig_cta()}</Button>
           </div>
         </div>
         {
@@ -156,10 +163,13 @@ const faqItems = [
     </Section>
 
     <CtaBanner
+      variant="torn"
+      hand={m.dtv_cta_hand()}
       title={m.dtv_cta_title()}
       titleEm={m.dtv_cta_title_em()}
-      ctaPrimary={{ label: m.cta_start_dtv(), href: p('/contact') }}
-      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      sub={m.dtv_cta_sub()}
+      ctaPrimary={{ label: m.cta_start_dtv(), href: `${p('/contact')}?intent=dtv` }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_dtv()) }}
       image={{ src: '/assets/gym-garden.jpg' }}
     />
   </main>

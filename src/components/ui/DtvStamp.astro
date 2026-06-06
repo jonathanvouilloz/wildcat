@@ -1,66 +1,37 @@
 ---
 /**
- * DtvStamp — sceau DTV circulaire or (motif maquette/styleguide).
+ * DtvStamp — badge DTV officiel (asset /assets/dtv-stamp.webp : tigre +
+ * « DTV Visa Friendly », fond transparent, 627×627).
+ * SEUL rendu autorisé du sceau — jamais d'<img> brut ni de sceau CSS.
  * Texte de marque, JAMAIS traduit (comme « Wildcat ») — voir docs/DESIGN.md.
- * Décoratif : aria-hidden, le contexte textuel vit dans la section parente.
+ * Décoratif : alt vide, le contexte textuel vit dans la section parente.
  */
 export interface Props {
-  /** Diamètre en px. Maquette landing : 240 · styleguide : 150. */
+  /** Largeur/hauteur en px (asset carré). Heros/teaser : 240 · mega menu : 88 · badge Callout : 118. */
   size?: number;
+  /** Drop-shadow (calibré pour les grandes tailles) — false en usage sticker/badge. */
+  shadow?: boolean;
   class?: string;
 }
-const { size = 150, class: extra = '' } = Astro.props;
+const { size = 150, shadow = true, class: extra = '' } = Astro.props;
 ---
 
-<div class:list={['dtv-stamp', extra]} style={`--stamp-size:${size}px`} aria-hidden="true">
-  <div class="big">DTV</div>
-  <div class="l1">Visa Friendly</div>
-  <div class="l2">Muay Thai · Soft Power</div>
-</div>
+<img
+  class:list={['dtv-stamp', shadow && 'dtv-stamp--shadow', extra]}
+  src="/assets/dtv-stamp.webp"
+  alt=""
+  width={size}
+  height={size}
+  loading="lazy"
+  decoding="async"
+/>
 
 <style>
-  /* Tailles dérivées du diamètre (réfs : 34px/9px/8px à 150px) */
   .dtv-stamp {
-    width: var(--stamp-size);
-    height: var(--stamp-size);
-    border-radius: 50%;
-    background: radial-gradient(circle at 50% 34%, #efb63a, #db9a14);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #1c1407;
-    border: 3px solid #1c1407;
-    box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.7);
-    position: relative;
     flex: 0 0 auto;
   }
-  .dtv-stamp::before {
-    content: '';
-    position: absolute;
-    inset: calc(var(--stamp-size) * 0.06);
-    border: 1.5px solid rgba(28, 20, 7, 0.45);
-    border-radius: 50%;
-  }
-  .big {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: calc(var(--stamp-size) * 0.2267);
-    line-height: 0.85;
-    letter-spacing: -0.01em;
-  }
-  .l1 {
-    font-weight: 800;
-    font-size: calc(var(--stamp-size) * 0.06);
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    margin-top: calc(var(--stamp-size) * 0.04);
-  }
-  .l2 {
-    font-size: calc(var(--stamp-size) * 0.0533);
-    font-weight: 700;
-    margin-top: calc(var(--stamp-size) * 0.02);
-    opacity: 0.85;
+  /* drop-shadow (suit le contour alpha) — équivalent du box-shadow de l'ancien sceau */
+  .dtv-stamp--shadow {
+    filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.4));
   }
 </style>

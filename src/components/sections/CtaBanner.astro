@@ -1,93 +1,420 @@
 ---
 import Container from '../layout/Container.astro';
 import Button from '../ui/Button.astro';
+import TornDivider from '../layout/TornDivider.astro';
+import { seedPick } from '../../lib/guestbook';
 
 /**
- * CtaBanner — bannière de conversion forest arrondie (maquette : .cta-banner).
- * Image de fond optionnelle en voile (opacity .26).
+ * CtaBanner — CTA de fin de page à variantes « organiques » (explorations
+ * /styleguide validées 2026-06-05, l'ancienne carte forest arrondie est
+ * retirée). 3 variantes, à choisir selon le contexte de la page :
+ *
+ * - `torn` (défaut) : bande full-bleed noir teinté (--night), photo continue
+ *   jusque dans les dents déchirées haut/bas (mask composite sur double
+ *   élément flippé — un layer de mask CSS ne se flippe pas seul et les
+ *   assets dividers n'existent qu'en tear-en-haut). Le grand finale.
+ * - `scrapbook` : bannière entière masquée par la frame torn-t2 plein cadre
+ *   (4 côtés déchirés), tape seedé par-dessus — le vocabulaire guest book.
+ * - `split` : bande soft entre deux coutures torn, copy à gauche, photo
+ *   incrustée (frame + tape + légende Caveat) à droite.
+ *
+ * Aléatoire seedé sur le titre (pattern ProgramCard) : stable au build.
+ * `image` : décorative (alt vide) sur torn/scrapbook ; contenu sur split
+ * (passer `image.alt`). Strings via props — jamais en dur.
  */
 export interface Props {
+  variant?: 'torn' | 'scrapbook' | 'split';
+  /** Eyebrow manuscrite Caveat (gold ; gold-deep sur split). */
+  hand?: string;
   title: string;
   titleEm: string;
   titleAfter?: string;
+  /** Sous-titre sous le H2. */
+  sub?: string;
+  /** Split only : légende manuscrite sous la photo. */
+  caption?: string;
   ctaPrimary: { label: string; href: string };
   ctaSecondary?: { label: string; href: string };
-  image?: { src: string };
+  image?: { src: string; alt?: string };
 }
-const { title, titleEm, titleAfter, ctaPrimary, ctaSecondary, image } = Astro.props;
+const {
+  variant = 'torn',
+  hand,
+  title,
+  titleEm,
+  titleAfter,
+  sub,
+  caption,
+  ctaPrimary,
+  ctaSecondary,
+  image,
+} = Astro.props;
+
+// Seeds stables au build (scrapbook/split) : miroir du mask, asset + côté du tape.
+const flip = seedPick(title + 'm', 2) === 0 ? 1 : -1;
+const tape = ['tape-1', 'tape-2', 'tape-3'][seedPick(title + 't', 3)];
+const tapeRight = seedPick(title + 's', 2) === 1;
 ---
 
-<section class="cta-block">
-  <Container>
-    <div class="cta-banner">
-      {
-        image && (
-          <div class="imgbg" aria-hidden="true">
-            <img src={image.src} alt="" loading="lazy" />
+{
+  variant === 'torn' && (
+    <section class="cta-torn">
+      <div class="t-shell">
+        <div class="t-unflip">
+          {image && <div class="t-bg" aria-hidden="true" style={`background-image:url('${image.src}')`} />}
+          <div class="t-veil" aria-hidden="true" />
+          <div class="t-inner">
+            {hand && <p class="hand">{hand}</p>}
+            <h2>
+              {title}{' '}<span class="em on-dark">{titleEm}</span>
+              {titleAfter && ` ${titleAfter}`}
+            </h2>
+            {sub && <p class="sub">{sub}</p>}
+            <div class="cta-row">
+              <Button href={ctaPrimary.href} variant="gold" arrow>{ctaPrimary.label}</Button>
+              {ctaSecondary && <Button href={ctaSecondary.href} variant="outline" onDark>{ctaSecondary.label}</Button>}
+            </div>
           </div>
-        )
-      }
-      <div class="inner">
-        <h2>
-          {title} <span class="em on-dark">{titleEm}</span>{titleAfter && ` ${titleAfter}`}
-        </h2>
-        <div class="cta-row">
-          <Button href={ctaPrimary.href} variant="gold" arrow>{ctaPrimary.label}</Button>
-          {ctaSecondary && <Button href={ctaSecondary.href} variant="outline" onDark>{ctaSecondary.label}</Button>}
         </div>
       </div>
-    </div>
-  </Container>
-</section>
+    </section>
+  )
+}
+
+{
+  variant === 'scrapbook' && (
+    <section class="cta-block cta-scrap" style={`--mflip:${flip}`}>
+      <Container>
+        <div class="s-wrap">
+          <div class="s-masked">
+            {image && (
+              <div class="s-bg" aria-hidden="true">
+                <img src={image.src} alt="" loading="lazy" />
+              </div>
+            )}
+            <div class="s-inner">
+              {hand && <p class="hand">{hand}</p>}
+              <h2>
+                {title}{' '}<span class="em on-dark">{titleEm}</span>
+                {titleAfter && ` ${titleAfter}`}
+              </h2>
+              {sub && <p class="sub">{sub}</p>}
+              <div class="cta-row">
+                <Button href={ctaPrimary.href} variant="gold" arrow>{ctaPrimary.label}</Button>
+                {ctaSecondary && <Button href={ctaSecondary.href} variant="outline" onDark>{ctaSecondary.label}</Button>}
+              </div>
+            </div>
+          </div>
+          <img
+            class:list={['s-tape', tapeRight ? 's-tape--r' : 's-tape--l']}
+            src={`/assets/decor/${tape}.webp`}
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+{
+  variant === 'split' && (
+    <section class="cta-split">
+      <TornDivider variant="rough-seg-b" color="var(--soft)" />
+      <div class="sp-band">
+        <div class="sp-copy">
+          {hand && <p class="hand">{hand}</p>}
+          <h2>
+            {title}{' '}<span class="em">{titleEm}</span>
+            {titleAfter && ` ${titleAfter}`}
+          </h2>
+          {sub && <p class="sub">{sub}</p>}
+          <div class="cta-row">
+            <Button href={ctaPrimary.href} variant="gold" arrow>{ctaPrimary.label}</Button>
+            {ctaSecondary && <Button href={ctaSecondary.href} variant="outline">{ctaSecondary.label}</Button>}
+          </div>
+        </div>
+        <div class="sp-media">
+          {image && <img class="sp-ph" src={image.src} alt={image.alt ?? ''} loading="lazy" />}
+          <img
+            class:list={['sp-tape', tapeRight ? 'sp-tape--r' : 'sp-tape--l']}
+            src={`/assets/decor/${tape}.webp`}
+            alt=""
+            aria-hidden="true"
+          />
+          {caption && <p class="sp-cap" aria-hidden="true">{caption}</p>}
+        </div>
+      </div>
+      <TornDivider variant="rough-seg-a" color="var(--soft)" flipY />
+    </section>
+  )
+}
 
 <style>
-  .cta-block {
-    /* respiration symétrique par défaut : après une bande soft/dark, la card
-       a besoin de sa propre marge cream au-dessus (sinon collée au seam) */
-    padding-block: var(--section-y);
-  }
-  /* après une section cream (même fond), le padding-bottom de la section
-     précédente suffit — on collapse pour éviter le double espace */
-  :global(.wc-section:not(.wc-section--soft):not(.wc-section--dark)) + .cta-block {
-    padding-top: 0;
-  }
-  .cta-banner {
-    position: relative;
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    background: var(--forest);
-    color: var(--cream);
-  }
-  .imgbg {
-    position: absolute;
-    inset: 0;
-    opacity: 0.26;
-  }
-  .imgbg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .inner {
-    position: relative;
-    z-index: 2;
-    padding: clamp(40px, 6vw, 68px) clamp(28px, 5vw, 60px);
-    text-align: center;
+  /* ---- partagé ---- */
+  .hand {
+    display: inline-block;
+    font-family: var(--font-hand);
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.1;
+    color: var(--gold);
+    transform: rotate(-2deg);
+    margin: 0 0 10px;
   }
   h2 {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: clamp(30px, 4.6vw, 52px);
-    line-height: 1.02;
+    line-height: 1.04;
     letter-spacing: -0.02em;
     margin: 0 0 22px;
     color: var(--cream);
     text-wrap: balance;
+  }
+  .sub {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.55;
+    color: rgba(246, 241, 230, 0.88);
+    margin: 18px auto 30px;
   }
   .cta-row {
     display: flex;
     gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  /* ============================================================
+     torn — full-bleed, photo jusque dans les dents.
+     Mask composite « bande torn --th en haut + reste solide »
+     (overlap 1px anti-seam) posé sur le shell flippé scaleY(-1)
+     (= bord bas) ET sur l'enfant contre-flippé (= bord haut).
+     ============================================================ */
+  .cta-torn {
+    --th: clamp(34px, 5vw, 64px);
+    margin-block: var(--section-y);
+  }
+  /* après une section cream, son padding-bottom suffit (anti double espace) */
+  :global(.wc-section:not(.wc-section--soft):not(.wc-section--dark)) + .cta-torn {
+    margin-top: 0;
+  }
+  .t-shell {
+    transform: scaleY(-1);
+    -webkit-mask-image: url('/assets/dividers/torn-rough-seg-a.png'), linear-gradient(#000, #000);
+    mask-image: url('/assets/dividers/torn-rough-seg-a.png'), linear-gradient(#000, #000);
+    -webkit-mask-size: 100% var(--th), 100% calc(100% - var(--th) + 1px);
+    mask-size: 100% var(--th), 100% calc(100% - var(--th) + 1px);
+    -webkit-mask-position: top, 0 calc(var(--th) - 1px);
+    mask-position: top, 0 calc(var(--th) - 1px);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .t-unflip {
+    transform: scaleY(-1);
+    position: relative;
+    background: var(--night);
+    overflow: hidden;
+    -webkit-mask-image: url('/assets/dividers/torn-rough-base.png'), linear-gradient(#000, #000);
+    mask-image: url('/assets/dividers/torn-rough-base.png'), linear-gradient(#000, #000);
+    -webkit-mask-size: 100% var(--th), 100% calc(100% - var(--th) + 1px);
+    mask-size: 100% var(--th), 100% calc(100% - var(--th) + 1px);
+    -webkit-mask-position: top, 0 calc(var(--th) - 1px);
+    mask-position: top, 0 calc(var(--th) - 1px);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .t-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 35%;
+    background-repeat: no-repeat;
+    opacity: 0.48;
+  }
+  .t-veil {
+    /* grade noir teinté (rgba de --night) + voile gold de réchauffe */
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(rgba(224, 166, 43, 0.05), rgba(224, 166, 43, 0.05)),
+      linear-gradient(180deg, rgba(18, 27, 20, 0.08) 0%, rgba(18, 27, 20, 0.5) 100%);
+  }
+  .t-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 920px;
+    margin-inline: auto;
+    padding: clamp(64px, 9vw, 120px) var(--gutter);
+    text-align: center;
+  }
+  .cta-torn h2 {
+    font-size: clamp(40px, 6vw, 76px);
+  }
+  .cta-torn .sub {
+    max-width: 52ch;
+  }
+
+  /* ============================================================
+     scrapbook — bannière masquée torn-t2 plein cadre + tape seedé
+     (frère du nœud masqué, jamais dedans — sinon coupé).
+     ============================================================ */
+  .cta-block {
+    /* respiration symétrique par défaut : après une bande soft/dark, la
+       bannière a besoin de sa propre marge cream au-dessus */
+    padding-block: var(--section-y);
+  }
+  :global(.wc-section:not(.wc-section--soft):not(.wc-section--dark)) + .cta-block {
+    padding-top: 0;
+  }
+  .s-wrap {
+    position: relative;
+  }
+  .s-masked {
+    position: relative;
+    background: var(--night);
+    overflow: hidden;
+    -webkit-mask-image: url('/assets/textures/torn-t2.png');
+    mask-image: url('/assets/textures/torn-t2.png');
+    /* frame plein cadre : déchirure complète sur les 4 côtés */
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    transform: scaleX(var(--mflip, 1));
+  }
+  /* contre-flip : le mask est miroité, photo et contenu restent droits */
+  .s-bg {
+    position: absolute;
+    inset: 0;
+    transform: scaleX(var(--mflip, 1));
+  }
+  .s-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.44;
+  }
+  .s-masked::after {
+    /* vignette noire teintée : ancre le texte au centre */
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(18, 27, 20, 0) 35%, rgba(18, 27, 20, 0.42) 100%);
+  }
+  .s-inner {
+    position: relative;
+    z-index: 2;
+    /* les morsures du mask plein cadre sont compensées ici */
+    padding: clamp(56px, 7vw, 96px) clamp(48px, 8vw, 110px);
+    text-align: center;
+    transform: scaleX(var(--mflip, 1));
+  }
+  .cta-scrap h2 {
+    font-size: clamp(34px, 4.8vw, 60px);
+  }
+  .cta-scrap .sub {
+    max-width: 50ch;
+    margin: 16px auto 28px;
+  }
+  .s-tape {
+    position: absolute;
+    z-index: 3;
+    width: clamp(96px, 11vw, 150px);
+    height: auto;
+    opacity: 0.92;
+  }
+  .s-tape--l {
+    top: -14px;
+    left: 11%;
+    transform: rotate(-8deg);
+  }
+  .s-tape--r {
+    top: -12px;
+    right: 14%;
+    transform: rotate(6deg);
+  }
+
+  /* ============================================================
+     split — bande soft entre deux coutures, copy + photo guest book.
+     ============================================================ */
+  .cta-split {
+    margin-block: var(--section-y);
+  }
+  :global(.wc-section:not(.wc-section--soft):not(.wc-section--dark)) + .cta-split {
+    margin-top: 0;
+  }
+  .sp-band {
+    background: var(--soft);
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(28px, 5vw, 72px);
+    align-items: center;
+    padding: clamp(56px, 7vw, 96px) max(var(--gutter), calc((100vw - var(--maxw)) / 2));
+  }
+  .cta-split .hand {
+    color: var(--gold-deep);
+  }
+  .cta-split h2 {
+    font-size: clamp(38px, 4.6vw, 60px);
+    color: var(--forest);
+  }
+  .cta-split .sub {
+    color: var(--ink-2);
+    font-size: clamp(16px, 1.4vw, 19px);
+    max-width: 46ch;
+    margin: 16px 0 28px;
+  }
+  .cta-split .cta-row {
+    justify-content: flex-start;
+  }
+  .sp-media {
+    position: relative;
+  }
+  .sp-ph {
+    display: block;
+    width: 100%;
+    height: clamp(300px, 44vh, 460px);
+    object-fit: cover;
+    -webkit-mask-image: url('/assets/textures/torn-t2.png');
+    mask-image: url('/assets/textures/torn-t2.png');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    transform: rotate(1.8deg);
+  }
+  .sp-tape {
+    position: absolute;
+    top: -16px;
+    width: clamp(90px, 10vw, 130px);
+    height: auto;
+    opacity: 0.92;
+  }
+  .sp-tape--l {
+    left: 16%;
+    transform: rotate(-7deg);
+  }
+  .sp-tape--r {
+    right: 14%;
+    transform: rotate(6deg);
+  }
+  .sp-cap {
+    /* légende manuscrite sous la photo, au ras du bord déchiré */
+    margin: -6px 6% 0 0;
+    text-align: right;
+    font-family: var(--font-hand);
+    font-size: clamp(22px, 2.2vw, 30px);
+    color: var(--gold-deep);
+    transform: rotate(-2.5deg);
+  }
+
+  @media (max-width: 860px) {
+    .sp-band {
+      grid-template-columns: 1fr;
+      gap: 44px;
+    }
   }
 </style>

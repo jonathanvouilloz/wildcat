@@ -1,0 +1,225 @@
+{
+  "topic": "best muay thai camps in thailand",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-05T13:56:04Z",
+  "primary": {
+    "keyword": "best muay thai camps in thailand",
+    "search_volume": 70,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 5,
+    "difficulty": 12,
+    "intent": "informational",
+    "intent_probability": 0.5105
+  },
+  "secondaries": [
+    {
+      "keyword": "best muay thai camps in thailand reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "best muay thai camps in thailand for beginners",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "the best muay thai camps in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "tiger muay thai",
+      "search_volume": 4400,
+      "cpc": 1.28,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "muay thai gym phuket",
+      "search_volume": 590,
+      "cpc": 0.87,
+      "competition": "LOW",
+      "competition_index": 11
+    },
+    {
+      "keyword": "tiger muay thai phuket",
+      "search_volume": 590,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "sinbi muay thai",
+      "search_volume": 480,
+      "cpc": 0.62,
+      "competition": "MEDIUM",
+      "competition_index": 34
+    },
+    {
+      "keyword": "all inclusive muay thai camps in thailand",
+      "search_volume": 140,
+      "cpc": 0.67,
+      "competition": "LOW",
+      "competition_index": 21
+    },
+    {
+      "keyword": "best muay thai gyms in bangkok",
+      "search_volume": 140,
+      "cpc": 0.28,
+      "competition": "LOW",
+      "competition_index": 10
+    },
+    {
+      "keyword": "all-inclusive muay thai camps in thailand",
+      "search_volume": 140,
+      "cpc": 0.67,
+      "competition": "LOW",
+      "competition_index": 21
+    },
+    {
+      "keyword": "muay thai gyms bangkok",
+      "search_volume": 110,
+      "cpc": 0.01,
+      "competition": "LOW",
+      "competition_index": 11
+    },
+    {
+      "keyword": "phuket muay thai camp",
+      "search_volume": 110,
+      "cpc": 1.32,
+      "competition": "MEDIUM",
+      "competition_index": 41
+    },
+    {
+      "keyword": "phuket top team",
+      "search_volume": 110,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "thailand muay thai camp packages",
+      "search_volume": 30,
+      "cpc": 1.13,
+      "competition": "LOW",
+      "competition_index": 22
+    },
+    {
+      "keyword": "best muay thai gyms in thailand for foreigners",
+      "search_volume": 20,
+      "cpc": 0.78,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "muay thai gyms in thailand with accommodation",
+      "search_volume": 20,
+      "cpc": 0.47,
+      "competition": "LOW",
+      "competition_index": 14
+    },
+    {
+      "keyword": "best all inclusive muay thai camps in thailand",
+      "search_volume": 10,
+      "cpc": 0.13,
+      "competition": "MEDIUM",
+      "competition_index": 38
+    },
+    {
+      "keyword": "best muay thai training camps in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 21
+    }
+  ],
+  "related": [
+    {
+      "keyword": "best all-inclusive muay thai camps in thailand",
+      "search_volume": 10,
+      "cpc": 0.13,
+      "competition": "MEDIUM",
+      "competition_index": 38
+    },
+    {
+      "keyword": "best muay thai camps in phuket",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 28
+    },
+    {
+      "keyword": "cheap all inclusive muay thai camps in thailand",
+      "search_volume": 10,
+      "cpc": 1.58,
+      "competition": "LOW",
+      "competition_index": 18
+    },
+    {
+      "keyword": "all inclusive muay thai camps in phuket",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 28
+    },
+    {
+      "keyword": "muay thai camp thailand 1 month",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "MEDIUM",
+      "competition_index": 43
+    },
+    {
+      "keyword": "2 week muay thai camp thailand",
+      "search_volume": 10,
+      "cpc": 0.98,
+      "competition": "LOW",
+      "competition_index": 27
+    },
+    {
+      "keyword": "muay thai holiday packages phuket",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "muay thai gym phuket patong",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "tiger muay thai",
+      "search_volume": 4400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai gym phuket",
+      "search_volume": 590,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "tiger muay thai phuket",
+      "search_volume": 590,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

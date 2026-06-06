@@ -12,6 +12,7 @@ import Faq from '../../../components/sections/Faq.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
 import { safeQuery } from '../../../lib/content';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../../lib/sanity.types';
@@ -137,12 +138,11 @@ const faqItems = [
 
     <PageHero
       dark
-      head={m.dtv_mt_hero_head()}
       title={m.dtv_mt_hero_title()}
       titleEm={m.dtv_mt_hero_title_em()}
       titleAfter={m.dtv_mt_hero_title_after()}
       lead={m.dtv_mt_hero_lead()}
-      cta={{ label: m.cta_start_dtv(), href: p('/contact') }}
+      cta={{ label: m.cta_start_dtv(), href: `${p('/contact')}?intent=dtv` }}
     />
 
     {/* BLUF + disclaimer YMYL */}
@@ -293,15 +293,22 @@ const faqItems = [
         <span class="sig-name">{m.dtv_mt_author_name()}</span>
         <span class="sig-role">{m.dtv_mt_author_role()}</span>
       </p>
-      <p class="reviewed">{m.dtv_mt_reviewed()}</p>
+      <p class="reviewed">
+        {m.dtv_mt_reviewed()}
+        <a class="ilink" href={p('/about/coaches')}>{m.byline_author_link()}</a>
+      </p>
     </Section>
 
     <CtaBanner
+      variant="split"
+      hand={m.dtv_mt_cta_hand()}
       title={m.dtv_mt_cta_title()}
       titleEm={m.dtv_mt_cta_title_em()}
-      ctaPrimary={{ label: m.cta_start_dtv(), href: p('/contact') }}
-      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
-      image={{ src: '/assets/gym-garden.jpg' }}
+      sub={m.dtv_mt_cta_sub()}
+      caption={m.dtv_mt_cta_caption()}
+      ctaPrimary={{ label: m.cta_start_dtv(), href: `${p('/contact')}?intent=dtv` }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_dtv()) }}
+      image={{ src: '/assets/meaw-training.webp', alt: m.dtv_mt_cta_img_alt() }}
     />
   </main>
 </BaseLayout>

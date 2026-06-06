@@ -15,6 +15,60 @@
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: sanity/extract.json
+export type SanityImageAssetReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+};
+
+export type Scooter = {
+  _id: string;
+  _type: "scooter";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  year?: number;
+  color?: string;
+  cc?: number;
+  priceDaily?: number;
+  priceMonthly?: number;
+  photo?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  note?: LocaleString;
+  available?: boolean;
+  order?: number;
+};
+
+export type LocaleString = {
+  _type: "localeString";
+  en?: string;
+  fr?: string;
+};
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
+};
+
 export type Testimonial = {
   _id: string;
   _type: "testimonial";
@@ -54,19 +108,6 @@ export type TrainingSchedule = {
   order?: number;
 };
 
-export type LocaleString = {
-  _type: "localeString";
-  en?: string;
-  fr?: string;
-};
-
-export type SanityImageAssetReference = {
-  _ref: string;
-  _type: "reference";
-  _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-};
-
 export type Fighter = {
   _id: string;
   _type: "fighter";
@@ -75,6 +116,7 @@ export type Fighter = {
   _rev: string;
   name?: string;
   slug?: Slug;
+  fightName?: string;
   photo?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
@@ -83,29 +125,13 @@ export type Fighter = {
     alt?: string;
     _type: "image";
   };
-  nationality?: string;
-  status?: "current" | "alumni";
+  countryCode?: string;
+  year?: number;
   fights?: number;
-  wins?: number;
-  losses?: number;
-  bio?: LocaleText;
+  venues?: Array<string>;
+  quote?: LocaleString;
+  achievements?: Array<string>;
   featured?: boolean;
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
-};
-
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
 };
 
 export type Slug = {
@@ -134,112 +160,6 @@ export type Coach = {
   bio?: LocaleText;
   featured?: boolean;
   order?: number;
-};
-
-export type TranslationMetadata = {
-  _id: string;
-  _type: "translation.metadata";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  translations?: InternationalizedArrayReference;
-  schemaTypes?: Array<string>;
-};
-
-export type InternationalizedArrayReference = Array<
-  {
-    _key: string;
-  } & InternationalizedArrayReferenceValue
->;
-
-export type BlogPostReference = {
-  _ref: string;
-  _type: "reference";
-  _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "blogPost";
-};
-
-export type InternationalizedArrayReferenceValue = {
-  _type: "internationalizedArrayReferenceValue";
-  value?: BlogPostReference;
-  language?: string;
-};
-
-export type CategoryReference = {
-  _ref: string;
-  _type: "reference";
-  _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "category";
-};
-
-export type BlogPost = {
-  _id: string;
-  _type: "blogPost";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  language?: string;
-  slug?: Slug;
-  mainImage?: {
-    asset?: SanityImageAssetReference;
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
-  };
-  content?: Array<
-    | {
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?:
-          | "normal"
-          | "h1"
-          | "h2"
-          | "h3"
-          | "h4"
-          | "h5"
-          | "h6"
-          | "blockquote";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }
-    | {
-        asset?: SanityImageAssetReference;
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-        _key: string;
-      }
-  >;
-  seoTitle?: string;
-  seoDescription?: string;
-  publishedAt?: string;
-  category?: CategoryReference;
-};
-
-export type Category = {
-  _id: string;
-  _type: "category";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?: LocaleString;
-  slug?: Slug;
 };
 
 export type SanityImagePaletteSwatch = {
@@ -340,23 +260,17 @@ export type Geopoint = {
 };
 
 export type AllSanitySchemaTypes =
+  | SanityImageAssetReference
+  | Scooter
+  | LocaleString
+  | SanityImageCrop
+  | SanityImageHotspot
   | Testimonial
   | LocaleText
   | TrainingSchedule
-  | LocaleString
-  | SanityImageAssetReference
   | Fighter
-  | SanityImageCrop
-  | SanityImageHotspot
   | Slug
   | Coach
-  | TranslationMetadata
-  | InternationalizedArrayReference
-  | BlogPostReference
-  | InternationalizedArrayReferenceValue
-  | CategoryReference
-  | BlogPost
-  | Category
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
@@ -389,7 +303,7 @@ export type COACHES_QUERY_RESULT = Array<{
 
 // Source: src/lib/queries.ts
 // Variable: FEATURED_FIGHTERS_QUERY
-// Query: *[_type == "fighter" && featured == true] | order(name asc) {    _id, name, slug, photo, nationality, status, fights, wins, losses, bio  }
+// Query: *[_type == "fighter" && featured == true] | order(year desc, name asc) {    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements  }
 export type FEATURED_FIGHTERS_QUERY_RESULT = Array<{
   _id: string;
   name: string | null;
@@ -402,17 +316,18 @@ export type FEATURED_FIGHTERS_QUERY_RESULT = Array<{
     alt?: string;
     _type: "image";
   } | null;
-  nationality: string | null;
-  status: "alumni" | "current" | null;
+  fightName: string | null;
+  countryCode: string | null;
+  year: number | null;
   fights: number | null;
-  wins: number | null;
-  losses: number | null;
-  bio: LocaleText | null;
+  venues: Array<string> | null;
+  quote: LocaleString | null;
+  achievements: Array<string> | null;
 }>;
 
 // Source: src/lib/queries.ts
 // Variable: FIGHTERS_QUERY
-// Query: *[_type == "fighter"] | order(status asc, name asc) {    _id, name, slug, photo, nationality, status, fights, wins, losses, bio, featured  }
+// Query: *[_type == "fighter"] | order(year desc, name asc) {    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements, featured  }
 export type FIGHTERS_QUERY_RESULT = Array<{
   _id: string;
   name: string | null;
@@ -425,12 +340,13 @@ export type FIGHTERS_QUERY_RESULT = Array<{
     alt?: string;
     _type: "image";
   } | null;
-  nationality: string | null;
-  status: "alumni" | "current" | null;
+  fightName: string | null;
+  countryCode: string | null;
+  year: number | null;
   fights: number | null;
-  wins: number | null;
-  losses: number | null;
-  bio: LocaleText | null;
+  venues: Array<string> | null;
+  quote: LocaleString | null;
+  achievements: Array<string> | null;
   featured: boolean | null;
 }>;
 
@@ -465,13 +381,17 @@ export type SCHEDULE_QUERY_RESULT = Array<{
 }>;
 
 // Source: src/lib/queries.ts
-// Variable: BLOG_POSTS_BY_LANG_QUERY
-// Query: *[_type == "blogPost" && language == $lang && defined(publishedAt)] | order(publishedAt desc) {    _id, title, slug, mainImage, seoDescription, publishedAt,    category->{ _id, name, slug }  }
-export type BLOG_POSTS_BY_LANG_QUERY_RESULT = Array<{
+// Variable: SCOOTERS_QUERY
+// Query: *[_type == "scooter"] | order(order asc, name asc) {    _id, name, year, color, cc, priceDaily, priceMonthly, photo, note, available  }
+export type SCOOTERS_QUERY_RESULT = Array<{
   _id: string;
-  title: string | null;
-  slug: Slug | null;
-  mainImage: {
+  name: string | null;
+  year: number | null;
+  color: string | null;
+  cc: number | null;
+  priceDaily: number | null;
+  priceMonthly: number | null;
+  photo: {
     asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
@@ -479,89 +399,8 @@ export type BLOG_POSTS_BY_LANG_QUERY_RESULT = Array<{
     alt?: string;
     _type: "image";
   } | null;
-  seoDescription: string | null;
-  publishedAt: string | null;
-  category: {
-    _id: string;
-    name: LocaleString | null;
-    slug: Slug | null;
-  } | null;
-}>;
-
-// Source: src/lib/queries.ts
-// Variable: BLOG_POST_QUERY
-// Query: *[_type == "blogPost" && slug.current == $slug && language == $lang][0] {    _id, title, language, slug, mainImage, content,    seoTitle, seoDescription, publishedAt,    category->{ _id, name, slug },    "translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{      language, slug    }  }
-export type BLOG_POST_QUERY_RESULT = {
-  _id: string;
-  title: string | null;
-  language: string | null;
-  slug: Slug | null;
-  mainImage: {
-    asset?: SanityImageAssetReference;
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
-  } | null;
-  content: Array<
-    | {
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?:
-          | "blockquote"
-          | "h1"
-          | "h2"
-          | "h3"
-          | "h4"
-          | "h5"
-          | "h6"
-          | "normal";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }
-    | {
-        asset?: SanityImageAssetReference;
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-        _key: string;
-      }
-  > | null;
-  seoTitle: string | null;
-  seoDescription: string | null;
-  publishedAt: string | null;
-  category: {
-    _id: string;
-    name: LocaleString | null;
-    slug: Slug | null;
-  } | null;
-  translations: Array<{
-    language: string | null;
-    slug: Slug | null;
-  } | null>;
-} | null;
-
-// Source: src/lib/queries.ts
-// Variable: CATEGORIES_QUERY
-// Query: *[_type == "category"] | order(name.en asc) {    _id, name, slug  }
-export type CATEGORIES_QUERY_RESULT = Array<{
-  _id: string;
-  name: LocaleString | null;
-  slug: Slug | null;
+  note: LocaleString | null;
+  available: boolean | null;
 }>;
 
 // Query TypeMap
@@ -569,12 +408,10 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     '\n  *[_type == "coach"] | order(order asc) {\n    _id, name, slug, photo, role, bio, featured, order\n  }\n': COACHES_QUERY_RESULT;
-    '\n  *[_type == "fighter" && featured == true] | order(name asc) {\n    _id, name, slug, photo, nationality, status, fights, wins, losses, bio\n  }\n': FEATURED_FIGHTERS_QUERY_RESULT;
-    '\n  *[_type == "fighter"] | order(status asc, name asc) {\n    _id, name, slug, photo, nationality, status, fights, wins, losses, bio, featured\n  }\n': FIGHTERS_QUERY_RESULT;
+    '\n  *[_type == "fighter" && featured == true] | order(year desc, name asc) {\n    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements\n  }\n': FEATURED_FIGHTERS_QUERY_RESULT;
+    '\n  *[_type == "fighter"] | order(year desc, name asc) {\n    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements, featured\n  }\n': FIGHTERS_QUERY_RESULT;
     '\n  *[_type == "testimonial" && featured == true && ($service == null || service == $service)] {\n    _id, name, country, service, content, rating\n  }\n': FEATURED_TESTIMONIALS_QUERY_RESULT;
     '\n  *[_type == "trainingSchedule"] | order(order asc) {\n    _id, day, timeSlots, level, notes, order\n  }\n': SCHEDULE_QUERY_RESULT;
-    '\n  *[_type == "blogPost" && language == $lang && defined(publishedAt)] | order(publishedAt desc) {\n    _id, title, slug, mainImage, seoDescription, publishedAt,\n    category->{ _id, name, slug }\n  }\n': BLOG_POSTS_BY_LANG_QUERY_RESULT;
-    '\n  *[_type == "blogPost" && slug.current == $slug && language == $lang][0] {\n    _id, title, language, slug, mainImage, content,\n    seoTitle, seoDescription, publishedAt,\n    category->{ _id, name, slug },\n    "translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{\n      language, slug\n    }\n  }\n': BLOG_POST_QUERY_RESULT;
-    '\n  *[_type == "category"] | order(name.en asc) {\n    _id, name, slug\n  }\n': CATEGORIES_QUERY_RESULT;
+    '\n  *[_type == "scooter"] | order(order asc, name asc) {\n    _id, name, year, color, cc, priceDaily, priceMonthly, photo, note, available\n  }\n': SCOOTERS_QUERY_RESULT;
   }
 }

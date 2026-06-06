@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/layout/Section.astro';
+import SectionHead from '../../../components/ui/SectionHead.astro';
+import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import Button from '../../../components/ui/Button.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import CoachGrid from '../../../components/sections/CoachGrid.astro';
+import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import { site } from '../../../config/site';
+import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
+import { safeQuery } from '../../../lib/content';
+import { COACHES_QUERY } from '../../../lib/queries';
+import type { COACHES_QUERY_RESULT } from '../../../lib/sanity.types';
+import { pickLocale } from '../../../lib/i18n-content';
+import { urlFor } from '../../../lib/image';
+import { m } from '../../../paraglide/messages.js';
+
+// Satellite About — page équipe & cible E-E-A-T : les bylines "Meaw Boonpradub"
+// (beginners + satellites DTV) et leurs JSON-LD author.url pointent ici.
+// Bloc Meaw 100% message-driven (jamais Sanity) → page pleine même dataset vide ;
+// Person JSON-LD = entité auteur canonique du site.
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+// Coachs — même fallback trio que la home / about (rôles/bios via messages)
+const coachDocs = await safeQuery<COACHES_QUERY_RESULT>({ query: COACHES_QUERY }, []);
+const coaches =
+  coachDocs.length > 0
+    ? coachDocs.map((coach) => ({
+        name: coach.name ?? '',
+        role: pickLocale(coach.role, lang),
+        bio: pickLocale(coach.bio, lang),
+        photo: coach.photo?.asset
+          ? {
+              src: urlFor(coach.photo).width(280).height(280).format('webp').url(),
+              alt: coach.photo.alt ?? coach.name ?? '',
+            }
+          : undefined,
+      }))
+    : [
+        { name: 'Kru Nut', role: m.home_coach1_role(), bio: m.home_coach1_bio() },
+        { name: 'Kru Fern', role: m.home_coach2_role(), bio: m.home_coach2_bio() },
+        { name: 'Kru Bank', role: m.home_coach3_role(), bio: m.home_coach3_bio() },
+      ];
+
+// Valeurs du camp — ce qui fait l'enseignement Wildcat (ton voice.md, jamais "warrior")
+const values = [
+  { title: m.coaches_val1_t(), body: m.coaches_val1_b() },
+  { title: m.coaches_val2_t(), body: m.coaches_val2_b() },
+  { title: m.coaches_val3_t(), body: m.coaches_val3_b() },
+];
+
+// Person JSON-LD — entité auteur canonique (référencée par author.url des satellites)
+const base = Astro.site ?? Astro.url.origin;
+const pageUrl = new URL(p('/about/coaches'), base).href;
+const homeUrl = new URL(p('/'), base).href;
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${pageUrl}#meaw`,
+  name: m.coaches_meaw_name(),
+  jobTitle: m.coaches_meaw_role(),
+  description: m.coaches_person_desc(),
+  image: new URL('/assets/meaw-training.webp', base).href,
+  url: pageUrl,
+  worksFor: { '@type': 'SportsClub', name: site.name, url: homeUrl },
+};
+---
+
+<BaseLayout title={m.coaches_meta_title()} description={m.coaches_meta_desc()}>
+  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(personSchema)} />
+
+  <main>
+    <Breadcrumb
+      ariaLabel={m.breadcrumb_aria()}
+      items={[
+        { label: m.breadcrumb_home(), href: p('/') },
+        { label: m.nav_about(), href: p('/about') },
+        { label: m.coaches_crumb() },
+      ]}
+    />
+
+    <PageHero
+      image={{ src: '/assets/hero-team.webp', alt: m.coaches_hero_img_alt(), position: 'center 28%' }}
+      eyebrow={m.coaches_hero_eyebrow()}
+      title={m.coaches_hero_title()}
+      titleEm={m.coaches_hero_title_em()}
+      lead={m.coaches_hero_lead()}
+      cta={{ label: m.cta_book_class(), href: `${p('/contact')}?intent=class` }}
+    />
+
+    <!-- Meaw en vedette — l'entité E-E-A-T (message-driven, jamais Sanity) -->
+    <Section id="meaw">
+      <div class="meaw">
+        <div class="imgbox">
+          {/* Meaw en action au sac (meaw-3) — photo dédiée livrée par Jonathan */}
+          <img
+            src="/assets/meaw-training.webp"
+            alt={m.coaches_meaw_img_alt()}
+            loading="lazy"
+            style="object-position: 78% 22%"
+          />
+        </div>
+        <div>
+          <SectionHead>{m.coaches_meaw_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-1">{m.coaches_meaw_name()}</h2>
+          <p class="meaw-role">{m.coaches_meaw_role()}</p>
+          <p class="body-p">{m.coaches_meaw_p1()}</p>
+          <p class="body-p">{m.coaches_meaw_p2()}</p>
+          <ul class="cred">
+            <li>{m.coaches_meaw_cred1()}</li>
+            <li>{m.coaches_meaw_cred2()}</li>
+            <li>{m.coaches_meaw_cred3()}</li>
+          </ul>
+        </div>
+      </div>
+    </Section>
+
+    <!-- L'équipe — grille coachs (Sanity ou fallback trio) -->
+    <Section soft id="team">
+      <div class="block-head center">
+        <SectionHead center>{m.coaches_team_head()}</SectionHead>
+        <h2 class="h2 mt-2 mb-3">{m.coaches_team_title()}</h2>
+        <p class="body-p centered">{m.coaches_team_lead()}</p>
+      </div>
+      <CoachGrid coaches={coaches} />
+    </Section>
+
+    <!-- Comment on enseigne — 3 valeurs -->
+    <Section>
+      <div class="block-head center">
+        <SectionHead center>{m.coaches_values_head()}</SectionHead>
+        <h2 class="h2 mt-2">
+          {m.coaches_values_title()} <span class="em">{m.coaches_values_title_em()}</span>
+        </h2>
+      </div>
+      <div class="values">
+        {
+          values.map((value) => (
+            <article class="val-card">
+              <h3 class="h3">{value.title}</h3>
+              <p>{value.body}</p>
+            </article>
+          ))
+        }
+      </div>
+      <div class="back">
+        <Button href={p('/about')} variant="link">{m.coaches_back_about()}</Button>
+      </div>
+    </Section>
+
+    <CtaBanner
+      variant="torn"
+      hand={m.coaches_cta_hand()}
+      title={m.coaches_cta_title()}
+      titleEm={m.coaches_cta_title_em()}
+      sub={m.coaches_cta_sub()}
+      ctaPrimary={{ label: m.cta_book_class(), href: `${p('/contact')}?intent=class` }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_class()) }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .block-head {
+    margin-bottom: 38px;
+  }
+  .block-head.center {
+    text-align: center;
+  }
+  .body-p {
+    font-size: 17px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin: 0 0 16px;
+    max-width: 60ch;
+  }
+  .body-p.centered {
+    margin-inline: auto;
+  }
+  .meaw {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 46px;
+    align-items: center;
+  }
+  .meaw-role {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--gold-deep);
+    margin: 0 0 18px;
+  }
+  .imgbox {
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    height: 360px;
+  }
+  .imgbox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* Credentials — liste ◆ (faits vérifiables, pas de slogans) */
+  .cred {
+    list-style: none;
+    margin: 4px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .cred li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 15.5px;
+    color: var(--ink-2);
+  }
+  .cred li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 11px;
+    top: 4px;
+  }
+  .values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .val-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 26px 24px;
+    box-shadow: var(--shadow-sm);
+  }
+  .val-card p {
+    margin: 10px 0 0;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+  .back {
+    margin-top: 34px;
+    text-align: center;
+  }
+  @media (max-width: 860px) {
+    .meaw {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .values {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,157 @@
+---
+import { seedPick } from '../../lib/guestbook';
+
+/**
+ * BlogCard — carte article de la page /blog (direction A + couture de B,
+ * validée 2026-06-05, explorations /styleguide → historique git).
+ * Éditoriale d'abord (grille 24+ articles scannable : catégorie → titre →
+ * extrait) avec deux clins d'œil scrapbook dosés : catégorie manuscrite
+ * Caveat et couture déchirée photo→corps (asset TornDivider, seedée sur le
+ * titre — pattern ProgramCard). Surface Card de base (bordure --line, hover
+ * lift), carte entière cliquable — pas d'interactifs imbriqués.
+ * Sans cover : bloc placeholder soft-2 (la couture reste, la card tient).
+ * Strings (catégorie, date) déjà traduites par la page — composant muet.
+ */
+export interface Props {
+  href: string;
+  title: string;
+  excerpt: string;
+  /** Label catégorie localisé (messages blog_cat_*). */
+  category: string;
+  date: { iso: string; label: string };
+  /** Cover résolue par la page (getImage → URL) — optionnelle. */
+  image?: { src: string; alt: string };
+}
+const { href, title, excerpt, category, date, image } = Astro.props;
+
+// Couture photo→corps seedée sur le titre : stable au build, variantes
+// distinctes entre cartes voisines (assets TornDivider, pattern ProgramCard).
+const tears = ['rough-seg-a', 'rough-seg-b', 'rough-base'] as const;
+const tear = tears[seedPick(title + 't', 3)];
+---
+
+<a class="bcard" href={href} style={`--tear: url('/assets/dividers/torn-${tear}.png')`}>
+  <div class="photo">
+    {
+      image ? (
+        <img class="media" src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+      ) : (
+        <div class="media media--placeholder" aria-hidden="true" />
+      )
+    }
+    <span class="tear" aria-hidden="true"></span>
+  </div>
+  <div class="body">
+    <span class="cat">{category}</span>
+    <h3 class="title">{title}</h3>
+    <p class="x">{excerpt}</p>
+    <span class="meta">
+      <span class="diamond" aria-hidden="true">◆</span>
+      <time datetime={date.iso}>{date.label}</time>
+    </span>
+  </div>
+</a>
+
+<style>
+  .bcard {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  .bcard:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  .bcard:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .photo {
+    position: relative;
+  }
+  .media {
+    display: block;
+    width: 100%;
+    height: 168px;
+    object-fit: cover;
+  }
+  .media--placeholder {
+    background: var(--soft-2);
+  }
+  .tear {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 26px;
+    background: var(--surface);
+    -webkit-mask-image: var(--tear);
+    mask-image: var(--tear);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .body {
+    padding: 12px 20px 20px;
+  }
+  .cat {
+    display: inline-block;
+    font-family: var(--font-hand);
+    font-size: 20px;
+    line-height: 1;
+    color: var(--gold-deep);
+    margin-bottom: 7px;
+    transform: rotate(-1.5deg);
+  }
+  .title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--forest);
+    margin: 0 0 7px;
+  }
+  .x {
+    margin: 0 0 14px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .diamond {
+    color: var(--orange);
+    font-size: 9px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bcard {
+      transition: none;
+    }
+    .bcard:hover {
+      transform: none;
+    }
+  }
+</style>

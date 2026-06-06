@@ -1,223 +1,182 @@
 ---
-import Container from '../layout/Container.astro';
 import Button from '../ui/Button.astro';
 import BrushSeparator from '../../assets/separator-green.svg';
 
 /**
- * Hero — hero principal de la home (maquette landing : .hero).
- * Grid copy/média, badge pill, métas chiffrées, carte flottante forest.
+ * Hero — hero principal de la home (direction A validée sur /styleguide).
+ * Photo équipe full-bleed + overlay charcoal (validé 2026-06-05 : le noir rend
+ * mieux que le vert sur les photos — "sinon ça fait trop green partout") + voile gold,
+ * lockup signature en H1 centré, metas ◆ en bandeau, brush intégré qui mord
+ * le bas de la photo (la section suivante doit être forest — ValueStrip).
  * Toutes les strings arrivent traduites en props (la page appelle m.*()).
  */
 export interface Props {
-  badgePill?: string;
-  badge?: string;
-  /** Titre en 3 morceaux : title <em>titleEm</em> titleAfter */
+  /** Lockup signature : title (Satoshi cream) / titleEm (Fraunces gold) */
   title: string;
   titleEm: string;
-  titleAfter?: string;
   sub: string;
   ctaPrimary: { label: string; href: string };
   ctaSecondary?: { label: string; href: string };
   metas?: { b: string; s: string }[];
-  image: { src: string; alt: string };
-  float?: { t: string; d: string };
+  image: { src: string; alt: string; position?: string };
 }
 
-const { badgePill, badge, title, titleEm, titleAfter, sub, ctaPrimary, ctaSecondary, metas = [], image, float } =
-  Astro.props;
+const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Astro.props;
 ---
 
 <section class="hero">
-  <Container>
-    <div class="hero-grid">
-      <div>
-        {
-          badge && (
-            <div class="hero-badge">
-              {badgePill && <span class="pill">{badgePill}</span>}
-              {badge}
-            </div>
-          )
-        }
-        <h1 class="display">
-          {title} <span class="em">{titleEm}</span>{titleAfter && ` ${titleAfter}`}
-        </h1>
-        <p class="sub">{sub}</p>
-        <div class="cta-row">
-          <Button href={ctaPrimary.href} variant="gold" arrow>{ctaPrimary.label}</Button>
-          {ctaSecondary && <Button href={ctaSecondary.href} variant="outline">{ctaSecondary.label}</Button>}
-        </div>
-        {
-          metas.length > 0 && (
-            <div class="meta-row">
-              {metas.map((meta) => (
-                <div class="meta">
-                  <b>{meta.b}</b>
-                  <span>{meta.s}</span>
-                </div>
-              ))}
-            </div>
-          )
-        }
-      </div>
-      <div class="hero-media">
-        <div class="imgbox">
-          <img src={image.src} alt={image.alt} fetchpriority="high" />
-        </div>
-        {
-          float && (
-            <div class="hero-float">
-              <div class="t">{float.t}</div>
-              <div class="d">{float.d}</div>
-            </div>
-          )
-        }
-      </div>
+  <img
+    class="hero-bg"
+    src={image.src}
+    alt={image.alt}
+    fetchpriority="high"
+    style={image.position && `object-position:${image.position}`}
+  />
+  <div class="hero-inner">
+    <h1 class="display">
+      {title}<br /><span class="em on-dark">{titleEm}</span>
+    </h1>
+    <p class="sub">{sub}</p>
+    <div class="cta-row">
+      <Button href={ctaPrimary.href} variant="gold" arrow>{ctaPrimary.label}</Button>
+      {ctaSecondary && <Button href={ctaSecondary.href} variant="outline" onDark>{ctaSecondary.label}</Button>}
     </div>
-  </Container>
+    {
+      metas.length > 0 && (
+        <div class="meta-row">
+          {metas.map((meta, i) => (
+            <>
+              {i > 0 && (
+                <i class="sep" aria-hidden="true">
+                  ◆
+                </i>
+              )}
+              <span class="meta">
+                <b>{meta.b}</b> · {meta.s}
+              </span>
+            </>
+          ))}
+        </div>
+      )
+    }
+  </div>
+  <BrushSeparator class="brush" aria-hidden="true" />
 </section>
-<BrushSeparator class="brush" aria-hidden="true" />
 
 <style>
   .hero {
     position: relative;
-    background: var(--cream);
     overflow: hidden;
+    min-height: clamp(600px, 88vh, 860px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    /* fallback pendant le chargement de la photo (texte cream lisible) */
+    background: var(--forest-deep);
   }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.04fr 1fr;
-    gap: 46px;
-    align-items: center;
-    padding: clamp(38px, 5vw, 68px) 0 clamp(70px, 7vw, 96px);
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Y élevé : visages intacts en haut, zone de texte sur les torses/jambes */
+    object-position: center 60%;
+    z-index: 0;
+  }
+  /* overlay : voile gold (réchauffe) + gradient charcoal (lisibilité) */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(rgba(224, 166, 43, 0.06), rgba(224, 166, 43, 0.06)),
+      linear-gradient(
+        180deg,
+        rgba(17, 17, 17, 0.6) 0%,
+        rgba(17, 17, 17, 0.32) 26%,
+        rgba(17, 17, 17, 0.65) 54%,
+        rgba(17, 17, 17, 0.92) 100%
+      );
   }
 
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    margin-bottom: 22px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    padding: 7px 14px 7px 8px;
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    color: var(--forest);
-    box-shadow: var(--shadow-sm);
+  /* H1 home only : plus grand que le .display global (l'espace est là) —
+     la colonne passe à 1060px pour garder le lockup sur 2 lignes */
+  .hero .display {
+    font-size: clamp(46px, 7vw, 92px);
   }
-  .hero-badge .pill {
-    background: var(--gold);
-    color: #1c1407;
-    font-size: 11px;
-    padding: 3px 9px;
-    border-radius: 999px;
-    letter-spacing: 0.04em;
+  .hero-inner {
+    position: relative;
+    z-index: 3; /* au-dessus du brush — le bandeau metas le chevauche */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: clamp(140px, 20vh, 220px) var(--gutter) clamp(24px, 3vw, 44px);
   }
 
   h1 {
-    margin: 0 0 18px;
+    margin: 0;
+    color: var(--cream);
   }
   .sub {
-    font-size: clamp(18px, 1.5vw, 21px);
-    color: var(--ink-2);
-    max-width: 38ch;
-    margin: 0 0 30px;
+    font-size: clamp(17px, 1.5vw, 20px);
+    color: rgba(246, 241, 230, 0.88);
+    max-width: 52ch;
+    margin: 20px 0 28px;
   }
   .cta-row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 12px;
   }
 
   .meta-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 22px;
-    margin-top: 30px;
-    padding-top: 26px;
-    border-top: 1px solid var(--line);
-  }
-  .meta {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
+    align-items: center;
+    justify-content: center;
+    gap: 14px 18px;
+    margin-top: 34px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(246, 241, 230, 0.25);
+    color: rgba(246, 241, 230, 0.85);
+    font-size: 13.5px;
   }
   .meta b {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 22px;
-    color: var(--forest);
-    letter-spacing: -0.01em;
-  }
-  .meta span {
-    font-size: 12.5px;
-    color: var(--ink-3);
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-  }
-
-  .hero-media {
-    position: relative;
-  }
-  .imgbox {
-    display: block;
-    width: 100%;
-    height: clamp(360px, 46vw, 540px);
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-  }
-  .imgbox img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .hero-float {
-    position: absolute;
-    left: -18px;
-    bottom: 26px;
-    z-index: 3;
-    background: var(--forest);
     color: var(--cream);
-    border-radius: var(--r-md);
-    padding: 14px 18px;
-    box-shadow: var(--shadow-lg);
-    max-width: 210px;
-  }
-  .hero-float .t {
     font-weight: 800;
-    font-size: 15px;
-    color: var(--gold);
-    margin-bottom: 2px;
   }
-  .hero-float .d {
-    font-size: 12.5px;
-    color: rgba(246, 241, 230, 0.8);
-    line-height: 1.4;
+  .sep {
+    color: var(--gold);
+    font-style: normal;
+    font-size: 10px;
   }
 
-  /* divider brossé (transition cream → bande forest des values) */
+  /* brush dans le hero, absolu sur le bas de la photo → overlap complet,
+     la section suivante (ValueStrip, forest) enchaîne au ras dessous */
   .brush {
-    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
     width: 100%;
-    height: auto; /* ratio natif du dessin — pas d'étirement */
-    margin-bottom: -3px; /* le bas du path n'est pas au ras du viewBox → chevauchement pour éviter un liseré */
+    height: auto;
+    z-index: 2;
   }
   /* la couleur vient du token, pas du fill en dur exporté par Illustrator */
   .brush :global(path) {
     fill: var(--forest);
   }
 
-  @media (max-width: 860px) {
-    .hero-grid {
-      grid-template-columns: 1fr;
-      gap: 34px;
-    }
-  }
   @media (max-width: 520px) {
+    .cta-row {
+      width: 100%;
+    }
     .cta-row :global(.wc-btn) {
       flex: 1;
       justify-content: center;

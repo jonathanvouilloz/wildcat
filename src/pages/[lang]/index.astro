@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/layout/Section.astro';
+import TornDivider from '../../components/layout/TornDivider.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
 import Button from '../../components/ui/Button.astro';
 import Hero from '../../components/sections/Hero.astro';
@@ -11,19 +12,19 @@ import ScheduleTable from '../../components/sections/ScheduleTable.astro';
 import StayTrainUpsell from '../../components/sections/StayTrainUpsell.astro';
 import CoachGrid from '../../components/sections/CoachGrid.astro';
 import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
-import CommunityGallery from '../../components/sections/CommunityGallery.astro';
+import InstagramFeed from '../../components/sections/InstagramFeed.astro';
 import PricingTable from '../../components/sections/PricingTable.astro';
 import Faq from '../../components/sections/Faq.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { Icon } from 'astro-icon/components';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
+import { waLink } from '../../lib/whatsapp';
 import { safeQuery } from '../../lib/content';
-import { COACHES_QUERY, FEATURED_TESTIMONIALS_QUERY, SCHEDULE_QUERY } from '../../lib/queries';
+import { COACHES_QUERY, FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
 import type {
   COACHES_QUERY_RESULT,
   FEATURED_TESTIMONIALS_QUERY_RESULT,
-  SCHEDULE_QUERY_RESULT,
 } from '../../lib/sanity.types';
 import { pickLocale } from '../../lib/i18n-content';
 import { urlFor } from '../../lib/image';
@@ -76,31 +77,12 @@ const quote = testimonialDocs[0]
     }
   : { content: m.home_quote_text(), name: 'James T.', meta: m.home_quote_meta(), rating: 5 };
 
-// Planning (teaser) — Sanity : créneaux du lundi (journée type) ; fallback : rows maquette
-const scheduleDocs = await safeQuery<SCHEDULE_QUERY_RESULT>({ query: SCHEDULE_QUERY }, []);
-const levelLabels: Record<string, string> = {
-  all: m.schedule_level_all(),
-  beginner: m.schedule_level_beginner(),
-  kids: m.schedule_level_kids(),
-  fighter: m.schedule_level_fighter(),
-  women: m.schedule_level_women(),
-};
-const typicalDay = scheduleDocs.filter((doc) => doc.day === 'mon');
-const scheduleRows =
-  typicalDay.length > 0
-    ? typicalDay.flatMap((doc) =>
-        (doc.timeSlots ?? []).map((slot) => ({
-          time: slot.start ?? '',
-          cls: pickLocale(slot.label, lang),
-          tag: doc.level ? levelLabels[doc.level] : undefined,
-        })),
-      )
-    : [
-        { time: '07:00', cls: m.home_sched_r1_cls(), sub: m.home_sched_r1_sub(), tag: m.home_sched_r1_tag() },
-        { time: '10:00', cls: m.home_sched_r2_cls(), sub: m.home_sched_r2_sub(), tag: m.home_sched_r2_tag() },
-        { time: '16:30', cls: m.home_sched_r3_cls(), sub: m.home_sched_r3_sub(), tag: m.home_sched_r3_tag() },
-        { time: '18:00', cls: m.home_sched_r4_cls(), sub: m.home_sched_r4_sub(), tag: m.home_sched_r4_tag() },
-      ];
+// Planning (teaser) — site.ts : les 4 sessions de groupe (horaires fixes 7j/7)
+const scheduleRows = site.schedule.group.map((time) => ({
+  time,
+  cls: m.schedule_group_title(),
+  tag: m.schedule_level_all(),
+}));
 
 /* ---------- Contenu statique (messages + site.ts) ---------- */
 
@@ -118,7 +100,8 @@ const dtvSteps = [
 ];
 
 const programs = [
-  { level: m.home_prog1_lvl(), title: m.home_prog1_t(), body: m.home_prog1_b(), href: p('/classes') },
+  // Card Beginners → satellite /classes/beginners (maillage silo Train)
+  { level: m.home_prog1_lvl(), title: m.home_prog1_t(), body: m.home_prog1_b(), href: p('/classes/beginners') },
   { level: m.home_prog2_lvl(), title: m.home_prog2_t(), body: m.home_prog2_b(), href: p('/classes') },
   { level: m.home_prog3_lvl(), title: m.home_prog3_t(), body: m.home_prog3_b(), href: p('/classes') },
 ];
@@ -139,7 +122,7 @@ const plans = [
       m.pricing_card_dropin_f3(),
       m.pricing_card_dropin_f4(),
     ],
-    cta: { label: m.cta_book_class(), href: p('/contact'), variant: 'outline' as const },
+    cta: { label: m.cta_book_class(), href: `${p('/contact')}?intent=class`, variant: 'outline' as const },
   },
   {
     name: m.pricing_card_monthly_name(),
@@ -152,7 +135,7 @@ const plans = [
       m.pricing_card_monthly_f3(),
       m.pricing_card_monthly_f4(),
     ],
-    cta: { label: m.pricing_card_monthly_cta(), href: p('/contact'), variant: 'gold' as const },
+    cta: { label: m.pricing_card_monthly_cta(), href: `${p('/contact')}?intent=class`, variant: 'gold' as const },
     popular: true,
   },
   {
@@ -182,14 +165,24 @@ const instagram = site.social.find((s) => s.label === 'Instagram')?.href ?? '#';
 
 /* ---------- JSON-LD SportsClub (PRD §7 : LocalBusiness sur la home) ---------- */
 const base = Astro.site ?? Astro.url.origin;
+// Ouvert 7j/7, mêmes horaires (site.hours = 1 entrée "daily")
+const [opens, closes] = site.hours[0].time.split('–').map((part) => part.trim());
 const hoursSpec = [
-  { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], time: site.hours[0].time },
-  { days: ['Saturday'], time: site.hours[1].time },
-  { days: ['Sunday'], time: site.hours[2].time },
-].map(({ days, time }) => {
-  const [opens, closes] = time.split('–').map((part) => part.trim());
-  return { '@type': 'OpeningHoursSpecification', dayOfWeek: days, opens, closes };
-});
+  {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens,
+    closes,
+  },
+];
+// priceRange dérivé des prix publics réels (site.pricing) — jamais en dur.
+const allPrices = [
+  ...site.pricing.groupAdults,
+  ...site.pricing.groupKids,
+  ...site.pricing.fighter,
+  ...site.pricing.private,
+].map((p) => p.price);
+const priceRange = `${Math.min(...allPrices)}–${Math.max(...allPrices)} THB`;
 const jsonld = {
   '@context': 'https://schema.org',
   '@type': 'SportsClub',
@@ -199,11 +192,17 @@ const jsonld = {
   image: new URL(site.defaultOgImage, base).href,
   telephone: site.contact.phone,
   email: site.contact.email,
+  priceRange,
   address: {
     '@type': 'PostalAddress',
     streetAddress: site.contact.address,
     addressLocality: 'Chiang Mai',
     addressCountry: 'TH',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.contact.geo.latitude,
+    longitude: site.contact.geo.longitude,
   },
   sameAs: site.social.map((s) => s.href),
   openingHoursSpecification: hoursSpec,
@@ -215,11 +214,8 @@ const jsonld = {
 
   <main>
     <Hero
-      badgePill={m.home_hero_badge_pill()}
-      badge={m.home_hero_badge()}
-      title={m.home_h1()}
-      titleEm={m.home_h1_em()}
-      titleAfter={m.home_h1b()}
+      title={m.home_hero_title()}
+      titleEm={m.home_hero_title_em()}
       sub={m.home_hero_sub()}
       ctaPrimary={{ label: m.home_hero_cta1(), href: p('/classes#pricing') }}
       ctaSecondary={{ label: m.home_hero_cta2(), href: p('/classes#schedule') }}
@@ -228,8 +224,7 @@ const jsonld = {
         { b: m.home_hero_meta2_b(), s: m.home_hero_meta2_s() },
         { b: m.home_hero_meta3_b(), s: m.home_hero_meta3_s() },
       ]}
-      image={{ src: '/assets/gym-garden.jpg', alt: m.home_hero_img_alt() }}
-      float={{ t: m.home_hero_float_t(), d: m.home_hero_float_d() }}
+      image={{ src: '/assets/hero-home.webp', alt: m.home_hero_img_alt(), position: 'center 60%' }}
     />
 
     <ValueStrip items={values} />
@@ -244,6 +239,9 @@ const jsonld = {
       cta={{ label: m.home_dtv_cta(), href: p('/dtv-visa') }}
       scooterTag={m.home_dtv_scooter()}
     />
+
+    {/* le teaser DTV (forest-deep) déchire sur la section programs (soft) */}
+    <TornDivider variant="wave-base" color="var(--forest-deep)" bg="var(--soft)" flipY />
 
     <Section soft id="programs">
       <div class="block-head row">
@@ -307,7 +305,7 @@ const jsonld = {
           {m.home_comm_follow()}
         </a>
       </div>
-      <CommunityGallery />
+      <InstagramFeed />
     </Section>
 
     <Section soft id="pricing">
@@ -335,12 +333,15 @@ const jsonld = {
     </Section>
 
     <CtaBanner
+      variant="torn"
+      hand={m.home_cta_hand()}
       title={m.home_h1()}
       titleEm={m.home_h1_em()}
       titleAfter={m.home_h1b()}
-      ctaPrimary={{ label: m.home_cta_banner1(), href: p('/contact') }}
-      ctaSecondary={{ label: m.home_cta_banner2(), href: site.contact.whatsapp }}
-      image={{ src: '/assets/gym-garden.jpg' }}
+      sub={m.home_cta_sub()}
+      ctaPrimary={{ label: m.home_cta_banner1(), href: `${p('/contact')}?intent=class` }}
+      ctaSecondary={{ label: m.home_cta_banner2(), href: waLink(m.contact_wa_text_class()) }}
+      image={{ src: '/assets/family-party.webp' }}
     />
   </main>
 </BaseLayout>
@@ -387,7 +388,7 @@ const jsonld = {
   .gal-foot {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
     font-weight: 700;
     color: var(--forest);
   }

@@ -10,17 +10,17 @@ export const COACHES_QUERY = defineQuery(`
   }
 `);
 
-/** Fighters mis en avant (livre d'or / fight team). */
+/** Fighters mis en avant (livre d'or / home future). */
 export const FEATURED_FIGHTERS_QUERY = defineQuery(`
-  *[_type == "fighter" && featured == true] | order(name asc) {
-    _id, name, slug, photo, nationality, status, fights, wins, losses, bio
+  *[_type == "fighter" && featured == true] | order(year desc, name asc) {
+    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements
   }
 `);
 
-/** Tous les fighters, current d'abord. */
+/** Tout le livre d'or, passages récents d'abord. */
 export const FIGHTERS_QUERY = defineQuery(`
-  *[_type == "fighter"] | order(status asc, name asc) {
-    _id, name, slug, photo, nationality, status, fights, wins, losses, bio, featured
+  *[_type == "fighter"] | order(year desc, name asc) {
+    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements, featured
   }
 `);
 
@@ -31,36 +31,23 @@ export const FEATURED_TESTIMONIALS_QUERY = defineQuery(`
   }
 `);
 
-/** Grille horaires complète, ordonnée. */
+/**
+ * Grille horaires complète, ordonnée.
+ * ⚠️ Inutilisée depuis le planning en dur (site.schedule, flyer 2026-06-04) —
+ * le schéma trainingSchedule reste en place, réactivable si les horaires varient.
+ */
 export const SCHEDULE_QUERY = defineQuery(`
   *[_type == "trainingSchedule"] | order(order asc) {
     _id, day, timeSlots, level, notes, order
   }
 `);
 
-/** Articles publiés d'une langue (document-level i18n), plus récents d'abord. */
-export const BLOG_POSTS_BY_LANG_QUERY = defineQuery(`
-  *[_type == "blogPost" && language == $lang && defined(publishedAt)] | order(publishedAt desc) {
-    _id, title, slug, mainImage, seoDescription, publishedAt,
-    category->{ _id, name, slug }
-  }
-`);
+// Blog : Content Collections .md depuis E8 (src/lib/blog.ts) — les queries
+// blogPost/category sont retirées avec leurs schémas (DECISIONS.md 2026-06-05).
 
-/** Un article par slug + langue, avec ses traductions (pour hreflang / LangSwitcher). */
-export const BLOG_POST_QUERY = defineQuery(`
-  *[_type == "blogPost" && slug.current == $slug && language == $lang][0] {
-    _id, title, language, slug, mainImage, content,
-    seoTitle, seoDescription, publishedAt,
-    category->{ _id, name, slug },
-    "translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
-      language, slug
-    }
-  }
-`);
-
-/** Toutes les catégories. */
-export const CATEGORIES_QUERY = defineQuery(`
-  *[_type == "category"] | order(name.en asc) {
-    _id, name, slug
+/** Flotte de scooters à louer, ordre d'affichage (page scooter-rental). */
+export const SCOOTERS_QUERY = defineQuery(`
+  *[_type == "scooter"] | order(order asc, name asc) {
+    _id, name, year, color, cc, priceDaily, priceMonthly, photo, note, available
   }
 `);

@@ -1,24 +1,31 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/layout/Section.astro';
+import TornDivider from '../../components/layout/TornDivider.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
 import Button from '../../components/ui/Button.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
 import DtvStamp from '../../components/ui/DtvStamp.astro';
 import PageHero from '../../components/sections/PageHero.astro';
+import StayInquiryForm from '../../components/sections/StayInquiryForm.astro';
 import FeatureGrid from '../../components/sections/FeatureGrid.astro';
+import { Icon } from 'astro-icon/components';
 import PricingTable from '../../components/sections/PricingTable.astro';
+import Faq from '../../components/sections/Faq.astro';
 import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
+import { waLink } from '../../lib/whatsapp';
 import { safeQuery } from '../../lib/content';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../lib/sanity.types';
 import { pickLocale } from '../../lib/i18n-content';
 import { m } from '../../paraglide/messages.js';
 
-// Pilier Stay & Train (kw : "Muay Thai training camp Chiang Mai").
+// Pilier Stay & Train — re-cadrage 2026-06-05 (brief content/_drafts/pages/stay-pillar.md).
+// kw EN : "muay thai camp thailand" (1900/mo) — "Chiang Mai" en qualificatif only
+// (le head local est réservé à la home). kw FR : "camp/stage muay thai thailande".
 // NB : le PRD nommait ce pilier /muay-thai-training — slug maquette retenu,
 // redirect à prévoir en E7/E10.
 export function getStaticPaths() {
@@ -65,7 +72,7 @@ const plans = [
       m.pricing_card_week_f3(),
       m.pricing_card_week_f4(),
     ],
-    cta: { label: m.cta_book_class(), href: p('/contact'), variant: 'outline' as const },
+    cta: { label: m.cta_book_class(), href: '#plan', variant: 'outline' as const },
   },
   {
     name: m.pricing_card_monthly_name(),
@@ -78,7 +85,7 @@ const plans = [
       m.pricing_card_monthly_f3(),
       m.pricing_card_monthly_f4(),
     ],
-    cta: { label: m.pricing_card_monthly_cta(), href: p('/contact'), variant: 'gold' as const },
+    cta: { label: m.pricing_card_monthly_cta(), href: '#plan', variant: 'gold' as const },
     popular: true,
   },
   {
@@ -92,12 +99,56 @@ const plans = [
       m.pricing_card_fighter_f3(),
       m.pricing_card_fighter_f4(),
     ],
-    cta: { label: m.cta_plan_stay(), href: p('/contact'), variant: 'forest' as const },
+    cta: { label: m.cta_plan_stay(), href: '#plan', variant: 'forest' as const },
   },
 ];
+
+// Table d'honnêteté #packages — inclus vs à organiser (le différenciateur SERP)
+const included = [m.stay_pack_inc_1(), m.stay_pack_inc_2(), m.stay_pack_inc_3()];
+const arranged = [m.stay_pack_arr_1(), m.stay_pack_arr_2(), m.stay_pack_arr_3()];
+
+// FAQ — 6 PAA de la SERP "muay thai camp thailand" (brief §4 modif 7)
+const faqItems = [
+  { q: m.stay_faq_q1(), a: m.stay_faq_a1() },
+  {
+    q: m.stay_faq_q2(),
+    a: m.stay_faq_a2(),
+    link: { label: m.stay_faq_l2(), href: p('/classes/beginners') },
+  },
+  {
+    q: m.stay_faq_q3(),
+    a: m.stay_faq_a3(),
+    link: { label: m.stay_faq_l3(), href: p('/about/coaches') },
+  },
+  {
+    q: m.stay_faq_q4(),
+    a: m.stay_faq_a4(),
+    link: { label: m.stay_faq_l4(), href: p('/dtv-visa/long-stay-training') },
+  },
+  { q: m.stay_faq_q5(), a: m.stay_faq_a5() },
+  {
+    q: m.stay_faq_q6(),
+    a: m.stay_faq_a6(),
+    link: { label: m.stay_faq_l6(), href: p('/dtv-visa') },
+  },
+];
+
+// FAQPage JSON-LD — même contenu que la FAQ visible (liens exclus du texte).
+// Unique FAQPage du silo Stay (règle : 1 max par silo, pattern E5b).
+const faqJsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
 ---
 
 <BaseLayout title={m.stay_meta_title()} description={m.stay_meta_desc()}>
+  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(faqJsonld)} />
+
   <main>
     <Breadcrumb
       ariaLabel={m.breadcrumb_aria()}
@@ -108,34 +159,120 @@ const plans = [
     />
 
     <PageHero
-      head={m.stay_hero_head()}
       title={m.stay_hero_title()}
       titleEm={m.stay_hero_title_em()}
       lead={m.stay_hero_lead()}
-      cta={{ label: m.cta_plan_stay(), href: p('/contact') }}
+      cta={{ label: m.cta_plan_stay(), href: '#plan' }}
     />
 
     <Section soft>
       <div class="why">
         <div>
           <SectionHead>{m.stay_why_head()}</SectionHead>
-          <h2 class="h2 mt-2 mb-7">{m.stay_why_title()}</h2>
+          <h2 class="h2 mt-2 mb-4">{m.stay_why_title()}</h2>
+          <p class="body-copy">{m.stay_why_intro()}</p>
+          <p class="body-copy mb-7">{m.stay_why_cm()}</p>
         </div>
       </div>
       <FeatureGrid items={features} />
+      <p class="beg-note">
+        {m.stay_beg_note()}{' '}
+        <a class="ilink" href={p('/classes/beginners')}>{m.stay_beg_link()}</a>.
+      </p>
       <div class="imgbox">
-        <img src="/assets/gym-garden.jpg" alt={m.home_stay_img_alt()} loading="lazy" />
+        {/* session du soir — la vie du camp pour les long-stayers (gym-garden reste à la home) */}
+        <img src="/assets/night-session.webp" alt={m.home_stay_img_alt()} loading="lazy" />
       </div>
     </Section>
 
-    <Section id="pricing">
+    <Section id="packages">
       <div class="block-head center">
-        <SectionHead center>{m.stay_price_head()}</SectionHead>
-        <h2 class="h2 mt-2 mb-3">{m.stay_price_title()}</h2>
-        <p class="lead lead--center">{m.stay_price_lead()}</p>
+        <SectionHead center>{m.stay_pack_head()}</SectionHead>
+        <h2 class="h2 mt-2 mb-3">{m.stay_pack_title()}</h2>
+        <p class="lead lead--center">{m.stay_pack_lead()}</p>
       </div>
       <PricingTable plans={plans} popularLabel={m.pricing_popular()} />
+      {/* la table d'honnêteté : ce que la SERP entière refuse d'afficher */}
+      <div class="pack-split">
+        <div class="pack-card">
+          <h3 class="h3">{m.stay_pack_inc_title()}</h3>
+          <ul class="pack-list pack-list--inc">
+            {included.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="pack-card">
+          <h3 class="h3">{m.stay_pack_arr_title()}</h3>
+          <ul class="pack-list pack-list--arr">
+            {arranged.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+      <p class="pack-honest">{m.stay_pack_honest()}</p>
     </Section>
+
+    <Section id="accommodation" soft>
+      <div class="acc">
+        <div>
+          <SectionHead>{m.stay_acc_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-4">{m.stay_acc_title()}</h2>
+          <p class="body-copy">{m.stay_acc_body1()}</p>
+          <p class="body-copy">{m.stay_acc_body2()}</p>
+          <div class="mt-6">
+            <Button href="#plan" variant="forest" arrow>{m.stay_acc_cta()}</Button>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Form séjour inline — la conversion à plus forte valeur du site reste
+         sur la page (zéro rebond /contact) ; POST /api/contact intent=stay. -->
+    <Section id="plan">
+      <div class="banner banner--ok" id="plan-ok" hidden>
+        <Icon name="tabler:circle-check" aria-hidden="true" />
+        <div>
+          <b>{m.contact_success_title()}</b>
+          <p>{m.contact_success_body()}</p>
+        </div>
+      </div>
+      <div class="banner banner--err" id="plan-err" hidden>
+        <Icon name="tabler:alert-circle" aria-hidden="true" />
+        <p>{m.contact_error_body()}</p>
+      </div>
+      <div class="plan-split">
+        <div>
+          <SectionHead>{m.stay_plan_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-4">
+            {m.stay_plan_title()} <span class="em">{m.stay_plan_title_em()}</span>
+          </h2>
+          <p class="body-copy">{m.stay_plan_lead()}</p>
+        </div>
+        <div class="plan-form">
+          <StayInquiryForm lang={lang} />
+        </div>
+      </div>
+    </Section>
+
+    <Section id="life" soft>
+      <div class="life">
+        <div>
+          <SectionHead>{m.stay_life_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-4">{m.stay_life_title()}</h2>
+          <p class="body-copy">{m.stay_life_body1()}</p>
+          <p class="body-copy">{m.stay_life_body2()}</p>
+          <p class="beg-note">
+            {m.stay_life_scoot_note()}{' '}
+            <a class="ilink" href={p('/stay-train/scooter-rental')}>{m.stay_life_scoot_link()}</a>.
+          </p>
+          <p class="beg-note">
+            {m.stay_life_note()}{' '}
+            <a class="ilink" href={p('/classes#schedule')}>{m.stay_life_link()}</a>.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    {/* la section DTV (forest) mord vers le haut sur le life (soft) */}
+    <TornDivider variant="wave-flipx" color="var(--forest)" />
 
     <Section dark>
       <div class="dtv-cross">
@@ -153,9 +290,19 @@ const plans = [
       </div>
     </Section>
 
+    <Section>
+      <div class="faq-split">
+        <div>
+          <SectionHead>{m.stay_faq_head()}</SectionHead>
+          <h2 class="h2 mt-2">{m.stay_faq_title()}</h2>
+        </div>
+        <Faq items={faqItems} firstOpen />
+      </div>
+    </Section>
+
     {
       quote && (
-        <Section>
+        <Section soft>
           <div class="quote-wrap">
             <TestimonialQuote
               content={quote.content}
@@ -170,16 +317,91 @@ const plans = [
     }
 
     <CtaBanner
+      variant="torn"
+      hand={m.stay_cta_hand()}
       title={m.stay_cta_title()}
       titleEm={m.stay_cta_title_em()}
-      ctaPrimary={{ label: m.cta_plan_stay(), href: p('/contact') }}
-      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
+      sub={m.stay_cta_sub()}
+      ctaPrimary={{ label: m.cta_plan_stay(), href: '#plan' }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_stay()) }}
       image={{ src: '/assets/gym-garden.jpg' }}
     />
   </main>
+
+  <script is:inline>
+    // Affiche la bannière succès/erreur après redirect du POST /api/contact
+    // (from=stay-train → retour ici avec ?sent=1#plan).
+    (function () {
+      var sent = new URLSearchParams(location.search).get('sent');
+      if (sent === '1') document.getElementById('plan-ok').hidden = false;
+      if (sent === 'error') document.getElementById('plan-err').hidden = false;
+    })();
+  </script>
 </BaseLayout>
 
 <style>
+  /* ---- #plan : form séjour inline + bannières post-POST ---- */
+  .banner {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    border-radius: var(--r-md);
+    padding: 16px 18px;
+    margin-bottom: 26px;
+    font-size: 15px;
+  }
+  .banner :global(svg) {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    margin-top: 1px;
+  }
+  .banner p {
+    margin: 0;
+    line-height: 1.5;
+  }
+  .banner b {
+    display: block;
+    margin-bottom: 2px;
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+  .banner--ok {
+    background: color-mix(in srgb, var(--success), #fff 82%);
+    border: 1px solid var(--success);
+    color: var(--ink);
+  }
+  .banner--ok :global(svg) {
+    color: var(--success);
+  }
+  .banner--err {
+    background: color-mix(in srgb, var(--error), #fff 86%);
+    border: 1px solid var(--error);
+    color: var(--ink);
+  }
+  .banner--err :global(svg) {
+    color: var(--error);
+  }
+  .plan-split {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 46px;
+    align-items: start;
+  }
+  .plan-form {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: clamp(22px, 3vw, 34px);
+    box-shadow: var(--shadow-sm);
+  }
+  @media (max-width: 860px) {
+    .plan-split {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
   .block-head {
     margin-bottom: 38px;
   }
@@ -195,6 +417,35 @@ const plans = [
   .lead--center {
     margin-inline: auto;
   }
+  .body-copy {
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    max-width: 68ch;
+    margin: 0 0 14px;
+  }
+  .beg-note {
+    margin: 22px 0 0;
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+  .ilink {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .ilink:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .ilink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
   .imgbox {
     margin-top: 28px;
     border-radius: var(--r-lg);
@@ -207,6 +458,59 @@ const plans = [
     height: 100%;
     object-fit: cover;
   }
+
+  /* --- #packages : table d'honnêteté inclus / à organiser --- */
+  .pack-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    max-width: 880px;
+    margin: 38px auto 0;
+  }
+  .pack-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 24px 26px;
+  }
+  .pack-list {
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .pack-list li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .pack-list li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 700;
+  }
+  .pack-list--inc li::before {
+    content: '✓';
+    color: var(--forest);
+  }
+  .pack-list--arr li::before {
+    content: '◆';
+    color: var(--gold-deep);
+    font-size: 11px;
+    top: 4px;
+  }
+  .pack-honest {
+    max-width: 880px;
+    margin: 22px auto 0;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+
   .h2--dark {
     color: var(--cream);
   }
@@ -222,12 +526,28 @@ const plans = [
     max-width: 54ch;
     margin: 0;
   }
+
+  /* --- FAQ (pattern /classes) --- */
+  .faq-split {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 48px;
+    align-items: start;
+  }
+
   .quote-wrap {
     max-width: 760px;
     margin-inline: auto;
   }
   @media (max-width: 860px) {
     .dtv-cross {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .pack-split {
+      grid-template-columns: 1fr;
+    }
+    .faq-split {
       grid-template-columns: 1fr;
       gap: 28px;
     }

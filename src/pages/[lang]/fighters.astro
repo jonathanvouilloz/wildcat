@@ -7,15 +7,19 @@ import FighterCard from '../../components/sections/FighterCard.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
+import { waLink } from '../../lib/whatsapp';
 import { safeQuery } from '../../lib/content';
 import { FIGHTERS_QUERY } from '../../lib/queries';
 import type { FIGHTERS_QUERY_RESULT } from '../../lib/sanity.types';
 import { pickLocale } from '../../lib/i18n-content';
 import { urlFor } from '../../lib/image';
+import { ACHIEVEMENT_VALUES } from '../../lib/guestbook';
 import { m } from '../../paraglide/messages.js';
 
-// Livre d'or fighters (kw : "Wild Cat Chiang Mai fighters").
-// 100 % CMS : dataset vide → état "coming soon" (pas de faux palmarès).
+// Livre d'or fighters (kw : "Wild Cat Chiang Mai fighters") — les guests qui
+// ont combattu à Chiang Mai grâce à la famille. Pas de record W/L : la stat
+// unique est le nombre de combats pris, les victoires = stamps achievements.
+// 100 % CMS : dataset vide → état "coming soon" (pas de faux livre d'or).
 export function getStaticPaths() {
   return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
 }
@@ -24,27 +28,72 @@ const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
 
 const fighterDocs = await safeQuery<FIGHTERS_QUERY_RESULT>({ query: FIGHTERS_QUERY }, []);
-const statLabels = {
-  fights: m.fighters_stat_fights(),
-  wins: m.fighters_stat_wins(),
-  losses: m.fighters_stat_losses(),
+
+// Records explicites valeur → message (pattern hoursDays du Footer).
+const achLabels: Record<string, string> = {
+  'first-fight': m.fighters_ach_first_fight(),
+  'stadium-win': m.fighters_ach_stadium_win(),
+  'ko-win': m.fighters_ach_ko_win(),
+  'five-fights': m.fighters_ach_five_fights(),
+  'zero-to-hero': m.fighters_ach_zero_to_hero(),
+  'title-belt': m.fighters_ach_title_belt(),
+  'main-event': m.fighters_ach_main_event(),
+  'round-two': m.fighters_ach_round_two(),
+  'long-stay': m.fighters_ach_long_stay(),
+  'family-og': m.fighters_ach_family_og(),
 };
-const fighters = fighterDocs.map((fighter) => ({
-  name: fighter.name ?? '',
-  nationality: fighter.nationality ?? undefined,
-  current: fighter.status === 'current',
-  statusLabel: fighter.status === 'current' ? m.fighters_status_current() : m.fighters_status_alumni(),
-  fights: fighter.fights ?? undefined,
-  wins: fighter.wins ?? undefined,
-  losses: fighter.losses ?? undefined,
-  bio: pickLocale(fighter.bio, lang) || undefined,
-  photo: fighter.photo?.asset
-    ? {
-        src: urlFor(fighter.photo).width(640).height(640).format('webp').url(),
-        alt: fighter.photo.alt ?? fighter.name ?? '',
-      }
-    : undefined,
-}));
+const venueLabels: Record<string, string> = {
+  thapae: m.fighters_venue_thapae(),
+  kalare: m.fighters_venue_kalare(),
+  loikroh: m.fighters_venue_loikroh(),
+  other: m.fighters_venue_other(),
+};
+
+const fighters = fighterDocs.map((fighter) => {
+  // Tri selon ACHIEVEMENT_VALUES = priorité d'affichage (la carte tronque à 3)
+  const achievements = ACHIEVEMENT_VALUES.filter((v) => fighter.achievements?.includes(v)).map(
+    (v) => ({ value: v as string, label: achLabels[v] }),
+  );
+  const venues = (fighter.venues ?? []).map((v) => venueLabels[v] ?? v);
+  const fightsLabel =
+    fighter.fights != null && fighter.fights > 0
+      ? fighter.fights === 1
+        ? m.fighters_card_fights_one()
+        : m.fighters_card_fights_many({ n: fighter.fights })
+      : null;
+  return {
+    name: fighter.name ?? '',
+    fightName: fighter.fightName ?? undefined,
+    countryCode: fighter.countryCode ?? undefined,
+    year: fighter.year ?? undefined,
+    quote: pickLocale(fighter.quote, lang) || undefined,
+    achievements,
+    sigLine: [fightsLabel, venues.length > 0 ? venues.join(' · ') : null].filter(Boolean).join(' · ') || undefined,
+    photo: fighter.photo?.asset
+      ? {
+          src: urlFor(fighter.photo).width(640).height(640).format('webp').url(),
+          alt: fighter.photo.alt ?? fighter.name ?? '',
+        }
+      : undefined,
+  };
+});
+
+// Compteur agrégé — social proof calculée au build, zéro JS client.
+const stats = {
+  members: fighterDocs.length,
+  fights: fighterDocs.reduce((sum, fighter) => sum + (fighter.fights ?? 0), 0),
+  nationalities: new Set(fighterDocs.map((fighter) => fighter.countryCode).filter(Boolean)).size,
+};
+// Affiché à partir de 3 membres : en dessous, « 1 family members » fait
+// pluriel cassé et social proof maigre — la grille seule suffit.
+const counters =
+  stats.members >= 3
+    ? [
+        { n: stats.members, label: m.fighters_count_members() },
+        { n: stats.fights, label: m.fighters_count_fights() },
+        { n: stats.nationalities, label: m.fighters_count_nationalities() },
+      ].filter((c) => c.n > 0)
+    : [];
 ---
 
 <BaseLayout title={m.fighters_meta_title()} description={m.fighters_meta_desc()}>
@@ -58,7 +107,6 @@ const fighters = fighterDocs.map((fighter) => ({
     />
 
     <PageHero
-      head={m.fighters_hero_head()}
       title={m.fighters_hero_title()}
       titleEm={m.fighters_hero_title_em()}
       lead={m.fighters_hero_lead()}
@@ -67,11 +115,26 @@ const fighters = fighterDocs.map((fighter) => ({
     <Section soft>
       {
         fighters.length > 0 ? (
-          <div class="fighter-grid">
-            {fighters.map((fighter) => (
-              <FighterCard {...fighter} statLabels={statLabels} />
-            ))}
-          </div>
+          <>
+            {counters.length > 0 && (
+              <div class="counter">
+                {counters.map((c, i) => (
+                  <>
+                    {i > 0 && <i aria-hidden="true">◆</i>}
+                    <div class="count">
+                      <b>{c.n}</b>
+                      <span>{c.label}</span>
+                    </div>
+                  </>
+                ))}
+              </div>
+            )}
+            <div class="fighter-grid">
+              {fighters.map((fighter) => (
+                <FighterCard {...fighter} achListLabel={m.fighters_ach_list_label()} />
+              ))}
+            </div>
+          </>
         ) : (
           <div class="empty">
             <h2 class="h3">{m.fighters_empty_title()}</h2>
@@ -82,20 +145,60 @@ const fighters = fighterDocs.map((fighter) => ({
     </Section>
 
     <CtaBanner
+      variant="scrapbook"
+      hand={m.fighters_cta_hand()}
       title={m.fighters_cta_title()}
       titleEm={m.fighters_cta_title_em()}
+      sub={m.fighters_cta_sub()}
       ctaPrimary={{ label: m.fighters_cta_btn(), href: p('/classes') }}
-      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
-      image={{ src: '/assets/gym-garden.jpg' }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_general()) }}
+      image={{ src: '/assets/night-session.webp' }}
     />
   </main>
 </BaseLayout>
 
 <style>
+  /* Compteur agrégé — la couverture du livre d'or */
+  .counter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px 26px;
+    background: var(--forest);
+    color: var(--cream);
+    border-radius: var(--r-lg);
+    padding: 24px 30px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: clamp(34px, 4vw, 52px);
+  }
+  .count {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .count b {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(28px, 3vw, 38px);
+    line-height: 1;
+    color: var(--gold);
+  }
+  .count span {
+    font-size: 13.5px;
+    color: rgba(246, 241, 230, 0.85);
+  }
+  .counter > i {
+    color: var(--gold);
+    font-style: normal;
+    font-size: 11px;
+  }
+
   .fighter-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    /* gap horizontal large : les stamps latéraux débordent de ~34px */
+    gap: 40px 64px;
   }
   .empty {
     text-align: center;
@@ -107,14 +210,26 @@ const fighters = fighterDocs.map((fighter) => ({
     font-size: 16px;
     color: var(--ink-2);
   }
+  @media (min-width: 1025px) {
+    /* punaisé, pas aligné au cordeau */
+    .fighter-grid > :global(*:nth-child(3n + 2)) {
+      margin-top: 34px;
+    }
+  }
   @media (max-width: 1024px) {
     .fighter-grid {
       grid-template-columns: 1fr 1fr;
+    }
+    .fighter-grid > :global(*:nth-child(even)) {
+      margin-top: 28px;
     }
   }
   @media (max-width: 640px) {
     .fighter-grid {
       grid-template-columns: 1fr;
+    }
+    .fighter-grid > :global(*:nth-child(even)) {
+      margin-top: 0;
     }
   }
 </style>

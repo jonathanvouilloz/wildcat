@@ -4,8 +4,10 @@ import Button from '../components/ui/Button.astro';
 import SectionHead from '../components/ui/SectionHead.astro';
 import Card from '../components/ui/Card.astro';
 import Callout from '../components/ui/Callout.astro';
+import DtvStamp from '../components/ui/DtvStamp.astro';
 import Container from '../components/layout/Container.astro';
 import Section from '../components/layout/Section.astro';
+import TornDivider from '../components/layout/TornDivider.astro';
 import Field from '../components/ui/forms/Field.astro';
 import Input from '../components/ui/forms/Input.astro';
 import Textarea from '../components/ui/forms/Textarea.astro';
@@ -14,6 +16,15 @@ import Checkbox from '../components/ui/forms/Checkbox.astro';
 import FileUpload from '../components/ui/forms/FileUpload.astro';
 import Nav from '../components/sections/Nav.astro';
 import Footer from '../components/sections/Footer.astro';
+import BrushSeparator from '../assets/separator-green.svg';
+import FighterCard from '../components/sections/FighterCard.astro';
+import AchievementStamp from '../components/ui/AchievementStamp.astro';
+import ProgramCard from '../components/sections/ProgramCard.astro';
+import PricingCard from '../components/sections/PricingCard.astro';
+import Faq from '../components/sections/Faq.astro';
+import CtaBanner from '../components/sections/CtaBanner.astro';
+import BlogCard from '../components/blog/BlogCard.astro';
+import { seedRot } from '../lib/guestbook';
 import { Icon } from 'astro-icon/components';
 
 // Inventaire des icônes (set candidat : Tabler). Swappable : changer le préfixe.
@@ -135,6 +146,153 @@ const semantics = [
   { name: 'Warning', hex: '#C98A12', role: 'Avertissements (= gold-deep, alias)', token: '--warning' },
   { name: 'Error', hex: '#C0492B', role: 'Erreurs formulaire, messages bloquants', token: '--error' },
 ];
+
+// --- Program & Pricing cards — démo des composants finaux (données factices)
+const cxPrograms = [
+  {
+    level: 'Beginners',
+    title: 'Muay Thai Basics',
+    body: 'Stance, movement and real technique — built from zero in a no-ego space.',
+    image: { src: '/assets/gym-place.webp', alt: 'The open-air gym at Wildcat' },
+  },
+  {
+    level: 'All levels',
+    title: 'Group Training',
+    body: 'Morning and evening sessions, six days a week — pads, bags and clinch.',
+    image: { src: '/assets/night-session.webp', alt: 'Evening group session under the lights' },
+  },
+  {
+    level: 'Fight team',
+    title: 'Fight Camp',
+    body: 'Train for a real fight at a Chiang Mai stadium — we handle the rest.',
+    image: { src: '/assets/meaw-training.webp', alt: 'Pad work with Kru Meaw' },
+  },
+];
+// Prix réels (site.ts) : dropin 350 · month_unlimited 5000 (popular) · fighter 7000.
+const cxPlans = [
+  {
+    name: 'Drop-in',
+    price: '350',
+    unit: 'Per class',
+    popular: false,
+    features: ['Any group class', 'Gloves & wraps to borrow', 'Garden & pool access'],
+  },
+  {
+    name: 'Monthly',
+    price: '5,000',
+    unit: 'Unlimited classes',
+    popular: true,
+    features: [
+      'Unlimited group classes',
+      'Gloves & wraps to borrow',
+      'Garden & pool access',
+      'Fight night outings',
+    ],
+  },
+  {
+    name: 'Fighter',
+    price: '7,000',
+    unit: 'Per month — fight camp',
+    popular: false,
+    features: ['Twice-daily training', 'Personal fight plan', 'Stadium matchmaking'],
+  },
+];
+// --- BlogCard — démo du composant final (E8, données factices) --------------
+// Direction validée 2026-06-05 : A éditoriale + couture de B. Explorations
+// (scratch incrustée, coupure de presse, photo magazine) : historique git.
+const sgBlogPosts = [
+  {
+    cat: 'Chiang Mai life',
+    title: 'Burning season in Chiang Mai: the honest guide',
+    excerpt:
+      'What the smoky months really mean for training — when to avoid, how we adapt sessions, and when the air is genuinely great.',
+    date: 'Jun 12, 2026',
+    image: { src: '/assets/gym-place.webp', alt: '' },
+  },
+  {
+    cat: 'Beginners',
+    title: 'Muay thai stance & basic moves, explained simply',
+    excerpt:
+      'Feet, guard, hips — the four basics every first-timer learns at Wildcat, and the mistakes we fix the most.',
+    date: 'May 28, 2026',
+    image: { src: '/assets/night-session.webp', alt: '' },
+  },
+  {
+    cat: 'Culture',
+    title: 'The wai kru ram muay, explained by the family',
+    excerpt:
+      'Why fighters dance before they fight — and what the ritual means when you step in for your first stadium bout.',
+    date: 'May 9, 2026',
+    image: { src: '/assets/meaw-training.webp', alt: '' },
+  },
+];
+// --- FAQ v2 — proto accordéon animé (données factices, avant/après) ---------
+const sgFaqItems = [
+  {
+    q: 'Do I need experience to join?',
+    a: 'Not at all — most members started as complete beginners. Come as you are, the family takes it from there.',
+  },
+  {
+    q: 'What should I bring to my first class?',
+    a: 'Comfortable clothes, water and a towel. Gloves and wraps are free to borrow at the gym.',
+    link: { label: 'Your first class, minute by minute', href: '#' },
+  },
+  {
+    q: 'Can I train if I am only in Chiang Mai for a week?',
+    a: 'Absolutely. Drop in for a single class (350 THB) or train every day — no commitment needed.',
+  },
+  {
+    q: 'How do I book?',
+    a: 'Message us on WhatsApp or just show up 15 minutes before a session. No paperwork, no pressure.',
+  },
+];
+
+// --- Fighter guest book — démo du composant final (données factices) --------
+const GB_ACH_LABELS: Record<string, string> = {
+  'first-fight': 'First fight',
+  'stadium-win': 'Stadium win',
+  'ko-win': 'KO win',
+  'five-fights': '5+ fights',
+  'zero-to-hero': 'Zero to hero',
+  'title-belt': 'Title belt',
+  'main-event': 'Main event',
+  'round-two': 'Round two',
+  'long-stay': 'Long stay',
+  'family-og': 'Family OG',
+};
+const gbAch = (...values: string[]) => values.map((value) => ({ value, label: GB_ACH_LABELS[value] }));
+const guestFighters = [
+  {
+    name: 'Sarah Keller',
+    fightName: 'Sarah Wildcat',
+    countryCode: 'FR',
+    year: 2024,
+    quote: 'I came for two weeks. I stayed four months.',
+    sigLine: '2 fights · Thapae Stadium',
+    achievements: gbAch('first-fight', 'stadium-win'),
+    photo: { src: '/assets/hero-team.webp', alt: 'Sarah Keller at the Wildcat camp' },
+  },
+  {
+    name: 'Mike Donovan',
+    countryCode: 'AU',
+    year: 2023,
+    quote: 'Five fights in six months. This family pushed me further than I thought possible.',
+    sigLine: '5 fights · Kalare Stadium · Thapae Stadium',
+    // 5 achievements → test répartition latérale max (2/3 ou 3/2 seedée)
+    achievements: gbAch('first-fight', 'stadium-win', 'ko-win', 'five-fights', 'main-event'),
+    photo: { src: '/assets/hero-team.webp', alt: 'Mike Donovan at the Wildcat camp' },
+  },
+  {
+    name: 'Yuki Tanaka',
+    fightName: 'Tora',
+    countryCode: 'JP',
+    year: 2025,
+    quote: 'My first fight ever, at 34. Best night of my life.',
+    sigLine: '1 fight · Loi Kroh Stadium',
+    achievements: gbAch('first-fight', 'zero-to-hero'),
+  },
+];
+
 ---
 
 <!doctype html>
@@ -373,12 +531,13 @@ const semantics = [
               Round stamp<small class="block font-mono text-[10px] font-normal uppercase text-ink-3">seals · stickers</small>
             </figcaption>
           </figure>
-          <figure class="flex flex-col items-center justify-center rounded-[var(--r-md)] border border-line bg-forest p-5">
-            <div class="dtv-stamp">
-              <div class="big">DTV</div>
-              <div class="l1">Visa Friendly</div>
-              <div class="l2">Muay Thai · Soft Power</div>
+          <figure class="overflow-hidden rounded-[var(--r-md)] border border-line bg-surface">
+            <div class="flex h-24 items-center justify-center bg-forest">
+              <DtvStamp size={80} shadow={false} />
             </div>
+            <figcaption class="p-3 text-[13px] font-bold text-ink">
+              DTV stamp<small class="block font-mono text-[10px] font-normal uppercase text-ink-3">asset officiel · via &lt;DtvStamp /&gt;</small>
+            </figcaption>
           </figure>
         </div>
       </section>
@@ -470,8 +629,9 @@ const semantics = [
         <h2 class="h2 mt-3 mb-2">Surface de base</h2>
         <p class="mb-7 max-w-[60ch] text-ink-2">
           Surface blanche · bordure <code>--line</code> · radius <code>--r-md</code> ·
-          <code>--shadow-sm</code> · hover lift. Réutilisée par programs, pricing, coaches,
-          fighters, blog, témoignages.
+          <code>--shadow-sm</code> · hover lift. Pour les cartes texte simples (blocs prix
+          /classes, blog E8…) — programs &amp; pricing ont leurs composants dédiés (ci-dessous),
+          fighters le scrapbook.
         </p>
         <div class="grid gap-5 md:grid-cols-3">
           <Card>
@@ -492,6 +652,85 @@ const semantics = [
             </p>
           </Card>
         </div>
+      </section>
+
+      <!-- ============================================================
+           Program & Pricing cards — composants finaux (validés
+           2026-06-05) : ProgramCard « incrustée scratch » + PricingCard
+           « scrapbook ». Explorations (relief, ticket, poster sombre,
+           scotch…) : historique git. Composants réels, données factices.
+           ============================================================ -->
+      <section class="mb-20">
+        <SectionHead>Program &amp; Pricing cards</SectionHead>
+        <h2 class="h2 mt-3 mb-2">Cards — <span class="em">scratch &amp; scrapbook.</span></h2>
+        <p class="mb-7 max-w-[62ch] text-ink-2">
+          <strong>ProgramCard</strong> « incrustée » : zéro ombre/bordure, carte entière masquée
+          par une frame déchirée du guest book (2 assets × 2 miroirs, seed sur le titre),
+          transition déchirée photo→carte, niveau manuscrit — réservée aux fonds cream/soft.
+          <strong>PricingCard</strong> « scrapbook » : coches manuscrites, prix cerclé au
+          marqueur + tampon encre sur la populaire — aucune bordure colorée.
+        </p>
+        <div class="grid gap-6 md:grid-cols-3">
+          {cxPrograms.map((p) => (
+            <ProgramCard
+              level={p.level}
+              title={p.title}
+              body={p.body}
+              href="#"
+              moreLabel="Learn more"
+              image={p.image}
+            />
+          ))}
+        </div>
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          {cxPlans.map((plan) => (
+            <PricingCard
+              name={plan.name}
+              price={plan.price}
+              currency="THB"
+              unit={plan.unit}
+              features={[...plan.features]}
+              popular={plan.popular}
+              popularLabel="Most popular"
+              cta={{ label: 'Get started', href: '#', variant: plan.popular ? 'gold' : 'outline' }}
+            />
+          ))}
+        </div>
+      </section>
+
+      <!-- ============================================================
+           BlogCard — composant final (validé 2026-06-05) : éditoriale
+           A + couture déchirée de B. Explorations (scratch incrustée,
+           coupure de presse, photo magazine) : historique git.
+           Composant réel, données factices.
+           ============================================================ -->
+      <section class="mb-20">
+        <SectionHead>Blog card</SectionHead>
+        <h2 class="h2 mt-3 mb-2">Blog card — <span class="em">éditoriale cousue.</span></h2>
+        <p class="mb-7 max-w-[62ch] text-ink-2">
+          La grille <code>/blog</code> doit rester scannable avec 24+ articles et des filtres
+          live : surface Card de base (bordure, hover lift), catégorie manuscrite, extrait
+          clampé 2 lignes, date discrète — et la <strong>couture déchirée</strong> photo→corps
+          seedée sur le titre (famille ProgramCard). Sans cover : placeholder soft-2, la card
+          tient.
+        </p>
+        <div class="grid gap-6 md:grid-cols-3">
+          {
+            sgBlogPosts.map((post, i) => (
+              <BlogCard
+                href="#"
+                title={post.title}
+                excerpt={post.excerpt}
+                category={post.cat}
+                date={{ iso: '2026-06-12', label: post.date }}
+                image={i === 2 ? undefined : post.image}
+              />
+            ))
+          }
+        </div>
+        <p class="mt-3 text-sm text-ink-3">
+          La 3<sup>e</sup> card montre le fallback sans cover.
+        </p>
       </section>
 
       <!-- Callout — encarts d'informations essentielles -->
@@ -519,7 +758,7 @@ const semantics = [
               '180 days per stay, 5-year multiple-entry validity',
             ]}
           >
-            <img src="/assets/dtv-stamp.webp" alt="" width={118} height={118} slot="badge" />
+            <DtvStamp size={118} shadow={false} slot="badge" />
             <a slot="footer" class="font-semibold text-gold-deep underline underline-offset-2" href="#"
               >the official Thai e-Visa portal &rarr;</a
             >
@@ -553,28 +792,12 @@ const semantics = [
         </div>
       </section>
 
-      <!-- Components sample -->
+      <!-- Components sample (program/pricing : mocks retirés — composants
+           réels démo'd dans « Program & Pricing cards » ci-dessus) -->
       <section class="mb-20">
         <SectionHead>Composants</SectionHead>
         <h2 class="h2 mt-3 mb-6">Aperçu</h2>
         <div class="grid gap-5 md:grid-cols-3">
-          <!-- program card -->
-          <article class="overflow-hidden rounded-[var(--r-md)] border border-line bg-surface" style="box-shadow:var(--shadow-sm)">
-            <div class="h-32 bg-soft-2"></div>
-            <div class="p-5">
-              <span class="inline-block rounded-full bg-soft-2 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-forest">Beginners</span>
-              <h3 class="mt-3 font-display text-xl font-bold text-forest">Muay Thai Basics</h3>
-              <p class="mt-1 text-sm text-ink-2">Start strong — stance, movement and technique in a no-ego space.</p>
-            </div>
-          </article>
-          <!-- pricing plan -->
-          <article class="relative flex flex-col rounded-[var(--r-md)] border-[1.5px] border-gold bg-surface p-7" style="box-shadow:var(--shadow-md)">
-            <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gold px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-charcoal">Most popular</span>
-            <div class="text-[13px] font-bold uppercase tracking-wider text-forest">Monthly</div>
-            <div class="font-display text-4xl font-extrabold text-forest">3,500 <span class="text-base font-bold text-ink-3">THB</span></div>
-            <div class="mt-1 text-sm text-ink-2">Unlimited classes</div>
-            <Button variant="gold" class="mt-5 w-full justify-center">Get started</Button>
-          </article>
           <!-- faq -->
           <article class="rounded-[var(--r-md)] border border-line bg-surface p-2">
             <details open class="rounded-[var(--r-sm)] p-3">
@@ -586,6 +809,27 @@ const semantics = [
               <p class="mt-2 text-sm text-ink-2">Comfortable clothes, water and a towel. Gloves &amp; wraps to borrow.</p>
             </details>
           </article>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           FAQ — composant final (v2 portée 2026-06-05) : accordéon
+           <details> animé (WAAPI ~300/260ms) + exclusif (scopé par
+           instance), respiration gauche 30px. Sans JS : natif (snap).
+           reduced-motion : toggle instantané. La page DTV FAQ (FaqSearch)
+           a la même anim SANS exclusivité (multi-ouverte).
+           ============================================================ -->
+      <section class="mb-20">
+        <SectionHead>FAQ</SectionHead>
+        <h2 class="h2 mt-3 mb-2">Accordéon <span class="em">fluide.</span></h2>
+        <p class="mb-7 max-w-[62ch] text-ink-2">
+          Composant réel <code>Faq</code> : animation WAAPI, <strong>exclusif</strong> (ouvrir un
+          item referme l'autre en douceur), <code>firstOpen</code> pour ouvrir le premier item,
+          <code>link</code> optionnel par réponse (maillage). Fallback no-JS = natif ;
+          <code>prefers-reduced-motion</code> = instantané.
+        </p>
+        <div class="max-w-[640px]">
+          <Faq items={sgFaqItems} firstOpen />
         </div>
       </section>
 
@@ -623,6 +867,374 @@ const semantics = [
         Wildcat Muay Thai · Design System v1 · interne (noindex) · juin 2026 · ↓ primitives de
         layout &amp; footer live ci-dessous
       </footer>
+    </div>
+
+    <!-- ============================================================
+         Hero explorations — 4 directions pour le hero de la home
+         (photo équipe /assets/hero-team.webp en background).
+         Mockups internes : strings EN en dur OK ici (page noindex,
+         jamais localisée). La direction retenue sera portée dans
+         Hero.astro + messages i18n.
+         ============================================================ -->
+    <div class="mx-auto max-w-[1100px] px-6 pt-16 pb-2">
+      <SectionHead>Hero explorations</SectionHead>
+      <h2 class="h2 mt-3 mb-2">Home hero — <span class="em">4 directions.</span></h2>
+      <p class="max-w-[62ch] text-ink-2">
+        Photo équipe en background + <strong>H1 brandé</strong> (lockup signature) — le keyword
+        « Muay Thai camp in Chiang Mai » passe dans le sub et le title tag. Variantes en pleine
+        largeur ci-dessous ; redimensionner la fenêtre pour juger le crop mobile.
+      </p>
+    </div>
+
+    <!-- A — Cinématique centré (reco) -->
+    <div class="sg-vcap">
+      <b>A</b> Cinématique centré — lockup H1 sous les visages, metas ◆ en bandeau, brush vers la
+      ValueStrip <span class="reco">reco ⭐</span>
+    </div>
+    <section class="sg-hero sg-heroA">
+      <div class="sg-hero-inner">
+        <h3 class="display sg-title">
+          Come for the fight.<br /><span class="em on-dark">Stay for the family.</span>
+        </h3>
+        <p class="sg-sub">
+          A family-run Muay Thai camp in Chiang Mai — open-air training in a garden, every level
+          welcome, from your first class to a multi-year DTV stay.
+        </p>
+        <div class="sg-ctas">
+          <Button variant="gold" arrow>Start your journey</Button>
+          <Button variant="outline" onDark>View schedule</Button>
+        </div>
+        <div class="sg-metastrip">
+          <span><b>All levels</b> · beginners welcome</span>
+          <i>◆</i>
+          <span><b>Open-air</b> · garden &amp; pool</span>
+          <i>◆</i>
+          <span><b>Up to 5 yrs</b> · DTV visa stay</span>
+        </div>
+      </div>
+      <BrushSeparator class="sg-brushA" aria-hidden="true" />
+    </section>
+    <div class="sg-foreststrip">↓ la ValueStrip (bande forest) enchaîne ici, comme aujourd'hui</div>
+
+    <!-- B — Bottom-left éditorial (alternative SEO-first, pour comparer) -->
+    <div class="sg-vcap">
+      <b>B</b> Bottom-left éditorial — H1 keyword conservé, lockup en eyebrow (l'alternative
+      SEO-first, image décalée à droite)
+    </div>
+    <section class="sg-hero sg-heroB">
+      <div class="sg-hero-innerB">
+        <div class="sg-eyebrow"><span class="em on-dark">come for the fight, stay for the family</span></div>
+        <h3 class="display sg-title">
+          Your Muay Thai <span class="em on-dark">home</span><br />in Chiang Mai.
+        </h3>
+        <p class="sg-sub left">
+          Real training. Real people. Real community — open-air in a Chiang Mai garden.
+        </p>
+        <div class="sg-ctas left">
+          <Button variant="gold" arrow>Start your journey</Button>
+          <Button variant="outline" onDark>View schedule</Button>
+        </div>
+      </div>
+    </section>
+
+    <!-- C — Évolution douce (split conservé, image full-height au bord) -->
+    <div class="sg-vcap">
+      <b>C</b> Évolution douce — grille actuelle sur cream, image full-height jusqu'au bord droit,
+      lockup en H1
+    </div>
+    <section class="sg-heroC">
+      <div class="c-copy">
+        <div class="c-badge"><span class="pill">New</span> DTV visa-friendly long-term training</div>
+        <h3 class="display">
+          Come for the fight.<br /><span class="em">Stay for the family.</span>
+        </h3>
+        <p class="sg-subC">
+          A family-run Muay Thai camp in Chiang Mai — open-air, all levels, from your first class
+          to a multi-year DTV stay.
+        </p>
+        <div class="sg-ctas left">
+          <Button variant="gold" arrow>Start your journey</Button>
+          <Button variant="outline">View schedule</Button>
+        </div>
+      </div>
+      <div class="c-media">
+        <img src="/assets/hero-team.webp" alt="The Wildcat team lined up in the open-air gym" />
+        <div class="c-float">
+          <div class="t">Train together.</div>
+          <div class="d">Grow together. On and off the mat.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- D — Poster stacked (mock Illustrator traduit) -->
+    <div class="sg-vcap">
+      <b>D</b> Poster stacked — bande forest + tigre watermark (le mock Illustrator), photo
+      dessous — CTAs sous la fold ⚠️
+    </div>
+    <section class="sg-heroD">
+      <div class="d-band">
+        <div class="d-tiger" aria-hidden="true"></div>
+        <h3 class="display sg-title">
+          Come for the fight.<br /><span class="em on-dark">Stay for the family.</span>
+        </h3>
+        <img class="d-logo" src="/assets/logo-horizontal-cream.svg" alt="Wildcat" />
+      </div>
+      <div class="d-photo">
+        <img src="/assets/hero-team.webp" alt="The Wildcat team lined up in the open-air gym" />
+      </div>
+    </section>
+
+    <!-- D2 — Poster inversé : photo en haut, brush en liaison, contenu sur forest -->
+    <div class="sg-vcap">
+      <b>D2</b> Poster inversé — photo en haut, brush en liaison, lockup + CTAs sur bande forest
+      (lisibilité max, photo intacte)
+    </div>
+    <section class="sg-heroD2">
+      <div class="d2-photo">
+        <img src="/assets/hero-team.webp" alt="The Wildcat team lined up in the open-air gym" />
+        <BrushSeparator class="d2-brush" aria-hidden="true" />
+      </div>
+      <div class="d2-band">
+        <div class="d-tiger" aria-hidden="true"></div>
+        <h3 class="display sg-title">
+          Come for the fight.<br /><span class="em on-dark">Stay for the family.</span>
+        </h3>
+        <p class="sg-sub">
+          A family-run Muay Thai camp in Chiang Mai — open-air training in a garden, every level
+          welcome, from your first class to a multi-year DTV stay.
+        </p>
+        <div class="sg-ctas">
+          <Button variant="gold" arrow>Start your journey</Button>
+          <Button variant="outline" onDark>View schedule</Button>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-[1100px] px-6 pb-16 pt-8">
+      <p class="text-sm text-ink-3">
+        À valider sur la direction retenue : crop mobile (5 personnes en ligne → ~3 au centre en
+        portrait, sinon crop dédié via <code>&lt;picture&gt;</code>), variantes responsive de
+        <code>hero-team.webp</code> (recompressé 1920px / 207 KB — source 2000px dans
+        <code>PNG/</code>), et un grade golden-hour léger sur la photo (lumière de midi un peu
+        plate vs. la vibe DESIGN.md).
+      </p>
+    </div>
+
+    <!-- ============================================================
+         Fighter guest book — composant final (direction « polaroid »
+         validée ; protos F·A/C/D retirés — historique : commit
+         explorations). FighterCard + AchievementStamp réels, données
+         factices. Les stamps encre générés remplaceront le fallback
+         CSS via STAMP_ASSETS (AchievementStamp.astro).
+         ============================================================ -->
+    <div class="mx-auto max-w-[1100px] px-6 pt-16 pb-16">
+      <SectionHead>Fighter guest book</SectionHead>
+      <h2 class="h2 mt-3 mb-2">The fight family <span class="em">guest book.</span></h2>
+      <p class="max-w-[62ch] text-ink-2">
+        Un livre d'or, pas un roster : chaque guest monté sur un ring de Chiang Mai a sa page.
+        <strong>Aucun record W/L</strong> — la stat unique est le nombre de combats pris, les
+        victoires deviennent des <strong>stamps</strong>. 2<sup>e</sup> carte = tronquage à
+        3 stamps, 3<sup>e</sup> = fallback sans photo.
+      </p>
+
+      <!-- Compteur agrégé (sur /fighters : calculé depuis Sanity au build) -->
+      <div class="fg-counter mt-8">
+        <div class="fg-count"><b>27</b><span>family members</span></div>
+        <i>◆</i>
+        <div class="fg-count"><b>41</b><span>fights taken</span></div>
+        <i>◆</i>
+        <div class="fg-count"><b>12</b><span>nationalities</span></div>
+      </div>
+
+      <!-- Cards réelles -->
+      <div class="fg-demo-grid mt-12 grid gap-y-10 gap-x-16 md:grid-cols-3">
+        {guestFighters.map((f) => <FighterCard {...f} achListLabel="Achievements" />)}
+      </div>
+
+      <!-- Inventaire des 10 stamps -->
+      <h3 class="h3 mt-14 mb-2">Les 10 tampons</h3>
+      <p class="mb-6 max-w-[62ch] text-sm text-ink-2">
+        Encres : gold = jalons personnels · forest = camp &amp; constance · terracotta = exploits
+        de ring. Fallback CSS ci-dessous — remplacé tampon par tampon dès qu'un asset encre (fond
+        blanc, rendu multiply) est posé dans <code>public/assets/stamps/</code> + mappé dans
+        <code>STAMP_ASSETS</code> (AchievementStamp.astro).
+      </p>
+      <div class="fg-stamp-inventory flex flex-wrap items-start gap-4 rounded-[var(--r-lg)] border border-line bg-soft p-7">
+        {Object.entries(GB_ACH_LABELS).map(([value, label]) => (
+          <AchievementStamp value={value} label={label} rot={seedRot(value)} />
+        ))}
+      </div>
+      <p class="mt-4 text-sm text-ink-3">
+        Assets bienvenus : 10 stamps encre (prompts fournis à Jonathan), tampon rond « Wildcat
+        Family » (filigrane fallback sans photo).
+      </p>
+    </div>
+
+    <!-- ============================================================
+         Torn dividers — coutures déchirées entre sections full-bleed.
+         Asset = bande alpha (public/assets/dividers/) générée par
+         tests/process-divider.py depuis une silhouette N/B stagée dans
+         PNG/dividers/. 4 variantes par source (base/flipx/seg-a/seg-b),
+         flip-Y fait en CSS (1 asset = 2 orientations). Composant :
+         TornDivider (layout/) — props variant/color/bg/flipX/flipY.
+         Le brush SVG des heroes reste un vocabulaire distinct.
+         ============================================================ -->
+    <div class="mx-auto max-w-[1100px] px-6 pt-16 pb-8">
+      <SectionHead>Torn dividers</SectionHead>
+      <h2 class="h2 mt-3 mb-2">Coutures <span class="em">déchirées.</span></h2>
+      <p class="max-w-[62ch] text-ink-2">
+        À poser <strong>entre deux sections full-bleed</strong> à fort contraste.
+        <code>color</code> = la couleur qui déborde (l'encre) ; <code>flipY</code> oriente le tear
+        (défaut : la section du dessous mord vers le haut) ; <code>bg</code> = couleur révélée si
+        la section adjacente n'est pas cream (ex. <code>var(--soft)</code>). Nouvelle source :
+        <code>python tests/process-divider.py "PNG/dividers/&lt;img&gt;.webp" &lt;slug&gt;</code>.
+      </p>
+    </div>
+
+    <div class="td-demo" aria-label="Démo torn dividers">
+      <div class="td-band td-band--deep"><span>rough-base · flipY — le dessus (forest-deep) déchire vers le bas</span></div>
+      <TornDivider variant="rough-base" color="var(--forest-deep)" flipY />
+      <div class="td-band td-band--cream"><span>rough-flipx — le dessous (forest) mord vers le haut</span></div>
+      <TornDivider variant="rough-flipx" color="var(--forest)" />
+      <div class="td-band td-band--forest"><span>rough-seg-a · flipY · bg soft — révèle une Section soft</span></div>
+      <TornDivider variant="rough-seg-a" color="var(--forest)" bg="var(--soft)" flipY />
+      <div class="td-band td-band--soft"><span>rough-seg-b · bg soft — gold pour mémoire (tout token passe)</span></div>
+      <TornDivider variant="rough-seg-b" color="var(--gold)" bg="var(--soft)" />
+      <div class="td-band td-band--gold"><span>ridge-base · flipY — crêtes rocheuses fines, plus nerveux que rough</span></div>
+      <TornDivider variant="ridge-base" color="var(--gold)" flipY />
+      <div class="td-band td-band--cream"><span>ridge-flipx — le dessous (forest-deep) mord vers le haut</span></div>
+      <TornDivider variant="ridge-flipx" color="var(--forest-deep)" />
+      <div class="td-band td-band--deep"><span>wave-base · flipY · bg soft — vagues organiques (herbe / pinceau)</span></div>
+      <TornDivider variant="wave-base" color="var(--forest-deep)" bg="var(--soft)" flipY />
+      <div class="td-band td-band--soft"><span>wave-seg-a · bg soft — rythme décalé pour usage dos à dos</span></div>
+      <TornDivider variant="wave-seg-a" color="var(--forest)" bg="var(--soft)" />
+      <div class="td-band td-band--forest"><span>fin de démo</span></div>
+    </div>
+
+    <!-- ============================================================
+         CtaBanner — composant final à variantes (explorations validées
+         et portées 2026-06-05 : torn / scrapbook / split, l'ancienne
+         carte forest arrondie est retirée). Démos = composant réel,
+         strings EN en dur OK (noindex). La direction D (tiger card)
+         reste un proto — retravaillée par Jonathan.
+         ============================================================ -->
+    <div class="mx-auto max-w-[1100px] px-6 pt-16 pb-2">
+      <SectionHead>CTA banner</SectionHead>
+      <h2 class="h2 mt-3 mb-2">CtaBanner — <span class="em">3 variantes.</span></h2>
+      <p class="max-w-[62ch] text-ink-2">
+        Composant réel <code>CtaBanner</code>, prop <code>variant</code> choisie selon le contexte
+        de la page : <code>torn</code> (grand finale full-bleed — home, pillars),
+        <code>scrapbook</code> (frame guest book — classes, fighters, satellites),
+        <code>split</code> (copy + photo — beginners, about). Aléatoire seedé sur le titre
+        (miroir du mask, tape). Props : <code>hand</code> (Caveat), <code>sub</code>,
+        <code>caption</code> + <code>image.alt</code> (split).
+      </p>
+    </div>
+
+    <div class="sg-vcap">
+      <b>torn</b> full-bleed déchiré — photo jusque dans les dents, base <code>--night</code>,
+      grade + voile gold
+    </div>
+    <CtaBanner
+      variant="torn"
+      hand="Ready when you are —"
+      title="Come for the fight."
+      titleEm="Stay for the family."
+      sub="One class or one season — the garden is open and there's always a seat at the table."
+      ctaPrimary={{ label: 'Book your first class', href: '#' }}
+      ctaSecondary={{ label: 'Chat on WhatsApp', href: '#' }}
+      image={{ src: '/assets/gym-garden.jpg' }}
+    />
+
+    <div class="sg-vcap">
+      <b>scrapbook</b> bannière masquée torn-t2 plein cadre (4 côtés déchirés), tape seedé,
+      vignette noire teintée
+    </div>
+    <CtaBanner
+      variant="scrapbook"
+      hand="From the guest book —"
+      title="Your page starts"
+      titleEm="here."
+      sub="Train with the family, fight if you want to — and leave your mark in Chiang Mai."
+      ctaPrimary={{ label: 'Start your journey', href: '#' }}
+      ctaSecondary={{ label: 'Meet the family', href: '#' }}
+      image={{ src: '/assets/night-session.webp' }}
+    />
+
+    <div class="sg-vcap">
+      <b>split</b> bande soft entre deux coutures — copy + photo incrustée guest book (tape +
+      légende Caveat)
+    </div>
+    <CtaBanner
+      variant="split"
+      hand="Come for the fight —"
+      title="Stay for the"
+      titleEm="family."
+      sub="A family-run camp in a Chiang Mai garden. Drop in for one class, stay for a season — train, eat, recover and laugh with us either way."
+      caption="fight night with the family ♥"
+      ctaPrimary={{ label: 'Book your first class', href: '#' }}
+      ctaSecondary={{ label: 'Plan your stay', href: '#' }}
+      image={{ src: '/assets/family-party.webp', alt: 'The Wildcat family at a night out' }}
+    />
+
+    <!-- D — Tiger card (inspiration Jonathan) : carte arrondie texturée
+         (asset decor/cta-texture.webp — suède forest + tigre line-art +
+         moustaches or), copy à gauche, photo masquée dans la silhouette
+         tigre (decor/tiger-shape.webp, alpha natif) à droite. -->
+    <div class="sg-vcap">
+      <b>D</b> Tiger card — carte texturée (asset fourni), copy + features row à gauche, photo
+      incrustée dans la silhouette tigre à droite (mask alpha)
+    </div>
+    <div class="sg-ctaD-zone">
+      <section class="sg-cta2 sg-cta2D">
+        <div class="d2c-copy">
+          <h3 class="display d2c-title">
+            Train hard,<br /><span class="em on-dark">belong</span> longer.
+          </h3>
+          <p class="d2c-sub">
+            More than training — we help you settle into camp life in Chiang Mai, with
+            accommodation, wheels and local support.
+          </p>
+          <div class="sg-ctas2 left">
+            <Button variant="gold" arrow>Start your stay</Button>
+            <Button variant="outline" onDark>See packages</Button>
+          </div>
+          <a class="d2c-wa" href="#">
+            <Icon name="tabler:brand-whatsapp" class="h-5 w-5" /> Chat on WhatsApp
+          </a>
+          <div class="d2c-feats">
+            <span><Icon name="tabler:bed" class="h-5 w-5" /> Comfortable rooms</span>
+            <span><Icon name="tabler:motorbike" class="h-5 w-5" /> Scooter rental</span>
+            <span><Icon name="tabler:calendar-event" class="h-5 w-5" /> Weekly rates</span>
+            <span><Icon name="tabler:users" class="h-5 w-5" /> Local support</span>
+          </div>
+        </div>
+        <div class="d2c-media">
+          <div class="d2c-tigerwrap">
+            <img
+              class="d2c-tiger"
+              src="/assets/gym-garden.jpg"
+              alt="Open-air training in the Wildcat garden"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="mx-auto max-w-[1100px] px-6 pb-16 pt-10">
+      <p class="max-w-[72ch] text-sm text-ink-3">
+        <strong>Option « forme custom » (asset Jonathan)</strong> — deux voies possibles :
+        <strong>mask (reco)</strong> : PNG <em>alpha</em> (opaque = visible, transparent = coupé),
+        la couleur du PNG est ignorée — le fond reste pilotable par token CSS (forest, soft…).
+        Ratio proche de la bannière (~3:1, le mask est étiré), garder 6–12&nbsp;% de marge pleine
+        sur les bords (le mask est posé en 104–112&nbsp;% pour mordre sans entamer le texte) ;
+        une silhouette N&amp;B passe par <code>tests/process-divider.py</code>.
+        <strong>background</strong> : forme die-cut déjà colorée/texturée (PNG/WebP fond
+        transparent, 2× retina, ratio = bloc) posée en <code>background</code>, texte en overlay —
+        à réserver à une illustration riche non reproductible en aplat (zone centrale assez
+        sombre/unie pour le contraste cream).
+      </p>
     </div>
 
     <!-- Layout primitives — full-bleed (hors wrapper), composants réels -->
@@ -664,6 +1276,26 @@ const semantics = [
     <Footer />
 
     <style>
+      /* Démo torn dividers — bandes mock pleine largeur */
+      .td-band {
+        min-height: 110px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px var(--gutter);
+      }
+      .td-band span {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        opacity: 0.75;
+      }
+      .td-band--deep { background: var(--forest-deep); color: var(--cream); }
+      .td-band--forest { background: var(--forest); color: var(--cream); }
+      .td-band--cream { background: var(--cream); color: var(--ink-2); }
+      .td-band--soft { background: var(--soft); color: var(--ink-2); }
+      .td-band--gold { background: var(--gold); color: var(--charcoal); }
+
       /* Motifs (repris de brand-board.css, adaptés aux tokens) */
       .m-stripes {
         background: repeating-linear-gradient(60deg, var(--forest) 0 14px, var(--gold) 14px 28px);
@@ -703,51 +1335,489 @@ const semantics = [
         padding: 6px;
       }
 
-      /* DTV stamp (repris de landing.css) */
-      .dtv-stamp {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        background: radial-gradient(circle at 50% 34%, #efb63a, #db9a14);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: #1c1407;
-        border: 3px solid #1c1407;
-        box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.7);
-        position: relative;
-      }
-      .dtv-stamp::before {
-        content: '';
-        position: absolute;
-        inset: 9px;
-        border: 1.5px solid rgba(28, 20, 7, 0.45);
-        border-radius: 50%;
-      }
-      .dtv-stamp .big {
-        font-family: var(--font-display);
-        font-weight: 800;
-        font-size: 34px;
-        line-height: 0.85;
-      }
-      .dtv-stamp .l1 {
-        font-weight: 800;
-        font-size: 9px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        margin-top: 6px;
-      }
-      .dtv-stamp .l2 {
-        font-size: 8px;
-        font-weight: 700;
-        margin-top: 3px;
-        opacity: 0.85;
-      }
+      /* DTV stamp : désormais un asset image (/assets/dtv-stamp.webp) servi
+         par le composant <DtvStamp /> — l'ancien sceau CSS est retiré. */
 
       details summary::-webkit-details-marker { display: none; }
       details[open] summary span { transform: rotate(45deg); display: inline-block; }
+
+      /* ============================================================
+         Hero explorations (mockups A/B/C/D)
+         Overlays : toujours forest-deep teinté (jamais de noir pur —
+         anti "warrior gym") + voile gold ~6% pour réchauffer la photo.
+         ============================================================ */
+      .sg-vcap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        margin-top: 44px;
+        padding: 10px var(--gutter);
+        background: var(--charcoal);
+        color: var(--cream);
+        font-size: 13px;
+      }
+      .sg-vcap b {
+        background: var(--gold);
+        color: #1c1407;
+        border-radius: 6px;
+        padding: 1px 9px;
+        font-family: var(--font-display);
+      }
+      .sg-vcap .reco {
+        margin-left: auto;
+        color: var(--gold);
+        font-weight: 700;
+      }
+
+      /* --- full-bleed photo heroes (A + B) --- */
+      .sg-hero {
+        position: relative;
+        overflow: hidden;
+        min-height: clamp(540px, 78vh, 760px);
+        background-image: url('/assets/hero-team.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+      }
+      .sg-title { color: var(--cream); }
+      .sg-sub {
+        color: rgba(246, 241, 230, 0.88);
+        font-size: clamp(17px, 1.5vw, 20px);
+        max-width: 52ch;
+        margin: 20px 0 28px;
+      }
+      .sg-ctas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+      .sg-ctas.left { justify-content: flex-start; }
+
+      /* A — centré, ancré bas, gradient vertical + voile gold.
+         Plus haut que B (88vh) : la place verticale permet visages intacts
+         en haut ET texte lisible en bas, qui chevauche le brush. */
+      .sg-heroA {
+        background-position: center 60%;
+        align-items: flex-end;
+        justify-content: center;
+        min-height: clamp(600px, 88vh, 860px);
+      }
+      .sg-heroA::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(224, 166, 43, 0.06), rgba(224, 166, 43, 0.06)),
+          linear-gradient(
+            180deg,
+            rgba(17, 17, 17, 0.6) 0%,
+            rgba(17, 17, 17, 0.32) 26%,
+            rgba(17, 17, 17, 0.65) 54%,
+            rgba(17, 17, 17, 0.92) 100%
+          );
+      }
+      .sg-hero-inner {
+        position: relative;
+        z-index: 2; /* au-dessus du brush — le texte le chevauche un peu */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 880px;
+        margin: 0 auto;
+        padding: clamp(140px, 20vh, 220px) var(--gutter) clamp(24px, 3vw, 44px);
+      }
+      /* brush DANS le hero, absolu sur le bas de la photo → overlap complet,
+         jamais de cream visible. La bande forest enchaîne au ras dessous. */
+      .sg-brushA {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        width: 100%;
+        height: auto;
+        z-index: 1;
+      }
+      .sg-brushA :global(path) { fill: var(--forest); }
+      .sg-metastrip {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 14px 18px;
+        margin-top: 34px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(246, 241, 230, 0.25);
+        color: rgba(246, 241, 230, 0.85);
+        font-size: 13.5px;
+      }
+      .sg-metastrip b { color: var(--cream); font-weight: 800; }
+      .sg-metastrip i { color: var(--gold); font-style: normal; font-size: 10px; }
+
+      .sg-foreststrip {
+        background: var(--forest);
+        color: rgba(246, 241, 230, 0.6);
+        text-align: center;
+        font-size: 12px;
+        padding: 14px 0 18px;
+      }
+
+      /* B — bottom-left, image décalée à droite, gradient diagonal */
+      .sg-heroB {
+        background-position: 70% 68%;
+        align-items: flex-end;
+      }
+      .sg-heroB::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(224, 166, 43, 0.05), rgba(224, 166, 43, 0.05)),
+          linear-gradient(
+            76deg,
+            rgba(33, 66, 44, 0.94) 0%,
+            rgba(33, 66, 44, 0.62) 34%,
+            rgba(33, 66, 44, 0.12) 64%,
+            rgba(33, 66, 44, 0.3) 100%
+          );
+      }
+      .sg-hero-innerB {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: clamp(160px, 22vh, 220px) var(--gutter) clamp(56px, 6vw, 84px);
+      }
+      .sg-hero-innerB .sg-sub { margin-bottom: 26px; }
+      .sg-eyebrow { font-size: clamp(17px, 1.6vw, 21px); margin-bottom: 14px; }
+
+      /* C — split cream, image full-height jusqu'au bord droit */
+      .sg-heroC {
+        background: var(--cream);
+        display: grid;
+        grid-template-columns: 1.04fr 1fr;
+        align-items: center;
+        gap: clamp(24px, 4vw, 46px);
+      }
+      .sg-heroC .c-copy {
+        padding: clamp(48px, 6vw, 80px) 0 clamp(48px, 6vw, 80px)
+          max(var(--gutter), calc((100vw - var(--maxw)) / 2));
+      }
+      .c-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 22px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 7px 14px 7px 8px;
+        font-size: 12.5px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: var(--forest);
+        box-shadow: var(--shadow-sm);
+      }
+      .c-badge .pill {
+        background: var(--gold);
+        color: #1c1407;
+        font-size: 11px;
+        padding: 3px 9px;
+        border-radius: 999px;
+        letter-spacing: 0.04em;
+      }
+      .sg-subC {
+        color: var(--ink-2);
+        font-size: clamp(17px, 1.5vw, 20px);
+        max-width: 40ch;
+        margin: 18px 0 28px;
+      }
+      .sg-heroC .c-media {
+        position: relative;
+        align-self: stretch;
+        min-height: 480px;
+      }
+      .sg-heroC .c-media > img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 45% 30%;
+      }
+      .c-float {
+        position: absolute;
+        left: -18px;
+        bottom: 26px;
+        background: var(--forest);
+        color: var(--cream);
+        border-radius: var(--r-md);
+        padding: 14px 18px;
+        box-shadow: var(--shadow-lg);
+        max-width: 210px;
+      }
+      .c-float .t { color: var(--gold); font-weight: 800; font-size: 15px; margin-bottom: 2px; }
+      .c-float .d { font-size: 12.5px; color: rgba(246, 241, 230, 0.8); line-height: 1.4; }
+
+      /* D — poster stacked : bande forest + tigre watermark, photo dessous */
+      .sg-heroD .d-band {
+        position: relative;
+        overflow: hidden;
+        background: var(--forest);
+        text-align: center;
+        padding: clamp(48px, 7vw, 90px) var(--gutter);
+      }
+      .d-tiger {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: min(480px, 70%);
+        background: var(--cream);
+        opacity: 0.07;
+        -webkit-mask: url('/assets/logo-only.svg') center / contain no-repeat;
+        mask: url('/assets/logo-only.svg') center / contain no-repeat;
+      }
+      .sg-heroD .sg-title { position: relative; }
+      .d-logo {
+        position: relative;
+        display: block;
+        height: 30px;
+        width: auto;
+        margin: 28px auto 0;
+        opacity: 0.92;
+      }
+      .d-photo img {
+        display: block;
+        width: 100%;
+        height: clamp(280px, 38vw, 440px);
+        object-fit: cover;
+        object-position: center 30%;
+      }
+
+      /* D2 — poster inversé : photo en haut + brush (forest) qui mord le bas
+         de la photo, contenu 100% lisible sur la bande forest dessous */
+      .sg-heroD2 .d2-photo {
+        position: relative;
+      }
+      .sg-heroD2 .d2-photo > img {
+        display: block;
+        width: 100%;
+        height: clamp(380px, 62vh, 640px);
+        object-fit: cover;
+        object-position: center 28%;
+      }
+      .sg-heroD2 .d2-photo::after {
+        /* léger voile forest+gold pour lier la photo à la palette */
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(224, 166, 43, 0.05), rgba(224, 166, 43, 0.05)),
+          rgba(33, 66, 44, 0.16);
+      }
+      .d2-brush {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        width: 100%;
+        height: auto;
+        z-index: 1;
+      }
+      .d2-brush :global(path) { fill: var(--forest); }
+      .d2-band {
+        position: relative;
+        overflow: hidden;
+        background: var(--forest);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        /* compacte : la photo domine, la bande porte juste lockup + sub + CTAs */
+        padding: clamp(12px, 1.6vw, 24px) var(--gutter) clamp(36px, 4vw, 56px);
+      }
+      .d2-band .sg-sub { margin: 14px 0 22px; }
+
+      @media (max-width: 860px) {
+        .sg-heroC { grid-template-columns: 1fr; gap: 0; }
+        .sg-heroC .c-copy { padding: 40px var(--gutter) 36px; }
+        .sg-heroC .c-media { min-height: 380px; margin: 0 0 0 var(--gutter); }
+        .c-float { left: 12px; }
+        .sg-vcap .reco { margin-left: 0; }
+      }
+
+      /* ============================================================
+         Fighter guest book — démo composant final (le gros du style
+         vit dans FighterCard.astro / AchievementStamp.astro).
+         ============================================================ */
+      .fg-counter {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 14px 26px;
+        background: var(--forest);
+        color: var(--cream);
+        border-radius: var(--r-lg);
+        padding: 24px 30px;
+        box-shadow: var(--shadow-md);
+      }
+      .fg-count { display: flex; align-items: baseline; gap: 10px; }
+      .fg-count b {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(28px, 3vw, 38px);
+        line-height: 1;
+        color: var(--gold);
+      }
+      .fg-count span { font-size: 13.5px; color: rgba(246, 241, 230, 0.85); }
+      .fg-counter > i { color: var(--gold); font-style: normal; font-size: 11px; }
+
+      @media (min-width: 768px) {
+        /* punaisé, pas aligné au cordeau */
+        .fg-demo-grid > :global(*:nth-child(even)) { margin-top: 34px; }
+      }
+
+      /* ============================================================
+         CTA — proto D « tiger card » (les variantes A/B2/C portées dans
+         CtaBanner.astro ; leurs styles vivent dans le composant).
+         ============================================================ */
+      .sg-ctas2 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+      .sg-ctas2.left {
+        justify-content: flex-start;
+      }
+
+      /* --- D : tiger card (texture + silhouette fournies) --- */
+      .sg-ctaD-zone {
+        max-width: 1240px;
+        margin-inline: auto;
+        padding: clamp(36px, 5vw, 56px) var(--gutter);
+      }
+      .sg-cta2D {
+        position: relative; /* ancrage du tigre bas/droite */
+        /* aplat forest simple (la texture, gardée pour le footer, jurait
+           avec la silhouette photo — l'aplat la fait mieux ressortir) */
+        background: var(--forest);
+        border-radius: var(--r-xl);
+        color: var(--cream);
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: clamp(24px, 4vw, 56px);
+        align-items: center;
+        padding: clamp(40px, 6vw, 84px) clamp(28px, 5vw, 72px);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+      .d2c-title {
+        color: var(--cream);
+        font-size: clamp(36px, 4.6vw, 62px);
+      }
+      .d2c-sub {
+        color: rgba(246, 241, 230, 0.85);
+        font-size: clamp(16px, 1.4vw, 19px);
+        max-width: 44ch;
+        margin: 16px 0 26px;
+      }
+      .d2c-wa {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 20px;
+        color: var(--cream);
+        font-weight: 700;
+        font-size: 15px;
+        text-decoration: none;
+      }
+      .d2c-wa:hover {
+        color: var(--gold);
+      }
+      .d2c-wa :global(svg) {
+        color: var(--gold);
+      }
+      .d2c-feats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 26px;
+        margin-top: 28px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(246, 241, 230, 0.18);
+        font-size: 13.5px;
+        color: rgba(246, 241, 230, 0.85);
+      }
+      .d2c-feats span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+      }
+      .d2c-feats :global(svg) {
+        color: var(--gold);
+        flex: none;
+      }
+      .d2c-media {
+        /* réserve la hauteur de carte pour le tigre absolu */
+        min-height: clamp(280px, 30vw, 460px);
+      }
+      .d2c-tigerwrap {
+        /* tête de profil collée au bas/droite de la CARTE (échappe au
+           padding via absolute — la silhouette touche les vrais bords,
+           clippée par le radius : rendu « intégré ») */
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: min(52%, 620px);
+        aspect-ratio: 1008 / 972;
+        -webkit-mask-image: url('/assets/decor/tiger-head.webp');
+        mask-image: url('/assets/decor/tiger-head.webp');
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: bottom right;
+        mask-position: bottom right;
+      }
+      .d2c-tigerwrap::after {
+        /* scratches légères (pattern FighterCard) — masquées avec la photo */
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('/assets/textures/photo-scratches.png') center / cover;
+        mix-blend-mode: screen;
+        opacity: 0.18;
+        pointer-events: none;
+      }
+      .d2c-tiger {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @media (max-width: 860px) {
+        .sg-cta2D {
+          grid-template-columns: 1fr;
+          gap: 36px;
+          /* le tigre repasse in-flow, collé au bord bas de la carte */
+          padding-bottom: 0;
+        }
+        .d2c-media {
+          min-height: 0;
+        }
+        .d2c-tigerwrap {
+          position: static;
+          width: 100%;
+          margin-left: auto;
+        }
+      }
+
     </style>
   </body>
 </html>

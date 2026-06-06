@@ -1,0 +1,260 @@
+{
+  "keyword": "all inclusive muay thai camps in thailand",
+  "location": "United States",
+  "scanned_at": "2026-06-05",
+  "sample_size": 9,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.tigermuaythai.com/",
+      "title": "Muay Thai, MMA & Fitness training Camp Phuket Thailand",
+      "page_type": "service",
+      "competitor_type": "large_phuket_megacamp",
+      "covers": [
+        "all-inclusive training package (mix-and-match Muay Thai, MMA, BJJ, fitness, yoga, S&C)",
+        "on-site accommodation tiers (dorm 6,000 THB/mo, fighters budget 8,000, standard bungalow 16,000)",
+        "twice-daily training",
+        "dedicated /prices and expected-expenses/budget pages with THB figures",
+        "world-renowned brand recognition"
+      ],
+      "missing": [
+        "warm/familial small-camp vibe (this is a high-volume 'farang factory')",
+        "single transparent bundled THB price for training+stay+food (broken across many pages)",
+        "Chiang Mai / non-Phuket angle",
+        "female-led / family ownership story"
+      ],
+      "eeat_signals": [
+        "most recognized Muay Thai brand in Thailand",
+        "established camp with stadium fighters",
+        "detailed budget/expenses pages",
+        "blocked WebFetch (403) but heavily linked/cited authority"
+      ]
+    },
+    {
+      "rank": 2,
+      "url": "https://muaythaibattleconquer.com/top-10-muay-thai-camps-in-thailand-2026-guide/",
+      "title": "Top 10 Muay Thai Camps in Thailand (2026 Guide)",
+      "page_type": "listicle",
+      "competitor_type": "affiliate_directory_listicle",
+      "covers": [
+        "ranked list of 10 camps (Tiger, AKA, Punch It, Kombat, Santai, Fairtex, Khongsittha...)",
+        "'How much does a camp cost' section (training+accom GBP 400-900/mo, all-inclusive GBP 800-1,500/mo)",
+        "'What to look for' + 'Is it worth it' info sections",
+        "author byline (Sarah Hackett)"
+      ],
+      "missing": [
+        "deep per-camp inclusion breakdown (meals/session counts vague)",
+        "THB-native transparent pricing (uses GBP ranges)",
+        "no FAQ schema / PAA block",
+        "promotional bias (site represents one of the listed camps)"
+      ],
+      "eeat_signals": [
+        "named author",
+        "Tripadvisor Travellers' Choice reference",
+        "2026-dated guide"
+      ]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.nowmuaythai.com/blog/authentic-all-inclusive-muay-thai-programs-in-thailand-train-and-stay",
+      "title": "Authentic All-Inclusive Muay Thai Programs in Thailand | Train & Stay",
+      "page_type": "booking-platform",
+      "competitor_type": "aggregator_booking_platform",
+      "covers": [
+        "exact-match 'all-inclusive' intent content",
+        "3-destinations framing: Chiang Mai / Phuket / Phetchabun",
+        "standard inclusions list (dorm/private room, breakfast+dinner, 2 sessions/day 6 days/wk, pool/gym/yoga)",
+        "named partner gyms (Banchamek/Buakaw, Bangarang, AKA)",
+        "60+ certified gym network, Thai SAT/TAT/DBD registrations"
+      ],
+      "missing": [
+        "NO prices shown (deliberately withheld — must book on platform)",
+        "single-camp authenticity / owner story (it's an aggregator)",
+        "transparent THB cost breakdown",
+        "direct 'book the camp itself' trust (intermediary)"
+      ],
+      "eeat_signals": [
+        "government registrations (Thai SAT, TAT, DBD)",
+        "famous fighters (Buakaw, Mike Swick/AKA)",
+        "60+ certified gym partnerships",
+        "Tripadvisor credential references"
+      ]
+    },
+    {
+      "rank": 4,
+      "url": "https://bangtaomuaythai.com/",
+      "title": "The #1 Muay Thai, MMA & Fitness camp in Phuket Thailand",
+      "page_type": "service",
+      "competitor_type": "large_phuket_megacamp",
+      "covers": [
+        "MMA/fitness multi-discipline camp",
+        "prices/packages page",
+        "'what to bring' supporting content",
+        "Phuket beach-camp positioning"
+      ],
+      "missing": [
+        "exact 'all-inclusive' keyword focus (broad camp homepage)",
+        "Chiang Mai angle",
+        "family/female-led warmth",
+        "single bundled transparent price"
+      ],
+      "eeat_signals": [
+        "self-described #1 Phuket camp",
+        "established multi-discipline facility",
+        "supporting blog content"
+      ]
+    },
+    {
+      "rank": 5,
+      "url": "https://sumaleeboxinggym.com/12-week-muay-thai-fight-camp-in-thailand/",
+      "title": "12-Week Muay Thai Fight Camp in Thailand | Sumalee Boxing Gym",
+      "page_type": "service",
+      "competitor_type": "boutique_fightcamp_phuket",
+      "covers": [
+        "12-week all-inclusive fight camp (accommodation, training, private coaching, nutrition, debut fight arranged)",
+        "structured outcome (First Fight in Thailand promotion debut)",
+        "fixed-duration package framing"
+      ],
+      "missing": [
+        "beginner / casual all-inclusive option (this is fight-outcome focused)",
+        "shorter week/month flexibility up front",
+        "Chiang Mai relevance",
+        "low-commitment entry"
+      ],
+      "eeat_signals": [
+        "named gym brand",
+        "fight-promotion partnership (First Fight)",
+        "structured 12-week program credibility"
+      ]
+    },
+    {
+      "rank": 6,
+      "url": "https://www.kombatgroup.com/",
+      "title": "Kombat Group Thailand",
+      "page_type": "service",
+      "competitor_type": "boutique_allinclusive_retreat",
+      "covers": [
+        "explicit beginner-friendly all-inclusive stay",
+        "daily coach-led training",
+        "fresh meals + supportive community framing",
+        "transparent-ish package ($700/mo all-inclusive cited externally: 2x/day training, 3 meals, accommodation, pool, multi-discipline)",
+        "'what to bring to Kombat Group' page"
+      ],
+      "missing": [
+        "Muay-Thai-pure focus (multi-discipline boot-camp wellness blend)",
+        "Chiang Mai / authentic-Thai-camp positioning",
+        "THB-native pricing",
+        "real-fighter / Thai-family heritage"
+      ],
+      "eeat_signals": [
+        "clear beginner program",
+        "community testimonials",
+        "transparent inclusions and pricing",
+        "dedicated prep content"
+      ]
+    },
+    {
+      "rank": 7,
+      "url": "https://www.thecamp-chiangmai.com/",
+      "title": "Muay Thai Training in Chiang Mai with Semi-Private Coaching | The Camp",
+      "page_type": "service",
+      "competitor_type": "chiang_mai_boutique_direct_competitor",
+      "covers": [
+        "Chiang Mai location (direct geo-competitor)",
+        "semi-private coaching angle",
+        "train-and-stay positioning"
+      ],
+      "missing": [
+        "explicit 'all-inclusive' bundle marketing",
+        "transparent full THB package breakdown",
+        "female-led / family heritage (Meaw angle)",
+        "open-air golden-hour garden vibe"
+      ],
+      "eeat_signals": [
+        "Chiang Mai local presence",
+        "semi-private coaching differentiation"
+      ]
+    },
+    {
+      "rank": 8,
+      "url": "https://www.tripaneer.com/honour-muay-thai/1-month-muay-thai-training-camp-in-thailand-1",
+      "title": "1 Month All Inclusive Muay Thai Training Camp in Krabi, Thailand",
+      "page_type": "booking-platform",
+      "competitor_type": "aggregator_booking_listing",
+      "covers": [
+        "exact 'all inclusive' + duration match (1 month, Krabi)",
+        "cheapest-deal positioning (meals + accommodation for a month)",
+        "single-listing booking flow with inclusions",
+        "Tripaneer marketplace trust/reviews"
+      ],
+      "missing": [
+        "owner-direct booking (intermediary commission)",
+        "Chiang Mai relevance",
+        "deep narrative / E-E-A-T author",
+        "brand storytelling"
+      ],
+      "eeat_signals": [
+        "Tripaneer aggregator reviews/ratings",
+        "structured inclusions listed",
+        "budget/value framing"
+      ]
+    },
+    {
+      "rank": 9,
+      "url": "https://punchitgym.com/",
+      "title": "Muay Thai Gym Thailand - Koh Samui - Punch it Thaiboxing-Camp",
+      "page_type": "service",
+      "competitor_type": "island_boutique_camp",
+      "covers": [
+        "complete packages: training + accommodation + airport pickup",
+        "Koh Samui island-camp positioning",
+        "package framing"
+      ],
+      "missing": [
+        "Chiang Mai relevance",
+        "transparent full THB price list on intent page",
+        "family/female-led warmth",
+        "meal-inclusion clarity"
+      ],
+      "eeat_signals": [
+        "established island camp",
+        "airport-pickup / logistics handling"
+      ]
+    }
+  ],
+  "serp_features": {
+    "local_pack": "none (national 'thailand' geo query — no single-city map pack; localizes only when a city is added)",
+    "people_also_ask": [
+      "How much does an all-inclusive Muay Thai camp in Thailand cost per month?",
+      "What is included in an all-inclusive Muay Thai package?",
+      "Are Muay Thai camps in Thailand worth it for beginners?",
+      "Do you need experience to train at a Muay Thai camp in Thailand?",
+      "What should I bring / pack for a Muay Thai camp in Thailand?",
+      "How many training sessions per day at a Muay Thai camp?",
+      "Which is cheaper / better: Phuket, Chiang Mai, Koh Samui or Phetchabun?"
+    ],
+    "featured_snippet": "Cost-and-inclusions snippet: all-inclusive packages roughly $500-$1,500/mo (THB 30,000-100,000+); typically cover twice-daily training (6 days/wk), on-site accommodation (dorm to private), and 2-3 meals/day. Snippet is currently won by aggregators/listicles, not by a single camp's transparent THB page.",
+    "image_pack": "present (camp/training/accommodation lifestyle imagery — pool, open-air ring, dorm/room shots)",
+    "video": "present in broader SERP (camp tour / 'what to expect' YouTube), not dominant for this exact head term"
+  },
+  "intent_signal": "Commercial-investigation / pre-booking. Searchers (mostly Western, US/UK) are price-shopping a bundled 'arrive and just train' experience: they want to know what 'all-inclusive' actually covers (training + room + meals), what it costs per week/month, whether beginners are welcome, and which region/camp fits. They are comparing camps before committing, not yet booking a specific one.",
+  "common_ground": [
+    "Standard inclusion stack: 2 sessions/day x 6 days/wk + on-site accommodation (dorm to private) + 2-3 meals/day + pool/gym access",
+    "Region framing (Phuket vs Chiang Mai vs Koh Samui vs Phetchabun) as a decision axis",
+    "Beginner-welcome reassurance ('no experience needed')",
+    "Cost ranges quoted (often in USD/GBP) and 'is it worth it' justification",
+    "Mega-camps + aggregators dominate; most rank with brand authority or breadth, not depth of transparency"
+  ],
+  "gap": {
+    "description": "The intent term is owned by Phuket mega-camps (Tiger, Bangtao) and booking aggregators (NOW Muay Thai, Tripaneer) — both of which are weak on exactly what the searcher most wants: a single, transparent, THB-native breakdown of what 'all-inclusive' really includes and what it costs. Aggregators deliberately HIDE prices to force booking; mega-camps scatter pricing across multiple pages and read as high-volume 'farang factories'. Nobody owning this term combines (a) honest THB package math (week/month/fighter), (b) a clear 'what's actually included vs what you arrange yourself' table, (c) a small family-run / female-led / open-air Chiang Mai angle that contrasts with the impersonal megacamp default, and (d) the 'Chiang Mai is cheaper and calmer than Phuket' value argument. That is a wide-open, low-competition (140/mo LOW) honesty-and-transparency angle.",
+    "opportunity_score": 7
+  },
+  "weakness": [
+    "Top organic results hide prices (aggregators) or fragment them across pages (mega-camps) — no clean THB bundle math",
+    "No competitor pairs 'all-inclusive' transparency with a small family-run / open-air Chiang Mai identity",
+    "Multi-discipline boot-camp / fight-outcome framing dominates; casual + beginner + 'just train and relax' is underserved with real numbers",
+    "Listicles/aggregators have thin per-camp E-E-A-T (generic bylines, promotional bias) — beatable by a real owner (Meaw) with first-hand authority",
+    "Phuket-centric; Chiang Mai 'all-inclusive' is barely contested at the head term despite being a cheaper, calmer alternative"
+  ],
+  "recommended_angle": "Build a transparent '#packages' section on the /stay-train pillar — NOT a standalone page yet. Reframe Wildcat's real THB week/month/fighter pricing as honest all-inclusive math: a plain table of what's actually included (training x2/day, gear loaned, garden/pool) vs what you arrange yourself (room + food nearby, since Wildcat is open-air and not a closed resort), positioned as the warm, family-run, female-led Chiang Mai alternative to impersonal Phuket mega-camps — and cheaper/calmer too. VERDICT: section of the pillar. At 140/mo LOW with the term split between megacamps and price-hiding aggregators, a transparent #packages section captures the comparison/price intent and strengthens the pillar's authority; only spin it into a dedicated page if Wildcat ever offers a truly bundled room+meals package (it currently does not — so a standalone 'all-inclusive' page would over-promise)."
+}

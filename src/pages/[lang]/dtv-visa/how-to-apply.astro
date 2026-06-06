@@ -5,6 +5,7 @@ import SectionHead from '../../../components/ui/SectionHead.astro';
 import Button from '../../../components/ui/Button.astro';
 import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
 import Callout from '../../../components/ui/Callout.astro';
+import DtvStamp from '../../../components/ui/DtvStamp.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import DtvSteps from '../../../components/sections/DtvSteps.astro';
 import Faq from '../../../components/sections/Faq.astro';
@@ -12,6 +13,7 @@ import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import DocChecklist from '../../../components/interactive/DocChecklist.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
 import { m } from '../../../paraglide/messages.js';
 
 // Satellite procédural du pillar /dtv-visa (Module C — YMYL).
@@ -111,12 +113,15 @@ const howToSchema = {
   '@type': 'HowTo',
   name: m.dtv_apply_hero_title() + ' ' + m.dtv_apply_hero_title_em(),
   description: m.dtv_apply_meta_desc(),
+  inLanguage: lang,
   totalTime: 'P15D',
   estimatedCost: { '@type': 'MonetaryAmount', currency: 'THB', value: '10000' },
   author: {
     '@type': 'Person',
     name: m.dtv_apply_author_name(),
     jobTitle: m.dtv_apply_author_role(),
+    // Entité auteur canonique — Person JSON-LD sur /about/coaches (E-E-A-T)
+    url: new URL(p('/about/coaches'), base).href,
     worksFor: { '@type': 'Organization', name: site.name },
   },
   supply: [
@@ -150,11 +155,10 @@ const howToSchema = {
 
     <PageHero
       dark
-      head={m.dtv_apply_hero_head()}
       title={m.dtv_apply_hero_title()}
       titleEm={m.dtv_apply_hero_title_em()}
       lead={m.dtv_apply_hero_lead()}
-      cta={{ label: m.cta_start_dtv(), href: p('/contact') }}
+      cta={{ label: m.cta_start_dtv(), href: `${p('/contact')}?intent=dtv` }}
     />
 
     <Section containerSize="narrow">
@@ -173,7 +177,7 @@ const howToSchema = {
         ]}
         class="mb-7"
       >
-        <img src="/assets/dtv-stamp.webp" alt="" width={118} height={118} slot="badge" />
+        <DtvStamp size={118} shadow={false} slot="badge" />
         <a slot="footer" class="ilink" href={PORTAL} target="_blank" rel="noopener">
           {m.dtv_apply_portal_link()} &rarr;
         </a>
@@ -245,7 +249,7 @@ const howToSchema = {
           doneLabel={m.dtv_apply_progress_done_label()}
           doneSub={m.dtv_apply_progress_done_sub()}
           resetLabel={m.dtv_apply_checklist_reset()}
-          doneCta={{ label: m.dtv_apply_checklist_done_cta(), href: p('/contact') }}
+          doneCta={{ label: m.dtv_apply_checklist_done_cta(), href: `${p('/contact')}?intent=dtv` }}
         />
       </div>
     </Section>
@@ -308,16 +312,22 @@ const howToSchema = {
         <p class="author-name">{m.dtv_apply_author_name()}</p>
         <p class="author-role">{m.dtv_apply_author_role()}</p>
         <p class="body-p mt-3">{m.dtv_apply_author_bio()}</p>
-        <p class="reviewed">{m.dtv_apply_reviewed()}</p>
+        <p class="reviewed">
+          {m.dtv_apply_reviewed()}
+          <a class="ilink" href={p('/about/coaches')}>{m.byline_author_link()}</a>
+        </p>
       </div>
     </Section>
 
     <CtaBanner
+      variant="torn"
+      hand={m.dtv_apply_cta_hand()}
       title={m.dtv_apply_cta_title()}
       titleEm={m.dtv_apply_cta_title_em()}
-      ctaPrimary={{ label: m.cta_start_dtv(), href: p('/contact') }}
-      ctaSecondary={{ label: m.cta_whatsapp(), href: site.contact.whatsapp }}
-      image={{ src: '/assets/gym-garden.jpg' }}
+      sub={m.dtv_apply_cta_sub()}
+      ctaPrimary={{ label: m.cta_start_dtv(), href: `${p('/contact')}?intent=dtv` }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_dtv()) }}
+      image={{ src: '/assets/night-session.webp' }}
     />
   </main>
 </BaseLayout>

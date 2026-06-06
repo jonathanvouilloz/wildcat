@@ -6,7 +6,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "node --require ./scripts/fs-emfile-guard.cjs node_modules/astro/bin/astro.mjs dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -15,18 +15,21 @@
     "sanity:types": "npm run sanity:extract && npm run sanity:typegen"
   },
   "dependencies": {
+    "@astrojs/mdx": "^6.0.2",
     "@astrojs/react": "^5.0.7",
+    "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/vercel": "^10.0.8",
+    "@fontsource-variable/caveat": "^5.2.8",
     "@fontsource-variable/fraunces": "^5.2.9",
     "@iconify-json/tabler": "^1.2.35",
     "@sanity/astro": "^3.4.0",
-    "@sanity/document-internationalization": "^6.2.1",
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^5.30.0",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.4.3",
     "astro-icon": "^1.1.5",
+    "flag-icons": "^7.5.0",
     "groq": "^5.30.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",

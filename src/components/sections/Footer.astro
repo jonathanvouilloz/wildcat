@@ -16,9 +16,7 @@ const lang = Astro.currentLocale ?? 'en';
 
 // Records explicites (pas d'accès dynamique m['...'] — tree-shaking + typage).
 const hoursDays: Record<(typeof site.hours)[number]['dayKey'], string> = {
-  monfri: m.footer_hours_monfri(),
-  sat: m.footer_hours_sat(),
-  sun: m.footer_hours_sun(),
+  daily: m.footer_hours_daily(),
 };
 const exploreLabels: Record<(typeof site.exploreLinks)[number]['key'], string> = {
   classes: m.footer_explore_classes(),
@@ -26,6 +24,7 @@ const exploreLabels: Record<(typeof site.exploreLinks)[number]['key'], string> =
   coaches: m.footer_explore_coaches(),
   pricing: m.footer_explore_pricing(),
   dtv: m.footer_explore_dtv(),
+  blog: m.footer_explore_blog(),
 };
 ---
 
@@ -94,9 +93,12 @@ const exploreLabels: Record<(typeof site.exploreLinks)[number]['key'], string> =
 
 <style>
   .foot {
-    background: var(--forest);
+    /* texture suède forest + tigre line-art (asset decor/cta-texture.webp,
+       validé 2026-06-05) — fallback forest si l'image ne charge pas */
+    background: url('/assets/decor/cta-texture.webp') center / cover no-repeat var(--forest);
     color: var(--cream);
-    padding: 58px 0 30px;
+    /* aéré (2026-06-05) : la texture respire au-dessus du contenu */
+    padding: clamp(76px, 9vw, 116px) 0 48px;
   }
   .foot-grid {
     display: grid;

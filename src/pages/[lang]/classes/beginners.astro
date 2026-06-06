@@ -1,0 +1,432 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Section from '../../../components/layout/Section.astro';
+import SectionHead from '../../../components/ui/SectionHead.astro';
+import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
+import Button from '../../../components/ui/Button.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import Faq from '../../../components/sections/Faq.astro';
+import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import DocChecklist from '../../../components/interactive/DocChecklist.astro';
+import { site } from '../../../config/site';
+import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
+import { m } from '../../../paraglide/messages.js';
+
+// Satellite Train — guide "première séance" (kw : "beginner muay thai classes",
+// 1000/mo · diff 0). Byline Meaw visible (gap E-E-A-T : zéro auteur sur la SERP),
+// walkthrough minute par minute, ton anti-intimidation. Article JSON-LD (author
+// Meaw) — pas de FAQPage ici (cohérence silo, cf. brief §8), pas de HowTo.
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+const whatsapp = waLink(m.contact_wa_text_class());
+
+// Walkthrough — 5 étapes de la première séance (le cœur de la page).
+const walkthrough = [
+  { title: m.classes_beg_walk1_t(), paras: [m.classes_beg_walk1_p1(), m.classes_beg_walk1_p2()] },
+  { title: m.classes_beg_walk2_t(), paras: [m.classes_beg_walk2_p1(), m.classes_beg_walk2_p2()] },
+  { title: m.classes_beg_walk3_t(), paras: [m.classes_beg_walk3_p1(), m.classes_beg_walk3_p2()] },
+];
+
+// "Thailand vs back home" — 4 cartes (capte "muay thai thailand beginner" 590/mo).
+const thReasons = [
+  { title: m.classes_beg_th_li1_t(), body: m.classes_beg_th_li1_b() },
+  { title: m.classes_beg_th_li2_t(), body: m.classes_beg_th_li2_b() },
+  { title: m.classes_beg_th_li3_t(), body: m.classes_beg_th_li3_b() },
+  { title: m.classes_beg_th_li4_t(), body: m.classes_beg_th_li4_b() },
+];
+
+// FAQ on-page (4 Q, DISTINCTES de la FAQ du pillar — pas de JSON-LD FAQPage).
+const faqItems = [
+  { q: m.classes_beg_faq_q1(), a: m.classes_beg_faq_a1() },
+  { q: m.classes_beg_faq_q2(), a: m.classes_beg_faq_a2() },
+  { q: m.classes_beg_faq_q3(), a: m.classes_beg_faq_a3() },
+  { q: m.classes_beg_faq_q4(), a: m.classes_beg_faq_a4() },
+];
+
+// FirstClassChecklist — réutilise DocChecklist (storageKey dédiée, 1 groupe).
+const checklistGroups = [
+  {
+    legend: m.classes_beg_cl_legend(),
+    items: [
+      { id: 'shorts', label: m.classes_beg_cl_i1() },
+      { id: 'water', label: m.classes_beg_cl_i2() },
+      { id: 'towel', label: m.classes_beg_cl_i3() },
+      { id: 'early', label: m.classes_beg_cl_i4() },
+      { id: 'stomach', label: m.classes_beg_cl_i5() },
+      { id: 'barefeet', label: m.classes_beg_cl_i6() },
+      { id: 'gloves', label: m.classes_beg_cl_i7() },
+      { id: 'mind', label: m.classes_beg_cl_i8() },
+    ],
+  },
+];
+
+// Article JSON-LD — auteur nommé Meaw (E-E-A-T), dateModified visible on-page.
+const base = Astro.site ?? Astro.url.origin;
+const pageUrl = new URL(p('/classes/beginners'), base).href;
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: m.classes_beg_hero_title() + ' ' + m.classes_beg_hero_title_em(),
+  description: m.classes_beg_meta_desc(),
+  mainEntityOfPage: pageUrl,
+  inLanguage: lang,
+  author: {
+    '@type': 'Person',
+    name: m.classes_beg_author_name(),
+    jobTitle: m.classes_beg_author_role(),
+    // Entité auteur canonique — Person JSON-LD sur /about/coaches (E-E-A-T)
+    url: new URL(p('/about/coaches'), base).href,
+    worksFor: { '@type': 'Organization', name: site.name },
+  },
+  datePublished: '2026-06-04',
+  dateModified: '2026-06-04',
+};
+---
+
+<BaseLayout title={m.classes_beg_meta_title()} description={m.classes_beg_meta_desc()}>
+  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(articleSchema)} />
+
+  <main>
+    <PageHero
+      title={m.classes_beg_hero_title()}
+      titleEm={m.classes_beg_hero_title_em()}
+      lead={m.classes_beg_hero_lead()}
+      cta={{ label: m.classes_beg_cta_book(), href: `${p('/contact')}?intent=class` }}
+      texture="/assets/decor/tiger-hero-bg.webp"
+      full
+    >
+      <Breadcrumb
+        slot="crumbs"
+        overlay
+        ariaLabel={m.breadcrumb_aria()}
+        items={[
+          { label: m.breadcrumb_home(), href: p('/') },
+          { label: m.nav_train(), href: p('/classes') },
+          { label: m.classes_beg_crumb() },
+        ]}
+      />
+    </PageHero>
+
+    <!-- Byline (LE gap E-E-A-T : auteur nommé visible) + intro BLUF -->
+    <Section containerSize="narrow">
+      <div class="byline">
+        <p class="byline-by">{m.classes_beg_author()}</p>
+        <p class="byline-meta">{m.classes_beg_updated()}</p>
+      </div>
+      <p class="body-p">{m.classes_beg_intro_p1()}</p>
+      <p class="body-p">
+        {m.classes_beg_intro_more()}{' '}
+        <a class="ilink" href={p('/classes')}>{m.classes_beg_link_pillar()}</a>{m.classes_beg_intro_more2()}
+      </p>
+    </Section>
+
+    <!-- Walkthrough minute par minute — le cœur de la page -->
+    <Section soft containerSize="narrow">
+      <SectionHead>{m.classes_beg_walk_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-3">{m.classes_beg_walk_title()}</h2>
+      <p class="body-p mb-6">{m.classes_beg_walk_intro()}</p>
+
+      {
+        walkthrough.map((step) => (
+          <>
+            <h3 class="h3 mt-6 mb-2">{step.title}</h3>
+            {step.paras.map((para) => (
+              <p class="body-p">{para}</p>
+            ))}
+          </>
+        ))
+      }
+
+      <h3 class="h3 mt-6 mb-2">{m.classes_beg_walk4_t()}</h3>
+      <p class="body-p">{m.classes_beg_walk4_p1()}</p>
+      <p class="body-p">
+        {m.classes_beg_walk4_p2()}{' '}
+        <a class="ilink" href={p('/about/coaches')}>{m.classes_beg_link_coaches()}</a>{' '}
+        {m.classes_beg_walk4_p2b()}
+      </p>
+
+      <h3 class="h3 mt-6 mb-2">{m.classes_beg_walk5_t()}</h3>
+      <p class="body-p">{m.classes_beg_walk5_p1()}</p>
+      <p class="body-p">{m.classes_beg_walk5_p2()}</p>
+    </Section>
+
+    <!-- What to wear & bring + FirstClassChecklist (interactif, localStorage) -->
+    <Section containerSize="narrow" id="checklist">
+      <SectionHead>{m.classes_beg_wear_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-3">{m.classes_beg_wear_title()}</h2>
+      <p class="body-p">{m.classes_beg_wear_intro()}</p>
+      <ul class="check">
+        <li>{m.classes_beg_wear_li1()}</li>
+        <li>{m.classes_beg_wear_li2()}</li>
+        <li>{m.classes_beg_wear_li3()}</li>
+        <li>{m.classes_beg_wear_li4()}</li>
+        <li>{m.classes_beg_wear_li5()}</li>
+      </ul>
+      <p class="body-p mb-7">{m.classes_beg_wear_outro()}</p>
+
+      <DocChecklist
+        title={m.classes_beg_cl_title()}
+        intro={m.classes_beg_cl_intro()}
+        groups={checklistGroups}
+        storageKey="wc-firstclass-checklist-v1"
+        progressLabel={m.classes_beg_cl_progress()}
+        countTemplate={m.classes_beg_cl_count({ n: '{n}' })}
+        total={8}
+        subZero={m.classes_beg_cl_sub_zero()}
+        subPartial={m.classes_beg_cl_sub_partial()}
+        doneLabel={m.classes_beg_cl_done()}
+        doneSub={m.classes_beg_cl_done_sub()}
+        resetLabel={m.classes_beg_cl_reset()}
+        doneCta={{ label: m.classes_beg_cta_book(), href: `${p('/contact')}?intent=class` }}
+      />
+    </Section>
+
+    <!-- Do you need to be fit? — la section signature anti-intimidation -->
+    <Section soft containerSize="narrow">
+      <SectionHead>{m.classes_beg_fit_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-5">{m.classes_beg_fit_title()}</h2>
+      <p class="body-p">{m.classes_beg_fit_p1()}</p>
+      <p class="body-p">{m.classes_beg_fit_p2()}</p>
+      <p class="body-p">{m.classes_beg_fit_p3()}</p>
+    </Section>
+
+    <!-- Thailand vs back home (capte "muay thai thailand beginner") -->
+    <Section dark>
+      <SectionHead onDark>{m.classes_beg_th_head()}</SectionHead>
+      <h2 class="h2 h2--dark mt-2 mb-3">{m.classes_beg_th_title()}</h2>
+      <p class="body-p body-p--dark mb-6">{m.classes_beg_th_intro()}</p>
+
+      <div class="route-grid">
+        {
+          thReasons.map((reason) => (
+            <div class="route-card">
+              <h3 class="route-card-t">{reason.title}</h3>
+              <p class="route-card-b">{reason.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="body-p body-p--dark mt-6">{m.classes_beg_th_etiq()}</p>
+      <p class="body-p body-p--dark">
+        {m.classes_beg_th_links_1()}{' '}
+        <a class="ilink ilink--dark" href={p('/stay-train')}>{m.classes_beg_link_staytrain()}</a>{m.classes_beg_th_links_2()}{' '}
+        <a class="ilink ilink--dark" href={p('/dtv-visa')}>{m.classes_beg_link_dtv()}</a>{m.classes_beg_th_links_3()}
+      </p>
+    </Section>
+
+    <!-- First weeks + CTA mi-page -->
+    <Section containerSize="narrow">
+      <SectionHead>{m.classes_beg_weeks_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-5">{m.classes_beg_weeks_title()}</h2>
+      <p class="body-p">{m.classes_beg_weeks_p1()}</p>
+      <p class="body-p">
+        {m.classes_beg_weeks_p2a()}{' '}
+        <a class="ilink" href={p('/classes#schedule')}>{m.classes_beg_link_schedule()}</a>{m.classes_beg_weeks_p2b()}
+      </p>
+      <p class="body-p">{m.classes_beg_weeks_cta_lead()}</p>
+      <div class="mt-5">
+        <Button href={`${p('/contact')}?intent=class`} variant="gold" arrow>{m.classes_beg_cta_book()}</Button>
+      </div>
+    </Section>
+
+    <!-- FAQ on-page (pas de JSON-LD FAQPage — cohérence silo Train) -->
+    <Section soft id="faq">
+      <div class="faq-split">
+        <div>
+          <SectionHead>{m.classes_beg_faq_head()}</SectionHead>
+          <h2 class="h2 mt-2">{m.classes_beg_faq_title()}</h2>
+          <p class="body-p mt-3">
+            {m.classes_beg_faq_more()}{' '}
+            <a class="ilink" href={p('/classes#pricing')}>{m.classes_beg_link_pricing()}</a>.
+          </p>
+        </div>
+        <Faq items={faqItems} firstOpen />
+      </div>
+    </Section>
+
+    <!-- Author / E-E-A-T + freshness -->
+    <Section containerSize="narrow">
+      <div class="author">
+        <p class="author-by">{m.classes_beg_author()}</p>
+        <p class="author-meta">
+          {m.classes_beg_updated()}
+          <a class="ilink" href={p('/about/coaches')}>{m.byline_author_link()}</a>
+        </p>
+      </div>
+    </Section>
+
+    <CtaBanner
+      variant="split"
+      hand={m.classes_beg_cta_hand()}
+      title={m.classes_beg_cta_title()}
+      titleEm={m.classes_beg_cta_title_em()}
+      sub={m.classes_beg_cta_sub()}
+      caption={m.classes_beg_cta_caption()}
+      ctaPrimary={{ label: m.classes_beg_cta_book(), href: `${p('/contact')}?intent=class` }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: whatsapp }}
+      image={{ src: '/assets/meaw-training.webp', alt: m.classes_beg_cta_img_alt() }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .body-p {
+    font-size: 17px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin: 0 0 16px;
+    max-width: 64ch;
+  }
+  .body-p--dark {
+    color: rgba(246, 241, 230, 0.82);
+  }
+  .h2--dark {
+    color: var(--cream);
+  }
+  .ilink {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .ilink:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .ilink--dark {
+    color: var(--cream);
+    text-decoration-color: rgba(246, 241, 230, 0.45);
+  }
+  .ilink--dark:hover {
+    color: var(--gold);
+  }
+  .ilink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Byline sous le hero (E-E-A-T) */
+  .byline {
+    border-left: 3px solid var(--gold);
+    padding: 4px 0 4px 16px;
+    margin: 0 0 22px;
+  }
+  .byline-by {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    font-weight: 600;
+    margin: 0 0 4px;
+    max-width: 64ch;
+  }
+  .byline-meta {
+    font-size: 14px;
+    color: var(--ink-3);
+    margin: 0;
+  }
+
+  /* Liste what to wear */
+  .check {
+    list-style: none;
+    margin: 0 0 22px;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+    max-width: 64ch;
+  }
+  .check li {
+    position: relative;
+    padding-left: 30px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .check li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--soft-2);
+    color: var(--forest);
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Thailand vs back home (dark, = route-grid eligibility) */
+  .route-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .route-card {
+    border: 1px solid rgba(246, 241, 230, 0.16);
+    border-radius: var(--r-md);
+    background: rgba(246, 241, 230, 0.05);
+    padding: 22px 24px;
+  }
+  .route-card-t {
+    margin: 0 0 8px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--gold);
+  }
+  .route-card-b {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(246, 241, 230, 0.82);
+  }
+
+  /* FAQ split (= pillar) */
+  .faq-split {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 46px;
+    align-items: start;
+  }
+
+  /* Author block */
+  .author {
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+  }
+  .author-by {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    font-weight: 600;
+    margin: 0 0 6px;
+    max-width: 64ch;
+  }
+  .author-meta {
+    font-size: 14px;
+    color: var(--ink-3);
+    margin: 0;
+  }
+
+  @media (max-width: 860px) {
+    .route-grid,
+    .faq-split {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .faq-split {
+      gap: 30px;
+    }
+  }
+</style>

@@ -1,0 +1,305 @@
+---
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * ArticleQuiz — mini-quiz ludique inséré MI-CONTENU dans les articles .mdx
+ * (import direct dans le markdown — raison de l'intégration @astrojs/mdx).
+ * 1 question par instance ; plusieurs instances par article OK (init par
+ * querySelectorAll). Données en props (vivent dans l'article), chrome i18n
+ * via messages blog_quiz_*.
+ *
+ * Progressive enhancement (pattern DtvQuiz) : sans JS, les options restent
+ * lisibles et la réponse est dans un <details> « Voir la réponse ». Avec JS :
+ * radios + bouton vérifier + feedback aria-live + retry ; le <details> no-JS
+ * est masqué. Hook analytics : window.wcTrack?.('blog_quiz', {…}).
+ */
+export interface Props {
+  question: string;
+  options: { label: string; correct?: boolean }[];
+  explanation: string;
+}
+const { question, options, explanation } = Astro.props;
+// name unique par instance (plusieurs quiz par article).
+const uid = `aq-${Math.abs([...question].reduce((h, c) => (h * 31 + c.charCodeAt(0)) | 0, 0))}`;
+---
+
+<div class="aq" data-article-quiz>
+  <p class="head" aria-hidden="true">{m.blog_quiz_head()}</p>
+  <fieldset>
+    <legend>{question}</legend>
+    <div class="opts">
+      {
+        options.map((opt) => (
+          <label class="opt">
+            <input type="radio" name={uid} data-correct={opt.correct ? '' : undefined} />
+            <span class="opt-box">
+              <span class="dot" aria-hidden="true" />
+              <span class="opt-label">{opt.label}</span>
+            </span>
+          </label>
+        ))
+      }
+    </div>
+  </fieldset>
+
+  <div class="actions">
+    <button type="button" class="check" data-quiz-check hidden>{m.blog_quiz_check()}</button>
+    <button type="button" class="retry" data-quiz-retry hidden>{m.blog_quiz_retry()}</button>
+  </div>
+
+  <p class="result" data-quiz-result aria-live="polite" hidden>
+    <b data-quiz-verdict></b>
+    <span>{explanation}</span>
+  </p>
+
+  <!-- Fallback no-JS : la réponse reste accessible. Masqué quand le JS prend la main. -->
+  <details class="reveal" data-quiz-reveal>
+    <summary>{m.blog_quiz_reveal()}</summary>
+    <p>{explanation}</p>
+  </details>
+</div>
+
+<script define:vars={{ pickLabel: m.blog_quiz_pick(), okLabel: m.blog_quiz_correct(), koLabel: m.blog_quiz_wrong() }}>
+  (function () {
+    document.querySelectorAll('[data-article-quiz]').forEach(function (root) {
+      if (root.hasAttribute('data-quiz-ready')) return;
+      root.setAttribute('data-quiz-ready', '');
+
+      const checkBtn = root.querySelector('[data-quiz-check]');
+      const retryBtn = root.querySelector('[data-quiz-retry]');
+      const result = root.querySelector('[data-quiz-result]');
+      const verdict = root.querySelector('[data-quiz-verdict]');
+      const reveal = root.querySelector('[data-quiz-reveal]');
+      const inputs = Array.from(root.querySelectorAll('input[type="radio"]'));
+      if (!checkBtn || !result) return;
+
+      // JS actif : le bouton vérifier remplace le <details> no-JS.
+      checkBtn.hidden = false;
+      if (reveal) reveal.hidden = true;
+
+      checkBtn.addEventListener('click', function () {
+        const picked = inputs.find(function (i) {
+          return i.checked;
+        });
+        if (!picked) {
+          verdict.textContent = pickLabel;
+          result.hidden = false;
+          return;
+        }
+        const ok = picked.hasAttribute('data-correct');
+        verdict.textContent = ok ? okLabel : koLabel;
+        root.classList.toggle('is-ok', ok);
+        root.classList.toggle('is-ko', !ok);
+        result.hidden = false;
+        checkBtn.hidden = true;
+        retryBtn.hidden = false;
+        inputs.forEach(function (i) {
+          i.disabled = true;
+          if (i.hasAttribute('data-correct')) i.closest('.opt').classList.add('opt--correct');
+          else if (i.checked) i.closest('.opt').classList.add('opt--wrong');
+        });
+        if (window.wcTrack) window.wcTrack('blog_quiz', { correct: ok });
+      });
+
+      retryBtn.addEventListener('click', function () {
+        inputs.forEach(function (i) {
+          i.disabled = false;
+          i.checked = false;
+          i.closest('.opt').classList.remove('opt--correct', 'opt--wrong');
+        });
+        root.classList.remove('is-ok', 'is-ko');
+        result.hidden = true;
+        retryBtn.hidden = true;
+        checkBtn.hidden = false;
+      });
+    });
+  })();
+</script>
+
+<style>
+  .aq {
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: var(--soft);
+    padding: 22px 24px;
+    margin: 30px 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .head {
+    margin: 0 0 8px;
+    font-family: var(--font-hand);
+    font-size: 22px;
+    line-height: 1;
+    color: var(--gold-deep);
+    transform: rotate(-1.5deg);
+  }
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  legend {
+    padding: 0;
+    margin-bottom: 12px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 1.35;
+    color: var(--forest);
+  }
+  .opts {
+    display: grid;
+    gap: 8px;
+  }
+  .opt {
+    display: block;
+    cursor: pointer;
+  }
+  .opt input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+  .opt-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    background: var(--surface);
+    padding: 11px 13px;
+    transition:
+      border-color 0.18s ease,
+      background-color 0.18s ease;
+  }
+  .opt:hover .opt-box {
+    border-color: var(--line-3);
+  }
+  .dot {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    border-radius: 50%;
+    border: 2px solid var(--line-3);
+    background: var(--surface);
+  }
+  .opt-label {
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .opt input:checked + .opt-box {
+    border-color: var(--forest-light);
+    background: var(--soft-2);
+  }
+  .opt input:checked + .opt-box .dot {
+    border-color: var(--forest);
+    box-shadow: inset 0 0 0 4px var(--forest);
+  }
+  .opt input:focus-visible + .opt-box {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .opt--correct .opt-box {
+    border-color: var(--success);
+    background: color-mix(in srgb, var(--success) 10%, var(--surface));
+  }
+  .opt--wrong .opt-box {
+    border-color: var(--error);
+    background: color-mix(in srgb, var(--error) 8%, var(--surface));
+  }
+  .actions {
+    margin-top: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .check {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14.5px;
+    cursor: pointer;
+  }
+  .check:hover {
+    background: var(--gold-deep);
+    color: var(--cream);
+  }
+  .retry {
+    border: 0;
+    background: none;
+    padding: 4px 2px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-3);
+  }
+  .retry:hover {
+    color: var(--gold-deep);
+  }
+  .check:focus-visible,
+  .retry:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .result {
+    margin: 14px 0 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .result b {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--forest);
+    margin-bottom: 4px;
+  }
+  .is-ok .result b {
+    color: var(--success);
+  }
+  .is-ko .result b {
+    color: var(--error);
+  }
+  .reveal {
+    margin-top: 14px;
+  }
+  .reveal summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-3);
+  }
+  .reveal summary:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .reveal p {
+    margin: 10px 0 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .opt-box {
+      transition: none;
+    }
+  }
+</style>

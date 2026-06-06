@@ -11,6 +11,8 @@ export interface Props {
     title: string;
     body: string;
     href: string;
+    /** Libellé « more » spécifique à la carte (sinon le moreLabel global). */
+    moreLabel?: string;
     image?: { src: string; alt: string };
   }[];
   moreLabel: string;
@@ -19,7 +21,7 @@ const { programs, moreLabel } = Astro.props;
 ---
 
 <div class="prog-grid">
-  {programs.map((program) => <ProgramCard {...program} moreLabel={moreLabel} />)}
+  {programs.map((program) => <ProgramCard {...program} moreLabel={program.moreLabel ?? moreLabel} />)}
 </div>
 
 <style>

@@ -1,0 +1,170 @@
+{
+  "topic": "private muay thai lessons",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-04T15:05:50Z",
+  "primary": {
+    "keyword": "private muay thai lessons",
+    "search_volume": 260,
+    "cpc": 3.34,
+    "competition": "MEDIUM",
+    "competition_index": 53,
+    "difficulty": 0,
+    "intent": "commercial",
+    "intent_probability": 0.8172
+  },
+  "secondaries": [
+    {
+      "keyword": "private muay thai lessons near me",
+      "search_volume": 140,
+      "cpc": 2.24,
+      "competition": "MEDIUM",
+      "competition_index": 52
+    },
+    {
+      "keyword": "private muay thai lessons bangkok",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "how much are private muay thai lessons",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 25
+    },
+    {
+      "keyword": "private muay thai lessons phuket",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "private muay thai lessons thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "private muay thai lessons singapore",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "private muay thai lessons cost",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "muay thai gym",
+      "search_volume": 9900,
+      "cpc": 1.62,
+      "competition": "LOW",
+      "competition_index": 11
+    },
+    {
+      "keyword": "muay thai training near me",
+      "search_volume": 880,
+      "cpc": 2.22,
+      "competition": "MEDIUM",
+      "competition_index": 49
+    },
+    {
+      "keyword": "muay thai private lessons",
+      "search_volume": 260,
+      "cpc": 3.34,
+      "competition": "MEDIUM",
+      "competition_index": 53
+    },
+    {
+      "keyword": "muay thai private lessons near me",
+      "search_volume": 140,
+      "cpc": 2.24,
+      "competition": "MEDIUM",
+      "competition_index": 52
+    },
+    {
+      "keyword": "muay thai personal trainer",
+      "search_volume": 110,
+      "cpc": 2.94,
+      "competition": "MEDIUM",
+      "competition_index": 62
+    },
+    {
+      "keyword": "muay thai private training",
+      "search_volume": 50,
+      "cpc": 2.91,
+      "competition": "MEDIUM",
+      "competition_index": 34
+    },
+    {
+      "keyword": "muay thai personal trainer near me",
+      "search_volume": 30,
+      "cpc": 3,
+      "competition": "MEDIUM",
+      "competition_index": 46
+    },
+    {
+      "keyword": "muay thai private lessons singapore",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "muay thai private lessons cost",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 14
+    },
+    {
+      "keyword": "bangkok muay thai private lessons",
+      "search_volume": 10,
+      "cpc": 1.2,
+      "competition": "HIGH",
+      "competition_index": 71
+    },
+    {
+      "keyword": "muay thai private lessons bangkok",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "tiger muay thai private lessons",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "1 on 1 muay thai training",
+      "search_volume": 10,
+      "cpc": 5.91,
+      "competition": "MEDIUM",
+      "competition_index": 61
+    }
+  ],
+  "related": [],
+  "quick_wins": [
+    {
+      "keyword": "muay thai gym",
+      "search_volume": 9900,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

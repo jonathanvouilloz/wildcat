@@ -11,6 +11,7 @@ import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import DtvQuiz from '../../../components/interactive/DtvQuiz.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
 import { m } from '../../../paraglide/messages.js';
 
 // Satellite DTV — page "requirements & eligibility" (kw : "dtv visa thailand
@@ -24,8 +25,8 @@ const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
 
 // CTA /contact pré-ciblé sur le sujet DTV (topic supporté par ContactForm).
-const contactDtv = `${p('/contact')}?topic=dtv`;
-const whatsapp = site.contact.whatsapp;
+const contactDtv = `${p('/contact')}?intent=dtv`;
+const whatsapp = waLink(m.contact_wa_text_dtv());
 
 // Récap "at a glance" — réutilise FeatureGrid (cartes scannables = snippet-bait).
 const glance = [
@@ -57,7 +58,6 @@ const faqItems = [
     />
 
     <PageHero
-      head={m.dtv_elig_hero_head()}
       title={m.dtv_elig_hero_title()}
       titleEm={m.dtv_elig_hero_title_em()}
       lead={m.dtv_elig_hero_lead()}
@@ -181,7 +181,10 @@ const faqItems = [
         </div>
         <div class="route-card">
           <h3 class="route-card-t">{m.dtv_elig_route_begin_t()}</h3>
-          <p class="route-card-b">{m.dtv_elig_route_begin_b()}</p>
+          <p class="route-card-b">
+            {m.dtv_elig_route_begin_b()}{' '}
+            <a class="ilink ilink--dark" href={p('/classes/beginners')}>{m.dtv_elig_link_beginners()}</a>.
+          </p>
         </div>
       </div>
     </Section>
@@ -219,16 +222,22 @@ const faqItems = [
     <Section containerSize="narrow">
       <div class="author">
         <p class="author-by">{m.dtv_elig_author()}</p>
-        <p class="author-meta">{m.dtv_elig_reviewed()}</p>
+        <p class="author-meta">
+          {m.dtv_elig_reviewed()}
+          <a class="ilink" href={p('/about/coaches')}>{m.byline_author_link()}</a>
+        </p>
       </div>
     </Section>
 
     <CtaBanner
+      variant="scrapbook"
+      hand={m.dtv_elig_cta_hand()}
       title={m.dtv_elig_cta_title()}
       titleEm={m.dtv_elig_cta_title_em()}
+      sub={m.dtv_elig_cta_sub()}
       ctaPrimary={{ label: m.dtv_elig_cta_primary(), href: contactDtv }}
       ctaSecondary={{ label: m.dtv_elig_whatsapp(), href: whatsapp }}
-      image={{ src: '/assets/gym-garden.jpg' }}
+      image={{ src: '/assets/night-session.webp' }}
     />
   </main>
 </BaseLayout>

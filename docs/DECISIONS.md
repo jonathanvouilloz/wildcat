@@ -66,6 +66,13 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 - **Choix** : bloc titres déplacé dans **`@layer base`** → les utilitaires (layer `utilities`, déclarée après) reprennent la main. Au passage : `Breadcrumb` en padding symétrique (`20px 0`) et top de `PageHero` réduit (`clamp(24px,3vw,44px)`) pour compenser.
 - **Règle à retenir** : **jamais de style non-layéré sur des propriétés qu'on veut pouvoir ajuster en utilitaires Tailwind** (marges des titres typiquement). Le bug est silencieux : build vert, classe présente dans le HTML, marge à 0 au computed. Vérification rapide : `getComputedStyle` dans le navigateur. Les styles scopés Astro (non-layérés eux aussi) gagnent sur les utilitaires de la même façon — OK quand c'est voulu (ex. `.h1` de PageHero), piège sinon. `.wc-control` et `.em` restent non-layérés volontairement (jamais ajustés en utilitaires).
 
+### 2026-06-04 | Silo About : page coaches dédiée (E-E-A-T), ancres réelles, Gallery différée
+- **Contexte** : 4 liens sur 5 du mega menu About pointaient sur `/about` sans ancre (Story, Community, Gallery, Reviews — seul Coaches avait `#coaches`) → confusion "on arrive toujours sur la même page". Et les bylines "Meaw Boonpradub" (beginners + satellites DTV, Article/HowTo JSON-LD) n'avaient **aucune page auteur cible** — gap E-E-A-T identifié dans la SERP beginner (zéro auteur nommé chez les concurrents).
+- **Choix** : **`/about/coaches`** = page équipe dédiée et **entité auteur canonique** (Person JSON-LD `#meaw`, bloc Meaw 100 % message-driven → jamais vide) ; les `author.url` des JSON-LD + bylines cliquables des 5 satellites + footer pointent dessus. **Reviews = ancre `#reviews` enrichie** sur `/about` (grille de tous les testimonials featured + CTA avis Google) — page dédiée seulement si volume d'avis. **Community = `#community`**. **Gallery retirée du menu** jusqu'à E9. L'ancre `#coaches` sur `/about` est conservée (teaser 3 cards + CTA) pour les liens legacy.
+- **Hero photo** : variante ajoutée à `PageHero` (prop `image` + `eyebrow`, direction B du styleguide compactée à `clamp(360px,48vh,520px)`, gradient forest 76° + voile gold, contenu bottom-left) plutôt qu'un nouveau composant — évite la prolifération ; portée limitée à `/about` et `/about/coaches`. Breadcrumb reste au-dessus sur sa bande cream.
+- **Alternatives rejetées** : page `/about/reviews` (pas de volume avis encore) ; `/gallery` anticipée (vit en E9) ; composant `PhotoHero` séparé (sur-ingénierie pour 2 pages).
+- ⚠️ TODO(real data) : portrait de Meaw (hero-team.webp en attendant) ; lien direct onglet avis Google Business Profile (`site.reviews.googleUrl`).
+
 ### 2026-06-03 | Communication DTV : WhatsApp deep link
 - **Contexte** : l'owner travaille déjà sur WhatsApp. Zéro friction souhaitée.
 - **Choix** : `wa.me` avec message pré-rempli (nom + réf dossier) à la soumission du formulaire, plutôt qu'une intégration API WhatsApp Business.
@@ -81,10 +88,25 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 ### 2026-06-03 | Q4 — Pricing : prix publics
 - Drop-in 350 / Monthly 3500 / Long Stay dès 2800 THB. Transparence + conversion. Éditables via Sanity.
 
+### 2026-06-05 | Q5 — Domaine : **wildcatmuaythai.com**
+- **Contexte** : trancher entre le placeholder maquette et `wildcatchiangmai.com` (PRD). Disponibilité vérifiée par RDAP le 2026-06-05 : les deux libres.
+- **Choix** : **`wildcatmuaythai.com`** — identique au nom de marque (cohérence domaine = entité = JSON-LD SportsClub), dit l'activité (CTR SERP sur "muay thai chiang mai"), pas verrouillé sur la localisation (future-proof). La géo vit déjà dans les titles/copy/JSON-LD address/GMB.
+- **Défensif** : acheter aussi `wildcatchiangmai.com` (~10 $/an) en redirect 301 (protection marque locale + typing direct).
+- **Alternatives rejetées** : `wildcatmuaythaichiangmai.com` (28 ch, illisible) ; `wildcat-muaythai.com` (tirets spammy) ; `trainatwildcat.com` (campagne, pas domaine principal) ; `.co.th` (exige société enregistrée en Thaïlande — à revoir plus tard si pertinent).
+
+### 2026-06-05 | Hero home : direction actuelle conservée
+- Les explorations A/B/C/D2 du styleguide ont servi aux pages About ; pour la home, Jonathan garde le hero actuel (`hero-home.webp` + `.display` agrandi). Seule l'image pourra être remplacée par une version de meilleure qualité.
+
+### 2026-06-05 | Blog E8 : **Astro Content Collections (.md)**, pas Sanity — renverse Q6/E4
+- **Contexte** : la décision E4 (blogPost en document-level i18n Sanity) avait été prise avant de connaître le workflow de production réel : les articles sont produits en `.md` par le pipeline skills (`/seo-brief` → `/seo-write` → `/humanizer` → `/seo-enrich`), et Meaw n'écrira pas d'articles — le Studio n'apporte rien au blog.
+- **Choix** : blog en **content collections** (`src/content/blog/{en,fr}/*.md`) — 1 article = 1 commit = 1 deploy (qui rafraîchit aussi le feed Instagram). Slugs traduits par fichier, appariement EN/FR par `translationKey` en frontmatter (alimente hreflang + LangSwitcher). Sanity garde son rôle : données vivantes gérées par Meaw (coaches, schedule, testimonials, fighters, scooters).
+- **Alternative rejetée — push API vers Sanity** : faisable (`@sanity/client` Mutations + conversion MD → Portable Text + upload assets + documents `translation.metadata`), mais friction à vie : **Portable Text ne gère pas les tableaux nativement** (types custom + serializers) alors que le calendrier éditorial est bourré de comparatifs (M1, M5, M6), et chaque publication paierait la conversion pour un éditeur que personne n'utilise.
+- **Conséquence (à exécuter en E8)** : retirer le schéma `blogPost`, les queries `BLOG_*`, le plugin `@sanity/document-internationalization` (seul blogPost l'utilise) + re-typegen (`npm run sanity:types`). Les pièges du plugin notés dans l'entrée E4 deviennent caducs pour le blog.
+
 ## Décisions EN ATTENTE (questions ouvertes restantes)
 
 | # | Sujet | Options | Impact |
 |---|-------|---------|--------|
 | Q1 | **Storage DTV** | Google Drive API ⟷ Supabase Storage | ⏳ **Tranché avant E6.** On construit E1→E5 d'abord. |
-| Q5 | **Domaine** | wildcatmuaythai.com (maquette) ⟷ wildcatchiangmai.com (PRD) | hreflang, sitemap, env (avant E10) |
-| ~~Q6~~ | ~~Slugs traduits~~ | **RÉGLÉE (E4)** : blogPost en document-level i18n → un slug par langue, traduits gratuitement par document. | — |
+| ~~Q5~~ | ~~Domaine~~ | **RÉGLÉE (2026-06-05)** : `wildcatmuaythai.com` + `wildcatchiangmai.com` en redirect défensif. Achat à faire. | — |
+| ~~Q6~~ | ~~Slugs traduits~~ | ~~RÉGLÉE (E4) : blogPost document-level i18n~~ → **RENVERSÉE (2026-06-05)** : blog en content collections `.md`, slugs traduits par fichier + `translationKey` (cf. entrée du 2026-06-05). | — |

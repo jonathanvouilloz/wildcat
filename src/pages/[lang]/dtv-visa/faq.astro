@@ -9,6 +9,7 @@ import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import FaqSearch from '../../../components/interactive/FaqSearch.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
+import { waLink } from '../../../lib/whatsapp';
 import { m } from '../../../paraglide/messages.js';
 
 // Satellite FAQ du silo DTV — porteuse UNIQUE du FAQPage JSON-LD (le pillar le
@@ -116,6 +117,7 @@ const allItems = themes.flatMap((th) => th.items);
 const faqJsonld = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  inLanguage: lang,
   mainEntity: allItems.map((item) => ({
     '@type': 'Question',
     name: item.q,
@@ -138,7 +140,6 @@ const faqJsonld = {
     />
 
     <PageHero
-      head={m.dtv_faqp_hero_head()}
       title={m.dtv_faqp_hero_title()}
       titleEm={m.dtv_faqp_hero_title_em()}
       lead={m.dtv_faqp_hero_lead()}
@@ -158,7 +159,7 @@ const faqJsonld = {
     </Section>
 
     <Section soft containerSize="narrow">
-      <FaqSearch whatsapp={site.contact.whatsapp} contactHref={p('/contact')} />
+      <FaqSearch whatsapp={waLink(m.contact_wa_text_dtv())} contactHref={`${p('/contact')}?intent=dtv`} />
 
       <div class="faq-root" data-faq-root>
         {
@@ -174,7 +175,9 @@ const faqJsonld = {
                     <summary>
                       {item.q} <span class="pm" aria-hidden="true">+</span>
                     </summary>
-                    <div class="ans">{item.a}</div>
+                    <div class="ans-wrap" data-faq-panel>
+                      <div class="ans">{item.a}</div>
+                    </div>
                   </details>
                 ))}
               </div>
@@ -201,10 +204,13 @@ const faqJsonld = {
     </Section>
 
     <CtaBanner
+      variant="scrapbook"
+      hand={m.dtv_faqp_cta_hand()}
       title={m.dtv_faqp_cta_title()}
       titleEm={m.dtv_faqp_cta_title_em()}
-      ctaPrimary={{ label: m.dtv_faqp_cta_primary(), href: p('/contact') }}
-      ctaSecondary={{ label: m.dtv_faqp_cta_whatsapp(), href: site.contact.whatsapp }}
+      sub={m.dtv_faqp_cta_sub()}
+      ctaPrimary={{ label: m.dtv_faqp_cta_primary(), href: `${p('/contact')}?intent=dtv` }}
+      ctaSecondary={{ label: m.dtv_faqp_cta_whatsapp(), href: waLink(m.contact_wa_text_dtv()) }}
       image={{ src: '/assets/gym-garden.jpg' }}
     />
   </main>
@@ -320,7 +326,7 @@ const faqJsonld = {
   .faq summary {
     list-style: none;
     cursor: pointer;
-    padding: 18px 22px;
+    padding: 19px 24px 19px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -348,15 +354,25 @@ const faqJsonld = {
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    transition: 0.2s;
+    transition: background 0.25s, color 0.25s, transform 0.3s cubic-bezier(0.33, 1, 0.45, 1);
   }
   .faq details[open] summary .pm {
     background: var(--gold);
     color: #1c1407;
     transform: rotate(45deg);
   }
+  /* fermeture en cours (anim) : le « × » repart en « + » */
+  .faq details[open][data-closing] summary .pm {
+    background: var(--soft-2);
+    color: var(--forest);
+    transform: rotate(0deg);
+  }
+  /* wrapper animé (FAQ v2) : AUCUN padding propre (scrollHeight fiable) */
+  .ans-wrap {
+    overflow: hidden;
+  }
   .ans {
-    padding: 0 22px 20px;
+    padding: 2px 28px 22px 30px;
     font-size: 15px;
     color: var(--ink-2);
     line-height: 1.55;
@@ -405,3 +421,82 @@ const faqJsonld = {
     }
   }
 </style>
+
+<script>
+  // Accordéon animé (FAQ v2) — même technique que Faq.astro mais SANS
+  // exclusivité : la FAQ filtrable doit pouvoir rester multi-ouverte, et
+  // FaqSearch pose `open`/`hidden` par programme (reste en snap, voulu).
+  (() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const anims = new WeakMap<HTMLDetailsElement, Animation>();
+
+    const panelOf = (d: HTMLDetailsElement) =>
+      d.querySelector<HTMLElement>(':scope > [data-faq-panel]');
+
+    const cancelAnim = (d: HTMLDetailsElement) => {
+      const a = anims.get(d);
+      if (a) {
+        a.cancel();
+        anims.delete(d);
+      }
+    };
+
+    function openItem(d: HTMLDetailsElement) {
+      const p = panelOf(d);
+      if (!p) return;
+      const from = anims.has(d) ? p.getBoundingClientRect().height : 0;
+      cancelAnim(d);
+      d.removeAttribute('data-closing');
+      d.setAttribute('open', '');
+      if (reduce) return;
+      const anim = p.animate(
+        [
+          { height: `${from}px`, opacity: from > 0 ? 1 : 0.35 },
+          { height: `${p.scrollHeight}px`, opacity: 1 },
+        ],
+        { duration: 300, easing: 'cubic-bezier(0.33, 1, 0.45, 1)' }
+      );
+      anims.set(d, anim);
+      anim.onfinish = () => anims.delete(d);
+    }
+
+    function closeItem(d: HTMLDetailsElement) {
+      if (!d.hasAttribute('open') || d.hasAttribute('data-closing')) return;
+      const p = panelOf(d);
+      if (!p) return;
+      if (reduce) {
+        d.removeAttribute('open');
+        return;
+      }
+      const from = p.getBoundingClientRect().height || p.scrollHeight;
+      cancelAnim(d);
+      d.setAttribute('data-closing', '');
+      const anim = p.animate(
+        [
+          { height: `${from}px`, opacity: 1 },
+          { height: '0px', opacity: 0.3 },
+        ],
+        { duration: 260, easing: 'cubic-bezier(0.45, 0, 0.55, 1)' }
+      );
+      anims.set(d, anim);
+      anim.onfinish = () => {
+        anims.delete(d);
+        d.removeAttribute('data-closing');
+        d.removeAttribute('open');
+      };
+    }
+
+    document
+      .querySelectorAll<HTMLDetailsElement>('[data-faq-root] details[data-faq-item]')
+      .forEach((d) => {
+        const summary = d.querySelector(':scope > summary');
+        if (!summary) return;
+        summary.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isOpen = d.hasAttribute('open') && !d.hasAttribute('data-closing');
+          if (isOpen) closeItem(d);
+          else openItem(d);
+        });
+      });
+  })();
+</script>

@@ -1,24 +1,37 @@
 ---
 /**
- * Faq — accordéon pur CSS <details>/<summary> (maquette : .faq). Zéro JS.
- * Le « + » pivote en « × » à l'ouverture (pattern styleguide).
+ * Faq — accordéon <details>/<summary> animé + exclusif (FAQ v2, proto
+ * /styleguide validé 2026-06-05). Ouverture/fermeture fluides via WAAPI sur
+ * le wrapper [data-faq-panel] ; ouvrir un item referme les autres (scopé à
+ * l'instance). L'attribut `open` n'est retiré qu'en fin d'anim de fermeture
+ * (sinon le contenu disparaît avant l'anim) — `[data-closing]` pilote le
+ * retour du « + » pendant ce laps. Fallback no-JS : <details> natif (snap,
+ * sans exclusivité). prefers-reduced-motion : toggle instantané.
+ * La page DTV FAQ (markup brut + FaqSearch) a sa propre copie de l'anim,
+ * SANS exclusivité (FAQ filtrable multi-ouverte).
  */
 export interface Props {
-  items: { q: string; a: string }[];
+  /** `link` optionnel : lien interne rendu à la suite de la réponse (maillage). */
+  items: { q: string; a: string; link?: { label: string; href: string } }[];
   /** Ouvre le premier item au chargement (maquette home). */
   firstOpen?: boolean;
 }
 const { items, firstOpen = false } = Astro.props;
 ---
 
-<div class="faq">
+<div class="faq" data-faq-group>
   {
     items.map((item, i) => (
       <details open={firstOpen && i === 0}>
         <summary>
           {item.q} <span class="pm" aria-hidden="true">+</span>
         </summary>
-        <div class="ans">{item.a}</div>
+        <div class="ans-wrap" data-faq-panel>
+          <div class="ans">
+            {item.a}
+            {item.link && <a class="alink" href={item.link.href}>{item.link.label}</a>}
+          </div>
+        </div>
       </details>
     ))
   }
@@ -38,7 +51,7 @@ const { items, firstOpen = false } = Astro.props;
   summary {
     list-style: none;
     cursor: pointer;
-    padding: 18px 22px;
+    padding: 19px 24px 19px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -66,19 +79,47 @@ const { items, firstOpen = false } = Astro.props;
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    transition: 0.2s;
+    transition: background 0.25s, color 0.25s, transform 0.3s cubic-bezier(0.33, 1, 0.45, 1);
   }
   details[open] summary .pm {
     background: var(--gold);
     color: #1c1407;
     transform: rotate(45deg);
   }
+  /* fermeture en cours : le « × » repart en « + » pendant l'anim */
+  details[open][data-closing] summary .pm {
+    background: var(--soft-2);
+    color: var(--forest);
+    transform: rotate(0deg);
+  }
+  /* wrapper animé : AUCUN padding propre (scrollHeight fiable) */
+  .ans-wrap {
+    overflow: hidden;
+  }
   .ans {
-    padding: 0 22px 20px;
+    padding: 2px 28px 22px 30px;
     font-size: 15px;
     color: var(--ink-2);
     line-height: 1.55;
     max-width: 64ch;
+  }
+  .alink {
+    display: inline-block;
+    margin-left: 6px;
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .alink:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .alink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   @media (prefers-reduced-motion: reduce) {
     .pm {
@@ -86,3 +127,86 @@ const { items, firstOpen = false } = Astro.props;
     }
   }
 </style>
+
+<script>
+  // Accordéon animé + exclusif — voir doc en tête de composant.
+  (() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const anims = new WeakMap<HTMLDetailsElement, Animation>();
+
+    const panelOf = (d: HTMLDetailsElement) =>
+      d.querySelector<HTMLElement>(':scope > [data-faq-panel]');
+
+    const cancelAnim = (d: HTMLDetailsElement) => {
+      const a = anims.get(d);
+      if (a) {
+        a.cancel();
+        anims.delete(d);
+      }
+    };
+
+    function openItem(d: HTMLDetailsElement) {
+      const p = panelOf(d);
+      if (!p) return;
+      // ré-ouverture pendant une fermeture : repartir de la hauteur courante
+      const from = anims.has(d) ? p.getBoundingClientRect().height : 0;
+      cancelAnim(d);
+      d.removeAttribute('data-closing');
+      d.setAttribute('open', '');
+      if (reduce) return;
+      const anim = p.animate(
+        [
+          { height: `${from}px`, opacity: from > 0 ? 1 : 0.35 },
+          { height: `${p.scrollHeight}px`, opacity: 1 },
+        ],
+        { duration: 300, easing: 'cubic-bezier(0.33, 1, 0.45, 1)' }
+      );
+      anims.set(d, anim);
+      anim.onfinish = () => anims.delete(d);
+    }
+
+    function closeItem(d: HTMLDetailsElement) {
+      if (!d.hasAttribute('open') || d.hasAttribute('data-closing')) return;
+      const p = panelOf(d);
+      if (!p) return;
+      if (reduce) {
+        d.removeAttribute('open');
+        return;
+      }
+      const from = p.getBoundingClientRect().height || p.scrollHeight;
+      cancelAnim(d);
+      d.setAttribute('data-closing', '');
+      const anim = p.animate(
+        [
+          { height: `${from}px`, opacity: 1 },
+          { height: '0px', opacity: 0.3 },
+        ],
+        { duration: 260, easing: 'cubic-bezier(0.45, 0, 0.55, 1)' }
+      );
+      anims.set(d, anim);
+      anim.onfinish = () => {
+        anims.delete(d);
+        d.removeAttribute('data-closing');
+        d.removeAttribute('open');
+      };
+    }
+
+    document.querySelectorAll('.faq[data-faq-group]').forEach((group) => {
+      const items = Array.from(group.querySelectorAll<HTMLDetailsElement>(':scope > details'));
+      items.forEach((d) => {
+        const summary = d.querySelector(':scope > summary');
+        if (!summary) return;
+        summary.addEventListener('click', (e) => {
+          e.preventDefault(); // Enter/Espace déclenchent aussi click → a11y OK
+          const isOpen = d.hasAttribute('open') && !d.hasAttribute('data-closing');
+          if (isOpen) {
+            closeItem(d);
+          } else {
+            items.forEach((other) => other !== d && closeItem(other)); // exclusivité
+            openItem(d);
+          }
+        });
+      });
+    });
+  })();
+</script>

@@ -1,0 +1,269 @@
+{
+  "topic": "muay thai benefits",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-05T13:57:10Z",
+  "primary": {
+    "keyword": "muay thai benefits",
+    "search_volume": 210,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 1,
+    "difficulty": 0,
+    "intent": "informational",
+    "intent_probability": 0.7863
+  },
+  "secondaries": [
+    {
+      "keyword": "muay thai benefits for female",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai benefits weight loss",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "muay thai benefits reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "muay thai near me",
+      "search_volume": 49500,
+      "cpc": 2.35,
+      "competition": "MEDIUM",
+      "competition_index": 41
+    },
+    {
+      "keyword": "muay thai shorts",
+      "search_volume": 18100,
+      "cpc": 1.34,
+      "competition": "HIGH",
+      "competition_index": 100
+    },
+    {
+      "keyword": "muay thai shorts fairtex",
+      "search_volume": 5400,
+      "cpc": 1.38,
+      "competition": "LOW",
+      "competition_index": 28
+    },
+    {
+      "keyword": "muay thai shorts women",
+      "search_volume": 1600,
+      "cpc": 0.94,
+      "competition": "HIGH",
+      "competition_index": 100
+    },
+    {
+      "keyword": "muay thai shorts venum",
+      "search_volume": 1000,
+      "cpc": 0.97,
+      "competition": "HIGH",
+      "competition_index": 93
+    },
+    {
+      "keyword": "muay thai vs taekwondo",
+      "search_volume": 880,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai shorts men",
+      "search_volume": 880,
+      "cpc": 1.44,
+      "competition": "HIGH",
+      "competition_index": 100
+    },
+    {
+      "keyword": "muay thai vs karate",
+      "search_volume": 590,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "is muay thai good for self defense",
+      "search_volume": 480,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "is bjj good for self defense",
+      "search_volume": 480,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "muay thai for women",
+      "search_volume": 390,
+      "cpc": 1.76,
+      "competition": "LOW",
+      "competition_index": 11
+    },
+    {
+      "keyword": "muay thai shorts amazon",
+      "search_volume": 260,
+      "cpc": 0.63,
+      "competition": "HIGH",
+      "competition_index": 94
+    },
+    {
+      "keyword": "best muay thai shorts",
+      "search_volume": 260,
+      "cpc": 1.9,
+      "competition": "HIGH",
+      "competition_index": 100
+    },
+    {
+      "keyword": "benefits of muay thai",
+      "search_volume": 210,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "benefits muay thai",
+      "search_volume": 210,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    }
+  ],
+  "related": [
+    {
+      "keyword": "muay thai shorts thailand",
+      "search_volume": 170,
+      "cpc": 1.29,
+      "competition": "HIGH",
+      "competition_index": 99
+    },
+    {
+      "keyword": "is muay thai good for street fighting",
+      "search_volume": 110,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai body transformation",
+      "search_volume": 90,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai shorts reddit",
+      "search_volume": 70,
+      "cpc": 0.44,
+      "competition": "HIGH",
+      "competition_index": 100
+    },
+    {
+      "keyword": "is muay thai good for fitness",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "is muay thai a good workout",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "how effective is muay thai",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "is muay thai good for weight loss",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "benefits of training muay thai",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "benefits of muay thai training",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "muay thai shorts fairtex",
+      "search_volume": 5400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai vs taekwondo",
+      "search_volume": 880,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai vs karate",
+      "search_volume": 590,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "is muay thai good for self defense",
+      "search_volume": 480,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "is bjj good for self defense",
+      "search_volume": 480,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai for women",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "benefits of muay thai",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "benefits muay thai",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

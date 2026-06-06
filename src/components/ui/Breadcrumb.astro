@@ -5,12 +5,15 @@ import Container from '../layout/Container.astro';
  * Breadcrumb — fil d'Ariane + JSON-LD BreadcrumbList (rendu inline body, valide
  * pour Google). Labels traduits par la page ; `ariaLabel` = m.breadcrumb_aria().
  * Dernier item = page courante (sans lien, aria-current).
+ * `overlay` = fond transparent, pour flotter par-dessus un hero (slot `crumbs`
+ * de PageHero) au lieu d'occuper sa propre bande cream.
  */
 export interface Props {
   items: { label: string; href?: string }[];
   ariaLabel: string;
+  overlay?: boolean;
 }
-const { items, ariaLabel } = Astro.props;
+const { items, ariaLabel, overlay = false } = Astro.props;
 
 const base = Astro.site ?? Astro.url.origin;
 const jsonld = {
@@ -25,7 +28,7 @@ const jsonld = {
 };
 ---
 
-<nav class="crumbs" aria-label={ariaLabel}>
+<nav class:list={['crumbs', overlay && 'crumbs--overlay']} aria-label={ariaLabel}>
   <Container>
     <ol>
       {
@@ -49,6 +52,9 @@ const jsonld = {
     /* symétrique : même respiration au-dessus (vs nav) et en dessous (vs hero) */
     padding: 20px 0;
     background: var(--cream);
+  }
+  .crumbs--overlay {
+    background: transparent;
   }
   ol {
     list-style: none;
