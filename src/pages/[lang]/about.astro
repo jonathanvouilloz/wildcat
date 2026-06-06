@@ -50,8 +50,10 @@ const coaches = coachDocs.map((coach) => ({
 
 // Avis (#reviews) — CMS only : pas de faux avis (même raison). Section
 // conservée (ancre mega menu) avec le CTA Google ; grille masquée si vide.
+// service: null = TOUTES les featured (mix DTV + training + general) —
+// /about est LA page social proof (décision 2026-06-06).
 const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
-  { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'general' } },
+  { query: FEATURED_TESTIMONIALS_QUERY, params: { service: null } },
   [],
 );
 const reviews = testimonialDocs.map((doc) => ({
@@ -64,22 +66,24 @@ const reviews = testimonialDocs.map((doc) => ({
 
 <BaseLayout title={m.about_meta_title()} description={m.about_meta_desc()}>
   <main>
-    <Breadcrumb
-      ariaLabel={m.breadcrumb_aria()}
-      items={[
-        { label: m.breadcrumb_home(), href: p('/') },
-        { label: m.nav_about() },
-      ]}
-    />
-
     <SplitHero
       image={{ src: '/assets/family-party.webp', alt: m.about_hero_img_alt(), position: 'center 62%' }}
       eyebrow={m.about_hero_eyebrow()}
       title={m.about_hero_title()}
       titleEm={m.about_hero_title_em()}
       lead={m.about_hero_lead()}
-      float={{ title: m.about_hero_float_t(), body: m.about_hero_float_b() }}
-    />
+    >
+      {/* breadcrumb intégré au hero (plein viewport, zéro bande au-dessus) */}
+      <Breadcrumb
+        slot="crumbs"
+        overlay
+        ariaLabel={m.breadcrumb_aria()}
+        items={[
+          { label: m.breadcrumb_home(), href: p('/') },
+          { label: m.nav_about() },
+        ]}
+      />
+    </SplitHero>
 
     <Section soft>
       <div class="story">
@@ -191,11 +195,18 @@ const reviews = testimonialDocs.map((doc) => ({
     gap: 46px;
     align-items: center;
   }
+  /* photo story « incrustée scratch » (2026-06-06) — même frame déchirée que
+     les ProgramCards : zéro ombre/bordure/radius, le mask fait le bord */
   .imgbox {
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    height: 320px;
+    height: 340px;
+    -webkit-mask-image: url('/assets/textures/torn-frame.png');
+    mask-image: url('/assets/textures/torn-frame.png');
+    -webkit-mask-size: 106% 106%;
+    mask-size: 106% 106%;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
   }
   .imgbox img {
     width: 100%;

@@ -11,9 +11,14 @@ import DtvSteps from '../../../components/sections/DtvSteps.astro';
 import Faq from '../../../components/sections/Faq.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import DocChecklist from '../../../components/interactive/DocChecklist.astro';
+import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
 import { waLink } from '../../../lib/whatsapp';
+import { safeQuery } from '../../../lib/content';
+import { FEATURED_TESTIMONIALS_QUERY } from '../../../lib/queries';
+import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../../lib/sanity.types';
+import { pickLocale } from '../../../lib/i18n-content';
 import { m } from '../../../paraglide/messages.js';
 
 // Satellite procédural du pillar /dtv-visa (Module C — YMYL).
@@ -27,6 +32,19 @@ const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
 
 const PORTAL = 'https://thaievisa.go.th';
+
+// Social proof DTV (CMS only, masqué si vide) — 2 quotes avant le CTA final :
+// la page du process est là où le doute du lecteur est maximal.
+const reviewDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
+  { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'dtv' } },
+  [],
+);
+const dtvReviews = reviewDocs.slice(0, 2).map((doc) => ({
+  content: pickLocale(doc.content, lang),
+  name: doc.name ?? '',
+  meta: doc.country ?? undefined,
+  rating: doc.rating ?? 5,
+}));
 
 // Étapes — mappent 1:1 le JSON-LD HowTo (§6 du brief).
 const steps = [
@@ -320,6 +338,26 @@ const howToSchema = {
       </div>
     </Section>
 
+    {
+      dtvReviews.length > 0 && (
+        <Section soft>
+          <SectionHead>{m.dtv_reviews_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-6">{m.dtv_reviews_title()}</h2>
+          <div class="reviews-grid">
+            {dtvReviews.map((review) => (
+              <TestimonialQuote
+                content={review.content}
+                name={review.name}
+                meta={review.meta}
+                rating={review.rating}
+                ratingLabel={m.testimonial_rating_label({ rating: String(review.rating) })}
+              />
+            ))}
+          </div>
+        </Section>
+      )
+    }
+
     <CtaBanner
       variant="torn"
       hand={m.dtv_apply_cta_hand()}
@@ -343,6 +381,13 @@ const howToSchema = {
   }
   .body-p--dark {
     color: rgba(246, 241, 230, 0.78);
+  }
+  /* quotes DTV (CMS) — même grille que le pillar */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+    align-items: start;
   }
   .h2--dark {
     color: var(--cream);

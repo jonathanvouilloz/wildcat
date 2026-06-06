@@ -9,9 +9,14 @@ import FeatureGrid from '../../../components/sections/FeatureGrid.astro';
 import Faq from '../../../components/sections/Faq.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import DtvQuiz from '../../../components/interactive/DtvQuiz.astro';
+import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
 import { waLink } from '../../../lib/whatsapp';
+import { safeQuery } from '../../../lib/content';
+import { FEATURED_TESTIMONIALS_QUERY } from '../../../lib/queries';
+import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../../lib/sanity.types';
+import { pickLocale } from '../../../lib/i18n-content';
 import { m } from '../../../paraglide/messages.js';
 
 // Satellite DTV — page "requirements & eligibility" (kw : "dtv visa thailand
@@ -27,6 +32,22 @@ const p = (path: string) => localePath(lang, path);
 // CTA /contact pré-ciblé sur le sujet DTV (topic supporté par ContactForm).
 const contactDtv = `${p('/contact')}?intent=dtv`;
 const whatsapp = waLink(m.contact_wa_text_dtv());
+
+// Social proof DTV (CMS only, masqué si vide) — 1 quote avant le CTA final.
+// docs[2] pour varier des quotes du pillar/how-to-apply (fallback docs[0]).
+const reviewDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
+  { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'dtv' } },
+  [],
+);
+const reviewDoc = reviewDocs[2] ?? reviewDocs[0];
+const dtvReview = reviewDoc
+  ? {
+      content: pickLocale(reviewDoc.content, lang),
+      name: reviewDoc.name ?? '',
+      meta: reviewDoc.country ?? undefined,
+      rating: reviewDoc.rating ?? 5,
+    }
+  : null;
 
 // Récap "at a glance" — réutilise FeatureGrid (cartes scannables = snippet-bait).
 const glance = [
@@ -228,6 +249,22 @@ const faqItems = [
         </p>
       </div>
     </Section>
+
+    {
+      dtvReview && (
+        <Section soft containerSize="narrow">
+          <SectionHead>{m.dtv_reviews_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-6">{m.dtv_reviews_title()}</h2>
+          <TestimonialQuote
+            content={dtvReview.content}
+            name={dtvReview.name}
+            meta={dtvReview.meta}
+            rating={dtvReview.rating}
+            ratingLabel={m.testimonial_rating_label({ rating: String(dtvReview.rating) })}
+          />
+        </Section>
+      )
+    }
 
     <CtaBanner
       variant="scrapbook"

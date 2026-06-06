@@ -57,19 +57,30 @@ const coaches = coachDocs.slice(0, 3).map((coach) => ({
     : undefined,
 }));
 
-// Témoignage vedette — CMS only : pas de faux avis (même raison), masqué si vide.
+// Témoignages — CMS only : pas de faux avis (même raison), masqués si vide.
+// #coaches = 1re featured NON-dtv (la quote DTV a sa place dans le teaser DTV,
+// pas de doublon sur la même page) ; DtvTeaser = 1re featured dtv.
 const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
   { query: FEATURED_TESTIMONIALS_QUERY, params: { service: null } },
   [],
 );
-const quote = testimonialDocs[0]
+const quoteDoc = testimonialDocs.find((doc) => doc.service !== 'dtv');
+const quote = quoteDoc
   ? {
-      content: pickLocale(testimonialDocs[0].content, lang),
-      name: testimonialDocs[0].name ?? '',
-      meta: testimonialDocs[0].country ?? undefined,
-      rating: testimonialDocs[0].rating ?? 5,
+      content: pickLocale(quoteDoc.content, lang),
+      name: quoteDoc.name ?? '',
+      meta: quoteDoc.country ?? undefined,
+      rating: quoteDoc.rating ?? 5,
     }
   : null;
+const dtvQuoteDoc = testimonialDocs.find((doc) => doc.service === 'dtv');
+const dtvQuote = dtvQuoteDoc
+  ? {
+      content: pickLocale(dtvQuoteDoc.content, lang),
+      name: dtvQuoteDoc.name ?? '',
+      meta: dtvQuoteDoc.country ?? undefined,
+    }
+  : undefined;
 
 // Planning (teaser) — site.ts : les 4 sessions de groupe (horaires fixes 7j/7)
 const scheduleRows = site.schedule.group.map((time) => ({
@@ -233,6 +244,7 @@ const jsonld = {
       steps={dtvSteps}
       cta={{ label: m.home_dtv_cta(), href: p('/dtv-visa') }}
       scooterTag={m.home_dtv_scooter()}
+      quote={dtvQuote}
     />
 
     {/* le teaser DTV (forest-deep) déchire sur la section programs (soft) */}

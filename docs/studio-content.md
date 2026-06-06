@@ -6,10 +6,15 @@
 
 ## 1. Témoignages DTV (collection **Testimonial**)
 
-Décision 2026-06-06 : **CMS, pas de dur** — le schéma a déjà `service: dtv`,
-le pillar `/dtv-visa` les affiche dès saisie (1re quote dans #eligibility,
-jusqu'à 3 de plus en grille dessous). `featured` ✓ obligatoire pour
-apparaître. **Name** : prénom réel ou initiale (tu connais les clients —
+Décision 2026-06-06 : **CMS, pas de dur** — le schéma a déjà `service: dtv`.
+`featured` ✓ obligatoire pour apparaître. **Où elles s'affichent (étendu
+2026-06-06 soir)** :
+
+| service saisi | Pages |
+|---|---|
+| `dtv` | home (quote manuscrite dans le teaser DTV) · `/dtv-visa` (1 + grille 3) · `/dtv-visa/muay-thai` (1) · `/dtv-visa/how-to-apply` (grille 2, avant le CTA) · `/dtv-visa/eligibility` (1, avant le CTA) · `/about#reviews` (mix) |
+| `training` | `/stay-train` (1) · `/dtv-visa/long-stay-training` (1) · `/about#reviews` · home #coaches |
+| `general` | `/about#reviews` · home #coaches (1re non-DTV) | **Name** : prénom réel ou initiale (tu connais les clients —
 pas de noms inventés). Rating : 5 si tu veux les étoiles, vide sinon
 (⚠️ vide s'affiche 5★ quand même aujourd'hui — dis-moi si tu préfères
 masquer les étoiles pour les transcriptions WhatsApp).

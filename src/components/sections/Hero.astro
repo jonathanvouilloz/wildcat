@@ -67,9 +67,9 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
   .hero {
     position: relative;
     overflow: hidden;
-    /* −15 % (retour Jonathan 2026-06-06) : contenu en flex-end + brush en bas
-       remontent ensemble — le scratch de liaison revient dans le viewport */
-    min-height: clamp(520px, 75vh, 730px);
+    /* juste milieu (retour Jonathan 2026-06-06 v2) entre l'original (88vh/860)
+       et la passe −15 % (75vh/730) — contenu flex-end + brush remontent ensemble */
+    min-height: clamp(560px, 81vh, 795px);
     display: flex;
     align-items: flex-end;
     justify-content: center;

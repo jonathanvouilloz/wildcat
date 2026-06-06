@@ -7,7 +7,9 @@ import Button from '../ui/Button.astro';
  * full-height jusqu'au bord droit, callout forest flottant optionnel.
  * Pas de Container : la colonne copy aligne son bord gauche sur celui du
  * Container via max(gutter, (100vw - maxw)/2), la photo file au bord.
- * Le Breadcrumb reste au-dessus sur sa bande cream. Utilisé sur /about.
+ * Plein viewport (2026-06-06) : la photo va de la nav au bord bas de l'écran ;
+ * le Breadcrumb s'intègre via le slot `crumbs` + prop `overlay` (même système
+ * que PageHero full) — plus de bande cream dédiée au-dessus. Utilisé sur /about.
  */
 export interface Props {
   title: string;
@@ -22,6 +24,13 @@ const { title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
 ---
 
 <section class="split-hero">
+  {
+    Astro.slots.has('crumbs') && (
+      <div class="sh-crumbs">
+        <slot name="crumbs" />
+      </div>
+    )
+  }
   <div class="copy">
     {eyebrow && <p class="eyebrow"><span class="em">{eyebrow}</span></p>}
     <h1 class="h1">
@@ -60,11 +69,24 @@ const { title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
 
 <style>
   .split-hero {
+    position: relative;
     background: var(--cream);
     display: grid;
     grid-template-columns: 1.04fr 1fr;
     align-items: center;
     gap: clamp(24px, 4vw, 46px);
+    /* plein viewport : 100svh − chrome (utility bar 38px + nav sticky 74px) —
+       la photo touche le bas de l'écran au chargement */
+    min-height: 100vh; /* fallback */
+    min-height: calc(100svh - 112px);
+  }
+  /* breadcrumb intégré (slot crumbs) — flotte en haut du hero, pas de bande */
+  .sh-crumbs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
   }
   .copy {
     /* bord gauche aligné sur le Container, photo full-bleed à droite */
@@ -93,9 +115,8 @@ const { title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
   .media {
     position: relative;
     align-self: stretch;
-    /* quasi full viewport (retour Jonathan 2026-06-06) — avec la bande
-       breadcrumb au-dessus, le hero occupe ~85-90 % de l'écran */
-    min-height: clamp(480px, 78vh, 860px);
+    /* la hauteur vient du parent (plein viewport) — min de secours seulement */
+    min-height: 420px;
   }
   .media > img {
     position: absolute;
@@ -131,9 +152,11 @@ const { title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
     .split-hero {
       grid-template-columns: 1fr;
       gap: 0;
+      min-height: 0; /* stacked : pas de plein viewport forcé */
     }
     .copy {
-      padding: clamp(28px, 5vw, 40px) var(--gutter);
+      /* top : place pour le breadcrumb overlay (stacked = plus de centrage) */
+      padding: clamp(56px, 9vw, 72px) var(--gutter) clamp(28px, 5vw, 40px);
     }
     .media {
       min-height: 300px;

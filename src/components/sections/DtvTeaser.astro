@@ -20,8 +20,10 @@ export interface Props {
   steps: { title: string; body: string }[];
   cta: { label: string; href: string };
   scooterTag?: string;
+  /** Social proof DTV (CMS, 2026-06-06) — quote manuscrite on-dark sous le CTA. */
+  quote?: { content: string; name: string; meta?: string };
 }
-const { id, head, title, titleEm, lead, steps, cta, scooterTag } = Astro.props;
+const { id, head, title, titleEm, lead, steps, cta, scooterTag, quote } = Astro.props;
 ---
 
 <section class="dtv wc-section" id={id}>
@@ -46,6 +48,16 @@ const { id, head, title, titleEm, lead, steps, cta, scooterTag } = Astro.props;
             )
           }
         </div>
+        {
+          quote && (
+            <figure class="dtv-quote">
+              <blockquote>“{quote.content}”</blockquote>
+              <figcaption>
+                — {quote.name}{quote.meta && `, ${quote.meta}`}
+              </figcaption>
+            </figure>
+          )
+        }
       </div>
     </div>
   </Container>
@@ -106,6 +118,26 @@ const { id, head, title, titleEm, lead, steps, cta, scooterTag } = Astro.props;
     width: 20px;
     height: 20px;
     color: var(--gold);
+  }
+  /* quote client DTV — manuscrite (Caveat), discrète sous le CTA */
+  .dtv-quote {
+    margin: 26px 0 0;
+    padding-left: 16px;
+    border-left: 2px solid rgba(224, 166, 43, 0.55);
+    max-width: 56ch;
+  }
+  .dtv-quote blockquote {
+    margin: 0;
+    font-family: var(--font-hand);
+    font-size: 21px;
+    line-height: 1.35;
+    color: rgba(246, 241, 230, 0.92);
+  }
+  .dtv-quote figcaption {
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 700;
   }
   @media (max-width: 1024px) {
     .dtv-grid {
