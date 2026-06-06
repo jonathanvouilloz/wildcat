@@ -26,6 +26,11 @@ pnpm-debug.log*
 .env.*
 !.env.example
 
+# captures WhatsApp reviews (PII : passeports, e-visas, noms) — jamais committées.
+# Transcriptions anonymisées : docs/studio-content.md → studio Sanity.
+PNG/image-a-traiter/revi*.jpg
+PNG/image-a-traiter/review*.jpg
+
 # macOS-specific files
 .DS_Store
 

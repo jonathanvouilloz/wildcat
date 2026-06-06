@@ -30,19 +30,21 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
 
-// Témoignage DTV — uniquement si le CMS en a un (pas de fausse review en fallback)
+// Témoignages DTV — uniquement si le CMS en a (pas de fausse review en
+// fallback). 1re quote dans le split #eligibility, jusqu'à 3 de plus en
+// grille dessous (les vraies approvals WhatsApp transcrites au studio).
 const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
   { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'dtv' } },
   [],
 );
-const quote = testimonialDocs[0]
-  ? {
-      content: pickLocale(testimonialDocs[0].content, lang),
-      name: testimonialDocs[0].name ?? '',
-      meta: testimonialDocs[0].country ?? undefined,
-      rating: testimonialDocs[0].rating ?? 5,
-    }
-  : null;
+const dtvReviews = testimonialDocs.map((doc) => ({
+  content: pickLocale(doc.content, lang),
+  name: doc.name ?? '',
+  meta: doc.country ?? undefined,
+  rating: doc.rating ?? 5,
+}));
+const quote = dtvReviews[0] ?? null;
+const moreReviews = dtvReviews.slice(1, 4);
 
 const steps = [
   { title: m.dtv_step1_t(), body: m.dtv_step1_b() },
@@ -149,6 +151,21 @@ const faqItems = [
           )
         }
       </div>
+      {
+        moreReviews.length > 0 && (
+          <div class="reviews-grid">
+            {moreReviews.map((review) => (
+              <TestimonialQuote
+                content={review.content}
+                name={review.name}
+                meta={review.meta}
+                rating={review.rating}
+                ratingLabel={m.testimonial_rating_label({ rating: String(review.rating) })}
+              />
+            ))}
+          </div>
+        )
+      }
     </Section>
 
     <Section soft id="faq">
@@ -224,6 +241,14 @@ const faqItems = [
   }
   .elig:has(> div:only-child) {
     grid-template-columns: 1fr;
+  }
+  /* Quotes DTV supplémentaires (2-4) — même grille que /about#reviews */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+    align-items: start;
+    margin-top: 38px;
   }
   .faq-split {
     display: grid;

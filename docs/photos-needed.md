@@ -4,16 +4,21 @@
 > convertit en webp et place. Règles : golden hour, candide et chaleureux,
 > jamais « warrior gym » sombre (`docs/DESIGN.md`) · zéro doublon photo pour
 > les sections de présentation · crops vérifiés par screenshot.
+>
+> **MAJ 2026-06-06 soir — batch 1 reçu et placé** (`docs/studio-content.md`) :
+> ✅ vie du camp (#life) · ✅ portrait Meaw · ✅ portraits coachs (à uploader
+> au studio) · ✅ 6 photos cards programmes /classes · ✅ 2 photos fighters.
+> Reste : condos, scooters, cover OG.
 
 ## P1 — Pages de conversion (urgent)
 
 | # | Photo | Destination | Type d'image idéal |
 |---|-------|-------------|--------------------|
-| 1 | Condos de Meaw ×2-3 | `/stay-train#accommodation` (texte seul) | Extérieur bâtiment + intérieur chambre (lit fait, lumineux) + balcon/vue ou piscine |
-| 2 | Vie du camp ×1-2 | `/stay-train#life` (texte seul) | Moment candide entre deux sessions : détente jardin/piscine, repas partagé, golden hour |
+| 1 | Condos de Meaw ×2-3 | `/stay-train#accommodation` (texte seul) | **Les originaux du collage `stay-train.jpg`** (pleine rés., sans texte) : chambre, kitchenette, sdb, balcon |
+| 2 | ~~Vie du camp~~ ✅ | `camp-life.webp` placée sur `#life` | — |
 | 3 | Scooters réels ×2 | Fleet cards `/stay-train/scooter-rental` (icône moto en attendant) | Scoopy i Prestige + Honda Click, ¾ profil, propres, devant le camp |
-| 4 | Portrait Meaw | Fiche `/about/coaches` + AuthorBio blog + Person JSON-LD (doublé par `hero-team.webp`) | Buste, souriant·e, au camp, lumière dorée — LE visage E-E-A-T du site |
-| 5 | Portraits coachs ×N | Fiches coach Sanity (studio) | Carré ≥600×600, cadrage poitrine, au camp |
+| 4 | ~~Portrait Meaw~~ ✅ | `meaw-portrait.webp` placée (fiche + JSON-LD) ; uploader `meaw.jpg` au studio pour l'AuthorBio blog | — |
+| 5 | ~~Portraits coachs~~ ✅ | `peter2.jpg` / `arun-og.jpg` → à uploader au studio (fiches coach) | — |
 
 ## P2 — Variété visuelle
 
