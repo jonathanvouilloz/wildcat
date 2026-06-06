@@ -10,6 +10,7 @@ import PageHero from '../../components/sections/PageHero.astro';
 import DtvSteps from '../../components/sections/DtvSteps.astro';
 import FeatureGrid from '../../components/sections/FeatureGrid.astro';
 import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
+import ApprovalsStrip from '../../components/sections/ApprovalsStrip.astro';
 import Faq from '../../components/sections/Faq.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import { site } from '../../config/site';
@@ -18,6 +19,7 @@ import { waLink } from '../../lib/whatsapp';
 import { safeQuery } from '../../lib/content';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../lib/sanity.types';
+import { urlFor } from '../../lib/image';
 import { pickLocale } from '../../lib/i18n-content';
 import { m } from '../../paraglide/messages.js';
 
@@ -45,6 +47,17 @@ const dtvReviews = testimonialDocs.map((doc) => ({
 }));
 const quote = dtvReviews[0] ?? null;
 const moreReviews = dtvReviews.slice(1, 4);
+
+// Captures d'écran 9:16 des approvals (stories Insta de Meaw) — bande de
+// preuve sociale brute sous les quotes texte. CMS only, masquée si vide.
+const approvals = testimonialDocs
+  .filter((doc) => doc.screenshot?.asset)
+  .map((doc) => ({
+    src: urlFor(doc.screenshot!).width(360).height(640).fit('crop').format('webp').url(),
+    src2x: urlFor(doc.screenshot!).width(720).height(1280).fit('crop').format('webp').url(),
+    alt: m.dtv_approval_alt({ name: doc.name ?? '' }),
+    name: doc.name ?? '',
+  }));
 
 const steps = [
   { title: m.dtv_step1_t(), body: m.dtv_step1_b() },
@@ -166,6 +179,14 @@ const faqItems = [
           </div>
         )
       }
+      {
+        approvals.length > 0 && (
+          <div class="approvals">
+            <h3 class="h3 mb-5">{m.dtv_approvals_title()}</h3>
+            <ApprovalsStrip items={approvals} />
+          </div>
+        )
+      }
     </Section>
 
     <Section soft id="faq">
@@ -249,6 +270,9 @@ const faqItems = [
     gap: 22px;
     align-items: start;
     margin-top: 38px;
+  }
+  .approvals {
+    margin-top: 46px;
   }
   .faq-split {
     display: grid;

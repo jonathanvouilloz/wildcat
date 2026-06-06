@@ -79,6 +79,13 @@ export type Testimonial = {
   country?: string;
   service?: "dtv" | "training" | "general";
   content?: LocaleText;
+  screenshot?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   rating?: number;
   featured?: boolean;
 };
@@ -352,7 +359,7 @@ export type FIGHTERS_QUERY_RESULT = Array<{
 
 // Source: src/lib/queries.ts
 // Variable: FEATURED_TESTIMONIALS_QUERY
-// Query: *[_type == "testimonial" && featured == true && ($service == null || service == $service)] {    _id, name, country, service, content, rating  }
+// Query: *[_type == "testimonial" && featured == true && ($service == null || service == $service)] {    _id, name, country, service, content, rating, screenshot  }
 export type FEATURED_TESTIMONIALS_QUERY_RESULT = Array<{
   _id: string;
   name: string | null;
@@ -360,6 +367,13 @@ export type FEATURED_TESTIMONIALS_QUERY_RESULT = Array<{
   service: "dtv" | "general" | "training" | null;
   content: LocaleText | null;
   rating: number | null;
+  screenshot: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
 }>;
 
 // Source: src/lib/queries.ts
@@ -410,7 +424,7 @@ declare module "@sanity/client" {
     '\n  *[_type == "coach"] | order(order asc) {\n    _id, name, slug, photo, role, bio, featured, order\n  }\n': COACHES_QUERY_RESULT;
     '\n  *[_type == "fighter" && featured == true] | order(year desc, name asc) {\n    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements\n  }\n': FEATURED_FIGHTERS_QUERY_RESULT;
     '\n  *[_type == "fighter"] | order(year desc, name asc) {\n    _id, name, slug, photo, fightName, countryCode, year, fights, venues, quote, achievements, featured\n  }\n': FIGHTERS_QUERY_RESULT;
-    '\n  *[_type == "testimonial" && featured == true && ($service == null || service == $service)] {\n    _id, name, country, service, content, rating\n  }\n': FEATURED_TESTIMONIALS_QUERY_RESULT;
+    '\n  *[_type == "testimonial" && featured == true && ($service == null || service == $service)] {\n    _id, name, country, service, content, rating, screenshot\n  }\n': FEATURED_TESTIMONIALS_QUERY_RESULT;
     '\n  *[_type == "trainingSchedule"] | order(order asc) {\n    _id, day, timeSlots, level, notes, order\n  }\n': SCHEDULE_QUERY_RESULT;
     '\n  *[_type == "scooter"] | order(order asc, name asc) {\n    _id, name, year, color, cc, priceDaily, priceMonthly, photo, note, available\n  }\n': SCOOTERS_QUERY_RESULT;
   }

@@ -39,6 +39,13 @@ export const testimonial = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'screenshot',
+      title: 'Screenshot (9:16)',
+      type: 'image',
+      description:
+        'Capture WhatsApp/IG story de l’approval, format 9:16 (story Insta). ⚠️ Uniquement les captures SANS infos privées (passeport, e-visa, n° de dossier…). Affichée dans la bande « approvals » des pages DTV.',
+    }),
+    defineField({
       name: 'rating',
       title: 'Rating',
       type: 'number',

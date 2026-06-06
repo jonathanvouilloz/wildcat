@@ -1,0 +1,73 @@
+---
+/**
+ * ApprovalsStrip — bande de captures d'écran 9:16 (stories Insta des approvals
+ * DTV partagées par Meaw). Preuve sociale brute, complémentaire des
+ * TestimonialQuote texte : la page filtre les testimonials avec `screenshot`.
+ *
+ * Présentationnel pur (pattern coach/fighter) : la page résout urlFor() en
+ * src/src2x et passe l'alt localisé. Statique, zéro JS, pas d'effet hover.
+ * Caption prénom en Caveat — grammaire scrapbook du guest book.
+ */
+export interface Props {
+  items: {
+    src: string;
+    /** Variante 2x (720×1280) pour les écrans retina. */
+    src2x?: string;
+    alt: string;
+    name: string;
+  }[];
+}
+const { items } = Astro.props;
+---
+
+<div class="strip">
+  {
+    items.map((item) => (
+      <figure>
+        <img
+          src={item.src}
+          srcset={item.src2x ? `${item.src} 1x, ${item.src2x} 2x` : undefined}
+          alt={item.alt}
+          loading="lazy"
+          decoding="async"
+          width="360"
+          height="640"
+        />
+        <figcaption>{item.name}</figcaption>
+      </figure>
+    ))
+  }
+</div>
+
+<style>
+  .strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  figure {
+    margin: 0;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: var(--r-md);
+  }
+  figcaption {
+    margin-top: 8px;
+    text-align: center;
+    font-family: var(--font-hand);
+    font-size: 20px;
+    line-height: 1.2;
+    color: var(--forest-deep);
+  }
+  @media (max-width: 860px) {
+    .strip {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+  }
+</style>

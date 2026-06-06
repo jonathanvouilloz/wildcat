@@ -12,12 +12,14 @@ import Faq from '../../../components/sections/Faq.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import DocChecklist from '../../../components/interactive/DocChecklist.astro';
 import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
+import ApprovalsStrip from '../../../components/sections/ApprovalsStrip.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
 import { waLink } from '../../../lib/whatsapp';
 import { safeQuery } from '../../../lib/content';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../../lib/sanity.types';
+import { urlFor } from '../../../lib/image';
 import { pickLocale } from '../../../lib/i18n-content';
 import { m } from '../../../paraglide/messages.js';
 
@@ -45,6 +47,17 @@ const dtvReviews = reviewDocs.slice(0, 2).map((doc) => ({
   meta: doc.country ?? undefined,
   rating: doc.rating ?? 5,
 }));
+
+// Captures d'écran 9:16 des approvals (stories Insta de Meaw) — bande de
+// preuve sociale brute sous les quotes. CMS only, masquée si vide.
+const approvals = reviewDocs
+  .filter((doc) => doc.screenshot?.asset)
+  .map((doc) => ({
+    src: urlFor(doc.screenshot!).width(360).height(640).fit('crop').format('webp').url(),
+    src2x: urlFor(doc.screenshot!).width(720).height(1280).fit('crop').format('webp').url(),
+    alt: m.dtv_approval_alt({ name: doc.name ?? '' }),
+    name: doc.name ?? '',
+  }));
 
 // Étapes — mappent 1:1 le JSON-LD HowTo (§6 du brief).
 const steps = [
@@ -339,21 +352,29 @@ const howToSchema = {
     </Section>
 
     {
-      dtvReviews.length > 0 && (
+      (dtvReviews.length > 0 || approvals.length > 0) && (
         <Section soft>
           <SectionHead>{m.dtv_reviews_head()}</SectionHead>
           <h2 class="h2 mt-2 mb-6">{m.dtv_reviews_title()}</h2>
-          <div class="reviews-grid">
-            {dtvReviews.map((review) => (
-              <TestimonialQuote
-                content={review.content}
-                name={review.name}
-                meta={review.meta}
-                rating={review.rating}
-                ratingLabel={m.testimonial_rating_label({ rating: String(review.rating) })}
-              />
-            ))}
-          </div>
+          {dtvReviews.length > 0 && (
+            <div class="reviews-grid">
+              {dtvReviews.map((review) => (
+                <TestimonialQuote
+                  content={review.content}
+                  name={review.name}
+                  meta={review.meta}
+                  rating={review.rating}
+                  ratingLabel={m.testimonial_rating_label({ rating: String(review.rating) })}
+                />
+              ))}
+            </div>
+          )}
+          {approvals.length > 0 && (
+            <div class="approvals">
+              <h3 class="h3 mb-5">{m.dtv_approvals_title()}</h3>
+              <ApprovalsStrip items={approvals} />
+            </div>
+          )}
         </Section>
       )
     }
@@ -388,6 +409,9 @@ const howToSchema = {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 22px;
     align-items: start;
+  }
+  .reviews-grid + .approvals {
+    margin-top: 46px;
   }
   .h2--dark {
     color: var(--cream);

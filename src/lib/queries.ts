@@ -27,7 +27,7 @@ export const FIGHTERS_QUERY = defineQuery(`
 /** Témoignages mis en avant, optionnellement filtrés par service (dtv|training|general). */
 export const FEATURED_TESTIMONIALS_QUERY = defineQuery(`
   *[_type == "testimonial" && featured == true && ($service == null || service == $service)] {
-    _id, name, country, service, content, rating
+    _id, name, country, service, content, rating, screenshot
   }
 `);
 
