@@ -11,6 +11,7 @@
  * placeholders CommunityGallery. Build toujours vert, zéro JS client.
  */
 import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 import * as m from '../../paraglide/messages';
 import { fetchInstagramPosts } from '../../lib/instagram';
 import CommunityGallery from './CommunityGallery.astro';
@@ -37,6 +38,9 @@ const posts = await fetchInstagramPosts(count);
             sizes="(max-width: 860px) 33vw, 190px"
             loading="lazy"
           />
+          <span class="veil" aria-hidden="true">
+            <Icon name="tabler:brand-instagram" />
+          </span>
         </a>
       ))}
     </div>
@@ -53,13 +57,10 @@ const posts = await fetchInstagramPosts(count);
     gap: 12px;
   }
   .gal a {
+    position: relative;
     display: block;
     border-radius: var(--r-md);
     overflow: hidden;
-  }
-  .gal a:hover img,
-  .gal a:focus-visible img {
-    transform: scale(1.04);
   }
   .gal img {
     display: block;
@@ -67,7 +68,25 @@ const posts = await fetchInstagramPosts(count);
     height: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
-    transition: transform 0.3s ease;
+  }
+  /* Overlay hover : voile charcoal + logo Instagram centré (minimal). */
+  .veil {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(17, 17, 17, 0.55);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .veil [data-icon] {
+    width: 28px;
+    height: 28px;
+  }
+  .gal a:hover .veil,
+  .gal a:focus-visible .veil {
+    opacity: 1;
   }
   @media (max-width: 860px) {
     .gal {
@@ -75,12 +94,8 @@ const posts = await fetchInstagramPosts(count);
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .gal img {
+    .veil {
       transition: none;
-    }
-    .gal a:hover img,
-    .gal a:focus-visible img {
-      transform: none;
     }
   }
 </style>
