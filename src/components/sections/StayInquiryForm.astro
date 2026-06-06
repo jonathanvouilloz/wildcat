@@ -12,16 +12,21 @@ import { m } from '../../paraglide/messages.js';
 
 /**
  * StayInquiryForm — mini-form séjour *inline* sur /stay-train (#plan).
- * Même endpoint que le contact (POST /api/contact) avec intent=stay figé +
- * from=stay-train (retour post-POST sur la page, ancre #plan). Le textarea
- * est optionnel : dates + durée suffisent à qualifier la demande (l'API
- * n'exige le message que pour l'intent general). Honeypot identique.
+ * POST direct Web3Forms (décision 2026-06-05, zéro backend) avec intent=stay
+ * figé + redirect retour sur la page (ancre #plan). Le textarea est
+ * optionnel : dates + durée suffisent à qualifier la demande. Honeypot
+ * `botcheck` natif Web3Forms.
  */
 export interface Props {
   lang: string;
-  action?: string;
 }
-const { lang, action = '/api/contact' } = Astro.props;
+const { lang } = Astro.props;
+
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
+if (!accessKey)
+  console.warn('[StayInquiryForm] PUBLIC_WEB3FORMS_KEY missing — submissions will fail.');
+// Web3Forms exige une URL absolue (Astro.site = domaine de prod).
+const redirectUrl = new URL(`/${lang}/stay-train?sent=1#plan`, Astro.site).href;
 
 const durationOptions = [
   { value: '1-week', label: m.contact_stay_dur_1w() },
@@ -33,16 +38,16 @@ const durationOptions = [
 const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: v }));
 ---
 
-<form method="POST" action={action} class="sform">
+<form method="POST" action="https://api.web3forms.com/submit" class="sform">
+  <input type="hidden" name="access_key" value={accessKey} />
+  <input type="hidden" name="redirect" value={redirectUrl} />
+  <input type="hidden" name="subject" value="[Wildcat] Stay & Train inquiry" />
+  <input type="hidden" name="from_name" value="Wildcat Website" />
   <input type="hidden" name="lang" value={lang} />
-  <input type="hidden" name="from" value="stay-train" />
   <input type="hidden" name="intent" value="stay" />
-  <!-- honeypot — invisible pour les humains, rempli par les bots -->
+  <!-- honeypot Web3Forms — invisible pour les humains, coché par les bots -->
   <div class="hp" aria-hidden="true">
-    <label>
-      Website
-      <input type="text" name="website" tabindex="-1" autocomplete="off" />
-    </label>
+    <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
   </div>
 
   <div class="pair">

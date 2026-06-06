@@ -9,7 +9,7 @@ import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
 import { m } from '../../paraglide/messages.js';
 
-// Contact — formulaire (POST /api/contact) + coordonnées + WhatsApp.
+// Contact — formulaire (POST direct Web3Forms) + coordonnées + WhatsApp.
 // Page statique : les bannières ?sent=1/error sont togglées par un mini
 // script inline (les query params n'existent pas au build SSG).
 export function getStaticPaths() {
@@ -106,7 +106,7 @@ const hoursDays: Record<(typeof site.hours)[number]['dayKey'], string> = {
   </main>
 
   <script is:inline>
-    // Affiche la bannière succès/erreur après redirect du POST /api/contact.
+    // Affiche la bannière succès/erreur après le redirect Web3Forms (?sent=1).
     (function () {
       var sent = new URLSearchParams(location.search).get('sent');
       if (sent === '1') document.getElementById('sent-ok').hidden = false;

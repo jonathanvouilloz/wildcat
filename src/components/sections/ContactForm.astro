@@ -11,23 +11,32 @@ import { waLink } from '../../lib/whatsapp';
 import { m } from '../../paraglide/messages.js';
 
 /**
- * ContactForm v2 — formulaire *intent-driven* (POST /api/contact).
+ * ContactForm v2 — formulaire *intent-driven* (POST direct Web3Forms,
+ * décision 2026-06-05 : zéro backend, site 100 % statique).
  * - 5 intentions en radios stylées cards (class/stay/scooter/dtv/general) ;
  *   les champs contextuels par intention sont togglés en pur CSS `:has()`
  *   → fonctionne sans JS. Champs contextuels jamais `required` (un champ
  *   caché requis bloquerait le submit).
  * - `?intent=` (+ legacy `?topic=`) présélectionne la card via un mini script.
+ * - Sujet email pré-qualifié : champ caché `subject` mis à jour par intention
+ *   (JS) ; fallback no-JS = sujet générique. Au submit, les champs des
+ *   intentions non actives sont `disabled` (non soumis) → email propre ;
+ *   fallback no-JS = tous les champs partent (verbeux mais fonctionnel).
  * - Fast lane WhatsApp : lien wa.me pré-rempli, re-câblé par intention en JS
  *   (fallback no-JS : texte « general »).
- * - Honeypot `website` anti-spam ; locale + page de retour en champs cachés.
+ * - Honeypot `botcheck` natif Web3Forms ; `redirect` → retour ?sent=1.
+ * - Clé absente (PUBLIC_WEB3FORMS_KEY) : warning build, le form reste rendu
+ *   (Web3Forms rejettera) — même philosophie que HelpfulWidget.
  */
 export interface Props {
   lang: string;
-  action?: string;
-  /** Page de retour post-POST (whitelist côté API). */
-  from?: string;
 }
-const { lang, action = '/api/contact', from = 'contact' } = Astro.props;
+const { lang } = Astro.props;
+
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
+if (!accessKey) console.warn('[ContactForm] PUBLIC_WEB3FORMS_KEY missing — submissions will fail.');
+// Web3Forms exige une URL absolue (Astro.site = domaine de prod).
+const redirectUrl = new URL(`/${lang}/contact?sent=1`, Astro.site).href;
 
 const intents = [
   { value: 'class', icon: 'tabler:karate', label: m.contact_intent_class() },
@@ -67,15 +76,15 @@ const waTexts: Record<string, string> = {
 };
 ---
 
-<form method="POST" action={action} class="cform" data-cform>
+<form method="POST" action="https://api.web3forms.com/submit" class="cform" data-cform>
+  <input type="hidden" name="access_key" value={accessKey} />
+  <input type="hidden" name="redirect" value={redirectUrl} />
+  <input type="hidden" name="subject" value="[Wildcat] Website contact" data-subject />
+  <input type="hidden" name="from_name" value="Wildcat Website" />
   <input type="hidden" name="lang" value={lang} />
-  <input type="hidden" name="from" value={from} />
-  <!-- honeypot — invisible pour les humains, rempli par les bots -->
+  <!-- honeypot Web3Forms — invisible pour les humains, coché par les bots -->
   <div class="hp" aria-hidden="true">
-    <label>
-      Website
-      <input type="text" name="website" tabindex="-1" autocomplete="off" />
-    </label>
+    <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
   </div>
 
   <fieldset class="intents">
@@ -195,10 +204,19 @@ const waTexts: Record<string, string> = {
 </form>
 
 <script>
-  // Présélection ?intent= (+ legacy ?topic=) et re-câblage du lien WhatsApp
-  // pré-rempli quand l'intention change. Tout fonctionne sans ce script —
-  // il n'apporte que le confort (deep links + texte wa.me contextualisé).
+  // Présélection ?intent= (+ legacy ?topic=), sujet email pré-qualifié,
+  // re-câblage du lien WhatsApp et filtrage des champs au submit. Tout
+  // fonctionne sans ce script — il n'apporte que le confort (deep links,
+  // texte wa.me contextualisé, email plus propre côté Meaw).
   const LEGACY: Record<string, string> = { classes: 'class', other: 'general' };
+  // Sujets email internes (EN, pour Meaw) — ex-labels de l'API /api/contact.
+  const SUBJECTS: Record<string, string> = {
+    class: 'Class booking',
+    stay: 'Stay & Train',
+    scooter: 'Scooter rental',
+    dtv: 'DTV visa',
+    general: 'General',
+  };
 
   document.querySelectorAll<HTMLFormElement>('form[data-cform]').forEach((form) => {
     const params = new URLSearchParams(location.search);
@@ -209,21 +227,37 @@ const waTexts: Record<string, string> = {
       if (radio) radio.checked = true;
     }
 
+    const checkedIntent = () =>
+      form.querySelector<HTMLInputElement>('input[name="intent"]:checked')?.value ?? 'general';
+
     const wrap = form.querySelector<HTMLElement>('[data-wa]');
     const link = wrap?.querySelector<HTMLAnchorElement>('a');
     const base = wrap?.dataset.waBase;
-    if (!wrap || !link || !base) return;
+    const subject = form.querySelector<HTMLInputElement>('input[data-subject]');
 
     const update = () => {
-      const v =
-        form.querySelector<HTMLInputElement>('input[name="intent"]:checked')?.value ?? 'general';
-      const text = wrap.dataset['wa' + v[0].toUpperCase() + v.slice(1)];
-      if (text) link.href = `${base}?text=${encodeURIComponent(text)}`;
+      const v = checkedIntent();
+      if (subject && SUBJECTS[v]) subject.value = `[Wildcat] ${SUBJECTS[v]}`;
+      const text = wrap?.dataset['wa' + v[0].toUpperCase() + v.slice(1)];
+      if (wrap && link && base && text) link.href = `${base}?text=${encodeURIComponent(text)}`;
     };
     form.addEventListener('change', (e) => {
       if ((e.target as HTMLInputElement).name === 'intent') update();
     });
     update();
+
+    // Web3Forms reçoit le payload brut : on `disable` les champs contextuels
+    // des intentions non actives au submit (un champ disabled n'est pas
+    // soumis). Fallback no-JS : tout part, email verbeux mais fonctionnel.
+    form.addEventListener('submit', () => {
+      const active = checkedIntent();
+      form.querySelectorAll<HTMLElement>('.xtra').forEach((box) => {
+        if (box.dataset.i === active) return;
+        box
+          .querySelectorAll<HTMLInputElement>('input, select, textarea')
+          .forEach((field) => (field.disabled = true));
+      });
+    });
   });
 </script>
 

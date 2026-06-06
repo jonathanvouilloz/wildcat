@@ -225,7 +225,7 @@ const faqJsonld = {
     </Section>
 
     <!-- Form séjour inline — la conversion à plus forte valeur du site reste
-         sur la page (zéro rebond /contact) ; POST /api/contact intent=stay. -->
+         sur la page (zéro rebond /contact) ; POST Web3Forms intent=stay. -->
     <Section id="plan">
       <div class="banner banner--ok" id="plan-ok" hidden>
         <Icon name="tabler:circle-check" aria-hidden="true" />
@@ -329,8 +329,8 @@ const faqJsonld = {
   </main>
 
   <script is:inline>
-    // Affiche la bannière succès/erreur après redirect du POST /api/contact
-    // (from=stay-train → retour ici avec ?sent=1#plan).
+    // Affiche la bannière succès/erreur après le redirect Web3Forms
+    // (retour ici avec ?sent=1#plan).
     (function () {
       var sent = new URLSearchParams(location.search).get('sent');
       if (sent === '1') document.getElementById('plan-ok').hidden = false;
