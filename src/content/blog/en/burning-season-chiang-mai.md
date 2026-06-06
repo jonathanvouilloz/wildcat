@@ -10,7 +10,7 @@ publishDate: 2026-06-05
 category: chiang-mai-life
 cover: ../covers/burning-season-demo.webp
 coverAlt: "Evening training session at Wildcat Muay Thai"
-draft: false
+draft: true
 translationKey: burning-season
 ---
 

@@ -40,30 +40,24 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
 
-/* ---------- Contenu CMS (fallbacks statiques si dataset vide) ---------- */
+/* ---------- Contenu CMS (sections masquées si dataset vide) ---------- */
 
-// Coachs — fallback : le trio de la maquette (noms = données brutes, rôles/bios = messages)
+// Coachs — CMS only : pas de fallback factice (audit V1 2026-06-06, les noms
+// inventés type « Kru Nut » nuisent à la crédibilité). Section masquée si vide.
 const coachDocs = await safeQuery<COACHES_QUERY_RESULT>({ query: COACHES_QUERY }, []);
-const coaches =
-  coachDocs.length > 0
-    ? coachDocs.slice(0, 3).map((coach) => ({
-        name: coach.name ?? '',
-        role: pickLocale(coach.role, lang),
-        bio: pickLocale(coach.bio, lang),
-        photo: coach.photo?.asset
-          ? {
-              src: urlFor(coach.photo).width(280).height(280).format('webp').url(),
-              alt: coach.photo.alt ?? coach.name ?? '',
-            }
-          : undefined,
-      }))
-    : [
-        { name: 'Kru Nut', role: m.home_coach1_role(), bio: m.home_coach1_bio() },
-        { name: 'Kru Fern', role: m.home_coach2_role(), bio: m.home_coach2_bio() },
-        { name: 'Kru Bank', role: m.home_coach3_role(), bio: m.home_coach3_bio() },
-      ];
+const coaches = coachDocs.slice(0, 3).map((coach) => ({
+  name: coach.name ?? '',
+  role: pickLocale(coach.role, lang),
+  bio: pickLocale(coach.bio, lang),
+  photo: coach.photo?.asset
+    ? {
+        src: urlFor(coach.photo).width(280).height(280).format('webp').url(),
+        alt: coach.photo.alt ?? coach.name ?? '',
+      }
+    : undefined,
+}));
 
-// Témoignage vedette — fallback : la quote de la maquette
+// Témoignage vedette — CMS only : pas de faux avis (même raison), masqué si vide.
 const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
   { query: FEATURED_TESTIMONIALS_QUERY, params: { service: null } },
   [],
@@ -75,7 +69,7 @@ const quote = testimonialDocs[0]
       meta: testimonialDocs[0].country ?? undefined,
       rating: testimonialDocs[0].rating ?? 5,
     }
-  : { content: m.home_quote_text(), name: 'James T.', meta: m.home_quote_meta(), rating: 5 };
+  : null;
 
 // Planning (teaser) — site.ts : les 4 sessions de groupe (horaires fixes 7j/7)
 const scheduleRows = site.schedule.group.map((time) => ({
@@ -275,22 +269,28 @@ const jsonld = {
       </div>
     </Section>
 
-    <Section soft id="coaches">
-      <div class="block-head center">
-        <SectionHead center>{m.home_coach_head()}</SectionHead>
-        <h2 class="h2 mt-2">{m.home_coach_title()}</h2>
-      </div>
-      <div class="split split--coaches">
-        <CoachGrid coaches={coaches} />
-        <TestimonialQuote
-          content={quote.content}
-          name={quote.name}
-          meta={quote.meta}
-          rating={quote.rating}
-          ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
-        />
-      </div>
-    </Section>
+    {
+      (coaches.length > 0 || quote) && (
+        <Section soft id="coaches">
+          <div class="block-head center">
+            <SectionHead center>{m.home_coach_head()}</SectionHead>
+            <h2 class="h2 mt-2">{m.home_coach_title()}</h2>
+          </div>
+          <div class="split split--coaches">
+            {coaches.length > 0 && <CoachGrid coaches={coaches} />}
+            {quote && (
+              <TestimonialQuote
+                content={quote.content}
+                name={quote.name}
+                meta={quote.meta}
+                rating={quote.rating}
+                ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
+              />
+            )}
+          </div>
+        </Section>
+      )
+    }
 
     <Section>
       <div class="block-head row">

@@ -32,46 +32,34 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
 
-// Coachs — même fallback trio que la home (rôles/bios via messages)
+// Coachs — CMS only : pas de fallback factice (audit V1 2026-06-06, les noms
+// inventés type « Kru Nut » nuisent à la crédibilité). Grille masquée si vide,
+// la section #coaches reste (ancre footer/legacy + CTA vers /about/coaches).
 const coachDocs = await safeQuery<COACHES_QUERY_RESULT>({ query: COACHES_QUERY }, []);
-const coaches =
-  coachDocs.length > 0
-    ? coachDocs.map((coach) => ({
-        name: coach.name ?? '',
-        role: pickLocale(coach.role, lang),
-        bio: pickLocale(coach.bio, lang),
-        photo: coach.photo?.asset
-          ? {
-              src: urlFor(coach.photo).width(280).height(280).format('webp').url(),
-              alt: coach.photo.alt ?? coach.name ?? '',
-            }
-          : undefined,
-      }))
-    : [
-        { name: 'Kru Nut', role: m.home_coach1_role(), bio: m.home_coach1_bio() },
-        { name: 'Kru Fern', role: m.home_coach2_role(), bio: m.home_coach2_bio() },
-        { name: 'Kru Bank', role: m.home_coach3_role(), bio: m.home_coach3_bio() },
-      ];
+const coaches = coachDocs.map((coach) => ({
+  name: coach.name ?? '',
+  role: pickLocale(coach.role, lang),
+  bio: pickLocale(coach.bio, lang),
+  photo: coach.photo?.asset
+    ? {
+        src: urlFor(coach.photo).width(280).height(280).format('webp').url(),
+        alt: coach.photo.alt ?? coach.name ?? '',
+      }
+    : undefined,
+}));
 
-// Avis (#reviews) — TOUS les témoignages featured ; fallback : 3 quotes messages
-// (la section ne doit jamais paraître vide, dataset vide compris).
+// Avis (#reviews) — CMS only : pas de faux avis (même raison). Section
+// conservée (ancre mega menu) avec le CTA Google ; grille masquée si vide.
 const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
   { query: FEATURED_TESTIMONIALS_QUERY, params: { service: 'general' } },
   [],
 );
-const reviews =
-  testimonialDocs.length > 0
-    ? testimonialDocs.map((doc) => ({
-        content: pickLocale(doc.content, lang),
-        name: doc.name ?? '',
-        meta: doc.country ?? undefined,
-        rating: doc.rating ?? 5,
-      }))
-    : [
-        { content: m.home_quote_text(), name: 'James T.', meta: m.home_quote_meta(), rating: 5 },
-        { content: m.about_reviews_fb1_text(), name: 'Sofia R.', meta: m.about_reviews_fb1_meta(), rating: 5 },
-        { content: m.about_reviews_fb2_text(), name: 'Marc D.', meta: m.about_reviews_fb2_meta(), rating: 5 },
-      ];
+const reviews = testimonialDocs.map((doc) => ({
+  content: pickLocale(doc.content, lang),
+  name: doc.name ?? '',
+  meta: doc.country ?? undefined,
+  rating: doc.rating ?? 5,
+}));
 ---
 
 <BaseLayout title={m.about_meta_title()} description={m.about_meta_desc()}>
@@ -118,7 +106,7 @@ const reviews =
         <h2 class="h2 mt-2 mb-3">{m.about_coaches_title()}</h2>
         <p class="body-p centered">{m.about_coaches_teaser_lead()}</p>
       </div>
-      <CoachGrid coaches={coaches.slice(0, 3)} />
+      {coaches.length > 0 && <CoachGrid coaches={coaches.slice(0, 3)} />}
       <div class="teaser-cta">
         <Button href={p('/about/coaches')} variant="outline" arrow>
           {m.about_coaches_teaser_cta()}
@@ -144,19 +132,21 @@ const reviews =
         </h2>
         <p class="body-p centered">{m.about_reviews_lead()}</p>
       </div>
-      <div class="reviews">
-        {
-          reviews.map((review) => (
-            <TestimonialQuote
-              content={review.content}
-              name={review.name}
-              meta={review.meta}
-              rating={review.rating}
-              ratingLabel={m.testimonial_rating_label({ rating: String(review.rating) })}
-            />
-          ))
-        }
-      </div>
+      {
+        reviews.length > 0 && (
+          <div class="reviews">
+            {reviews.map((review) => (
+              <TestimonialQuote
+                content={review.content}
+                name={review.name}
+                meta={review.meta}
+                rating={review.rating}
+                ratingLabel={m.testimonial_rating_label({ rating: String(review.rating) })}
+              />
+            ))}
+          </div>
+        )
+      }
       <div class="teaser-cta">
         <Button href={site.reviews.googleUrl} variant="outline" arrow>
           {m.about_reviews_google_cta()}

@@ -28,26 +28,21 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
 
-// Coachs — même fallback trio que la home / about (rôles/bios via messages)
+// Coachs — CMS only : pas de fallback factice (audit V1 2026-06-06, les noms
+// inventés type « Kru Nut » nuisent à la crédibilité E-E-A-T). Grille masquée
+// si vide — le bloc Meaw (message-driven) porte la page en attendant.
 const coachDocs = await safeQuery<COACHES_QUERY_RESULT>({ query: COACHES_QUERY }, []);
-const coaches =
-  coachDocs.length > 0
-    ? coachDocs.map((coach) => ({
-        name: coach.name ?? '',
-        role: pickLocale(coach.role, lang),
-        bio: pickLocale(coach.bio, lang),
-        photo: coach.photo?.asset
-          ? {
-              src: urlFor(coach.photo).width(280).height(280).format('webp').url(),
-              alt: coach.photo.alt ?? coach.name ?? '',
-            }
-          : undefined,
-      }))
-    : [
-        { name: 'Kru Nut', role: m.home_coach1_role(), bio: m.home_coach1_bio() },
-        { name: 'Kru Fern', role: m.home_coach2_role(), bio: m.home_coach2_bio() },
-        { name: 'Kru Bank', role: m.home_coach3_role(), bio: m.home_coach3_bio() },
-      ];
+const coaches = coachDocs.map((coach) => ({
+  name: coach.name ?? '',
+  role: pickLocale(coach.role, lang),
+  bio: pickLocale(coach.bio, lang),
+  photo: coach.photo?.asset
+    ? {
+        src: urlFor(coach.photo).width(280).height(280).format('webp').url(),
+        alt: coach.photo.alt ?? coach.name ?? '',
+      }
+    : undefined,
+}));
 
 // Valeurs du camp — ce qui fait l'enseignement Wildcat (ton voice.md, jamais "warrior")
 const values = [
@@ -122,15 +117,19 @@ const personSchema = {
       </div>
     </Section>
 
-    <!-- L'équipe — grille coachs (Sanity ou fallback trio) -->
-    <Section soft id="team">
-      <div class="block-head center">
-        <SectionHead center>{m.coaches_team_head()}</SectionHead>
-        <h2 class="h2 mt-2 mb-3">{m.coaches_team_title()}</h2>
-        <p class="body-p centered">{m.coaches_team_lead()}</p>
-      </div>
-      <CoachGrid coaches={coaches} />
-    </Section>
+    <!-- L'équipe — grille coachs (Sanity only, section masquée si vide) -->
+    {
+      coaches.length > 0 && (
+        <Section soft id="team">
+          <div class="block-head center">
+            <SectionHead center>{m.coaches_team_head()}</SectionHead>
+            <h2 class="h2 mt-2 mb-3">{m.coaches_team_title()}</h2>
+            <p class="body-p centered">{m.coaches_team_lead()}</p>
+          </div>
+          <CoachGrid coaches={coaches} />
+        </Section>
+      )
+    }
 
     <!-- Comment on enseigne — 3 valeurs -->
     <Section>

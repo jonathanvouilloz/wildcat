@@ -8,7 +8,7 @@ tldr:
   - "The jab is a measuring tool, not a weapon — power comes from the hips later."
 publishDate: 2026-05-09
 category: beginners
-draft: false
+draft: true
 translationKey: muay-thai-stance
 ---
 

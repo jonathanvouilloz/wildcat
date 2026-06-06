@@ -12,13 +12,13 @@
  */
 export const site = {
   name: 'Wildcat Muay Thai', // marque — jamais traduite
-  domain: 'wildcatmuaythai.com', // TODO(Q5): domaine définitif
+  domain: 'wildcatmuaythai.com', // Q5 tranchée (2026-06-05)
   // tagline / motto / contact.note → messages : site_tagline, site_motto, footer_contact_note
 
   contact: {
     // Adresse confirmée 2026-06-04 (Jonathan) — Nong Kwai, Hang Dong.
     address: '132 หมู่ 7 Chaw Fa Vlg, Tambon Nong Kwai, Hang Dong District, Chiang Mai 50230, Thailand',
-    email: 'hello@wildcatmuaythai.com', // TODO(real data): email réel à confirmer
+    email: 'hello@wildcatmuaythai.com', // confirmé 2026-06-06 (Jonathan)
     phone: '+66 85 720 9620',
     phoneHref: 'tel:+66857209620',
     whatsapp: 'https://wa.me/66857209620',
@@ -29,10 +29,11 @@ export const site = {
     geo: { latitude: 18.732, longitude: 98.9474 },
   },
 
-  /** Avis Google (fiche "Wildcat Muay Thai") — CTA /about#reviews. */
-  // TODO(real data): lien direct vers l'onglet avis de la fiche Business Profile
+  /** Avis Google — CTA /about#reviews. Recherche Google en attendant (pas
+   *  encore d'accès GMB, 2026-06-06) ; TODO: lien direct fiche Business
+   *  Profile quand l'accès est récupéré. */
   reviews: {
-    googleUrl: 'https://www.google.com/maps/search/?api=1&query=Wildcat+Muay+Thai+Chiang+Mai',
+    googleUrl: 'https://www.google.com/search?q=Wildcat+Muay+Thai+Chiang+Mai+reviews',
   },
 
   // Horaires d'ouverture = 1er cours → fin du dernier (flyer 2026-06-04), 7j/7.

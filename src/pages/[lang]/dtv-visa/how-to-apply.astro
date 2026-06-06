@@ -284,7 +284,8 @@ const howToSchema = {
 
       <p class="body-p mt-5">
         {m.dtv_apply_fees_future()}{' '}
-        <a class="ilink" href="#">{m.dtv_apply_fees_future_link()}</a>
+        {/* En attendant la mini-app DTV (E6) : contact pré-ciblé intent=dtv */}
+        <a class="ilink" href={`${p('/contact')}?intent=dtv`}>{m.dtv_apply_fees_future_link()}</a>.
       </p>
     </Section>
 
