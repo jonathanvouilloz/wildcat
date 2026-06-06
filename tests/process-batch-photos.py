@@ -17,6 +17,7 @@ JOBS = [
     ("woman-classes.jpg", "prog-women.webp", 1100),     # card Women's
     ("kids-and-coach.jpg", "prog-kids.webp", 1100),     # card Kids & Family
     ("fighter2.jpg", "prog-fight-team.webp", 1080),     # card Fight Team
+    ("fight.jpg", "prog-padwork.webp", 1100),           # card Pad Work (home)
 ]
 
 for src_name, out_name, max_w in JOBS:

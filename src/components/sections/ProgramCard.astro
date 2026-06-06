@@ -19,7 +19,8 @@ export interface Props {
   body: string;
   href: string;
   moreLabel: string;
-  image?: { src: string; alt: string };
+  /** position : object-position du crop (ex. 'center 28%') — réglé en live. */
+  image?: { src: string; alt: string; position?: string };
 }
 const { level, title, body, href, moreLabel, image } = Astro.props;
 
@@ -43,7 +44,13 @@ const tear = tears[seedPick(title + 't', 3)];
     <div class="photo">
       {
         image ? (
-          <img class="media" src={image.src} alt={image.alt} loading="lazy" />
+          <img
+            class="media"
+            src={image.src}
+            alt={image.alt}
+            loading="lazy"
+            style={image.position && `object-position:${image.position}`}
+          />
         ) : (
           <div class="media media--placeholder" aria-hidden="true" />
         )
@@ -90,7 +97,7 @@ const tear = tears[seedPick(title + 't', 3)];
   .media {
     display: block;
     width: 100%;
-    height: 190px;
+    height: 232px; /* +20 % (2026-06-06) — montre plus de la photo, moins de crop sujet */
     object-fit: cover;
   }
   .media--placeholder {

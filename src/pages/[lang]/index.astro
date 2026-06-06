@@ -95,9 +95,10 @@ const dtvSteps = [
 
 const programs = [
   // Card Beginners → satellite /classes/beginners (maillage silo Train)
-  { level: m.home_prog1_lvl(), title: m.home_prog1_t(), body: m.home_prog1_b(), href: p('/classes/beginners') },
-  { level: m.home_prog2_lvl(), title: m.home_prog2_t(), body: m.home_prog2_b(), href: p('/classes') },
-  { level: m.home_prog3_lvl(), title: m.home_prog3_t(), body: m.home_prog3_b(), href: p('/classes') },
+  // Photos : même programme = même asset que /classes ; padwork = asset dédié (fight.jpg)
+  { level: m.home_prog1_lvl(), title: m.home_prog1_t(), body: m.home_prog1_b(), href: p('/classes/beginners'), image: { src: '/assets/prog-beginners.webp', alt: m.home_prog1_t(), position: 'center 28%' } },
+  { level: m.home_prog2_lvl(), title: m.home_prog2_t(), body: m.home_prog2_b(), href: p('/classes'), image: { src: '/assets/prog-padwork.webp', alt: m.home_prog2_t() } },
+  { level: m.home_prog3_lvl(), title: m.home_prog3_t(), body: m.home_prog3_b(), href: p('/classes'), image: { src: '/assets/prog-fight-team.webp', alt: m.home_prog3_t(), position: 'center 32%' } },
 ];
 
 // Tarifs réels (site.ts) — prix formatés selon la locale

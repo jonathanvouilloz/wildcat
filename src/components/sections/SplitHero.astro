@@ -68,7 +68,7 @@ const { title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
   }
   .copy {
     /* bord gauche aligné sur le Container, photo full-bleed à droite */
-    padding: clamp(40px, 5vw, 64px) 0 clamp(40px, 5vw, 64px)
+    padding: clamp(48px, 7vh, 96px) 0 clamp(48px, 7vh, 96px)
       max(var(--gutter), calc((100vw - var(--maxw)) / 2));
   }
   .eyebrow {
@@ -93,7 +93,9 @@ const { title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
   .media {
     position: relative;
     align-self: stretch;
-    min-height: clamp(380px, 52vh, 520px);
+    /* quasi full viewport (retour Jonathan 2026-06-06) — avec la bande
+       breadcrumb au-dessus, le hero occupe ~85-90 % de l'écran */
+    min-height: clamp(480px, 78vh, 860px);
   }
   .media > img {
     position: absolute;
