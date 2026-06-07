@@ -81,8 +81,8 @@ export const site = {
     { key: 'blog', href: '/blog' },
   ],
 
-  /** Image OG par défaut (chemin public, résolu via Astro.site). TODO: vraie cover OG. */
-  defaultOgImage: '/assets/gym-garden.jpg',
+  /** Image OG par défaut (chemin public, résolu via Astro.site). */
+  defaultOgImage: '/assets/og-image.png',
 
   /**
    * Flotte scooters (location aux guests) — données brutes, fallback de la
