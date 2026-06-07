@@ -1,0 +1,63 @@
+/* ============================================================
+   Wildcat — scénographie scroll (data-animate)
+   Voir docs/DESIGN.md §9. CSS : src/styles/motion.css.
+
+   Pattern : ce script pose .wc-anim sur <html> (active le hidden-state
+   CSS), puis un IntersectionObserver ajoute .in-view (once). No-JS,
+   reduced-motion ou navigateur sans IO → wc-anim absente → tout visible.
+
+   Attributs :
+   - data-animate="fade-up|fade-down|fade-left|fade-right|scale|blur"
+   - data-animate-stagger (container, valeur optionnelle = gap en ms)
+     + data-animate-item (enfants)
+   - data-delay="0.2" / data-duration="0.7" (overrides ponctuels, en s)
+   ============================================================ */
+(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  const targets = document.querySelectorAll<HTMLElement>(
+    '[data-animate], [data-animate-stagger]'
+  );
+  if (!targets.length) return;
+
+  document.documentElement.classList.add('wc-anim');
+
+  // staggers : index par item (CSS : --stagger-i) + gap custom éventuel
+  for (const group of document.querySelectorAll<HTMLElement>('[data-animate-stagger]')) {
+    group
+      .querySelectorAll<HTMLElement>('[data-animate-item]')
+      .forEach((item, i) => item.style.setProperty('--stagger-i', String(i)));
+    const gap = Number.parseFloat(group.dataset.animateStagger ?? '');
+    if (gap > 0) group.style.setProperty('--stagger-gap', `${gap}ms`);
+  }
+
+  // overrides ponctuels (parcimonie — voir DESIGN.md §9 dosage)
+  for (const el of document.querySelectorAll<HTMLElement>('[data-animate][data-delay]')) {
+    el.style.transitionDelay = `${Number.parseFloat(el.dataset.delay ?? '0')}s`;
+  }
+  for (const el of document.querySelectorAll<HTMLElement>('[data-animate][data-duration]')) {
+    el.style.transitionDuration = `${Number.parseFloat(el.dataset.duration ?? '0')}s`;
+  }
+
+  const reveal = (el: Element) => {
+    el.classList.add('in-view');
+    io.unobserve(el); // once — un contenu ne re-disparaît jamais
+  };
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          reveal(entry.target);
+        } else if (entry.boundingClientRect.bottom < 0) {
+          // déjà AU-DESSUS du viewport (arrivée via ancre #faq…) :
+          // révéler direct, sinon la section reste invisible au scroll-up
+          reveal(entry.target);
+        }
+      }
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+  );
+  targets.forEach((t) => io.observe(t));
+})();

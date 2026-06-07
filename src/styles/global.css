@@ -13,6 +13,9 @@
 /* Design tokens (variables CSS) */
 @import './tokens.css';
 
+/* Scénographie scroll (data-animate) — hidden-state gated par html.wc-anim */
+@import './motion.css';
+
 /* Tailwind v4 */
 @import 'tailwindcss';
 

@@ -60,6 +60,16 @@
   --shadow-md: 0 18px 44px -28px rgba(20, 35, 25, 0.5);
   --shadow-lg: 0 36px 80px -44px rgba(20, 35, 25, 0.6);
 
+  /* motion — durées & easings (voir docs/DESIGN.md §9 + styles/motion.css).
+     Jamais de valeurs en dur dans les composants. UI < 300ms toujours. */
+  --dur-fast: 0.15s; /* hover, press, changements de couleur */
+  --dur-base: 0.25s; /* dropdowns, accordions, petits open/close */
+  --dur-slow: 0.45s; /* drawers, modals */
+  --dur-reveal: 0.6s; /* reveals au scroll (data-animate) */
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1); /* entrées/sorties — le défaut */
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1); /* déplacements on-screen */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1); /* drawers/sheets */
+
   /* form fields (Input/Textarea/Select/Checkbox/FileUpload — voir .wc-control) */
   --field-bg: #ffffff;
   --field-bg-disabled: var(--soft-2);

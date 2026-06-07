@@ -1388,8 +1388,85 @@ const guestFighters = [
       </p>
     </Section>
 
+    <!-- Motion — système data-animate (docs/DESIGN.md §9) -->
+    <div class="mx-auto max-w-[1100px] px-6 pb-20 pt-16" id="motion">
+      <SectionHead>Motion</SectionHead>
+      <h2 class="h2 mt-3 mb-2">Scénographie — <span class="em">data-animate.</span></h2>
+      <p class="mb-2 max-w-[64ch] text-ink-2">
+        Intensité <strong>4/10</strong> — reveals doux au scroll, beaucoup d'éléments statiques.
+        Script <code>src/scripts/animations.ts</code> + CSS <code>src/styles/motion.css</code> ;
+        hidden-state gated par <code>html.wc-anim</code> (no-JS / reduced-motion = tout visible).
+        Tokens : <code>--dur-reveal</code> 0.6s · <code>--ease-out-strong</code>.
+      </p>
+      <p class="mb-6 text-sm text-ink-3">
+        Scroll jusqu'ici pour voir les reveals (once) — ou
+        <button
+          type="button"
+          id="sg-motion-replay"
+          class="font-bold text-forest underline decoration-line-2 underline-offset-2 hover:text-gold-deep"
+        >rejouer la démo</button>.
+      </p>
+
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3" id="sg-motion-zone">
+        {
+          [
+            ['fade-up', 'le défaut — titres, paragraphes'],
+            ['fade-down', 'headers'],
+            ['fade-left', 'entre depuis la gauche'],
+            ['fade-right', 'entre depuis la droite'],
+            ['scale', 'images, cards — jamais scale(0)'],
+            ['blur', 'accroches, quotes'],
+          ].map(([effect, role]) => (
+            <div
+              class="rounded-[var(--r-md)] border border-line bg-surface p-5"
+              data-animate={effect}
+            >
+              <div class="font-mono text-[12px] font-bold text-forest">data-animate="{effect}"</div>
+              <div class="mt-1 text-sm text-ink-3">{role}</div>
+            </div>
+          ))
+        }
+      </div>
+
+      <h3 class="h3 mt-10 mb-3">Stagger — grilles &amp; listes</h3>
+      <div class="grid grid-cols-2 gap-3 sm:grid-cols-4" data-animate-stagger>
+        {
+          ['Train', 'Stay', 'Eat', 'Belong'].map((word) => (
+            <div
+              class="rounded-[var(--r-md)] bg-forest p-5 text-center font-display font-bold text-cream"
+              data-animate-item
+            >
+              {word}
+            </div>
+          ))
+        }
+      </div>
+      <p class="mt-3 text-sm text-ink-3">
+        <code>data-animate-stagger</code> (container, <code>="100"</code> = gap custom en ms) +
+        <code>data-animate-item</code> — cascade 70ms/item. Dosage : max 2-3 éléments animés par
+        section, nav/footer/breadcrumbs statiques, jamais sur l'élément LCP.
+      </p>
+    </div>
+
     <!-- Footer live (intégré à BaseLayout pour les vraies pages) -->
     <Footer />
+
+    <!-- Scénographie (la page n'utilise pas BaseLayout) + replay de la démo -->
+    <script>
+      import '../scripts/animations';
+    </script>
+    <script>
+      // Replay démo motion — retire .in-view, double rAF, re-pose (transition rejouée)
+      document.getElementById('sg-motion-replay')?.addEventListener('click', () => {
+        const targets = document.querySelectorAll(
+          '#motion [data-animate], #motion [data-animate-stagger]'
+        );
+        targets.forEach((t) => t.classList.remove('in-view'));
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => targets.forEach((t) => t.classList.add('in-view')))
+        );
+      });
+    </script>
 
     <style>
       /* Démo torn dividers — bandes mock pleine largeur */

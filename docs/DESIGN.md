@@ -227,4 +227,52 @@ Spécifiés visuellement ici, implémentés en E2 (`src/components/ui` + `sectio
 
 ---
 
-_Dernière mise à jour : 2026-06-03 — E2 : sémantiques, primitives layout, forms, Card, Footer, BaseLayout._
+## 9. Motion
+
+**Intensité : 4/10.** Wildcat est chaleureux, familial, golden hour — le motion doit donner une impression de calme soigné, jamais de site « qui en fait trop ». Des reveals doux au scroll, des micro-interactions discrètes, beaucoup d'éléments statiques. Si une animation se remarque comme animation, elle est trop forte.
+
+### Tokens (`src/styles/tokens.css`)
+
+| Token | Valeur | Usage |
+|-------|--------|-------|
+| `--dur-fast` | 0.15s | hover, press, couleurs |
+| `--dur-base` | 0.25s | dropdowns, accordions, open/close |
+| `--dur-slow` | 0.45s | drawers, modals |
+| `--dur-reveal` | 0.6s | reveals au scroll (data-animate) |
+| `--ease-out-strong` | `cubic-bezier(0.23, 1, 0.32, 1)` | entrées/sorties — **le défaut** |
+| `--ease-in-out-strong` | `cubic-bezier(0.77, 0, 0.175, 1)` | déplacements on-screen |
+| `--ease-drawer` | `cubic-bezier(0.32, 0.72, 0, 1)` | drawers/sheets |
+
+Jamais de durées/easings en dur dans les composants. UI < 300 ms toujours ; sortie plus rapide que l'entrée ; jamais `ease-in` sur de l'UI.
+
+### Scénographie scroll — système `data-animate`
+
+Script `src/scripts/animations.ts` (chargé par `BaseLayout`) + CSS `src/styles/motion.css`. IntersectionObserver qui ajoute `.in-view`, `once: true`. **Le hidden-state est gated par `html.wc-anim`, posée par le script** : no-JS / reduced-motion / vieux navigateur = tout visible, zéro animation. Démo live : `/styleguide#motion`.
+
+| Attribut | Effet | Usage |
+|----------|-------|-------|
+| `data-animate="fade-up"` | opacity + translateY(24px→0) | **défaut** : titres, paragraphes |
+| `data-animate="fade-down"` | descend | headers |
+| `data-animate="fade-left"` / `"fade-right"` | entre depuis la gauche / la droite | layouts 2 colonnes |
+| `data-animate="scale"` | scale(0.95→1) + opacity | images, cards |
+| `data-animate="blur"` | blur(8px)→net + opacity | accroches, quotes |
+| `data-animate-stagger` (container) + `data-animate-item` | cascade 70ms/item (`="100"` = gap custom en ms) | grilles, listes |
+| `data-delay="0.2"` / `data-duration="0.7"` | overrides (en s) | parcimonieux |
+
+**Dosage (règles dures)** :
+- Max 2-3 éléments animés par section visible — garder des éléments statiques.
+- Délais progressifs 0 / 0.1 / 0.2 / 0.3s max dans une même zone.
+- Nav, footer, breadcrumbs, utility bar : **statiques, toujours**.
+- Pas de `data-animate` sur l'élément LCP ni au-dessus du fold (le hero a droit à une entrée orchestrée une fois le pattern validé — pas d'observer, classe au load).
+- `prefers-reduced-motion` : le script bail → contenu visible sans mouvement (non négociable).
+- `transform` + `opacity` only (blur ponctuel < 20px toléré).
+
+### Micro-interactions
+
+CSS pur, avec le composant, jamais en retrofit. Hover gated `@media (hover: hover) and (pointer: fine)`. Éléments vus très souvent (nav, mega menu) : on n'ajoute **rien**. Framework de décision complet : skill `/motion` (+ `design-eng` pour la profondeur).
+
+GSAP/ScrollTrigger : uniquement si scrub/pin/timeline complexe, chargé page par page — décision au cas par cas pendant les passes (candidats identifiés : DtvSteps, guest book). Jamais les deux moteurs sur le même élément.
+
+---
+
+_Dernière mise à jour : 2026-06-07 — §9 Motion : tokens, système data-animate, dosage 4/10._

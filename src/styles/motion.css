@@ -1,0 +1,71 @@
+/* ============================================================
+   Wildcat — scénographie scroll (système data-animate)
+   Voir docs/DESIGN.md §9. Script : src/scripts/animations.ts.
+
+   Le hidden-state est gated par html.wc-anim, posée PAR le script :
+   no-JS (ou reduced-motion, ou pas d'IntersectionObserver) = contenu
+   visible, zéro animation. Jamais de opacity:0 en CSS statique seul.
+
+   transform + opacity only (blur ponctuel <20px toléré).
+   once : .in-view n'est jamais retirée — un contenu ne re-disparaît pas.
+   ============================================================ */
+
+.wc-anim [data-animate] {
+  opacity: 0;
+  transition:
+    opacity var(--dur-reveal) var(--ease-out-strong),
+    transform var(--dur-reveal) var(--ease-out-strong),
+    filter var(--dur-reveal) var(--ease-out-strong);
+}
+.wc-anim [data-animate='fade-up'] {
+  transform: translateY(24px);
+}
+.wc-anim [data-animate='fade-down'] {
+  transform: translateY(-24px);
+}
+/* fade-left = entre depuis la gauche · fade-right = depuis la droite */
+.wc-anim [data-animate='fade-left'] {
+  transform: translateX(-28px);
+}
+.wc-anim [data-animate='fade-right'] {
+  transform: translateX(28px);
+}
+.wc-anim [data-animate='scale'] {
+  transform: scale(0.95); /* jamais scale(0) */
+}
+.wc-anim [data-animate='blur'] {
+  filter: blur(8px);
+}
+.wc-anim [data-animate].in-view {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Stagger — container [data-animate-stagger] + enfants [data-animate-item].
+   Le script pose --stagger-i (index) par item ; gap par défaut 70ms,
+   override par container : data-animate-stagger="100" → --stagger-gap. */
+.wc-anim [data-animate-stagger] [data-animate-item] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--dur-reveal) var(--ease-out-strong),
+    transform var(--dur-reveal) var(--ease-out-strong);
+  transition-delay: calc(var(--stagger-i, 0) * var(--stagger-gap, 70ms));
+}
+.wc-anim [data-animate-stagger].in-view [data-animate-item] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Ceinture + bretelles — le script bail déjà sur reduced-motion (wc-anim
+   jamais posée), mais si la préférence change en cours de session : */
+@media (prefers-reduced-motion: reduce) {
+  .wc-anim [data-animate],
+  .wc-anim [data-animate-stagger] [data-animate-item] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
