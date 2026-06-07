@@ -80,7 +80,10 @@ const onDark = dark || !!image;
     )
   }
   <Container>
-    <div class:list={['grid', hasAside && 'grid--aside']}>
+    {/* Entrée au load (mécanique data-animate-load, chorégraphie scoped) —
+        cascade BRÈVE (~1s) : page intérieure, pas la porte d'entrée (home).
+        Photo .ph-bg statique (LCP des pages photo). */}
+    <div class:list={['grid', hasAside && 'grid--aside']} data-animate="hero" data-animate-load>
       <div>
         {eyebrow && <p class="ph-eyebrow"><span class="em on-dark">{eyebrow}</span></p>}
         <h1 class="h1">
@@ -274,6 +277,44 @@ const onDark = dark || !!image;
     }
     .aside {
       justify-content: flex-start;
+    }
+  }
+
+  /* ------------------------------------------------------------
+     Entrée au load (gated html.wc-anim — no-JS : tout visible).
+     Transitions sur .in-view UNIQUEMENT (règle motion.css).
+     Cascade : eyebrow 0.05s · H1 0.1s · lead 0.28s · CTA/aside 0.42s.
+     ------------------------------------------------------------ */
+  :global(html.wc-anim) .grid :is(.ph-eyebrow, .h1, .lead, .cta, .aside) {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  :global(html.wc-anim) .grid.in-view :is(.ph-eyebrow, .h1, .lead, .cta, .aside) {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.6s var(--ease-out-strong),
+      transform 0.6s var(--ease-out-strong);
+  }
+  :global(html.wc-anim) .grid.in-view .ph-eyebrow {
+    transition-delay: 0.05s;
+  }
+  :global(html.wc-anim) .grid.in-view .h1 {
+    transition-delay: 0.1s;
+  }
+  :global(html.wc-anim) .grid.in-view .lead {
+    transition-delay: 0.28s;
+  }
+  :global(html.wc-anim) .grid.in-view :is(.cta, .aside) {
+    transition-delay: 0.42s;
+  }
+
+  /* ceinture + bretelles (le script bail déjà sur reduced-motion) */
+  @media (prefers-reduced-motion: reduce) {
+    :global(html.wc-anim) .grid :is(.ph-eyebrow, .h1, .lead, .cta, .aside) {
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
   }
 </style>

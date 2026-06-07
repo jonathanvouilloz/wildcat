@@ -161,7 +161,7 @@ const faqJsonld = {
 
     <Section soft>
       <div class="why">
-        <div>
+        <div data-animate="fade-up">
           <SectionHead>{m.stay_why_head()}</SectionHead>
           <h2 class="h2 mt-2 mb-4">{m.stay_why_title()}</h2>
           <p class="body-copy">{m.stay_why_intro()}</p>
@@ -173,21 +173,21 @@ const faqJsonld = {
         {m.stay_beg_note()}{' '}
         <a class="ilink" href={p('/classes/beginners')}>{m.stay_beg_link()}</a>.
       </p>
-      <div class="imgbox">
+      <div class="imgbox" data-animate="scale">
         {/* session du soir — la vie du camp pour les long-stayers (gym-garden reste à la home) */}
         <img src="/assets/night-session.webp" alt={m.home_stay_img_alt()} loading="lazy" />
       </div>
     </Section>
 
     <Section id="packages">
-      <div class="block-head center">
+      <div class="block-head center" data-animate="fade-up">
         <SectionHead center>{m.stay_pack_head()}</SectionHead>
         <h2 class="h2 mt-2 mb-3">{m.stay_pack_title()}</h2>
         <p class="lead lead--center">{m.stay_pack_lead()}</p>
       </div>
       <PricingTable plans={plans} popularLabel={m.pricing_popular()} />
       {/* la table d'honnêteté : ce que la SERP entière refuse d'afficher */}
-      <div class="pack-split">
+      <div class="pack-split" data-animate="fade-up">
         <div class="pack-card">
           <h3 class="h3">{m.stay_pack_inc_title()}</h3>
           <ul class="pack-list pack-list--inc">
@@ -206,7 +206,7 @@ const faqJsonld = {
 
     <Section id="accommodation" soft>
       <div class="acc">
-        <div>
+        <div data-animate="fade-up">
           <SectionHead>{m.stay_acc_head()}</SectionHead>
           <h2 class="h2 mt-2 mb-4">{m.stay_acc_title()}</h2>
           <p class="body-copy">{m.stay_acc_body1()}</p>
@@ -233,7 +233,8 @@ const faqJsonld = {
         <p>{m.contact_error_body()}</p>
       </div>
       <div class="plan-split">
-        <div>
+        {/* le form (conversion clé) reste statique — on n'anime jamais une conversion */}
+        <div data-animate="fade-up">
           <SectionHead>{m.stay_plan_head()}</SectionHead>
           <h2 class="h2 mt-2 mb-4">
             {m.stay_plan_title()} <span class="em">{m.stay_plan_title_em()}</span>
@@ -248,7 +249,7 @@ const faqJsonld = {
 
     <Section id="life" soft>
       <div class="life">
-        <div>
+        <div data-animate="fade-up">
           <SectionHead>{m.stay_life_head()}</SectionHead>
           <h2 class="h2 mt-2 mb-4">{m.stay_life_title()}</h2>
           <p class="body-copy">{m.stay_life_body1()}</p>
@@ -263,7 +264,7 @@ const faqJsonld = {
           </p>
         </div>
       </div>
-      <div class="imgbox">
+      <div class="imgbox" data-animate="scale">
         {/* entre deux sessions — abdos sous les sacs, ouvert sur la rue (batch 2026-06-06) */}
         <img src="/assets/camp-life.webp" alt={m.stay_life_title()} loading="lazy" />
       </div>
@@ -274,8 +275,10 @@ const faqJsonld = {
 
     <Section dark>
       <div class="dtv-cross">
-        <DtvStamp size={170} />
-        <div>
+        <div data-animate="scale" data-delay="0.15">
+          <DtvStamp size={170} />
+        </div>
+        <div data-animate="fade-up">
           <SectionHead onDark>{m.stay_dtv_head()}</SectionHead>
           <h2 class="h2 h2--dark mt-2 mb-3">
             {m.stay_dtv_title()} <span class="em on-dark">{m.stay_dtv_title_em()}</span>
@@ -290,7 +293,7 @@ const faqJsonld = {
 
     <Section>
       <div class="faq-split">
-        <div>
+        <div data-animate="fade-up">
           <SectionHead>{m.stay_faq_head()}</SectionHead>
           <h2 class="h2 mt-2">{m.stay_faq_title()}</h2>
         </div>
@@ -301,7 +304,7 @@ const faqJsonld = {
     {
       quote && (
         <Section soft>
-          <div class="quote-wrap">
+          <div class="quote-wrap" data-animate="blur">
             <TestimonialQuote
               {...quote}
               ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
