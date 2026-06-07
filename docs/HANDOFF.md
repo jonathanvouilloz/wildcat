@@ -1,20 +1,19 @@
-# HANDOFF — 2026-06-07 (après-midi)
+# HANDOFF — 2026-06-07 (soir)
 
 ## Epic en cours
-Passe motion (hors-epic, branche `feat/motion-pass` **non mergée**) — détail : CLAUDE.md + PLAN.md entrée 13
+Aucun epic dev actif — V1 pages/blog/motion/copy complets sur `main`. Prochains : contenu studio, puis E6 DTV app (→ docs/features/E6-dtv-app.md).
 
 ## Etat
-- Fait cette session : infra motion complète (tokens, `src/scripts/animations.ts`, `src/styles/motion.css`, démo `/styleguide#motion`) ; heroes chorégraphiés au load (home line-rise, PageHero/SplitHero/header blog) ; staggers/reveals sur tous les composants partagés → site entier couvert ; parallax `/fighters` en CSS scroll-driven natif (zéro GSAP)
-- Skills mis à jour : `/motion` v1.1 (assets canoniques + règle « Standard ≠ uniforme »), `/init-design`, `/animate` supprimé
-- Dernier commit : `0ef0077` feat(motion): mini-passe blog (8 commits motion au total)
+- Fait cette session : **passe humanizer copy EN+FR** (497 em-dashes éliminés dans `messages/{en,fr}.json`, restent 31/locale = lockups design ; patterns IA corrigés au passage ; parité 1441/1441, build OK)
+- **`feat/motion-pass` mergée → `main` + push** (motion + copy), sans `/impeccable critique` formelle
+- Dernier commit : voir `git log -1` sur main (merge motion-pass)
 
 ## Prochaine etape (par quoi commencer)
-1. Jonathan : check fresh-eyes du site animé (règle Emil — à tête reposée). Parallax fighters : besoin de ≥3 fighters au studio pour le juger (1 seul saisi).
-2. Puis `/impeccable critique` sur home + stay-train + 1 page DTV, corriger, **merger `feat/motion-pass` → master**.
+1. Saisir le vrai contenu au studio Sanity : testimonials DTV transcrits + coaches + fighters (runbook `docs/studio-content.md`), schedule, scooters.
+2. Puis : checklist Meaw (`docs/checklist.md`), faits DTV (`docs/dtv-fact-check.md`), articles E8 (`docs/structure-blog.md`, burning season avant décembre), E6 DTV app (trancher Q1 storage).
 
 ## Pieges / contexte chaud
-- Transition CSS sur `.in-view` UNIQUEMENT — jamais sur l'état caché (fade-out à l'init qui rend les reveals au load invisibles). Tout est dans `DECISIONS.md` 2026-06-07.
-- Cards à transform seedé (Coach/Fighter/TestimonialQuote/BlogCard hover) = wrapper d'animation, jamais l'attribut sur la racine.
-- Parallax + reveal = 2 wrappers distincts (animation écrase transition sur le même transform).
-- `AGENTS.md` non-tracké à la racine : copie périmée du CLAUDE.md, origine inconnue (pas créée par nous) — demander à Jonathan avant de committer/supprimer.
+- **Convention em-dash** : valeur de message commençant/finissant par "—" = lockup design (titre scindé / Caveat / signature) → ne pas "corriger". Zéro em-dash en prose ; futurs articles couverts par `/seo-write → /humanizer`.
+- `AGENTS.md` non-tracké à la racine : copie périmée du CLAUDE.md, origine inconnue — demander à Jonathan avant de committer/supprimer.
 - Dev server long-running : locale Paraglide gelée EN sur `/fr/*` (HMR) — restart suffit, build prod OK.
+- Pièges motion (transition sur `.in-view` only, wrappers pour transforms seedés) : gravés dans `DECISIONS.md` 2026-06-07 + skill `/motion` v1.1.
