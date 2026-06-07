@@ -175,7 +175,9 @@ const articleSchema = {
 
     <!-- Header éditorial -->
     <header class="head">
-      <div class="head-in">
+      {/* Entrée au load — cascade brève cat→H1→lead→byline ; TLDR + share +
+          prose statiques (le contenu prime, on ne fait pas attendre la lecture) */}
+      <div class="head-in" data-animate="hero" data-animate-load>
         <a class="cat" href={`${p('/blog')}?category=${post.data.category}`}>
           {catLabels[post.data.category]}
         </a>
@@ -240,9 +242,9 @@ const articleSchema = {
           <h2 class="h2 mt-3 mb-7">
             {m.blog_related_title()} <span class="em">{m.blog_related_title_em()}</span>
           </h2>
-          <ul class="rel-grid">
+          <ul class="rel-grid" data-animate-stagger>
             {relatedCards.map((card) => (
-              <li>
+              <li data-animate-item>
                 <BlogCard {...card} />
               </li>
             ))}
@@ -382,6 +384,43 @@ const articleSchema = {
   @media (max-width: 640px) {
     .rel-grid {
       grid-template-columns: 1fr;
+    }
+  }
+
+  /* ------------------------------------------------------------
+     Entrée au load du header (gated html.wc-anim — no-JS : visible).
+     Transitions sur .in-view UNIQUEMENT (règle motion.css).
+     Cascade brève : cat 0.05s · H1 0.1s · lead 0.25s · byline 0.4s —
+     TLDR/share/prose statiques, la lecture n'attend pas.
+     ------------------------------------------------------------ */
+  :global(html.wc-anim) .head-in :is(.cat, .h1, .lead, .byline) {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  :global(html.wc-anim) .head-in.in-view :is(.cat, .h1, .lead, .byline) {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.6s var(--ease-out-strong),
+      transform 0.6s var(--ease-out-strong);
+  }
+  :global(html.wc-anim) .head-in.in-view .cat {
+    transition-delay: 0.05s;
+  }
+  :global(html.wc-anim) .head-in.in-view .h1 {
+    transition-delay: 0.1s;
+  }
+  :global(html.wc-anim) .head-in.in-view .lead {
+    transition-delay: 0.25s;
+  }
+  :global(html.wc-anim) .head-in.in-view .byline {
+    transition-delay: 0.4s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html.wc-anim) .head-in :is(.cat, .h1, .lead, .byline) {
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
   }
 </style>

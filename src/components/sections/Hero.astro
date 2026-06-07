@@ -41,9 +41,14 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
     decoding="async"
     style={image.position && `object-position:${image.position}`}
   />
-  <div class="hero-inner">
+  {/* Entrée AU LOAD : data-animate-load sur le CONTAINER (un seul reveal,
+      pas d'observer) — la chorégraphie des enfants est 100 % CSS scoped
+      ci-dessous (lockup en line-rise masqué, cascade lente : ça « ouvre »
+      le site). Photo + brush statiques : l'image est l'élément LCP. */}
+  <div class="hero-inner" data-animate="hero" data-animate-load>
     <h1 class="display">
-      {title}<br /><span class="em on-dark">{titleEm}</span>
+      <span class="line"><span class="line-in">{title}</span></span>
+      <span class="line"><span class="line-in em on-dark">{titleEm}</span></span>
     </h1>
     <p class="sub">{sub}</p>
     <div class="cta-row">
@@ -132,6 +137,67 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
   h1 {
     margin: 0;
     color: var(--cream);
+  }
+  /* lockup en 2 lignes block (remplace le <br/> — nécessaire au line-rise) */
+  .line {
+    display: block;
+    /* fenêtre de masque : padding compense les débords Fraunces italic
+       (descendantes/swashes) que l'overflow hidden clipperait — net zéro */
+    padding: 0.14em 0.12em;
+    margin: -0.14em -0.12em;
+  }
+
+  /* ------------------------------------------------------------
+     Chorégraphie d'entrée (gated html.wc-anim — no-JS : tout visible).
+     Transitions sur l'état .in-view UNIQUEMENT (règle motion.css).
+     Séquence : scène 0s · ligne 1 0.15s · ligne 2 0.32s · sub 0.6s ·
+     CTAs 0.8s · metas 1s — lent et successif, ça ouvre le site.
+     ------------------------------------------------------------ */
+  :global(html.wc-anim) .hero-inner .line {
+    overflow: hidden;
+  }
+  :global(html.wc-anim) .hero-inner .line-in {
+    display: inline-block;
+    transform: translateY(118%);
+  }
+  :global(html.wc-anim) .hero-inner.in-view .line-in {
+    transform: none;
+    transition: transform 0.9s var(--ease-out-strong);
+    transition-delay: 0.15s;
+  }
+  :global(html.wc-anim) .hero-inner.in-view .line:nth-child(2) .line-in {
+    transition-delay: 0.32s;
+  }
+
+  :global(html.wc-anim) .hero-inner :is(.sub, .cta-row, .meta-row) {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  :global(html.wc-anim) .hero-inner.in-view :is(.sub, .cta-row, .meta-row) {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.7s var(--ease-out-strong),
+      transform 0.7s var(--ease-out-strong);
+  }
+  :global(html.wc-anim) .hero-inner.in-view .sub {
+    transition-delay: 0.6s;
+  }
+  :global(html.wc-anim) .hero-inner.in-view .cta-row {
+    transition-delay: 0.8s;
+  }
+  :global(html.wc-anim) .hero-inner.in-view .meta-row {
+    transition-delay: 1s;
+  }
+
+  /* ceinture + bretelles (le script bail déjà sur reduced-motion) */
+  @media (prefers-reduced-motion: reduce) {
+    :global(html.wc-anim) .hero-inner .line-in,
+    :global(html.wc-anim) .hero-inner :is(.sub, .cta-row, .meta-row) {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
   .sub {
     font-size: clamp(17px, 1.5vw, 20px);

@@ -11,10 +11,10 @@ export interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="feat-grid">
+<div class="feat-grid" data-animate-stagger>
   {
     items.map((item) => (
-      <div class="feat">
+      <div class="feat" data-animate-item>
         <span class="ic">
           <Icon name={item.icon} aria-hidden="true" />
         </span>

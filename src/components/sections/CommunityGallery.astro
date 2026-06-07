@@ -11,11 +11,11 @@ export interface Props {
 const { images, count = 6 } = Astro.props;
 ---
 
-<div class="gal">
+<div class="gal" data-animate-stagger="40">
   {
     images && images.length > 0
-      ? images.map((image) => <img src={image.src} alt={image.alt} loading="lazy" />)
-      : Array.from({ length: count }).map(() => <div class="ph" aria-hidden="true" />)
+      ? images.map((image) => <img src={image.src} alt={image.alt} loading="lazy" data-animate-item />)
+      : Array.from({ length: count }).map(() => <div class="ph" aria-hidden="true" data-animate-item />)
   }
 </div>
 

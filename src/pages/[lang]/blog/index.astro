@@ -102,9 +102,11 @@ const blogSchema = {
         cards.length > 0 ? (
           <>
             <BlogFilters categories={categories} whatsapp={whatsapp} />
-            <ul class="blog-grid" data-blog-root>
+            {/* stagger sur les <li> (pas sur .bcard : sa racine porte le
+                hover-lift 0.2s, la transition reveal l'écraserait) */}
+            <ul class="blog-grid" data-blog-root data-animate-stagger>
               {cards.map((card) => (
-                <li data-blog-item data-category={card.categoryValue}>
+                <li data-blog-item data-animate-item data-category={card.categoryValue}>
                   <BlogCard
                     href={card.href}
                     title={card.title}

@@ -20,7 +20,7 @@ export interface Props {
 const { programs, moreLabel } = Astro.props;
 ---
 
-<div class="prog-grid">
+<div class="prog-grid" data-animate-stagger>
   {programs.map((program) => <ProgramCard {...program} moreLabel={program.moreLabel ?? moreLabel} />)}
 </div>
 

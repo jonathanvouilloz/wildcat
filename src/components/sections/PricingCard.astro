@@ -30,7 +30,7 @@ const srot = seedRot(name + 'stamp', 5);
 const stampRot = srot < 0 ? srot - 3 : srot + 3;
 ---
 
-<article class:list={['plan', popular && 'pop']} style={`--srot:${stampRot}deg`}>
+<article class:list={['plan', popular && 'pop']} style={`--srot:${stampRot}deg`} data-animate-item>
   {
     popular && popularLabel && (
       <img

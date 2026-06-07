@@ -29,8 +29,10 @@ const { id, head, title, titleEm, lead, steps, cta, scooterTag, quote } = Astro.
 <section class="dtv wc-section" id={id}>
   <Container>
     <div class="dtv-grid">
-      <DtvStamp size={240} class="stamp" />
-      <div>
+      <div data-animate="scale" data-delay="0.15">
+        <DtvStamp size={240} class="stamp" />
+      </div>
+      <div data-animate="fade-up">
         <SectionHead onDark>{head}</SectionHead>
         <h2 class="h2">
           {title}{' '}<span class="em on-dark">{titleEm}</span>

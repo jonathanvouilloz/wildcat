@@ -113,5 +113,9 @@ const xDefault = alternates.find((alt) => alt.lang === 'en')?.href;
     <Nav alternates={alternatesProp} />
     <slot />
     <Footer />
+    <!-- Scénographie scroll (data-animate) — no-op si la page n'a aucun attribut -->
+    <script>
+      import '../scripts/animations';
+    </script>
   </body>
 </html>
