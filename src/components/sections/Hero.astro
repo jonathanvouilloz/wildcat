@@ -42,17 +42,19 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
     style={image.position && `object-position:${image.position}`}
   />
   <div class="hero-inner">
-    <h1 class="display">
+    {/* entrée orchestrée au load (observer fire immédiat) — photo + brush
+        statiques : l'image est l'élément LCP, on n'y touche pas */}
+    <h1 class="display" data-animate="fade-up">
       {title}<br /><span class="em on-dark">{titleEm}</span>
     </h1>
-    <p class="sub">{sub}</p>
-    <div class="cta-row">
+    <p class="sub" data-animate="fade-up" data-delay="0.1">{sub}</p>
+    <div class="cta-row" data-animate="fade-up" data-delay="0.2">
       <Button href={ctaPrimary.href} variant="gold" arrow>{ctaPrimary.label}</Button>
       {ctaSecondary && <Button href={ctaSecondary.href} variant="outline" onDark>{ctaSecondary.label}</Button>}
     </div>
     {
       metas.length > 0 && (
-        <div class="meta-row">
+        <div class="meta-row" data-animate="fade-up" data-delay="0.3">
           {metas.map((meta, i) => (
             <>
               {i > 0 && (

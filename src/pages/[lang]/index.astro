@@ -251,7 +251,7 @@ const jsonld = {
     <TornDivider variant="wave-base" color="var(--forest-deep)" bg="var(--soft)" flipY />
 
     <Section soft id="programs">
-      <div class="block-head row">
+      <div class="block-head row" data-animate="fade-up">
         <div>
           <SectionHead>{m.home_prog_head()}</SectionHead>
           <h2 class="h2 mt-2">{m.home_prog_title()}</h2>
@@ -263,7 +263,7 @@ const jsonld = {
 
     <Section id="schedule">
       <div class="split">
-        <div>
+        <div data-animate="fade-up">
           <SectionHead>{m.home_sched_head()}</SectionHead>
           <h2 class="h2 mt-2 mb-3">{m.home_sched_title()}</h2>
           <p class="lead mb-6">{m.home_sched_lead()}</p>
@@ -272,13 +272,15 @@ const jsonld = {
             foot={{ label: m.home_sched_more(), href: p('/classes#schedule') }}
           />
         </div>
-        <StayTrainUpsell
-          head={m.home_stay_head()}
-          title={m.home_stay_title()}
-          titleEm={m.home_stay_title_em()}
-          lead={m.home_stay_lead()}
-          image={{ src: '/assets/gym-garden.jpg', alt: m.home_stay_img_alt() }}
-        />
+        <div data-animate="fade-right">
+          <StayTrainUpsell
+            head={m.home_stay_head()}
+            title={m.home_stay_title()}
+            titleEm={m.home_stay_title_em()}
+            lead={m.home_stay_lead()}
+            image={{ src: '/assets/gym-garden.jpg', alt: m.home_stay_img_alt() }}
+          />
+        </div>
       </div>
     </Section>
 
@@ -292,10 +294,12 @@ const jsonld = {
           <div class="split split--coaches">
             {coaches.length > 0 && <CoachGrid coaches={coaches} />}
             {quote && (
-              <TestimonialQuote
-                {...quote}
-                ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
-              />
+              <div data-animate="blur" data-delay="0.2">
+                <TestimonialQuote
+                  {...quote}
+                  ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
+                />
+              </div>
             )}
           </div>
         </Section>
@@ -319,7 +323,7 @@ const jsonld = {
     </Section>
 
     <Section soft id="pricing">
-      <div class="block-head center">
+      <div class="block-head center" data-animate="fade-up">
         <SectionHead center>{m.home_price_head()}</SectionHead>
         <h2 class="h2 mt-2 mb-3">{m.home_price_title()}</h2>
         <p class="lead lead--center">{m.home_price_lead()}</p>
@@ -329,7 +333,7 @@ const jsonld = {
 
     <Section>
       <div class="split split--faq">
-        <div>
+        <div data-animate="fade-up">
           <SectionHead>{m.home_faq_head()}</SectionHead>
           <h2 class="h2 mt-2 mb-3">{m.home_faq_title()}</h2>
           <p class="lead">

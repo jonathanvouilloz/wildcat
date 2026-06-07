@@ -15,8 +15,11 @@ export interface Props {
 const { coaches } = Astro.props;
 ---
 
-<div class="coach-grid">
-  {coaches.map((coach) => <CoachCard {...coach} />)}
+{/* ⚠️ wrapper par item (pas data-animate-item sur la card) : la racine de
+    CoachCard porte la rotation seedée --crot — le stagger animerait transform
+    et écraserait la rotation. Le nth-child(even) punaisé matche le wrapper. */}
+<div class="coach-grid" data-animate-stagger>
+  {coaches.map((coach) => <div data-animate-item><CoachCard {...coach} /></div>)}
 </div>
 
 <style>

@@ -19,7 +19,7 @@ export interface Props {
 const { plans, popularLabel } = Astro.props;
 ---
 
-<div class="price-grid">
+<div class="price-grid" data-animate-stagger>
   {plans.map((plan) => <PricingCard {...plan} popularLabel={popularLabel} />)}
 </div>
 

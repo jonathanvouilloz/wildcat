@@ -63,7 +63,7 @@ const tapeRight = seedPick(title + 's', 2) === 1;
         <div class="t-unflip">
           {image && <div class="t-bg" aria-hidden="true" style={`background-image:url('${image.src}')`} />}
           <div class="t-veil" aria-hidden="true" />
-          <div class="t-inner">
+          <div class="t-inner" data-animate="fade-up">
             {hand && <p class="hand">{hand}</p>}
             <h2>
               {title}{' '}<span class="em on-dark">{titleEm}</span>

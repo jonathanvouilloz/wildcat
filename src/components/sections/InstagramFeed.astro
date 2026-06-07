@@ -27,9 +27,9 @@ const posts = await fetchInstagramPosts(count);
 
 {
   posts ? (
-    <div class="gal">
+    <div class="gal" data-animate-stagger="40">
       {posts.map((post) => (
-        <a href={post.permalink} target="_blank" rel="noopener">
+        <a href={post.permalink} target="_blank" rel="noopener" data-animate-item>
           <Image
             src={post.src}
             alt={post.alt || m.ig_alt_fallback()}

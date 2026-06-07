@@ -14,10 +14,10 @@ const { items } = Astro.props;
 
 <section class="values">
   <Container>
-    <div class="values-grid">
+    <div class="values-grid" data-animate-stagger>
       {
         items.map((item) => (
-          <div class="val">
+          <div class="val" data-animate-item>
             <Icon name={item.icon} class="ic" aria-hidden="true" />
             <div>
               <h4>{item.title}</h4>
