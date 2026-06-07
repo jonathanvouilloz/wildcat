@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import LoadingScreen from '../../components/interactive/LoadingScreen.astro';
 import Section from '../../components/layout/Section.astro';
 import TornDivider from '../../components/layout/TornDivider.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
@@ -212,6 +213,9 @@ const jsonld = {
 
 <BaseLayout title={m.home_title()} description={m.home_meta_desc()}>
   <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(jsonld)} />
+
+  {/* Intro scénographique — 1×/session, skip reduced-motion/no-JS */}
+  <LoadingScreen />
 
   <main>
     <Hero

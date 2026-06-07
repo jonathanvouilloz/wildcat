@@ -127,10 +127,13 @@ export default defineConfig({
     sitemap({
       i18n: { defaultLocale: 'en', locales: { en: 'en', fr: 'fr' } },
       // Le studio est un outil interne : exclu du sitemap (+ Disallow dans robots.txt).
-      // /styleguide : page interne noindex — jamais dans le sitemap.
+      // /styleguide et /home-test-loading : pages internes noindex — jamais dans le sitemap.
       // /rss.xml : feed, pas une page.
       filter: (page) =>
-        !page.includes('/studio') && !page.includes('/styleguide') && !page.includes('/rss.xml'),
+        !page.includes('/studio') &&
+        !page.includes('/styleguide') &&
+        !page.includes('/home-test-loading') &&
+        !page.includes('/rss.xml'),
       // Articles blog (E8) : slugs TRADUITS par locale → le mapping i18n du
       // sitemap (symétrique) émettrait des xhtml:link vers des 404. On retire
       // les links des entrées articles (l'URL reste listée ; les hreflang

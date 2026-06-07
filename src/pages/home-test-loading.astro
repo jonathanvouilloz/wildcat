@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LoadingScreen from '../components/interactive/LoadingScreen.astro';
+import Hero from '../components/sections/Hero.astro';
+import ValueStrip from '../components/sections/ValueStrip.astro';
+import CtaBanner from '../components/sections/CtaBanner.astro';
+import { localePath } from '../lib/routes';
+import { waLink } from '../lib/whatsapp';
+import { m } from '../paraglide/messages.js';
+
+// Page de TEST du loading screen (noindex + exclue du sitemap, comme
+// /styleguide). Reprend le haut de la home (hero + values + CTA) pour juger
+// la transition loader → entrée chorégraphiée du hero.
+// Variantes lettrage : ?v=a (outline draw) / ?v=b (handwriting, défaut).
+const p = (path: string) => localePath('en', path);
+
+const values = [
+  { icon: 'tabler:karate', title: m.home_val1_title(), body: m.home_val1_body() },
+  { icon: 'tabler:users', title: m.home_val2_title(), body: m.home_val2_body() },
+  { icon: 'tabler:flame', title: m.home_val3_title(), body: m.home_val3_body() },
+  { icon: 'tabler:leaf', title: m.home_val4_title(), body: m.home_val4_body() },
+];
+---
+
+<BaseLayout title="Loading screen — test" description="Internal test page" noindex>
+  <LoadingScreen oncePerSession={false} />
+
+  <main>
+    <Hero
+      title={m.home_hero_title()}
+      titleEm={m.home_hero_title_em()}
+      sub={m.home_hero_sub()}
+      ctaPrimary={{ label: m.home_hero_cta1(), href: p('/classes#pricing') }}
+      ctaSecondary={{ label: m.home_hero_cta2(), href: p('/classes#schedule') }}
+      metas={[
+        { b: m.home_hero_meta1_b(), s: m.home_hero_meta1_s() },
+        { b: m.home_hero_meta2_b(), s: m.home_hero_meta2_s() },
+        { b: m.home_hero_meta3_b(), s: m.home_hero_meta3_s() },
+      ]}
+      image={{
+        src: '/assets/hero-home-v3.webp',
+        srcset: '/assets/hero-home-v3-768.webp 768w, /assets/hero-home-v3.webp 1080w',
+        alt: m.home_hero_img_alt(),
+        position: 'center 45%',
+      }}
+    />
+
+    <ValueStrip items={values} />
+
+    <CtaBanner
+      variant="torn"
+      hand={m.home_cta_hand()}
+      title={m.home_h1()}
+      titleEm={m.home_h1_em()}
+      titleAfter={m.home_h1b()}
+      sub={m.home_cta_sub()}
+      ctaPrimary={{ label: m.home_cta_banner1(), href: `${p('/contact')}?intent=class` }}
+      ctaSecondary={{ label: m.home_cta_banner2(), href: waLink(m.contact_wa_text_class()) }}
+      image={{ src: '/assets/family-party.webp' }}
+    />
+  </main>
+
+  <!-- Panneau de test : switch variante + replay (reload = replay fiable) -->
+  <nav class="ldr-panel" aria-label="Loader test controls">
+    <a href="?v=a">Texte A — outline</a>
+    <a href="?v=b">Texte B — handwriting</a>
+    <a href="#" onclick="location.reload(); return false;">Replay</a>
+  </nav>
+</BaseLayout>
+
+<style>
+  .ldr-panel {
+    position: fixed;
+    right: 14px;
+    bottom: 14px;
+    z-index: 10000;
+    display: flex;
+    gap: 8px;
+  }
+  .ldr-panel a {
+    background: rgba(17, 17, 17, 0.82);
+    color: var(--cream, #f6f1e6);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 7px 12px;
+    border-radius: 999px;
+  }
+  .ldr-panel a:hover {
+    background: var(--gold-deep, #c98a12);
+  }
+</style>

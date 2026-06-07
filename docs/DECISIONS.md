@@ -108,6 +108,11 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 - **Règles structurelles** (pièges payés, gravés dans le skill `/motion` v1.1) : transition CSS sur `.in-view` UNIQUEMENT (sur l'état caché, la pose de `wc-anim` déclenche un fade-out qui rend les reveals au load invisibles) · reveal synchrone = reflow forcé entre la pose de la classe racine et `.in-view` · `rootMargin -18%` (à -10% l'animation finit avant d'être visible) · heroes = chorégraphie dédiée au load (`data-animate-load`), jamais le fade-up de scroll · animation et transition `transform` jamais sur le même élément (2 wrappers : parallax dehors, reveal dedans) · cards à transform seedé (Coach/Fighter/quote) = wrapper, jamais l'attribut sur la racine.
 - **Hidden-state gated par `html.wc-anim` posée par le script** : no-JS / reduced-motion / vieux navigateur = tout visible (jamais de `opacity:0` statique).
 
+### 2026-06-07 | Loading screen home : intro scénographique vanilla (LoadingScreen)
+- **Choix** : intro au load de la home (EN/FR) = **composant unique `src/components/interactive/LoadingScreen.astro`**, zéro lib — shape tigre remplie en liquide gold (clipPath + 2 vagues), « Wildcat » écrit en **vrai handwriting** (squelettes de ductus tracés à la main, masques SVG par lettre + `stroke-dashoffset`, `pathLength="1"`), sortie **keyhole** (`mask-composite: exclude`, le trou en forme de tigre grandit jusqu'à engloutir l'écran) ; à la révélation, l'entrée hero rejoue (remove/reflow/re-add `.in-view` sur `[data-animate-load]`).
+- **Garde-fous** : 1 affichage par session (`sessionStorage`, prop `oncePerSession`) · reduced-motion = skip · no-JS = overlay masqué (`noscript`) · fallback zoom+fade si `mask-composite` non supporté · scroll lock pendant l'anim. Total ~4.3s (écriture pendant le remplissage).
+- **Outillage** : squelettes itérés au screenshot via `tests/trace-spines.py` (mode `trace` = alignement, mode `mask` = coverage) + `tests/spines.txt` ; les franges résiduelles des masques sont mopées par un crossfade vers le fill complet en fin d'écriture. Variante A (outline draw) conservée dans le composant (`?v=a`), B = défaut. Page de test : `/home-test-loading` (noindex, hors sitemap, replay illimité).
+
 ## Décisions EN ATTENTE (questions ouvertes restantes)
 
 | # | Sujet | Options | Impact |
