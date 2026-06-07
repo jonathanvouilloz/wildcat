@@ -20,10 +20,10 @@ export interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="strip">
+<div class="strip" data-animate-stagger>
   {
     items.map((item) => (
-      <figure>
+      <figure data-animate-item>
         <img
           src={item.src}
           srcset={item.src2x ? `${item.src} 1x, ${item.src2x} 2x` : undefined}

@@ -16,8 +16,10 @@ const { steps, variant = 'grid', idPrefix } = Astro.props;
 {
   variant === 'timeline' ? (
     <ol class="dtv-timeline">
+      {/* timeline longue : chaque étape observée individuellement (pas de
+          stagger container — les items bas animeraient hors écran) */}
       {steps.map((step, i) => (
-        <li id={idPrefix ? `${idPrefix}-${i + 1}` : undefined}>
+        <li id={idPrefix ? `${idPrefix}-${i + 1}` : undefined} data-animate="fade-up">
           <div class="n">{i + 1}</div>
           <div class="t-body">
             <h4>{step.title}</h4>

@@ -293,13 +293,12 @@ const jsonld = {
           </div>
           <div class="split split--coaches">
             {coaches.length > 0 && <CoachGrid coaches={coaches} />}
+            {/* le blur d'entrée vit dans le composant TestimonialQuote */}
             {quote && (
-              <div data-animate="blur" data-delay="0.2">
-                <TestimonialQuote
-                  {...quote}
-                  ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
-                />
-              </div>
+              <TestimonialQuote
+                {...quote}
+                ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
+              />
             )}
           </div>
         </Section>

@@ -92,7 +92,7 @@ const tapeRight = seedPick(title + 's', 2) === 1;
                 <img src={image.src} alt="" loading="lazy" />
               </div>
             )}
-            <div class="s-inner">
+            <div class="s-inner" data-animate="fade-up">
               {hand && <p class="hand">{hand}</p>}
               <h2>
                 {title}{' '}<span class="em on-dark">{titleEm}</span>
@@ -122,7 +122,7 @@ const tapeRight = seedPick(title + 's', 2) === 1;
     <section class="cta-split">
       <TornDivider variant="rough-seg-b" color="var(--soft)" />
       <div class="sp-band">
-        <div class="sp-copy">
+        <div class="sp-copy" data-animate="fade-up">
           {hand && <p class="hand">{hand}</p>}
           <h2>
             {title}{' '}<span class="em">{titleEm}</span>

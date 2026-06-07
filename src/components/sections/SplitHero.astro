@@ -31,7 +31,9 @@ const { title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
       </div>
     )
   }
-  <div class="copy">
+  {/* Entrée au load — chorégraphie scoped sur la colonne copy uniquement :
+      la photo (LCP) reste statique, le callout float arrive en dernier. */}
+  <div class="copy" data-animate="hero" data-animate-load>
     {eyebrow && <p class="eyebrow"><span class="em">{eyebrow}</span></p>}
     <h1 class="h1">
       {title}
@@ -58,7 +60,7 @@ const { title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
     />
     {
       float && (
-        <div class="float">
+        <div class="float" data-animate="scale" data-animate-load data-delay="0.6">
           <div class="t">{float.title}</div>
           <div class="d">{float.body}</div>
         </div>
@@ -148,6 +150,43 @@ const { title, titleEm, lead, eyebrow, cta, image, float } = Astro.props;
     color: rgba(246, 241, 230, 0.8);
     line-height: 1.4;
   }
+  /* ------------------------------------------------------------
+     Entrée au load (gated html.wc-anim — no-JS : tout visible).
+     Transitions sur .in-view UNIQUEMENT (règle motion.css).
+     Cascade : eyebrow 0.05s · H1 0.1s · lead 0.28s · CTA 0.42s
+     (le float, sur la photo, suit à 0.6s via data-delay).
+     ------------------------------------------------------------ */
+  :global(html.wc-anim) .copy :is(.eyebrow, .h1, .lead, .cta) {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  :global(html.wc-anim) .copy.in-view :is(.eyebrow, .h1, .lead, .cta) {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.6s var(--ease-out-strong),
+      transform 0.6s var(--ease-out-strong);
+  }
+  :global(html.wc-anim) .copy.in-view .eyebrow {
+    transition-delay: 0.05s;
+  }
+  :global(html.wc-anim) .copy.in-view .h1 {
+    transition-delay: 0.1s;
+  }
+  :global(html.wc-anim) .copy.in-view .lead {
+    transition-delay: 0.28s;
+  }
+  :global(html.wc-anim) .copy.in-view .cta {
+    transition-delay: 0.42s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html.wc-anim) .copy :is(.eyebrow, .h1, .lead, .cta) {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
   @media (max-width: 860px) {
     .split-hero {
       grid-template-columns: 1fr;

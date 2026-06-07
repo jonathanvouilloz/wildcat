@@ -304,7 +304,8 @@ const faqJsonld = {
     {
       quote && (
         <Section soft>
-          <div class="quote-wrap" data-animate="blur">
+          {/* le blur d'entrée vit dans le composant TestimonialQuote */}
+          <div class="quote-wrap">
             <TestimonialQuote
               {...quote}
               ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}

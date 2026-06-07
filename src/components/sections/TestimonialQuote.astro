@@ -52,6 +52,9 @@ const stampRot = seedRot(name + 'stamp', 5);
 const meta = [country, dateLabel].filter(Boolean).join(' · ');
 ---
 
+{/* wrapper d'animation — la racine .quote porte le flip seedé --mflip,
+    un data-animate dessus l'écraserait (transform:none au reveal) */}
+<div data-animate="blur">
 <figure
   class="quote"
   style={`--frame:url('/assets/textures/${frame}.png'); --msize:${msize}; --mflip:${flip}`}
@@ -78,6 +81,7 @@ const meta = [country, dateLabel].filter(Boolean).join(' · ');
     </figcaption>
   </div>
 </figure>
+</div>
 
 <style>
   /* Carte incrustée : le fond est découpé par la frame, le contenu est
