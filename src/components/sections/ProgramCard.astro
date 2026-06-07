@@ -35,37 +35,41 @@ const tears = ['rough-seg-a', 'rough-seg-b', 'rough-base'] as const;
 const tear = tears[seedPick(title + 't', 3)];
 ---
 
-<a
-  href={href}
-  class="prog"
-  data-animate-item
-  style={`--frame: url('/assets/textures/${frame}.png'); --msize:${msize}; --mflip:${flip}; --tear: url('/assets/dividers/torn-${tear}.png')`}
->
-  <div class="inner">
-    <div class="photo">
-      {
-        image ? (
-          <img
-            class="media"
-            src={image.src}
-            alt={image.alt}
-            loading="lazy"
-            style={image.position && `object-position:${image.position}`}
-          />
-        ) : (
-          <div class="media media--placeholder" aria-hidden="true" />
-        )
-      }
-      <span class="tear" aria-hidden="true"></span>
+{/* wrapper reveal : le transform de motion.css (data-animate-item) écraserait
+    le scaleX seedé de .prog — piège « transform seedé = wrapper » (DECISIONS
+    2026-06-07), le contenu restait contre-flippé en miroir. */}
+<div data-animate-item>
+  <a
+    href={href}
+    class="prog"
+    style={`--frame: url('/assets/textures/${frame}.png'); --msize:${msize}; --mflip:${flip}; --tear: url('/assets/dividers/torn-${tear}.png')`}
+  >
+    <div class="inner">
+      <div class="photo">
+        {
+          image ? (
+            <img
+              class="media"
+              src={image.src}
+              alt={image.alt}
+              loading="lazy"
+              style={image.position && `object-position:${image.position}`}
+            />
+          ) : (
+            <div class="media media--placeholder" aria-hidden="true" />
+          )
+        }
+        <span class="tear" aria-hidden="true"></span>
+      </div>
+      <div class="body">
+        <span class="lvl">{level}</span>
+        <h3>{title}</h3>
+        <p>{body}</p>
+        <span class="more">{moreLabel} <ArrowWild size={22} class="ar" /></span>
+      </div>
     </div>
-    <div class="body">
-      <span class="lvl">{level}</span>
-      <h3>{title}</h3>
-      <p>{body}</p>
-      <span class="more">{moreLabel} <ArrowWild size={22} class="ar" /></span>
-    </div>
-  </div>
-</a>
+  </a>
+</div>
 
 <style>
   .prog {
