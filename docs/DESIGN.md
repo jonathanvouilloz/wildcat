@@ -257,6 +257,8 @@ Script `src/scripts/animations.ts` (chargé par `BaseLayout`) + CSS `src/styles/
 | `data-animate="scale"` | scale(0.95→1) + opacity | images, cards |
 | `data-animate="blur"` | blur(8px)→net + opacity | accroches, quotes |
 | `data-animate-load` (en plus de `data-animate`) | révélé direct au load, jamais observé | heroes — le contenu flex-end tombe dans la zone morte du rootMargin |
+
+**Heroes — chorégraphie dédiée, pas le fade-up générique.** Pattern (Hero home, référence) : `data-animate="hero" data-animate-load` sur le **container** (fade de scène générique), enfants chorégraphiés en **CSS scoped** du composant, gated `html.wc-anim` + état `.in-view` du container. Lockup 2 lignes = **line-rise masqué** (`.line` overflow hidden + `.line-in` translateY(118%)→0, padding/margin compensant les débords Fraunces italic). Séquence lente et successive (scène 0s · lignes 0.15/0.32s · sub 0.6s · CTAs 0.8s · metas 1s, ~1.7s total) — le hero « ouvre » le site, c'est le seul endroit où on prend ce temps.
 | `data-animate-stagger` (container) + `data-animate-item` | cascade 70ms/item (`="100"` = gap custom en ms) | grilles, listes |
 | `data-delay="0.2"` / `data-duration="0.7"` | overrides (en s) | parcimonieux |
 
