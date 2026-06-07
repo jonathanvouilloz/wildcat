@@ -103,6 +103,11 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 - **Alternative rejetée — push API vers Sanity** : faisable (`@sanity/client` Mutations + conversion MD → Portable Text + upload assets + documents `translation.metadata`), mais friction à vie : **Portable Text ne gère pas les tableaux nativement** (types custom + serializers) alors que le calendrier éditorial est bourré de comparatifs (M1, M5, M6), et chaque publication paierait la conversion pour un éditeur que personne n'utilise.
 - **Conséquence (à exécuter en E8)** : retirer le schéma `blogPost`, les queries `BLOG_*`, le plugin `@sanity/document-internationalization` (seul blogPost l'utilise) + re-typegen (`npm run sanity:types`). Les pièges du plugin notés dans l'entrée E4 deviennent caducs pour le blog.
 
+### 2026-06-07 | Motion : système data-animate maison + CSS scroll-driven — zéro GSAP
+- **Choix** : scénographie scroll = **moteur maison** (`src/scripts/animations.ts` IntersectionObserver + `src/styles/motion.css`, attributs `data-animate`/`data-animate-stagger`/`data-animate-load`), zéro dépendance. Parallax guest book `/fighters` = **CSS scroll-driven natif** (`animation-timeline: view()`, gated `@supports` + reduced-motion + desktop) — GSAP écarté (rien ne demande pin/timeline ; le candidat DtvSteps écarté aussi, YMYL sobre).
+- **Règles structurelles** (pièges payés, gravés dans le skill `/motion` v1.1) : transition CSS sur `.in-view` UNIQUEMENT (sur l'état caché, la pose de `wc-anim` déclenche un fade-out qui rend les reveals au load invisibles) · reveal synchrone = reflow forcé entre la pose de la classe racine et `.in-view` · `rootMargin -18%` (à -10% l'animation finit avant d'être visible) · heroes = chorégraphie dédiée au load (`data-animate-load`), jamais le fade-up de scroll · animation et transition `transform` jamais sur le même élément (2 wrappers : parallax dehors, reveal dedans) · cards à transform seedé (Coach/Fighter/quote) = wrapper, jamais l'attribut sur la racine.
+- **Hidden-state gated par `html.wc-anim` posée par le script** : no-JS / reduced-motion / vieux navigateur = tout visible (jamais de `opacity:0` statique).
+
 ## Décisions EN ATTENTE (questions ouvertes restantes)
 
 | # | Sujet | Options | Impact |
