@@ -57,7 +57,9 @@
         }
       }
     },
-    { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+    // -18% bas : déclenche quand l'élément est franchement DANS le viewport —
+    // à -10% l'animation était quasi finie avant d'être visible (retour Jonathan)
+    { threshold: 0.15, rootMargin: '0px 0px -18% 0px' }
   );
   targets.forEach((t) => io.observe(t));
 })();
