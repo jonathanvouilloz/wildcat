@@ -117,7 +117,7 @@ const counters =
         fighters.length > 0 ? (
           <>
             {counters.length > 0 && (
-              <div class="counter">
+              <div class="counter" data-animate="fade-up">
                 {counters.map((c, i) => (
                   <>
                     {i > 0 && <i aria-hidden="true">◆</i>}
@@ -129,9 +129,17 @@ const counters =
                 ))}
               </div>
             )}
-            <div class="fighter-grid">
+            {/* 2 couches d'animation par carte — JAMAIS sur le même élément :
+                .drift = parallax scroll-driven (animation transform) ;
+                wrapper interne = reveal stagger (transition transform) ;
+                FighterCard garde sa rotation seedée intacte en dessous. */}
+            <div class="fighter-grid" data-animate-stagger>
               {fighters.map((fighter) => (
-                <FighterCard {...fighter} achListLabel={m.fighters_ach_list_label()} />
+                <div class="drift">
+                  <div data-animate-item>
+                    <FighterCard {...fighter} achListLabel={m.fighters_ach_list_label()} />
+                  </div>
+                </div>
               ))}
             </div>
           </>
@@ -199,6 +207,41 @@ const counters =
     grid-template-columns: repeat(3, 1fr);
     /* gap horizontal large : les stamps latéraux débordent de ~34px */
     gap: 40px 64px;
+  }
+
+  /* ------------------------------------------------------------
+     Parallax léger — le mur de souvenirs respire au scroll.
+     CSS scroll-driven natif (animation-timeline: view()) : zéro JS,
+     zéro dépendance ; navigateur sans support = grille statique.
+     3 vitesses par colonne (le « punaisé » prend vie). Desktop only :
+     en 1-2 colonnes la dérive n'a plus de sens. La carte dérive de
+     +--drift à ---drift pendant qu'elle traverse le viewport.
+     ------------------------------------------------------------ */
+  @supports (animation-timeline: view()) {
+    @media (min-width: 1025px) and (prefers-reduced-motion: no-preference) {
+      .drift {
+        animation: drift linear both;
+        animation-timeline: view();
+        animation-range: entry 0% exit 100%;
+      }
+      .fighter-grid > .drift:nth-child(3n + 1) {
+        --drift: 14px;
+      }
+      .fighter-grid > .drift:nth-child(3n + 2) {
+        --drift: 30px;
+      }
+      .fighter-grid > .drift:nth-child(3n) {
+        --drift: 22px;
+      }
+    }
+  }
+  @keyframes drift {
+    from {
+      transform: translateY(var(--drift, 0px));
+    }
+    to {
+      transform: translateY(calc(-1 * var(--drift, 0px)));
+    }
   }
   .empty {
     text-align: center;
