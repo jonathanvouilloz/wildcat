@@ -1456,23 +1456,16 @@ const guestFighters = [
       import '../scripts/animations';
     </script>
     <script>
-      // Replay démo motion. ⚠️ Retirer .in-view démarre une transition VERS
-      // l'état caché (0.6s) — la re-poser 2 frames après inversait depuis une
-      // position quasi inchangée → on ne voyait rien. Il faut couper la
-      // transition pendant le reset (snap instantané à l'état caché), forcer
-      // un reflow, puis la rétablir avant de re-poser la classe.
+      // Replay démo motion — la transition ne vit que sur .in-view (motion.css) :
+      // retirer la classe = snap instantané à l'état caché. Reflow forcé pour
+      // commiter l'état caché, re-pose → la transition rejoue.
       document.getElementById('sg-motion-replay')?.addEventListener('click', () => {
-        const containers = document.querySelectorAll<HTMLElement>(
+        const targets = document.querySelectorAll(
           '#motion [data-animate], #motion [data-animate-stagger]'
         );
-        const transitioning = document.querySelectorAll<HTMLElement>(
-          '#motion [data-animate], #motion [data-animate-item]'
-        );
-        transitioning.forEach((t) => (t.style.transition = 'none'));
-        containers.forEach((t) => t.classList.remove('in-view'));
-        void document.body.offsetWidth; // reflow — état caché appliqué sans transition
-        transitioning.forEach((t) => (t.style.transition = ''));
-        containers.forEach((t) => t.classList.add('in-view'));
+        targets.forEach((t) => t.classList.remove('in-view'));
+        void document.body.offsetWidth;
+        targets.forEach((t) => t.classList.add('in-view'));
       });
     </script>
 

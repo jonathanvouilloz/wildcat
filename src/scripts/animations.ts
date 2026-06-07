@@ -8,6 +8,9 @@
 
    Attributs :
    - data-animate="fade-up|fade-down|fade-left|fade-right|scale|blur"
+   - data-animate-load : entrée orchestrée AU LOAD (hero) — révélé direct,
+     jamais observé. Le contenu d'un hero flex-end tombe dans la zone morte
+     du rootMargin -18% et attendait un scroll (bug vu sur la home).
    - data-animate-stagger (container, valeur optionnelle = gap en ms)
      + data-animate-item (enfants)
    - data-delay="0.2" / data-duration="0.7" (overrides ponctuels, en s)
@@ -61,5 +64,18 @@
     // à -10% l'animation était quasi finie avant d'être visible (retour Jonathan)
     { threshold: 0.15, rootMargin: '0px 0px -18% 0px' }
   );
-  targets.forEach((t) => io.observe(t));
+
+  // ⚠️ Flush AVANT toute révélation synchrone : wc-anim vient d'être posée
+  // dans la même task — sans reflow, état caché + .in-view seraient commités
+  // dans le même recalc et la transition ne jouerait pas (net change = rien).
+  void document.body.offsetWidth;
+
+  for (const t of targets) {
+    if (t.hasAttribute('data-animate-load')) {
+      // entrée orchestrée au load (hero) — cascade via data-delay
+      t.classList.add('in-view');
+    } else {
+      io.observe(t);
+    }
+  }
 })();

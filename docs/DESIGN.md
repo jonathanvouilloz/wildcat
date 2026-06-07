@@ -256,6 +256,7 @@ Script `src/scripts/animations.ts` (chargé par `BaseLayout`) + CSS `src/styles/
 | `data-animate="fade-left"` / `"fade-right"` | entre depuis la gauche / la droite | layouts 2 colonnes |
 | `data-animate="scale"` | scale(0.95→1) + opacity | images, cards |
 | `data-animate="blur"` | blur(8px)→net + opacity | accroches, quotes |
+| `data-animate-load` (en plus de `data-animate`) | révélé direct au load, jamais observé | heroes — le contenu flex-end tombe dans la zone morte du rootMargin |
 | `data-animate-stagger` (container) + `data-animate-item` | cascade 70ms/item (`="100"` = gap custom en ms) | grilles, listes |
 | `data-delay="0.2"` / `data-duration="0.7"` | overrides (en s) | parcimonieux |
 
@@ -263,7 +264,8 @@ Script `src/scripts/animations.ts` (chargé par `BaseLayout`) + CSS `src/styles/
 - Max 2-3 éléments animés par section visible — garder des éléments statiques.
 - Délais progressifs 0 / 0.1 / 0.2 / 0.3s max dans une même zone.
 - Nav, footer, breadcrumbs, utility bar : **statiques, toujours**.
-- Pas de `data-animate` sur l'élément LCP ni au-dessus du fold (le hero a droit à une entrée orchestrée une fois le pattern validé — pas d'observer, classe au load).
+- Pas de `data-animate` sur l'élément LCP. Hero : entrée orchestrée via `data-animate-load` (classe au load, pas d'observer) — photo/brush statiques.
+- ⚠️ La transition CSS vit sur `.in-view` **uniquement** (pas sur l'état caché) : cacher = snap, révéler = animé. La déclarer sur l'état caché fait partir un fade-out à l'init du script et tue les entrées au load.
 - `prefers-reduced-motion` : le script bail → contenu visible sans mouvement (non négociable).
 - `transform` + `opacity` only (blur ponctuel < 20px toléré).
 
