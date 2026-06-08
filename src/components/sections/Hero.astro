@@ -100,7 +100,7 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
     object-position: center 60%;
     z-index: 0;
   }
-  /* overlay : voile gold (réchauffe) + gradient charcoal (lisibilité) */
+  /* overlay : voile gold (réchauffe) + voile uniforme (centre lumineux) + gradient charcoal (lisibilité) */
   .hero::after {
     content: '';
     position: absolute;
@@ -108,10 +108,11 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
     z-index: 1;
     background:
       linear-gradient(rgba(224, 166, 43, 0.06), rgba(224, 166, 43, 0.06)),
+      linear-gradient(rgba(17, 17, 17, 0.18), rgba(17, 17, 17, 0.18)),
       linear-gradient(
         180deg,
         rgba(17, 17, 17, 0.6) 0%,
-        rgba(17, 17, 17, 0.32) 26%,
+        rgba(17, 17, 17, 0.50) 26%,
         rgba(17, 17, 17, 0.65) 54%,
         rgba(17, 17, 17, 0.92) 100%
       );
@@ -222,7 +223,7 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
     padding-top: 20px;
     border-top: 1px solid rgba(246, 241, 230, 0.25);
     color: rgba(246, 241, 230, 0.85);
-    font-size: 13.5px;
+    font-size: clamp(14.5px, 1.2vw, 16px);
   }
   .meta b {
     color: var(--cream);
