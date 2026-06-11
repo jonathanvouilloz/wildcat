@@ -16,8 +16,13 @@ export interface BlogAlternate {
   href: string;
 }
 
-/** Drafts : visibles en dev, exclus du build prod. */
-const isVisible = (entry: BlogEntry) => !import.meta.env.PROD || !entry.data.draft;
+/** Drafts : visibles en dev, exclus du build prod.
+ *  publishDate : articles futurs visibles en dev, exclus du build prod. */
+const isVisible = (entry: BlogEntry) => {
+  if (!import.meta.env.PROD) return !entry.data.draft;
+  if (entry.data.draft) return false;
+  return entry.data.publishDate.valueOf() <= Date.now();
+};
 
 export function parseBlogId(id: string): { lang: 'en' | 'fr'; slug: string } {
   const [lang, ...rest] = id.split('/');
