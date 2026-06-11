@@ -1,0 +1,20 @@
+# Production log — chiang-mai-vs-bangkok-muay-thai
+Date : 2026-06-11 16:00
+Worker : @article-producer
+
+## Etapes
+- [✓] /seo-write    : draft écrit (2140 mots)
+- [✓] /humanizer    : 12 patterns IA corrigés (em-dashes → colons/virgules, clichés prose, rule-of-three conclusion, soulless framing phrases)
+- [✓] /seo-enrich   : src/content/blog/en/chiang-mai-vs-bangkok-muay-thai.md créé (13.1 kB), build Astro vert (36 pages), sitemap OK
+- [✓] /seo-review   : 0 warning, 0 bloquant — score 14/14
+- [✗] /generate-cover : ECHEC — moodboard/presets.yaml absent du projet (init-moodboard jamais exécuté pour Wildcat)
+
+## Statut final
+PARTIAL — article prêt à publier (pubDate dans frontmatter : 2026-07-01), cover manquante.
+
+## Bloquants eventuels
+Aucun bloquant SEO.
+
+## Action requise
+Pour générer la cover : lancer `/init-moodboard` sur le projet Wildcat, puis relancer `/generate-cover chiang-mai-vs-bangkok-muay-thai`.
+Brief cover : split image — anneau open-air Wildcat golden hour (gauche) / ambiance urbaine Bangkok béton (droite). Texte : "Chiang Mai vs Bangkok".
