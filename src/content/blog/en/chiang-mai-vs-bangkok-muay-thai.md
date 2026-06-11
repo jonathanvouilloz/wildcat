@@ -9,6 +9,8 @@ tldr:
   - "Most foreigners asking this question are better served by Chiang Mai."
 publishDate: 2026-07-01
 category: choosing-a-camp
+cover: ../covers/chiang-mai-vs-bangkok-muay-thai.webp
+coverAlt: "Cover — Wildcat Muay Thai"
 draft: false
 translationKey: chiang-mai-vs-bangkok-muay-thai
 ---

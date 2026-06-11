@@ -11,10 +11,10 @@ register:
   default: tutoiement      # FR — EN naturellement direct ("you")
   formal: aucun — même voix partout (pages légales neutres si besoin)
 banned_words:
-  - aggressive / hardcore-bro / elitist (vocabulaire "warrior gym")
-  - warrior, beast mode, no pain no gain, blood/sweat clichés
-  - "WildCat" (C majuscule interdit — toujours "Wildcat")
-  - corporate vide : innovant, crucial, solutions, world-class
+  - 'aggressive / hardcore-bro / elitist (vocabulaire "warrior gym")'
+  - 'warrior, beast mode, no pain no gain, blood/sweat clichés'
+  - 'WildCat (C majuscule interdit - toujours Wildcat)'
+  - 'corporate vide - innovant, crucial, solutions, world-class'
 colors:
   primary: "#2E5D3C"    # forest
   secondary: "#E0A62B"  # gold

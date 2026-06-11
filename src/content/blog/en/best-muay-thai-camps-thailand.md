@@ -9,6 +9,8 @@ tldr:
   - "This guide names the Phuket giants honestly and explains when Chiang Mai makes more sense."
 publishDate: 2026-06-16
 category: choosing-a-camp
+cover: ../covers/best-muay-thai-camps-thailand.webp
+coverAlt: "Best Muay Thai camps in Thailand — Wildcat Muay Thai Chiang Mai"
 draft: false
 translationKey: best-muay-thai-camps-thailand
 ---

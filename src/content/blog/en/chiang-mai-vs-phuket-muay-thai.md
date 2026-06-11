@@ -9,6 +9,8 @@ tldr:
   - "Women and beginners generally feel more at home in Chiang Mai's open-air family camps."
 publishDate: 2026-06-19
 category: choosing-a-camp
+cover: ../covers/chiang-mai-vs-phuket-muay-thai.webp
+coverAlt: "Cover — Wildcat Muay Thai"
 draft: false
 translationKey: chiang-mai-vs-phuket-muay-thai
 ---

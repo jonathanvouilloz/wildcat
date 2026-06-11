@@ -10,6 +10,8 @@ tldr:
 publishDate: 2026-06-26
 author: "Meaw Boonpradub"
 category: choosing-a-camp
+cover: ../covers/muay-thai-training-thailand-cost.webp
+coverAlt: "Cover — Wildcat Muay Thai"
 draft: false
 translationKey: muay-thai-training-thailand-cost
 ---
