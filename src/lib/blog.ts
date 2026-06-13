@@ -76,6 +76,20 @@ export async function getRelated(entry: BlogEntry, count = 3): Promise<BlogEntry
   return [...sameCategory, ...rest].slice(0, count);
 }
 
+/**
+ * Articles publiés d'une catégorie dans une locale (feed des pages hub, ex.
+ * /chiang-mai-guide). Réutilise getPostsByLang (filtre draft/publishDate).
+ * `count` optionnel = limite (les plus récents d'abord).
+ */
+export async function getPostsByCategory(
+  lang: string,
+  category: string,
+  count?: number
+): Promise<BlogEntry[]> {
+  const posts = (await getPostsByLang(lang)).filter((p) => p.data.category === category);
+  return count ? posts.slice(0, count) : posts;
+}
+
 /** Nombre d'articles par catégorie (pour masquer les chips vides). */
 export async function getCategoryCounts(lang: string): Promise<Record<string, number>> {
   const posts = await getPostsByLang(lang);

@@ -4,16 +4,18 @@
 E8 Blog & contenu → docs/features/E8-blog-content.md
 
 ## Etat
-- Fait : **topical map cluster beginners** (`docs/topical-map-beginners.md`) — scoring, garde-fous cannibalisation, mini-briefs
-- Fait : **M2 beginners = 4 articles EN produits A→Z** via @content-creator (stance 4400/mo, women, gear, home). Covers branded générées, JSON-LD #meaw, maillage sortant + cross-links posés. Build vert.
-- Fait : dates réordonnées par valeur (stance en tête, 30 juin → 10 juil), calendrier MAJ, briefs M1 archivés (`.briefs/archive/`)
-- Dernier commit : `9e4e923` feat(blog): produce M2 beginners cluster (4 EN articles) + topical map (pushé)
+- Fait : **hub `/chiang-mai-guide`** (EN+FR) — fusionne les 2 entrées menu (Chiang Mai Guide + Things to Do) en 1 page éditoriale (PAS un pilier SEO). Vitrine cluster `chiang-mai-life` + cross-sell. JSON-LD CollectionPage, hreflang symétrique.
+- Fait : câblage Nav mega (2→1) + drawer + Footer + helper `getPostsByCategory` (`src/lib/blog.ts`) + 53 clés `cmg_*` EN/FR (parité 1493/1493, retrait `nav_stay_todo_*`).
+- Fait : fix UI raccords (sections soft→cream autour des scratch + divider `wave`→`rough`).
+- Fait : **3 threads Reddit archivés** `.seo-data/reddit/reddit-chiang-mai-*.txt` (matière angles M4) + pointeurs `structure-blog.md`.
+- Dernier commit : (à créer ce wrap)
 
 ## Prochaine etape (par quoi commencer)
-M3 « Benefits & transformation » (calendrier S5-6) : même pipeline via @content-creator. OU produire les FR (women FR demo existe) / burning season M4 (avant décembre).
+M3 « Benefits & transformation » via @content-creator, OU burning season **M4.1** (avant décembre, et le hub l'attend), OU produire les FR. Calendrier : `docs/structure-blog.md`.
 
 ## Pieges / contexte chaud
-- **Backlinks ENTRANTS pas encore posés** (pillar `/classes/beginners` « From the blog » + cross-links depuis pages live) : Jonathan les fera **après publication** de chaque article (à la date). Les liens sortants des articles sont déjà faits.
-- **Pas de redeploy auto** (aucun cron Vercel) : les 8 articles M1+M2 sont `draft:false` + `publishDate` future → ne sortent QU'au rebuild passé leur date. Jonathan redéploie manuellement aux dates.
-- **Piège prod content** : les workers article-producer mettent des liens `/en/blog/…` (préfixe locale) → 404. Convention projet = SANS préfixe (`/classes/beginners`, `/blog/…`). Vérifier/normaliser à chaque batch.
-- 3 démos restent `draft:true` (burning-season EN, saison-des-brulis FR, pour-les-femmes FR).
+- **Recos Meaw manquantes** : section « Nos recos » du hub = placeholder honnête (« demande-nous »). Specifics restos/temples/nature à remplir → `docs/checklist.md` §I7.
+- **Hero hub** = placeholder `background-hero.webp` (pas de vrai paysage CM) → `photos-needed.md` #9.
+- **Backlinks ENTRANTS articles** toujours pas posés (Jonathan, après publication à la date). Liens sortants OK.
+- **Pas de redeploy auto** : les 8 articles M1+M2 `draft:false` + publishDate future sortent au rebuild manuel passé leur date.
+- **Piège prod content** : workers article-producer mettent des liens `/en/blog/…` (préfixe locale) → 404. Convention = SANS préfixe. Normaliser à chaque batch.

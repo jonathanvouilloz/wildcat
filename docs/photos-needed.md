@@ -34,6 +34,7 @@
 | 6 | 3-4 photos d'ambiance | Fonds CtaBanner : seulement 3-4 photos tournent sur ~15 pages (`gym-garden.jpg` ≈ 7 emplois). Idées : ring open-air, pads en action, groupe qui rit post-training, jardin |
 | 7 | Cover OG signature | `defaultOgImage` = gym-garden.jpg 4,9 Mo. Une photo horizontale forte (recadrée 1200×630 + optimisée par Claude) |
 | 8 | Classes en action ×2-3 | ProgramCards + `/classes/beginners` : débutants en cours, technique aux pads, kids class si dispo |
+| 9 | Hero `/chiang-mai-guide` | Paysage Chiang Mai golden-hour (collines/rizières/temple ou vue Doi Suthep) — placeholder actuel = `background-hero.webp`. Idéal : horizontal, lisible avec overlay charcoal, ancre le « explore » sans copier les photos camp |
 
 ## P3 — Plus tard
 

@@ -78,6 +78,7 @@ export const site = {
     { key: 'coaches', href: '/about/coaches' },
     { key: 'pricing', href: '/classes#pricing' },
     { key: 'dtv', href: '/dtv-visa' },
+    { key: 'chiang-mai-guide', href: '/chiang-mai-guide' },
     { key: 'blog', href: '/blog' },
   ],
 

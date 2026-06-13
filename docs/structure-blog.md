@@ -103,6 +103,17 @@ comparatif/curiosité** → blog, avec CTA et maillage vers le pillar du silo.
 
 ### M4 — Cluster « Vivre & planifier Chiang Mai » (pillar : `/stay-train` + `/dtv-visa/long-stay-training`) ⚠️ SAISONNIER
 
+> **Pillar/hub du cluster : `/chiang-mai-guide`** (créé 2026-06-13) — page éditoriale qui
+> agrège ce cluster (feed `chiang-mai-life` + empty-state) et relaie vers Stay & Train / DTV.
+> Les articles M4 doivent **mailler retour** vers ce hub.
+>
+> **Matière de recherche Reddit** (`.seo-data/reddit/reddit-chiang-mai-*.txt`, 3 threads) pour
+> nourrir les angles `chiang-mai-life` : sanctuaires d'éléphants **éthiques** (le débat
+> riding/bathing = angle honnêteté fort), cuisine **Lanna** (khao soi, sai ua, nam prik vs menus
+> touristes), day trips (Doi Inthanon, sticky waterfalls, Mon Jam, Chiang Rai temples), getting
+> around (songthaew 30฿, Grab, scooter), burning season (warnings récurrents), scams (tuk-tuk/
+> karaoke = à éviter dans un guide honnête).
+
 | # | Article | Vol. | Angle / notes | FR |
 |---|---|---|---|---|
 | 4.1 | **Burning season in Chiang Mai: the honest guide (+ training tips)** | 260 (~900 !) | 🏆 "burning season thailand" (480) + "air quality chiang mai" (590) + "…2026" (110) + "when is…" (90). Aucun camp n'en parle = différenciateur honnêteté. **En ligne avant décembre.** Refresh annuel (le kw migre vers l'année suivante) | — |

@@ -1,0 +1,383 @@
+---
+import { getImage } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/layout/Section.astro';
+import TornDivider from '../../components/layout/TornDivider.astro';
+import SectionHead from '../../components/ui/SectionHead.astro';
+import Button from '../../components/ui/Button.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import FeatureGrid from '../../components/sections/FeatureGrid.astro';
+import CtaBanner from '../../components/sections/CtaBanner.astro';
+import BlogCard from '../../components/blog/BlogCard.astro';
+import { Icon } from 'astro-icon/components';
+import { site } from '../../config/site';
+import { localePath } from '../../lib/routes';
+import { waLink } from '../../lib/whatsapp';
+import { getPostsByCategory, parseBlogId } from '../../lib/blog';
+import { m } from '../../paraglide/messages.js';
+
+// Hub « Chiang Mai Guide » — fusionne les 2 entrées maquette (Chiang Mai Guide +
+// Things to Do) en UNE page éditoriale à voix Wildcat (« nos recos autour du
+// camp »). PAS un pilier SEO (head terms tourisme non-winnables, hors
+// positionnement) : vitrine du cluster blog `chiang-mai-life` + relais
+// conversion Stay & Train / DTV long-stay. Les recos spécifiques (restos,
+// temples, spots) viennent de Meaw → section placeholder honnête (docs/checklist.md).
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+const lang = Astro.currentLocale ?? 'en';
+const p = (path: string) => localePath(lang, path);
+
+// Atouts « se déplacer » — factuel, honnête (scooter = notre location au camp)
+const moves = [
+  { icon: 'tabler:motorbike', title: m.cmg_move1_t(), body: m.cmg_move1_b() },
+  { icon: 'tabler:truck', title: m.cmg_move2_t(), body: m.cmg_move2_b() },
+  { icon: 'tabler:car', title: m.cmg_move3_t(), body: m.cmg_move3_b() },
+  { icon: 'tabler:walk', title: m.cmg_move4_t(), body: m.cmg_move4_b() },
+];
+
+// Recos maison — cadrage honnête, les noms précis viennent de Meaw (checklist §I).
+const recos = [
+  { icon: 'tabler:soup', title: m.cmg_recos_eat_t(), body: m.cmg_recos_eat_b() },
+  { icon: 'tabler:building-arch', title: m.cmg_recos_temples_t(), body: m.cmg_recos_temples_b() },
+  { icon: 'tabler:mountain', title: m.cmg_recos_nature_t(), body: m.cmg_recos_nature_b() },
+];
+
+// Feed blog du cluster chiang-mai-life (vide tant que M4 n'est pas produit →
+// empty-state propre). Covers résolues au build (pattern /blog).
+const guidePosts = await getPostsByCategory(lang, 'chiang-mai-life', 6);
+const dateFmt = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+const blogCards = await Promise.all(
+  guidePosts.map(async (post) => {
+    const { slug } = parseBlogId(post.id);
+    const cover = post.data.cover
+      ? {
+          src: (await getImage({ src: post.data.cover, width: 640, format: 'webp' })).src,
+          alt: post.data.coverAlt ?? '',
+        }
+      : undefined;
+    return {
+      href: p(`/blog/${slug}`),
+      title: post.data.title,
+      excerpt: post.data.description,
+      category: m.blog_cat_chiang_mai_life(),
+      date: {
+        iso: post.data.publishDate.toISOString().slice(0, 10),
+        label: dateFmt.format(post.data.publishDate),
+      },
+      image: cover,
+    };
+  })
+);
+
+// Tant que l'article burning season (M4.1) n'existe pas, le lien « en savoir
+// plus » pointe la catégorie blog (filtre partageable).
+const blogCategoryHref = `${p('/blog')}?category=chiang-mai-life`;
+
+// JSON-LD CollectionPage — PAS de FAQPage (réservé /stay-train, 1/silo).
+// Le Breadcrumb émet déjà le BreadcrumbList.
+const base = Astro.site ?? Astro.url.origin;
+const pageUrl = new URL(p('/chiang-mai-guide'), base).href;
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${m.cmg_hero_title()} ${m.cmg_hero_title_em()}`,
+  description: m.cmg_meta_desc(),
+  url: pageUrl,
+  inLanguage: lang,
+  isPartOf: { '@type': 'WebSite', name: site.name, url: new URL(p('/'), base).href },
+};
+---
+
+<BaseLayout title={m.cmg_meta_title()} description={m.cmg_meta_desc()}>
+  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(collectionSchema)} />
+
+  <main>
+    <PageHero
+      eyebrow={m.cmg_eyebrow()}
+      title={m.cmg_hero_title()}
+      titleEm={m.cmg_hero_title_em()}
+      lead={m.cmg_hero_lead()}
+      image={{ src: '/assets/background-hero.webp', alt: m.cmg_hero_img_alt(), position: 'center 40%' }}
+    >
+      <Breadcrumb
+        slot="crumbs"
+        overlay
+        ariaLabel={m.breadcrumb_aria()}
+        items={[
+          { label: m.breadcrumb_home(), href: p('/') },
+          { label: m.nav_stay(), href: p('/stay-train') },
+          { label: m.cmg_crumb() },
+        ]}
+      />
+    </PageHero>
+
+    <!-- Intro : le cadrage famille (cream → le brush du hero se fond) -->
+    <Section>
+      <div data-animate="fade-up">
+        <SectionHead>{m.cmg_intro_head()}</SectionHead>
+        <h2 class="h2 mt-2 mb-4">{m.cmg_intro_title()}</h2>
+        <p class="body-copy">{m.cmg_intro_body1()}</p>
+        <p class="body-copy">{m.cmg_intro_body2()}</p>
+      </div>
+    </Section>
+
+    <!-- Se déplacer (soft : rythme, bords plats soft/cream OK) -->
+    <Section soft>
+      <div data-animate="fade-up">
+        <SectionHead>{m.cmg_move_head()}</SectionHead>
+        <h2 class="h2 mt-2 mb-3">{m.cmg_move_title()}</h2>
+        <p class="lead mb-7">{m.cmg_move_lead()}</p>
+      </div>
+      <FeatureGrid items={moves} />
+      <p class="beg-note">
+        {m.cmg_move_scoot_note()}{' '}
+        <a class="ilink" href={p('/stay-train/scooter-rental')}>{m.cmg_move_scoot_link()}</a>.
+      </p>
+    </Section>
+
+    <!-- Saisons & burning season : le différenciateur honnêteté
+         (cream → le révélé du divider matche cette section au-dessus) -->
+    <Section>
+      <div class="season">
+        <div data-animate="fade-up">
+          <SectionHead>{m.cmg_season_head()}</SectionHead>
+          <h2 class="h2 mt-2 mb-4">{m.cmg_season_title()}</h2>
+          <p class="body-copy">{m.cmg_season_body1()}</p>
+          <p class="body-copy">{m.cmg_season_body2()}</p>
+          <p class="beg-note">
+            {m.cmg_season_note()}{' '}
+            <a class="ilink" href={blogCategoryHref}>{m.cmg_season_link()}</a>.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    {/* la section combats (forest) mord vers le haut sur la saison (cream) —
+        déchirure rough (tolère l'étirement plein largeur, cf. wave déformée) */}
+    <TornDivider variant="rough-flipx" color="var(--forest)" />
+
+    <!-- Où voir du Muay Thai -->
+    <Section dark>
+      <div class="fights">
+        <div data-animate="fade-up">
+          <SectionHead onDark>{m.cmg_fights_head()}</SectionHead>
+          <h2 class="h2 h2--dark mt-2 mb-3">
+            {m.cmg_fights_title()} <span class="em on-dark">{m.cmg_fights_title_em()}</span>
+          </h2>
+          <p class="fights-body">{m.cmg_fights_body()}</p>
+          <div class="mt-6">
+            <Button href={p('/fighters')} variant="gold" arrow>{m.cmg_fights_cta()}</Button>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Nos recos (placeholder Meaw — rien d'inventé) -->
+    <Section soft>
+      <div class="block-head center" data-animate="fade-up">
+        <SectionHead center>{m.cmg_recos_head()}</SectionHead>
+        <h2 class="h2 mt-2 mb-3">{m.cmg_recos_title()}</h2>
+        <p class="lead lead--center">{m.cmg_recos_lead()}</p>
+      </div>
+      <div class="recos" data-animate-stagger>
+        {
+          recos.map((r) => (
+            <div class="reco" data-animate-item>
+              <span class="ic"><Icon name={r.icon} aria-hidden="true" /></span>
+              <h3 class="h3">{r.title}</h3>
+              <p>{r.body}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="recos-cta" data-animate="fade-up">
+        <Button href={waLink(m.contact_wa_text_general())} variant="forest" arrow>{m.cmg_recos_cta()}</Button>
+      </div>
+    </Section>
+
+    <!-- From the blog : feed cluster chiang-mai-life -->
+    <Section>
+      <div class="block-head" data-animate="fade-up">
+        <SectionHead>{m.cmg_blog_head()}</SectionHead>
+        <h2 class="h2 mt-2">{m.cmg_blog_title()}</h2>
+      </div>
+      {
+        blogCards.length > 0 ? (
+          <ul class="blog-grid" data-animate-stagger>
+            {blogCards.map((card) => (
+              <li data-animate-item>
+                <BlogCard
+                  href={card.href}
+                  title={card.title}
+                  excerpt={card.excerpt}
+                  category={card.category}
+                  date={card.date}
+                  image={card.image}
+                />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div class="empty">
+            <p>{m.cmg_blog_empty_body()}</p>
+          </div>
+        )
+      }
+    </Section>
+
+    <CtaBanner
+      variant="torn"
+      hand={m.cmg_cta_hand()}
+      title={m.cmg_cta_title()}
+      titleEm={m.cmg_cta_title_em()}
+      sub={m.cmg_cta_sub()}
+      ctaPrimary={{ label: m.cta_plan_stay(), href: `${p('/stay-train')}#plan` }}
+      ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_stay()) }}
+      image={{ src: '/assets/camp-life.webp' }}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .body-copy {
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    max-width: 68ch;
+    margin: 0 0 14px;
+  }
+  .lead {
+    font-size: 18px;
+    color: var(--ink-2);
+    max-width: 60ch;
+    margin-top: 0;
+  }
+  .lead--center {
+    margin-inline: auto;
+  }
+  .beg-note {
+    margin: 22px 0 0;
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+  .ilink {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .ilink:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .ilink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .block-head {
+    margin-bottom: 38px;
+  }
+  .block-head.center {
+    text-align: center;
+  }
+
+  /* --- Où voir du Muay Thai (dark) --- */
+  .h2--dark {
+    color: var(--cream);
+  }
+  .fights {
+    max-width: 62ch;
+  }
+  .fights-body {
+    font-size: 17px;
+    color: rgba(246, 241, 230, 0.78);
+    max-width: 54ch;
+    margin: 0;
+  }
+
+  /* --- Nos recos : 3 cartes (placeholder Meaw) --- */
+  .recos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .reco {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 26px 24px 28px;
+    box-shadow: var(--shadow-sm);
+  }
+  .reco .ic {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--soft-2);
+    margin-bottom: 16px;
+  }
+  .reco .ic :global(svg) {
+    width: 26px;
+    height: 26px;
+    color: var(--forest);
+  }
+  .reco h3 {
+    margin: 0 0 8px;
+  }
+  .reco p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+  .recos-cta {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  /* --- From the blog : grille BlogCard (pattern /blog) --- */
+  .blog-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .empty {
+    padding: 8px 0 4px;
+  }
+  .empty p {
+    margin: 0;
+    max-width: 56ch;
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .recos,
+    .blog-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 640px) {
+    .recos,
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

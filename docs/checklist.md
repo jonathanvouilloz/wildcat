@@ -103,6 +103,7 @@
 | I4 | **Fermetures exceptionnelles** : jours fériés thaïs, Songkran, événements ? | ❌ | `/classes#schedule`, FAQ |
 | I5 | **BudgetEstimator** : les fourchettes codées en dur (scooter 3 000–3 500, food, housing) collent-elles à ce que vivent les guests de Meaw ? | ⏳ | `/dtv-visa/long-stay-training` |
 | I6 | **Venues de combat** (guest book) : les 4 venues du schéma fighter sont-elles les bonnes / les seules où le camp emmène ses guests ? | ⏳ | `/fighters`, schéma Sanity `fighter` |
+| I7 | **Recos locales de Meaw** (vraie plus-value du hub `/chiang-mai-guide`) : 2-3 **restos** près du camp (Nong Kwai/Hang Dong, cuisine Lanna familiale) · 1-2 **temples** à conseiller + lesquels éviter (trop touristiques) · 1-2 **spots nature/escapades** (cascade, lac, boucle) · **sanctuaire d'éléphants** que la famille recommande (angle éthique) · **cooking class** si partenaire. Aujourd'hui : section « Nos recos » en placeholder honnête (« demande-nous »). | ⏳ | `/chiang-mai-guide` (section #recos), futurs articles `chiang-mai-life` |
 
 ---
 
