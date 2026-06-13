@@ -24,6 +24,22 @@ export interface Props {
 }
 const { oncePerSession = true } = Astro.props;
 
+// Tempo global de la cérémonie. 1 = version d'origine (~4.3s).
+// 0.65 ≈ ~2.8s — compromis « on garde l'effet, on allège le coût LCP ».
+// Scale TOUT en cohérence : cascade d'écriture (frontmatter), durées CSS
+// (remplissage/crossfade/sortie, via define:vars) ET les setTimeout du <script>
+// (via data-speed). Un seul chiffre à régler pour rallonger/raccourcir.
+const SPEED = 0.65;
+const sc = (n: number) => +(n * SPEED).toFixed(3);
+
+// Durées CSS dérivées (passées en custom properties) — voir bloc <style>.
+const riseDur = `${sc(2.45)}s`;
+const fillinDur = `${sc(0.45)}s`;
+const fillinDelay = `${sc(1.35)}s`;
+const fullDur = `${sc(0.3)}s`;
+const fullDelay = `${sc(1.9)}s`;
+const exitDur = `${sc(0.95)}s`;
+
 // Shape logo (SVG/shape-simple.svg) — un seul path, viewBox 265.44×272.97
 const SHAPE_D =
   'M259.78,112.84c-5.42-6.87-9.9-12.68-13-21.3,3.2,1.4,5.5,2.5,7.8,3.5a3.63,3.63,0,0,0-.7-3.2c-9.74-10-19.07-19.53-28.8-29.7,3.1-1.4,5.7-2.5,8.3-3.6,0-.3-.1-.7-.1-1l-8.7-4.2c13.23-15.68,19.18-32.58,11.1-50.7-3.62-7.43-12.14,3.07-17.4,4.2-8.6,3.8-17.3,7.3-26,10.9-13.72,0-24.87-12.37-38.4-14.3-10.61-1.45-21.08,3.32-31.7.1-18-4.76-32.11,14.39-49.3,14.2a185,185,0,0,1-36-16.3c-5.8-4.42-8.17,2.82-9.4,7.4-3.71,17.32,2,31.84,13.3,44.8-3,1.4-5.8,2.8-8.7,4.1,0,.4-.1.7-.1,1.1,2.6,1.1,5.3,2.3,8,3.4-9,11.63-22.17,19.9-29.7,32.4a1.79,1.79,0,0,0,.7.5c2.3-1,4.6-2,7.5-3.3C14.36,108.7-6.41,118.63,2,137.64l4.8-5.5c-5.25,21.26,6.07,34.18,7.6,54.4.7,4.8.7,4.8,5.4,4.3,5.86-.14,11.77-1.89,17.4-.8-1.17,2.8-3.47,6-3.31,8.8,6.67,3.9,14.81-2.07,19.31-7.1.3.1.6.3.9.4-.4,5-.7,10-1.1,15.1,3.26.89,6.25-2.14,9.5-3,1.3,7.3,5.1,12.7,12.8,16.1-.52-3.82-1.76-7.81,2.3-9.5,2.6-1.1,4.4.9,5.2,3,5.37,14.47,12.47,28.76,12.1,44.5,2.2-2,4.3-3.9,6.8-6.2.4,6.1,1.5,11.1,6.4,14.8v-7.7c11.32,18.23,37.37,18,49.3,1v6.4a6.89,6.89,0,0,1,.8.3,27,27,0,0,0,6-14.5c2.3,2.1,4.3,4,6.5,6.1-.08-8.31.67-15.4,4-22.8,1.7-7.8,3.7-15.5,8.2-22.3,2.21-4.91,8.68-2.32,7.8,2.8-.1,1.2-.3,2.4-.5,4.4,7.5-3.7,11.7-8.9,12.7-16.5,3.2,1.2,5.6,4.6,9.5,3.3-.3-5.2-.6-10.2-1-15.2.4-.1.8-.3,1.2-.4,3.74,5.51,12.5,10.7,18.9,7.3.48-2.85-2.14-6.15-3.2-8.9,5.3-1.08,10.93.48,16.4.7,6.2.7,6,.9,6.7-5.5,1-17.91,13.59-34.52,6.8-52.8,2.17,1.14,3.08,2.89,5.1,4.1C267.58,128.73,265,119.49,259.78,112.84Z';
@@ -89,6 +105,7 @@ const SHAPE_MASK_URI = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   data-loader
   data-variant="b"
   data-once={String(oncePerSession)}
+  data-speed={String(SPEED)}
   aria-hidden="true"
 >
   <div class="ldr-stage">
@@ -115,7 +132,7 @@ const SHAPE_MASK_URI = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
           class="ldr-outline"
           d={d}
           pathLength="1"
-          style={`--od:${OUTLINE_TIMING[i].delay}s;--ou:${OUTLINE_TIMING[i].dur}s`}
+          style={`--od:${sc(OUTLINE_TIMING[i].delay)}s;--ou:${sc(OUTLINE_TIMING[i].dur)}s`}
         ></path>
       ))}
     </svg>
@@ -131,7 +148,7 @@ const SHAPE_MASK_URI = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
                 d={s.d}
                 pathLength="1"
                 stroke-width={s.w}
-                style={`--sd:${s.delay}s;--su:${s.dur}s`}
+                style={`--sd:${sc(s.delay)}s;--su:${sc(s.dur)}s`}
               ></path>
             ))}
           </mask>
@@ -158,7 +175,7 @@ const SHAPE_MASK_URI = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   </style>
 </noscript>
 
-<style define:vars={{ shapeMask: SHAPE_MASK_URI }}>
+<style define:vars={{ shapeMask: SHAPE_MASK_URI, riseDur, fillinDur, fillinDelay, fullDur, fullDelay, exitDur }}>
   .wc-loader {
     position: fixed;
     inset: 0;
@@ -201,7 +218,7 @@ const SHAPE_MASK_URI = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     will-change: transform;
   }
   .is-fill .ldr-liquid {
-    animation: ldr-rise 2.45s cubic-bezier(0.45, 0.1, 0.35, 1) forwards;
+    animation: ldr-rise var(--riseDur) cubic-bezier(0.45, 0.1, 0.35, 1) forwards;
   }
   .ldr-wave--front {
     fill: var(--gold, #e0a62b);
@@ -262,7 +279,7 @@ const SHAPE_MASK_URI = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   .is-text .ldr-outline {
     animation:
       ldr-draw var(--ou) cubic-bezier(0.4, 0.1, 0.6, 0.9) var(--od) forwards,
-      ldr-fillin 0.45s ease 1.35s forwards;
+      ldr-fillin var(--fillinDur) ease var(--fillinDelay) forwards;
   }
 
   @keyframes ldr-draw {
@@ -297,14 +314,15 @@ const SHAPE_MASK_URI = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     opacity: 0;
   }
   .is-text .ldr-full {
-    /* crossfade après la fin d'écriture (~1.84s) — couvre les franges */
-    transition: opacity 0.3s ease 1.9s;
+    /* crossfade après la fin d'écriture — couvre les franges */
+    transition: opacity var(--fullDur) ease var(--fullDelay);
     opacity: 1;
   }
 
   /* ---------- Sortie keyhole ---------- */
   .is-exit .ldr-stage {
-    animation: ldr-zoom 0.95s var(--ease-in-out-strong, cubic-bezier(0.77, 0, 0.175, 1)) forwards;
+    animation: ldr-zoom var(--exitDur) var(--ease-in-out-strong, cubic-bezier(0.77, 0, 0.175, 1))
+      forwards;
     will-change: transform, opacity;
   }
   @keyframes ldr-zoom {
@@ -334,7 +352,7 @@ const SHAPE_MASK_URI = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
         34vmin auto,
         100% 100%;
       -webkit-mask-composite: xor;
-      animation: ldr-keyhole 0.95s var(--ease-in-out-strong, cubic-bezier(0.77, 0, 0.175, 1))
+      animation: ldr-keyhole var(--exitDur) var(--ease-in-out-strong, cubic-bezier(0.77, 0, 0.175, 1))
         forwards;
     }
     @keyframes ldr-keyhole {
@@ -351,7 +369,7 @@ const SHAPE_MASK_URI = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
   /* fallback sans mask-composite : fade simple pendant le zoom de la stage */
   @supports not ((mask-composite: exclude) or (-webkit-mask-composite: xor)) {
     .is-exit {
-      animation: ldr-fade 0.6s ease 0.35s forwards;
+      animation: ldr-fade var(--exitDur) ease forwards;
     }
     @keyframes ldr-fade {
       to {
@@ -385,11 +403,14 @@ const SHAPE_MASK_URI = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     // scroll lock le temps de la cérémonie
     document.documentElement.style.overflow = 'hidden';
 
-    const T_TEXT_START = 850; // l'écriture démarre PENDANT le remplissage
-    const T_TEXT = 2250; // écriture + crossfade/fill-in
-    const T_EXIT = 1000; // keyhole
-    // sortie quand les deux sont finis (fill 2.55s < texte 0.85+2.25=3.1s) + micro-pause
-    const T_EXIT_AT = T_TEXT_START + T_TEXT + 200;
+    // tempo : doit suivre SPEED côté frontmatter (data-speed) pour rester
+    // synchro avec les durées CSS scalées (define:vars).
+    const SPEED = parseFloat(loader.dataset.speed || '1') || 1;
+    const T_TEXT_START = 850 * SPEED; // l'écriture démarre PENDANT le remplissage
+    const T_TEXT = 2250 * SPEED; // écriture + crossfade/fill-in
+    const T_EXIT = 1000 * SPEED; // keyhole
+    // sortie quand les deux sont finis (fill < texte) + micro-pause
+    const T_EXIT_AT = T_TEXT_START + T_TEXT + 200 * SPEED;
 
     requestAnimationFrame(() => loader.classList.add('is-fill'));
     setTimeout(() => loader.classList.add('is-text'), T_TEXT_START);
