@@ -19,8 +19,16 @@ export interface Props {
   body: string;
   href: string;
   moreLabel: string;
-  /** position : object-position du crop (ex. 'center 28%') — réglé en live. */
-  image?: { src: string; alt: string; position?: string };
+  /** position : object-position du crop (ex. 'center 28%') — réglé en live.
+   *  srcset/width/height optionnels (pattern Hero) : responsive + anti-CLS. */
+  image?: {
+    src: string;
+    alt: string;
+    position?: string;
+    srcset?: string;
+    width?: number;
+    height?: number;
+  };
 }
 const { level, title, body, href, moreLabel, image } = Astro.props;
 
@@ -51,6 +59,10 @@ const tear = tears[seedPick(title + 't', 3)];
             <img
               class="media"
               src={image.src}
+              srcset={image.srcset}
+              sizes={image.srcset ? '(max-width:560px) 92vw, (max-width:900px) 46vw, 372px' : undefined}
+              width={image.width}
+              height={image.height}
               alt={image.alt}
               loading="lazy"
               style={image.position && `object-position:${image.position}`}
