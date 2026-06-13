@@ -4,6 +4,12 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 
 ---
 
+### 2026-06-13 | URLs : `trailingSlash: 'never'` (alignement canonical / liens / 301)
+- **Contexte** : `/en` et `/en/` servaient tous deux un 200 (aucun 301 d'enforcement), et le canonical sortait AVEC slash (`/en/`) alors que tous les liens internes (`localePath`, `blogPath`) et le redirect racine pointent SANS slash (`/en`). Cause : aucune politique `trailingSlash` définie → défaut Astro `'ignore'` (un non-choix : canonical, liens et hébergeur tranchaient chacun différemment).
+- **Choix** : **`trailingSlash: 'never'`** dans `astro.config.mjs`. Aligne canonical/hreflang/og:url/sitemap sur la forme sans slash (celle déjà émise par le code) ET déclenche l'adaptateur Vercel, qui écrit une règle `^/(.*)/$` → `/$1` en **308** dans `.vercel/output/config.json` (la redirection est le travail de l'hébergeur en SSG, pas d'Astro). Zéro fichier applicatif modifié (tout était déjà sans slash).
+- **Alternatives** : `'always'` (forme avec slash) — écartée car aurait imposé de réécrire `localePath`, le redirect racine et la gestion des ancres `#…` pour le même résultat ; rester en `'ignore'` — écartée (duplicate content auto-infligé, self-canonical en désaccord).
+- **Détail complet** (diagnostic, impact SEO, vérif, checklist) : `docs/trailing-slash-canonical.md`.
+
 ### 2026-06-03 | Icônes : Tabler (set unique via astro-icon)
 - **Contexte** : besoin d'icônes UI + logos réseaux cohérents sur tout le site (nav, DTV, contact, fighters…). Volonté d'**une seule lib** pour la cohérence.
 - **Choix** : **Tabler** via `astro-icon` + `@iconify-json/tabler` — couvre 55/55 besoins du PRD (UI + `brand-*` réseaux + `karate`/`motorbike`), style ligne identique au sprite d'origine. Tailles via tokens `--icon-*`. Custom hors-lib : swoosh (`ArrowWild`), tigre, DTV stamp, ◆. Drapeaux fighters = texte pour l'instant.

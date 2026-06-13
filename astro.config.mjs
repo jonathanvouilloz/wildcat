@@ -26,6 +26,17 @@ export default defineConfig({
   // Q5 tranchée (2026-06-05) : wildcatmuaythai.com. Sert au sitemap, hreflang et canonical.
   site: 'https://wildcatmuaythai.com',
 
+  // trailingSlash 'never' (2026-06-13) — alignement URL canonique.
+  // Sans cette ligne, Astro défaut sur 'ignore' : le canonical sortait AVEC slash
+  // (`/en/`, artefact de build.format:'directory') alors que tous les liens internes
+  // (localePath, blogPath) et le redirect racine pointent SANS slash (`/en`). Résultat :
+  // /en et /en/ servis tous deux en 200 (aucun 301 d'enforcement) + self-canonical en
+  // désaccord à chaque navigation. 'never' aligne canonical/hreflang/og:url/sitemap sur la
+  // forme sans slash (déjà celle des liens) ET déclenche l'adaptateur Vercel qui écrit
+  // `trailingSlash: false` dans .vercel/output/config.json → 301 réel /en/ → /en.
+  // Détail complet : docs/trailing-slash-canonical.md.
+  trailingSlash: 'never',
+
   // i18n — V1 : EN + FR (TH/DE/ES/RU repoussés en V1.1). URLs préfixées : /en, /fr.
   i18n: {
     locales: ['en', 'fr'],
