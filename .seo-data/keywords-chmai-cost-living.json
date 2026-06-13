@@ -1,0 +1,268 @@
+{
+  "topic": "chiang mai cost of living",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-11T13:01:55Z",
+  "primary": {
+    "keyword": "chiang mai cost of living",
+    "search_volume": 390,
+    "cpc": 2.65,
+    "competition": "LOW",
+    "competition_index": 2,
+    "difficulty": 8,
+    "intent": "informational",
+    "intent_probability": 0.6161
+  },
+  "secondaries": [
+    {
+      "keyword": "chiang mai cost of living reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "chiang mai cost of living 2023",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "chiang mai house for rent",
+      "search_volume": 880,
+      "cpc": 1.06,
+      "competition": "LOW",
+      "competition_index": 27
+    },
+    {
+      "keyword": "bangkok cost of living",
+      "search_volume": 720,
+      "cpc": 1.82,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "apartments in chiang mai",
+      "search_volume": 480,
+      "cpc": 1.02,
+      "competition": "LOW",
+      "competition_index": 24
+    },
+    {
+      "keyword": "cost of living chiang mai",
+      "search_volume": 390,
+      "cpc": 2.65,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "chiang mai thailand cost of living",
+      "search_volume": 390,
+      "cpc": 2.65,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "cost of living chiang mai thailand",
+      "search_volume": 390,
+      "cpc": 2.65,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "cost of living in chiang mai",
+      "search_volume": 390,
+      "cpc": 2.65,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "cost of living in chiang mai thailand",
+      "search_volume": 390,
+      "cpc": 2.65,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "chiang mai real estate",
+      "search_volume": 390,
+      "cpc": 0.46,
+      "competition": "LOW",
+      "competition_index": 10
+    },
+    {
+      "keyword": "long term rentals in chiang mai thailand",
+      "search_volume": 170,
+      "cpc": 0.81,
+      "competition": "LOW",
+      "competition_index": 22
+    },
+    {
+      "keyword": "chiang mai condo for rent",
+      "search_volume": 140,
+      "cpc": 0.8,
+      "competition": "LOW",
+      "competition_index": 23
+    },
+    {
+      "keyword": "chiang mai apartments for rent short term",
+      "search_volume": 70,
+      "cpc": 1.97,
+      "competition": "MEDIUM",
+      "competition_index": 58
+    },
+    {
+      "keyword": "chiang mai apartments for sale",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 7
+    },
+    {
+      "keyword": "serviced apartments chiang mai",
+      "search_volume": 70,
+      "cpc": 2.26,
+      "competition": "MEDIUM",
+      "competition_index": 62
+    },
+    {
+      "keyword": "chiang mai rentals monthly",
+      "search_volume": 50,
+      "cpc": 1.66,
+      "competition": "MEDIUM",
+      "competition_index": 39
+    }
+  ],
+  "related": [
+    {
+      "keyword": "chiang mai apartments for rent long term",
+      "search_volume": 40,
+      "cpc": 0.49,
+      "competition": "LOW",
+      "competition_index": 19
+    },
+    {
+      "keyword": "chiang mai real estate for rent",
+      "search_volume": 30,
+      "cpc": 0.38,
+      "competition": "LOW",
+      "competition_index": 15
+    },
+    {
+      "keyword": "chiang mai apartments monthly",
+      "search_volume": 30,
+      "cpc": 0.67,
+      "competition": "LOW",
+      "competition_index": 30
+    },
+    {
+      "keyword": "cost of living in bangkok for single person",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai real estate for foreigners",
+      "search_volume": 30,
+      "cpc": 0.28,
+      "competition": "LOW",
+      "competition_index": 15
+    },
+    {
+      "keyword": "mountain homes for sale in chiang mai thailand",
+      "search_volume": 20,
+      "cpc": 0.06,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "cost of living in chiang mai per month",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "cost of living in chiang mai 2024",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "chiang mai vs bangkok cost of living",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "cost of living chiang mai vs bangkok",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "chiang mai house for rent",
+      "search_volume": 880,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "bangkok cost of living",
+      "search_volume": 720,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "apartments in chiang mai",
+      "search_volume": 480,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "cost of living chiang mai",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "chiang mai thailand cost of living",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "cost of living chiang mai thailand",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "cost of living in chiang mai",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "cost of living in chiang mai thailand",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "chiang mai real estate",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

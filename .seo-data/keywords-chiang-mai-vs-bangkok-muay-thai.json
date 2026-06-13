@@ -1,0 +1,59 @@
+{
+  "topic": "chiang mai vs bangkok muay thai",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-11T13:39:11Z",
+  "note": "Primary exact match returns 0/mo — article targets parent cluster 'chiang mai vs bangkok' (390/mo, diff 16) with Muay Thai as editorial angle, same strategy as 1.2 vs-phuket article.",
+  "primary": {
+    "keyword": "chiang mai vs bangkok muay thai",
+    "search_volume": 0,
+    "cpc": 0,
+    "competition": null,
+    "competition_index": null,
+    "difficulty": null,
+    "intent": "informational",
+    "intent_probability": 0.8375
+  },
+  "cluster_anchor": {
+    "keyword": "chiang mai vs bangkok",
+    "search_volume": 390,
+    "cpc": 12.32,
+    "competition": "LOW",
+    "competition_index": 1,
+    "difficulty": 16,
+    "intent": "informational"
+  },
+  "secondaries": [
+    {"keyword": "bangkok vs chiang mai", "search_volume": 390, "cpc": 12.32, "competition": "LOW", "competition_index": 1},
+    {"keyword": "chiang mai vs bangkok reddit", "search_volume": 20, "cpc": 0, "competition": "LOW", "competition_index": 0},
+    {"keyword": "is chiang mai cheaper than bangkok", "search_volume": 20, "cpc": 0, "competition": "LOW", "competition_index": 0},
+    {"keyword": "chiang mai vs bangkok cost of living", "search_volume": 10, "cpc": 0, "competition": "LOW", "competition_index": 0},
+    {"keyword": "chiang mai vs bangkok living", "search_volume": 10, "cpc": 0, "competition": "LOW", "competition_index": 2},
+    {"keyword": "living in chiang mai vs bangkok", "search_volume": 10, "cpc": 0, "competition": "LOW", "competition_index": 2},
+    {"keyword": "chiang mai vs bangkok vs phuket", "search_volume": 10, "cpc": 0, "competition": "LOW", "competition_index": 1},
+    {"keyword": "muay thai training chiang mai vs bangkok", "search_volume": 10, "cpc": 0, "competition": "LOW", "competition_index": 0}
+  ],
+  "long_tail": [
+    {"keyword": "best city in thailand for muay thai training", "search_volume": 20, "cpc": 0, "competition": "LOW", "competition_index": 5},
+    {"keyword": "chiang mai vs phuket", "search_volume": 210, "cpc": 0, "competition": "LOW", "competition_index": 0},
+    {"keyword": "chiang mai vs koh samui", "search_volume": 40, "cpc": 0, "competition": "LOW", "competition_index": 3},
+    {"keyword": "chiang mai vs pattaya", "search_volume": 30, "cpc": 0, "competition": "LOW", "competition_index": 0},
+    {"keyword": "bangkok vs chiang mai reddit", "search_volume": 20, "cpc": 0, "competition": "LOW", "competition_index": 0},
+    {"keyword": "muay thai gyms bangkok vs chiang mai", "search_volume": 10, "cpc": 0, "competition": "LOW", "competition_index": 0},
+    {"keyword": "train muay thai chiang mai or bangkok", "search_volume": 10, "cpc": 0, "competition": "LOW", "competition_index": 0}
+  ],
+  "related": [
+    {"keyword": "bangkok vs chiang mai vs phuket", "search_volume": 10, "cpc": 0, "competition": "LOW", "competition_index": 6},
+    {"keyword": "chiang mai vs phuket vs bangkok", "search_volume": 10, "cpc": 0, "competition": "LOW", "competition_index": 0},
+    {"keyword": "muay thai camps chiang mai vs bangkok", "search_volume": 10, "cpc": 0, "competition": "LOW", "competition_index": 0}
+  ],
+  "quick_wins": [
+    {
+      "keyword": "chiang mai vs bangkok",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "parent cluster for Muay Thai angle — low difficulty 16, high informational intent"
+    }
+  ]
+}

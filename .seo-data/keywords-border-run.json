@@ -1,0 +1,29 @@
+{
+  "topic": "border run thailand visa",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-11T13:00:12Z",
+  "primary": {
+    "keyword": "border run thailand visa",
+    "search_volume": 0,
+    "cpc": 0,
+    "competition": null,
+    "competition_index": null,
+    "difficulty": null,
+    "intent": "transactional",
+    "intent_probability": 0.9049
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "thailand visa border run",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "related": [],
+  "quick_wins": []
+}

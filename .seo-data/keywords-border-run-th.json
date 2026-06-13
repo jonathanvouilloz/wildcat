@@ -1,0 +1,192 @@
+{
+  "topic": "border run thailand",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-11T13:01:28Z",
+  "primary": {
+    "keyword": "border run thailand",
+    "search_volume": 50,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 0,
+    "difficulty": 0,
+    "intent": "informational",
+    "intent_probability": 0.8593
+  },
+  "secondaries": [
+    {
+      "keyword": "border run thailand myanmar",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "border run thailand to laos",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "border run thailand reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "border run thailand malaysia",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "border run thailand laos",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "border run thailand 2022",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "visa run vietnam",
+      "search_volume": 90,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "thailand border run",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "what is a border run",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "visa run meaning",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "visa run japan",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "thailand new rules for tourist 2026",
+      "search_volume": 20,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 3
+    },
+    {
+      "keyword": "how many times can i enter thailand in a year",
+      "search_volume": 20,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "thailand visa border run",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "thailand border run 2025",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "thailand visa run same day",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "laos visa run from thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 14
+    },
+    {
+      "keyword": "how many times can i enter thailand by air",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "are visa runs illegal",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "how many times can i enter thailand without a visa",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "can i re enter thailand on visa exemption",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "related": [
+    {
+      "keyword": "what is a visa run thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "visa run indonesia",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "visa run bali",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "quick_wins": []
+}

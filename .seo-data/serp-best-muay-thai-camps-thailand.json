@@ -1,0 +1,170 @@
+{
+  "keyword": "best muay thai camps in thailand",
+  "location": "United States (EN global)",
+  "scanned_at": "2026-06-11",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.tigermuaythai.com/",
+      "title": "Tiger Muay Thai & MMA Training Camp, Phuket, Thailand",
+      "page_type": "gym homepage / commercial",
+      "competitor_type": "local-business",
+      "covers": [
+        "Dominant brand authority — world's largest destination training camp",
+        "Phuket-based, full-time facility with multiple disciplines (Muay Thai, MMA, BJJ, boxing)",
+        "Group sessions, private coaching, accommodation packages",
+        "High-profile fighter roster and daily class schedule"
+      ],
+      "missing": [
+        "No honest comparison of itself vs other camps (commercially biased)",
+        "No beginner-focused content or family-friendly framing",
+        "No DTV visa information",
+        "Phuket only — Chiang Mai not mentioned",
+        "No pricing transparency beyond per-session rates"
+      ],
+      "eeat_signals": [
+        "Established brand, 15+ years operating",
+        "Real facility photos, named trainers",
+        "No named editorial author — commercial site"
+      ]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.sinbimuaythai.com/",
+      "title": "Sinbi Muay Thai, Phuket, Thailand",
+      "page_type": "gym homepage / commercial",
+      "competitor_type": "local-business",
+      "covers": [
+        "Phuket beach camp, strong community reputation",
+        "Open all year round, group and private classes",
+        "Accommodation on-site, facilities overview"
+      ],
+      "missing": [
+        "No camp comparison or listicle approach",
+        "No DTV visa integration",
+        "No Chiang Mai angle",
+        "Limited beginner onboarding content"
+      ],
+      "eeat_signals": [
+        "Established Phuket gym with real operator credentials",
+        "Limited blog content, mostly commercial"
+      ]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.khaolakmuaythai.com/blog/best-muay-thai-camps-thailand/",
+      "title": "The Best Muay Thai Camps in Thailand 2026 | Khao Lak Muay Thai",
+      "page_type": "gym blog / listicle",
+      "competitor_type": "local-business editorial",
+      "covers": [
+        "Listicle of top camps by region: Phuket (Tiger, Sinbi, Rawai), Bangkok (Fairtex, Yokkao), Chiang Mai (Santai, Lanna MMA), Koh Samui, Krabi",
+        "Brief description of each camp (style, price range, vibe)",
+        "Short mention of DTV visa as a 'benefit' of Thai camps",
+        "Budget tier breakdown (budget / mid-range / premium)"
+      ],
+      "missing": [
+        "No honest opinion from the camp author's perspective (commercially motivated to rank their own camp high)",
+        "DTV section is a 2-sentence mention, no depth",
+        "No beginner vs experienced fighter differentiation per camp",
+        "No Chiang Mai cost-of-living comparison vs Phuket/Bangkok",
+        "No family-friendly or woman-run camp angle",
+        "No Reddit/community insight integration",
+        "All-inclusive pricing absent for most camps listed"
+      ],
+      "eeat_signals": [
+        "Camp-authored (Khao Lak Muay Thai) — operator knowledge but biased",
+        "No named author",
+        "Updated 2026, real camp experience"
+      ]
+    },
+    {
+      "rank": 4,
+      "url": "https://santaimuaythai.com/blog/best-muay-thai-camps-thailand/",
+      "title": "Best Muay Thai Camps in Thailand: Our Top Picks 2026 | Santai",
+      "page_type": "gym blog / listicle",
+      "competitor_type": "local-business editorial",
+      "covers": [
+        "Chiang Mai-based listicle (Santai ranks itself first)",
+        "Camp styles by level: beginners, intermediate, elite fighters",
+        "Location comparison: Phuket beaches vs Chiang Mai mountains vs Bangkok urban",
+        "Monthly training cost overview (500-1,500 USD range)",
+        "Mentions accommodation availability per camp"
+      ],
+      "missing": [
+        "Self-promotional bias (Santai ranks itself #1)",
+        "DTV visa entirely absent",
+        "No all-inclusive budget modeling",
+        "No family or community angle beyond training",
+        "No honest 'camp for non-fighters' framing",
+        "Pricing vague (USD ranges, no THB specifics)"
+      ],
+      "eeat_signals": [
+        "Chiang Mai operator — relevant regional authority",
+        "No named author, commercial context",
+        "Photographic evidence of real facility"
+      ]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.reddit.com/r/MuayThai/comments/best_camps_thailand/",
+      "title": "Best Muay Thai camps in Thailand? : r/MuayThai — Reddit",
+      "page_type": "forum / community discussion",
+      "competitor_type": "marketplace / UGC",
+      "covers": [
+        "Community recommendations: Tiger (Phuket, elite), Sinbi (Phuket, chill vibe), Santai (Chiang Mai, laid back), Hong Thong (Bangkok, fighters)",
+        "Real traveler reviews: location trade-offs (beach/nightlife vs nature/mountains)",
+        "Honest price comparisons from people who've trained at multiple camps",
+        "'What kind of training are you looking for?' filtering by goal",
+        "DTV mentioned sporadically as the visa for long-stayers"
+      ],
+      "missing": [
+        "No single authoritative guide — fragmented across threads",
+        "Contradictory advice (recommendations depend on user's level/goals)",
+        "No beginner-specific structured guidance",
+        "DTV advice anecdotal and sometimes outdated",
+        "No family-friendly or woman-run camp recommendation"
+      ],
+      "eeat_signals": [
+        "High social proof — real trainers, real experiences",
+        "No editorial E-E-A-T but authentic UGC authority",
+        "Freshness varies by thread (2022-2026 range)"
+      ]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "What is the best Muay Thai camp in Thailand for beginners?",
+      "Is Phuket or Chiang Mai better for Muay Thai training?",
+      "How much does it cost to train at a Muay Thai camp in Thailand?",
+      "Which Muay Thai camp in Thailand is best for foreigners?",
+      "What is the most famous Muay Thai gym in Thailand?",
+      "How long should you spend at a Muay Thai camp?"
+    ],
+    "featured_snippet": false,
+    "image_pack": true,
+    "video": false
+  },
+  "intent_signal": "informational / research — pre-trip planning. Searcher is comparing destination camps (usually for a 2-week to 3-month trip) and wants to understand the landscape before committing. Sub-segment planning 3+ months with long-stay visa intent.",
+  "common_ground": [
+    "All listicles include Tiger Muay Thai (Phuket) as a reference point — the category anchor brand",
+    "Phuket (Tiger, Sinbi, Rawai camps) dominates content — Chiang Mai underrepresented",
+    "Most lists cover 5-10 camps, sorted by location/city",
+    "Budget context is thin: day rates or vague USD monthly ranges, no THB specifics",
+    "DTV visa is mentioned by at most 1-2 articles, never as a decision-making filter"
+  ],
+  "gap": {
+    "description": "No listicle frames 'best camp' from a beginner + long-stay + visa angle. All current SERP results are either commercial camp pages (Tiger, Sinbi, Santai promoting themselves) or generic listicles without DTV context. Nobody tells the searcher: 'if you want to stay 3+ months, your camp choice IS your visa strategy — here's how to pick.' The Chiang Mai family-camp angle (affordable, open-air, non-intimidating, DTV support) is entirely absent from top results. No article uses DTV eligibility as a camp-selection criterion. No honest 'we're not Tiger Muay Thai but here's why Chiang Mai might be better for you' take exists.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "All camp-authored listicles are self-promotional — searchers know this, which is why Reddit outperforms them for trust",
+    "Chiang Mai camps receive 1-2 brief mentions in Phuket-dominated listicles despite being cheaper and more beginner-friendly",
+    "No article addresses 'all-inclusive with DTV support' as a camp feature",
+    "Pricing transparency across the SERP is poor — THB prices for all-inclusive packages are absent",
+    "No article addresses women/family/non-fighter personas directly",
+    "Freshness: most listicles are updated annually but training costs and visa rules shift more frequently"
+  ],
+  "recommended_angle": "Position Wildcat's article as the honest 'which Thailand camp is right for YOU?' guide — structured by traveler type (beginner, long-stayer, woman, fighter), with Chiang Mai vs Phuket vs Bangkok as a key decision axis, real THB price comparisons, and a dedicated 'DTV consideration' section that no competitor includes. Wildcat is listed honestly alongside Tiger/Sinbi/Santai (not #1) but earns the 'family camp + DTV support, Chiang Mai' slot no competitor currently occupies."
+}

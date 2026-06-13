@@ -1,6 +1,6 @@
 # E8 — Blog & contenu
 
-**Complexité : M · Statut : TODO**
+**Complexité : M · Statut : EN COURS** — moteur DONE, M1 (4 articles EN + covers) DONE 2026-06-11
 
 ## Description
 Moteur de blog SEO alimentant les silos (technique, Chiang Mai living, visa/long-stay).

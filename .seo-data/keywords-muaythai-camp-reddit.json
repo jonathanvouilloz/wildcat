@@ -1,0 +1,29 @@
+{
+  "topic": "muay thai camp thailand reddit",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-11T13:01:40Z",
+  "primary": {
+    "keyword": "muay thai camp thailand reddit",
+    "search_volume": 10,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 0,
+    "difficulty": null,
+    "intent": "navigational",
+    "intent_probability": 0.8809
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "thailand muay thai camp reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "related": [],
+  "quick_wins": []
+}
