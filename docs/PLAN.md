@@ -16,7 +16,7 @@ Plan d'exécution maître. Statuts : `TODO` · `EN COURS` · `DONE` · `BLOQUÉ`
 | E5 | Pages cœur & silos SEO | L | **DONE** (E5 + E5b→f) | historique : `DECISIONS.md` + entrées ci-dessous |
 | E6 | Mini-app DTV | L | TODO | [E6-dtv-app.md](features/E6-dtv-app.md) |
 | E7 | SEO technique | M | TODO | [E7-seo-technical.md](features/E7-seo-technical.md) |
-| E8 | Blog & contenu | M | **EN COURS** (moteur DONE 2026-06-05, M1 4 articles + covers DONE 2026-06-11) | [E8-blog-content.md](features/E8-blog-content.md) |
+| E8 | Blog & contenu | M | **EN COURS** (moteur DONE 2026-06-05, M1 4 articles DONE 2026-06-11, M2 beginners 4 articles DONE 2026-06-13) | [E8-blog-content.md](features/E8-blog-content.md) |
 | E9 | Médias & galerie | S | TODO | [E9-media.md](features/E9-media.md) |
 | E10 | Déploiement Vercel | S | TODO | [E10-deploy.md](features/E10-deploy.md) |
 
