@@ -390,6 +390,12 @@ const SHAPE_MASK_URI = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
       return;
     }
 
+    // Mobile : trop de couches d'animation simultanées pour le GPU mobile
+    if (window.innerWidth < 768) {
+      loader.remove();
+      return;
+    }
+
     // Prod : une seule fois par session (data-once="false" sur la page de test)
     if (loader.dataset.once !== 'false' && sessionStorage.getItem('wc-loader-seen')) {
       loader.remove();
