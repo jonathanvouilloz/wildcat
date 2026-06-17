@@ -200,7 +200,6 @@ If you have questions about training at Wildcat, what to expect in your first we
 
 ## Sources and references
 
-- Wildcat Muay Thai public rate card (training packages, scooter rental, drop-in prices: wildcatmuaythai.com/stay-train)
+- [Wildcat Muay Thai public rate card](/stay-train): training packages, scooter rental, drop-in prices
 - Thai immigration authority: Destination Thailand Visa (DTV) official programme documentation
-- SERP competitor cost data: muaythaifever.com, topmuaythai.com (Chiang Mai vs Phuket training cost comparisons, accessed 2026)
-- DataForSEO keyword cluster data for "chiang mai vs phuket" (~400 searches/month, US)
+- Competitor cost comparisons (Chiang Mai vs Phuket), accessed 2026: [muaythaifever.com](https://muaythaifever.com), [topmuaythai.com](https://topmuaythai.com)

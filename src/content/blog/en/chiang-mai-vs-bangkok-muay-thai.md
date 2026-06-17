@@ -188,9 +188,7 @@ For most foreigners reading this, Chiang Mai makes more sense. The monthly costs
 
 ## Sources and References
 
-- Brief data: `.seo-data/keywords-chiang-mai-vs-bangkok-muay-thai.json`
-- SERP data: `.seo-data/serp-chiang-mai-vs-bangkok-muay-thai.json`
-- Wildcat Muay Thai pricing: `/stay-train` (live site)
+- Wildcat Muay Thai pricing: [stay & train packages](/stay-train)
 - DTV visa requirements: Thai immigration official sources (500,000 THB proof of funds, 180-day stay, 5-year validity)
 - Stadium references: Lumpinee Muay Thai Stadium (national TV broadcaster), Rajadamnern Stadium (est. 1945)
 - Comparable Bangkok gym pricing: Fairtex Bangkok, Yokkao Bangkok (publicly listed rates, 2026)

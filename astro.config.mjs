@@ -21,6 +21,26 @@ const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
   ''
 );
 
+// Rehype — ouvre les liens externes (http/https absolus) dans un nouvel onglet.
+// Les liens internes (chemins relatifs comme /stay-train) et les ancres restent
+// dans l'onglet courant. S'applique au markdown ET au MDX (qui hérite de la
+// config markdown par défaut). Plugin local : pas de dépendance, walk manuel.
+function rehypeExternalLinks() {
+  const visit = (node) => {
+    if (
+      node.type === 'element' &&
+      node.tagName === 'a' &&
+      typeof node.properties?.href === 'string' &&
+      /^https?:\/\//.test(node.properties.href)
+    ) {
+      node.properties.target = '_blank';
+      node.properties.rel = 'noopener noreferrer';
+    }
+    if (Array.isArray(node.children)) node.children.forEach(visit);
+  };
+  return (tree) => visit(tree);
+}
+
 // https://astro.build/config
 export default defineConfig({
   // Q5 tranchée (2026-06-05) : wildcatmuaythai.com. Sert au sitemap, hreflang et canonical.
@@ -58,6 +78,11 @@ export default defineConfig({
   // taille (SSG vitrine).
   build: {
     inlineStylesheets: 'always',
+  },
+
+  // Liens externes du contenu markdown/MDX → nouvel onglet (voir plugin ci-dessus).
+  markdown: {
+    rehypePlugins: [rehypeExternalLinks],
   },
 
   // Images distantes autorisées pour <Image> (astro:assets) — en SSG elles

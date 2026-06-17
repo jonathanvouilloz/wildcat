@@ -80,7 +80,9 @@ const tear = tears[seedPick(title + 't', 3)];
   .media {
     display: block;
     width: 100%;
-    height: 168px;
+    /* ratio natif des covers (1792×1024) — évite de rogner le logo en haut */
+    aspect-ratio: 1792 / 1024;
+    height: auto;
     object-fit: cover;
   }
   .media--placeholder {

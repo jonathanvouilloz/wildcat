@@ -182,13 +182,15 @@ a {
   .display {
     font-weight: 800;
     font-size: clamp(40px, 6vw, 72px);
-    line-height: 0.98;
+    /* léger air entre lignes : à line-height < 1 les lettres de 2 lignes
+       (et les accents Fraunces .em) se touchaient */
+    line-height: 1.04;
     letter-spacing: -0.03em;
   }
   .h1 {
     font-weight: 800;
     font-size: clamp(34px, 5vw, 56px);
-    line-height: 1;
+    line-height: 1.08;
     letter-spacing: -0.025em;
   }
   .h2 {
@@ -264,6 +266,15 @@ a {
   margin: 0 0 16px;
   padding-left: 24px;
   max-width: 66ch;
+  /* restaure les marqueurs : le preflight Tailwind v4 met list-style:none sur
+     ul/ol, sinon le ::marker n'a rien à colorer (puces invisibles) */
+  list-style-position: outside;
+}
+.wc-prose ul {
+  list-style-type: disc;
+}
+.wc-prose ol {
+  list-style-type: decimal;
 }
 .wc-prose li {
   margin-bottom: 7px;
@@ -330,15 +341,18 @@ a {
   text-align: left;
   vertical-align: top;
 }
-/* fonds de cellules quasi-opaques (pas 100 %) : laissent transparaître les
-   ombres de scroll de la table — visuellement identiques aux tokens pleins */
+/* cellules opaques : la table ressort en « carte » blanche sur le fond cream
+   de la page (les ombres de scroll restent visibles dans la gouttière) */
+.wc-prose td {
+  background: #fff;
+}
 .wc-prose th {
-  background: color-mix(in srgb, var(--soft-2) 82%, transparent);
+  background: var(--forest);
   font-family: var(--font-display);
   font-weight: 700;
-  color: var(--forest);
+  color: var(--gold);
   white-space: nowrap;
 }
-.wc-prose tbody tr:nth-child(even) {
-  background: color-mix(in srgb, var(--soft) 82%, transparent);
+.wc-prose tbody tr:nth-child(even) td {
+  background: var(--soft);
 }

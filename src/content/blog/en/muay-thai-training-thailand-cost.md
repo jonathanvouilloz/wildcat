@@ -223,8 +223,6 @@ The DTV visa is the clearest path for anyone planning six months or longer. One 
 
 ## Sources and References
 
-- Brief data: DataForSEO keyword research, "muay thai training thailand cost" cluster, June 2026
-- Brief data: SERP scan, top 10 results for "muay thai training thailand cost," June 2026 (Khao Lak Muay Thai, ONE Championship, Fairtex training centre)
-- Camp pricing ranges sourced from the brief (market benchmarks as of 2026): Tiger Muay Thai Phuket, Fairtex Bangkok, northern Thailand camp averages
+- Camp pricing ranges (market benchmarks as of 2026): [Tiger Muay Thai](https://www.tigermuaythai.com) Phuket, Fairtex Bangkok, and northern Thailand camp averages
 - DTV visa fee and proof-of-funds requirement: Thai embassy official documentation (10,000 THB fee, 500,000 THB proof of funds). Verify current requirements at your nearest Thai embassy.
 - USD/THB conversion rate used: ~36 THB per USD (June 2026 approximation; verify before travel)

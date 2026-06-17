@@ -195,8 +195,7 @@ If you're planning more than three months and want to understand how the visa si
 
 ## Sources and references
 
-- Brief data: keyword volumes and SERP analysis via DataForSEO (Wildcat Muay Thai internal research, 2026)
-- Pricing data: Wildcat Muay Thai published rates (wildcatmuaythai.com/stay-train), verified 2026
-- DTV documentation requirements: Royal Thai Embassy official guidance + Wildcat DTV dossier experience
-- Camp overviews: Tiger Muay Thai (tigermuaythai.com), Sinbi Muay Thai (sinbimuaythai.com), Santai Muay Thai (santaimuaythai.com), public information
+- Pricing data: Wildcat Muay Thai published rates, verified 2026 ([stay & train packages and prices](/stay-train))
+- DTV documentation requirements: Royal Thai Embassy official guidance, plus Wildcat's own DTV dossier experience
+- Camp overviews from public information: [Tiger Muay Thai](https://www.tigermuaythai.com), [Sinbi Muay Thai](https://sinbimuaythai.com), [Santai Muay Thai](https://santaimuaythai.com)
 - r/MuayThai community feedback (referenced for camp reputation context only)

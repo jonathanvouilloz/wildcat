@@ -94,16 +94,22 @@ const ogImage = post.data.cover
   : undefined;
 
 // Photo auteur — résolue depuis le studio (fiche coach « Meaw ») dès qu'elle
-// est saisie ; en attendant, AuthorBio affiche le placeholder initiales.
-// Pas de schéma "author" dédié : l'entité existe déjà côté coachs.
+// est saisie ; sinon le portrait statique du repo. Pas de schéma "author"
+// dédié : l'entité existe déjà côté coachs.
 const coaches = await safeQuery<COACHES_QUERY_RESULT>({ query: COACHES_QUERY }, []);
 const meawCoach = coaches.find((coach) => coach.name?.toLowerCase().includes('meaw'));
+// Priorité au studio (si la fiche coach « Meaw » est saisie), sinon le portrait
+// statique du repo (déjà utilisé sur /about/coaches).
 const authorPhoto = meawCoach?.photo?.asset
   ? {
       src: urlFor(meawCoach.photo).width(120).height(120).format('webp').url(),
       alt: meawCoach.name ?? m.blog_authorbio_name(),
     }
-  : undefined;
+  : { src: '/assets/meaw-portrait.webp', alt: m.blog_authorbio_name() };
+// URL absolue pour le JSON-LD (le src statique est un chemin relatif).
+const authorPhotoAbs = authorPhoto.src.startsWith('http')
+  ? authorPhoto.src
+  : new URL(authorPhoto.src, base).href;
 
 // Cards "à lire ensuite" (même mapping que la page liste).
 const cardDateFmt = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
@@ -147,7 +153,7 @@ const articleSchema = {
     '@id': `${coachesUrl}#meaw`,
     name: m.blog_authorbio_name(),
     url: coachesUrl,
-    ...(authorPhoto ? { image: authorPhoto.src } : {}),
+    image: authorPhotoAbs,
   },
   publisher: { '@type': 'SportsClub', name: site.name, url: new URL(p('/'), base).href },
   isPartOf: { '@type': 'Blog', '@id': new URL(p('/blog'), base).href },
