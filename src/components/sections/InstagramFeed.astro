@@ -33,7 +33,8 @@ const posts = await fetchInstagramPosts(count);
           <Image
             src={post.src}
             alt={post.alt || m.ig_alt_fallback()}
-            inferSize
+            width={480}
+            height={480}
             widths={[240, 480]}
             sizes="(max-width: 860px) 33vw, 190px"
             loading="lazy"
