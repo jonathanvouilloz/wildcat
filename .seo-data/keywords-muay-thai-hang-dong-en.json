@@ -1,0 +1,21 @@
+{
+  "topic": "muay thai hang dong",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-22T10:15:20Z",
+  "primary": {
+    "keyword": "muay thai hang dong",
+    "search_volume": 0,
+    "cpc": 0,
+    "competition": null,
+    "competition_index": null,
+    "difficulty": null,
+    "intent": "informational",
+    "intent_probability": 0.8953
+  },
+  "secondaries": [],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}

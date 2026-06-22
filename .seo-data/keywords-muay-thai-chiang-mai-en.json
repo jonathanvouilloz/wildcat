@@ -1,0 +1,292 @@
+{
+  "topic": "muay thai chiang mai",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-06-22T10:15:17Z",
+  "primary": {
+    "keyword": "muay thai chiang mai",
+    "search_volume": 590,
+    "cpc": 1.05,
+    "competition": "MEDIUM",
+    "competition_index": 54,
+    "difficulty": 14,
+    "intent": "informational",
+    "intent_probability": 0.8448
+  },
+  "secondaries": [
+    {
+      "keyword": "muay thai chiang mai fights",
+      "search_volume": 90,
+      "cpc": 1.8,
+      "competition": "MEDIUM",
+      "competition_index": 63
+    },
+    {
+      "keyword": "muay thai chiang mai class",
+      "search_volume": 90,
+      "cpc": 1.7,
+      "competition": "LOW",
+      "competition_index": 31
+    },
+    {
+      "keyword": "tiger muay thai chiang mai",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "dang muay thai chiang mai",
+      "search_volume": 70,
+      "cpc": 0.34,
+      "competition": "LOW",
+      "competition_index": 9
+    },
+    {
+      "keyword": "muay thai chiang mai stadium",
+      "search_volume": 50,
+      "cpc": 0.99,
+      "competition": "MEDIUM",
+      "competition_index": 39
+    },
+    {
+      "keyword": "lanna muay thai chiang mai",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "santai muay thai chiang mai",
+      "search_volume": 20,
+      "cpc": 2.64,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "muay thai chiang mai training",
+      "search_volume": 20,
+      "cpc": 1.73,
+      "competition": "LOW",
+      "competition_index": 26
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "tiger muay thai location",
+      "search_volume": 4400,
+      "cpc": 1.53,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "chiang mai muay thai",
+      "search_volume": 590,
+      "cpc": 1.05,
+      "competition": "MEDIUM",
+      "competition_index": 54
+    },
+    {
+      "keyword": "muay thai in chiang mai",
+      "search_volume": 590,
+      "cpc": 1.05,
+      "competition": "MEDIUM",
+      "competition_index": 54
+    },
+    {
+      "keyword": "chiang mai thailand muay thai",
+      "search_volume": 590,
+      "cpc": 1.05,
+      "competition": "MEDIUM",
+      "competition_index": 54
+    },
+    {
+      "keyword": "tiger muay thai phuket",
+      "search_volume": 590,
+      "cpc": 2.51,
+      "competition": "LOW",
+      "competition_index": 3
+    },
+    {
+      "keyword": "chiang mai muay thai gyms",
+      "search_volume": 260,
+      "cpc": 0.28,
+      "competition": "LOW",
+      "competition_index": 17
+    },
+    {
+      "keyword": "chiang mai muay thai gym",
+      "search_volume": 260,
+      "cpc": 0.28,
+      "competition": "LOW",
+      "competition_index": 17
+    },
+    {
+      "keyword": "muay thai gym chiang mai",
+      "search_volume": 260,
+      "cpc": 0.28,
+      "competition": "LOW",
+      "competition_index": 17
+    },
+    {
+      "keyword": "santai muay thai",
+      "search_volume": 260,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "dang muay thai",
+      "search_volume": 170,
+      "cpc": 0.43,
+      "competition": "LOW",
+      "competition_index": 7
+    },
+    {
+      "keyword": "all inclusive muay thai camps in thailand",
+      "search_volume": 140,
+      "cpc": 0.67,
+      "competition": "LOW",
+      "competition_index": 21
+    },
+    {
+      "keyword": "muay thai classes in chiang mai",
+      "search_volume": 90,
+      "cpc": 1.7,
+      "competition": "LOW",
+      "competition_index": 31
+    },
+    {
+      "keyword": "chiang mai muay thai fight",
+      "search_volume": 90,
+      "cpc": 1.8,
+      "competition": "MEDIUM",
+      "competition_index": 63
+    },
+    {
+      "keyword": "muay thai fight chiang mai",
+      "search_volume": 90,
+      "cpc": 1.8,
+      "competition": "MEDIUM",
+      "competition_index": 63
+    },
+    {
+      "keyword": "muay thai lessons chiang mai",
+      "search_volume": 90,
+      "cpc": 1.7,
+      "competition": "LOW",
+      "competition_index": 31
+    }
+  ],
+  "related": [
+    {
+      "keyword": "chiang mai gym muay thai",
+      "search_volume": 90,
+      "cpc": 0.18,
+      "competition": "LOW",
+      "competition_index": 11
+    },
+    {
+      "keyword": "chiang mai muay thai class",
+      "search_volume": 90,
+      "cpc": 1.7,
+      "competition": "LOW",
+      "competition_index": 31
+    },
+    {
+      "keyword": "muay thai gyms in chiang mai",
+      "search_volume": 90,
+      "cpc": 0.18,
+      "competition": "LOW",
+      "competition_index": 11
+    },
+    {
+      "keyword": "chiang mai muay thai fights",
+      "search_volume": 90,
+      "cpc": 1.8,
+      "competition": "MEDIUM",
+      "competition_index": 63
+    },
+    {
+      "keyword": "muay thai training in chiang mai",
+      "search_volume": 90,
+      "cpc": 1.7,
+      "competition": "LOW",
+      "competition_index": 31
+    },
+    {
+      "keyword": "muay thai gym in chiang mai",
+      "search_volume": 90,
+      "cpc": 0.18,
+      "competition": "LOW",
+      "competition_index": 11
+    },
+    {
+      "keyword": "muay thai class chiang mai",
+      "search_volume": 90,
+      "cpc": 1.7,
+      "competition": "LOW",
+      "competition_index": 31
+    },
+    {
+      "keyword": "muay thai fights chiang mai",
+      "search_volume": 90,
+      "cpc": 1.8,
+      "competition": "MEDIUM",
+      "competition_index": 63
+    },
+    {
+      "keyword": "muay thai classes chiang mai",
+      "search_volume": 90,
+      "cpc": 1.7,
+      "competition": "LOW",
+      "competition_index": 31
+    },
+    {
+      "keyword": "chiang mai muay thai camp",
+      "search_volume": 70,
+      "cpc": 1.01,
+      "competition": "LOW",
+      "competition_index": 31
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "tiger muay thai location",
+      "search_volume": 4400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "tiger muay thai phuket",
+      "search_volume": 590,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "chiang mai muay thai gyms",
+      "search_volume": 260,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "chiang mai muay thai gym",
+      "search_volume": 260,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai gym chiang mai",
+      "search_volume": 260,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "santai muay thai",
+      "search_volume": 260,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}
