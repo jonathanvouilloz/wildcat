@@ -53,6 +53,27 @@ export function fetchInstagramPosts(limit = 6): Promise<InstagramPost[] | null> 
   return cache;
 }
 
+/**
+ * Vérifie qu'une URL CDN Instagram est réellement téléchargeable (le même GET
+ * qu'astro:assets fera ensuite). 1 retry court : on absorbe un blip réseau,
+ * mais une URL expirée/bloquée est écartée plutôt que de faire planter le build.
+ */
+async function isFetchable(url: string): Promise<boolean> {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(10_000) });
+      if (res.ok) {
+        // Vide le corps pour libérer la connexion (on ne garde pas les bytes).
+        await res.arrayBuffer();
+        return true;
+      }
+    } catch {
+      /* blip réseau → on retente une fois */
+    }
+  }
+  return false;
+}
+
 async function run(limit: number): Promise<InstagramPost[] | null> {
   const token = import.meta.env.APIFY_TOKEN;
   if (!token || !INSTAGRAM_USERNAME) return null;
@@ -103,7 +124,21 @@ async function run(limit: number): Promise<InstagramPost[] | null> {
 
     if (posts.length === 0) throw new Error('0 post exploitable dans la réponse');
     console.info(`[instagram] ${posts.length} posts récupérés.`);
-    return posts;
+
+    // ⚠️ Garde-fou build : les displayUrl fbcdn sont signées/expirantes et un
+    // seul échec de téléchargement dans <Image> (astro:assets) fait planter
+    // TOUT le build (`generating optimized images` → exit 1). On valide donc
+    // chaque image ICI (même fetch GET qu'astro:assets fera juste après) et on
+    // écarte les URLs mortes avant qu'elles n'atteignent <Image>. Si plus
+    // aucune ne répond → null → placeholders. Build toujours vert.
+    const reachable = await Promise.all(
+      posts.map(async (post) => ((await isFetchable(post.src)) ? post : null))
+    );
+    const live = reachable.filter((p): p is InstagramPost => p !== null);
+    const dropped = posts.length - live.length;
+    if (dropped > 0) console.warn(`[instagram] ${dropped} image(s) injoignable(s) écartée(s) avant optimisation.`);
+    if (live.length === 0) throw new Error('aucune image Instagram joignable (toutes expirées/bloquées)');
+    return live;
   } catch (err) {
     // Jamais bloquant : feed indisponible = placeholders, build vert.
     console.warn('[instagram] feed indisponible, fallback placeholders —', err);
