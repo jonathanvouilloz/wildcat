@@ -284,6 +284,9 @@ const jsonld = {
             lead={m.home_stay_lead()}
             image={{ src: '/assets/gym-garden.jpg', alt: m.home_stay_img_alt() }}
           />
+          <div class="guide-cta">
+            <Button href={p('/chiang-mai-guide')} variant="link" arrow>{m.home_guide_link()}</Button>
+          </div>
         </div>
       </div>
     </Section>
@@ -304,6 +307,9 @@ const jsonld = {
                 ratingLabel={m.testimonial_rating_label({ rating: String(quote.rating) })}
               />
             )}
+          </div>
+          <div class="coaches-cta">
+            <Button href={p('/about/coaches')} variant="link" arrow>{m.home_coaches_link()}</Button>
           </div>
         </Section>
       )
@@ -420,6 +426,15 @@ const jsonld = {
     outline: 3px solid var(--gold);
     outline-offset: 2px;
     border-radius: 4px;
+  }
+
+  /* liens de redistribution home → piliers About & Guide */
+  .coaches-cta {
+    margin-top: 30px;
+    text-align: center;
+  }
+  .guide-cta {
+    margin-top: 18px;
   }
 
   .faq-link {

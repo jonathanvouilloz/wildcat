@@ -142,6 +142,12 @@ const counters =
                 </div>
               ))}
             </div>
+            <p class="link-note" data-animate="fade-up">
+              {m.fighters_link_pre()}
+              <a class="ilink" href={p('/stay-train')}>{m.fighters_link_stay()}</a>
+              {m.fighters_link_mid()}
+              <a class="ilink" href={p('/dtv-visa/long-stay-training')}>{m.fighters_link_dtv()}</a>.
+            </p>
           </>
         ) : (
           <div class="empty">
@@ -242,6 +248,31 @@ const counters =
     to {
       transform: translateY(calc(-1 * var(--drift, 0px)));
     }
+  }
+  /* lien contextuel sous la grille — remonte vers le pilier Stay + DTV long-stay */
+  .link-note {
+    margin: clamp(30px, 4vw, 46px) auto 0;
+    max-width: 60ch;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-2);
+  }
+  .ilink {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .ilink:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .ilink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   .empty {
     text-align: center;

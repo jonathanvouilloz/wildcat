@@ -109,6 +109,12 @@ const personSchema = {
           <p class="meaw-role">{m.coaches_meaw_role()}</p>
           <p class="body-p">{m.coaches_meaw_p1()}</p>
           <p class="body-p">{m.coaches_meaw_p2()}</p>
+          <p class="body-p">
+            {m.coaches_meaw_link_pre()}
+            <a class="ilink" href={p('/classes')}>{m.coaches_meaw_link_classes()}</a>
+            {m.coaches_meaw_link_mid()}
+            <a class="ilink" href={p('/dtv-visa')}>{m.coaches_meaw_link_dtv()}</a>.
+          </p>
           <ul class="cred">
             <li>{m.coaches_meaw_cred1()}</li>
             <li>{m.coaches_meaw_cred2()}</li>
@@ -196,6 +202,22 @@ const personSchema = {
     font-weight: 700;
     color: var(--gold-deep);
     margin: 0 0 18px;
+  }
+  .ilink {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .ilink:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .ilink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   .imgbox {
     border-radius: var(--r-lg);

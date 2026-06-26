@@ -91,6 +91,10 @@ const reviews = testimonialDocs.map((doc) => mapTestimonial(doc, lang));
           </h2>
           <p class="body-p">{m.about_story_p1()}</p>
           <p class="body-p">{m.about_story_p2()}</p>
+          <p class="body-p">
+            {m.about_story_link_pre()}
+            <a class="ilink" href={p('/classes')}>{m.about_story_link()}</a>.
+          </p>
         </div>
         <div class="imgbox">
           {/* l'enseigne dans la végétation — pas de doublon avec la photo famille du hero */}
@@ -182,6 +186,22 @@ const reviews = testimonialDocs.map((doc) => mapTestimonial(doc, lang));
   }
   .body-p.centered {
     margin-inline: auto;
+  }
+  .ilink {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--line-2);
+  }
+  .ilink:hover {
+    color: var(--gold-deep);
+    text-decoration-color: var(--gold);
+  }
+  .ilink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   .story {
     display: grid;
