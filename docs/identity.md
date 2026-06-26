@@ -20,7 +20,7 @@ colors:
   secondary: "#E0A62B"  # gold
   text: "#111111"       # charcoal
 language: en-US (primaire) · fr (secondaire)
-website: https://wildcatmuaythai.com   # placeholder — Q5 domaine ouverte
+website: https://wildcatmuaythai.com 
 ---
 
 # Identity — Wildcat Muay Thai
