@@ -90,17 +90,10 @@ const ctaHref = cta ? p('/contact') : ctaTargets[ctaKey];
       <!-- TRAIN -->
       <div class="mi wide" data-mega>
         <button aria-haspopup="true" aria-expanded="false"><span class="lbl">{m.nav_train()}</span> <Icon name="tabler:chevron-down" class="caret" /></button>
-        <div class="mega" role="menu">
+        <div class="mega mega--train" role="menu">
           <div class="mcol">
             <span class="lab">{m.nav_train_col_classes()}</span>
             <a class="mlink" href={p('/classes/beginners')}><span class="mic"><Icon name="tabler:karate" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_beginner_title()}</span><span class="md">{m.nav_train_beginner_desc()}</span></span></a>
-            <a class="mlink" href={p('/classes#programs')}><span class="mic"><Icon name="tabler:chart-bar" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_alllevels_title()}</span><span class="md">{m.nav_train_alllevels_desc()}</span></span></a>
-            <a class="mlink" href={p('/classes#programs')}><span class="mic"><Icon name="tabler:user" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_private_title()}</span><span class="md">{m.nav_train_private_desc()}</span></span></a>
-          </div>
-          <div class="mcol">
-            <span class="lab">{m.nav_train_col_everyone()}</span>
-            <a class="mlink" href={p('/classes#programs')}><span class="mic"><Icon name="tabler:gender-female" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_women_title()}</span><span class="md">{m.nav_train_women_desc()}</span></span></a>
-            <a class="mlink" href={p('/classes#programs')}><span class="mic"><Icon name="tabler:mood-kid" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_kids_title()}</span><span class="md">{m.nav_train_kids_desc()}</span></span></a>
             <a class="mlink" href={p('/fighters')}><span class="mic"><Icon name="tabler:flame" class="i" /></span><span class="mtx"><span class="mt">{m.nav_train_fight_title()}</span><span class="md">{m.nav_train_fight_desc()}</span></span></a>
           </div>
           <div class="mcol">
@@ -116,10 +109,6 @@ const ctaHref = cta ? p('/contact') : ctaTargets[ctaKey];
             <div class="ff"><a class="fbtn" href={`${p('/contact')}?intent=class`}>{m.nav_train_feat_btn()} <ArrowWild class="fbtn-ar" size={20} /></a></div>
           </div>
           <div class="mfoot">
-            <div class="links">
-              <a href={p('/classes#schedule')}><Icon name="tabler:calendar-event" /> {m.nav_train_foot_schedule()}</a>
-              <a href={p('/classes#pricing')}><Icon name="tabler:tag" /> {m.nav_train_foot_passes()}</a>
-            </div>
             <a class="allcta" href={p('/classes')}>{m.nav_train_allcta()} <ArrowWild size={18} /></a>
           </div>
         </div>
@@ -239,7 +228,7 @@ const ctaHref = cta ? p('/contact') : ctaTargets[ctaKey];
   <div class="panel">
     <div class="dh"><img src="/assets/logo-horizontal-cream.svg" alt={site.name}><button class="x" aria-label={m.nav_aria_close()} data-drawer-close>×</button></div>
     <div class="dbody">
-      <details open><summary>{m.nav_train()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_beginner_title()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_drawer_alllevels()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_private_title()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_women_title()}</a><a href={p('/classes#programs')}><span class="dot"></span> {m.nav_train_kids_title()}</a><a href={p('/fighters')}><span class="dot"></span> {m.nav_train_fight_title()}</a><a href={p('/classes#schedule')}><span class="dot"></span> {m.nav_drawer_schedule_pricing()}</a></div></details>
+      <details open><summary>{m.nav_train()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/classes/beginners')}><span class="dot"></span> {m.nav_train_beginner_title()}</a><a href={p('/fighters')}><span class="dot"></span> {m.nav_train_fight_title()}</a><a href={p('/classes#schedule')}><span class="dot"></span> {m.nav_drawer_schedule_pricing()}</a><a href={`${p('/contact')}?intent=class`}><span class="dot"></span> {m.nav_train_trial_title()}</a></div></details>
       <details><summary>{m.nav_stay()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/stay-train#packages')}><span class="dot"></span> {m.nav_drawer_packages()}</a><a href={p('/stay-train#accommodation')}><span class="dot"></span> {m.nav_drawer_accommodation()}</a><a href={p('/stay-train/scooter-rental')}><span class="dot"></span> {m.nav_stay_scooter_title()}</a><a href={p('/contact')}><span class="dot"></span> {m.nav_stay_getting_title()}</a><a href={p('/chiang-mai-guide')}><span class="dot"></span> {m.nav_stay_guide_title()}</a></div></details>
       <details><summary>{m.nav_dtv()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/dtv-visa')}><span class="dot"></span> {m.nav_drawer_dtv_guide()}</a><a href={p('/dtv-visa/eligibility')}><span class="dot"></span> {m.nav_dtv_eligible_title()}</a><a href={p('/dtv-visa/how-to-apply')}><span class="dot"></span> {m.nav_dtv_apply_title()}</a><a href={p('/dtv-visa/muay-thai')}><span class="dot"></span> {m.nav_dtv_muaythai_title()}</a><a href={p('/dtv-visa/long-stay-training')}><span class="dot"></span> {m.nav_dtv_plans_title()}</a><a href={p('/dtv-visa/faq')}><span class="dot"></span> {m.nav_dtv_faq_title()}</a></div></details>
       <details><summary>{m.nav_about()} <span class="pm">+</span></summary><div class="sub-links"><a href={p('/about')}><span class="dot"></span> {m.nav_about_story_title()}</a><a href={p('/about/coaches')}><span class="dot"></span> {m.nav_drawer_coaches()}</a><a href={p('/about#community')}><span class="dot"></span> {m.nav_about_col_community()}</a><a href={p('/about#reviews')}><span class="dot"></span> {m.nav_about_reviews_title()}</a></div></details>
@@ -394,6 +383,8 @@ const ctaHref = cta ? p('/contact') : ctaTargets[ctaKey];
     height: 12px;
   }
   .mega--about { grid-template-columns: 1fr 1fr 0.95fr; width: min(720px, calc(100vw - 24px)); }
+  .mega--train { grid-template-columns: 1fr 1fr 0.95fr; width: min(760px, calc(100vw - 24px)); }
+  .mega--train .mfoot { justify-content: flex-end; }
   .mi.open .mega { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(calc(-50% + var(--shift)), 0); }
 
   .mcol { display: flex; flex-direction: column; }
