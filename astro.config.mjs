@@ -41,6 +41,40 @@ function rehypeExternalLinks() {
   return (tree) => visit(tree);
 }
 
+// Rehype — préfixe les liens internes racine-relatifs des articles avec la
+// locale du fichier. Les liens in-body sont écrits sans préfixe (/stay-train) ;
+// le site ne sert que /en/... et /fr/... → sans ça ils partent en 404.
+// La locale vient du chemin : src/content/blog/en|fr/slug.(md|mdx).
+// S'applique md ET mdx. Plugin local : pas de dépendance, walk manuel.
+function rehypeLocalizeInternalLinks() {
+  return (tree, file) => {
+    const path = (file?.path ?? file?.history?.[0] ?? '').replace(/\\/g, '/');
+    const m = path.match(/\/blog\/(en|fr)\//);
+    if (!m) return; // hors collection blog → on ne touche à rien
+    const locale = m[1];
+    const visit = (node) => {
+      if (
+        node.type === 'element' &&
+        node.tagName === 'a' &&
+        typeof node.properties?.href === 'string'
+      ) {
+        const href = node.properties.href;
+        // racine-relatif, PAS déjà préfixé /en|/fr, PAS protocol-relative //,
+        // PAS ancre/mailto/tel/http (ceux-ci sont laissés tels quels).
+        if (
+          href.startsWith('/') &&
+          !href.startsWith('//') &&
+          !/^\/(en|fr)(?=[\/?#]|$)/.test(href)
+        ) {
+          node.properties.href = `/${locale}${href}`;
+        }
+      }
+      if (Array.isArray(node.children)) node.children.forEach(visit);
+    };
+    visit(tree);
+  };
+}
+
 // https://astro.build/config
 export default defineConfig({
   // Q5 tranchée (2026-06-05) : wildcatmuaythai.com. Sert au sitemap, hreflang et canonical.
@@ -82,7 +116,7 @@ export default defineConfig({
 
   // Liens externes du contenu markdown/MDX → nouvel onglet (voir plugin ci-dessus).
   markdown: {
-    rehypePlugins: [rehypeExternalLinks],
+    rehypePlugins: [rehypeExternalLinks, rehypeLocalizeInternalLinks],
   },
 
   // Images distantes autorisées pour <Image> (astro:assets) — en SSG elles
