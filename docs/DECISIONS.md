@@ -4,6 +4,12 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 
 ---
 
+### 2026-07-03 | Blog : champ frontmatter `h1` distinct du `title` + skill `/seo-sources`
+- **Contexte** : le template E8 `[slug].astro` rendait `<h1>{post.data.title}</h1>` et le `<title>` sortait du même champ → title == H1 sur les 14 articles (violation Critical `/seo-review`, que `/seo-brief` + `/seo-enrich` imposaient déjà). Séparément, aucune étape du pipeline n'ouvrait de vraies sources externes → sections « Sources » en prose sans URL (faiblesse YMYL/GEO).
+- **Choix** : (1) champ `h1: z.string().optional()` au schéma `blog`, template `{post.data.h1 ?? post.data.title}` (fallback title, zéro régression) ; `<title>`/JSON-LD `headline` restent sur `title`. (2) Skill `/seo-sources` (fetch WebFetch réel + triple-statut `seo-rules.md`, seul un `Confirmé` devient un lien), inséré Étape 3 de `@article-producer` (après humanizer, avant enrich).
+- **Alternatives** : durcir `/seo-review` pour comparer le H1 rendu — écarté (le fix site suffit : le champ `h1` produit par enrich coule tout seul) ; sources pré-fournies par le brief sans vérif live — écarté (c'était le statu quo qui produisait des sources non vérifiables).
+- **Portée** : le fix H1 est dans le repo (commit 9b545a2) ; `/seo-sources` + wiring sont dans `~/.claude/` (hors repo site).
+
 ### 2026-06-13 | URLs : `trailingSlash: 'never'` (alignement canonical / liens / 301)
 - **Contexte** : `/en` et `/en/` servaient tous deux un 200 (aucun 301 d'enforcement), et le canonical sortait AVEC slash (`/en/`) alors que tous les liens internes (`localePath`, `blogPath`) et le redirect racine pointent SANS slash (`/en`). Cause : aucune politique `trailingSlash` définie → défaut Astro `'ignore'` (un non-choix : canonical, liens et hébergeur tranchaient chacun différemment).
 - **Choix** : **`trailingSlash: 'never'`** dans `astro.config.mjs`. Aligne canonical/hreflang/og:url/sitemap sur la forme sans slash (celle déjà émise par le code) ET déclenche l'adaptateur Vercel, qui écrit une règle `^/(.*)/$` → `/$1` en **308** dans `.vercel/output/config.json` (la redirection est le travail de l'hébergeur en SSG, pas d'Astro). Zéro fichier applicatif modifié (tout était déjà sans slash).
