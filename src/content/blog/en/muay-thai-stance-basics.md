@@ -1,5 +1,6 @@
 ---
 title: "Muay thai stance & basic moves, explained simply"
+h1: "The Muay Thai stance and basic moves, broken down for beginners"
 description: "How Thai coaches teach muay thai basics in order: stance, guard, footwork, the jab, and the drills that make it stick. Plus the mistakes they fix daily."
 tldr:
   - "Everything in muay thai starts from the stance: feet shoulder-width, weight even, knees soft and ready to move."

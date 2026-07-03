@@ -1,5 +1,6 @@
 ---
 title: "Best Muay Thai camps in Thailand: 2026 honest guide"
+h1: "The best Muay Thai camps in Thailand: an honest, camp-by-camp guide"
 description: "Tiger, Sinbi, Santai, Wildcat: an honest comparison of Thailand's best Muay Thai training camps by traveller type, with real prices and visa advice."
 tldr:
   - "The best camp depends on your profile: Tiger Muay Thai for elite fighters (Phuket), Wildcat for beginners, long-stayers, and DTV applicants (Chiang Mai)."

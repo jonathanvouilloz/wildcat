@@ -1,5 +1,6 @@
 ---
 title: "Muay Thai Training Cost Thailand 2026: Full Guide"
+h1: "How much does Muay Thai training in Thailand really cost?"
 description: "Full 2026 cost breakdown for Muay Thai training in Thailand: session rates, monthly packages, accommodation, food, and DTV visa costs in THB."
 tldr:
   - "Muay Thai training in Thailand costs 300–600 THB per session, or 8,000–15,000 THB per month for unlimited training."

@@ -187,7 +187,7 @@ const articleSchema = {
         <a class="cat" href={`${p('/blog')}?category=${post.data.category}`}>
           {catLabels[post.data.category]}
         </a>
-        <h1 class="h1">{post.data.title}</h1>
+        <h1 class="h1">{post.data.h1 ?? post.data.title}</h1>
         <p class="lead">{post.data.description}</p>
         <div class="byline">
           <p class="by">{m.blog_byline_by()}</p>

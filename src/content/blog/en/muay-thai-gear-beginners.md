@@ -1,5 +1,6 @@
 ---
 title: "Muay Thai Gear for Beginners: What to Bring to a Camp in Thailand"
+h1: "The beginner's Muay Thai gear checklist for training in Thailand"
 description: "The honest packing list for your first Muay Thai camp in Thailand. Gloves and wraps are lent free at camp. Here is what you actually need to bring, and what you can skip."
 tldr:
   - "Gloves and hand wraps are lent free at Wildcat. You do not need to buy them before you arrive."

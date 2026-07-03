@@ -1,5 +1,6 @@
 ---
 title: "Can You Learn Muay Thai at Home? An Honest Answer"
+h1: "Can you really learn Muay Thai at home? What works, and what doesn't"
 description: "Solo home training builds stance, footwork and shadow boxing. But clinch, sparring and pad timing require a partner: here is exactly where each sits."
 tldr:
   - "Stance, guard, footwork and shadow boxing are all learnable at home with nothing but space and a mirror."

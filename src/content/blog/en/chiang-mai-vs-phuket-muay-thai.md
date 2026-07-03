@@ -1,5 +1,6 @@
 ---
 title: "Chiang Mai vs Phuket Muay Thai Training 2026"
+h1: "Chiang Mai or Phuket for Muay Thai? Which camp scene fits you"
 description: "Real 2026 cost breakdown, DTV visa advice, and an honest comparison of Chiang Mai vs Phuket for Muay Thai training, written by a Chiang Mai camp owner."
 tldr:
   - "For stays of one month or more, Chiang Mai is typically 30–40% cheaper than Phuket, all costs included."

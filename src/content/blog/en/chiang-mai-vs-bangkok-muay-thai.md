@@ -1,5 +1,6 @@
 ---
 title: "Chiang Mai vs Bangkok Muay Thai Training 2026"
+h1: "Chiang Mai or Bangkok for Muay Thai? How to pick where to train"
 description: "Real THB costs, DTV visa advice, and an honest comparison of Chiang Mai vs Bangkok for Muay Thai training, from a camp owner who lives there."
 tldr:
   - "For competitive fighters targeting stadium bouts, Bangkok is the clear choice: elite gyms, direct stadium access, professional fight teams."

@@ -37,6 +37,14 @@ const blog = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      /**
+       * H1 visible de l'article — DISTINCT du `title` (title = optimisé
+       * SERP/CTR dans <title>/og ; h1 = développe l'angle, peut dépasser
+       * 60 car.). Optionnel : le layout retombe sur `title` si absent, mais
+       * /seo-brief + /seo-enrich imposent un h1 ≠ title (règle Critical
+       * /seo-review). Sans ce champ, zod (mode par défaut) strippe la clé.
+       */
+      h1: z.string().optional(),
       /** Meta description SEO — ~150 car. max (audit /seo-review). */
       description: z.string().max(170),
       /**

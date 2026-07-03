@@ -1,5 +1,6 @@
 ---
 title: "Burning season in Chiang Mai: the honest guide for training"
+h1: "What burning season in Chiang Mai really means for your training"
 description: "What the smoky months really mean for muay thai training in Chiang Mai — the honest calendar, how we adapt sessions, and when the air is genuinely great."
 tldr:
   - "Burning season runs roughly late February to mid-April — some days fine, some genuinely bad."
