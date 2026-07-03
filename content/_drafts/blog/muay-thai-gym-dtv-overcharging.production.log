@@ -1,0 +1,56 @@
+# Production log — muay-thai-gym-dtv-overcharging
+Date : 2026-07-03 12:42
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write     : draft écrit (1836 mots initial, ajusté à 1648 après retrait du TLDR body — voir note)
+- [✓] /humanizer     : 0 em-dash, 0 guillemets courbes, 0 vocabulaire IA détecté dès l'écriture ; 3 micro-corrections de variété lexicale appliquées ("genuinely"/"actually" répétés, une phrase dupliquée en conclusion)
+- [✓] /seo-enrich    : src/content/blog/en/muay-thai-gym-dtv-overcharging.md créé (frontmatter zod, TLDR déplacé en frontmatter, cover ajoutée après génération, build vérifié 3×)
+- [✓] /seo-review    : 1 tour — score 16/18, aucun fail Critical/High, 2 fails résiduels Medium/Low (tolérable)
+- [✓] /generate-cover : src/content/blog/covers/muay-thai-gym-dtv-overcharging.webp (169 kB source PIL, ~32 kB optimisé par astro:assets)
+- [✓] /publish-hub    : upsert sur slug existant (content id c0899363a89fee120d72b4cb, déjà enregistré en brief_validated) → statut published
+
+## Écart projet noté — TLDR en frontmatter, pas en corps
+Le brief/skill générique seo-write place le bloc TLDR en blockquote dans le corps de l'article.
+Ce projet (content.config.ts) rend le TLDR exclusivement depuis le frontmatter `tldr:` (array)
+via le composant Callout dans le header — jamais dupliqué dans le corps (vérifié contre
+muay-thai-training-thailand-cost.md, aucun blockquote TLDR en body). Le blockquote écrit par
+seo-write a donc été retiré du corps et son contenu déplacé intégralement dans le frontmatter
+`tldr:` pendant l'étape seo-enrich, pour rester cohérent avec le template réel du site.
+
+## Écart projet noté — pas de champ `h1` séparé
+Le schéma blog (content.config.ts) n'a pas de champ `h1` distinct : `[slug].astro` rend
+`post.data.title` à la fois comme balise `<title>` et comme `<h1>`. La règle générique
+« H1 ≠ title » du pipeline seo-write/seo-enrich ne s'applique donc pas ici : c'est l'architecture
+réelle du template, cohérente avec tous les articles déjà publiés du site. Title = H1 =
+"Are Muay Thai Gyms Overcharging for DTV Papers?" (47 caractères).
+
+## Écart projet noté — cover co-localisée, pas public/images/blog/
+Convention réelle du projet (moodboard/presets.yaml, preset `blog-cover`) : la cover vit dans
+`src/content/blog/covers/{slug}.webp` (import astro:assets optimisé), pas dans
+`public/images/blog/{slug}.webp`. Les 2 images inline du corps, elles, suivent bien la
+convention générique `public/images/blog/{slug}-N.webp` (preset `blog-inline`) — mais leurs
+fichiers réels n'ont pas été générés (TODO ci-dessous), seuls les marqueurs markdown ont été
+posés par /seo-write avec alt text descriptif.
+
+## Fails résiduels (Medium/Low, non-bloquants)
+- **#10 Keyword placement (Medium)** : aucun H2 ne contient littéralement "overcharging" (le
+  concept est présent dans le title, meta, 1re phrase du corps, et le H2 FAQ "FAQ on Muay Thai
+  gyms and DTV papers"). La structure H2/H3 vient telle quelle du brief déjà validé PASS 16/16
+  par @brief-critic — non modifiée pour ne pas s'écarter du brief approuvé.
+- **#17 GEO — llm.txt (Low)** : `public/llm.txt` absent au niveau du site entier. Hors scope
+  d'une production d'article unique (artefact site-wide) ; à traiter via `/llm-txt` séparément.
+
+## Images inline non générées (TODO signalé, pas bloquant pour le PASS)
+Les 2 marqueurs d'image inline du corps ont un chemin cible mais aucun fichier réel :
+- `/images/blog/muay-thai-gym-dtv-overcharging-2.webp` (après H2 "What's actually in a package")
+- `/images/blog/muay-thai-gym-dtv-overcharging-3.webp` (après H2 "What Wildcat charges")
+Le pipeline article-producer ne couvre que la cover (Étape 5 = /generate-cover). Ces 2 images
+inline nécessitent `/generate-images --brief content/_drafts/blog/muay-thai-gym-dtv-overcharging.md`
+en tâche séparée avant mise en ligne effective (sinon alt text descriptif mais image cassée /
+absente visuellement selon le comportement du navigateur sur un chemin manquant).
+
+## Statut final
+PUBLISHED — article publié sur le hub (registre + status=published), site buildé avec succès
+(`npm run build` 3× vert, page générée `/en/blog/muay-thai-gym-dtv-overcharging/index.html`,
+URL présente dans le sitemap). draft: false dans le frontmatter (prêt à sortir).

@@ -1,0 +1,51 @@
+{
+  "slug": "muay-thai-gym-dtv-overcharging",
+  "generated": "2026-07-03",
+  "level": "ymyl",
+  "target_file": "src/content/blog/en/muay-thai-gym-dtv-overcharging.md",
+  "citations": [
+    {
+      "claim": "Muay Thai is an officially recognised soft power activity qualifying for the DTV",
+      "status": "Confirmé",
+      "url": "https://www.muaythaivisathailand.com/soft-power-and-the-destination-thailand-visa-for-muay-thai-students/",
+      "source": "Muay Thai Visa Thailand — Soft Power and the DTV",
+      "accessed": "2026-07-03",
+      "placement": "inline",
+      "evidence": "Page states verbatim: \"Muay Thai is a top-tier Soft Power activity\"."
+    },
+    {
+      "claim": "DTV application fee is 10,000 THB; proof of funds is 500,000 THB on a 3-month bank statement; apply from outside Thailand",
+      "status": "Confirmé",
+      "url": "https://thethaiger.com/guides/visa-information/thailand-digital-nomad-visa",
+      "source": "The Thaiger — DTV guide",
+      "accessed": "2026-07-03",
+      "placement": "sources-block",
+      "evidence": "Page states: \"The application fee is 10,000 baht\" and \"bank statements covering the last three months showing at least 500,000 baht\"; \"You cannot apply from inside Thailand\"."
+    },
+    {
+      "claim": "thaievisa.go.th is the official Thailand electronic visa portal (only DTV application system since Jan 2025)",
+      "status": "Confirmé",
+      "url": "https://thaievisa.go.th",
+      "source": "Thailand e-Visa official portal",
+      "accessed": "2026-07-03",
+      "placement": "inline + sources-block",
+      "evidence": "Portal self-identifies in its title as \"Official Website of Thailand Electronic Visa\"; corroborated by The Thaiger."
+    }
+  ],
+  "unverified": [
+    {
+      "claim": "Six-month training program is favored by immigration",
+      "reason": "Observed approval practice through 2025-2026, NOT a published legal rule. No official/legal source asserts it as a rule (MTVT does not frame it as legal). Kept as 'observed practice', no link, consistent with docs/dtv-fact-check.md #16.",
+      "status": "Déduit"
+    },
+    {
+      "claim": "Gym DTV papers range 7,500–25,000 THB for the same documents",
+      "reason": "Community-reported (Reddit, docs/reddit-insights). Not attributable to a single authoritative source by design (never cite a Reddit pseudonym). Reformulated as community-reported range, no link.",
+      "status": "Non vérifié"
+    }
+  ],
+  "blocked_sources": [
+    "https://www.thaiembassy.com/thailand-visa/dtv-visa-thailand (HTTP 403, not fetched — not linked)",
+    "https://www.siam-legal.com/thailand-visa/dtv-visa-thailand.php (HTTP 403, not fetched — not linked)"
+  ]
+}
