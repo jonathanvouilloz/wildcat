@@ -1,0 +1,28 @@
+# Production log — dtv-visa-refund-if-rejected
+Date : 2026-07-03 18:05
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write     : draft écrit (1363 mots)
+- [✓] /humanizer     : 2 patterns corrigés (em-dash résiduel dans Sources, touche de voix personnelle ajoutée) — 0 pattern IA restant après scan final
+- [✓] /seo-sources   : 2 sources externes Confirmé liées (Thailand official e-Visa portal, The Thaiger's DTV visa guide — fetch réel via curl, statut Confirmé), 1 claim cross-référencé via docs/dtv-fact-check.md (#7 frais 10 000 THB non-remboursable, #4/#6 seuil 500 000 THB compte personnel), 1 citation d'expert attribuée verbatim vérifiée, 3 claims génériques adoucis/non liés (attribution Reddit anonymisée sans nommer de prestataire réel, absence de taux de refus officiel double-vérifiée)
+- [✓] /seo-enrich    : src/content/blog/en/dtv-visa-refund-if-rejected.md créé (~4.7 kB). Bug détecté et corrigé en cours de review : H2 FAQ resté en français ("FAQ sur le remboursement du DTV en cas de refus") dans un article EN-only → corrigé en "FAQ on the DTV visa refund policy". Doublon TLDR retiré (blockquote corps en plus du frontmatter `tldr` déjà rendu en Callout par le layout — convention confirmée sur A1/A5).
+- [✓] /seo-review    : 1 tour — score final 17/18, 1 fail résiduel (Low, llm.txt absent, gap sitewide hors scope article) → tolérable, pas de fail Critical/High
+- [✓] /generate-cover : src/content/blog/covers/dtv-visa-refund-if-rejected.webp (93 kB, pipeline Gemini, preset blog-cover-gemini)
+- [✓] /publish-hub    : registre wildcat / dtv-visa-refund-if-rejected → statut published (Content ID ad5a936e72940b04e545e539)
+
+## Build
+`npm run build` : ✓ 49 pages générées, sitemap OK (après génération de la cover ; échec attendu avant cette étape sur l'image manquante).
+
+## Statut final
+PUBLISHED — article publié sur le hub.
+
+## Fails résiduels (si needs_human)
+Aucun (statut published). Seul point non-bloquant : `public/llm.txt` absent (Low, sitewide, hors scope de cet article).
+
+## Notes maillage / suivi
+- A6 `dtv-visa-proof-of-funds` n'est pas encore publié (brief existe seulement dans content/_drafts/blog/). Le lien recommandé du brief a été posé en repli vers `/dtv-visa/eligibility` (conforme à la note d'ordre de production du brief). **Backfill à faire quand A6 sera publié** : remplacer/compléter le lien de la section "How to reduce your risk before you pay anyone" par un lien direct vers `/blog/dtv-visa-proof-of-funds`.
+- A1 (`dtv-visa-cost-breakdown`, publié) ne linke pas encore vers ce nouvel article A7. Suggestion de maillage retour (non appliquée, hors scope d'écriture de ce worker) : ajouter dans A1 une ancre du type "what happens to your fee if you're rejected" → `/blog/dtv-visa-refund-if-rejected`.
+- Aucun prestataire réel nommé (règle stricte du brief respectée — reformulation générique "some course providers publicly offer a full refund policy").
+- Aucune politique de remboursement Wildcat inventée (formulation générique "ask us directly, we're clear about what's included", conforme à la contrainte du brief et à l'absence de politique formelle dans `src/config/site.ts`).
+- Âge DTV non mentionné dans l'article (hors sujet du brief) — pas de risque de contradiction avec le fact-check #18 (erreur 18+ vs 20 ans).

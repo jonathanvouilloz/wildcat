@@ -213,13 +213,15 @@ Convention : **`prefix-at-build`** (seo-context) — écrire les liens **sans** 
 
 ### 3. Cheapest Soft Power Activity for the DTV: Muay Thai vs Cooking vs Language
 
+> **⚠️ Correction post-publication (2026-07-03, via `/seo-sources` sur l'article final)** : les écoles de langue thaïe généralistes ont été **retirées de la liste officielle qualifiante DTV en 2025** (confirmé par 2 sources indépendantes datées, The Thaiger + ExpatDen, consultées 2026-07-03 — candidats redirigés vers le visa Non-Immigrant ED). Le mini-brief ci-dessous, écrit avant cette vérification, assumait encore un comparatif à 3 activités. **L'article publié est un comparatif à 2 activités (Muay Thai vs cooking)**, l'école de langue étant conservée uniquement en contexte historique clairement étiqueté "retirée en 2025". Voir `docs/dtv-fact-check.md` #15 (mis à jour). Si ce sujet est repris en `--mode deepen`, partir de la version à 2 activités, pas de celle ci-dessous.
+
 - Slug : `cheapest-dtv-soft-power-activity`
 - Slug rationale : intention comparative "quelle activité coûte le moins", distincte du visa-type
 - Type de page : article (spoke)
 - Keyword principal : `cheapest dtv soft power activity` (+ "dtv soft power options", "muay thai vs cooking class dtv")
 - Section : Core
-- Sous-requêtes fan-out : quelle activité soft power est la moins chère · cooking vs muay thai vs langue prix · combien de temps de cours faut-il · soft power pour qui ne travaille pas
-- Module : E (comparatif) — table prix réels (cooking ~10k, langue Londres 7,5k, MT 10–25k), section persona "sans revenu à distance" (retraité anticipé/rentier → soft power = la voie)
+- Sous-requêtes fan-out : quelle activité soft power est la moins chère · cooking vs muay thai vs langue prix (historique, retiré en 2025) · combien de temps de cours faut-il · soft power pour qui ne travaille pas
+- Module : E (comparatif) — table prix réels (cooking ~10k, MT 10–25k ; langue mentionnée en contexte historique seulement, retirée de la liste qualifiante en 2025), section persona "sans revenu à distance" (retraité anticipé/rentier → soft power = la voie)
 - Intent : Commercial/comparatif
 - Score : 6/9 (Brand 3 · Business 2 · Trafic 1)
 - Word count cible : 1 400–1 800 mots

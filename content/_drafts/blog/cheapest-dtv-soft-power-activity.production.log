@@ -1,0 +1,24 @@
+# Production log — cheapest-dtv-soft-power-activity
+Date : 2026-07-03 17:50
+Worker : @article-producer
+
+## Étapes
+- [OK] /seo-write     : draft écrit (1793 mots)
+- [OK] /humanizer     : 3 patterns IA corrigés (2 parallélismes négatifs "isn't X, it's Y" reformulés, 1 répétition "actually fits" variée) — zéro em-dash, zéro guillemets courbes
+- [OK] /seo-sources   : 6 citations Confirmé posées (4 inline, 2 bloc Sources), 2 claims Non vérifié adoucis (prix cuisine/langue, non attribuables à une source unique)
+  - **CONSTAT CRITIQUE** : fact-check en double vérification (règle seo-rules.md §2, 2 sources indépendantes datées 2026-07-03 : The Thaiger + ExpatDen) a révélé que les écoles de langue thaïe ont été retirées de la liste officielle soft power DTV en 2025 — information absente du brief et de docs/dtv-fact-check.md (daté 2026-06-05). L'article a été substantiellement réécrit (au-delà du scope citation habituel) pour refléter cette réalité : comparaison à 3 activités → comparaison à 2 activités qualifiantes actuelles (Muay Thai/cuisine), école de langue conservée en contexte historique clairement étiqueté. Recommandation de mise à jour de docs/dtv-fact-check.md et docs/topical-map-dtv-costs.md consignée dans le sidecar sources.json (non appliquée, hors scope d'écriture de ce worker).
+- [OK] /seo-enrich    : src/content/blog/en/cheapest-dtv-soft-power-activity.md créé (frontmatter conforme content.config.ts, TLDR en frontmatter — convention projet, pas de blockquote body)
+- [OK] /seo-review    : 1 tour — score final 17/18, 1 fail résiduel (Low, non-bloquant)
+- [OK] /generate-cover : src/content/blog/covers/cheapest-dtv-soft-power-activity.webp (173 kB avant optimisation build, 34/13 kB variantes optimisées) — NB : ce projet co-localise la cover sous src/content/blog/covers/ (astro:assets), pas public/images/blog/ (réservé aux images inline du corps, confirmé via moodboard/presets.yaml)
+- [OK] npm run build   : build complet vert, page générée /en/blog/cheapest-dtv-soft-power-activity, présente dans sitemap-0.xml
+- [OK] /publish-hub    : registre wildcat → statut published (Content ID 40b5cf8ac49e2c03945f2a06)
+
+## Statut final
+PUBLISHED — article publié sur le hub
+
+## Fails résiduels (Low, non-bloquant)
+- Critère 17 (GEO — llm.txt) : `public/llm.txt` absent du site. Hors scope de cette production d'article (concerne le site entier) — à traiter via `/llm-txt` séparément.
+
+## Notes complémentaires
+- Maillage retour suggéré (non appliqué, hors scope d'écriture de ce worker) : ajouter un lien vers ce nouvel article depuis A1 (`src/content/blog/en/dtv-visa-cost-breakdown.md`, section Layer 2) et A2 (`src/content/blog/en/muay-thai-gym-dtv-overcharging.md`, intro ou conclusion).
+- Titre/H1/meta ont été ajustés pendant la boucle review (meta description : ajout d'un verbe CTA "See" ; bold redistribué à 1 par paragraphe, 12 bolds total ; TLDR frontmatter : ajout du keyword principal exact).

@@ -1,0 +1,140 @@
+{
+  "keyword": "dtv visa cost thailand",
+  "location": "global (EN, nomades/expats)",
+  "scanned_at": "2026-07-03T00:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.thaiembassy.com/thailand-visa/dtv-visa-thailand",
+      "title": "Destination Thailand Visa (DTV) 2026: Official Guide and Requirements | ThaiEmbassy.com",
+      "page_type": "service",
+      "competitor_type": "institutional",
+      "covers": [
+        "Frais d'ambassade 10 000-14 000 THB (variable par ambassade)",
+        "Frais d'extension 1 900 THB / 180 jours",
+        "Preuve financière 500 000 THB"
+      ],
+      "missing": [
+        "Frais de cours muay thai / soft power",
+        "Frais d'agent",
+        "Scénario de coût combiné"
+      ],
+      "eeat_signals": [
+        "NON VÉRIFIÉ — WebFetch bloqué par le site (HTTP 403). Contenu ci-dessus déduit du snippet de recherche uniquement, pas d'une lecture réelle de la page."
+      ]
+    },
+    {
+      "rank": 2,
+      "url": "https://dtvvisathailand.com/dtv-visa-fees-cost/",
+      "title": "DTV Visa Price and Cost 2026 | How much is DTV visa?",
+      "page_type": "service",
+      "competitor_type": "local-business",
+      "covers": [
+        "Frais d'ambassade 10 000-14 000 THB",
+        "Frais de cours muay thai 30 000-100 000 THB (packages propriétaires FITFAC)",
+        "Frais de service/agent 9 000-20 000 THB",
+        "Packages combinés chiffrés : VIP 41 990 THB, Muaythai Package 38 990 THB, Workcation Doc Review 9 000 THB"
+      ],
+      "missing": [
+        "Comparaison neutre indépendante (le combiné n'existe que sous forme de packages à vendre par ce prestataire, pas de scénarios lecteur type budget/mid/premium)",
+        "Contexte Chiang Mai (pricing orienté Bangkok/Pattaya, FITFAC)",
+        "Auteur, date de publication, sources externes"
+      ],
+      "eeat_signals": [
+        "CONFIRMÉ (lu via WebFetch) — aucun auteur ni date affichés, aucune source externe citée",
+        "Page commerciale auto-référentielle : agrège les 3 couches mais uniquement comme argumentaire de vente de ses propres forfaits"
+      ]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.dtvvisathai.com/blog/dtv-visa-thailand-cost-breakdown-2025",
+      "title": "DTV Visa Thailand Cost 2025: Complete Fee Breakdown & Budget Guide | DTV Visa Guide",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": [
+        "Frais d'ambassade + variations par pays/ambassade",
+        "Coûts de préparation de documents, vie courante (Bangkok/Chiang Mai/Phuket)",
+        "Frais d'extension 1 900 THB, renouvellement 5 ans",
+        "Budget templates chiffrés (initial application budget $680-$1680)"
+      ],
+      "missing": [
+        "Frais de cours muay thai / soft power — absent à 100 %",
+        "Frais d'agent — absent à 100 % (seule ligne \"professional services $0-500\" vague, non typée agent)",
+        "Aucun scénario combinant les 3 couches"
+      ],
+      "eeat_signals": [
+        "CONFIRMÉ (lu via WebFetch) — auteur générique \"DTV Cost Analysis Expert\" (pas de nom réel), aucune source externe citée, claim non vérifiable (\"analyzing hundreds of successful applications\")"
+      ]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.issacompass.com/insights/dtv-visa-total-cost-breakdown-government-fees-agent-charges-and-hidden-expenses-",
+      "title": "DTV Visa Total Cost Breakdown: Government Fees, Agent Charges, and Hidden Expenses Explained",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": [
+        "Frais gouvernementaux 10 000 THB",
+        "Coûts cachés : assurance santé 5 000-20 000+ THB/an, traduction/notarisation 1 000-5 000 THB, extension 1 900 THB",
+        "Frais d'agent 3 000-15 000+ THB avec critères de valeur/transparence",
+        "Coût total sur 5 ans 15 000-50 000+ THB"
+      ],
+      "missing": [
+        "Frais de cours muay thai / soft power — absent à 100 %",
+        "Aucun scénario combinant embassy + course + agent"
+      ],
+      "eeat_signals": [
+        "CONFIRMÉ (lu via WebFetch) — auteur nommé Kat Hewett (Immigration Consultant chez Issa Compass), publié 08 avr 2026 / mis à jour 03 juil 2026, 3 sources externes citées (Anglo Siam Law, Denz Phuket, Thai Embassy Taipei). Bon niveau E-E-A-T mais la couche muay thai reste un angle mort."
+      ]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.thailandstarterkit.com/visas/destination-thailand-visa-dtv/",
+      "title": "Destination Thailand Visa (DTV): Requirements and Application in 2026 (ex-ExpatDen, 301 redirect)",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": [
+        "Frais d'ambassade 10 000 THB (exemple US$400 à Washington D.C.)",
+        "Preuve financière 500 000 THB",
+        "Mentionne 2 gyms muay thai acceptant les dossiers DTV (Tiger Eye Bangkok, Battle and Conquer Pattaya) — sans aucun prix"
+      ],
+      "missing": [
+        "Prix réel des cours muay thai (mentionné mais jamais chiffré)",
+        "Frais d'agent",
+        "Scénario de coût combiné"
+      ],
+      "eeat_signals": [
+        "CONFIRMÉ (lu via WebFetch, après redirect 301 depuis expatden.com) — auteur nommé Saran Lhawpongsawad, dates publish/update affichées, sources citées (Royal Thai embassies, Thai e-Visa portal, Royal Gazette)"
+      ]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "NON VÉRIFIÉ — pas d'outil de détection SERP feature dédié disponible (WebSearch ne restitue pas la boîte PAA telle quelle). Questions probables déduites du pattern de résultats (à confirmer avec un outil SERP dédié type DataForSEO SERP live) : \"How much does the DTV visa cost in total?\", \"Do I need a visa agent for the DTV?\", \"How much is a muay thai course for the DTV visa?\", \"Is the DTV visa worth the cost?\""
+    ],
+    "featured_snippet": "NON VÉRIFIÉ — probable au vu de la récurrence d'une réponse chiffrée directe (10 000 THB) en tête de synthèse sur plusieurs requêtes, mais non confirmé par un outil de capture SERP réel",
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "mixed",
+  "dominant_format": "editorial-article",
+  "format_match": "aligné",
+  "format_note": "4 des 5 résultats sont des articles éditoriaux/guides longs (blog ou guide institutionnel), un seul est une pure page de service/pricing (dtvvisathailand.com, packages FITFAC). Un article de blog agrégeant les 3 couches de coût correspond au format dominant du SERP.",
+  "common_ground": [
+    "Frais d'ambassade officiel 10 000 THB (± variation par pays d'émission) — couvert par les 5 résultats",
+    "Frais d'extension 1 900 THB / 180 jours — couvert par 4/5",
+    "Preuve financière 500 000 THB citée comme prérequis (pas un coût direct) — couvert par 3/5"
+  ],
+  "gap": {
+    "description": "Aucun résultat du top 5 ne propose une agrégation NEUTRE et orientée lecteur des 3 couches réelles de coût (frais d'ambassade + cours muay thai/soft power + agent optionnel) sous forme de scénarios de budget total (ex. budget/mid/premium). Le seul résultat qui touche aux 3 couches (dtvvisathailand.com, rank 2) le fait uniquement comme argumentaire commercial pour vendre ses propres forfaits packagés (FITFAC, Bangkok/Pattaya), sans auteur, sans date, sans sources, et sans rapport avec le contexte Chiang Mai. Les 2 articles éditoriaux les mieux sourcés en E-E-A-T (dtvvisathai.com rank 3, issacompass.com rank 4) ignorent purement et simplement la couche cours muay thai. Le résultat le mieux sourcé sur le plan factuel (thailandstarterkit.com rank 5) mentionne des gyms muay thai mais sans jamais chiffrer leur coût. Gap confirmé par lecture réelle de 4/5 résultats (WebFetch), pas seulement déduit du snippet.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "dtvvisathailand.com (rank 2) : agrégation complète des 3 couches mais 100% auto-promotionnelle (ses propres forfaits), zéro E-E-A-T (pas d'auteur/date/sources), pricing Bangkok/Pattaya non transposable à Chiang Mai",
+    "dtvvisathai.com (rank 3) : \"complete cost breakdown\" dans le titre mais la couche muay thai/soft power est un angle mort total malgré un article très long et détaillé sur tout le reste",
+    "issacompass.com (rank 4) : bon niveau E-E-A-T (auteur, dates, sources) mais même angle mort sur la couche cours muay thai",
+    "thailandstarterkit.com (rank 5) : mentionne les gyms muay thai mais reste superficiel — zéro chiffre, alors que c'est justement la couche la plus variable et la moins documentée ailleurs"
+  ],
+  "recommended_angle": "Se positionner comme la seule ressource indépendante (pas un prestataire vendant ses propres forfaits) qui additionne réellement les 3 couches de coût du DTV Muay Thai — frais d'ambassade 10 000 THB, cours soft power 7 500-25 000 THB, agent optionnel 30 000-80 000 THB — en scénarios de budget total concrets (ex. \"solo sans agent\" vs \"avec agent\"), sourcée et datée, comblant exactement le trou laissé par les guides de coût généralistes qui s'arrêtent aux frais d'ambassade/vie courante et par les pages de prestataires qui ne vendent que leurs propres packages."
+}

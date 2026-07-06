@@ -125,6 +125,12 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 - **Garde-fous** : 1 affichage par session (`sessionStorage`, prop `oncePerSession`) · reduced-motion = skip · no-JS = overlay masqué (`noscript`) · fallback zoom+fade si `mask-composite` non supporté · scroll lock pendant l'anim. Total ~4.3s (écriture pendant le remplissage).
 - **Outillage** : squelettes itérés au screenshot via `tests/trace-spines.py` (mode `trace` = alignement, mode `mask` = coverage) + `tests/spines.txt` ; les franges résiduelles des masques sont mopées par un crossfade vers le fill complet en fin d'écriture. Variante A (outline draw) conservée dans le composant (`?v=a`), B = défaut. Page de test : `/home-test-loading` (noindex, hors sitemap, replay illimité).
 
+### 2026-07-03 | Calendrier édito blog : `publishDate` futur = scheduling natif, aucun nouveau champ
+- **Constat** : les 6 articles restants du cluster DTV-coûts sont sortis du pipeline `@content-creator`/`@article-producer` tous avec `publishDate` = jour de production (dump same-day), cassant la cadence cible (`cadence_blog: 6/mois`, `docs/seo-context.md`).
+- **Décision** : pas de nouveau champ frontmatter ni de statut hub dédié. Le mécanisme existe déjà dans `src/lib/blog.ts` (`isVisible()`) : en PROD, `draft:false` + `publishDate` futur = article invisible (filtré de `getPostsByLang`/`getAlternates`/`getRelated`) jusqu'à la date, visible en dev pour review. Il suffit d'éditer `publishDate` dans le frontmatter du fichier déjà publié pour l'échelonner.
+- **Découplage assumé** : le statut `published` du hub jlabs-content-hub trace l'avancement de production (article écrit/review/publié dans le repo), PAS la visibilité live sur le site — les deux ne doivent jamais être confondus. Un article peut être `status=published` au hub et invisible sur le site tant que son `publishDate` n'est pas atteint.
+- **Alternative écartée** : ajouter un champ `scheduledDate` séparé — rejeté, redondant avec un champ qui fait déjà le travail et qui est le seul lu par `isVisible()`.
+
 ## Décisions EN ATTENTE (questions ouvertes restantes)
 
 | # | Sujet | Options | Impact |

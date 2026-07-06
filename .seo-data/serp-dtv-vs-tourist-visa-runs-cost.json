@@ -1,0 +1,118 @@
+{
+  "keyword": "thailand border run",
+  "adjacent_keyword": "dtv vs tourist visa thailand cost",
+  "location": "Thailand / global English SERP (no geo-modifier)",
+  "scanned_at": "2026-07-03T00:00:00+07:00",
+  "sample_size": 5,
+  "note_on_ranking": "WebSearch ne garantit pas l'ordre exact de ranking (Google personnalise, pas de vrai scan SERP positionnel). L'ordre ci-dessous reflète l'ordre de retour observé sur plusieurs requêtes croisées (\"thailand border run\", \"thailand border run people also ask\"), avec dtvthaivisa.com remonté en tête car directement concurrent sur l'angle DTV+border run. Pour un ranking positionnel strict, un scan DataForSEO SERP API serait nécessaire (non fait ici).",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://dtvthaivisa.com/blog/thailand-border-runs-risks-of-rejection",
+      "title": "Thailand Border Runs: A Complete Guide and Understanding the Risks — DTVThaiVisa",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "status": "Confirmé (WebFetch)",
+      "covers": ["définition border run", "destinations populaires", "mécanique du border run", "risques de refus/scrutiny", "comment éviter les problèmes", "tableau qualitatif 'Border Runs vs. a Long-Term Visa'", "FAQ"],
+      "missing": ["aucun chiffre : le tableau comparatif est qualitatif (features), pas de coût en THB", "aucune projection 1/2/5 ans", "vols non chiffrés", "extension 1900 THB non mentionnée"],
+      "eeat_signals": ["aucun auteur identifié (byline générique 'DTV DTVThaiVisa')", "aucune source externe citée", "conclusion orientée vente du service DTV"]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.tisland.travel/en/blog/border-ran-i-viza-ran-v-tailande-chto-eto-i-v-chem-raznica",
+      "title": "Border Run vs Visa Run in Thailand in 2026: What's the Difference",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "status": "Confirmé (WebFetch)",
+      "covers": ["définitions border run vs visa run", "changements réglementaires 2026", "documents requis", "quand choisir quoi", "FAQ", "liens vers ressources officielles"],
+      "missing": ["aucun calcul de coût cumulé", "vols non chiffrés", "aucune comparaison DTV sur plusieurs années — mention unique de l'extension 1900 THB hors contexte comparatif"],
+      "eeat_signals": ["auteur 'Evgen S' avec lien blog", "sources internes + lien officiel thaievisa.go.th, pas de sources externes indépendantes", "mis à jour 21 juin 2026"]
+    },
+    {
+      "rank": 3,
+      "url": "https://bangkokbuddy.com/thai-visa-run/",
+      "title": "Thai Visa Run from Bangkok to Cambodia - Thailand visa runs",
+      "page_type": "service",
+      "competitor_type": "local-business",
+      "status": "Non vérifié — WebFetch a échoué à 2 reprises (contenu tronqué côté outil), seul le titre/snippet est confirmé",
+      "covers": ["probable : logistique du trajet Bangkok-Cambodge, service de visa run"],
+      "missing": ["non vérifiable en détail — mais aucun signal, même dans le titre/snippet, d'un calcul comparatif DTV vs border run"],
+      "eeat_signals": ["non vérifié"]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.thethailandlife.com/border-visa-run-guide",
+      "title": "Thailand Visa Run 101: Everything You Need to Know",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "status": "Confirmé (WebFetch)",
+      "covers": ["différence visa run / border run", "border runs terrestres vs aéroport", "obtenir un visa pour traverser", "checklist documents"],
+      "missing": ["aucun tableau de coûts DTV vs border run", "aucune projection multi-année", "vols non chiffrés"],
+      "eeat_signals": ["auteur 'Peter', 16 ans d'expérience Thaïlande revendiqués", "un seul lien Wikipedia comme source", "pas de données chiffrées sourcées"]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.khaosanroad.com/articles/thailand-visa-runs-from-bangkok-a-complete-guide-2026-03-11",
+      "title": "Thailand Visa Runs from Bangkok — Complete Guide",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "status": "Confirmé (WebFetch)",
+      "covers": ["5 routes de visa run", "checklist documents", "planning/timeline", "transport", "changements de politique", "gestion du risque", "tableau de référence des routes", "FAQ"],
+      "missing": ["aucune comparaison de coût DTV vs border run", "vols non chiffrés dans une logique comparative", "extension 1900 THB non mentionnée"],
+      "eeat_signals": ["aucun auteur identifié", "liens officiels nombreux (immigration, ambassades, opérateurs transport) mais pas de bibliographie classique"]
+    }
+  ],
+  "additional_competitors_checked_secondary_keyword": [
+    {
+      "url": "https://www.issacompass.com/insights/thailand-visa-cost-calculator-how-much-should-you-actually-budget-for-the-full-a",
+      "title": "Thailand Visa Cost Calculator: How Much Should You Actually Budget for the Full Application Process in 2026",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "status": "Confirmé (WebFetch)",
+      "note": "Le concurrent le plus proche de l'angle visé — présente un tableau de frais par catégorie de visa et une section 'How Does the DTV Change the Cost Calculation?'. Mais : PAS de comparaison structurée sur 1/2/5 ans, PAS de vols chiffrés dans un calcul comparatif, PAS de mention de l'extension 1900 THB. Auteur identifié (Nic Bunpamee, Immigration Consultant), 3 sources citées — le concurrent le plus E-E-A-T-friendly du lot, mais toujours sans le calcul chiffré multi-année."
+    },
+    {
+      "url": "https://theungracefulguide.com/thailand-visa/",
+      "title": "Thailand Visa Renewals and Border Runs – The 'How To' Guide",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "status": "Confirmé (WebFetch)",
+      "note": "Guide narratif étape par étape (Bangkok → Kanchanaburi → frontière), mentionne une extension à 1980 THB (proche de 1900) mais hors comparaison chiffrée. Aucun tableau de coût, aucun auteur identifié."
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "What is a border run in Thailand?",
+      "Are visa runs to the Thai border still possible / no longer common in 2026?",
+      "How many border runs are allowed per year in Thailand (land entry cap)?",
+      "What's the difference between a border run and a visa run?",
+      "What happens if you do too many border runs?"
+    ],
+    "featured_snippet": "Non vérifié — les réponses synthétiques retournées par WebSearch ressemblent à du contenu de type featured snippet / AI Overview, mais l'outil ne permet pas de confirmer visuellement la présence d'un vrai featured snippet classique dans le SERP réel.",
+    "image_pack": "Non vérifié",
+    "video": "Non vérifié"
+  },
+  "intent_signal": "informational",
+  "dominant_format": "editorial-article",
+  "format_match": "aligné",
+  "format_note": "Le top 5 (+ les 2 concurrents secondaires) est composé à 100% d'articles de blog éditoriaux (guides, définitions, FAQ) — aucune page service/produit ne rank sur cette requête informationnelle. Un article de blog comparatif chiffré est donc le bon format, cohérent avec ce que Google récompense déjà.",
+  "common_ground": [
+    "Définition border run vs visa run (systématique sur tous les résultats)",
+    "Mention des changements réglementaires 2026 (cap 2x/an terrestre, scrutiny accrue)",
+    "Liste des destinations/routes de border run (Laos, Cambodge, Malaisie, Myanmar)",
+    "FAQ en fin d'article",
+    "Recommandation générale de passer à un visa long-terme (LTR/DTV) sans jamais chiffrer le seuil de rentabilité"
+  ],
+  "gap": {
+    "description": "Aucun des 7 concurrents analysés (5 du top SERP + 2 trouvés sur la requête adjacente) ne produit un calcul chiffré comparant le coût total du DTV vs le coût cumulé de border runs répétés sur visa touriste, décliné sur plusieurs horizons (1/2/5 ans), vols inclus. dtvthaivisa.com — le concurrent le plus proche thématiquement — a un tableau 'Border Runs vs. a Long-Term Visa' mais purement qualitatif (features cochées), zéro chiffre. issacompass.com a la meilleure amorce ('How Does the DTV Change the Cost Calculation?') mais reste un guide de budgétisation ponctuel, pas une projection multi-année avec point de bascule. Personne ne mentionne l'option d'extension in-country à 1900 THB comme variable du calcul comparatif (seul thethailandlife.com et tisland.travel la citent, hors contexte comparatif chiffré).",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Border run traité systématiquement comme sujet isolé (guide logistique/réglementaire) — jamais mis en regard du coût du DTV, alors que c'est la question implicite de tout expat qui hésite entre les deux stratégies",
+    "Les rares tentatives de 'comparaison' (dtvthaivisa.com, thethailandlife.com) restent qualitatives — aucune monétisation du calcul",
+    "Coût des vols pour border run jamais quantifié dans une logique de calcul total (mentionné en général, jamais dans un tableau chiffré) alors que c'est souvent le poste le plus variable et le plus sous-estimé",
+    "Aucun concurrent ne modélise le seuil de rentabilité (breakeven) entre les deux stratégies selon la durée de séjour prévue"
+  ],
+  "recommended_angle": "Produire l'unique calculateur chiffré du marché : coût total DTV (10 000 THB + extension optionnelle 1900 THB) vs coût cumulé de border runs répétés sur visa touriste (frais de visa + vols + hébergement), décliné sur 1 an / 2 ans / 5 ans, avec un tableau de seuil de rentabilité clair. Aucun concurrent — y compris les agences visa spécialisées DTV — n'a fait ce calcul comparatif multi-durée ; c'est un gap net et à haute opportunité, exploitable en Module comparatif chiffré (tableau + verdict par profil de séjour)."
+}

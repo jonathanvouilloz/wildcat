@@ -1,0 +1,28 @@
+# Production log — dtv-vs-tourist-visa-runs-cost
+Date : 2026-07-03 17:40
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write     : draft écrit (1913 mots) → `content/_drafts/blog/dtv-vs-tourist-visa-runs-cost.draft.md`
+- [✓] /humanizer     : 0 pattern IA trouvé à la relecture initiale (aucun em-dash, aucun vocabulaire IA), mais bold surchargé détecté et corrigé (TLDR body bold retiré — règle "pas de bold dans le TLDR" ; 2 bolds dupliqués supprimés) + 2 citations d'autorité inline ajoutées (The Thaiger, e-Visa portal officiel) pour satisfaire le levier GEO "Cite Sources inline"
+- [✓] /seo-sources   : 5 claims `Confirmé` (DTV 10 000 THB via The Thaiger + e-Visa portal officiel ; extension DTV 1 900 THB et tourist visa 60+30=90j via `docs/dtv-fact-check.md` #9/#31), 2 claims explicitement `Non vérifié` adoucis sans lien (coût exact d'extension tourist visa standard, réglementation 2026 fréquence border run) conformément à la consigne YMYL du brief. ⚠️ **Limite technique** : aucun outil WebFetch/WebSearch disponible dans cette session — vérification faite par cross-référence avec `docs/dtv-fact-check.md` et les citations déjà établies des articles A1/A2 publiés du même cluster (mêmes URLs, même date d'accès 2026-07-03), pas par nouveau fetch live. Sidecar : `content/_drafts/blog/dtv-vs-tourist-visa-runs-cost.sources.json`
+- [✓] /seo-enrich    : `src/content/blog/en/dtv-vs-tourist-visa-runs-cost.md` créé (~13 kB). Frontmatter validé (title 43 car., h1 64 car. distinct, description 132 car. avec CTA "See", tldr 5 puces). TLDR déplacé du body (blockquote erroné retiré) vers le frontmatter, conforme à la convention projet (Callout, pas de blockquote in-body). 5/5 liens internes du brief posés + 2 liens d'autorité externes.
+- [✓] /seo-review    : 1 tour — score 17/18. Seul fail résiduel : critère 17 (GEO llm.txt), sévérité **Low**, gap site-wide pré-existant (`public/llm.txt` absent), hors du périmètre d'écriture de ce worker. **Pass tolérable** (aucun Critical/High) → boucle non nécessaire.
+- [✓] /generate-cover : `src/content/blog/covers/dtv-vs-tourist-visa-runs-cost.webp` (≈165 kB, pipeline template, aucun appel API) — ⚠️ chemin réel du projet (`src/content/blog/covers/`, via `moodboard/presets.yaml` preset `blog-cover`), pas `public/images/blog/` comme le veut la convention générique par défaut de ce worker.
+- [✓] /publish-hub    : registre `dtv-vs-tourist-visa-runs-cost` → statut **published** (content ID `44cfed439366a2e65eb8c007`, upsert + PATCH status=published, changedBy=autopilot)
+
+## Statut final
+PUBLISHED — article publié sur le hub.
+
+## Fails résiduels (si needs_human)
+Aucun fail Critical/High. 1 fail Low résiduel (llm.txt absent, site-wide, hors scope article).
+
+## Notes complémentaires (hors pipeline strict, pour traçabilité)
+
+1. **Images inline manquantes** : le brief spécifie 2 images "photo" in-body (après H2 "Adding up the real cost..." et après H2 "Where the breakeven point..."). Le markdown les référence déjà en syntaxe réelle (`/images/blog/dtv-vs-tourist-visa-runs-cost-2.webp` et `-3.webp`, alt text conforme), mais ces fichiers n'existent pas encore (le dossier `public/images/blog/` n'existe pas du tout sur le repo à ce stade). C'est un état **identique** aux 2 articles déjà publiés du même cluster (A1 `dtv-visa-cost-breakdown`, A2 `muay-thai-gym-dtv-overcharging`) qui référencent aussi des images inline absentes — gap systémique du batch actuel, pas une régression introduite ici. Le pipeline `@article-producer` défini ne comporte pas d'étape `/generate-images` pour les images inline (seulement `/generate-cover`). Ne casse pas le build (les chemins `public/` en markdown ne sont pas validés par Astro au build, contrairement au frontmatter `cover:` qui l'est).
+2. **`npm run build` non vérifié de bout en bout** : bloqué à deux reprises par des fichiers **d'un autre slug** en cours de traitement en parallèle dans le même repo (`dtv-visa-agent-worth-it.md` puis `cheapest-dtv-soft-power-activity.md`, tous deux du même cluster `docs/topical-map-dtv-costs.md`, cover manquante) — confirme un batch multi-worker concurrent sur ce cluster. Aucun de ces échecs ne provient de `dtv-vs-tourist-visa-runs-cost` : frontmatter validé manuellement (délimiteurs, champs), cover présente, chemin correct. Recommandation : relancer `npm run build` une fois tous les articles du batch terminés.
+3. **Maillage retour suggéré (hors scope d'écriture de ce worker)** : `src/content/blog/en/dtv-visa-cost-breakdown.md` (A1, déjà publié) contient une ancre "DTV visa versus tourist visa runs on cost" qui pointe actuellement vers `/dtv-visa/long-stay-training` au lieu de `/blog/dtv-vs-tourist-visa-runs-cost` (ce nouvel article). Le brief de cet article attendait explicitement ce backlink depuis A1. Fichier hors du périmètre d'écriture autorisé pour cette invocation (slug différent) — à corriger par l'orchestrateur ou un prochain worker sur le slug `dtv-visa-cost-breakdown`.
+   - Fichier à éditer : `src/content/blog/en/dtv-visa-cost-breakdown.md`, section "Is the DTV visa worth the cost?"
+   - Ancre actuelle : `[DTV visa versus tourist visa runs on cost](/dtv-visa/long-stay-training)`
+   - Ancre corrigée suggérée : `[DTV visa versus tourist visa runs on cost](/blog/dtv-vs-tourist-visa-runs-cost)`
+4. **Indexation** : une fois la page live, penser à forcer le crawl via GSC → Inspection de l'URL → "Demander l'indexation" (rappel standard post-publish-hub pour un article).

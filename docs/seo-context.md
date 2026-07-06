@@ -3,6 +3,10 @@ extends: identity
 expertise: Entraînement Muay Thai (coachs thaïs, tous niveaux) + accompagnement visa DTV (soft power, dossiers réels gérés par la owner)
 location: Chiang Mai, Thaïlande (camp open-air — audience cible : monde entier, EN-first)
 cadence_blog: 6/mois        # 2 articles/semaine
+internal_links:             # convention de liens internes (lu par /seo-write + /seo-enrich)
+  strategy: prefix-at-build # multilingue : on ecrit SANS prefixe, le plugin rehype ajoute /{locale} au build. Un /en/ ecrit a la main = double prefixe = 404.
+  default_locale: en
+  locales: [en, fr]
 eeat_proof: camp woman-run établi à Chiang Mai ; la owner (Meaw Boonpradub) gère personnellement les dossiers DTV des clients depuis des années ; coachs/fighters réels avec palmarès (CMS) ; témoignages clients ; prix publics THB ; photos réelles du camp
 goals:
   cluster: ranker le silo DTV ("dtv visa thailand" + variantes) et générer 5+ dossiers DTV qualifiés/mois via le site

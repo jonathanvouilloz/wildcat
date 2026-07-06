@@ -1,0 +1,26 @@
+# Production log — dtv-visa-agent-worth-it
+Date : 2026-07-03 17:40
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write     : draft écrit (1644 mots)
+- [✓] /humanizer     : ~9 occurrences réduites de "actually"/"genuinely" (répétition), zéro em dash, zéro guillemet courbe, TLDR blockquote manuel (doublon avec le Callout frontmatter) retiré à l'étape review
+- [✓] /seo-sources   : 2 sources primaires vérifiées (The Thaiger DTV guide, portail officiel thaievisa.go.th), 4 citations Confirmé posées (inline + bloc Sources), 1 claim Non vérifié adouci (fourchette agent 30-80k THB, communautaire, sans lien — conforme à la règle brief "jamais nommer une agence réelle")
+- [✓] /seo-enrich    : src/content/blog/en/dtv-visa-agent-worth-it.md créé (~9,9 kB) — frontmatter, tldr (5 puces), schema BlogPosting géré par le template [...slug].astro
+- [✓] /seo-review    : 1 tour — score final 17/18, 1 fail résiduel (Low, llm.txt absent au niveau du site, hors scope article) → tolérable
+- [✓] /generate-cover : src/content/blog/covers/dtv-visa-agent-worth-it.webp (166 kB) — preset `blog-cover` (template, brand vert Wildcat)
+- [✓] /publish-hub    : registre dtv-visa-agent-worth-it → statut published (Content ID 7f20e41b892fcdc6b8a25160)
+
+## Statut final
+PUBLISHED — article publié sur le hub (status=published, upsert + PATCH réussis)
+
+## Fails résiduels (si needs_human)
+Aucun fail Critical/High. 1 fail Low résiduel : `public/llm.txt` absent du site (gap global, pas spécifique à cet article) — à traiter séparément via `/llm-txt`, hors scope de cette production.
+
+## Notes de production
+
+1. **Maillage A7 (fallback appliqué)** : le brief recommandait un lien vers `/blog/dtv-visa-refund-if-rejected` (A7) dans la section "Signals of a fair agent". A7 n'existe pas encore (`src/content/blog/en/dtv-visa-refund-if-rejected.md` absent au moment de la rédaction). Conformément au repli documenté dans le brief, ce lien a été remplacé par `/dtv-visa/how-to-apply` (déjà utilisé une fois dans l'article — 2 occurrences au total vers cette page). **À faire ultérieurement** : quand A7 sera publié, remplacer le 2e lien vers `/dtv-visa/how-to-apply` (section "Signals of a fair agent versus one to avoid") par un lien vers `/blog/dtv-visa-refund-if-rejected` avec l'ancre "what happens to your fee if you're rejected", et ajouter en retour un lien depuis A7 vers cet article (maillage bidirectionnel du cluster).
+2. **Build check différé/bloqué** : `npm run build` a échoué à cause d'un article tiers en cours de production en parallèle dans le même fan-out (`src/content/blog/en/dtv-vs-tourist-visa-runs-cost.md`, cover manquante — hors scope de cette tâche, hors permissions d'écriture). Le sync du content collection (validation zod du frontmatter, avant l'échec) a réussi pour cet article, confirmant sa validité structurelle. À revérifier avec un `npm run build` complet une fois tous les articles du fan-out terminés.
+3. **Maillage retour suggéré (non appliqué, hors scope fichier)** : ajouter un lien depuis `src/content/blog/en/dtv-visa-cost-breakdown.md` (A1, section "Layer 3: do you need an agent?") vers cet article, ancre suggérée "the honest answer on DTV visa agents" ou équivalent — A1 couvre déjà le sujet en bref et gagnerait à renvoyer vers l'article dédié.
+4. CTA final utilise `/contact?intent=dtv` (convention réelle du site — intent-driven ContactForm, cf. `src/lib/whatsapp.ts` et système d'intake) plutôt que le format générique `?utm_source=...` du skill seo-write, en cohérence avec le précédent A1 déjà publié.
+5. Cover générée via preset `blog-cover` (template, brand vert Wildcat) dans `src/content/blog/covers/` — pas `public/images/blog/` (convention réelle du projet, cf. `moodboard/presets.yaml`).

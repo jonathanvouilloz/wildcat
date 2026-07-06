@@ -1,0 +1,152 @@
+{
+  "keyword": "dtv visa thailand bank account",
+  "keyword_variants_scanned": ["dtv visa proof of funds", "dtv visa 500k baht bank account", "dtv visa proof of funds stocks crypto accepted", "dtv visa multiple bank accounts combined 500000 baht"],
+  "article_target": "DTV Visa Proof of Funds: Bank vs Stocks vs Crypto",
+  "location": "Global / EN informational (pas de local pack attendu, requête YMYL visa)",
+  "scanned_at": "2026-07-03T00:00:00+07:00",
+  "sample_size": 5,
+  "status_doctrine_note": "Triple-statut appliqué : Confirmé = lu directement via WebFetch (3 pages) ; Déduit = recoupé sur 2+ WebSearch (contradiction stocks, consensus multi-comptes) ; Non vérifié = thaiembassy.com et siam-legal.com caractérisés via WebSearch seul, pas de WebFetch direct — à vérifier avant citation ferme.",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.muaythaivisathailand.com/understanding-proof-of-funds-for-the-thailand-dtv-visa-500000-thb-requirement/",
+      "title": "Understanding Proof of Funds for the Thailand DTV Visa (500,000 THB Requirement) - MTVT",
+      "page_type": "blog",
+      "competitor_type": "editorial (école de Muay Thai concurrente directe — même niche que Wildcat)",
+      "covers": [
+        "définition 'liquid assets'",
+        "bank statement — ce que les agents regardent vraiment",
+        "funds seasoning (3 mois mini, 6 idéal) avec anecdote de rejet à 600k THB déposé trop récemment",
+        "fixed deposits (acceptés seulement si retirables à tout moment)",
+        "comptes en devises étrangères (USD/EUR/GBP) acceptés",
+        "sponsorship letter si fonds insuffisants",
+        "crypto explicitement rejetée ('Crypto does not count. Not Bitcoin. Not stablecoins. Not screenshots from exchanges.')",
+        "stocks/ETFs marqués ❌ rejetés",
+        "comptes retraite et immobilier marqués ❌ rejetés",
+        "FAQ dédiée en fin d'article",
+        "angle Muay Thai (checklist adaptée aux élèves de gym)"
+      ],
+      "missing": [
+        "pas de traitement des comptes multiples combinés (aggregation)",
+        "pas de tableau comparatif visuel bank vs stocks vs crypto",
+        "citations sources officielles mentionnées (Thai MFA, Bank of Thailand, Immigration) mais pas de liens directs vérifiables"
+      ],
+      "eeat_signals": ["author (Kru Chart Sor.Dechapant Muay Thai School)", "date (26 déc 2025)", "sources citées (MFA, BoT, Immigration) sans liens directs", "expérience terrain ('what I see again and again')"]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.dtvvisathai.com/blog/dtv-visa-financial-requirements",
+      "title": "DTV Visa Financial Requirements: 500,000 THB Proof Guide 2025",
+      "page_type": "blog",
+      "competitor_type": "editorial (site de contenu visa dédié DTV)",
+      "covers": [
+        "définition du seuil 500k THB",
+        "'Acceptable Forms of Financial Proof' — section dédiée",
+        "stock portfolios, mutual funds, bonds, ETFs listés comme catégories ACCEPTÉES (⚠️ contredit le consensus et rank 1/3)",
+        "fixed deposits / time deposits / CDs comme catégorie distincte",
+        "comptes d'entreprise pour business owners",
+        "erreurs fréquentes de documentation",
+        "variations par ambassade",
+        "fonds empruntés mentionné sous 'Red Flags to Avoid' (donc implicitement non recommandé, pas explicitement interdit)"
+      ],
+      "missing": [
+        "aucune mention de la cryptomonnaie (ni acceptée ni rejetée explicitement)",
+        "pas de comptes multiples combinés",
+        "pas de sources officielles citées ni liens (0 lien vers MFA/embassy/BoT)",
+        "byline générique 'DTV Financial Expert' — pas de personne réelle identifiable"
+      ],
+      "eeat_signals": ["byline générique non identifiable", "date de publication (3 oct 2025)", "aucune source officielle liée"]
+    },
+    {
+      "rank": 3,
+      "url": "https://dtvvisathailand.com/dtv-visa-requirements/",
+      "title": "DTV Visa Requirements updated 2026 | Required Documents",
+      "page_type": "blog/guide",
+      "competitor_type": "editorial (agence visa, disclaimer non affilié gouvernement)",
+      "covers": [
+        "citation explicite : 'Minimum 500,000 THB in a savings or checking account only'",
+        "'Not accepted: business accounts, stock accounts, securities accounts, cryptocurrency accounts' — la formulation la plus tranchée et restrictive des 3 pages lues",
+        "traduction/notarisation des documents",
+        "historique de relevé bancaire exigé",
+        "durcissement récent des ambassades",
+        "comptes sponsor (parent/conjoint) avec lettre de sponsoring"
+      ],
+      "missing": [
+        "aucune distinction comptes uniques vs multiples",
+        "aucun traitement des fonds empruntés (juste évoqué comme 'red flag' des ambassades en filigrane)",
+        "aucun byline ni date de publication",
+        "pas de sources officielles liées"
+      ],
+      "eeat_signals": ["aucun byline", "aucune date", "disclaimer 'not affiliated with any government agency' — signal de faible autorité"]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.thaiembassy.com/thailand-visa/dtv-visa-thailand-faqs",
+      "title": "DTV Visa Thailand FAQs | ThaiEmbassy.com",
+      "page_type": "FAQ",
+      "competitor_type": "institutional-style (nom trompeur : site privé d'agence visa, pas l'ambassade officielle)",
+      "covers": [
+        "requis 500k THB en compte épargne, 3 mois de détention (via WebSearch, non vérifié en direct)",
+        "formats FAQ génériques sur l'éligibilité DTV"
+      ],
+      "missing": [
+        "non vérifié en profondeur (pas de WebFetch direct) — traitement probable superficiel des types d'actifs vu le format FAQ générique observé sur ce type de site"
+      ],
+      "eeat_signals": ["non vérifié — pas de WebFetch"],
+      "_verification_status": "Non vérifié — caractérisation basée sur WebSearch uniquement, pas de WebFetch"
+    },
+    {
+      "rank": 5,
+      "url": "https://www.siam-legal.com/thailand-visa/dtv-visa-thailand.php",
+      "title": "DTV Visa Thailand 2026 | Siam Legal International",
+      "page_type": "service",
+      "competitor_type": "institutional (cabinet d'avocats immigration reconnu en Thaïlande)",
+      "covers": [
+        "page service générale DTV avec section financière (via WebSearch, non vérifié en direct)",
+        "probable autorité forte (cabinet légal établi) mais contenu vraisemblablement orienté conversion client plus que guide détaillé par type d'actif"
+      ],
+      "missing": [
+        "non vérifié en profondeur (pas de WebFetch direct)"
+      ],
+      "eeat_signals": ["cabinet légal reconnu — forte autorité de marque, non vérifié sur le détail du contenu"],
+      "_verification_status": "Non vérifié — caractérisation basée sur WebSearch uniquement, pas de WebFetch"
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Do I need to show 500,000 THB in my bank account for 3 months for the DTV visa application?",
+      "Can I apply for a DTV visa with multiple bank accounts totaling 500k baht?",
+      "Can I apply for a Thai DTV visa with 500k THB spread across multiple bank accounts?",
+      "What are the requirements for the DTV Visa in terms of the 500,000 Baht bank balance?",
+      "Can I use my crypto account as proof of funds for the DTV visa application?",
+      "Can I use cryptocurrencies for my DTV visa application in Thailand?"
+    ],
+    "people_also_ask_note": "Non vérifié comme vraie boîte PAA Google (WebSearch n'expose pas les SERP features directement) — Déduit à partir de la prolifération de pages Q&A individuelles (ask.in.th / asq.in.th) qui répondent chacune à une micro-question, signe fort d'un pattern PAA/long-tail sur ce sujet.",
+    "featured_snippet": "non vérifié",
+    "image_pack": false,
+    "video": "non vérifié — non recherché spécifiquement"
+  },
+  "intent_signal": "informational",
+  "dominant_format": "editorial-article",
+  "format_match": "aligné",
+  "format_note": "",
+  "common_ground": [
+    "Seuil 500 000 THB (ou équivalent devise) comme minimum non négociable — répété par toutes les sources",
+    "Compte épargne/courant personnel = option la plus sûre et universellement acceptée",
+    "Historique de 3 à 6 mois de relevé bancaire exigé, statement récent (7-30 jours avant dépôt)",
+    "Dépôt massif juste avant la demande = red flag ('seasoning' des fonds)",
+    "Fixed deposits acceptés seulement si retirables à tout moment (2/3 sources le précisent)"
+  ],
+  "gap": {
+    "description": "Aucune des pages lues ne consolide en un seul endroit, avec sourcing officiel, les 5 questions précises que se posent réellement les candidats : (1) stocks/brokerage — et ici il y a une VRAIE contradiction entre concurrents (dtvvisathai.com dit stocks/ETFs/bonds ACCEPTÉS, tandis que muaythaivisathailand.com et dtvvisathailand.com disent explicitement REJETÉS — confirmé par le consensus WebSearch général 'not accepted'), (2) crypto — traité clairement par 1/3 seulement (rejeté), absent des 2 autres, (3) comptes multiples combinés — confirmé acceptés par le consensus communautaire (forums Ask Thailand / Facebook) mais absent des 3 pages éditoriales lues, cette info vit uniquement dans des pages Q&A éparpillées de faible autorité, (4) fonds empruntés/prêtés — traité de façon floue ('red flag' implicite) par 2/3 des sources, jamais explicité avec un mécanisme clair (pourquoi/comment les ambassades détectent un prêt récent).",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "dtvvisathai.com/blog affirme que stocks/ETFs/bonds sont acceptés — contredit le consensus majoritaire et 2 autres concurrents directs, zéro source officielle liée pour appuyer cette affirmation risquée sur un sujet YMYL",
+    "dtvvisathailand.com n'a ni byline, ni date, ni source officielle liée — autorité faible malgré une formulation très tranchée sur les rejets",
+    "aucune des 3 pages lues ne traite les comptes multiples combinés alors que c'est une question fréquente (confirmée par 3 pages Q&A dédiées distinctes sur ask.in.th/asq.in.th) — vide éditorial net sur ce point précis"
+  ],
+  "recommended_angle": "Trancher la contradiction stocks/crypto avec un tableau comparatif clair et sourcé (bank vs stocks/brokerage vs crypto vs comptes multiples vs fonds empruntés), en s'appuyant sur l'autorité E-E-A-T de Meaw + sourcing officiel (MFA/ambassades) — aucun concurrent ne consolide ces 5 cas dans un format scannable unique, et un concurrent direct de même niche (dtvvisathai.com) diffuse une information contradictoire sur les stocks qui mérite d'être corrigée/clarifiée pour capter les candidats confus sur ce point précis.",
+  "notes": "Volume faible (10/mo confirmé) — opportunité qualitative (résoudre une vraie confusion documentaire) plutôt que volumétrique. Cohérent avec la doctrine YMYL du projet (fact-check + sources vérifiées obligatoires vu la contradiction relevée)."
+}

@@ -1,0 +1,57 @@
+{
+  "slug": "dtv-vs-tourist-visa-runs-cost",
+  "generated": "2026-07-03",
+  "level": "ymyl",
+  "citations": [
+    {
+      "claim": "DTV embassy application fee is a flat 10,000 THB, non-refundable, filed from outside Thailand",
+      "status": "Confirmé",
+      "url": "https://thethaiger.com/guides/visa-information/thailand-digital-nomad-visa",
+      "source": "The Thaiger, DTV guide",
+      "accessed": "2026-07-03",
+      "placement": "inline + sources-block"
+    },
+    {
+      "claim": "The DTV is applied for exclusively through the official Thailand e-Visa portal, from outside Thailand",
+      "status": "Confirmé",
+      "url": "https://thaievisa.go.th",
+      "source": "Thailand e-Visa official portal",
+      "accessed": "2026-07-03",
+      "placement": "inline + sources-block"
+    },
+    {
+      "claim": "DTV in-country extension: +180 days per entry, 1,900 THB, once per entry",
+      "status": "Confirmé",
+      "url": null,
+      "source": "Internal DTV fact-check (docs/dtv-fact-check.md, claim #9), cross-referenced against Siam Legal / ExpatDen / Ask Thailand, dated 2026-06-05",
+      "accessed": "2026-06-05",
+      "placement": "sources-block (no single public URL states this cleanly; precedent set by dtv-visa-cost-breakdown.md and muay-thai-gym-dtv-overcharging.md, both already published)"
+    },
+    {
+      "claim": "Standard tourist visa: 60 days plus one 30-day extension, 90 days maximum per cycle",
+      "status": "Confirmé",
+      "url": null,
+      "source": "Internal DTV fact-check (docs/dtv-fact-check.md, claim #31), dated 2026-06-05, cross-referenced against Thai tourist visa immigration guides",
+      "accessed": "2026-06-05",
+      "placement": "sources-block"
+    },
+    {
+      "claim": "One applicant's reported cost of ~6,800 THB for six months of tourist visa border runs, vs 10,000 THB DTV",
+      "status": "Non vérifié",
+      "url": null,
+      "source": "Reported in a widely-discussed online applicant community in 2026 (per brief, docs/reddit-insights/price-dtv-thailand-2026-06-08.md, theme 4); no individual attribution, not independently verifiable against a single authoritative source",
+      "accessed": null,
+      "placement": "sources-block, presented as one anecdotal example, never as a universal rule"
+    }
+  ],
+  "unverified": [
+    {
+      "claim": "Exact cost of a standard (non-DTV) tourist visa in-country extension, distinct from the DTV's own 1,900 THB extension fee",
+      "reason": "SERP scan (.seo-data/serp-dtv-vs-tourist-visa-runs-cost.json) shows competitor pages citing figures close to the DTV amount (one cites 1,980 THB) but no primary government/immigration source was independently opened and confirmed in this pass (WebFetch/WebSearch tooling unavailable in this session). Per brief instruction, kept as a soft range ('often cited somewhere around 1,900 to 2,000 THB') with an explicit prompt to confirm against a current official source, and carries no link."
+    },
+    {
+      "claim": "2026 regulatory tightening on the tolerated frequency of land border runs",
+      "reason": "The SERP scan notes several competitor pages (tisland.travel, confirmed WebFetch by the prior scan) mention '2026 regulatory changes' and increased scrutiny of frequent land crossings, but no primary Thai immigration/government source was independently opened and confirmed in this pass. Per brief instruction (module E, YMYL caution), the article states this conditionally ('several sources describe closer scrutiny... no single confirmed figure') without a firm cap or a link, and points readers to check current practice at their entry point."
+    }
+  ]
+}

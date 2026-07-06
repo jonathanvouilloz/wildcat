@@ -1,0 +1,69 @@
+{
+  "slug": "cheapest-dtv-soft-power-activity",
+  "generated": "2026-07-03",
+  "level": "ymyl",
+  "citations": [
+    {
+      "claim": "Thai language schools were removed from the DTV's qualifying soft power list since 2025; applicants directed to the Non-Immigrant ED visa instead",
+      "status": "Confirmé",
+      "url": "https://thethaiger.com/guides/visa-information/thailand-digital-nomad-visa",
+      "source": "The Thaiger, Destination Thailand Visa guide",
+      "accessed": "2026-07-03",
+      "placement": "inline"
+    },
+    {
+      "claim": "Qualifying soft power activities are Muay Thai, Thai cuisine, medical treatment, seminars, and art events; general language schools are not on the qualifying list",
+      "status": "Confirmé",
+      "url": "https://www.expatden.com/thailand/destination-thailand-visa/",
+      "source": "ExpatDen, Destination Thailand Visa (DTV): Requirements and Application in 2026",
+      "accessed": "2026-07-03",
+      "placement": "inline"
+    },
+    {
+      "claim": "Muay Thai is one of the officially recognised soft power activities for the DTV",
+      "status": "Confirmé",
+      "url": "https://www.muaythaivisathailand.com/soft-power-and-the-destination-thailand-visa-for-muay-thai-students/",
+      "source": "Muay Thai Visa Thailand, Soft Power and the DTV",
+      "accessed": "2026-07-03",
+      "placement": "inline"
+    },
+    {
+      "claim": "500,000 THB proof of funds requirement, foreign bank accounts accepted, funds must be held at least 3 months",
+      "status": "Confirmé",
+      "url": "https://thethaiger.com/guides/visa-information/thailand-digital-nomad-visa",
+      "source": "The Thaiger, Destination Thailand Visa guide",
+      "accessed": "2026-07-03",
+      "placement": "sources-block"
+    },
+    {
+      "claim": "Muay Thai gym pricing range 7,500-25,000 THB for DTV enrolment documents",
+      "status": "Confirmé",
+      "url": "/blog/muay-thai-gym-dtv-overcharging",
+      "source": "Wildcat internal article (previously sourced and published)",
+      "accessed": "2026-07-03",
+      "placement": "sources-block"
+    },
+    {
+      "claim": "Six-month training length is an observed embassy approval practice through 2025-2026, not a published legal rule",
+      "status": "Confirmé",
+      "url": null,
+      "source": "docs/dtv-fact-check.md (internal, cross-referenced against soft power guidance)",
+      "accessed": "2026-06-05",
+      "placement": "sources-block"
+    }
+  ],
+  "unverified": [
+    {
+      "claim": "Cooking course price around 10,000 THB",
+      "reason": "Sourced from Reddit/applicant community discussion (docs/reddit-insights/price-dtv-thailand-2026-06-08.md); no single authoritative published source states an exact price, since course fees are set by individual schools. Reformulated in prose without linking, consistent with the sourcing approach already published in the same cluster's A1/A2 articles."
+    },
+    {
+      "claim": "Language school price (historical, ~7,500 THB, before its 2025 removal from the qualifying list)",
+      "reason": "Same Reddit/applicant community sourcing as above; the removal itself is Confirmé (2 independent sources) but the specific legacy price point is not independently re-verifiable against a single authority."
+    }
+  ],
+  "critical_finding": {
+    "description": "The brief assumed Thai language schools were a live, currently-qualifying DTV soft power option (per the 2026-06-05 fact-check and Reddit source material, both predating this change). Fact-checking during /seo-sources found 2 independent 2026-07-03-dated sources confirming language schools were removed from Thailand's official qualifying soft power list in 2025, with applicants now redirected to the Non-Immigrant ED visa. Applied the seo-rules.md double-verification standard for negative/changed claims (2 independent sources: The Thaiger + ExpatDen, both dated 2026-07-03). The article was substantively rewritten (beyond the usual citation-only scope of this skill) to reflect this: the 3-way comparison became a 2-way comparison (Muay Thai vs cooking) with language school kept as clearly-labeled historical/discontinued context. This is a real-content correction, not just an added citation, made necessary by the YMYL stakes of publishing an outdated visa eligibility claim.",
+    "recommendation": "Flag this finding back to docs/dtv-fact-check.md and docs/topical-map-dtv-costs.md for a doc update: the topical map's mini-brief for this slug should be corrected so future re-generation doesn't reintroduce the outdated 3-way framing."
+  }
+}

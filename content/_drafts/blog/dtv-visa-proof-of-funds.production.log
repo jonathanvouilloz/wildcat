@@ -1,0 +1,29 @@
+# Production log — dtv-visa-proof-of-funds
+Date : 2026-07-03 18:10
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write     : draft écrit (content/_drafts/blog/dtv-visa-proof-of-funds.draft.md, ~1751 mots)
+- [✓] /humanizer     : 0 em-dash, patterns IA (rule of three, copula avoidance, phrases répétitives "detailed guidance") corrigés, voix Meaw en 1ère personne ajoutée
+- [✓] /seo-sources   : contradiction YMYL résolue. 1 source institutionnelle Confirmée (Siam Legal International, immigration law firm, WebFetch réel) tranchant stocks/crypto en faveur de la position majoritaire (2/3 concurrents). Aucune source gouvernementale (MFA/BOT/ambassade) accessible malgré tentative réelle (thaievisa.go.th = SPA JS non lisible, checklist PDF officiel image.mfa.go.th = scanné sans texte, aucun OCR disponible) — signalé explicitement dans le bloc Sources de l'article ("not by a directly verified government source"). 0 concurrent de niche Muay Thai nommé (muaythaivisathailand.com, dtvvisathai.com reformulés génériquement, non liés). Sidecar : content/_drafts/blog/dtv-visa-proof-of-funds.sources.json
+- [✓] /seo-enrich    : src/content/blog/en/dtv-visa-proof-of-funds.md créé (frontmatter + BlogPosting JSON-LD auto via template [slug].astro). Corrections faites en review : meta description reformulée pour inclure le keyword + CTA verbe, 3 bolds dupliqués ("500,000 THB" ×2, "personal bank account" ×1) dédupliqués et remplacés par 4 nouveaux bolds uniques.
+- [✓] /seo-review    : 1 tour — score final 17/18. Seul fail résiduel : critère 17 (GEO — llm.txt), sévérité Low, gap site-wide hors périmètre d'écriture de cet article (public/llm.txt). Aucun fail Critical/High → tolérable, sortie de boucle après 1 tour.
+- [✓] /generate-cover : src/content/blog/covers/dtv-visa-proof-of-funds.webp (171 kB, preset blog-cover, pipeline template sans API)
+- [✓] /publish-hub    : registre dtv-visa-proof-of-funds → statut published (Content ID a70e858b8ac55f85c788599d)
+
+## Build
+`npm run build` exécuté 2× : 1er run (avant génération cover) a échoué proprement sur `ImageNotFound` (cover pas encore créée, attendu par design du pipeline) ; 2e run (après génération cover) : ✓ 50 pages générées, page `/en/blog/dtv-visa-proof-of-funds` présente dans dist/ et dans sitemap-0.xml.
+
+## Statut final
+PUBLISHED — article publié sur le hub (status=published), contradiction YMYL stocks/crypto tranchée avec une source institutionnelle vérifiée (Siam Legal International), aucune source gouvernementale directe trouvée malgré tentative réelle documentée dans le sidecar sources.json.
+
+## Fails résiduels (si needs_human)
+Aucun (statut published, pas needs_human). Note non bloquante : critère 17 (llm.txt absent, Low, site-wide) — hors scope de cet article, à traiter via `/llm-txt` séparément si souhaité.
+
+## Notes annexes (hors scope d'écriture de ce worker)
+- Maillage retour recommandé par le brief : `/dtv-visa/eligibility` (message `dtv_elig_funds_p2`) ne linke pas encore descendant vers cet article. Suggestion pour un futur commit (hors scope article-producer, qui n'édite pas les fichiers de pages/messages) :
+  | Page existante | Où insérer | Ancre suggérée | Fichier à éditer |
+  |---|---|---|---|
+  | /dtv-visa/eligibility | dans `dtv_elig_funds_p2` (ou juste après) | "a full breakdown of what counts as proof of funds" → /blog/dtv-visa-proof-of-funds | messages/en.json (`dtv_elig_funds_p2`) + `src/pages/[lang]/dtv-visa/eligibility.astro` si un lien en dur est ajouté |
+- Images inline du corps (`/images/blog/dtv-visa-proof-of-funds-2.webp`, `-3.webp`) référencées dans l'article mais pas encore générées (cohérent avec le reste du silo DTV publié, ex. dtv-visa-cost-breakdown.md a le même gap) — backlog `/generate-images`, hors pipeline article-producer.
+- `docs/dtv-fact-check.md` note que le PDF checklist MFA officiel (`image.mfa.go.th`) n'a jamais pu être parsé automatiquement (confirmé à nouveau ici, aucun outil OCR disponible dans cet environnement) — recommandation inchangée : Jonathan/Meaw à l'ouvrir manuellement pour validation finale si un jour jugé nécessaire.

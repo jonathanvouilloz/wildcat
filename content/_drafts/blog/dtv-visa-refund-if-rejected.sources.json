@@ -1,0 +1,45 @@
+{
+  "slug": "dtv-visa-refund-if-rejected",
+  "generated": "2026-07-03",
+  "level": "ymyl",
+  "citations": [
+    {
+      "claim": "The official DTV e-visa application and fee payment system is thaievisa.go.th",
+      "status": "Confirmé",
+      "url": "https://thaievisa.go.th",
+      "source": "Thailand official e-Visa portal (Ministry of Foreign Affairs)",
+      "accessed": "2026-07-03",
+      "placement": "inline"
+    },
+    {
+      "claim": "The 10,000 THB DTV embassy fee is non-refundable regardless of outcome",
+      "status": "Confirmé",
+      "url": "https://thethaiger.com/guides/visa-information/thailand-digital-nomad-visa",
+      "source": "The Thaiger's DTV visa guide",
+      "accessed": "2026-07-03",
+      "placement": "quote + sources-block"
+    },
+    {
+      "claim": "500,000 THB proof-of-funds threshold must sit in a personal bank account under the applicant's own name",
+      "status": "Confirmé",
+      "url": null,
+      "source": "docs/dtv-fact-check.md (#4, #6) — already vetted against MFA checklist, MuayThaiVisaThailand, dtvvisathai during silo fact-check (2026-06-05)",
+      "accessed": "2026-07-03",
+      "placement": "prose (cross-referenced, no new external link needed — repeats an already-vetted silo fact, linked internally to /dtv-visa/eligibility)"
+    }
+  ],
+  "unverified": [
+    {
+      "claim": "\"Some course providers publicly offer a full refund policy\" (reformulated from a real but unnamed third-party provider mentioned in Reddit source material)",
+      "reason": "Brief mandates never naming the real provider (e.g. the Reddit-sourced 'Evo360' example). Kept as generic, unlinkable attribution per brief instruction — not a claim about Wildcat's own policy, no external link possible without naming the provider."
+    },
+    {
+      "claim": "No official/published DTV rejection rate statistic exists",
+      "reason": "Double-checked: (1) no rate found on official MFA/embassy sources checked for this and prior DTV silo work, (2) targeted search (Bing) surfaced no page publishing a DTV rejection rate percentage. Absence confirmed by 2 independent checks per seo-rules.md §2 — kept as a soft claim, no link, no invented number."
+    },
+    {
+      "claim": "Specific documented rejection reasons list (incomplete soft power file, expired documents, plan/paperwork mismatch)",
+      "reason": "General, widely corroborated across DTV guides but no single primary source enumerates them as an official list. Kept as prose without a fabricated authoritative link; consistent with docs/dtv-fact-check.md general findings (funds documentation is the #1 vetted risk factor)."
+    }
+  ]
+}
