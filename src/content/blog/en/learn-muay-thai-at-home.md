@@ -7,7 +7,7 @@ tldr:
   - "Conditioning (skipping, burpees, core, shadowboxing rounds) transfers directly to camp, it is real training."
   - "Clinch, pad work, sparring and the timing that makes Muay Thai feel like Muay Thai require a partner. Full stop."
   - "Home training builds a solid foundation. A camp builds the rest, and the gap between the two is smaller than you think."
-publishDate: 2026-07-10
+publishDate: 2026-08-06
 category: beginners
 cover: ../covers/learn-muay-thai-at-home.webp
 coverAlt: "Can you learn Muay Thai at home — Wildcat Muay Thai Chiang Mai"

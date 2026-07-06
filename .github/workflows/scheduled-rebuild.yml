@@ -1,0 +1,43 @@
+name: Scheduled rebuild (auto-publish)
+
+# Redéploie le site chaque matin pour faire sortir les articles dont la
+# publishDate est atteinte. Le site est 100 % statique : le filtre
+# `publishDate <= Date.now()` (src/lib/blog.ts) ne s'évalue qu'au build,
+# donc un article programmé n'apparaît qu'après un nouveau déploiement.
+#
+# Mécanique : ce workflow tape un Deploy Hook Vercel (URL secrète). Aucune
+# fonction serverless n'est ajoutée au site — il reste statique.
+#
+# Setup requis (une seule fois) :
+#   1. Vercel → Project → Settings → Git → Deploy Hooks → créer un hook
+#      (branche `main`), copier l'URL.
+#   2. GitHub → repo → Settings → Secrets and variables → Actions →
+#      New repository secret : nom `VERCEL_DEPLOY_HOOK`, valeur = l'URL.
+
+on:
+  schedule:
+    # 01:00 UTC = 08:00 à Chiang Mai. Après minuit UTC, donc un article daté
+    # du jour J est bien pris en compte.
+    - cron: "0 1 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy hook
+        env:
+          DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$DEPLOY_HOOK" ]; then
+            echo "::warning::Secret VERCEL_DEPLOY_HOOK absent — rien à déclencher."
+            echo "Ajoute-le dans repo Settings > Secrets > Actions pour activer l'auto-publication."
+            exit 0
+          fi
+          echo "Déclenchement du redéploiement Vercel…"
+          code=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$DEPLOY_HOOK")
+          echo "Réponse Vercel : HTTP $code"
+          if [ "$code" -ge 400 ]; then
+            echo "::error::Le deploy hook a répondu $code."
+            exit 1
+          fi

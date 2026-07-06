@@ -8,7 +8,7 @@ tldr:
   - "Six months of training is the practice immigration favors, but it's not a published legal rule, and no gym can guarantee visa approval."
   - "At Wildcat, the enrolment letter is included in the normal training price: 5,000 THB/month unlimited, 7,000 THB/month for the Fighter program. No separate DTV fee."
   - "Ask what the price covers, whether it's the same as regular training, and what happens if your visa is refused, before you pay anyone."
-publishDate: 2026-07-03
+publishDate: 2026-07-23
 author: "Meaw Boonpradub"
 category: visa
 cover: ../covers/muay-thai-gym-dtv-overcharging.webp
@@ -57,7 +57,7 @@ As our own internal visa review puts it: "Thai immigration practice through 2025
 
 So a gym isn't lying if it offers a one-month enrolment letter. It's misleading if it markets "one month, guaranteed solid file," because that overstates what any single document can do. The real variable isn't how many weeks you paid for. It's whether your full file, proof of funds, travel history, stated plan, hangs together. A one-month letter next to a thin file looks like a shortcut. The same letter next to a coherent six-month plan reads very differently.
 
-No gym controls the embassy's decision. Be wary of anyone who implies otherwise. For the eligibility criteria and process behind that decision, see [the full DTV visa guide](/dtv-visa).
+No gym controls the embassy's decision. Be wary of anyone who implies otherwise. For the eligibility criteria and process behind that decision, see [the full DTV visa guide](/dtv-visa), or [the real cost breakdown of the whole DTV visa](/blog/dtv-visa-cost-breakdown) if you want every layer of the price in one place.
 
 ## Signals of a transparent gym vs an opportunistic one
 
@@ -83,7 +83,7 @@ Wildcat's pricing is public, and the DTV enrolment letter costs nothing extra: i
 
 I write the enrolment letter myself, matched to the training plan the trainee is actually following, along with an attendance record if the embassy or the trainee's file needs one. I've been doing this for years, so I know what a letter should say and what it shouldn't promise.
 
-Compared to the 7,500-25,000 THB range reported elsewhere for the same kind of paperwork, the honest way to read that gap isn't "other gyms are scamming people." It's: look at what's included before comparing numbers side by side. A cheap letter bundled with a mandatory six-month package can cost more overall than a slightly higher letter fee with a flexible one-month plan.
+Compared to the 7,500-25,000 THB range reported elsewhere for the same kind of paperwork, the honest way to read that gap isn't "other gyms are scamming people." It's: look at what's included before comparing numbers side by side. A cheap letter bundled with a mandatory six-month package can cost more overall than a slightly higher letter fee with a flexible one-month plan. Muay Thai isn't the only soft power activity either, see [our comparison of the cheapest DTV soft power options](/blog/cheapest-dtv-soft-power-activity) if you're weighing it against other courses.
 
 Questions about your specific situation? [Ask us anything, we reply on WhatsApp](/contact), and we'll walk through what your file needs, no sales pitch attached.
 

@@ -8,7 +8,7 @@ tldr:
   - "Skip the full gear haul at home. Pack light, buy anything extra locally for a fraction of the price."
   - "A good pair of flip-flops matters more for travel days than for training. You train barefoot."
   - "The best beginner muay thai gloves to try first are the ones at the camp. Buy your own after a week, when you know what you like."
-publishDate: 2026-07-07
+publishDate: 2026-08-03
 category: beginners
 cover: ../covers/muay-thai-gear-beginners.webp
 coverAlt: "Muay Thai gear for beginners, what to bring to a camp in Thailand — Wildcat Muay Thai Chiang Mai"
