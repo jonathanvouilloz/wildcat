@@ -215,7 +215,8 @@ const jsonld = {
   <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(jsonld)} />
 
   {/* Intro scénographique — 1×/session, skip reduced-motion/no-JS */}
-  <LoadingScreen />
+  {/* Désactivé (2026-07-11) — gardé au cas où : décommenter <LoadingScreen /> pour réactiver */}
+  {/* <LoadingScreen /> */}
 
   <main>
     <Hero
