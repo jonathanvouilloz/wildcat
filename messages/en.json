@@ -307,6 +307,8 @@
   "contact_form_name_ph": "Jane Doe",
   "contact_form_email": "Email",
   "contact_form_email_ph": "you@example.com",
+  "contact_form_phone": "Phone / WhatsApp (optional)",
+  "contact_form_phone_ph": "+66 8 1234 5678",
   "contact_intent_legend": "What can we help with?",
   "contact_intent_class": "Book a class",
   "contact_intent_stay": "Plan a stay",

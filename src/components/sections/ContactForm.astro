@@ -123,6 +123,10 @@ const waTexts: Record<string, string> = {
     </Field>
   </div>
 
+  <Field label={m.contact_form_phone()} for="ct-phone" class="narrow">
+    <Input id="ct-phone" name="phone" type="tel" placeholder={m.contact_form_phone_ph()} autocomplete="tel" />
+  </Field>
+
   <!-- Champs contextuels — affichés par :has() selon l'intention cochée -->
   <div class="xtra" data-i="class">
     <div class="pair">
@@ -205,9 +209,13 @@ const waTexts: Record<string, string> = {
 
 <script>
   // Présélection ?intent= (+ legacy ?topic=), sujet email pré-qualifié,
-  // re-câblage du lien WhatsApp et filtrage des champs au submit. Tout
-  // fonctionne sans ce script — il n'apporte que le confort (deep links,
-  // texte wa.me contextualisé, email plus propre côté Meaw).
+  // re-câblage du lien WhatsApp statique, et au submit : ouverture WhatsApp
+  // pré-remplie + email en tâche de fond (voir src/scripts/wa-form.ts). Tout
+  // fonctionne sans ce script — il n'apporte que le confort (deep links, texte
+  // wa.me contextualisé, email plus propre côté Meaw). Sans JS, le POST natif
+  // envoie l'email et le bouton WhatsApp statique reste le secours.
+  import { submitViaWhatsApp, fieldValue, selectText, isChecked } from '../../scripts/wa-form';
+
   const LEGACY: Record<string, string> = { classes: 'class', other: 'general' };
   // Sujets email internes (EN, pour Meaw) — ex-labels de l'API /api/contact.
   const SUBJECTS: Record<string, string> = {
@@ -246,18 +254,67 @@ const waTexts: Record<string, string> = {
     });
     update();
 
-    // Web3Forms reçoit le payload brut : on `disable` les champs contextuels
-    // des intentions non actives au submit (un champ disabled n'est pas
-    // soumis). Fallback no-JS : tout part, email verbeux mais fonctionnel.
-    form.addEventListener('submit', () => {
+    // Message WhatsApp lisible, construit depuis les champs remplis (EN dans
+    // les 2 locales — équipe anglophone). Lu AVANT le disable des .xtra.
+    const buildText = (f: HTMLFormElement) => {
+      const intent = checkedIntent();
+      const lines = [`Hi Wildcat! (${SUBJECTS[intent] ?? 'General'})`];
+      const name = fieldValue(f, 'name');
+      const email = fieldValue(f, 'email');
+      const phone = fieldValue(f, 'phone');
+      if (name) lines.push(`Name: ${name}`);
+      if (email) lines.push(`Email: ${email}`);
+      if (phone) lines.push(`Phone: ${phone}`);
+
+      if (intent === 'class') {
+        const bits: string[] = [];
+        const level = selectText(f, 'cls_level');
+        const date = fieldValue(f, 'cls_date');
+        if (level) bits.push(level);
+        if (date) bits.push(`preferred date ${date}`);
+        if (bits.length) lines.push(`Class: ${bits.join(', ')}`);
+      } else if (intent === 'stay') {
+        const bits: string[] = [];
+        const arrival = fieldValue(f, 'stay_arrival');
+        const duration = selectText(f, 'stay_duration');
+        const people = fieldValue(f, 'stay_people');
+        if (arrival) bits.push(`arriving ${arrival}`);
+        if (duration) bits.push(duration);
+        if (people) bits.push(`${people} ${people === '1' ? 'person' : 'people'}`);
+        if (bits.length) lines.push(`Stay: ${bits.join(', ')}`);
+        const extras: string[] = [];
+        if (isChecked(f, 'stay_acc')) extras.push('accommodation');
+        if (isChecked(f, 'stay_scoot')) extras.push('scooter');
+        if (extras.length) lines.push(`Also interested in: ${extras.join(', ')}`);
+      } else if (intent === 'scooter') {
+        const bits: string[] = [];
+        const model = selectText(f, 'sct_model');
+        const from = fieldValue(f, 'sct_from');
+        const to = fieldValue(f, 'sct_to');
+        if (model) bits.push(model);
+        if (from) bits.push(`from ${from}`);
+        if (to) bits.push(`to ${to}`);
+        if (bits.length) lines.push(`Scooter: ${bits.join(', ')}`);
+      }
+
+      const msg = fieldValue(f, 'message');
+      if (msg) lines.push('', msg);
+      return lines.join('\n');
+    };
+
+    // Email propre : les champs des intentions non actives sont `disabled`
+    // (non soumis). Fallback no-JS : tout part, verbeux mais fonctionnel.
+    const disableInactive = (f: HTMLFormElement) => {
       const active = checkedIntent();
-      form.querySelectorAll<HTMLElement>('.xtra').forEach((box) => {
+      f.querySelectorAll<HTMLElement>('.xtra').forEach((box) => {
         if (box.dataset.i === active) return;
         box
           .querySelectorAll<HTMLInputElement>('input, select, textarea')
           .forEach((field) => (field.disabled = true));
       });
-    });
+    };
+
+    if (base) submitViaWhatsApp(form, { waBase: base, buildText, beforeSubmit: disableInactive });
   });
 </script>
 

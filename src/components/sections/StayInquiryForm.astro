@@ -38,7 +38,13 @@ const durationOptions = [
 const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: v }));
 ---
 
-<form method="POST" action="https://api.web3forms.com/submit" class="sform">
+<form
+  method="POST"
+  action="https://api.web3forms.com/submit"
+  class="sform"
+  data-sform
+  data-wa-base={site.contact.whatsapp}
+>
   <input type="hidden" name="access_key" value={accessKey} />
   <input type="hidden" name="redirect" value={redirectUrl} />
   <input type="hidden" name="subject" value="[Wildcat] Stay & Train inquiry" />
@@ -65,6 +71,10 @@ const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: 
       />
     </Field>
   </div>
+
+  <Field label={m.contact_form_phone()} for="sp-phone" class="narrow">
+    <Input id="sp-phone" name="phone" type="tel" placeholder={m.contact_form_phone_ph()} autocomplete="tel" />
+  </Field>
 
   <div class="trio">
     <Field label={m.contact_stay_arrival()} for="sp-arrival">
@@ -97,6 +107,48 @@ const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: 
   </div>
 </form>
 
+<script>
+  // Au submit : ouverture WhatsApp pré-remplie (chat de Meaw) + email Web3Forms
+  // en tâche de fond. Voir src/scripts/wa-form.ts. Sans JS, le POST natif envoie
+  // l'email (fallback) et le lien WhatsApp statique reste le secours.
+  import { submitViaWhatsApp, fieldValue, selectText, isChecked } from '../../scripts/wa-form';
+
+  document.querySelectorAll<HTMLFormElement>('form[data-sform]').forEach((form) => {
+    const base = form.dataset.waBase;
+
+    // Message EN dans les 2 locales (équipe anglophone) depuis les champs remplis.
+    const buildText = (f: HTMLFormElement) => {
+      const lines = ['Hi Wildcat! (Stay & Train)'];
+      const name = fieldValue(f, 'name');
+      const email = fieldValue(f, 'email');
+      const phone = fieldValue(f, 'phone');
+      if (name) lines.push(`Name: ${name}`);
+      if (email) lines.push(`Email: ${email}`);
+      if (phone) lines.push(`Phone: ${phone}`);
+
+      const bits: string[] = [];
+      const arrival = fieldValue(f, 'stay_arrival');
+      const duration = selectText(f, 'stay_duration');
+      const people = fieldValue(f, 'stay_people');
+      if (arrival) bits.push(`arriving ${arrival}`);
+      if (duration) bits.push(duration);
+      if (people) bits.push(`${people} ${people === '1' ? 'person' : 'people'}`);
+      if (bits.length) lines.push(`Stay: ${bits.join(', ')}`);
+
+      const extras: string[] = [];
+      if (isChecked(f, 'stay_acc')) extras.push('accommodation');
+      if (isChecked(f, 'stay_scoot')) extras.push('scooter');
+      if (extras.length) lines.push(`Also interested in: ${extras.join(', ')}`);
+
+      const msg = fieldValue(f, 'message');
+      if (msg) lines.push('', msg);
+      return lines.join('\n');
+    };
+
+    if (base) submitViaWhatsApp(form, { waBase: base, buildText });
+  });
+</script>
+
 <style>
   .sform {
     display: grid;
@@ -122,6 +174,9 @@ const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: 
   .checks {
     display: grid;
     gap: 10px;
+  }
+  .narrow {
+    max-width: 240px;
   }
   .actions {
     display: flex;

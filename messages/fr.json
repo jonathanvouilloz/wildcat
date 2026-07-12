@@ -307,6 +307,8 @@
   "contact_form_name_ph": "Jeanne Dupont",
   "contact_form_email": "Email",
   "contact_form_email_ph": "toi@exemple.com",
+  "contact_form_phone": "Téléphone / WhatsApp (optionnel)",
+  "contact_form_phone_ph": "+66 8 1234 5678",
   "contact_intent_legend": "On t’aide avec quoi ?",
   "contact_intent_class": "Réserver un cours",
   "contact_intent_stay": "Préparer un séjour",
