@@ -1,0 +1,677 @@
+---
+import '../styles/global.css';
+import Callout from '../components/ui/Callout.astro';
+import Button from '../components/ui/Button.astro';
+
+/**
+ * /dtv-review — page PRIVÉE (noindex, hors sitemap, non liée) que Jonathan
+ * envoie à Meaw pour qu'elle valide les faits DTV publiés sur le site.
+ *
+ * Standalone hors [lang] (comme /styleguide) : son propre <html>, anglais en
+ * dur, import direct de global.css (tokens + fonts + Tailwind). Source de
+ * contenu = docs/dtv-fact-check.md (31 claims vérifiés vs sources externes —
+ * ce qui manque, c'est la confirmation terrain de Meaw).
+ *
+ * Chaque fait : « Looks right » / « Not right » (+ note révélée en CSS :has()).
+ * Progression + notes sauvées en localStorage. Au submit, les items « Not
+ * right » + notes sont compilés et POSTés vers Web3Forms (même clé que les
+ * autres forms → boîte de Jonathan, différenciée par le sujet). Sans JS : la
+ * page reste lisible mais l'envoi/la persistance ne marchent pas (Meaw = mobile
+ * avec JS). Filet : le résumé compilé reste affiché après l'envoi.
+ */
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
+
+type Claim = { id: string; text: string };
+type Group = { title: string; intro?: string; claims: Claim[] };
+
+const groups: Group[] = [
+  {
+    title: '⚠️ Most important — only you can confirm these',
+    intro: 'These are the facts only you know for sure. Please check them carefully.',
+    claims: [
+      {
+        id: 'a_program',
+        text: 'To get the DTV through Muay Thai, the training program on the enrolment letter must be at least 6 months. Short bookings (like one month) almost always get rejected.',
+      },
+      {
+        id: 'a_docs',
+        text: 'Wildcat gives each applicant three documents for their file: a signed enrolment letter, a training schedule, and a paid receipt.',
+      },
+      {
+        id: 'a_age',
+        text: 'The main person applying for the DTV must be at least 20 years old.',
+      },
+      {
+        id: 'a_price',
+        text: 'The prices shown on the website for classes and stay-and-train packages are correct and up to date.',
+      },
+      {
+        id: 'a_kids',
+        text: "Children from about 6 years old can join the kids' classes. (If the real minimum age is different, tell us in the note.)",
+      },
+      {
+        id: 'a_gear',
+        text: "Beginners can borrow gloves and hand wraps at the gym — they don't need to buy their own to start.",
+      },
+      {
+        id: 'a_address',
+        text: 'The camp is in Nong Kwai, Hang Dong, Chiang Mai.',
+      },
+    ],
+  },
+  {
+    title: 'The DTV visa — the basics',
+    claims: [
+      {
+        id: 'b_5yr',
+        text: 'The DTV is valid for 5 years and lets you enter Thailand many times (multiple-entry).',
+      },
+      {
+        id: 'b_180',
+        text: 'Each time you enter Thailand on the DTV, you can stay up to 180 days.',
+      },
+      {
+        id: 'b_ext',
+        text: 'You can extend that stay one time by another 180 days (about 360 days in a row). You can do this again each time you re-enter.',
+      },
+    ],
+  },
+  {
+    title: 'Money you need to show',
+    claims: [
+      {
+        id: 'c_funds',
+        text: 'You need to show about 500,000 THB in savings (proof of funds).',
+      },
+      {
+        id: 'c_personal',
+        text: "The 500,000 THB must be in a personal bank account in the applicant's own name. Company money, investments, or crypto don't count.",
+      },
+      {
+        id: 'c_usd',
+        text: '500,000 THB is roughly 14,500 to 17,000 USD.',
+      },
+    ],
+  },
+  {
+    title: 'Fees and timing',
+    claims: [
+      {
+        id: 'd_fee',
+        text: 'The DTV visa fee is about 10,000 THB, and it is non-refundable.',
+      },
+      {
+        id: 'd_feerange',
+        text: 'The exact fee changes by country — roughly 275 to 1,150 USD depending on where you apply.',
+      },
+      {
+        id: 'd_ext_fee',
+        text: 'Extending your stay inside Thailand by 180 days costs 1,900 THB, once per stay.',
+      },
+      {
+        id: 'd_proc',
+        text: 'Processing usually takes about 5 to 15 working days (sometimes 3 to 6 weeks in busy periods).',
+      },
+    ],
+  },
+  {
+    title: 'The Muay Thai route and applying',
+    claims: [
+      {
+        id: 'e_soft',
+        text: "Muay Thai counts as a Thai 'soft power' activity, which is what makes you eligible for the DTV.",
+      },
+      {
+        id: 'e_abroad',
+        text: 'You must apply from outside Thailand. You cannot apply for or switch to the DTV while inside the country.',
+      },
+      {
+        id: 'e_portal',
+        text: "You apply online through Thailand's official e-Visa website, thaievisa.go.th.",
+      },
+      {
+        id: 'e_cats',
+        text: 'There are three DTV types: Workcation, Soft Power (Muay Thai is here), and Dependent.',
+      },
+    ],
+  },
+  {
+    title: 'Documents for the application',
+    claims: [
+      {
+        id: 'f_passport',
+        text: 'Your passport must be valid for at least 6 more months and have blank pages.',
+      },
+      {
+        id: 'f_statements',
+        text: 'You show 3 to 6 months of bank statements with at least 500,000 THB.',
+      },
+      {
+        id: 'f_insurance',
+        text: 'Health insurance with about 50,000 USD of medical cover — required by some embassies, so applicants should check with theirs.',
+      },
+      {
+        id: 'f_income',
+        text: 'Instead of savings, some embassies accept proof of income of about 50,000 THB per month.',
+      },
+    ],
+  },
+  {
+    title: 'Bringing family (dependents)',
+    claims: [
+      {
+        id: 'g_who',
+        text: 'Dependents can be a legal spouse and children under 20 years old.',
+      },
+      {
+        id: 'g_cap',
+        text: 'There is no limit on the number of dependents you can bring.',
+      },
+      {
+        id: 'g_sep',
+        text: 'Each dependent files their own separate application and pays their own fee.',
+      },
+    ],
+  },
+  {
+    title: 'Living in Thailand on the DTV',
+    claims: [
+      {
+        id: 'h_reentry',
+        text: "Because the DTV is multiple-entry, you don't need a separate re-entry permit to leave and come back.",
+      },
+      {
+        id: 'h_run',
+        text: "Leaving and re-entering Thailand ('a visa run') resets your 180-day stay.",
+      },
+      {
+        id: 'h_tax',
+        text: 'If you spend 180 days or more in Thailand in one calendar year, you become a Thai tax resident.',
+      },
+      {
+        id: 'h_work',
+        text: 'The DTV is not a work permit. You can work remotely for a foreign employer, but you cannot take a Thai job.',
+      },
+    ],
+  },
+  {
+    title: 'Compared to other visas',
+    claims: [
+      {
+        id: 'i_ed',
+        text: 'The ED (student) visa lasts around 1 year through ~90-day extensions, is tied to one school, and needs a re-entry permit to travel.',
+      },
+      {
+        id: 'i_tourist',
+        text: 'A tourist visa gives 60 days plus a 30-day extension — about 90 days maximum.',
+      },
+    ],
+  },
+];
+
+const total = groups.reduce((n, g) => n + g.claims.length, 0);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Wildcat — DTV facts review</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="masthead">
+        <p class="brand">Wildcat</p>
+        <h1 class="h1 title">DTV facts — quick review</h1>
+        <p class="sub">A private page for Meaw. Not on the website menu.</p>
+      </header>
+
+      <Callout variant="tip" theme="stripe" label="How this works">
+        <p>
+          Hi Meaw! Below are the facts our website tells people about the DTV visa. Please read each
+          one and tap <strong>Looks right</strong> or <strong>Not right</strong>. If something is
+          wrong, add a quick note with the correct info.
+        </p>
+        <p>
+          Your answers are saved on this phone automatically, so you can stop and come back. When
+          you're done, tap <strong>Send review</strong> at the bottom and it goes straight to
+          Jonathan. Thank you! 🙏
+        </p>
+      </Callout>
+
+      <div class="progress" aria-hidden="true">
+        <div class="progress-track"><div class="progress-fill" data-progress-bar></div></div>
+        <p class="progress-label"><span data-progress-count>0 / {total}</span> reviewed</p>
+      </div>
+
+      <main class="groups">
+        {
+          groups.map((group) => (
+            <section class="group">
+              <h2 class="h3 group-title">{group.title}</h2>
+              {group.intro && <p class="group-intro">{group.intro}</p>}
+              <div class="claims">
+                {group.claims.map((claim) => (
+                  <div class="claim" data-claim data-id={claim.id} data-section={group.title}>
+                    <p class="claim-txt" data-txt>
+                      {claim.text}
+                    </p>
+                    <div class="verdict" role="group" aria-label="Is this correct?">
+                      <label class="v v-ok">
+                        <input type="radio" name={`v-${claim.id}`} value="ok" />
+                        <span>👍 Looks right</span>
+                      </label>
+                      <label class="v v-no">
+                        <input type="radio" name={`v-${claim.id}`} value="no" />
+                        <span>✏️ Not right</span>
+                      </label>
+                    </div>
+                    <div class="note">
+                      <label for={`note-${claim.id}`}>What's the correct info?</label>
+                      <textarea
+                        id={`note-${claim.id}`}
+                        class="wc-control"
+                        rows="2"
+                        placeholder="Type the correct detail here…"
+                        data-note
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </main>
+
+      <form class="send-box" data-review-form>
+        <!-- honeypot -->
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" data-bot />
+        <p class="send-hint">Done reviewing? Send it to Jonathan.</p>
+        <Button type="submit" variant="gold" arrow>Send review</Button>
+        <button type="button" class="reset" data-reset>Start over</button>
+        <p class="sent" data-sent aria-live="polite" hidden>
+          ✅ Thanks Meaw — your review has been sent to Jonathan.
+        </p>
+        <pre class="summary" data-summary hidden></pre>
+      </form>
+    </div>
+
+    <script define:vars={{ accessKey }}>
+      (function () {
+        const KEY = 'wc-dtv-review-v1';
+        const claims = Array.prototype.slice.call(document.querySelectorAll('[data-claim]'));
+        const total = claims.length;
+        const bar = document.querySelector('[data-progress-bar]');
+        const count = document.querySelector('[data-progress-count]');
+        const form = document.querySelector('[data-review-form]');
+        const bot = document.querySelector('[data-bot]');
+        const sentBox = document.querySelector('[data-sent]');
+        const summaryBox = document.querySelector('[data-summary]');
+        const resetBtn = document.querySelector('[data-reset]');
+
+        let state = {};
+        try {
+          state = JSON.parse(localStorage.getItem(KEY) || '{}') || {};
+        } catch (e) {
+          /* private mode : la page reste utilisable, juste sans mémoire */
+        }
+        function save() {
+          try {
+            localStorage.setItem(KEY, JSON.stringify(state));
+          } catch (e) {
+            /* noop */
+          }
+        }
+
+        function answered() {
+          return claims.filter(function (c) {
+            return state[c.dataset.id] && state[c.dataset.id].v;
+          }).length;
+        }
+        function updateProgress() {
+          const n = answered();
+          if (count) count.textContent = n + ' / ' + total;
+          if (bar) bar.style.width = (total ? Math.round((n / total) * 100) : 0) + '%';
+        }
+
+        // Restauration depuis localStorage.
+        claims.forEach(function (c) {
+          const s = state[c.dataset.id];
+          if (!s) return;
+          if (s.v) {
+            const r = c.querySelector('input[value="' + s.v + '"]');
+            if (r) r.checked = true;
+          }
+          if (s.note) {
+            const t = c.querySelector('[data-note]');
+            if (t) t.value = s.note;
+          }
+        });
+        updateProgress();
+
+        claims.forEach(function (c) {
+          const id = c.dataset.id;
+          c.addEventListener('change', function (e) {
+            if (e.target && e.target.type === 'radio') {
+              state[id] = state[id] || {};
+              state[id].v = e.target.value;
+              save();
+              updateProgress();
+            }
+          });
+          const t = c.querySelector('[data-note]');
+          if (t)
+            t.addEventListener('input', function () {
+              state[id] = state[id] || {};
+              state[id].note = t.value;
+              save();
+            });
+        });
+
+        function compile() {
+          const ok = [];
+          const no = [];
+          const un = [];
+          claims.forEach(function (c) {
+            const s = state[c.dataset.id] || {};
+            const txt = ((c.querySelector('[data-txt]') || {}).textContent || '').trim();
+            const sec = c.dataset.section || '';
+            if (s.v === 'ok') ok.push(1);
+            else if (s.v === 'no') no.push({ sec: sec, txt: txt, note: (s.note || '').trim() });
+            else un.push({ sec: sec, txt: txt });
+          });
+          let msg = 'DTV fact-check review — from Meaw\n';
+          msg +=
+            'Summary: ' +
+            ok.length +
+            ' look right, ' +
+            no.length +
+            ' need fixing, ' +
+            un.length +
+            ' not answered (of ' +
+            total +
+            ').\n';
+          if (no.length) {
+            msg += '\n--- NEEDS FIXING ---\n';
+            no.forEach(function (x, i) {
+              msg += '\n' + (i + 1) + '. [' + x.sec + ']\n' + x.txt + '\n→ Meaw: ' + (x.note || '(no note)') + '\n';
+            });
+          }
+          if (un.length) {
+            msg += '\n--- NOT ANSWERED ---\n';
+            un.forEach(function (x) {
+              msg += '• [' + x.sec + '] ' + x.txt + '\n';
+            });
+          }
+          return msg;
+        }
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const msg = compile();
+          if (summaryBox) {
+            summaryBox.textContent = msg;
+            summaryBox.hidden = false;
+          }
+          if (sentBox) sentBox.hidden = false;
+          sentBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Clé absente ou honeypot coché → pas d'envoi, mais le résumé reste à l'écran.
+          if (!accessKey || (bot && bot.checked)) return;
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({
+              access_key: accessKey,
+              subject: '[Wildcat] DTV fact-check — Meaw',
+              from_name: 'Meaw (DTV review)',
+              message: msg,
+            }),
+          }).catch(function () {
+            /* le merci est déjà affiché — l'échec réseau ne casse rien */
+          });
+        });
+
+        if (resetBtn)
+          resetBtn.addEventListener('click', function () {
+            state = {};
+            save();
+            claims.forEach(function (c) {
+              c.querySelectorAll('input[type="radio"]').forEach(function (r) {
+                r.checked = false;
+              });
+              const t = c.querySelector('[data-note]');
+              if (t) t.value = '';
+            });
+            if (summaryBox) summaryBox.hidden = true;
+            if (sentBox) sentBox.hidden = true;
+            updateProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+      })();
+    </script>
+
+    <style>
+      body {
+        background: var(--cream);
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 40px 20px 80px;
+      }
+
+      /* ---- Masthead ---- */
+      .masthead {
+        margin-bottom: 22px;
+      }
+      .brand {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 15px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+        margin: 0 0 6px;
+      }
+      .title {
+        margin: 0;
+      }
+      .sub {
+        margin: 8px 0 0;
+        color: var(--ink-3);
+        font-size: 14.5px;
+      }
+
+      /* ---- Progress (sticky) ---- */
+      .progress {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        margin: 22px 0 6px;
+        padding: 12px 0 10px;
+        background: color-mix(in srgb, var(--cream), #fff 30%);
+        backdrop-filter: blur(4px);
+      }
+      .progress-track {
+        height: 8px;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--forest) 14%, transparent);
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        width: 0%;
+        border-radius: 999px;
+        background: var(--gold);
+        transition: width 0.3s ease;
+      }
+      .progress-label {
+        margin: 7px 0 0;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--forest);
+      }
+
+      /* ---- Groups & claims ---- */
+      .groups {
+        display: grid;
+        gap: 34px;
+        margin-top: 26px;
+      }
+      .group-title {
+        margin: 0 0 4px;
+      }
+      .group-intro {
+        margin: 0 0 14px;
+        color: var(--ink-2);
+        font-size: 14.5px;
+      }
+      .claims {
+        display: grid;
+        gap: 14px;
+      }
+      .claim {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--r-md);
+        box-shadow: var(--shadow-sm);
+        padding: 16px 18px;
+      }
+      .claim-txt {
+        margin: 0 0 14px;
+        font-size: 16px;
+        line-height: 1.55;
+        color: var(--ink);
+      }
+
+      .verdict {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .v {
+        flex: 1 1 140px;
+        cursor: pointer;
+      }
+      .v input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .v span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 11px 14px;
+        border: 1.5px solid var(--line-2);
+        border-radius: 999px;
+        background: var(--soft);
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 14.5px;
+        color: var(--ink-2);
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease,
+          color 0.15s ease;
+      }
+      .v-ok:has(input:checked) span {
+        border-color: var(--forest);
+        background: color-mix(in srgb, var(--forest), #fff 88%);
+        color: var(--forest-deep);
+      }
+      .v-no:has(input:checked) span {
+        border-color: var(--error);
+        background: color-mix(in srgb, var(--error), #fff 88%);
+        color: var(--error);
+      }
+      .v:has(input:focus-visible) span {
+        outline: 3px solid var(--gold);
+        outline-offset: 2px;
+      }
+
+      /* Note révélée quand « Not right » est coché (CSS pur, no-JS ok) */
+      .note {
+        display: none;
+        margin-top: 12px;
+      }
+      .claim:has(.v-no input:checked) .note {
+        display: grid;
+        gap: 6px;
+      }
+      .note label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 13.5px;
+        color: var(--error);
+      }
+
+      /* ---- Send box ---- */
+      .send-box {
+        margin-top: 40px;
+        padding: 22px;
+        border: 1px dashed var(--line-2);
+        border-radius: var(--r-md);
+        background: var(--soft);
+        display: grid;
+        justify-items: start;
+        gap: 12px;
+      }
+      .send-hint {
+        margin: 0;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--forest);
+      }
+      .hp {
+        position: absolute;
+        opacity: 0;
+        width: 1px;
+        height: 1px;
+        pointer-events: none;
+      }
+      .reset {
+        border: none;
+        background: none;
+        padding: 0;
+        color: var(--ink-3);
+        font-size: 13.5px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .sent {
+        margin: 4px 0 0;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 15.5px;
+        color: var(--forest);
+      }
+      .summary {
+        width: 100%;
+        margin: 6px 0 0;
+        padding: 14px;
+        border-radius: var(--r-sm);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        font-size: 12.5px;
+        line-height: 1.5;
+        color: var(--ink-2);
+        white-space: pre-wrap;
+        overflow-x: auto;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .progress-fill,
+        .v span {
+          transition: none;
+        }
+      }
+    </style>
+  </body>
+</html>
