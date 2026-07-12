@@ -92,16 +92,21 @@ const tapeRight = seedPick(title + 's', 2) === 1;
                 <img src={image.src} alt="" loading="lazy" />
               </div>
             )}
-            <div class="s-inner" data-animate="fade-up">
-              {hand && <p class="hand">{hand}</p>}
-              <h2>
-                {title}{' '}<span class="em on-dark">{titleEm}</span>
-                {titleAfter && ` ${titleAfter}`}
-              </h2>
-              {sub && <p class="sub">{sub}</p>}
-              <div class="cta-row">
-                <Button href={ctaPrimary.href} variant="gold" arrow>{ctaPrimary.label}</Button>
-                {ctaSecondary && <Button href={ctaSecondary.href} variant="outline" onDark>{ctaSecondary.label}</Button>}
+            <div class="s-inner">
+              {/* wrapper d'anim séparé : data-animate pose un transform (translateY
+                  puis none) qui écraserait le scaleX de contre-flip de .s-inner —
+                  cf. piège « animation + transform seedé jamais sur le même nœud ». */}
+              <div class="s-anim" data-animate="fade-up">
+                {hand && <p class="hand">{hand}</p>}
+                <h2>
+                  {title}{' '}<span class="em on-dark">{titleEm}</span>
+                  {titleAfter && ` ${titleAfter}`}
+                </h2>
+                {sub && <p class="sub">{sub}</p>}
+                <div class="cta-row">
+                  <Button href={ctaPrimary.href} variant="gold" arrow>{ctaPrimary.label}</Button>
+                  {ctaSecondary && <Button href={ctaSecondary.href} variant="outline" onDark>{ctaSecondary.label}</Button>}
+                </div>
               </div>
             </div>
           </div>
