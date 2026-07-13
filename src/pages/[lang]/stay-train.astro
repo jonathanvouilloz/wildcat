@@ -125,6 +125,21 @@ const faqItems = [
     a: m.stay_faq_a6(),
     link: { label: m.stay_faq_l6(), href: p('/dtv-visa') },
   },
+  { q: m.stay_faq_q7(), a: m.stay_faq_a7() },
+  {
+    q: m.stay_faq_q8(),
+    a: m.stay_faq_a8(),
+    link: { label: m.stay_faq_l8(), href: '#plan' },
+  },
+  { q: m.stay_faq_q9(), a: m.stay_faq_a9() },
+];
+
+// Semaine type — rythme d'une journée (#week). FeatureGrid réutilisé (4 phases).
+const weekPhases = [
+  { icon: 'tabler:sunrise', title: m.stay_week_p1_t(), body: m.stay_week_p1_b() },
+  { icon: 'tabler:sun', title: m.stay_week_p2_t(), body: m.stay_week_p2_b() },
+  { icon: 'tabler:sunset-2', title: m.stay_week_p3_t(), body: m.stay_week_p3_b() },
+  { icon: 'tabler:moon', title: m.stay_week_p4_t(), body: m.stay_week_p4_b() },
 ];
 
 // FAQPage JSON-LD — même contenu que la FAQ visible (liens exclus du texte).
@@ -211,6 +226,7 @@ const faqJsonld = {
           <h2 class="h2 mt-2 mb-4">{m.stay_acc_title()}</h2>
           <p class="body-copy">{m.stay_acc_body1()}</p>
           <p class="body-copy">{m.stay_acc_body2()}</p>
+          <p class="body-copy">{m.stay_acc_body3()}</p>
           <div class="mt-6">
             <Button href="#plan" variant="forest" arrow>{m.stay_acc_cta()}</Button>
           </div>
@@ -254,6 +270,7 @@ const faqJsonld = {
           <h2 class="h2 mt-2 mb-4">{m.stay_life_title()}</h2>
           <p class="body-copy">{m.stay_life_body1()}</p>
           <p class="body-copy">{m.stay_life_body2()}</p>
+          <p class="body-copy">{m.stay_life_body3()}</p>
           <p class="beg-note">
             {m.stay_life_scoot_note()}{' '}
             <a class="ilink" href={p('/stay-train/scooter-rental')}>{m.stay_life_scoot_link()}</a>.
@@ -268,6 +285,16 @@ const faqJsonld = {
         {/* entre deux sessions — abdos sous les sacs, ouvert sur la rue (batch 2026-06-06) */}
         <img src="/assets/camp-life.webp" alt={m.stay_life_title()} loading="lazy" />
       </div>
+    </Section>
+
+    <Section id="week">
+      <div class="block-head" data-animate="fade-up">
+        <SectionHead>{m.stay_week_head()}</SectionHead>
+        <h2 class="h2 mt-2 mb-4">{m.stay_week_title()}</h2>
+        <p class="body-copy">{m.stay_week_intro()}</p>
+      </div>
+      <FeatureGrid items={weekPhases} />
+      <p class="beg-note">{m.stay_week_arc()}</p>
     </Section>
 
     {/* la section DTV (forest) mord vers le haut sur le life (soft) */}
