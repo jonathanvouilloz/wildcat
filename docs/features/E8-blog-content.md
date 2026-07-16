@@ -2,6 +2,26 @@
 
 **Complexité : M · Statut : EN COURS** — moteur DONE, M1 (4 articles EN + covers) DONE 2026-06-11, **M2 beginners (4 articles EN + covers) DONE 2026-06-13** (topical map `docs/topical-map-beginners.md`), **hub `/chiang-mai-guide` DONE 2026-06-13**, **cluster DTV-coûts COMPLET 2026-07-03 (7/7 articles publiés, échelonnés dans le calendrier édito)**
 
+## Etat session 2026-07-16 (fix cannibalisation « coût »)
+
+**Fait :**
+- **Audit `/seo-cannibalisation` complet** sur `sc-domain:wildcatmuaythai.com` (GSC 15/04→14/07, `--min-impressions 2`, marque écartée) → **1 seul vrai conflit de contenu vivant** sur tout le site. Rapport + verdicts A/B/C écrits dans `.seo-data/cannibalisation-wildcatmuaythai-com-2026-04-15_to_2026-07-14.json`.
+- **Conflit Type B désambiguïsé** : le blog `/blog/muay-thai-training-thailand-cost` (pos 67) et `/dtv-visa/long-stay-training` (pos 87) se battaient sur « cost of muay thai training in thailand » (titles jumeaux, silos `/blog` vs `/dtv-visa`). Fix doctrine (différenciation + maillage croisé, **pas de 301**) : blog garde le « coût générique » ; page DTV **re-scopée « budget long séjour SUR DTV »** — `dtv_lst_meta_title` / `hero_title` / `hero_title_em` / `intro_title` réécrits EN+FR + **2 nouvelles clés** `dtv_lst_costguide_line`/`_link`.
+- **Lien retour DTV → blog ajouté** (`long-stay-training.astro`, après p1, **EN-only** car blog EN-only → `p('/fr/blog…')` = 404). Sens blog → DTV existait déjà (article L147).
+- **Bonus** : 3 liens frères cassés dans l'article cost (`/chiang-mai-vs-{phuket,bangkok}-muay-thai` **sans `/blog`** → 404) corrigés.
+- **Vérifs** : parité messages **1530=1530**, `npm run build` vert (47 pages), HTML compilé conforme (title/H1 EN neufs, lien blog présent EN / absent FR).
+
+**Prochain :** rien de bloquant sur ce fix (mesure aval = re-run `/seo-cannibalisation` dans ~3-4 sem. après réindexation, le conflit doit disparaître). Backlog E8 inchangé : backlinks descendants silo→blog (topical-map DTV-coûts), puis prochain cluster (`structure-blog.md` M1-M6) — ⚠️ **burning season M4 avant décembre**.
+
+**Pièges :**
+- **3 conflits « écartés » de l'audit ≠ à corriger** : 2 Triades SERP légitimes (silo DTV FR ; head term « dtv visa » où agent pos 2 / how-to pos 9 cartonnent) + 1 faux positif (image `_astro` + sa page). Résidus infra **parqués** : home http/https, trailing-slash `/fr/dtv-visa/` (canonical + `trailingSlash:'never'` → self-heal).
+- **Fantôme `muay-thai-for-women` = artefact calendrier**, pas une suppression : `draft:false` + `publishDate:2026-07-30` → 404 temporaire, **se republie seul le 30/07**. Aucune 301.
+- **Lien service → blog** = `localePath(lang, '/blog/…')` (préfixe `/en`), à ne PAS confondre avec les liens **dans** le markdown blog qui s'écrivent `/blog/…` sans locale (rehype préfixe). Blog EN-only → tout cross-link service→blog doit être gardé `lang === 'en'`.
+
+**Commit :** [3e988ca] fix(seo): re-scope /dtv-visa/long-stay-training on DTV long-stay budget (anti-cannibalisation vs blog cost guide)
+
+---
+
 ## Etat session 2026-07-03 (suite — cluster DTV-coûts complet + calendrier)
 
 **Fait :**
@@ -42,13 +62,17 @@
 **Commit :** [e9b031d] feat(blog): topical map DTV-coûts + article A2 « gyms overcharging DTV » (+ [9b545a2] fix title≠H1)
 
 ## Carte du code
-> Mise à jour : 2026-07-03
+> Mise à jour : 2026-07-16
 
 | Fichier | Rôle |
 |---------|------|
 | `src/content.config.ts` | Schéma zod collection `blog` — champ `h1` optionnel (distinct du `title`) ajouté 2026-07-03 |
 | `src/pages/[lang]/blog/[slug].astro` | Template article — rend `<h1>{post.data.h1 ?? post.data.title}</h1>` (fallback title) ; `<title>` + JSON-LD `headline` restent sur `title` |
 | `src/lib/blog.ts` | Helpers collection (`getPostsByLang`/`getAlternates`/`getRelated`/`getPostsByCategory`) — `isVisible()` = mécanisme de scheduling édito (draft + publishDate futur → invisible en PROD, visible en dev) |
+| `src/pages/[lang]/dtv-visa/long-stay-training.astro` | Page « budget long séjour SUR DTV » — re-scopée 2026-07-16 (anti-cannibalisation) : lien retour vers blog cost guide inséré après p1, **gardé `lang === 'en'`** (blog EN-only) |
+| `messages/{en,fr}.json` | Clés `dtv_lst_*` de la page long-stay — title/H1/H2 re-scopés budget-DTV + `dtv_lst_costguide_line`/`_link` (lien blog) ajoutées 2026-07-16 |
+| `src/content/blog/en/muay-thai-training-thailand-cost.md` | Article **owner du « coût générique »** (ne pas re-scoper) ; 3 liens frères `/chiang-mai-vs-*` corrigés `/blog/…` 2026-07-16 |
+| `.seo-data/cannibalisation-wildcatmuaythai-com-2026-04-15_to_2026-07-14.json` | Rapport audit cannibalisation + verdicts A/B/C/Triade (source de vérité locale, `/seo` ne le rend pas encore) |
 | `docs/topical-map-dtv-costs.md` | Contrat de production du cluster DTV-coûts (7 mini-briefs A1-A7 + maillage + cannibalisation) — mis à jour 2026-07-03 (correction langue school retirée du soft power 2025) |
 | `docs/dtv-fact-check.md` | Fact-check YMYL du silo DTV — #15 mis à jour 2026-07-03 (soft power activities 2025-2026, retrait langue) |
 | `src/content/blog/en/dtv-visa-cost-breakdown.md` | A1 — sous-hub du cluster coût, publié en premier (bloquant le fan-out) |

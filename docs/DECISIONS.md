@@ -4,6 +4,13 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 
 ---
 
+### 2026-07-16 | Cannibalisation « coût » : différenciation intention (pas de 301), blog owner du générique
+- **Contexte** : audit `/seo-cannibalisation` (GSC) → 1 seul vrai conflit vivant sur le site. `/blog/muay-thai-training-thailand-cost` (pos 67) et `/dtv-visa/long-stay-training` (pos 87) se disputaient « cost of muay thai training in thailand » — même intention, titles jumeaux, silos différents (`/blog` vs `/dtv-visa`) → signal réparti, les deux perdent. Canonical impuissant (chaque page légitimement self-canonical).
+- **Choix** (doctrine `cannibalisation.md` Type B) : **différenciation + maillage croisé, pas de fusion ni 301**. Le blog reste l'owner de l'intention générique « coût » ; la page DTV est re-scopée sur son intention propre « budget d'un long séjour SUR visa DTV » (title/H1/H2 réécrits EN+FR) ; lien retour DTV→blog ajouté (EN-only) pour router la requête générique vers le blog.
+- **Alternatives** : 301 de la page DTV vers le blog — écarté (les deux pages sont légitimes, micro-intentions séparables : coût générique vs budget long-séjour DTV ; une 301 tuerait la page DTV qui a sa propre raison d'être) ; ne rien toucher — écarté (le splitting persiste tant que les deux titles restent jumeaux).
+- **Parqués** (hors cannibalisation) : home http/https, trailing-slash `/fr/dtv-visa/` (self-heal via canonical + `trailingSlash:'never'`), fantôme `muay-thai-for-women` (404 = artefact `publishDate` futur, se republie le 30/07, aucune 301).
+- **Portée** : repo (commit 3e988ca) ; rapport local `.seo-data/cannibalisation-*.json` (le hub `/seo` ne rend pas encore le type `cannibalization`).
+
 ### 2026-07-03 | Blog : champ frontmatter `h1` distinct du `title` + skill `/seo-sources`
 - **Contexte** : le template E8 `[slug].astro` rendait `<h1>{post.data.title}</h1>` et le `<title>` sortait du même champ → title == H1 sur les 14 articles (violation Critical `/seo-review`, que `/seo-brief` + `/seo-enrich` imposaient déjà). Séparément, aucune étape du pipeline n'ouvrait de vraies sources externes → sections « Sources » en prose sans URL (faiblesse YMYL/GEO).
 - **Choix** : (1) champ `h1: z.string().optional()` au schéma `blog`, template `{post.data.h1 ?? post.data.title}` (fallback title, zéro régression) ; `<title>`/JSON-LD `headline` restent sur `title`. (2) Skill `/seo-sources` (fetch WebFetch réel + triple-statut `seo-rules.md`, seul un `Confirmé` devient un lien), inséré Étape 3 de `@article-producer` (après humanizer, avant enrich).
