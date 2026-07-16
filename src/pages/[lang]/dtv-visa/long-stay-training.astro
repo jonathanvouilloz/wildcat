@@ -125,6 +125,12 @@ const faqItems = [
         <p>{m.dtv_lst_disclaimer()}</p>
       </Callout>
       <p class="body-p">{m.dtv_lst_intro_p1()}</p>
+      {lang === 'en' && (
+        <p class="body-p">
+          {m.dtv_lst_costguide_line()}
+          <a class="ilink" href={p('/blog/muay-thai-training-thailand-cost')}>{m.dtv_lst_costguide_link()}</a>.
+        </p>
+      )}
       <p class="body-p">
         {m.dtv_lst_intro_p2()}
         <a class="ilink" href={p('/dtv-visa')}>{m.dtv_lst_legal_pillar_link()}</a>.

@@ -117,7 +117,7 @@ This is the table most people are looking for. It combines training, accommodati
 
 **Chiang Mai** is consistently **30–40% cheaper than Phuket** and **40–50% cheaper than Bangkok** for a comparable training lifestyle. The quality of training in Chiang Mai (technical coaches, serious atmosphere, smaller group sessions at most camps) is not a step down from Phuket. The cost gap is purely geographic.
 
-Two related articles if you want a deeper comparison: [Chiang Mai vs Phuket for Muay Thai training](/chiang-mai-vs-phuket-muay-thai) and [Chiang Mai vs Bangkok for Muay Thai](/chiang-mai-vs-bangkok-muay-thai).
+Two related articles if you want a deeper comparison: [Chiang Mai vs Phuket for Muay Thai training](/blog/chiang-mai-vs-phuket-muay-thai) and [Chiang Mai vs Bangkok for Muay Thai](/blog/chiang-mai-vs-bangkok-muay-thai).
 
 ---
 
@@ -200,7 +200,7 @@ Budget a minimum of 24,000 THB (~$670) per month for a no-frills training lifest
 
 ### Is Chiang Mai or Phuket cheaper for Muay Thai training?
 
-Chiang Mai is consistently 30–40% cheaper than Phuket for a comparable training lifestyle. Training fees, accommodation, and food all cost less in Chiang Mai. The training quality at established Chiang Mai camps is equal to Phuket's major operations; the cost gap is purely geographic. See the full comparison in [Chiang Mai vs Phuket for Muay Thai training](/chiang-mai-vs-phuket-muay-thai).
+Chiang Mai is consistently 30–40% cheaper than Phuket for a comparable training lifestyle. Training fees, accommodation, and food all cost less in Chiang Mai. The training quality at established Chiang Mai camps is equal to Phuket's major operations; the cost gap is purely geographic. See the full comparison in [Chiang Mai vs Phuket for Muay Thai training](/blog/chiang-mai-vs-phuket-muay-thai).
 
 ### What is the cost of a Muay Thai course for a DTV visa?
 
