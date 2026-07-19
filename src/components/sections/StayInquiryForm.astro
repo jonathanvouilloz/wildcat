@@ -6,6 +6,7 @@ import Select from '../ui/forms/Select.astro';
 import Textarea from '../ui/forms/Textarea.astro';
 import Checkbox from '../ui/forms/Checkbox.astro';
 import Button from '../ui/Button.astro';
+import WhatsappSubmitModal from './WhatsappSubmitModal.astro';
 import { site } from '../../config/site';
 import { waLink } from '../../lib/whatsapp';
 import { m } from '../../paraglide/messages.js';
@@ -107,6 +108,9 @@ const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: 
   </div>
 </form>
 
+<WhatsappSubmitModal />
+
+
 <script>
   // Au submit : ouverture WhatsApp pré-remplie (chat de Meaw) + email Web3Forms
   // en tâche de fond. Voir src/scripts/wa-form.ts. Sans JS, le POST natif envoie
@@ -145,7 +149,8 @@ const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: 
       return lines.join('\n');
     };
 
-    if (base) submitViaWhatsApp(form, { waBase: base, buildText });
+    const modal = document.querySelector<HTMLDialogElement>('dialog[data-wa-modal]');
+    if (base) submitViaWhatsApp(form, { waBase: base, buildText, modal });
   });
 </script>
 

@@ -11,6 +11,7 @@ import StayInquiryForm from '../../components/sections/StayInquiryForm.astro';
 import FeatureGrid from '../../components/sections/FeatureGrid.astro';
 import { Icon } from 'astro-icon/components';
 import PricingTable from '../../components/sections/PricingTable.astro';
+import LongStayPackages from '../../components/sections/LongStayPackages.astro';
 import Faq from '../../components/sections/Faq.astro';
 import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
@@ -217,6 +218,9 @@ const faqJsonld = {
         </div>
       </div>
       <p class="pack-honest">{m.stay_pack_honest()}</p>
+      <div class="mt-7">
+        <LongStayPackages lang={lang} />
+      </div>
     </Section>
 
     <Section id="accommodation" soft>

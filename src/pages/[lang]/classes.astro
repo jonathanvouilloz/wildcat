@@ -7,6 +7,7 @@ import Card from '../../components/ui/Card.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
 import PageHero from '../../components/sections/PageHero.astro';
 import ProgramGrid from '../../components/sections/ProgramGrid.astro';
+import LongStayPackages from '../../components/sections/LongStayPackages.astro';
 import DaySchedule from '../../components/sections/DaySchedule.astro';
 import Faq from '../../components/sections/Faq.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
@@ -173,6 +174,9 @@ const faqItems = [
         {m.classes_price_longstay_2()}{' '}
         <a class="ilink" href={p('/dtv-visa/long-stay-training')}>{m.classes_price_link_dtv()}</a>{m.classes_price_longstay_3()}
       </p>
+      <div class="mt-7">
+        <LongStayPackages lang={lang} />
+      </div>
     </Section>
 
     <Section>

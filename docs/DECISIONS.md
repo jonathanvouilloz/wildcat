@@ -138,6 +138,13 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 - **Découplage assumé** : le statut `published` du hub jlabs-content-hub trace l'avancement de production (article écrit/review/publié dans le repo), PAS la visibilité live sur le site — les deux ne doivent jamais être confondus. Un article peut être `status=published` au hub et invisible sur le site tant que son `publishDate` n'est pas atteint.
 - **Alternative écartée** : ajouter un champ `scheduledDate` séparé — rejeté, redondant avec un champ qui fait déjà le travail et qui est le seul lu par `isVisible()`.
 
+## 2026-07-19 — Modal WhatsApp au submit + forfaits long-stay sélectionnables
+
+- **Constat** : soumettre un formulaire ouvrait WhatsApp *directement* dans un nouvel onglet (`window.open` dans `wa-form.ts`), en plus de l'email — brutal juste après un submit. Et Wildcat a 4 forfaits d'entraînement long-stay (DTV) qui n'existaient nulle part dans le code.
+- **Décision (modal)** : au submit (JS actif), l'email part en fond puis un `<dialog>` in-site s'ouvre (aperçu du message + bouton « Envoyer sur WhatsApp »). WhatsApp ne s'ouvre plus qu'au clic. Le modal **remplace la redirection `?sent=1`** (on reste sur la page) ; la bannière `?sent=1` ne sert plus qu'au fallback no-JS. Helper partagé `wa-form.ts` → change les 2 forms d'un coup. Fallback `window.open` conservé si le modal manque.
+- **Décision (forfaits)** : `site.pricing.longStay` (pack30 12 000 / pack50 17 000 / unlimited6 24 000 *populaire* / unlimited12 36 000), **coexiste** avec le pricing court-terme. Cartes via `LongStayPackages.astro` (réutilise `PricingCard`/`PricingTable` + prop `cols=4`) sur `/dtv-visa/long-stay-training`, `/classes#pricing`, `/stay-train#packages`. Sélection = cartes → deep-link `/contact?intent=dtv&package=<key>` → dropdown pré-rempli sur l'intent DTV. La page DTV long-stay lève sa doctrine « ne vend pas de package ».
+- **Alternatives écartées** : (1) date-picker custom — demandé puis retiré par Jonathan, on garde les `input type="date"` natifs ; (2) dropdown package sur plusieurs intents — rattaché à DTV uniquement (ce sont des « DTV packages ») ; (3) modal + redirect banner — écarté, le modal EST la confirmation.
+
 ## Décisions EN ATTENTE (questions ouvertes restantes)
 
 | # | Sujet | Options | Impact |

@@ -11,6 +11,7 @@ import Faq from '../../../components/sections/Faq.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
 import BudgetEstimator from '../../../components/interactive/BudgetEstimator.astro';
+import LongStayPackages from '../../../components/sections/LongStayPackages.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
 import { waLink } from '../../../lib/whatsapp';
@@ -22,8 +23,10 @@ import { mapTestimonial } from '../../../lib/testimonials';
 import { m } from '../../../paraglide/messages.js';
 
 // Satellite DTV — intersection long-stay × coût × DTV (brief dtv-long-stay-training.md).
-// Ne vend PAS de package (renvoi /stay-train) et ne re-explique PAS le process visa
-// (renvoi eligibility / how-to-apply). Prix training = site.ts uniquement.
+// Ne re-explique PAS le process visa (renvoi eligibility / how-to-apply). Prix
+// training = site.ts uniquement. MAJ 2026-07-19 : présente désormais les forfaits
+// long-stay (LongStayPackages, #packages) — c'est LA page « DTV package for
+// Muay Thai » ; l'ancienne doctrine « ne vend pas de package » est levée ici.
 export function getStaticPaths() {
   return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
 }
@@ -220,6 +223,11 @@ const faqItems = [
 
       <h3 class="h3 mt-7">{m.dtv_lst_cities_title()}</h3>
       <p class="body-p">{m.dtv_lst_cities_body()}</p>
+    </Section>
+
+    <!-- H2 — forfaits long-stay (LongStayPackages, deep-link vers le form DTV) -->
+    <Section soft id="packages">
+      <LongStayPackages lang={lang} />
     </Section>
 
     <!-- H2 — how the DTV makes it legal (short version, renvois anti-duplication) -->

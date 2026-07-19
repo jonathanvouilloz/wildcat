@@ -6,6 +6,7 @@ import Select from '../ui/forms/Select.astro';
 import Textarea from '../ui/forms/Textarea.astro';
 import Checkbox from '../ui/forms/Checkbox.astro';
 import Button from '../ui/Button.astro';
+import WhatsappSubmitModal from './WhatsappSubmitModal.astro';
 import { site } from '../../config/site';
 import { waLink } from '../../lib/whatsapp';
 import { m } from '../../paraglide/messages.js';
@@ -64,6 +65,25 @@ const modelOptions = [
   ...site.scooterFleet.map((s) => ({ value: s.key, label: s.name })),
   { value: 'not-sure', label: m.contact_sct_model_any() },
 ];
+// Forfaits long-stay (site.ts) — label = nom · prix (séparateur ·, pas d'em-dash).
+// `as const` → union hétérogène ; on normalise via un type à champs optionnels.
+type LsPackage = {
+  key: string;
+  price: number;
+  months: number;
+  classes?: number;
+  unlimited?: boolean;
+  popular?: boolean;
+};
+const longStay = site.pricing.longStay as readonly LsPackage[];
+const cur = site.pricing.currency;
+const fmt = (n: number) => n.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
+const pkgName = (p: LsPackage) =>
+  p.unlimited ? m.pricing_ls_name_unlimited({ months: p.months }) : m.pricing_ls_name_pack({ classes: p.classes ?? 0 });
+const packageOptions = longStay.map((p) => ({
+  value: p.key,
+  label: `${pkgName(p)} · ${fmt(p.price)} ${cur}`,
+}));
 
 // Textes wa.me pré-remplis par intention (le script swap le href ; fallback
 // no-JS = texte general).
@@ -176,6 +196,12 @@ const waTexts: Record<string, string> = {
     </Field>
   </div>
 
+  <div class="xtra" data-i="dtv">
+    <Field label={m.contact_dtv_package()} for="ct-dtv-package" class="narrow">
+      <Select id="ct-dtv-package" name="dtv_package" placeholder={m.contact_form_choose_ph()} options={packageOptions} />
+    </Field>
+  </div>
+
   <Field label={m.contact_form_msg()} for="ct-msg" required>
     <Textarea id="ct-msg" name="message" rows={6} placeholder={m.contact_form_msg_ph()} required />
   </Field>
@@ -207,6 +233,9 @@ const waTexts: Record<string, string> = {
   </div>
 </form>
 
+<WhatsappSubmitModal />
+
+
 <script>
   // Présélection ?intent= (+ legacy ?topic=), sujet email pré-qualifié,
   // re-câblage du lien WhatsApp statique, et au submit : ouverture WhatsApp
@@ -228,11 +257,18 @@ const waTexts: Record<string, string> = {
 
   document.querySelectorAll<HTMLFormElement>('form[data-cform]').forEach((form) => {
     const params = new URLSearchParams(location.search);
-    const raw = params.get('intent') ?? params.get('topic');
+    const pkg = params.get('package');
+    // ?package= implique l'intention DTV (deep-link depuis les cartes forfaits).
+    const raw = params.get('intent') ?? params.get('topic') ?? (pkg ? 'dtv' : null);
     if (raw) {
       const want = LEGACY[raw] ?? raw;
       const radio = form.querySelector<HTMLInputElement>(`input[name="intent"][value="${want}"]`);
       if (radio) radio.checked = true;
+    }
+    // Pré-sélectionne le forfait dans le dropdown DTV s'il existe.
+    if (pkg) {
+      const sel = form.querySelector<HTMLSelectElement>('select[name="dtv_package"]');
+      if (sel && [...sel.options].some((o) => o.value === pkg)) sel.value = pkg;
     }
 
     const checkedIntent = () =>
@@ -295,6 +331,9 @@ const waTexts: Record<string, string> = {
         if (from) bits.push(`from ${from}`);
         if (to) bits.push(`to ${to}`);
         if (bits.length) lines.push(`Scooter: ${bits.join(', ')}`);
+      } else if (intent === 'dtv') {
+        const pkg = selectText(f, 'dtv_package');
+        if (pkg) lines.push(`Package: ${pkg}`);
       }
 
       const msg = fieldValue(f, 'message');
@@ -314,7 +353,8 @@ const waTexts: Record<string, string> = {
       });
     };
 
-    if (base) submitViaWhatsApp(form, { waBase: base, buildText, beforeSubmit: disableInactive });
+    const modal = document.querySelector<HTMLDialogElement>('dialog[data-wa-modal]');
+    if (base) submitViaWhatsApp(form, { waBase: base, buildText, beforeSubmit: disableInactive, modal });
   });
 </script>
 
@@ -406,7 +446,8 @@ const waTexts: Record<string, string> = {
   }
   .cform:has(input[name='intent'][value='class']:checked) .xtra[data-i='class'],
   .cform:has(input[name='intent'][value='stay']:checked) .xtra[data-i='stay'],
-  .cform:has(input[name='intent'][value='scooter']:checked) .xtra[data-i='scooter'] {
+  .cform:has(input[name='intent'][value='scooter']:checked) .xtra[data-i='scooter'],
+  .cform:has(input[name='intent'][value='dtv']:checked) .xtra[data-i='dtv'] {
     display: grid;
   }
 

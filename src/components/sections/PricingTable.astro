@@ -15,11 +15,13 @@ export interface Props {
     popular?: boolean;
   }[];
   popularLabel: string;
+  /** Nombre de colonnes desktop (défaut 3 ; 4 pour les forfaits long-stay). */
+  cols?: 3 | 4;
 }
-const { plans, popularLabel } = Astro.props;
+const { plans, popularLabel, cols = 3 } = Astro.props;
 ---
 
-<div class="price-grid" data-animate-stagger>
+<div class:list={['price-grid', cols === 4 && 'price-grid--4']} data-animate-stagger>
   {plans.map((plan) => <PricingCard {...plan} popularLabel={popularLabel} />)}
 </div>
 
@@ -30,11 +32,24 @@ const { plans, popularLabel } = Astro.props;
     gap: 20px;
     align-items: stretch;
   }
+  /* 4-up : 4 colonnes desktop, 2×2 en tablette, 1 en mobile. */
+  .price-grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 1100px) {
+    .price-grid--4 {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 28px;
+    }
+  }
   @media (max-width: 860px) {
     .price-grid {
       grid-template-columns: 1fr;
       /* respiration pour le badge « Most popular » qui dépasse */
       row-gap: 28px;
+    }
+    .price-grid--4 {
+      grid-template-columns: 1fr;
     }
   }
 </style>

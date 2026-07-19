@@ -137,5 +137,17 @@ export const site = {
       { key: 'private_head', price: 1000 },
       { key: 'private_normal', price: 800 },
     ],
+    /**
+     * Forfaits longue durée (THB) — fournis 2026-07-19, packages DTV/long-stay.
+     * Coexistent avec le pricing court-terme ci-dessus (engagement pluri-mois,
+     * tarif/mois plus bas). `classes` absent = illimité (`unlimited: true`).
+     * i18n : labels dérivés au build (pricing_ls_name_*), pas de `pricing_label_*`.
+     */
+    longStay: [
+      { key: 'pack30', price: 12000, classes: 30, months: 6 },
+      { key: 'pack50', price: 17000, classes: 50, months: 9 },
+      { key: 'unlimited6', price: 24000, months: 6, unlimited: true, popular: true },
+      { key: 'unlimited12', price: 36000, months: 12, unlimited: true },
+    ],
   },
 } as const;

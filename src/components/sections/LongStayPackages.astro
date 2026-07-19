@@ -1,0 +1,74 @@
+---
+import PricingTable from './PricingTable.astro';
+import { site } from '../../config/site';
+import { localePath } from '../../lib/routes';
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * LongStayPackages — bloc des forfaits d'entraînement long-stay (DTV), ajouté
+ * 2026-07-19. Réutilisé tel quel sur /dtv-visa/long-stay-training,
+ * /classes#pricing et /stay-train#packages. Rend juste le contenu (titre +
+ * lead + PricingTable 4-up) : la page fournit le <Section>/<Container>.
+ * Données 100 % depuis site.pricing.longStay ; chaque carte deep-linke vers le
+ * formulaire de contact avec l'intention DTV + le forfait pré-sélectionné.
+ */
+export interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+// `as const` → union hétérogène ; on normalise via un type à champs optionnels.
+type LsPackage = {
+  key: string;
+  price: number;
+  months: number;
+  classes?: number;
+  unlimited?: boolean;
+  popular?: boolean;
+};
+const longStay = site.pricing.longStay as readonly LsPackage[];
+const cur = site.pricing.currency;
+const fmt = (n: number) => n.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
+const contact = localePath(lang, '/contact');
+
+const plans = longStay.map((p) => ({
+  name: p.unlimited ? m.pricing_ls_name_unlimited({ months: p.months }) : m.pricing_ls_name_pack({ classes: p.classes ?? 0 }),
+  price: fmt(p.price),
+  currency: cur,
+  unit: p.unlimited ? m.pricing_ls_feat_unlimited() : m.pricing_ls_feat_valid({ months: p.months }),
+  features: [
+    p.unlimited ? m.pricing_ls_feat_valid({ months: p.months }) : m.pricing_ls_feat_classes({ classes: p.classes ?? 0 }),
+    m.pricing_ls_feat_dtv(),
+  ],
+  cta: {
+    label: m.pricing_ls_cta(),
+    href: `${contact}?intent=dtv&package=${p.key}`,
+    variant: (p.popular ? 'gold' : 'outline') as 'gold' | 'outline',
+  },
+  popular: p.popular,
+}));
+---
+
+<div class="lsp">
+  <div class="lsp-head">
+    <h2 class="h2">{m.pricing_ls_group()}</h2>
+    <p class="lsp-lead">{m.pricing_ls_lead()}</p>
+  </div>
+  <PricingTable plans={plans} cols={4} popularLabel={m.pricing_popular()} />
+</div>
+
+<style>
+  .lsp-head {
+    max-width: var(--maxw-narrow, 620px);
+    margin-bottom: 26px;
+  }
+  .lsp-head .h2 {
+    margin: 0 0 8px;
+  }
+  .lsp-lead {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+</style>

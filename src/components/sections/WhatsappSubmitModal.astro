@@ -1,0 +1,239 @@
+---
+import { Icon } from 'astro-icon/components';
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * WhatsappSubmitModal — modal de confirmation après submit (2026-07-19).
+ * Remplace l'ouverture directe de WhatsApp (ex `window.open` dans wa-form.ts) :
+ * au submit (JS actif), l'email part en tâche de fond puis ce `<dialog>` s'ouvre
+ * avec l'aperçu du message pré-rempli + un bouton « Envoyer sur WhatsApp ».
+ * WhatsApp ne s'ouvre QUE si l'utilisateur clique. Le remplissage runtime
+ * (`[data-wa-preview]`, `[data-wa-send]`) et l'ouverture sont gérés par
+ * `src/scripts/wa-form.ts` via `opts.modal`. Sans JS : jamais affiché, la
+ * bannière ?sent=1 (POST natif Web3Forms) reste le fallback.
+ *
+ * Rendu une fois par form (ContactForm, StayInquiryForm) ; les deux forms ne
+ * coexistent jamais sur une même page → un seul `[data-wa-modal]` par page.
+ */
+---
+
+<dialog class="wamodal" data-wa-modal aria-labelledby="wamodal-title">
+  <div class="wamodal-box">
+    <button type="button" class="wamodal-x" data-wa-close aria-label={m.contact_modal_close()}>
+      <Icon name="tabler:x" aria-hidden="true" />
+    </button>
+
+    <div class="wamodal-head">
+      <span class="wamodal-check"><Icon name="tabler:circle-check" aria-hidden="true" /></span>
+      <h2 id="wamodal-title">{m.contact_success_title()}</h2>
+    </div>
+
+    <p class="wamodal-body">{m.contact_modal_body()}</p>
+
+    <div class="wamodal-preview">
+      <span class="wamodal-preview-lb">{m.contact_modal_preview_label()}</span>
+      <pre data-wa-preview></pre>
+    </div>
+
+    <div class="wamodal-actions">
+      <a class="wamodal-send" data-wa-send href="#" target="_blank" rel="noopener">
+        <Icon name="tabler:brand-whatsapp" aria-hidden="true" />
+        <span>{m.contact_modal_wa_cta()}</span>
+      </a>
+      <button type="button" class="wamodal-dismiss" data-wa-close>{m.contact_modal_close()}</button>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  .wamodal {
+    max-width: 460px;
+    width: calc(100% - 32px);
+    padding: 0;
+    border: 0;
+    border-radius: var(--r-lg, 18px);
+    background: transparent;
+    color: var(--ink);
+    overflow: visible;
+  }
+  .wamodal::backdrop {
+    background: rgba(17, 17, 17, 0.55);
+    backdrop-filter: blur(2px);
+  }
+  .wamodal-box {
+    position: relative;
+    padding: 30px 26px 24px;
+    background: var(--cream);
+    border-radius: var(--r-lg, 18px);
+    box-shadow: 0 24px 60px -20px rgba(12, 26, 17, 0.55);
+  }
+
+  .wamodal-x {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: inline-flex;
+    padding: 6px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+  }
+  .wamodal-x:hover {
+    background: color-mix(in srgb, var(--ink-2), transparent 88%);
+  }
+  .wamodal-x svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .wamodal-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .wamodal-check {
+    display: inline-flex;
+    color: var(--success, var(--forest));
+  }
+  .wamodal-check svg {
+    width: 30px;
+    height: 30px;
+  }
+  .wamodal-head h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .wamodal-body {
+    margin: 0 0 16px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+
+  .wamodal-preview {
+    margin-bottom: 20px;
+    padding: 12px 14px;
+    background: color-mix(in srgb, var(--field-bg, #fff), #fff 30%);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+  }
+  .wamodal-preview-lb {
+    display: block;
+    margin-bottom: 6px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-2);
+  }
+  .wamodal-preview pre {
+    margin: 0;
+    max-height: 168px;
+    overflow-y: auto;
+    font-family: inherit;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .wamodal-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .wamodal-send {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: var(--forest-light);
+    color: var(--cream);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15.5px;
+    letter-spacing: -0.01em;
+    box-shadow:
+      0 6px 0 -1px var(--forest-deep),
+      0 14px 24px -12px rgba(12, 26, 17, 0.55);
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      background-color 0.18s ease;
+  }
+  .wamodal-send:hover {
+    background: color-mix(in srgb, var(--forest-light), #fff 10%);
+    transform: translateY(-1px);
+  }
+  .wamodal-send:active {
+    transform: translateY(1px) scale(0.99);
+  }
+  .wamodal-send svg {
+    width: 22px;
+    height: 22px;
+  }
+  .wamodal-dismiss {
+    margin-left: auto;
+    padding: 8px 12px;
+    border: 0;
+    background: transparent;
+    color: var(--ink-2);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: color 0.15s ease;
+  }
+  .wamodal-dismiss:hover {
+    color: var(--ink);
+  }
+
+  /* Entrée fondu + léger scale (progressive : @starting-style, ignoré si non
+     supporté = apparition instantanée, aucun bug). */
+  .wamodal[open] {
+    animation: wamodal-in 0.22s ease both;
+  }
+  .wamodal[open]::backdrop {
+    animation: wamodal-bg 0.22s ease both;
+  }
+  @keyframes wamodal-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.97);
+    }
+  }
+  @keyframes wamodal-bg {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wamodal[open],
+    .wamodal[open]::backdrop {
+      animation: none;
+    }
+    .wamodal-send {
+      transition: none;
+    }
+    .wamodal-send:hover {
+      transform: none;
+    }
+  }
+</style>
