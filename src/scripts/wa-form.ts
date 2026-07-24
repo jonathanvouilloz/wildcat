@@ -64,6 +64,16 @@ export function submitViaWhatsApp(form: HTMLFormElement, opts: WaSubmitOptions):
       }).catch(() => {});
     }
 
+    // 3b. copie fire-and-forget vers le routeur interne (Telegram + auto-réponse).
+    //     keepalive → survit à la navigation ; échec silencieux → le POST natif
+    //     Web3Forms reste la vérité. Même FormData que l'email (les champs des
+    //     intents inactifs sont déjà `disabled` par beforeSubmit → copie propre).
+    fetch('/api/inquiry', {
+      method: 'POST',
+      body: new FormData(form),
+      keepalive: true,
+    }).catch(() => {});
+
     const waUrl = `${opts.waBase}?text=${encodeURIComponent(text)}`;
 
     // 4a. modal in-site : aperçu + lien wa.me, puis ouverture. On reste sur la page.

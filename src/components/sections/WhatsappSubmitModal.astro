@@ -47,8 +47,16 @@ import { m } from '../../paraglide/messages.js';
 
 <style>
   .wamodal {
-    max-width: 460px;
+    /* Centrage explicite (fixed + inset:0 + margin:auto avec height définie) :
+       bat le style UA du <dialog:modal> et ne dépend d'aucun quirk de top-layer.
+       N'utilise que margin → laisse le transform libre pour l'animation d'entrée. */
+    position: fixed;
+    inset: 0;
+    margin: auto;
     width: calc(100% - 32px);
+    max-width: 460px;
+    height: fit-content;
+    max-height: calc(100dvh - 32px);
     padding: 0;
     border: 0;
     border-radius: var(--r-lg, 18px);
