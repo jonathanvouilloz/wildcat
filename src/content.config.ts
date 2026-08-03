@@ -66,4 +66,25 @@ const blog = defineCollection({
     }),
 });
 
-export const collections = { blog };
+const localeString = z.object({ en: z.string().default(''), fr: z.string().default('') });
+const localImage = z.object({ src: z.string(), alt: z.string() });
+
+/** Contenus auparavant gérés dans Sanity, désormais versionnés avec le site. */
+const coaches = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/coaches' }),
+  schema: z.object({ name: z.string(), role: localeString, bio: localeString.optional(), featured: z.boolean().default(false), order: z.number().default(0), photo: localImage.optional() }),
+});
+const fighters = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/fighters' }),
+  schema: z.object({ name: z.string(), fightName: z.string().optional(), countryCode: z.string().length(2).optional(), year: z.number().int().optional(), fights: z.number().int().nonnegative().default(0), venues: z.array(z.string()).default([]), quote: localeString.optional(), achievements: z.array(z.string()).default([]), featured: z.boolean().default(false), photo: localImage.optional() }),
+});
+const testimonials = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/testimonials' }),
+  schema: z.object({ name: z.string(), country: z.string().optional(), service: z.enum(['dtv', 'training', 'general']).default('general'), content: localeString, rating: z.number().int().min(1).max(5).default(5), date: z.string().optional(), featured: z.boolean().default(false), screenshot: localImage.optional() }),
+});
+const scooters = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/scooters' }),
+  schema: z.object({ name: z.string(), year: z.number().int().optional(), color: z.string().optional(), cc: z.number().int().optional(), priceDaily: z.number().int().nonnegative(), priceMonthly: z.number().int().nonnegative(), note: localeString.optional(), available: z.boolean().default(true), order: z.number().default(0), photo: localImage.optional() }),
+});
+
+export const collections = { blog, coaches, fighters, testimonials, scooters };

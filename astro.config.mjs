@@ -7,8 +7,6 @@ import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
-import sanity from '@sanity/astro';
-import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 
 // Sanity — projectId/dataset doivent être connus au niveau config (build-time).
@@ -184,13 +182,6 @@ export default defineConfig({
     // Studio Sanity embarqué : en SSG le studio est une page statique unique,
     // routing interne en hash router (/studio#/...). React requis par le studio
     // uniquement — aucune island React sur le site public.
-    sanity({
-      projectId: PUBLIC_SANITY_PROJECT_ID || 'placeholder',
-      dataset: PUBLIC_SANITY_DATASET || 'production',
-      useCdn: false, // SSG : contenu frais au moment du build, pas de cache CDN
-      studioBasePath: '/studio',
-    }),
-    react(),
     // MDX — opt-in par article de blog (quiz interactif mid-contenu). Les
     // articles standards restent en .md pur (pipeline /seo-write → commit).
     mdx(),

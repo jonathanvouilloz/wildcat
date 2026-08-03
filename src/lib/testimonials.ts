@@ -2,10 +2,10 @@
 // Centralisé : signature (country · mois année) + tampon localisé par service
 // (dtv = gold, training = forest, general = aucun) — partagé par les 8 pages.
 import { m } from '../paraglide/messages.js';
-import { pickLocale, formatMonthYear } from './i18n-content';
-import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from './sanity.types';
+import { formatMonthYear } from './i18n-content';
+import type { CollectionEntry } from 'astro:content';
 
-export type TestimonialDoc = FEATURED_TESTIMONIALS_QUERY_RESULT[number];
+export type TestimonialDoc = CollectionEntry<'testimonials'>['data'];
 
 export interface TestimonialProps {
   content: string;
@@ -25,12 +25,12 @@ export function mapTestimonial(doc: TestimonialDoc, lang: string): TestimonialPr
         ? m.testimonial_stamp_training()
         : undefined;
   return {
-    content: pickLocale(doc.content, lang),
-    name: doc.name ?? '',
-    country: doc.country ?? undefined,
+    content: doc.content[lang as 'en' | 'fr'] || doc.content.en,
+    name: doc.name,
+    country: doc.country,
     dateLabel: formatMonthYear(doc.date, lang) || undefined,
     stamp,
     stampTone: doc.service === 'training' ? 'forest' : 'gold',
-    rating: doc.rating ?? 5,
+    rating: doc.rating,
   };
 }
