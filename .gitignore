@@ -47,3 +47,6 @@ PNG/image-a-traiter/review*.jpg
 # jetbrains setting folder
 .idea/
 .vercel
+
+# Cache de contexte contenu (dérivé, régénéré par les skills)
+.project-cache/

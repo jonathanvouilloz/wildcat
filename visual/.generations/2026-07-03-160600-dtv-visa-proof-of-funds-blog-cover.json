@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-07-03T16:06:00.126809+00:00",
+  "slug": "dtv-visa-proof-of-funds",
+  "preset": "blog-cover",
+  "prompt_text": "[template — no prompt]",
+  "reference_image": null,
+  "output": "C:\\Users\\jojo-\\Desktop\\apps\\wildcat\\src\\content\\blog\\covers\\dtv-visa-proof-of-funds.webp",
+  "model": "nano-banana-pro-preview",
+  "response_metadata": {
+    "source": "template",
+    "compose": {
+      "composed": true,
+      "source": "template",
+      "template_image": "C:\\Users\\jojo-\\Desktop\\apps\\wildcat\\moodboard\\refs\\blog-cover-bg.webp",
+      "font_path": "C:\\Users\\jojo-\\Desktop\\apps\\wildcat\\moodboard\\fonts\\Satoshi-Bold.ttf",
+      "title_text": "DTV Visa Proof of Funds: Bank vs Stocks vs Crypto",
+      "text_overlay_cfg": {
+        "title_x_ratio": 0.175,
+        "title_y_ratio": 0.34,
+        "align": "center",
+        "gradient": false,
+        "banner": false,
+        "rotation": 0,
+        "uppercase": false,
+        "shadow": true,
+        "text_color": "#FFFFFF",
+        "font_size_ratio": 0.058,
+        "tracking": -0.04,
+        "line_spacing": 1.15,
+        "max_title_width_ratio": 0.65
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+schema_version: 3
+project:
+  slug: wildcat
+  type: astro-multilingual
+  created_on: 2026-06-02
+  updated_on: 2026-07-20
+
+modules:
+  project: ready
+  brand: needs_review
+  design: ready
+  moodboard: ready
+  seo: needs_review
+  gmb: disabled
+  newsletter: disabled
+
+paths:
+  project_context: docs/project
+  brand_context: docs/brand
+  design_context: docs/design
+  seo_context: docs/seo
+  channel_context: docs/channels
+  visual_runtime: visual
+
+content:
+  drafts_dir: content/_drafts/blog
+  published_dir: src/content/blog
+  article_pattern: "{locale}/{slug}.{ext}"
+  cover_dir: src/content/blog/covers
+  cover_pattern: "{slug}.webp"
+  cover_reference_pattern: "../covers/{slug}.webp"
+  localization: multilingual
+  source_locale: en
+  locales: ["en", "fr"]
+  default_locale: en
+  draft_locale_strategy: shared
+  routing_strategy: path-prefix
+  slug_strategy: translated
+  translation_workflow: source-then-localize
+  default_extension: md
+  frontmatter:
+    published_date: publishDate
+    updated_date: updatedDate
+    reviewed_date: reviewedDate
+    cover: cover
+    cover_alt: coverAlt
+    translation_key: translationKey
+    required_fields: ["title", "h1", "description", "tldr", "publishDate", "category", "draft", "translationKey"]

@@ -1,0 +1,56 @@
+{
+  "timestamp": "2026-07-03T15:59:52.614741+00:00",
+  "slug": "dtv-visa-refund-if-rejected",
+  "preset": "blog-cover-gemini",
+  "prompt_text": "Generate a VERY WIDE horizontal banner image in 16:9 landscape ratio,\nexactly 1792 pixels wide by 1024 pixels tall.\n\nStyle: warm, candid documentary DSLR photography. Outdoor Muay Thai gym in Chiang Mai,\nThailand. Tropical garden setting, banana trees, open-air ring, golden hour natural light.\nWelcoming and family-friendly atmosphere — NOT dark, aggressive or warrior-gym aesthetic.\n\nCLEAN PHOTO ONLY. Absolutely NO text, NO typography, NO banner, NO graphic elements,\nNO letters, NO numbers anywhere in the image.\n\nComposition: subject or scene positioned on the RIGHT HALF of the frame (right 50-60%\nof width). The LEFT HALF must be darker, blurry background or empty sky — fades to dark\non the left. This reserves the left area for post-generation text overlay.\n\nUltra-realistic RAW DSLR photograph.\nNatural skin texture with visible pores, sharp focus on eyes.\nVery shallow depth of field, extreme cinematic bokeh in background,\nenvironment reduced to soft abstract warm color fields and ambient light,\nsubject pin-sharp against dreamy out-of-focus backdrop.\n85mm lens equivalent, high contrast, cinematic shadows.\nAuthentic unretouched photography — no retouching, no beauty filters.\nNo CGI, no 3D render, no digital illustration.\n\nRendering: natural DSLR, warm color grading, golden-hour tones.\nLighting: natural ambient light, late-afternoon golden hour, soft directional shadows, no flash, no studio lighting.\nLens: 35mm or 50mm equivalent, shallow to medium depth of field.\nSkin: natural warm tones, no heavy retouching, documentary feel.\nComposition: open-air foreground with ring or tropical garden, rule of thirds, candid moments preferred over posed shots.\nMood: warm, welcoming, family-run — energetic but not aggressive.\nRatios_allowed: 16:9, 4:3, 1:1, 4:5.\n\nSUBJECT: Wildcat Muay Thai owner Meaw explaining DTV visa refund policy over WhatsApp, warm reassuring golden hour light, open-air Chiang Mai gym in the background\n\nNEGATIVE: dark moody lighting, dramatic shadows, warrior/fight-club aesthetic, generic stock photography, corporate headshots, anonymous crowds, aggressive body language, bloodied imagery, intimidating poses, digital art, 3D render, CGI, illustration, anime, cartoon, painting, plastic skin, airbrushed, smooth skin, oversaturated, watermark, text overlay, logo, graphic design, blurry, soft focus, flat lighting, overexposed, extra hands, extra fingers, mutated hands, duplicate, clone, mirror reflection, full body shot, wide angle distortion",
+  "reference_image": "C:\\Users\\jojo-\\Desktop\\apps\\wildcat\\moodboard\\refs\\blog-cover-style.webp",
+  "output": "C:\\Users\\jojo-\\Desktop\\apps\\wildcat\\src\\content\\blog\\covers\\dtv-visa-refund-if-rejected.webp",
+  "model": "nano-banana-pro-preview",
+  "response_metadata": {
+    "usage": {
+      "promptTokenCount": 836,
+      "candidatesTokenCount": 1359,
+      "totalTokenCount": 2407,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 578
+        },
+        {
+          "modality": "IMAGE",
+          "tokenCount": 258
+        }
+      ],
+      "candidatesTokensDetails": [
+        {
+          "modality": "IMAGE",
+          "tokenCount": 1120
+        }
+      ],
+      "thoughtsTokenCount": 212,
+      "serviceTier": "standard"
+    },
+    "compose": {
+      "composed": true,
+      "font_path": "C:\\Users\\jojo-\\Desktop\\apps\\wildcat\\moodboard\\fonts\\Satoshi-Bold.ttf",
+      "banner_font_path": null,
+      "title_text": "DTV Visa Rejected? What Happens to Your Fee",
+      "banner_text": "",
+      "banner_color": "#800020",
+      "text_overlay_cfg": {
+        "position": "bottom-left",
+        "gradient": true,
+        "banner": false,
+        "rotation": 0,
+        "uppercase": false,
+        "shadow": true,
+        "text_color": "#F6F1E6",
+        "accent_color": "#E0A62B",
+        "font_size_ratio": 0.038,
+        "tracking": -0.02,
+        "line_spacing": 1.15,
+        "max_title_width_ratio": 0.7
+      }
+    }
+  }
+}
