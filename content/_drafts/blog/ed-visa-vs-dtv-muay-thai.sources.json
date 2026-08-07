@@ -1,0 +1,88 @@
+{
+  "slug": "ed-visa-vs-dtv-muay-thai",
+  "generated": "2026-08-06",
+  "level": "ymyl",
+  "citations": [
+    {
+      "claim": "The DTV is a 5-year multiple-entry visa allowing 180 days per entry, extendable once per entry for an additional 180 days (up to 360 continuous days).",
+      "status": "Confirme",
+      "url": "https://thethaiger.com/guides/visa-information/thailand-digital-nomad-visa",
+      "source": "The Thaiger, DTV guide",
+      "accessed": "2026-08-06",
+      "placement": "quote (inline, section 'What the DTV offers instead')",
+      "verbatim": "five-year validity, multiple entry, 180 days per entry, extendable once per entry for an additional 180 days"
+    },
+    {
+      "claim": "Muay Thai is an officially recognized Soft Power qualifying activity for the DTV, alongside Thai cooking courses, sports training, medical treatment, seminars, and cultural festivals.",
+      "status": "Confirme",
+      "url": "https://thethaiger.com/guides/visa-information/thailand-digital-nomad-visa",
+      "source": "The Thaiger, DTV guide",
+      "accessed": "2026-08-06",
+      "placement": "sources-block"
+    },
+    {
+      "claim": "Muay Thai is part of Thailand's official National Soft Power Strategy (THACCA), not only a DTV-qualifying activity.",
+      "status": "Confirme",
+      "url": "https://www.muaythaivisathailand.com/soft-power-and-the-destination-thailand-visa-for-muay-thai-students/",
+      "source": "Muay Thai Visa Thailand (Kru Chart), soft power and the DTV",
+      "accessed": "2026-08-06",
+      "placement": "sources-block",
+      "notes": "Source is a competitor gym's own promotional content (named author with SAT/MOE credentials per docs/seo-context.md gap analysis). Used only for the general Soft Power strategy claim, not for any Wildcat-specific comparison."
+    },
+    {
+      "claim": "In 2025, general Thai language schools were removed from the Ministry of Foreign Affairs' DTV Soft Power qualifying list; applicants wanting to study Thai are now directed to the Non-Immigrant ED visa instead. Muay Thai was not affected.",
+      "status": "Confirme",
+      "url": "https://thethaiger.com/guides/visa-information/thailand-digital-nomad-visa",
+      "source": "The Thaiger, DTV guide (citing the Ministry of Foreign Affairs)",
+      "accessed": "2026-08-06",
+      "placement": "quote (inline, section 'Where Muay Thai actually fits in this decision') + sources-block",
+      "verbatim": "Thai language schools were removed from the Ministry of Foreign Affairs' qualifying soft power list",
+      "notes": "Cross-referenced against docs/dtv-fact-check.md item #15 (previously confirmed via The Thaiger + ExpatDen, consulted 2026-07-03). This fresh fetch (2026-08-06) confirms the fact-check's item #15 is still current. Non-negotiable brief instruction satisfied: never present language schools as a valid current DTV option."
+    },
+    {
+      "claim": "The Non-Immigrant ED visa requires enrollment at a single accredited school or institution, with real attendance obligations, and a stay tied to a 90-day cycle with in-country 90-day reporting.",
+      "status": "Confirme",
+      "url": "https://www.siam-legal.com/Foreign-Citizens/thailand-education-visa-foreign.php",
+      "source": "Siam Legal, Thailand Education ED Visa",
+      "accessed": "2026-08-06",
+      "placement": "sources-block",
+      "verbatim": "The holder of the ED visa is entitled to stay in Thailand for 90 days and can be extended for a period of one year from the date of first entry in Thailand. [...] Holders of the Non-Immigrant ED Visa must report their current address to a Thai immigration office every 90 days."
+    },
+    {
+      "claim": "Leaving Thailand mid-cycle on the ED visa requires a re-entry permit first, or the visa lapses.",
+      "status": "Confirme",
+      "url": "https://www.siam-legal.com/Foreign-Citizens/thailand-education-visa-foreign.php",
+      "source": "Siam Legal, Thailand Education ED Visa",
+      "accessed": "2026-08-06",
+      "placement": "sources-block"
+    },
+    {
+      "claim": "The Non-Immigrant ED visa is issued for education purposes only, with an initial 90-day validity from date of issuance.",
+      "status": "Confirme",
+      "url": "https://www.thaiembassy.at/en/type-of-visa/non-immigrant-visa-ed-education.html",
+      "source": "Royal Thai Embassy, Non-Immigrant Visa ED (Education)",
+      "accessed": "2026-08-06",
+      "placement": "sources-block",
+      "verbatim": "ED Visa is valid for a single entry for education purposes only. [...] ED Visa is valid for 90 days from the date of issuance."
+    },
+    {
+      "claim": "The DTV allows remote work for foreign employers only, not Thai employers or local clients; the ED visa does not permit work.",
+      "status": "Confirme (DTV) / Deduit (ED)",
+      "url": "https://thethaiger.com/guides/visa-information/thailand-digital-nomad-visa",
+      "source": "The Thaiger, DTV guide",
+      "accessed": "2026-08-06",
+      "placement": "body prose (section 'What the DTV offers instead')",
+      "notes": "DTV work-rights confirmed directly ('Work rights: Foreign employers only'). The ED visa's lack of work authorization is deduced from its stated purpose ('education purposes only', Royal Thai Embassy) and is standard, uncontested practice; no single source states the negative explicitly, so the article avoids overclaiming and frames it structurally rather than as a cited legal prohibition."
+    },
+    {
+      "claim": "thaievisa.go.th is the official Thailand e-Visa portal, operated under the Ministry of Foreign Affairs.",
+      "status": "Confirme",
+      "url": "https://thaievisa.go.th",
+      "source": "Thailand e-Visa official portal",
+      "accessed": "2026-08-06",
+      "placement": "sources-block",
+      "notes": "Page's own schema.org markup identifies it as a GovernmentOrganization, parentOrganization Ministry of Foreign Affairs of the Kingdom of Thailand."
+    }
+  ],
+  "unverified": []
+}

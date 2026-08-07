@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "static_lint_gate_note": "content/_drafts/blog/muay-thai-headband-mongkhon.review-static.json (regenerated 2026-08-07 against the fixed, locale-aware seo_lint.py, invoked with --project .) reports 0 errors, 2 warnings (description.max_estimated_px 968px vs 960px soft target; links.contextual_target_per_1000_min 1.90 vs target 3, expected once Sources/Conclusion end matter widened the word count against the same 3 required internal links). No blocking finding remains; the previous BLOCKED_BY_STATIC_LINT verdict was against the unfixed linter (hardcoded French TLDR/Sources markers and a CTA whitelist missing /contact) and is superseded.",
+  "criteria": [
+    {
+      "id": "angle_intent",
+      "status": "PASS",
+      "evidence": "Article opens on the reader's actual confusion (a decorative-looking headband nobody explains) and answers the 3 persona questions from the brief in order: what it is, why it comes off, whether a visitor can wear one. Matches the brief's Mode B angle (camp owner voice, mongkhon + pra jiad together, visitor etiquette gap no SERP competitor covers).",
+      "correction": "none"
+    },
+    {
+      "id": "bluf_progression",
+      "status": "PASS",
+      "evidence": "Each H2 opens with the direct answer before elaborating (e.g. 'The mongkhon is the braided or corded headband...' before origin details; 'The trainer... removes the mongkhon... right before the first strike' as the first sentence of that H3). FAQ answers lead with the direct answer. The new Conclusion restates the two-object distinction in one sentence before closing, no re-litigation of the body.",
+      "correction": "none"
+    },
+    {
+      "id": "voice_patte_ecrite",
+      "status": "PASS",
+      "evidence": "Opens on a lived situation ('I have put a mongkhon on more heads than I can count'), not a generic definition, per patte-ecrite.md. First person used where Meaw's real experience applies (intro, etiquette section, Conclusion). Names a real limit (colors vary by camp, no universal code, ask your kru) per the 'name the limits' rule. Zero em-dash, zero warrior/beast-mode register, zero unproven superlative, per anti-patterns.md.",
+      "correction": "none"
+    },
+    {
+      "id": "semantic_naturalness",
+      "status": "PASS",
+      "evidence": "All 4 required bold entities (mongkhon, pra jiad, muay thai headband, wai kru ram muay) appear exactly once, in natural sentence position. Secondary keywords (sealing the ring, wai kru dance, ram muay music, muay thai wai) are woven into sentences rather than listed. The 5 new inline source citations use descriptive anchors (source name), never 'source' or 'here'.",
+      "correction": "none"
+    },
+    {
+      "id": "proofs_and_limits",
+      "status": "PASS",
+      "evidence": "seo-sources ran for real (WebSearch + WebFetch) and re-anchored the 5 spec claims to actually-opened sources instead of leaving them as unlinked prose: CLM-001/CLM-002 (Siamese-soldier origin, monk blessing) now cite Wikipedia's Muay Thai 'Traditional wear' section; CLM-005 (pra jiad origin) cites Wikipedia's Pra Jiad entry; CLM-003 (mongkhon removed before the fight, pra jiad stays on) is now a verbatim attributed quote from Rajadamnern Stadium, a named Thai institutional source, not just asserted. The ring-sealing and sarama-music details (previously unsourced brief content) are now backed by Wikipedia's wai khru ram muay and sarama entries. CLM-004 (Wildcat students first meeting the ritual by watching a class) remains correctly unlinked and general, per its needs_review status in proofs.md; no invented monk name, frequency or ceremony detail was added. The color-symbolism paragraph still explicitly refuses a universal chart, which is now additionally justified: the one Thai institutional source found (Rajadamnern) does publish a specific color chart, confirming that such charts are gym-specific claims dressed as universal fact, exactly the trap the article warns against.",
+      "correction": "none"
+    },
+    {
+      "id": "links_and_cta",
+      "status": "PASS",
+      "evidence": "All 3 required internal links present (a first class at Wildcat -> /classes/beginners, our class schedule -> /classes, our coaches -> /about/coaches), grouped in the closing 'Wearing a mongkhon respectfully' section as the brief specifies. The article now closes on the project's canonical single arrow CTA, [**See what a first class at Wildcat looks like ->**](/contact?intent=class), matching the exact format used on src/content/blog/en/dtv-visa-cost-breakdown.md and satisfying cta.final_unique. Five new external source links (Wikipedia x4, Rajadamnern Stadium x1) are cited inline at the claim they support and again in the closing Sources block; none point to the project's own domain.",
+      "correction": "none"
+    },
+    {
+      "id": "faq_and_conclusion",
+      "status": "PASS",
+      "evidence": "6 FAQ entries in H3 format cover the 5 PAA from the SERP scan plus the literal wai khru ram muay meaning question, each a standalone answer. The article now carries the full canonical ending required by article-producer v2 (FAQ -> Conclusion -> CTA -> Sources and References), matching ending.order. The Conclusion is a genuine one-paragraph synthesis (the two-object distinction, the ceremony, the etiquette answer), not a restatement of the intro. The Sources block lists 5 real, dated citations plus one cautionary note on color/blessing variation by camp, and excludes the marque's own domain per doctrine.",
+      "correction": "none"
+    },
+    {
+      "id": "utility_distinction",
+      "status": "PASS",
+      "evidence": "Covers the pra jiad in the same depth as the mongkhon (SERP gap: only 1/3 editorial competitors mention it at all) and adds the one section no competitor has: concrete, non-moralizing visitor etiquette (ask your kru, never buy one as a souvenir). It is also now the only piece in the scanned SERP set (rajadamnern.com, hayabusafight.com, muaythaicitizen.com, none of which cite a source) that backs its cultural claims with real, dated, openly verifiable citations, which is itself a differentiator on a YMYL-adjacent cultural topic.",
+      "correction": "none"
+    },
+    {
+      "id": "localization",
+      "status": "PASS",
+      "evidence": "Locale is en throughout (spec.locale = en, no FR sibling expected per brief). No French leakage, no mixed units. Vocabulary and phrasing are consistent with the project's other EN blog articles. The new Sources and Conclusion sections use the exact English headings ('Conclusion', 'Sources and References') the fixed linter expects for this locale.",
+      "correction": "none"
+    }
+  ],
+  "priority_actions": [],
+  "publication_recommendation": "ready_to_publish"
+}

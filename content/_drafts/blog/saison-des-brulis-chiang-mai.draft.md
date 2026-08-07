@@ -1,21 +1,11 @@
----
-title: "Saison des brûlis à Chiang Mai : le vécu du camp"
-h1: "Pollution et saison des brûlis à Chiang Mai : ce qu'on vit vraiment au camp"
-description: "La pollution à Chiang Mai pendant la saison des brûlis, racontée par Meaw : calendrier réel, précautions, et notre entraînement en extérieur."
-tldr:
-  - "La pollution à Chiang Mai suit un calendrier assez régulier : plutôt propre de novembre à janvier, plus difficile en fin de saison sèche."
-  - "L'indice de qualité de l'air officiel (AQI) se consulte en direct sur Air4Thai et IQAir, jamais sur un chiffre figé dans un article."
-  - "Au camp, les jours compliqués se gèrent par des ajustements concrets d'horaires et de lieu, pas par un arrêt de l'entraînement."
-  - "Si tes dates tombent en pleine saison des brûlis, écris-nous avant de réserver : on te dira honnêtement à quoi ressemble la semaine."
-publishDate: 2026-08-11
-category: "chiang-mai-life"
-cover: "../covers/saison-des-brulis-chiang-mai.webp"
-coverAlt: "Entraînement en extérieur au camp Wildcat à la lumière dorée de fin de journée, légère brume sur la végétation tropicale"
-draft: false
-translationKey: "burning-season"
----
-
 Chaque année vers février, la même question arrive sur notre WhatsApp : « c'est vrai qu'on ne peut pas respirer à Chiang Mai en ce moment ? ». La réponse honnête tient en une phrase : ça dépend du jour, et un camp qui s'entraîne dehors toute l'année sait de quoi il parle mieux qu'un article générique lu ailleurs. Voici comment on vit vraiment **la pollution à Chiang Mai** pendant **la saison des brûlis à Chiang Mai**, sans dramatiser et sans minimiser.
+
+> **L'essentiel en bref**
+>
+> - La pollution à Chiang Mai suit un calendrier assez régulier : plutôt propre de novembre à janvier, plus difficile en fin de saison sèche.
+> - L'indice de qualité de l'air officiel (AQI) se consulte en direct sur Air4Thai et IQAir, jamais sur un chiffre figé dans un article.
+> - Au camp, les jours compliqués se gèrent par des ajustements concrets d'horaires et de lieu, pas par un arrêt de l'entraînement.
+> - Si tes dates tombent en pleine saison des brûlis, écris-nous avant de réserver : on te dira honnêtement à quoi ressemble la semaine.
 
 ## C'est quoi la saison des brûlis à Chiang Mai ?
 

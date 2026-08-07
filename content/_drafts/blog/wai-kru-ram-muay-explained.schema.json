@@ -1,0 +1,73 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/wai-kru-ram-muay-explained#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/wai-kru-ram-muay-explained",
+      "headline": "Wai Kru Ram Muay Explained | Wildcat Muay Thai",
+      "description": "Meaw and the coaches at our Chiang Mai camp explain wai kru ram muay: what it means, why fighters dance, and what to expect if you visit.",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/wai-kru-ram-muay-explained.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/wai-kru-ram-muay-explained#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does Wai Kru Ram Muay mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wai means respect, khru means teacher, ram means dance, and muay means boxing. Together, the phrase describes a fighter paying respect to their teacher, followed by a ritual dance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Wai Kru and Ram Muay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wai kru is the respect-paying half: bowing, kneeling, acknowledging the teacher and lineage. Ram muay is the dance that follows, performed around the ring before the fight begins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do Muay Thai fighters dance before a fight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The dance honors the people who taught them, and it settles the mind and body before the fight itself arrives."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the Wai Kru ritual religious?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It includes a Buddhist salutation at each corner of the ring, but it isn't mandatory worship. Most camps, including Wildcat, frame it as respect toward teachers and lineage first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do all Muay Thai fighters have their own Ram Muay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Largely, yes. The dance passes down from a kru to their students rather than being standardized nationally, so movements and rhythm vary from one camp or region to the next."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to perform the Wai Kru as a beginner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Beginners can simply watch at first. Many later learn a simplified version as part of normal training, at their own pace. ---"
+          }
+        }
+      ]
+    }
+  ]
+}

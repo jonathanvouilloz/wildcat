@@ -1,0 +1,383 @@
+{
+  "slug": "muay-thai-headband-mongkhon",
+  "module": "E",
+  "snippet": {
+    "title": "The Mongkhon: Muay Thai Headband Meaning, Explained",
+    "h1": "What the Mongkhon Headband Really Means, and Why Every Muay Thai Fighter Wears One",
+    "description": "Mongkhon and pra jiad explained by a Chiang Mai camp owner: what they mean and why the headband comes off before the fight. Read the full story."
+  },
+  "dates": {
+    "pubDate": "2026-08-21",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1500,
+    "maximum": 1900
+  },
+  "primary_keyword": "muay thai headband",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "muay thai headband",
+      "natural_form": "the muay thai headband",
+      "volume": 590,
+      "placements": [
+        "title",
+        "h1",
+        "intro",
+        "meta"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "mongkhon",
+      "natural_form": "the mongkhon",
+      "volume": null,
+      "placements": [
+        "title",
+        "h1",
+        "throughout"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "pra jiad",
+      "natural_form": "the pra jiad (armband)",
+      "volume": null,
+      "placements": [
+        "h2:the-pra-jiad",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "wai kru ram muay",
+      "natural_form": "the wai kru ram muay ceremony",
+      "volume": 260,
+      "placements": [
+        "h2:wai-kru-ram-muay-ceremony",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai wai",
+      "natural_form": "the wai",
+      "volume": 40,
+      "placements": [
+        "h2:wai-kru-ram-muay-ceremony",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "sealing the ring muay thai",
+      "natural_form": "sealing the ring",
+      "volume": 10,
+      "placements": [
+        "h3:sealing-the-ring-and-the-music",
+        "body"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "wai kru dance",
+      "natural_form": "the wai kru dance",
+      "volume": 20,
+      "placements": [
+        "h3:sealing-the-ring-and-the-music",
+        "faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "ram muay music",
+      "natural_form": "the ram muay music",
+      "volume": 10,
+      "placements": [
+        "h3:sealing-the-ring-and-the-music",
+        "body"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "wai khru ram muay meaning",
+      "natural_form": "what wai khru ram muay means",
+      "volume": 10,
+      "placements": [
+        "faq"
+      ]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "mongkhon",
+      "accepted_forms": [
+        "mongkhon",
+        "Mongkhon"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "pra jiad",
+      "accepted_forms": [
+        "pra jiad",
+        "Pra Jiad"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "muay thai headband",
+      "accepted_forms": [
+        "muay thai headband",
+        "Muay Thai headband"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "wai kru ram muay",
+      "accepted_forms": [
+        "wai kru ram muay",
+        "Wai Kru Ram Muay"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "what-is-the-mongkhon",
+      "level": 2,
+      "heading": "What is the mongkhon, exactly?",
+      "purpose": "BLUF definition of the mongkhon, the Thai term, what it physically looks like, and an early distinction from the pra jiad.",
+      "target_keywords": [
+        "muay thai headband",
+        "mongkhon"
+      ]
+    },
+    {
+      "id": "where-it-comes-from-and-how-its-made",
+      "level": 2,
+      "heading": "Where the mongkhon comes from, and how it's made",
+      "purpose": "Merged section: traditionally-told origin (Siamese soldiers, spiritual protection), phrased cautiously since no primary source is cited, flowing directly into handmade production and blessing by a monk or master before being given to a fighter. Stays general, no Wildcat-specific blessing detail without confirmation.",
+      "target_keywords": [
+        "mongkhon"
+      ]
+    },
+    {
+      "id": "the-pra-jiad",
+      "level": 2,
+      "heading": "The pra jiad: the mongkhon's often-overlooked companion",
+      "purpose": "Close the SERP gap: explain the pra jiad armband, worn on the biceps and kept on during the fight, unlike the mongkhon. Closes with cautious treatment of color/pattern symbolism (varies by camp/kru, no fixed universal code, no invented correspondence table).",
+      "target_keywords": [
+        "pra jiad"
+      ]
+    },
+    {
+      "id": "wai-kru-ram-muay-ceremony",
+      "level": 2,
+      "heading": "The wai kru ram muay ceremony",
+      "purpose": "Explain the ceremony in which the mongkhon is worn: the wai (respect) and the ram muay (dance), honoring the kru and camp lineage.",
+      "target_keywords": [
+        "wai kru ram muay",
+        "muay thai wai"
+      ]
+    },
+    {
+      "id": "sealing-the-ring-and-the-music",
+      "level": 3,
+      "heading": "Sealing the ring and the ram muay music",
+      "purpose": "Short, sensory section on the ring-sealing ritual and the traditional sarama music that accompanies the dance.",
+      "target_keywords": [
+        "sealing the ring muay thai",
+        "ram muay music",
+        "wai kru dance"
+      ]
+    },
+    {
+      "id": "why-removed-before-fight",
+      "level": 3,
+      "heading": "Why the mongkhon comes off before the fight starts",
+      "purpose": "Direct answer to the PAA question: the kru removes the mongkhon right before the first strike; the pra jiad stays on.",
+      "target_keywords": []
+    },
+    {
+      "id": "wearing-respectfully-and-how-we-teach",
+      "level": 2,
+      "heading": "Wearing a mongkhon respectfully: etiquette for visitors, and how we teach it at Wildcat",
+      "purpose": "Merged section: the real competitive gap (respectful etiquette for foreign students and tourists, never as a souvenir, ask your kru first) flowing into real camp grounding, kept general and plausible; carries the 3 mandatory internal links in one natural closing section.",
+      "target_keywords": []
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "FAQ: mongkhon and pra jiad, quick answers",
+      "purpose": "Short Q&A covering the 5 PAA from the SERP scan plus the literal meaning of wai khru ram muay.",
+      "target_keywords": [
+        "wai khru ram muay meaning",
+        "wai kru dance"
+      ]
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/classes/beginners",
+      "anchor": "a first class at Wildcat",
+      "section_id": "wearing-respectfully-and-how-we-teach",
+      "required": true,
+      "reason": "Maillage obligatoire (contrainte article) vers le satellite débutants."
+    },
+    {
+      "url": "/classes",
+      "anchor": "our class schedule",
+      "section_id": "wearing-respectfully-and-how-we-teach",
+      "required": true,
+      "reason": "Maillage obligatoire (contrainte article) vers le pillar service classes."
+    },
+    {
+      "url": "/about/coaches",
+      "anchor": "our coaches",
+      "section_id": "wearing-respectfully-and-how-we-teach",
+      "required": true,
+      "reason": "Maillage obligatoire (contrainte article) + preuve E-E-A-T (coaches transmettent le rituel)."
+    }
+  ],
+  "sources": [],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "The mongkhon is traditionally said to originate from Siamese soldiers who wrapped cloth around their heads before battle for protection and identification.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Phrase as traditionally-told origin (\"many trace it back to...\", \"the story most often told is...\"), never as a precisely dated academic fact.",
+      "limits": "Repeated across all 3 editorial SERP results scanned but with zero cited source on any of them; no primary source fetched for this brief."
+    },
+    {
+      "id": "CLM-002",
+      "statement": "A mongkhon is traditionally blessed by a monk or master before being given to a fighter.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "General practice, phrased as widely described tradition, not as a claim about a specific monk, temple, or Wildcat's own blessing process.",
+      "limits": "Common ground across the SERP scan; no primary source fetched. Do not attribute a specific blessing practice to Wildcat without confirmation."
+    },
+    {
+      "id": "CLM-003",
+      "statement": "The mongkhon is removed by the trainer or kru before the fight begins, while the pra jiad remains on during the bout.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Present as standard, widely observed muay thai practice.",
+      "limits": "Common ground across all 5 results in the SERP scan (very strong consensus) but no primary source was independently fetched for this brief."
+    },
+    {
+      "id": "CLM-004",
+      "statement": "At Wildcat, new students typically first encounter the mongkhon and wai kru ritual by observing a class before ever wearing one themselves.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Keep general and plausible (\"often by watching a class\", \"coaches explain the gesture\"). Do not invent a specific ceremony frequency, a named monk, or a scripted moment.",
+      "limits": "No explicit confirmation from Meaw exists in the available project documents. Per docs/brand/proofs.md, Meaw-attributed experiential claims need human validation before publication."
+    },
+    {
+      "id": "CLM-005",
+      "statement": "Pra jiad armbands are worn wrapped around the biceps and, unlike the mongkhon, stay on for the duration of the fight.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Present as standard practice, consistent with the mongkhon-removal claim (CLM-003).",
+      "limits": "Common ground across the SERP scan; no primary source independently fetched for this brief."
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "photo",
+      "subject": "A mongkhon resting on the ropes of Wildcat's open-air ring at golden hour",
+      "description": "Close shot of a mongkhon (braided headband) resting on the top rope of the open-air ring, no combat context. Blurred tropical garden background, warm late-afternoon light. No person in frame; the object is the subject.",
+      "alt_text": "A mongkhon headband resting on the ropes of Wildcat's open-air Muay Thai ring in Chiang Mai",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "IMG-002",
+      "placement": "after-h2:The wai kru ram muay ceremony",
+      "type": "photo",
+      "subject": "A coach adjusting a student's mongkhon before a wai kru ram muay demonstration",
+      "description": "Medium shot, a Thai coach helping a student adjust their mongkhon before training, outdoor natural light, calm and respectful mood, no staged spectacle or audience.",
+      "alt_text": "A Wildcat coach adjusting a student's mongkhon before a wai kru ram muay demonstration at the camp",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-003",
+      "placement": "after-h2:The pra jiad: the mongkhon's often-overlooked companion",
+      "type": "photo",
+      "subject": "Close-up of a pra jiad tied around a fighter's bicep during pad work",
+      "description": "Tight shot on a forearm/bicep with the pra jiad tied on, during a pad-work session, coach's pad visible blurred in the background. Shows concretely where and how the object is worn, in action.",
+      "alt_text": "Close-up of a pra jiad armband tied around a fighter's bicep during pad work at Wildcat Muay Thai",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-004",
+      "placement": "after-h2:Wearing a mongkhon respectfully: etiquette for visitors, and how we teach it at Wildcat",
+      "type": "photo",
+      "subject": "A coach placing a mongkhon on a foreign student's head in a guided, smiling moment",
+      "description": "Medium shot, warm and consensual moment: a coach places a mongkhon on a visibly non-Thai student's head, both smiling, within an actual training session (not an isolated tourist photo-op). Framing must clearly show the coach guiding the gesture.",
+      "alt_text": "A Wildcat coach placing a mongkhon on a foreign student's head before a guided training session",
+      "aspect_ratio": "4:3"
+    }
+  ],
+  "cta": {
+    "url": "/classes/beginners",
+    "anchor": "See what a first class at Wildcat looks like",
+    "campaign": "blog-culture-nurture"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "culture",
+    "tags": [
+      "mongkhon",
+      "pra jiad",
+      "wai kru ram muay",
+      "muay thai culture"
+    ],
+    "draft": false,
+    "locale": "en",
+    "source_locale": "en",
+    "translation_key": "muay-thai-headband-mongkhon",
+    "fields": {
+      "category": "culture",
+      "draft": false,
+      "translationKey": "muay-thai-headband-mongkhon",
+      "coverAlt": "A mongkhon headband resting on the ropes of Wildcat's open-air Muay Thai ring in Chiang Mai",
+      "tldr": [
+        "The muay thai headband, called the mongkhon, is worn during the wai kru ram muay ceremony and comes off right before the fight starts.",
+        "Its companion, the pra jiad armband, does the opposite: it stays on for the entire bout.",
+        "Both are traditionally handmade and blessed by a monk or master before being given to a fighter.",
+        "Visitors are welcome to ask about wearing a mongkhon, just never as a souvenir; ask your kru first."
+      ]
+    }
+  },
+  "schema_version": 1,
+  "source_brief": "content/_drafts/blog/muay-thai-headband-mongkhon.md",
+  "source_hash": "sha256:15583fe8fd94117b1b2ab9ef130b8a7c119771df57a187b18309bf3cb9e45aea",
+  "context_hash": "sha256:51c287df1ca1becb6a91a7ad8b055df7ed465a291cc8c10474d361d925cb6d49",
+  "compiled_at": "2026-08-06T21:22:39+00:00",
+  "research_artifacts": [
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-wai-kru-ram-muay.json",
+      "hash": "sha256:233b9f060fef903194a0c9d3e1bc4f507c1b0e402a03b4c4614c789710815c4b"
+    },
+    {
+      "kind": "serp",
+      "path": ".seo-data/serp-muay-thai-headband-mongkhon.json",
+      "hash": "sha256:044390c9303088181ebc0b9bf3c112e8ea8266101b5b0e8913b3577c8823a871"
+    },
+    {
+      "kind": "gatekeeper",
+      "path": ".seo-data/gatekeeper-muay-thai-headband-mongkhon.json",
+      "hash": "sha256:593c29258662f71dafb87266e68042042545c71458a4f86d4bf1abad7d555ce4"
+    }
+  ]
+}

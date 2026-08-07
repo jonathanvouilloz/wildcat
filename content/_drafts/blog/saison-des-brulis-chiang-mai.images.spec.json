@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "article_slug": "saison-des-brulis-chiang-mai",
+  "article_spec_hash": "sha256:b643f7b5ec3d13d92fbcebf6957f5854fafaa74f2076aacc430262f5f56d3bd0",
+  "visual_context_hash": "sha256:5437b54a002f8c6a31a90a2d7b3723ff91eabb44d318f32c40a5197d8d185e28",
+  "status": "draft",
+  "images": [
+    {
+      "id": "IMG-001",
+      "role": "cover",
+      "placement": "cover",
+      "intent": "Cover editoriale etablissant l'angle honnete et non alarmiste du module YMYL : entrainement en exterieur qui continue pendant la saison des brulis, sans dramatisation.",
+      "subject": "Seance d'entrainement matinale en exterieur au camp, golden hour, collines visibles au loin",
+      "description": "Plan moyen sur une seance de paos en exterieur au ring de Wildcat, lumiere chaude de debut de matinee. A l'arriere-plan, les collines autour de Chiang Mai legerement voilees, sans effet dramatique ni apocalyptique. Ambiance positive, pas de masque anti-pollution visible au premier plan.",
+      "preset": "blog-cover-gemini",
+      "provider": null,
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "16:9",
+        "dimensions": "1792x1024",
+        "focal_position": "right",
+        "safe_zone": "left half reserved for potential future text, kept clear per moodboard default"
+      },
+      "references": [
+        {
+          "path": "visual/refs/blog-cover-style.webp",
+          "purpose": "style",
+          "required": true
+        }
+      ],
+      "negative_constraints": [
+        "no black or apocalyptic smog",
+        "no N95 mask close-up",
+        "no dark or dramatic imagery",
+        "no visible text or typography",
+        "no person in distress"
+      ],
+      "output": {
+        "path": "src/content/blog/covers/saison-des-brulis-chiang-mai.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Seance d'entrainement matinale en plein air au camp Wildcat Muay Thai a Chiang Mai, collines visibles en arriere-plan",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-002",
+      "role": "infographic",
+      "placement": "after-h2:pollution-aqi-calendrier",
+      "intent": "Frise qualitative des 12 mois de qualite de l'air a Chiang Mai, sans chiffre PM2.5 invente.",
+      "subject": "Calendrier illustre de la qualite de l'air a Chiang Mai, mois par mois",
+      "description": "Frise horizontale des 12 mois codee par teinte qualitative (excellente / variable / mauvaise / bonne saison des pluies), sans valeur chiffree PM2.5/AQI, palette du site (vert foret / or / creme). DEFERE : type infographic, mapping projet = SKIP (outil deterministe requis, jamais un modele d'image pour une data visualisation precise) ; production a faire via un composant illustre local, pas via generate-images.",
+      "preset": "SKIP",
+      "provider": null,
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "4:3",
+        "dimensions": "1600x1200",
+        "focal_position": "center",
+        "safe_zone": null
+      },
+      "references": [],
+      "negative_constraints": [
+        "no invented PM2.5 or AQI numeric value",
+        "no alarmist health-alert graphic style"
+      ],
+      "output": {
+        "path": "public/images/blog/saison-des-brulis-chiang-mai-2.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Calendrier illustre mois par mois de la qualite de l'air a Chiang Mai, de la saison seche a la saison des brulis",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-003",
+      "role": "portrait",
+      "placement": "after-h2:ce-quon-observe-au-camp",
+      "intent": "Portrait E-E-A-T de Meaw Boonpradub associe a son temoignage a la premiere personne.",
+      "subject": "Meaw Boonpradub sur le terrain du camp",
+      "description": "Portrait candide de Meaw au camp, ring ou jardin en arriere-plan, lumiere naturelle. DEFERE : reutiliser la photo deja resolue pour la byline auteur (fiche coach Meaw, COACHES_QUERY/urlFor) plutot que d'en generer une nouvelle ; pas de generation IA pour cette image.",
+      "preset": "service-portrait",
+      "provider": null,
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "1:1",
+        "dimensions": "1280x1280",
+        "focal_position": "center",
+        "safe_zone": null
+      },
+      "references": [
+        {
+          "path": "visual/refs/portrait-ambient.webp",
+          "purpose": "style",
+          "required": false
+        }
+      ],
+      "negative_constraints": [
+        "no corporate posed studio look",
+        "no dark or dramatic imagery"
+      ],
+      "output": {
+        "path": "public/images/blog/saison-des-brulis-chiang-mai-3.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Portrait de Meaw Boonpradub, fondatrice de Wildcat Muay Thai, sur le terrain du camp a Chiang Mai",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-004",
+      "role": "inline-photo",
+      "placement": "after-h2:comment-on-adapte-entrainement",
+      "intent": "Preuve visuelle de l'adaptation decrite dans le texte, sans dramatiser une claim non confirmee (CLM-003).",
+      "subject": "Seance de travail technique a l'ombre sous le pavillon couvert",
+      "description": "Plan moyen d'une seance de travail technique sous la partie couverte du ring, lumiere tamisee chaude, ambiance calme. DEFERE : CLM-003 (adaptations) reste to_confirm ; ne pas generer d'image IA pour illustrer un protocole non confirme. Reutiliser un asset reel existant du projet (night-session.webp, cite dans CLAUDE.md) si une photo dediee n'existe pas.",
+      "preset": "blog-inline",
+      "provider": null,
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "4:3",
+        "dimensions": "1600x1200",
+        "focal_position": "center",
+        "safe_zone": null
+      },
+      "references": [
+        {
+          "path": "visual/refs/blog-cover-style.webp",
+          "purpose": "style",
+          "required": true
+        }
+      ],
+      "negative_constraints": [
+        "no dark or dramatic imagery",
+        "no visible text or typography",
+        "no presenting the adaptation as an official confirmed protocol"
+      ],
+      "output": {
+        "path": "public/images/blog/saison-des-brulis-chiang-mai-4.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Seance de travail technique a l'ombre sous le pavillon couvert du camp Wildcat Muay Thai a Chiang Mai",
+      "approval_required": true
+    }
+  ]
+}

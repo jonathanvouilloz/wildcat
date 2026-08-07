@@ -1,0 +1,75 @@
+{
+  "slug": "burning-season-chiang-mai",
+  "locale": "en",
+  "translation_key": "burning-season",
+  "updated_at": "2026-08-06T21:45:00+00:00",
+  "status": "blocked",
+  "ready_to_publish": false,
+  "preconditions": {
+    "source_hash_verified": true,
+    "context_hash_verified": true,
+    "source_hash": "sha256:5b4ad8c4f66c4a20b9041c13b2f0fe0a23485becfc8c03beaef8c35bf15120ed",
+    "context_hash": "sha256:51c287df1ca1becb6a91a7ad8b055df7ed465a291cc8c10474d361d925cb6d49"
+  },
+  "steps": {
+    "images_spec": {
+      "status": "done",
+      "output": "content/_drafts/blog/burning-season-chiang-mai.images.spec.json"
+    },
+    "cover": {
+      "status": "failed",
+      "reason": "GEMINI_API_KEY / OPENAI_API_KEY not configured in C:/Users/jojo-/.claude/skills/generate-images/.env",
+      "output": null,
+      "resume_command": "python C:/Users/jojo-/.claude/skills/generate-images/scripts/cli.py --project \"C:/Users/jojo-/noyau/projets/wildcat\" --image-spec \"content/_drafts/blog/burning-season-chiang-mai.images.spec.json\" --image-id IMG-001"
+    },
+    "seo_write": {
+      "status": "done",
+      "output": "content/_drafts/blog/burning-season-chiang-mai.draft.md",
+      "word_count": 1861
+    },
+    "humanizer": {
+      "status": "done",
+      "output": "content/_drafts/blog/burning-season-chiang-mai.draft.md",
+      "note": "Em-dash: 0. Corrective juxtapositions reduced from 2 to 0 before final lint pass."
+    },
+    "seo_sources": {
+      "status": "done",
+      "output": "content/_drafts/blog/burning-season-chiang-mai.sources.json",
+      "confirmed_sources": 1,
+      "unverified_sources": 4,
+      "note": "WHO fetched and confirmed. IQAir (bot-protected/429), PCD, chiangmai.go.th unreachable from this environment; claims softened and left unlinked accordingly."
+    },
+    "assembly": {
+      "status": "done",
+      "output": "src/content/blog/en/burning-season-chiang-mai.md",
+      "replaces": "demo skeleton (draft:true, 414 words, banner) fully replaced, same slug/translationKey"
+    },
+    "schema": {
+      "status": "done",
+      "output": "content/_drafts/blog/burning-season-chiang-mai.schema.json",
+      "note": "Deterministic artifact only; this project's live site generates its own BlogPosting JSON-LD at render time from frontmatter (src/pages/[lang]/blog/[slug].astro), it does not consume this file."
+    },
+    "lint": {
+      "status": "done_with_known_false_positives",
+      "mode": "shadow",
+      "output": "content/_drafts/blog/burning-season-chiang-mai.review-static.json",
+      "errors": 4,
+      "warnings": 0,
+      "note": "4 errors are seo_lint.py/project convention mismatches (French-only TLDR blockquote pattern, French-only Sources heading, CTA bold exception limited to ?utm_source=blog), verified against dtv-visa-cost-breakdown.md (already published) which fails the same 4 rules. Not enforced (shadow mode), did not block run_step (exit 0)."
+    },
+    "review": {
+      "status": "BLOCKED_BY_STATIC_LINT",
+      "output": "content/_drafts/blog/burning-season-chiang-mai.review-editorial.json",
+      "note": "seo-review's own gate rule stops on any static lint error. All 9 qualitative criteria assessed PASS in the same file; block is procedural (lint gate), not a content defect."
+    },
+    "cover_join": {
+      "status": "blocked",
+      "reason": "cover not generated (missing API key)"
+    }
+  },
+  "blockers": [
+    "cover generation requires GEMINI_API_KEY or OPENAI_API_KEY in generate-images/.env (none configured)",
+    "seo-review gate returns BLOCKED_BY_STATIC_LINT because seo_lint.py has 4 rules not adapted to this project's EN/frontmatter-TLDR/intent-CTA conventions (see review-editorial.json diagnostic)"
+  ],
+  "resume_command": "1) set GEMINI_API_KEY (or OPENAI_API_KEY) then rerun the cover CLI command above. 2) Decide on seo_lint.py: patch its TLDR/CTA/Sources-heading rules for EN projects, or accept and re-run /seo-review once the gate is adjusted. No content rewrite needed."
+}

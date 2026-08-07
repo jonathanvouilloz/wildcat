@@ -1,0 +1,15 @@
+{
+  "topic": "wai kru ram muay",
+  "generated_at": "2026-08-06T21:10:00Z",
+  "candidates": [
+    {
+      "keyword": "wai kru ram muay",
+      "verdict": "PASS",
+      "gates": { "surprise_gap": "pass", "grounding": "pass" },
+      "signals": { "intent": "know", "pseo_scalable": false },
+      "failed_pillar": null,
+      "rationale": "SERP (.seo-data/serp-wai-kru-ram-muay.json) : Wikipedia sous-sourcé, blogs de gym génériques orientés fight-culture, vidéos YouTube sans explication textuelle profonde. Opportunity score high. Grounding : rituel pratiqué réellement au camp, coachs thaïs. Angle voulu explicitement top-funnel culture, sans public fight-fan pur (cohérent positionnement familial Wildcat).",
+      "priority": "moyenne"
+    }
+  ]
+}

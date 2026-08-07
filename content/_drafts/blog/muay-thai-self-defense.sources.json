@@ -1,0 +1,25 @@
+{
+  "slug": "muay-thai-self-defense",
+  "generated": "2026-08-07",
+  "level": "evergreen",
+  "citations": [
+    {
+      "claim": "In muay thai, unlike Western boxing, fighters are not separated when they clinch, which is why knee and elbow strikes flow directly out of that position.",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/Muay_Thai",
+      "source": "Wikipedia, Muay Thai",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "In some Krav Maga organizations, full-contact sparring is reserved for advanced students (G2 level, typically 4-6 years in), with earlier training being slow and light.",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/Krav_Maga",
+      "source": "Wikipedia, Krav Maga",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    }
+  ],
+  "unverified": [],
+  "notes": "Brief explicitly states no external claims requiring citation (opinion/experience piece, no stats to source, no fact-check doc for this topic). Light-touch evergreen sourcing added to satisfy ending.order lint rule and GEO citation levers (#1 Cite Sources inline) without inventing data: both citations verified live via curl fetch of the Wikipedia articles (WebSearch/WebFetch tools unavailable in this session; used direct fetch of known-authoritative encyclopedic pages instead, content read and confirmed before citing). No numeric/statistical claims were sourced; both citations back qualitative, verifiable characterizations of technique and training methodology already present in the article. First-party Wildcat claims (classes, coaches) remain internal links only, not treated as external sources."
+}

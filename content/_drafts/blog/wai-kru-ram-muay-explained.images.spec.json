@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "article_slug": "wai-kru-ram-muay-explained",
+  "article_spec_hash": "sha256:54985c5589bee0bb6d131bbfc2171e0555f6fc850bcb7ce8fa0b423283ff996c",
+  "visual_context_hash": null,
+  "status": "draft",
+  "note": "visual_context_hash not computed: generation was not attempted this run (no GEMINI_API_KEY / OPENAI_API_KEY configured in generate-images/.env). Images below are transcribed as-is from the brief's Image Briefs section, ready for /generate-images once a key is configured.",
+  "images": [
+    {
+      "id": "IMG-001",
+      "role": "cover",
+      "placement": "cover",
+      "intent": "Establish the ritual's warmth and respect at Wildcat's own ring, avoiding any fight-scene or aggressive framing.",
+      "subject": "Coach and student in a wai gesture of respect at Wildcat's open-air ring, Chiang Mai",
+      "description": "Medium shot, golden hour, open-air ring surrounded by banana trees. The coach (or a student) is kneeling or in a wai position, hands joined, head slightly bowed. Warm, calm mood, not a fight-scene setup.",
+      "preset": "blog-cover-gemini",
+      "provider": null,
+      "text": { "mode": "none", "content": "", "exact": true },
+      "layout": {
+        "aspect_ratio": "16:9",
+        "dimensions": "1792x1024",
+        "focal_position": "right",
+        "safe_zone": "left half reserved for potential future text, kept clear per moodboard default"
+      },
+      "references": [
+        { "path": "visual/refs/blog-cover-style.webp", "purpose": "style", "required": true }
+      ],
+      "negative_constraints": [
+        "no fight-scene aggression",
+        "no dark or dramatic imagery",
+        "no visible text or typography"
+      ],
+      "output": {
+        "path": "src/content/blog/covers/wai-kru-ram-muay-explained.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Wai kru ram muay ritual performed at Wildcat's open-air ring in Chiang Mai",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-002",
+      "role": "inline-photo",
+      "placement": "after-h3:Sealing the Ring",
+      "intent": "Visual proof of the ring-sealing part of the ceremony described in the text.",
+      "subject": "Tour of the ring, contact with the ropes at one of the four corners",
+      "description": "Close-mid shot of a hand touching the ring ropes at a corner, body leaning slightly forward, late-afternoon golden light. Documentary framing, not posed.",
+      "preset": "blog-inline",
+      "provider": null,
+      "text": { "mode": "none", "content": "", "exact": true },
+      "layout": { "aspect_ratio": "4:3", "dimensions": "1600x1200", "focal_position": "center", "safe_zone": null },
+      "references": [
+        { "path": "visual/refs/blog-cover-style.webp", "purpose": "style", "required": true }
+      ],
+      "negative_constraints": ["no dark or dramatic imagery", "no visible text or typography"],
+      "output": {
+        "path": "public/images/blog/wai-kru-ram-muay-explained-2.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "A fighter touching the ring ropes while sealing the ring before wai kru ram muay",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-003",
+      "role": "inline-photo",
+      "placement": "after-h2:The Ram Muay Dance: Movements and Meaning",
+      "intent": "Show a ram muay movement in progress to support the movement/symbolism section.",
+      "subject": "A ram muay dance movement in progress",
+      "description": "Wide or three-quarter shot of a person at the ring mid-movement of the ram muay (arm extended in an arc, leg slightly raised), tropical garden background visible, golden hour.",
+      "preset": "blog-inline",
+      "provider": null,
+      "text": { "mode": "none", "content": "", "exact": true },
+      "layout": { "aspect_ratio": "4:3", "dimensions": "1600x1200", "focal_position": "center", "safe_zone": null },
+      "references": [
+        { "path": "visual/refs/blog-cover-style.webp", "purpose": "style", "required": true }
+      ],
+      "negative_constraints": ["no tense expression or aggressive posture", "no visible text or typography"],
+      "output": {
+        "path": "public/images/blog/wai-kru-ram-muay-explained-3.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "A student performing the ram muay dance movements at an open-air Muay Thai ring",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-004",
+      "role": "inline-photo",
+      "placement": "after-h3:The Mongkhon and Pra Jiad: What Fighters Wear",
+      "intent": "Object-focused close-up supporting the brief mongkhon/pra jiad mention, without competing with the dedicated mongkhon article's own imagery.",
+      "subject": "Close-up of the mongkhon headband and/or pra jiad armband worn before the ritual",
+      "description": "Close shot on the head or arm of a practitioner wearing the braided mongkhon or a cloth pra jiad, soft natural light, blurred ring background.",
+      "preset": "blog-inline",
+      "provider": null,
+      "text": { "mode": "none", "content": "", "exact": true },
+      "layout": { "aspect_ratio": "4:3", "dimensions": "1600x1200", "focal_position": "center", "safe_zone": null },
+      "references": [
+        { "path": "visual/refs/blog-cover-style.webp", "purpose": "style", "required": true }
+      ],
+      "negative_constraints": ["object/partial-face only, no product listing or price overlay", "no visible text or typography"],
+      "output": {
+        "path": "public/images/blog/wai-kru-ram-muay-explained-4.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Close-up of the mongkhon headband worn during wai kru ram muay in Chiang Mai",
+      "approval_required": true
+    }
+  ]
+}

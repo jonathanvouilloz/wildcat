@@ -1,0 +1,15 @@
+{
+  "topic": "muay thai vs kickboxing",
+  "generated_at": "2026-08-06T21:10:00Z",
+  "candidates": [
+    {
+      "keyword": "muay thai vs kickboxing",
+      "verdict": "PASS",
+      "gates": { "surprise_gap": "pass", "grounding": "pass" },
+      "signals": { "intent": "know", "pseo_scalable": false },
+      "failed_pillar": null,
+      "rationale": "SERP (.seo-data/serp-muay-thai-vs-kickboxing.json) : rankers = marques de gear / gyms occidentaux, liste technique 8 vs 4 points recyclée, zéro couche culturelle (wai kru, ram muay), zéro voix vécue en camp thaï. Grounding : coachs thaïs réels + expérience camp Chiang Mai (docs/brand/proofs.md). Plus gros volume non servi du plan (4400/mo, validé DataForSEO).",
+      "priority": "haute"
+    }
+  ]
+}

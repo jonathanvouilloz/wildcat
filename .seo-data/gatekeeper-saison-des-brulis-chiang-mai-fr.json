@@ -1,0 +1,15 @@
+{
+  "topic": "pollution chiang mai / saison des brûlis chiang mai (FR)",
+  "generated_at": "2026-08-06T21:10:00Z",
+  "candidates": [
+    {
+      "keyword": "pollution chiang mai",
+      "verdict": "PASS",
+      "gates": { "surprise_gap": "pass", "grounding": "pass" },
+      "signals": { "intent": "know", "pseo_scalable": false },
+      "failed_pillar": null,
+      "rationale": "SERP FR (.seo-data/serp-pollution-chiang-mai-fr.json) dominé par médias expat génériques (lepetitjournal, voyagethailande.fr) — zéro angle sport en extérieur. Grounding : camp réel opéré toute l'année par Meaw, mais équipe anglophone (aucun claim d'accueil en français, cohérent avec le re-cadrage stay-train E5f).",
+      "priority": "haute"
+    }
+  ]
+}

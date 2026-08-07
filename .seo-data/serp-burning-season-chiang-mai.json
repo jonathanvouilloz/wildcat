@@ -1,0 +1,122 @@
+{
+  "keyword": "burning season chiang mai",
+  "location": "United States / Global",
+  "scanned_at": "2026-08-06T00:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://cnxlocal.com/chiang-mai-burning-season-essential-guide-travel-safety-tips-from-a-local/",
+      "title": "Chiang Mai Burning Season 2026: Dates, Air Quality & What to Do · cnxlocal",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": [
+        "timing (late Feb-March peak, mid-Feb to April window)",
+        "causes (agricultural burning across Thailand/Laos/Myanmar/Cambodia)",
+        "AQI ranges and health thresholds (100 unhealthy, 300+ hazardous)",
+        "health effects",
+        "coping tactics locals use (air purifiers, indoor time)",
+        "whether to still visit + alternative regions/timing",
+        "FAQ block"
+      ],
+      "missing": [
+        "any angle for people who want to keep training/exercising outdoors during the season",
+        "practical guidance for physically active travelers (not just tourists sightseeing)",
+        "first-person, lived-daily-in-it authority beyond general local blogger"
+      ],
+      "eeat_signals": ["named author (Kristifer Szabo, co-founder)", "cites CNN, NASA Earth Observatory, IQAir newsroom", "links live AQI monitor (aqicn.org)", "dated + updated for 2026"]
+    },
+    {
+      "rank": 2,
+      "url": "https://adahouse-cnx.com/en/blog/burning-season-chiang-mai",
+      "title": "Chiang Mai's burning season: an honest guide to the smoke — Ada House CNX",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "covers": [
+        "timing + why it gets bad (valley geography, temperature inversion)",
+        "who should be careful (children, elderly, pregnant, asthma/heart conditions)",
+        "coping strategies (HEPA filters, N95 masks, indoor activities, AQI apps)",
+        "travel recommendations / alternatives",
+        "FAQ section"
+      ],
+      "missing": [
+        "sport/training-specific advice",
+        "any content addressing exercise intensity vs AQI",
+        "personal narrative from someone who has trained/lived through multiple seasons"
+      ],
+      "eeat_signals": ["cites Thailand Pollution Control Department (pcd.go.th)", "cites WHO air pollution page", "cites IQAir", "dated June 2026", "written by an accommodation business team (relevant local authority but generic to guests, not athletes)"]
+    },
+    {
+      "rank": 3,
+      "url": "https://backpackthailand.com/guides/thailand-air-quality-guide",
+      "title": "Chiang Mai Burning Season 2026: Air Quality Guide & What to Do | BackpackThailand.com",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": [
+        "region-by-region severity ranking (Chiang Mai worst, Pai severe, Bangkok rarely affected, islands clear)",
+        "AQI scale explainer",
+        "who should avoid the season entirely",
+        "Songkran timing problem, what happens in May",
+        "decision tree + alternative Nov-Feb window",
+        "resource links (IQAir, Aqicn.org)"
+      ],
+      "missing": [
+        "anything for travelers with a specific fitness/training purpose (only generic sightseeing/backpacker framing)",
+        "local, lived-experience voice (byline is a generic 'team', not a named resident)",
+        "concrete on-the-ground adaptations (schedule shifts, indoor facility specifics)"
+      ],
+      "eeat_signals": ["dated + 'last verified' Feb 2026", "cites 2025 AQI peak data", "generic team byline, no individual named author or credentials"]
+    },
+    {
+      "rank": 4,
+      "url": "https://thailandfaq.blog/burning-season-thailand-2026/",
+      "title": "Burning Season Thailand 2026: Ultimate Reality Check?",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["national-scope overview of burning season", "reality-check / myth-busting framing"],
+      "missing": ["Chiang Mai-specific depth", "sport/training angle", "named authority"],
+      "eeat_signals": ["not verified in detail (not fetched) — title suggests generalist travel-blog framing"]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.iqair.com/th-en/newsroom/chiang-mai-ranks-among-the-top-10-most-polluted-cities-during-thailand-s-burning-season-3-4-2026",
+      "title": "March 4, 2026: Chiang Mai among the top 10 most polluted cities during Thailand's burning season | IQAir Thailand",
+      "page_type": "other",
+      "competitor_type": "institutional",
+      "covers": ["real-time AQI ranking data", "PM2.5 focus", "press-release style stat snapshot"],
+      "missing": ["any travel or training guidance", "narrative or coping advice", "local color"],
+      "eeat_signals": ["institutional data source (IQAir)", "dated to specific day", "no individual author, pure data reporting"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "When is burning season in Chiang Mai?",
+      "Is it safe to visit Chiang Mai during burning season?",
+      "What months should I avoid Chiang Mai?",
+      "How bad is the air quality in Chiang Mai in March?",
+      "Does Chiang Mai burning season affect Bangkok?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "Timing: mid/late February through April, peak in March",
+    "Cause: agricultural crop-residue burning (Thailand + Laos/Myanmar/Cambodia) plus forest fires, worsened by valley geography trapping smoke",
+    "AQI/PM2.5 explainer with health-risk thresholds",
+    "Generic coping tactics: N95 masks, HEPA air purifiers, limiting outdoor time, live AQI-app monitoring (IQAir/Aqicn.org)",
+    "Travel-planning framing: should-you-visit, alternative months/regions, FAQ block"
+  ],
+  "gap": {
+    "description": "Every ranking result treats burning season as a pure tourism/health-logistics problem (mask up, buy a purifier, maybe reschedule your trip). None address the specific, high-intent question Wildcat's actual audience has: 'I'm flying in to train Muay Thai for weeks — can I still train hard, and how does a camp handle the smoke?' No competitor discusses adjusting training intensity/schedule around AQI, indoor vs outdoor session planning, gym air filtration, or how a resident who trains daily actually lives through it season to season.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Authorship is either an anonymous 'team' byline (backpackthailand, thailandfaq) or a generalist local blogger/accommodation business (cnxlocal, adahouse) — none is someone who trains or coaches daily outdoors in Chiang Mai, which is a stronger E-E-A-T angle for a YMYL health topic tied to physical exertion",
+    "Coping-strategy sections are copy-paste generic (mask, purifier, stay indoors) across all 3 fetched articles, with no sport-specific nuance (e.g. safe AQI thresholds for cardio, why early-morning sessions differ from midday, how enclosed/covered training spaces compare to fully open-air gyms)",
+    "None distinguish the shoulder months clearly for a training-trip planner — Nov-Jan (high season, clean air) vs Feb (transition) vs March (peak, real disruption) vs April (Songkran + tail-end smoke) — the framing stays tourist-generic, not booking-decision-specific"
+  ],
+  "recommended_angle": "Write it as Meaw's own on-the-ground playbook for burning season at a camp that trains outdoors: what changes at Wildcat when AQI spikes (indoor/covered sessions, timing shifts to clean-air hours, gear and gym-side precautions), plus an honest month-by-month verdict for anyone planning a training trip (Nov-Jan safe bet, March the real risk window) — the angle no travel blog or clinic page owns because none of them actually run daily outdoor training through it."
+}

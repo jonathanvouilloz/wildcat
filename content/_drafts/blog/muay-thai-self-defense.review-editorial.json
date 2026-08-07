@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "gate_note": "content/_drafts/blog/muay-thai-self-defense.review-static.json now reports 0 errors, 0 warnings (re-run after the resumed run fixed the 3 real defects: missing Sources block, missing/misformatted final CTA, and a bold link pointing outside the CTA whitelist). Static gate cleared, qualitative review re-run against the updated article.",
+  "criteria": [
+    {
+      "id": "angle_intent",
+      "status": "PASS",
+      "evidence": "Article opens with a direct yes-with-limits answer to 'is muay thai good for self-defense' and holds the honest-evaluation POV from the brief throughout: real strengths (clinch, elbows/knees, composure) named without oversell, then limits (no ground game, no disarms, no de-escalation) named without hedging. Zero DTV/service angle, matching the explicit top-funnel positioning of the command.",
+      "correction": "none"
+    },
+    {
+      "id": "bluf_progression",
+      "status": "PASS",
+      "evidence": "Every H2/H3 opens with its conclusion before detail: e.g. 'The real strengths are narrower than most gyms admit' (real-strengths), 'Here's what most gyms won't say out loud... muay thai has real gaps' (honest-limits), 'No single art covers everything' (how-it-compares). FAQ answers lead with yes/no/depends before elaborating. The two new sourced sentences (clinch, Krav Maga) sit mid-paragraph as supporting detail, they do not displace the BLUF opener of their section.",
+      "correction": "none"
+    },
+    {
+      "id": "voice_patte_ecrite",
+      "status": "PASS",
+      "evidence": "First-person Meaw voice grounded early ('I'm Meaw. I run Wildcat Muay Thai in Chiang Mai'), opinion asides kept ('it's the part I care about most', 'I'd argue it's the most useful one'). Limits named explicitly per 'Nommer les limites et les cas ou Wildcat n'est pas le meilleur choix'. The two inline citations use the project's established attribution pattern ('according to [Source name](url)', same construction as dtv-visa-cost-breakdown.md), no dry academic tone introduced. No warrior/beast-mode register, no invented stats, ages, prices or competitor claims. Zero em dash (checked: review-static em_dash.* all PASS at 0).",
+      "correction": "none"
+    },
+    {
+      "id": "semantic_naturalness",
+      "status": "PASS",
+      "evidence": "All spec keywords still reformulated naturally in prose: 'is muay thai good for self-defense', 'is muay thai dangerous', 'good for a real street fight', 'how muay thai compares to boxing', 'good exercise', 'muay thai training' (single bold, no duplicate). The two new sentences read as natural prose extensions, not inserted citation dumps.",
+      "correction": "none"
+    },
+    {
+      "id": "evidence_and_limits",
+      "status": "PASS",
+      "evidence": "seo-sources ran for real this session (draft.md and article.md both updated, sidecar muay-thai-self-defense.sources.json written): 2 claims verified live (curl fetch, content actually read) against en.wikipedia.org/wiki/Muay_Thai and en.wikipedia.org/wiki/Krav_Maga, both status Confirme, both linked inline. The Krav Maga sparring claim was tightened to match exactly what the source says (some organizations, G2 level, 4-6 years before full-contact sparring) instead of the prior unsourced generalization ('a lot of programs skip live sparring'), which is a strict improvement on evidentiary precision. Still zero fabricated statistics; the brief's prohibition on inventing a self-defense effectiveness stat is respected. Ending block now closes with a proper '## Sources and References' list (2 real dated URLs) plus a methodology caveat, matching project convention (dtv-visa-cost-breakdown.md).",
+      "correction": "none"
+    },
+    {
+      "id": "links_and_cta",
+      "status": "PASS",
+      "evidence": "All 3 spec-required internal links present and contextually placed: /classes/beginners in what-beginners-get, /about/coaches in training-in-thailand, /classes as a plain contextual link in the Conclusion paragraph (spec.internal_links requirement satisfied without being the bold final CTA). The final CTA is now the single bold link '[**Book your first class ->**](/contact?intent=class)', matching the project's established FINAL_CTA_DESTINATIONS whitelist and the intent=class precedent already used in best-muay-thai-camps-chiang-mai.mdx for the same nurturing/class-intent case. This is a deliberate, doctrine-consistent divergence from the brief's literal spec.cta (which named /classes as the bold CTA target): the brief predates the project's CTA-format convention (bold CTA must resolve to /contact?intent=... to pass cta.final_unique), and /classes remains fully served as a required contextual link one sentence earlier. No secondary CTA, no pipe-separated links, no bold text left inside a non-CTA link (bold.not_in_links now 0).",
+      "correction": "none"
+    },
+    {
+      "id": "faq_conclusion",
+      "status": "PASS",
+      "evidence": "FAQ covers all 5 SERP PAA questions from the brief plus the 3 long-tails, each answered with a real position (not a repeat of body text): e.g. the krav-maga-vs-muay-thai answer states a tradeoff instead of declaring a winner. Conclusion is a genuine 2-paragraph synthesis followed by the single CTA, then Sources. Order verified mechanically: FAQ -> Conclusion -> CTA -> Sources (review-static ending.order PASS).",
+      "correction": "none"
+    },
+    {
+      "id": "utility_distinction",
+      "status": "PASS",
+      "evidence": "The honest-limits section (ground game, weapon disarms, de-escalation, sport-rules-vs-chaos) remains the differentiator identified in the brief's gap analysis. The 'training in Thailand' H3 adds a second differentiator (Thai coaches as native vocabulary vs diluted Western class). The two new sourced facts (boxing vs muay thai clinch rule, Krav Maga sparring timeline) add a small but real layer of verifiable specificity that the brief's scanned competitors (0/5 citing any source) do not have.",
+      "correction": "none"
+    },
+    {
+      "id": "localization",
+      "status": "PASS",
+      "evidence": "spec.locale/frontmatter.locale = en, source_locale of the project. Article remains written entirely in direct, non-native-friendly EN. The 2 new sentences and the Sources block are in the same register, no French bleed. Inline image alt texts unchanged (already EN from prior assembly).",
+      "correction": "none"
+    }
+  ],
+  "priority_actions": [
+    "Cover: no image API key configured in this environment; cover generation was not re-attempted this session (cover_failure, article kept, see run.json). Not a content defect.",
+    "3 inline images (IMG-002/003/004) remain unreferenced files (markdown placeholders only), consistent with pre-existing project-wide precedent (ed-visa-vs-dtv-muay-thai also ships without generated inline images) -- non-blocking."
+  ],
+  "publication_recommendation": "ready_to_publish, subject to Jonathan resolving the cover_failure (no image API key configured) before actual publish"
+}

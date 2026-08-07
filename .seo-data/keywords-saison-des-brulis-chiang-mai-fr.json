@@ -1,0 +1,21 @@
+{
+  "topic": "saison des brulis chiang mai",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-08-06T20:47:28Z",
+  "primary": {
+    "keyword": "saison des brulis chiang mai",
+    "search_volume": 10,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 5,
+    "difficulty": null,
+    "intent": "informational",
+    "intent_probability": 0.9527
+  },
+  "secondaries": [],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}

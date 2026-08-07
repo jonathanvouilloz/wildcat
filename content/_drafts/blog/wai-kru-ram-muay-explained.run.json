@@ -1,0 +1,81 @@
+{
+  "slug": "wai-kru-ram-muay-explained",
+  "locale": "en",
+  "translation_key": "wai-kru-ram-muay-explained",
+  "updated_at": "2026-08-07T00:00:00+00:00",
+  "status": "blocked",
+  "ready_to_publish": false,
+  "preconditions": {
+    "source_hash_verified": true,
+    "source_hash": "sha256:23a807df07726288fe4b1d919b06baac9af8d8d0d3ba1cbd82e83af0e3452dc9",
+    "context_hash_verified": "verified_with_known_drift",
+    "context_hash": "sha256:51c287df1ca1becb6a91a7ad8b055df7ed465a291cc8c10474d361d925cb6d49",
+    "context_hash_note": "The spec's context_hash (compiled 2026-08-06T21:22:42Z) no longer matches the current .project-cache/content-context.json snapshot (recompiled 2026-08-06T21:50:05Z, hash sha256:6986067a...), which is what this project's other in-flight article specs from the same batch (burning-season-chiang-mai, muay-thai-headband-mongkhon) also show. All canonical context file mtimes (identity.md, voice.md, anti-patterns.md, patte-ecrite.md, proofs.md, themes.md, seo-context.md, content-map.md) predate both compiles (2026-07-20), so no brand/voice/rule content actually changed between them; recompiling now reproduces the newer hash deterministically. Treated as non-fatal drift from sibling batch tooling, not a stale-context risk. Not blocking."
+  },
+  "steps": {
+    "images_spec": {
+      "status": "done",
+      "output": "content/_drafts/blog/wai-kru-ram-muay-explained.images.spec.json"
+    },
+    "cover": {
+      "status": "failed",
+      "reason": "GEMINI_API_KEY / OPENAI_API_KEY not configured in C:/Users/jojo-/.claude/skills/generate-images/.env",
+      "output": null,
+      "resume_command": "python C:/Users/jojo-/.claude/skills/generate-images/scripts/cli.py --project \"C:/Users/jojo-/noyau/projets/wildcat\" --image-spec \"content/_drafts/blog/wai-kru-ram-muay-explained.images.spec.json\" --image-id IMG-001"
+    },
+    "seo_write": {
+      "status": "done",
+      "output": "content/_drafts/blog/wai-kru-ram-muay-explained.draft.md",
+      "word_count": 1783
+    },
+    "humanizer": {
+      "status": "done",
+      "output": "content/_drafts/blog/wai-kru-ram-muay-explained.draft.md",
+      "note": "Written directly with anti-AI-writing discipline applied inline (zero em-dash, zero banned vocabulary, zero corrective-juxtaposition pattern, zero rule-of-three tics), then re-scanned programmatically; no separate rewrite pass was needed."
+    },
+    "seo_sources": {
+      "status": "done",
+      "output": "content/_drafts/blog/wai-kru-ram-muay-explained.draft.md",
+      "sidecar": "content/_drafts/blog/wai-kru-ram-muay-explained.sources.json",
+      "confirmed_sources": 3,
+      "unverified_claims_softened": 2,
+      "note": "No WebFetch/WebSearch tool was available in this session; real HTTP GET (curl) was used instead to fetch and read Wikipedia's Wai khru ram muay page, Wikipedia's Muay Thai page (20th century section), and Evolve MMA's Wai Kru article in full before citing. The brief's 'Buddhist and animist' claim (CLM-005) was reduced to 'Buddhist' only after none of the 3 fetched pages mentioned animism. The brief's 'Korat, Chaiya, Lopburi' regional-style claim (CLM-002) was re-grounded against Wikipedia's Muay Thai history (regional Muay Boran lineages) combined with Evolve MMA's camp-level ram muay variation, rather than asserting the original single unverified framing."
+    },
+    "assembly": {
+      "status": "done",
+      "output": "src/content/blog/en/wai-kru-ram-muay-explained.md",
+      "note": "Assembled via build_article.py against an in-memory augmented copy of the spec (spec.frontmatter.fields populated with tldr/category/draft/translationKey/coverAlt, matching the pattern implied by burning-season-chiang-mai.md's and muay-thai-headband-mongkhon.md's published frontmatter shape). The canonical content/_drafts/blog/wai-kru-ram-muay-explained.spec.json was not modified. The auto-defaulted `cover: ../covers/wai-kru-ram-muay-explained.webp` line was removed by hand after `npm run build` failed with ImageNotFound (Astro's image() schema resolves the referenced file at build time; a cover path pointing to a not-yet-generated webp breaks the whole site build, not just this page). `coverAlt` was kept so the alt text is ready the moment the cover is generated and the `cover:` line is re-added."
+    },
+    "schema": {
+      "status": "done",
+      "output": "content/_drafts/blog/wai-kru-ram-muay-explained.schema.json"
+    },
+    "lint": {
+      "status": "done",
+      "mode": "shadow",
+      "output": "content/_drafts/blog/wai-kru-ram-muay-explained.review-static.json",
+      "errors": 0,
+      "warnings": 1,
+      "note": "0 errors, matching the burning-season-chiang-mai / ed-visa-vs-dtv-muay-thai baseline with the corrected (non-hardcoded-French) linter. 1 warning: links.contextual_target_per_1000_min (2.80/1000 words vs target 3-6); not forced up with a filler link."
+    },
+    "review": {
+      "status": "PASS",
+      "output": "content/_drafts/blog/wai-kru-ram-muay-explained.review-editorial.json",
+      "publication_recommendation": "ready_to_publish",
+      "note": "All 9 criteria PASS. Not gated by static lint (0 errors)."
+    },
+    "cover_join": {
+      "status": "blocked",
+      "reason": "cover not generated (missing API key), per doctrine: cover failure keeps the article artifact but the run's final status stays not-ready"
+    }
+  },
+  "blockers": [
+    "cover generation requires GEMINI_API_KEY or OPENAI_API_KEY in generate-images/.env (none configured); article and all other artifacts are otherwise complete and reviewed"
+  ],
+  "resume_command": "1) Configure GEMINI_API_KEY or OPENAI_API_KEY, then run: python C:/Users/jojo-/.claude/skills/generate-images/scripts/cli.py --project \"C:/Users/jojo-/noyau/projets/wildcat\" --image-spec \"content/_drafts/blog/wai-kru-ram-muay-explained.images.spec.json\" --image-id IMG-001 (and IMG-002/003/004 for inline photos). 2) Once the cover exists at src/content/blog/covers/wai-kru-ram-muay-explained.webp, add back `cover: ../covers/wai-kru-ram-muay-explained.webp` to src/content/blog/en/wai-kru-ram-muay-explained.md's frontmatter (coverAlt is already set), re-run `npm run build` to confirm, then mark ready_to_publish. No content rewrite needed.",
+  "build_verification": {
+    "command": "npm run build",
+    "status": "success",
+    "note": "Full site build completed clean (0 errors) after the cover-reference fix above. wai-kru-ram-muay-explained is correctly absent from dist's static blog pages: src/lib/blog.ts filters posts by `publishDate <= Date.now()`, and this article's publishDate (2026-08-28) is still in the future relative to the real build clock (2026-08-07). Same reason burning-season-chiang-mai, ed-visa-vs-dtv-muay-thai, and muay-thai-headband-mongkhon are also absent from this dist build; this is the project's existing scheduled-publish behavior, not a defect introduced here."
+  }
+}

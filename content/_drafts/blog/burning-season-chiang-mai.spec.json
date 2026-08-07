@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "source_brief": "content/_drafts/blog/burning-season-chiang-mai.md",
+  "research_artifacts": [
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-burning-season-chiang-mai-en.json",
+      "hash": "sha256:05d4512cfb7a07632c09e4501b573a57d7fa8a8a392f8e6908c666d3209ff0c9"
+    },
+    {
+      "kind": "serp",
+      "path": ".seo-data/serp-burning-season-chiang-mai.json",
+      "hash": "sha256:849e6185345b0b89507c9fec09238a39f6a38c47ec3e1dff1df3da816ce49aa4"
+    },
+    {
+      "kind": "gatekeeper",
+      "path": ".seo-data/gatekeeper-burning-season-chiang-mai.json",
+      "hash": "sha256:52c61dfb956f2bc02b759da661b409827f0d45f4e72b609165fbee75b00edc14"
+    }
+  ],
+  "slug": "burning-season-chiang-mai",
+  "module": "C",
+  "snippet": {
+    "title": "Burning Season in Chiang Mai 2026: Trainer's Honest Guide",
+    "h1": "What Burning Season in Chiang Mai Really Means for Your Training",
+    "description": "How Wildcat adapts Muay Thai training during Chiang Mai's burning season, month by month, from someone who trains here year-round."
+  },
+  "dates": {
+    "pubDate": "2026-08-11",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1700,
+    "maximum": 2000
+  },
+  "primary_keyword": "burning season chiang mai",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "burning season chiang mai",
+      "natural_form": "burning season in Chiang Mai",
+      "volume": 210,
+      "placements": [
+        "title",
+        "h1",
+        "intro",
+        "meta"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "burning season thailand",
+      "natural_form": "burning season in Thailand",
+      "volume": 480,
+      "placements": [
+        "h2:what-burning-season-is",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "chiang mai burning season",
+      "natural_form": "Chiang Mai's burning season",
+      "volume": 210,
+      "placements": [
+        "h2:what-burning-season-is",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "when is burning season in chiang mai",
+      "natural_form": "when burning season happens in Chiang Mai",
+      "volume": 90,
+      "placements": [
+        "h2:month-by-month-calendar",
+        "faq"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "when does burning season start in chiang mai",
+      "natural_form": "when burning season starts in Chiang Mai",
+      "volume": 20,
+      "placements": [
+        "h2:month-by-month-calendar",
+        "faq"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "how bad is burning season in chiang mai",
+      "natural_form": "how bad burning season actually gets in Chiang Mai",
+      "volume": 10,
+      "placements": [
+        "h2:how-bad-air-gets",
+        "faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "what is burning season chiang mai",
+      "natural_form": "what burning season in Chiang Mai actually means",
+      "volume": 10,
+      "placements": [
+        "intro",
+        "faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "chiang mai burning season 2026",
+      "natural_form": "Chiang Mai's 2026 burning season",
+      "volume": 110,
+      "placements": [
+        "title",
+        "h2:month-by-month-calendar"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "thailand burning season 2026",
+      "natural_form": "Thailand's 2026 burning season",
+      "volume": 40,
+      "placements": [
+        "h2:planning-a-training-trip"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "is it safe to visit chiang mai during burning season",
+      "natural_form": "whether it's safe to visit Chiang Mai during burning season",
+      "volume": null,
+      "placements": [
+        "faq"
+      ]
+    }
+  ],
+  "structure": [
+    {
+      "id": "what-burning-season-is",
+      "level": 2,
+      "heading": "What Burning Season in Chiang Mai Actually Is",
+      "purpose": "Definir timing (fin fevrier a avril, pic mars), causes (brulis agricoles regionaux + geographie de la vallee), vulgariser PM2.5/AQI.",
+      "target_keywords": [
+        "burning season chiang mai",
+        "burning season thailand",
+        "chiang mai burning season"
+      ]
+    },
+    {
+      "id": "how-bad-air-gets",
+      "level": 3,
+      "heading": "How Bad the Air Actually Gets (and How We Know)",
+      "purpose": "Fusionne en H3 sous what-burning-season-is (revision brief-critic, structure Hn). Seuils AQI sources (unhealthy/hazardous), sans dramatiser ni minimiser ; mentionner le suivi AQI en temps reel brievement (common ground).",
+      "target_keywords": [
+        "how bad is burning season in chiang mai"
+      ]
+    },
+    {
+      "id": "month-by-month-calendar",
+      "level": 2,
+      "heading": "The Honest Month-by-Month Training Calendar",
+      "purpose": "Nov-Jan excellent, fevrier variable, mars pic, avril debut variable/Songkran, mai-oct bon. Lien vers /classes#schedule.",
+      "target_keywords": [
+        "when is burning season in chiang mai",
+        "when does burning season start in chiang mai",
+        "chiang mai burning season 2026"
+      ]
+    },
+    {
+      "id": "how-wildcat-adapts",
+      "level": 2,
+      "heading": "How We Adapt Training When the Air Turns Bad",
+      "purpose": "Angle differenciant (gap SERP) : Meaw a la 1re personne, ajustements concrets du camp (horaires, intensite, ring couvert).",
+      "target_keywords": []
+    },
+    {
+      "id": "who-should-be-careful",
+      "level": 3,
+      "heading": "Who Should Be Extra Careful During Burning Season",
+      "purpose": "Retrogradee en H3 sous how-wildcat-adapts (revision brief-critic, structure Hn). Section sante obligatoire Module C : asthme, coeur/poumons, grossesse, enfants, personnes agees ; recommander AQI + medecin, jamais un diagnostic individualise.",
+      "target_keywords": []
+    },
+    {
+      "id": "planning-a-training-trip",
+      "level": 2,
+      "heading": "Planning a Training Trip Around Burning Season",
+      "purpose": "Conseil de reservation pratique (Nov-Jan si flexible, contacter le camp si dates en mars) ; liens /stay-train et /contact.",
+      "target_keywords": [
+        "thailand burning season 2026"
+      ]
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "FAQ: Burning Season and Training in Chiang Mai",
+      "purpose": "4-5 questions H3 derivees du people_also_ask SERP + longue traine restante, reponses courtes et directes.",
+      "target_keywords": [
+        "what is burning season chiang mai",
+        "how bad is burning season in chiang mai",
+        "is it safe to visit chiang mai during burning season"
+      ]
+    },
+    {
+      "id": "sources",
+      "level": 2,
+      "heading": "Sources and References",
+      "purpose": "Citations datees obligatoires (YMYL), completees par /seo-sources avant assemblage final.",
+      "target_keywords": []
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/classes#schedule",
+      "anchor": "our full training schedule",
+      "section_id": "how-wildcat-adapts",
+      "required": true,
+      "reason": "horaires reels referencies pour expliquer les ajustements de creneaux"
+    },
+    {
+      "url": "/stay-train",
+      "anchor": "Stay & Train packages",
+      "section_id": "planning-a-training-trip",
+      "required": true,
+      "reason": "lien de conversion obligatoire pour la planification de sejour"
+    },
+    {
+      "url": "/contact",
+      "anchor": "message us on WhatsApp",
+      "section_id": "planning-a-training-trip",
+      "required": true,
+      "reason": "CTA WhatsApp obligatoire"
+    },
+    {
+      "url": "/dtv-visa/long-stay-training",
+      "anchor": "long-stay training budget",
+      "section_id": "planning-a-training-trip",
+      "required": false,
+      "reason": "cross-sell pour la persona DTV secondaire planifiant un sejour long autour de la saison"
+    },
+    {
+      "url": "/about/coaches",
+      "anchor": "meet Meaw and the coaches",
+      "section_id": "how-wildcat-adapts",
+      "required": false,
+      "reason": "renfort E-E-A-T optionnel"
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://www.iqair.com/thailand/chiang-mai",
+      "title": "IQAir Chiang Mai air quality (real-time + historical)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://www.iqair.com/th-en/newsroom/chiang-mai-ranks-among-the-top-10-most-polluted-cities-during-thailand-s-burning-season-3-4-2026",
+      "title": "IQAir Thailand newsroom: Chiang Mai among top 10 most polluted cities during burning season (March 4, 2026)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://www.pcd.go.th",
+      "title": "Thailand Pollution Control Department",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-004",
+      "url": "https://www.who.int/teams/environment-climate-change-and-health/air-quality-and-health/health-impacts/types-of-pollutants",
+      "title": "WHO — Air pollution health impacts",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-005",
+      "url": "https://www.chiangmai.go.th",
+      "title": "Chiang Mai provincial government (agricultural burn-ban announcements, exact 2026 dates TBD)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "INT-001",
+      "url": "docs/brand/proofs.md",
+      "title": "Wildcat brand proofs (internal, canonical) — camp, Meaw, positioning",
+      "status": "confirmed",
+      "accessed_at": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "Chiang Mai's burning season typically runs from late February through April, with the worst air quality concentrated in March.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-001",
+        "SRC-002"
+      ]
+    },
+    {
+      "id": "CLM-002",
+      "statement": "During peak burning season, Chiang Mai's PM2.5 and AQI levels can reach unhealthy to hazardous thresholds by international air quality standards.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-002",
+        "SRC-004"
+      ]
+    },
+    {
+      "id": "CLM-003",
+      "statement": "November through January is generally the cleanest-air stretch of the year in Chiang Mai, and the best window for outdoor training.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-001"
+      ]
+    },
+    {
+      "id": "CLM-004",
+      "statement": "Wildcat shifts outdoor session timing and moves technical work under the covered ring on high-AQI days.",
+      "status": "confirmed",
+      "source_ids": [
+        "INT-001"
+      ],
+      "allowed_wording": "Premiere personne (Meaw), experience directe du camp — aucune source externe requise.",
+      "limits": "Decrire comme une pratique observee du camp, jamais comme un protocole medical ou une garantie de securite."
+    },
+    {
+      "id": "CLM-005",
+      "statement": "Agricultural crop-residue burning across northern Thailand, Laos, and Myanmar, combined with Chiang Mai's valley geography trapping smoke, drives the seasonal spike in air pollution.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-003",
+        "SRC-005"
+      ]
+    },
+    {
+      "id": "CLM-006",
+      "statement": "People with asthma, heart or lung conditions, pregnant people, young children, and the elderly should take extra precaution and consult a doctor before intense outdoor exercise during high-AQI periods.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-004"
+      ],
+      "limits": "Recommandation generale de sante publique, jamais un avis medical individualise."
+    },
+    {
+      "id": "CLM-007",
+      "statement": "Training outdoors during burning season poses no health risk.",
+      "status": "forbidden",
+      "source_ids": [],
+      "limits": "Ne jamais minimiser le risque sante a des fins commerciales — contredit le disclaimer YMYL obligatoire."
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "photo",
+      "subject": "Outdoor training session at golden hour with soft haze visible in the background sky",
+      "description": "Photo DSLR naturelle et chaude, style moodboard Wildcat : ring open-air, vegetation tropicale, lumiere doree de fin de journee. Brume atmospherique perceptible mais discrete, aucune imagerie alarmiste, aucun masque N95 en gros plan.",
+      "alt_text": "Open-air Muay Thai training session at Wildcat during Chiang Mai's hazy burning season golden hour",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "IMG-002",
+      "placement": "after-h2:What Burning Season in Chiang Mai Actually Is",
+      "type": "photo",
+      "subject": "Wide shot of the open-air ring and tropical garden",
+      "description": "Vue large etablissant le cadre open-air du camp (pourquoi la qualite de l'air compte specifiquement ici), lumiere naturelle, verdure et bananiers visibles.",
+      "alt_text": "Wide view of Wildcat's open-air ring and tropical garden in Chiang Mai, showing the outdoor training setup",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-003",
+      "placement": "after-h2:How We Adapt Training When the Air Turns Bad",
+      "type": "photo",
+      "subject": "Technical session under the covered ring",
+      "description": "Preuve visuelle de l'adaptation decrite dans le texte : pad work ou clinch sous la couverture, lumiere tamisee chaude, ambiance chaleureuse non alarmiste.",
+      "alt_text": "Covered ring technical training session at Wildcat, the setup used on high-AQI burning season days",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-004",
+      "placement": "after-h2:Planning a Training Trip Around Burning Season",
+      "type": "photo",
+      "subject": "Training session under a clear sky during the clean-air high season",
+      "description": "Image de contraste positif montrant le camp pendant la haute saison d'air propre (novembre-janvier), pour illustrer visuellement la recommandation de reservation.",
+      "alt_text": "Clear-sky training session at Wildcat during Chiang Mai's clean-air high season, November through January",
+      "aspect_ratio": "4:3"
+    }
+  ],
+  "cta": {
+    "url": "/contact?intent=stay",
+    "anchor": "Message us about your training dates",
+    "campaign": "burning-season-trip-planning"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "chiang-mai-life",
+    "draft": false,
+    "locale": "en",
+    "source_locale": "en",
+    "translation_key": "burning-season"
+  },
+  "source_hash": "sha256:5b4ad8c4f66c4a20b9041c13b2f0fe0a23485becfc8c03beaef8c35bf15120ed",
+  "context_hash": "sha256:51c287df1ca1becb6a91a7ad8b055df7ed465a291cc8c10474d361d925cb6d49",
+  "compiled_at": "2026-08-06T21:22:29+00:00"
+}

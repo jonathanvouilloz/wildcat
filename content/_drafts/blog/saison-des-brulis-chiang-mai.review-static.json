@@ -1,0 +1,292 @@
+{
+  "contract_version": 1,
+  "rules_version": 1,
+  "mode": "shadow",
+  "generated_at": "2026-08-06T21:45:25+00:00",
+  "article": "src\\content\\blog\\fr\\saison-des-brulis-chiang-mai.md",
+  "article_hash": "sha256:c42beb4e10ea084d90041c8a8e5b47884927c99e6029302d16eea6b6153513aa",
+  "summary": {
+    "errors": 0,
+    "warnings": 1,
+    "evaluated": 38,
+    "not_evaluated": 4
+  },
+  "results": [
+    {
+      "rule": "frontmatter.parse",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "frontmatter parsed"
+    },
+    {
+      "rule": "title.required",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "title present"
+    },
+    {
+      "rule": "title.max_chars",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "48 characters",
+      "observed": 48,
+      "maximum": 60
+    },
+    {
+      "rule": "title.min_chars",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "48 characters",
+      "observed": 48,
+      "minimum": 10
+    },
+    {
+      "rule": "title.max_estimated_px",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "estimated 444px",
+      "observed": 444,
+      "maximum": 580
+    },
+    {
+      "rule": "description.required",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "description present"
+    },
+    {
+      "rule": "description.max_chars",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "141 characters",
+      "observed": 141,
+      "maximum": 155
+    },
+    {
+      "rule": "description.min_chars",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "141 characters",
+      "observed": 141,
+      "minimum": 70
+    },
+    {
+      "rule": "description.max_estimated_px",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "estimated 932px",
+      "observed": 932,
+      "maximum": 960
+    },
+    {
+      "rule": "h1.not_title",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "H1 differs from title"
+    },
+    {
+      "rule": "source.h1_absent",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 source H1; layout should render frontmatter h1"
+    },
+    {
+      "rule": "headings.no_level_skip",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "no heading level skip",
+      "occurrence": null
+    },
+    {
+      "rule": "em_dash.forbidden_in_metadata",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 em dash in metadata",
+      "observed": 0
+    },
+    {
+      "rule": "em_dash.forbidden_in_headings",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "none in headings",
+      "lines": []
+    },
+    {
+      "rule": "em_dash.preferred_max",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "0 em dash in body",
+      "observed": 0,
+      "preferred_maximum": 2
+    },
+    {
+      "rule": "em_dash.absolute_max",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 em dash in body",
+      "observed": 0,
+      "maximum": 3
+    },
+    {
+      "rule": "style.corrective_juxtaposition_max",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "1 corrective juxtaposition(s)",
+      "observed": 1,
+      "maximum": 1
+    },
+    {
+      "rule": "links.required_from_spec",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "all required links present",
+      "missing": []
+    },
+    {
+      "rule": "links.anchor_not_empty",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 empty anchors",
+      "observed": 0
+    },
+    {
+      "rule": "links.anchor_not_generic",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "anchors descriptive",
+      "anchors": []
+    },
+    {
+      "rule": "links.contextual_target_per_1000_min",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "4.20 internal links / 1000 words",
+      "observed": 4.2,
+      "target": 3
+    },
+    {
+      "rule": "links.contextual_target_per_1000_max",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "4.20 internal links / 1000 words",
+      "observed": 4.2,
+      "target": 6
+    },
+    {
+      "rule": "bold.required_entities",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "required entities bolded",
+      "missing": []
+    },
+    {
+      "rule": "bold.entity_max_occurrences",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "no duplicate entity bold",
+      "duplicates": []
+    },
+    {
+      "rule": "bold.not_in_headings",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "none",
+      "lines": []
+    },
+    {
+      "rule": "bold.not_in_links",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 bold links",
+      "observed": 0
+    },
+    {
+      "rule": "tldr.present_before_first_h2",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "canonical blockquote TLDR before first H2"
+    },
+    {
+      "rule": "tldr.bullets",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "4 bullets",
+      "observed": 4,
+      "minimum": 3,
+      "maximum": 5
+    },
+    {
+      "rule": "ending.order",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "FAQ -> Conclusion -> Sources"
+    },
+    {
+      "rule": "faq.questions_are_h3",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 bold FAQ questions",
+      "observed": 0
+    },
+    {
+      "rule": "cta.final_unique",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "1 final CTA",
+      "observed": 1,
+      "expected": 1
+    },
+    {
+      "rule": "images.alt_present",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 empty alt",
+      "urls": []
+    },
+    {
+      "rule": "images.alt_length",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "0 alt outside 60-150 chars",
+      "observed": 0
+    },
+    {
+      "rule": "images.todo_remaining",
+      "status": "WARN",
+      "severity": "warning",
+      "detail": "1 image TODO",
+      "observed": 1
+    },
+    {
+      "rule": "dates.pubDate_required",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "publishDate=2026-08-11"
+    },
+    {
+      "rule": "dates.updated_not_before_pub",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "updatedDate absent or not before pubDate"
+    },
+    {
+      "rule": "dates.reviewed_not_before_pub",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "reviewedDate absent or not before pubDate"
+    },
+    {
+      "rule": "schema.valid_json",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 blocks, 0 invalid",
+      "errors": []
+    }
+  ],
+  "not_evaluated_rule_ids": [
+    "h1.count",
+    "links.internal_resolve",
+    "publication.live_url_verified",
+    "schema.date_mapping"
+  ]
+}

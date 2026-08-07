@@ -1,0 +1,78 @@
+{
+  "status": "BLOCKED_BY_STATIC_LINT",
+  "static_lint_summary": {
+    "report": "content/_drafts/blog/burning-season-chiang-mai.review-static.json",
+    "errors": 4,
+    "warnings": 0,
+    "mode": "shadow",
+    "failing_rules": [
+      "bold.not_in_links",
+      "tldr.present_before_first_h2",
+      "tldr.bullets",
+      "ending.order"
+    ]
+  },
+  "diagnostic": "Les 4 erreurs mécaniques ne sont pas des défauts de cet article : seo_lint.py (pipelines-v2) code en dur des conventions françaises et un gabarit générique qui ne correspondent pas aux conventions déjà établies et publiées de ce projet EN/FR. Test de contrôle : le même script lancé sur src/content/blog/en/dtv-visa-cost-breakdown.md (article déjà publié, en ligne) échoue sur les 4 mêmes règles, ce qui confirme un écart outil/projet plutôt qu'un défaut de rédaction.\n\n1) bold.not_in_links — la règle n'accepte comme exception que le CTA `/contact?utm_source=blog...` ; ce projet utilise aussi `/contact?intent={valeur}` (mandaté par spec.cta.url = /contact?intent=stay), non reconnu par le pattern.\n2) tldr.present_before_first_h2 / tldr.bullets — la règle cherche un blockquote `> **L'essentiel en bref**` ou un H2 `## L'essentiel en bref` dans le corps. Le moteur blog E8 de ce projet stocke le TLDR dans le frontmatter (`tldr:` array, zod min 2 / max 5, rendu en Callout par le layout) — jamais dans le corps markdown, en EN comme en FR. Le TLDR est bien présent : 5 puces dans le frontmatter de l'article.\n3) ending.order — la règle cherche le heading littéral `## Sources et Références` (français) ; cet article EN utilise `## Sources and References`, cohérent avec tous les articles EN déjà publiés du projet.\n\nAucune de ces 4 règles n'est actionnable sans soit modifier seo_lint.py pour ce projet (reconnaître le TLDR frontmatter, le pattern `?intent=`, le heading EN), soit régresser l'article vers un format qui casserait le schema Astro (content.config.ts exige tldr en frontmatter, pas dans le corps) et l'incohérence avec le corpus déjà publié.",
+  "criteria": [
+    {
+      "id": "angle_intent",
+      "status": "PASS",
+      "evidence": "L'article tient l'angle validé du brief (POV Meaw, vécu quotidien du camp) et répond directement à l'intention de recherche informationnelle sur burning season + entraînement, sans détour.",
+      "correction": null
+    },
+    {
+      "id": "bluf_progression",
+      "status": "PASS",
+      "evidence": "Chaque H2/H3 ouvre sur une réponse directe (ex. \"What Burning Season in Chiang Mai Actually Is\" pose la définition en premier, \"How We Adapt Training\" annonce le changement avant le détail).",
+      "correction": null
+    },
+    {
+      "id": "voice_patte_ecrite",
+      "status": "PASS",
+      "evidence": "Ton chaleureux, honnête, non alarmiste ; 1re personne Meaw/camp assumée ; limites nommées (\"Nobody at the camp claims this is ideal\") ; aucun mot banni (WildCat, warrior, etc.) détecté.",
+      "correction": null
+    },
+    {
+      "id": "semantic_naturalness",
+      "status": "PASS",
+      "evidence": "Keywords reformulés naturellement (\"burning season in Chiang Mai\", \"when burning season starts in Chiang Mai\"...), aucune forme brute de query collée dans la prose.",
+      "correction": null
+    },
+    {
+      "id": "proofs_limits",
+      "status": "PASS",
+      "evidence": "Le seul claim confirmé sans source externe (ajustements du camp) reste au niveau vécu/observé, jamais présenté comme protocole médical. Le claim interdit (\"aucun risque santé\") n'apparaît nulle part. Sources externes non vérifiables (IQAir, PCD, chiangmai.go.th, bloquées par l'environnement réseau lors de /seo-sources) sont explicitement signalées comme non re-vérifiées dans le bloc Sources, sans lien fabriqué.",
+      "correction": null
+    },
+    {
+      "id": "links_cta",
+      "status": "PASS",
+      "evidence": "Les 5 liens du brief sont présents (/classes#schedule, /stay-train, /contact, /dtv-visa/long-stay-training, /about/coaches) et le CTA final /contact?intent=stay correspond à l'intention chaude du brief.",
+      "correction": null
+    },
+    {
+      "id": "faq_conclusion",
+      "status": "PASS",
+      "evidence": "Les 5 questions FAQ apportent une réponse distincte du corps (pas de recopie mot pour mot) ; la Conclusion synthétise en 2 phrases puis transitionne vers le CTA unique.",
+      "correction": null
+    },
+    {
+      "id": "usefulness_distinction",
+      "status": "PASS",
+      "evidence": "L'angle différenciant du brief (comment un camp qui s'entraine en extérieur toute l'année ajuste réellement ses séances) est développé en détail (timing, cardio, ring couvert, garden/pool) — absent des concurrents SERP scannés selon le brief.",
+      "correction": null
+    },
+    {
+      "id": "localization",
+      "status": "PASS",
+      "evidence": "Article intégralement en anglais direct/simple cohérent avec spec.locale=en et le reste du corpus EN publié ; aucun mélange FR détecté ; translationKey inchangé (burning-season).",
+      "correction": null
+    }
+  ],
+  "priority_actions": [
+    "Décision projet à trancher par Jonathan : patcher seo_lint.py pour reconnaître (a) le TLDR en frontmatter comme équivalent valide du blockquote body, (b) le pattern CTA `/contact?intent=*` en plus de `?utm_source=blog`, (c) le heading anglais `## Sources and References` en plus du français — ou accepter ces 4 règles comme non applicables aux articles EN de ce projet et les marquer explicitement dans lint-rules.json.",
+    "Aucune action requise sur le contenu de l'article lui-même : les 9 critères éditoriaux qualitatifs sont PASS et le TLDR/CTA/Sources sont réellement présents et conformes aux conventions déjà publiées du projet, seul l'outil de lint générique ne les reconnaît pas."
+  ],
+  "publication_recommendation": "revise",
+  "publication_recommendation_note": "Bloqué uniquement par la règle de gate seo-review (lint contient des erreurs -> BLOCKED_BY_STATIC_LINT), pas par un défaut de contenu réel. Voir diagnostic : les 4 erreurs sont un écart outil/projet documenté et reproductible (même échec sur un article déjà publié, dtv-visa-cost-breakdown.md, utilisé comme contrôle)."
+}

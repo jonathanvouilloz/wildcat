@@ -1,0 +1,90 @@
+{
+  "keyword": "education visa thailand",
+  "location": "United States / Global",
+  "scanned_at": "2026-08-06T00:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.siam-legal.com/Foreign-Citizens/thailand-education-visa-foreign.php",
+      "title": "Thailand Education \"ED\" Visa",
+      "page_type": "service",
+      "competitor_type": "institutional",
+      "covers": ["ED visa definition", "ED / ED PLUS variants", "eligibility (university, seminar, internship)", "extension process", "processing times"],
+      "missing": ["DTV comparison", "Muay Thai / soft-power activity angle", "any real applicant case", "personal authorship"],
+      "eeat_signals": ["large established Thai law firm authority", "structured legal-guide format", "no named author/byline", "no primary-source citation of immigration regs"]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.thaiembassy.at/en/type-of-visa/non-immigrant-visa-ed-education.html",
+      "title": "Consular Services - Non-Immigrant Visa \"ED\" (Education)",
+      "page_type": "other",
+      "competitor_type": "institutional",
+      "covers": ["ED/ED PLUS visa types", "eligible applicants (academic study, study tours, monks)", "90-day single-entry conditions", "e-visa application process", "document requirements", "fraud warnings"],
+      "missing": ["DTV visa (only appears in sidebar nav, zero discussion)", "Muay Thai mention at all", "any comparative framing", "any narrative or human voice"],
+      "eeat_signals": ["official Royal Thai Embassy domain", "direct links to immigration.go.th", "specific official fees", "regulatory/bureaucratic tone", "zero personal authorship (expected for gov page)"]
+    },
+    {
+      "rank": 3,
+      "url": "https://ihbangkok.com/student-visa/",
+      "title": "Student Visa / ED Visa Thailand - IH Bangkok",
+      "page_type": "service",
+      "competitor_type": "local-business",
+      "covers": ["ED visa for language-school enrollment", "course catalog tie-in", "school accreditation"],
+      "missing": ["DTV visa", "Muay Thai", "any visa-vehicle comparison", "cost/duration specifics"],
+      "eeat_signals": ["International House / Cambridge affiliation", "physical Bangkok address", "institutional course credentials", "no individual author"]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.aaathai.school/17323084/ed-visa-information",
+      "title": "Non immigrant ED visa - student visa information for study in Bangkok Thailand",
+      "page_type": "service",
+      "competitor_type": "local-business",
+      "covers": ["90-day stamp + extension mechanics", "90-day address notification", "program duration by level", "2026 policy update (60-day scheme revoked)", "one-line mention of Muay Thai as an ED-eligible private-school category"],
+      "missing": ["DTV visa entirely", "any real comparison framing", "why someone would choose DTV over ED for Muay Thai", "named case examples"],
+      "eeat_signals": ["operating since 2004", "specific immigration processing timelines", "Ministry of Education references", "contact via phone/LINE/Facebook", "no individual byline"]
+    },
+    {
+      "rank": 5,
+      "url": "https://geosthai.com/magazine/thailand-education-visa/",
+      "title": "Thailand Education Visa: How Long Can You Stay?",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["duration mechanics (90 days + 1-year extension)", "12-15 month range by course type", "general visa-agency framing"],
+      "missing": ["DTV visa comparison", "Muay Thai angle", "individual practitioner voice", "primary sourcing"],
+      "eeat_signals": ["agency-style editorial", "no named author", "generic magazine format"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "How long can you stay in Thailand on an education visa?",
+      "How much does a Thailand education visa cost?",
+      "What documents do you need for a Thailand ED visa?",
+      "Can you convert a tourist visa to an education visa in Thailand?",
+      "Can you work in Thailand on an education visa?",
+      "What is the difference between the ED visa and the DTV visa?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "ED visa mechanics: 90-day initial stamp, extendable up to ~1 year, attendance/enrollment requirements",
+    "Application process via school/institution paperwork + Thai e-visa or embassy",
+    "Cost/fee breakdown for the ED visa itself (tuition + government fees)",
+    "Zero engagement with DTV as an alternative — every top-5 page for this exact head keyword treats ED in isolation"
+  ],
+  "gap": {
+    "description": "On the head keyword 'education visa thailand' itself, none of the top 5 ranking pages (law firm, embassy, 2 language schools, travel-agency blog) mention the DTV visa or frame the decision as a choice between two distinct visa vehicles — they only explain the ED visa in isolation, usually for language-school students, with at most a passing one-line nod to Muay Thai as an eligible ED category (aaathai.school). A real ED-vs-DTV comparison specifically for Muay Thai practitioners does exist, but on separate long-tail URLs outside this SERP (muaythaivisathailand.com/dtv-vs-ed-vs-tourist by Kru Chart/Sor.Dechapant school, muaythaifever.com, ask.in.th) — these are gym-affiliated, reasonably strong on E-E-A-T (named author, MOE/SAT license number, real gym-admin pain points, tables, 34-item FAQ), but promotional (repeated WhatsApp CTAs funneling to their own visa-prep service), missing named case examples of a real student choosing one path, and light on itemized long-run cost comparison. Wildcat's opening: rank on the informational head term with a comparison the current top 5 skip entirely, written by an operator (Meaw) who files real DTV dossiers without promising outcomes, and link out to the existing 12-URL DTV silo instead of re-doing the cost breakdown.",
+    "opportunity_score": "medium"
+  },
+  "weakness": [
+    "Every top-5 result for 'education visa thailand' is either a generic institutional page or a language-school funnel — none written for someone specifically choosing between ED and DTV as a Muay Thai practitioner",
+    "The strongest direct ED-vs-DTV-for-Muay-Thai competitors (MTVT/Kru Chart, muaythaifever) are promotional gym-visa-service pages with commercial CTAs, not neutral comparison content, and lack real named applicant case studies",
+    "No result on this SERP explains the DTV 'soft power qualifying activity' status of Muay Thai specifically, or how that changes the calculus vs. the ED visa's school-attendance model",
+    "None of the top 5 cite Thai MFA/immigration sourcing directly for the DTV eligibility criteria (accredited-gym requirement, 500,000 THB financial proof, 2025 exclusion of language schools from soft-power categories)"
+  ],
+  "recommended_angle": "Write the article as a decision framework, not a cost breakdown: 'ED visa vs DTV for Muay Thai training in Thailand — which one fits your situation.' Center it on the two visa vehicles' structural trade-offs (ED = single accredited school, mandatory attendance, ~80-100k THB/year, 90-day renewal cycle vs DTV = 5-year multi-entry, 180+180 day stays, no attendance requirement, allows remote work, Muay Thai as a recognized soft-power activity), sourced against current MFA/immigration criteria. Carry E-E-A-T through Meaw's real experience preparing DTV dossiers for Wildcat guests — process and documentation reality, zero promise of visa approval — without repeating the numeric cost breakdown already owned by dtv-visa-cost-breakdown and dtv-vs-tourist-visa-runs-cost; link out to those and to /dtv-visa/long-stay-training for the depth. Differentiate from the existing gym-affiliated comparisons by staying non-promotional (no visa-service upsell) and by using this as top-of-funnel content that feeds the DTV silo rather than duplicating it."
+}

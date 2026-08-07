@@ -1,0 +1,50 @@
+{
+  "slug": "wai-kru-ram-muay-explained",
+  "generated": "2026-08-07",
+  "level": "evergreen",
+  "citations": [
+    {
+      "claim": "CLM-001: wai kru ram muay etymology (wai/khru/ram/muay) and the two-part wai khru / ram muay structure, translated as \"war-dance saluting the teacher\"",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/Wai_khru_ram_muay",
+      "source": "Wikipedia, Wai khru ram muay",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "CLM-005 (revised): fighters bow at each ring corner in salutation to Buddha, Dharma, and the Sangha of monks; the ceremony is rooted in respect toward teachers, parents, and predecessors",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/Wai_khru_ram_muay",
+      "source": "Wikipedia, Wai khru ram muay",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "CLM-002 (revised): Lopburi, Korat (Khorat), and Chaiya fighters were honored at an early-1900s royal tournament and their hometown styles were later codified as distinct regional Muay Boran schools",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/Muay_Thai#20th_century",
+      "source": "Wikipedia, Muay Thai (20th century section)",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "CLM-002 (revised): each Muay Thai camp typically has its own style of the ram muay dance, with variation based on region and teacher",
+      "status": "Confirme",
+      "url": "https://evolve-mma.com/blog/understanding-the-wai-kru-ram-muay/",
+      "source": "Evolve MMA, Understanding the Muay Thai Wai Kru",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    }
+  ],
+  "unverified": [
+    {
+      "claim": "Animist roots of the wai kru ram muay ceremony (brief CLM-005 originally proposed \"Buddhist and animist\")",
+      "reason": "No animist reference found on the Wikipedia Wai khru ram muay page, the Wikipedia Muay Thai page, or the Evolve MMA article after a real fetch of all three. Only the Buddhist salutation (Buddha, Dharma, Sangha) is documented. The article and FAQ were rewritten to drop the animist claim rather than assert it unsupported."
+    },
+    {
+      "claim": "CLM-003: Wildcat's coaches perform their own ram muay at the camp during fight nights or demonstrations",
+      "reason": "Marked 'hypothesis, needs_review' in the spec, not yet confirmed by Jonathan/Meaw. Not asserted in the article as a specific claim; the article instead makes only the general, source-backed statement that camps and teachers pass down their own version of the dance."
+    }
+  ],
+  "notes": "Evergreen culture article, light verification per seo-sources doctrine (1-3 key sources). Sources fetched via direct HTTP GET (curl) and read in full; no WebFetch/WebSearch tool was available in this session's toolset, so retrieval was done through Bash instead, with the same real-fetch-and-read discipline. The SERP research file's named ram muay move variants (Yang Sam Khum, Sao Noi Pa Pang, Hong Hern, Pra Ram Tam Gwang) were seen on the Evolve MMA page but not used in the article; the brief's specific claim (regional styles 'Korat, Chaiya, Lopburi') was re-grounded against the Muay Thai Wikipedia page, which documents them as historical regional Muay Boran styles rather than named ram muay dance variants specifically. The two facts (regional Muay Boran lineages + camp-level ram muay variation) are combined and attributed to their respective sources rather than merged into a single overclaim."
+}

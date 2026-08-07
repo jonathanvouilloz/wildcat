@@ -1,0 +1,15 @@
+{
+  "topic": "education visa thailand vs DTV (angle Muay Thai)",
+  "generated_at": "2026-08-06T21:10:00Z",
+  "candidates": [
+    {
+      "keyword": "education visa thailand",
+      "verdict": "PASS",
+      "gates": { "surprise_gap": "pass", "grounding": "pass" },
+      "signals": { "intent": "know", "pseo_scalable": false },
+      "failed_pillar": null,
+      "rationale": "SERP (.seo-data/serp-education-visa-thailand.json) : les pages ED-visa (Siam Legal, écoles de langue, ambassades) ne mentionnent quasi jamais le DTV ; les rares comparatifs ED-vs-DTV existent sur des sites de gyms concurrents avec ton promotionnel et sans E-E-A-T nommé. Grounding fort : Meaw gère réellement des dossiers DTV clients (proofs.md). Angle verrouillé strictement comparatif — zéro chevauchement avec dtv-visa-cost-breakdown / dtv-vs-tourist-visa-runs-cost / long-stay-training (contrainte anti-cannibalisation du brief content-creator).",
+      "priority": "haute"
+    }
+  ]
+}

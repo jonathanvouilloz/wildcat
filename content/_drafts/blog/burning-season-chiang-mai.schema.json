@@ -1,0 +1,65 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/burning-season-chiang-mai#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/burning-season-chiang-mai",
+      "headline": "Burning Season in Chiang Mai 2026: Trainer's Honest Guide",
+      "description": "How Wildcat adapts Muay Thai training during Chiang Mai's burning season, month by month, from someone who trains here year-round.",
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/burning-season-chiang-mai.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/burning-season-chiang-mai#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is burning season in Chiang Mai, exactly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's the period, roughly late February through April, when regional agricultural burning combines with Chiang Mai's valley geography to trap smoke and push air quality down. March is usually the worst month."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How bad does burning season actually get in Chiang Mai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On peak days, the AQI can reach levels classified as unhealthy, and on the worst days, hazardous, by international air quality standards. Not every day of burning season looks like that, but it happens often enough in March to plan around."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it safe to visit Chiang Mai during burning season?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most visitors do, and the city doesn't shut down. It's a question of adjusting expectations and activity level on the worst air days, especially if you have a health condition that makes you more sensitive to air pollution, rather than avoiding the city outright."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I still train Muay Thai during burning season?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Training continues, with the timing and intensity adjustments described above. Some weeks feel completely normal. Others mean shorter outdoor sessions and more time under the covered ring."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When does burning season start in Chiang Mai each year?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It varies. Some years the air starts turning in early February, other years it holds off until closer to March. There's no fixed calendar date, which is part of why checking closer to your travel dates matters more than any single rule of thumb. ---"
+          }
+        }
+      ]
+    }
+  ]
+}

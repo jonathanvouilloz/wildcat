@@ -1,0 +1,15 @@
+{
+  "topic": "is muay thai good for self defense",
+  "generated_at": "2026-08-06T21:10:00Z",
+  "candidates": [
+    {
+      "keyword": "is muay thai good for self defense",
+      "verdict": "PASS",
+      "gates": { "surprise_gap": "pass", "grounding": "pass" },
+      "signals": { "intent": "know", "pseo_scalable": false },
+      "failed_pillar": null,
+      "rationale": "SERP (.seo-data/serp-muay-thai-self-defense.json) : 5/5 résultats gym-blog génériques sans data ni sources, un seul avec coach nommé. Gap identifié : personne n'aborde l'angle entraînement authentique en Thaïlande pour un public débutant/famille/voyageur. Grounding : coachs thaïs réels, programme débutants documenté (/classes/beginners).",
+      "priority": "moyenne"
+    }
+  ]
+}

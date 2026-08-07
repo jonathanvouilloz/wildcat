@@ -1,0 +1,332 @@
+{
+  "schema_version": 1,
+  "source_brief": "content/_drafts/blog/wai-kru-ram-muay-explained.md",
+  "slug": "wai-kru-ram-muay-explained",
+  "module": "E",
+  "snippet": {
+    "title": "Wai Kru Ram Muay Explained | Wildcat Muay Thai",
+    "h1": "What Wai Kru Ram Muay Really Means, From a Chiang Mai Camp",
+    "description": "Meaw and the coaches at our Chiang Mai camp explain wai kru ram muay: what it means, why fighters dance, and what to expect if you visit."
+  },
+  "dates": {
+    "pubDate": "2026-08-28",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1400,
+    "maximum": 1750
+  },
+  "primary_keyword": "wai kru ram muay",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "wai kru ram muay",
+      "natural_form": "wai kru ram muay",
+      "volume": 260,
+      "placements": [
+        "title",
+        "h1",
+        "meta",
+        "intro",
+        "what-it-means"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "wai kru ram muay music",
+      "natural_form": "the music that plays during wai kru ram muay",
+      "volume": 10,
+      "placements": [
+        "sarama-music"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai wai",
+      "natural_form": "the wai in muay thai",
+      "volume": 40,
+      "placements": [
+        "what-it-means"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "wai kru dance",
+      "natural_form": "the wai kru dance",
+      "volume": 20,
+      "placements": [
+        "ram-muay-dance"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "wai khru ram muay meaning",
+      "natural_form": "what wai khru ram muay means",
+      "volume": 10,
+      "placements": [
+        "what-it-means"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "sealing the ring muay thai",
+      "natural_form": "sealing the ring",
+      "volume": 10,
+      "placements": [
+        "sealing-the-ring"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "wai kru muay thai movements",
+      "natural_form": "the movements of the wai kru",
+      "volume": 10,
+      "placements": [
+        "ram-muay-dance",
+        "regional-styles"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "ram muay music",
+      "natural_form": "ram muay music",
+      "volume": 10,
+      "placements": [
+        "sarama-music"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "kru muay thai certification",
+      "natural_form": "becoming a certified kru",
+      "volume": 10,
+      "placements": [
+        "who-is-a-kru"
+      ]
+    }
+  ],
+  "structure": [
+    {
+      "id": "what-it-means",
+      "level": 2,
+      "heading": "What Wai Kru Ram Muay Actually Means",
+      "purpose": "Opens on a lived scene at the Wildcat ring, which doubles as the answer to PAA \"Why do Muay Thai fighters dance before a fight?\" (explicitly anchored here). Then etymology breakdown (wai / khru / ram / muay). Answers PAA \"What does Wai Kru Ram Muay mean?\".",
+      "target_keywords": [
+        "wai kru ram muay",
+        "wai khru ram muay meaning",
+        "muay thai wai"
+      ]
+    },
+    {
+      "id": "two-parts",
+      "level": 2,
+      "heading": "The Two Parts: Wai Kru and Ram Muay",
+      "purpose": "Explain the two-stage structure (paying respect, then the dance). Answers PAA \"What is the difference between Wai Kru and Ram Muay?\". Frames the two H3 subsections below.",
+      "target_keywords": [
+        "wai kru ram muay"
+      ]
+    },
+    {
+      "id": "sealing-the-ring",
+      "level": 3,
+      "heading": "Sealing the Ring",
+      "purpose": "Merged from a standalone H2 into a H3 nested under 'The Two Parts' (heading-count fix). Describe circling the ring, kneeling at the four directions, touching the ropes.",
+      "target_keywords": [
+        "sealing the ring muay thai"
+      ]
+    },
+    {
+      "id": "is-it-religious",
+      "level": 3,
+      "heading": "Is It Religious, or Is It Respect?",
+      "purpose": "Nuance the Buddhist/animist roots without settling a theological debate; frame as respect to teachers, parents, ancestors. Answers PAA \"Is the Wai Kru ritual religious?\".",
+      "target_keywords": []
+    },
+    {
+      "id": "ram-muay-dance",
+      "level": 2,
+      "heading": "The Ram Muay Dance: Movements and Meaning",
+      "purpose": "Describe typical movement patterns and their general symbolism without over-specifying one fixed choreography. Frames the two H3 subsections below.",
+      "target_keywords": [
+        "wai kru dance",
+        "wai kru muay thai movements"
+      ]
+    },
+    {
+      "id": "regional-styles",
+      "level": 3,
+      "heading": "Every Camp Has Its Own Style",
+      "purpose": "Merged from a standalone H2 into a H3 nested under 'The Ram Muay Dance' (heading-count fix). Explain regional/lineage variation (Korat, Chaiya, Lopburi, and others) and that each kru passes down their own version. Answers PAA \"Do all Muay Thai fighters have their own Ram Muay?\". Do not attribute a specific named regional style to Wildcat's coaches without confirmation.",
+      "target_keywords": [
+        "wai kru muay thai movements"
+      ]
+    },
+    {
+      "id": "mongkhon-pra-jiad",
+      "level": 3,
+      "heading": "The Mongkhon and Pra Jiad: What Fighters Wear",
+      "purpose": "Merged from a standalone H2 into a H3 nested at the end of 'The Ram Muay Dance' (heading-count fix). Brief 2-3 sentence mention of the sacred headband and armbands worn during the ritual and removed before the fight. Deliberately not targeting \"muay thai headband\" (reserved for a future dedicated article) — partially answers PAA on the Mongkhon without exhausting the topic.",
+      "target_keywords": []
+    },
+    {
+      "id": "sarama-music",
+      "level": 2,
+      "heading": "The Sarama Music That Drives It",
+      "purpose": "Describe the live musical ensemble (pi muay, drums, cymbals) that sets the tempo of the dance.",
+      "target_keywords": [
+        "wai kru ram muay music",
+        "ram muay music"
+      ]
+    },
+    {
+      "id": "who-is-a-kru",
+      "level": 2,
+      "heading": "Who Becomes a Kru",
+      "purpose": "Explain what a kru is beyond \"coach\" (lineage, transmission) and why students still perform wai kru in training, not just before fights. Required link to /about/coaches.",
+      "target_keywords": [
+        "kru muay thai certification"
+      ]
+    },
+    {
+      "id": "what-to-expect",
+      "level": 2,
+      "heading": "What to Expect If You're New to This",
+      "purpose": "Practical, respectful guidance for a visitor or beginner witnessing or performing their first wai kru ram muay. Family framing, not hardcore. Required link to /classes/beginners.",
+      "target_keywords": []
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/classes/beginners",
+      "anchor": "beginner classes",
+      "section_id": "what-to-expect",
+      "required": true,
+      "reason": "Obligatoire (consigne) — satellite débutants, cadrage familial cohérent avec l'angle voyageur/débutant de l'article."
+    },
+    {
+      "url": "/classes",
+      "anchor": "our class schedule",
+      "section_id": "note-from-meaw",
+      "required": true,
+      "reason": "Obligatoire (consigne) — pillar service, CTA nurturing placé dans la conclusion signée 'A Note From Meaw' (non-H2, hors du tableau structure, voir brief § Structure)."
+    },
+    {
+      "url": "/about/coaches",
+      "anchor": "meet our coaches",
+      "section_id": "who-is-a-kru",
+      "required": true,
+      "reason": "Obligatoire (consigne) — preuve E-E-A-T, présente Peter (head coach réel) qui incarne le rôle de kru."
+    }
+  ],
+  "sources": [
+    {
+      "id": "INT-001",
+      "url": "docs/brand/proofs.md",
+      "title": "Wildcat brand proofs (internal, canonical) — camp, Meaw, positioning",
+      "status": "confirmed",
+      "accessed_at": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "Wai kru ram muay is a two-part pre-fight ritual: wai kru (paying respect to teachers) then ram muay (the ritual dance).",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Formuler comme structure largement documentée (corroborée par 5/5 résultats SERP) sans citer de source précise tant que /seo-sources n'a pas tourné.",
+      "limits": "Ne pas présenter comme fait absolu sans passage par /seo-sources avant /seo-enrich. Pas de citation verbatim disponible pour l'instant (voir brief § Citations exploitables)."
+    },
+    {
+      "id": "CLM-002",
+      "statement": "Regional or camp-specific ram muay styles exist (e.g. Korat, Chaiya, Lopburi, and other named lineages).",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Mentionner comme exemples connus de variation régionale, au conditionnel/général.",
+      "limits": "Ne jamais attribuer un style régional nommé précis aux coachs de Wildcat sans confirmation explicite de Meaw. Pas de citation verbatim disponible pour l'instant (voir brief § Citations exploitables)."
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Wildcat's coaches perform their own ram muay at the camp, e.g. during fight nights or demonstrations.",
+      "status": "hypothesis",
+      "source_ids": [],
+      "allowed_wording": "Si non confirmé au moment de la rédaction, formuler au général (\"many camps, including ours, keep this tradition alive\") plutôt qu'un fait de calendrier précis.",
+      "limits": "Needs_review — à confirmer par Jonathan/Meaw avant publication. Ne pas inventer de fréquence ou d'occasion précise."
+    },
+    {
+      "id": "CLM-004",
+      "statement": "Wildcat is a family-run, open-air Muay Thai camp in Hang Dong, Chiang Mai, welcoming to beginners.",
+      "status": "confirmed",
+      "source_ids": [
+        "INT-001"
+      ],
+      "allowed_wording": "Reprendre tel quel, source interne docs/brand/proofs.md et docs/brand/identity.md (pas une URL externe, donc pas de SRC- id).",
+      "limits": "Ne pas prétendre que le camp convient à tout le monde."
+    },
+    {
+      "id": "CLM-005",
+      "statement": "The wai kru ram muay ritual has roots connected to Buddhist and animist tradition (respect to teachers, parents, ancestors).",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Formuler avec prudence (\"often described as\", \"rooted in\") plutôt qu'en fait théologique tranché.",
+      "limits": "Ne pas transformer en avis religieux définitif ; passer par /seo-sources si une affirmation précise est conservée. Pas de citation verbatim disponible pour l'instant (voir brief § Citations exploitables)."
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "photo",
+      "subject": "Coach and student in a wai gesture of respect at Wildcat's open-air ring, Chiang Mai",
+      "description": "Medium shot, golden hour, open-air ring surrounded by banana trees. The coach (or a student) is kneeling or in a wai position, hands joined, head slightly bowed. Warm, calm mood, not a fight-scene setup.",
+      "alt_text": "Wai kru ram muay ritual performed at Wildcat's open-air ring in Chiang Mai",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "IMG-002",
+      "placement": "after-h3:Sealing the Ring",
+      "type": "photo",
+      "subject": "Circling the ring, touching the ropes at one of the four corners",
+      "description": "Close-mid shot of a hand touching the ring ropes at a corner, body leaning slightly forward, late-afternoon golden light. Documentary framing, not posed.",
+      "alt_text": "A fighter touching the ring ropes while sealing the ring before wai kru ram muay",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-003",
+      "placement": "after-h2:The Ram Muay Dance: Movements and Meaning",
+      "type": "photo",
+      "subject": "A ram muay dance movement in progress",
+      "description": "Wide or three-quarter shot of a person at the ring mid-movement of the ram muay (arm extended in an arc, leg slightly raised), tropical garden background visible, golden hour.",
+      "alt_text": "A student performing the ram muay dance movements at an open-air Muay Thai ring",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-004",
+      "placement": "after-h3:The Mongkhon and Pra Jiad: What Fighters Wear",
+      "type": "photo",
+      "subject": "Close-up of the mongkhon headband and/or pra jiad armband worn before the ritual",
+      "description": "Close shot on the head or arm of a practitioner wearing the braided mongkhon or a cloth pra jiad, soft natural light, blurred ring background.",
+      "alt_text": "Close-up of the mongkhon headband worn during wai kru ram muay in Chiang Mai",
+      "aspect_ratio": "4:3"
+    }
+  ],
+  "cta": {
+    "url": "/classes/beginners",
+    "anchor": "Try your first class",
+    "campaign": "blog-culture-nurturing-no-dtv"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "culture",
+    "tags": [
+      "wai kru",
+      "ram muay",
+      "muay thai culture",
+      "chiang mai"
+    ],
+    "draft": false,
+    "locale": "en",
+    "source_locale": "en",
+    "translation_key": "wai-kru-ram-muay-explained"
+  }
+}

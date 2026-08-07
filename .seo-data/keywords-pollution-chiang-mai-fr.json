@@ -1,0 +1,281 @@
+{
+  "topic": "pollution chiang mai",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-08-06T20:48:29Z",
+  "primary": {
+    "keyword": "pollution chiang mai",
+    "search_volume": 170,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 0,
+    "difficulty": 0,
+    "intent": "informational",
+    "intent_probability": 0.9947
+  },
+  "secondaries": [
+    {
+      "keyword": "air pollution chiang mai",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "pollution chiang mai today",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "indice pollution chiang mai",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "qualité de lair dans ma commune",
+      "search_volume": 2900,
+      "cpc": 0.26,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "alerte pollution aujourd'hui",
+      "search_volume": 720,
+      "cpc": 2.23,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "pollution paris aujourd'hui",
+      "search_volume": 590,
+      "cpc": 3.79,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "pollution de lair aujourd'hui",
+      "search_volume": 390,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "indice qualité de l'air",
+      "search_volume": 210,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "chiang mai pollution",
+      "search_volume": 170,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "pic de pollution aujourd'hui",
+      "search_volume": 140,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "indice de pollution",
+      "search_volume": 110,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "taux de pollution paris aujourd'hui",
+      "search_volume": 70,
+      "cpc": 7.36,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "pollution paris aujourd hui voiture",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "indice de pollution paris",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "chiang mai air pollution",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "indice pollution lyon",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "pollution bangkok aujourd hui",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "pollution bangkok aujourd'hui",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "related": [
+    {
+      "keyword": "météo bangkok",
+      "search_volume": 22200,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "air pollution",
+      "search_volume": 1300,
+      "cpc": 2.64,
+      "competition": "LOW",
+      "competition_index": 3
+    },
+    {
+      "keyword": "thaïlande population",
+      "search_volume": 320,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "airparif pollution",
+      "search_volume": 260,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "bangkok pollution",
+      "search_volume": 210,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "pollution map",
+      "search_volume": 110,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "météo pollution",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "indice iqa",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "aqi définition",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "thailande pollution",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "météo bangkok",
+      "search_volume": 22200,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "qualité de lair dans ma commune",
+      "search_volume": 2900,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "air pollution",
+      "search_volume": 1300,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "alerte pollution aujourd'hui",
+      "search_volume": 720,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "pollution paris aujourd'hui",
+      "search_volume": 590,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "pollution de lair aujourd'hui",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "thaïlande population",
+      "search_volume": 320,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "airparif pollution",
+      "search_volume": 260,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "bangkok pollution",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "indice qualité de l'air",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

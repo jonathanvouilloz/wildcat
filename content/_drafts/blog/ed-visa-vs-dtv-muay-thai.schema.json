@@ -1,0 +1,49 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/ed-visa-vs-dtv-muay-thai#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/ed-visa-vs-dtv-muay-thai",
+      "headline": "Education Visa Thailand vs DTV: Which Fits Muay Thai",
+      "description": "Meaw at Wildcat compares the Thailand education visa and the DTV for Muay Thai training: structure vs flexibility, and who each one really suits.",
+      "datePublished": "2026-08-14",
+      "dateModified": "2026-08-14",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/ed-visa-vs-dtv-muay-thai.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/ed-visa-vs-dtv-muay-thai#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What's the real difference between the ED visa and the DTV?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It comes down to structure versus flexibility. The ED ties you to one accredited school with attendance obligations and 90-day renewals. The DTV gives you a 5-year, multi-entry visa with no school attachment, room to train wherever you want, and the option to keep working remotely for a foreign employer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you convert a tourist visa into an education visa in Thailand?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, in principle, through the accredited school handling the paperwork, though the process varies by school. The DTV works differently: apply from outside Thailand only, with no in-country conversion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you need the same proof of funds for the education visa as for the DTV?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The two visas set different financial requirements, and the ED's expectations vary more by school than the DTV's do. For the DTV specifically, check your DTV eligibility first for the current figure rather than an outdated number. ---"
+          }
+        }
+      ]
+    }
+  ]
+}

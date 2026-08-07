@@ -1,0 +1,73 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/muay-thai-headband-mongkhon#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/muay-thai-headband-mongkhon",
+      "headline": "The Mongkhon: Muay Thai Headband Meaning, Explained",
+      "description": "Mongkhon and pra jiad explained by a Chiang Mai camp owner: what they mean and why the headband comes off before the fight. Read the full story.",
+      "datePublished": "2026-08-21",
+      "dateModified": "2026-08-21",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/muay-thai-headband-mongkhon.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/muay-thai-headband-mongkhon#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Muay Thai headband called?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is called a mongkhon. It is the braided or corded headband worn during the wai kru ram muay ceremony before a fight, and it is removed before the fight itself starts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between mongkhon and pra jiad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The mongkhon is worn on the head and comes off before the fight begins. The pra jiad is worn on the biceps and stays on for the entire bout. They are both sacred, but they are not the same object and they do not leave the fighter at the same time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do Muay Thai fighters wear a headband?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fighters wear the mongkhon during the wai kru ram muay as a sign of respect for their trainer and camp lineage, and traditionally as a source of protection and focus before the fight. It is blessed before it is given to a fighter, which is part of why it is treated with so much care."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is the mongkhon removed before the fight starts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The trainer removes it right before the first strike. It marks the moment the ceremony ends and the fight itself begins. The pra jiad on the arm stays on throughout."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can anyone wear a mongkhon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not casually, and not as a souvenir. If you are curious about wearing one during training or for a photo, ask your kru first. Most coaches are glad to explain it to someone who asks respectfully."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does \"wai khru ram muay\" mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The wai is the gesture of respect paid to a trainer and camp lineage. The ram muay is the dance performed around the ring before a fight. Together, they make up the ceremony in which the mongkhon is worn. ---"
+          }
+        }
+      ]
+    }
+  ]
+}

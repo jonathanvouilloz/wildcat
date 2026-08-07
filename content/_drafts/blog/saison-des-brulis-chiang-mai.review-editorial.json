@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "criteria": [
+    {
+      "id": "angle_intent",
+      "status": "PASS",
+      "evidence": "L'article repond a la question reelle du persona (peut-on/doit-on s'entrainer dehors a Chiang Mai pendant la saison des brulis) depuis le POV operateur de camp (Meaw), conforme a l'angle Mode B valide dans le brief.",
+      "correction": ""
+    },
+    {
+      "id": "bluf_progression",
+      "status": "PASS",
+      "evidence": "Chaque H2 ouvre par une reponse directe (ex. H2 'Faut-il eviter Chiang Mai' commence par 'Non, pas systematiquement, mais oui si...'). Pas de repetition mecanique de cadence entre sections voisines.",
+      "correction": ""
+    },
+    {
+      "id": "voice_patte_ecrite",
+      "status": "PASS",
+      "evidence": "Tutoiement constant, ton chaleureux/direct conforme a voice.md et patte-ecrite.md, citation Meaw a la premiere personne, aucune occurrence de 'WildCat' (casse correcte), aucun vocabulaire warrior/hardcore banni par anti-patterns.md.",
+      "correction": ""
+    },
+    {
+      "id": "semantic_naturalness",
+      "status": "PASS",
+      "evidence": "Keywords reformules en francais naturel dans le corps ('la pollution a Chiang Mai', 'la saison des brulis a Chiang Mai', 'la pollution de l'air a Chiang Mai', 'l'indice de qualite de l'air (AQI)', 'la pollution en Thailande', 'la pollution a Bangkok'). Aucune forme brute de query en prose.",
+      "correction": ""
+    },
+    {
+      "id": "proofs_limits",
+      "status": "PASS",
+      "evidence": "CLM-001/002 utilises tels qu'autorises. CLM-005 (equipe anglophone, pas d'accueil francais) explicitement formule en section 'Faut-il eviter Chiang Mai' plutot qu'omis. CLM-003 (adaptations) reste au conditionnel ('ca peut vouloir dire'), jamais presente comme protocole officiel, marque a_confirmer en commentaire interne. CLM-004 respecte : aucun chiffre PM2.5/AQI invente ou publie. CLM-006 desormais Confirme via /seo-sources (2 sources externes reellement fetchees : IQAir Chiang Mai et Wikipedia Air pollution in Thailand, citees inline + bloc Sources avec date d'acces 2026-08-06). Disclaimer Module C present en italique dans la section adaptation.",
+      "correction": ""
+    },
+    {
+      "id": "links_cta",
+      "status": "PASS",
+      "evidence": "Les 4 liens internes du brief sont presents avec les ancres exactes (nos horaires d'entrainement, les packages Stay & Train, ecris-nous avant de reserver tes dates, le budget d'un sejour longue duree), contextuellement places. Un seul CTA final au format impose vers /contact avec UTM. Citations externes liees sur les claims factuels forts (2), bloc Sources refait avec URLs reelles et date d'acces, domaine de la marque absent du bloc Sources.",
+      "correction": ""
+    },
+    {
+      "id": "faq_conclusion",
+      "status": "PASS",
+      "evidence": "3 questions FAQ (H3) apportent des reponses courtes distinctes du corps, pas de redite verbatim. Conclusion synthetique 2 phrases + CTA unique, pas de recap mecanique.",
+      "correction": ""
+    },
+    {
+      "id": "utility_distinction",
+      "status": "PASS",
+      "evidence": "POV operateur terrain (Meaw), calendrier qualitatif, citation autonome, disclaimer francophone honnete et nuance 'faut-il eviter' comblent le gap concurrentiel identifie dans le brief (zero acteur E-E-A-T sur le SERP FR analyse).",
+      "correction": ""
+    },
+    {
+      "id": "localization",
+      "status": "PASS",
+      "evidence": "Francais tutoiement de bout en bout, cluster de mots-cles propre au marche FR (pas de traduction litterale du sibling EN burning-season-chiang-mai), CTA et liens coherents avec le persona francophone, translation_key partage sans pretendre a l'interchangeabilite des versions.",
+      "correction": ""
+    }
+  ],
+  "priority_actions": [
+    "Deviation mineure documentee et acceptee : le H2 FAQ a ete reformule de 'Questions frequentes sur la pollution et la saison des brulis a Chiang Mai' (texte du brief) vers 'FAQ sur la pollution et la saison des brulis a Chiang Mai', pour respecter le contrat de fin d'article bloquant (writing-rules.md, format '## FAQ sur [theme]') et permettre l'extraction FAQPage JSON-LD par build_schema.py (regex ancree sur '## FAQ' litteral). Aucune perte de couverture de mots-cles (la section 'faq' du brief n'a pas de target_keywords lies au libelle exact du H2).",
+    "CLM-003 (adaptations operationnelles precises du camp) reste to_confirm avec Meaw avant de lever le commentaire interne <!-- CLM-003 --> ; hors perimetre de /seo-sources (experience first-party non sourcable en externe).",
+    "Cover manquante (GEMINI_API_KEY absente de l'environnement) : IMG-001 non genere. L'article reste draft=true tant que la cover reelle n'existe pas.",
+    "Images inline IMG-002 (infographic calendrier) marquee TODO/SKIP par design (outil deterministe requis, pas de generation IA pour une data visualisation) ; IMG-003/IMG-004 referencees dans le corps a des chemins qui n'existent pas encore sur disque, a produire avant publication."
+  ],
+  "publication_recommendation": "revise"
+}

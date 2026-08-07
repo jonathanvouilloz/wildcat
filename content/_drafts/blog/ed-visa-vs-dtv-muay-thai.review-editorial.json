@@ -1,0 +1,64 @@
+{
+  "status": "BLOCKED_BY_STATIC_LINT",
+  "static_lint_note": "seo_lint.py (shadow mode, no --enforce) rapporte 4 erreurs mecaniques : tldr.present_before_first_h2, tldr.bullets, ending.order, bold.not_in_links. Ces 4 regles verifient des conventions codees en dur dans seo_lint.py qui ne correspondent pas a la convention reelle etablie sur ce projet : TLDR rendu depuis le frontmatter (Callout) au lieu d'un blockquote francais '> **L'essentiel en bref**' dans le corps, heading 'Sources and References' en anglais au lieu du francais 'Sources et References' attendu par le regex, et CTA final au format '[**Texte -> **](/contact?intent=dtv)' (convention CTA reelle du silo DTV) que le regex bold.not_in_links n'exempte que pour '?utm_source=blog'. Reproduction de controle : le meme lint execute tel quel sur l'article deja publie src/content/blog/en/dtv-visa-cost-breakdown.md produit exactement les 4 memes erreurs (verifie ce run). Ce n'est donc pas une regression de cet article : c'est un ecart structurel entre le linter generique multi-projets et la convention EN etablie de ce projet, deja present sur tout le silo publie. Statut mecanique honore tel quel (regle du skill : erreur de lint -> BLOCKED_BY_STATIC_LINT, pas de reevaluation LLM des comptages) ; evaluation editoriale qualitative fournie ci-dessous a titre informatif uniquement, hors gate.",
+  "criteria": [
+    {
+      "id": "angle_intent",
+      "status": "PASS",
+      "evidence": "L'article tient l'angle Mode B assigne (framework structure vs flexibilite) et ne duplique ni le detail chiffre THB de dtv-visa-cost-breakdown.md ni le tableau DTV/ED/Tourist de /dtv-visa/muay-thai ; il renvoie explicitement vers les deux plutot que de les refaire.",
+      "correction": "aucune"
+    },
+    {
+      "id": "bluf_progression",
+      "status": "PASS",
+      "evidence": "Chaque H2 ouvre sur sa conclusion (ex. 'The DTV works on a completely different structure', 'Neither visa has one flat number attached to it') avant le detail.",
+      "correction": "aucune"
+    },
+    {
+      "id": "voice_patte",
+      "status": "PASS",
+      "evidence": "Voix Meaw a la premiere personne coherente avec le reste du silo (I'm Meaw. I own and run Wildcat Muay Thai...), ton direct sans superlatif ni promesse commerciale.",
+      "correction": "aucune"
+    },
+    {
+      "id": "semantic_naturalness",
+      "status": "PASS",
+      "evidence": "Les formulations naturelles du brief sont respectees (ex. 'the Thailand education visa' en intro, 'the Non-Immigrant ED visa', 'an education visa in Thailand built around Muay Thai') ; aucune forme brute de query hors title/meta/H1/H2.",
+      "correction": "aucune"
+    },
+    {
+      "id": "proofs_limits",
+      "status": "PASS",
+      "evidence": "Aucune promesse de resultat visa ('I can't promise anyone a visa approval, and I wouldn't trust anyone who does'). Item #15 du fact-check respecte : les ecoles de langue sont presentees uniquement comme option retiree en 2025, jamais comme option DTV valide actuelle. Disclaimer italique present en fin d'article. Deux citations verbatim attribuees posees (structure DTV 5 ans/180j via The Thaiger ; retrait 2025 des ecoles de langue via The Thaiger citant le MFA), conformement a l'instruction non-negociable du brief.",
+      "correction": "aucune"
+    },
+    {
+      "id": "links_cta",
+      "status": "PASS",
+      "evidence": "6 liens internes obligatoires + 1 optionnel presents avec les ancres exactes du brief. CTA final unique vers /contact?intent=dtv, coherent avec l'intention chaude du brief (docs/seo/context.md cta_map.hot).",
+      "correction": "aucune"
+    },
+    {
+      "id": "faq_conclusion",
+      "status": "PASS",
+      "evidence": "Les 3 FAQ H3 apportent une reponse distincte (difference structurelle, conversion tourist->ED, proof of funds) sans repeter le corps mot pour mot. La conclusion synthetise sans redite du framework DTV/ED deja detaille plus haut.",
+      "correction": "aucune"
+    },
+    {
+      "id": "utility_distinction",
+      "status": "PASS",
+      "evidence": "La section 'What Meaw sees on real DTV files' apporte un angle E-E-A-T de premiere main (coherence du dossier, qualite de la documentation d'entrainement) qu'un contenu generique concurrent (identifie dans le gap analysis du brief) n'offre pas.",
+      "correction": "aucune"
+    },
+    {
+      "id": "localization",
+      "status": "PASS",
+      "evidence": "Locale EN coherente de bout en bout (spec.locale=en), aucun melange avec le francais, translationKey 'ed-visa-vs-dtv' coherent avec le spec. CTA, liens et exemples adaptes au marche EN du silo DTV existant.",
+      "correction": "aucune"
+    }
+  ],
+  "priority_actions": [
+    "Decision produit hors scope de cet article : envisager de corriger seo_lint.py pour parametrer tldr.present_before_first_h2 / ending.order / bold.not_in_links selon project.yaml.content (locale + cta pattern) plutot que des chaines francaises et un pattern CTA UTM code en dur, afin que le shadow lint cesse de produire un faux-positif systematique sur tout le silo blog EN de ce projet."
+  ],
+  "publication_recommendation": "ready_to_publish (sous reserve de la decision de Jonathan sur les 4 erreurs de lint mecaniques, qui sont des faux-positifs de tooling reproduits a l'identique sur l'article soeur deja publie, pas des defauts de contenu de cet article)"
+}
