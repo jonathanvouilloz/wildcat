@@ -1,0 +1,70 @@
+{
+  "slug": "muay-thai-vs-kickboxing",
+  "generated": "2026-08-07",
+  "level": "evergreen",
+  "citations": [
+    {
+      "claim": "Muay Thai is built around eight points of contact and is known as the art of eight limbs.",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/Muay_Thai",
+      "source": "Wikipedia, Muay Thai",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "IFMA (International Federation of Muaythai Amateur) was inaugurated in 1993 and is the governing body of amateur Muay Thai, with 128 member countries, recognized by the Olympic Council of Asia.",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/Muay_Thai#Olympics",
+      "source": "Wikipedia, Muay Thai (Olympics section)",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "The term kickboxing originated in Japan in the 1960s, developing in the late 1950s out of karate mixed with boxing.",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/Kickboxing#History",
+      "source": "Wikipedia, Kickboxing (History section)",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "American kickboxing originated in the United States, created in the 1970s.",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/Kickboxing",
+      "source": "Wikipedia, Kickboxing",
+      "accessed": "2026-08-07",
+      "placement": "sources-block"
+    },
+    {
+      "claim": "Dutch kickboxing incorporates four combat arts: Japanese kickboxing, Muay Thai, boxing, and Kyokushin karate.",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/Kickboxing",
+      "source": "Wikipedia, Kickboxing",
+      "accessed": "2026-08-07",
+      "placement": "sources-block"
+    },
+    {
+      "claim": "Under WAKO's published rulesets, elbows are forbidden in full contact, low kick, and K1-style disciplines; clinch fighting is forbidden outright in full contact and low kick, and capped under five seconds in K1-style.",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/World_Association_of_Kickboxing_Organizations",
+      "source": "Wikipedia, World Association of Kickboxing Organizations",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "Wildcat Muay Thai is an open-air family camp in Chiang Mai with real Thai coaches practicing wai kru and ram muay.",
+      "status": "Confirme (premiere partie, source interne)",
+      "url": null,
+      "source": "docs/brand/proofs.md (documentation de marque interne, non liee en source externe conformement a la doctrine seo-sources)",
+      "accessed": "2026-08-07",
+      "placement": "not-linked-first-party"
+    }
+  ],
+  "unverified": [
+    {
+      "claim": "Any specific calorie-burn comparison between Muay Thai and kickboxing.",
+      "reason": "CLM-004 du spec est marque forbidden. Aucune recherche de source tentee, la prose reste qualitative par construction (aucun chiffre invente)."
+    }
+  ],
+  "notes": "Tier evergreen (culture/comparaison, hors YMYL) : verification legere via WebFetch reel (curl) sur 3 sources tertiaires fiables (Wikipedia, articles bien references avec citations primaires). Pas de WebSearch/WebFetch natif disponible dans cette session ; verification effectuee via curl direct sur les URLs Wikipedia identifiees comme les plus autoritaires accessibles pour ce niveau de rigueur. Aucune source primaire officielle (IFMA.sport, WAKO.sport) n'a ete jointe (IFMA.sport a renvoye 404 sur le chemin teste) ; Wikipedia reste une source tertiaire correctement sourcee elle-meme sur ces points factuels precis (citations academiques visibles dans le HTML recupere), jugee suffisante pour le niveau evergreen mais pas pour un contenu YMYL. A noter pour une revision future si une source primaire (site officiel IFMA/WAKO) devient prioritaire."
+}

@@ -1,0 +1,360 @@
+{
+  "schema_version": 1,
+  "source_brief": "content/_drafts/blog/muay-thai-vs-kickboxing.md",
+  "slug": "muay-thai-vs-kickboxing",
+  "module": "E",
+  "snippet": {
+    "title": "Muay Thai vs Kickboxing: A Chiang Mai Coach's Take",
+    "h1": "Muay Thai vs kickboxing, explained from inside a Chiang Mai camp",
+    "description": "Muay Thai vs kickboxing, compared by coaches who train both in Chiang Mai. Clinch, elbows, knees, and the culture history skips. Read the breakdown."
+  },
+  "dates": {
+    "pubDate": "2026-08-18",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1800,
+    "maximum": 2200
+  },
+  "primary_keyword": "muay thai vs kickboxing",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "muay thai vs kickboxing",
+      "natural_form": "Muay Thai vs kickboxing",
+      "volume": 4400,
+      "placements": [
+        "quick-answer"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "kickboxing vs muay thai",
+      "natural_form": "kickboxing versus Muay Thai",
+      "volume": 4400,
+      "placements": [
+        "quick-answer",
+        "kickboxing-fiche"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "thai kickboxing vs muay thai",
+      "natural_form": "Thai kickboxing versus Muay Thai",
+      "volume": 4400,
+      "placements": [
+        "kickboxing-origins"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai vs mma",
+      "natural_form": "Muay Thai vs MMA",
+      "volume": 880,
+      "placements": [
+        "choose-self-defense-fitness-competition",
+        "faq"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "kickboxing vs boxing",
+      "natural_form": "kickboxing vs boxing",
+      "volume": 1600,
+      "placements": [
+        "choose-self-defense-fitness-competition"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai in street fight",
+      "natural_form": "Muay Thai in a street fight",
+      "volume": 390,
+      "placements": [
+        "choose-self-defense-fitness-competition",
+        "faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai vs kickboxing for self defense",
+      "natural_form": "Muay Thai vs kickboxing for self-defense",
+      "volume": 20,
+      "placements": [
+        "choose-self-defense-fitness-competition",
+        "faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai vs kickboxing who would win",
+      "natural_form": "who would win, a Muay Thai fighter or a kickboxer",
+      "volume": 30,
+      "placements": [
+        "faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai vs kickboxing stance",
+      "natural_form": "Muay Thai stance vs kickboxing stance",
+      "volume": 20,
+      "placements": [
+        "stance-footwork",
+        "comparison-table"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "dutch kickboxing vs muay thai",
+      "natural_form": "Dutch kickboxing vs Muay Thai",
+      "volume": 170,
+      "placements": [
+        "kickboxing-fiche",
+        "comparison-table"
+      ]
+    }
+  ],
+  "structure": [
+    {
+      "id": "quick-answer",
+      "level": 2,
+      "heading": "The quick answer: 8 points of contact vs 4",
+      "purpose": "Intro + criteres de comparaison, puis tableau BLUF cible le featured snippet deja occupe par un tableau technique recycle sur le SERP.",
+      "target_keywords": [
+        "muay thai vs kickboxing",
+        "kickboxing vs muay thai"
+      ]
+    },
+    {
+      "id": "muay-thai-fiche",
+      "level": 2,
+      "heading": "Muay Thai — the art of eight limbs, lived at a Thai camp",
+      "purpose": "Fiche Module E (Pour qui / Les + / Les - / criteres chiffres) pour le Muay Thai.",
+      "target_keywords": []
+    },
+    {
+      "id": "wai-kru-ram-muay",
+      "level": 3,
+      "heading": "Wai kru and ram muay: the ritual no comparison article mentions",
+      "purpose": "Coeur du gap concurrentiel : couche culturelle/ceremonielle absente de tout le SERP. Voix vecue Meaw si pertinent.",
+      "target_keywords": []
+    },
+    {
+      "id": "training-with-thai-coaches",
+      "level": 3,
+      "heading": "What training actually looks like with Thai coaches",
+      "purpose": "Preuve E-E-A-T vecue, lien interne obligatoire vers /about/coaches.",
+      "target_keywords": []
+    },
+    {
+      "id": "kickboxing-fiche",
+      "level": 2,
+      "heading": "Kickboxing — mobility, boxing fundamentals, and global reach",
+      "purpose": "Fiche Module E (Pour qui / Les + / Les - / criteres chiffres) pour la kickboxing, miroir de la fiche Muay Thai.",
+      "target_keywords": [
+        "dutch kickboxing vs muay thai"
+      ]
+    },
+    {
+      "id": "kickboxing-origins",
+      "level": 3,
+      "heading": "Where kickboxing comes from: Japan, America, and the Netherlands",
+      "purpose": "Origines multiples de la kickboxing, en regard bref de l'origine thailandaise du Muay Thai. Factuel et sourcable via /seo-sources.",
+      "target_keywords": [
+        "thai kickboxing vs muay thai",
+        "kickboxing vs muay thai"
+      ]
+    },
+    {
+      "id": "stance-footwork",
+      "level": 3,
+      "heading": "Stance and footwork: flat-footed power vs bouncing mobility",
+      "purpose": "Contraste stance kickboxing (mobile, bondissante) vs stance Muay Thai (centree, ancree).",
+      "target_keywords": [
+        "muay thai vs kickboxing stance"
+      ]
+    },
+    {
+      "id": "how-to-choose",
+      "level": 2,
+      "heading": "How to choose: Muay Thai or kickboxing for your goals",
+      "purpose": "Cadre de decision conditionnel non-hierarchique (jamais de verdict absolu), 3 branches en H3, clot par le CTA unique vers /classes/beginners et /classes.",
+      "target_keywords": []
+    },
+    {
+      "id": "choose-full-experience",
+      "level": 3,
+      "heading": "If you want the full experience: technique, ritual, and history",
+      "purpose": "Branche conditionnelle : experience complete technique + culture + rituel -> Muay Thai en Thailande.",
+      "target_keywords": []
+    },
+    {
+      "id": "choose-mobility-near-home",
+      "level": 3,
+      "heading": "If you want fast, boxing-based mobility near home",
+      "purpose": "Branche conditionnelle : mobilite type boxe + acces facile pres de chez soi -> kickboxing.",
+      "target_keywords": []
+    },
+    {
+      "id": "choose-self-defense-fitness-competition",
+      "level": 3,
+      "heading": "For self-defense, fitness, or competition",
+      "purpose": "Reponses honnetes et qualitatives, sans promesse d'efficacite universelle ni chiffre calorique invente.",
+      "target_keywords": [
+        "muay thai vs kickboxing for self defense",
+        "muay thai in street fight",
+        "kickboxing vs boxing",
+        "muay thai vs mma"
+      ]
+    },
+    {
+      "id": "comparison-table",
+      "level": 2,
+      "heading": "Muay Thai vs kickboxing: the full comparison table",
+      "purpose": "Tableau comparatif final (4+ colonnes) avec une colonne 'Ideal pour' descriptive et non-hierarchique au lieu d'un verdict etoile.",
+      "target_keywords": [
+        "dutch kickboxing vs muay thai",
+        "muay thai vs kickboxing stance"
+      ]
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "FAQ",
+      "purpose": "6 People Also Ask du scan SERP, reponses courtes.",
+      "target_keywords": [
+        "muay thai vs kickboxing who would win"
+      ]
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/classes/beginners",
+      "anchor": "your first class",
+      "section_id": "how-to-choose",
+      "required": true,
+      "reason": "Lien interne obligatoire impose par la commande."
+    },
+    {
+      "url": "/about/coaches",
+      "anchor": "our coaches",
+      "section_id": "training-with-thai-coaches",
+      "required": true,
+      "reason": "Lien interne obligatoire impose par la commande, preuve E-E-A-T."
+    },
+    {
+      "url": "/classes",
+      "anchor": "our full class schedule",
+      "section_id": "how-to-choose",
+      "required": true,
+      "reason": "Lien interne obligatoire impose par la commande."
+    }
+  ],
+  "sources": [
+    {
+      "id": "INT-001",
+      "url": "docs/brand/proofs.md",
+      "title": "Wildcat brand proofs (internal, canonical) — camp, Meaw, positioning",
+      "status": "confirmed",
+      "accessed_at": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "Muay Thai originated in Thailand and is known as the art of eight limbs (fists, elbows, knees, shins).",
+      "status": "to_confirm",
+      "source_ids": [],
+      "limits": "A verifier via /seo-sources avant /seo-enrich."
+    },
+    {
+      "id": "CLM-002",
+      "statement": "Modern kickboxing developed from multiple lineages including Japanese kickboxing (1950s-60s), American kickboxing, and Dutch kickboxing.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "limits": "A verifier via /seo-sources avant /seo-enrich."
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Standard kickboxing rulesets (e.g. WAKO, K-1) do not permit elbow strikes or prolonged clinch, unlike Muay Thai under IFMA rules.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "limits": "A verifier via /seo-sources avant /seo-enrich."
+    },
+    {
+      "id": "CLM-004",
+      "statement": "Any specific calorie-burn comparison between Muay Thai and kickboxing.",
+      "status": "forbidden",
+      "source_ids": [],
+      "limits": "Aucune source fiable identifiee au stade brief. Rester qualitatif dans la prose, ne pas inventer de chiffre (anti-patterns.md)."
+    },
+    {
+      "id": "CLM-005",
+      "statement": "Wildcat Muay Thai is an open-air camp in Chiang Mai run with real Thai coaches, and wai kru / ram muay rituals are practiced there.",
+      "status": "confirmed",
+      "source_ids": [
+        "INT-001"
+      ],
+      "limits": "Preuve documentee dans docs/brand/proofs.md (camp familial open-air) et docs/brand/identity.md."
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "photo",
+      "subject": "Eleve au clinch avec un coach thai dans le ring open-air de Wildcat, golden hour",
+      "description": "Plan moyen, legere contre-plongee. Le coach guide un genou de l'eleve depuis une position de clinch, lumiere chaude de fin de journee, jardin tropical floute en arriere-plan.",
+      "alt_text": "Coach thai guidant un eleve en position de clinch dans le ring open-air de Wildcat Muay Thai a Chiang Mai",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "IMG-002",
+      "placement": "after-h2:The quick answer: 8 points of contact vs 4",
+      "type": "schema/diagram",
+      "subject": "Silhouette annotee des 8 points de contact du Muay Thai vs 4 en kickboxing",
+      "description": "Deux silhouettes simplifiees cote a cote, style ligne epuree, palette forest/gold/cream. A gauche 8 points etiquetes (poings, pieds, coudes, genoux), a droite 4 points etiquetes (poings, pieds).",
+      "alt_text": "Schema comparant les 8 points de contact du Muay Thai aux 4 points de contact de la kickboxing",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-003",
+      "placement": "after-h3:Wai kru and ram muay: the ritual no comparison article mentions",
+      "type": "photo",
+      "subject": "Combattant effectuant le ram muay dans le ring open-air",
+      "description": "Vue large du ring pendant le ram muay, combattant en mouvement rituel, mongkhon visible, lumiere doree naturelle, ambiance calme et respectueuse.",
+      "alt_text": "Combattant effectuant le ram muay, danse rituelle avant combat, au camp Wildcat Muay Thai a Chiang Mai",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-004",
+      "placement": "after-h3:What training actually looks like with Thai coaches",
+      "type": "photo",
+      "subject": "Coach thai corrigeant la position du coude d'un eleve",
+      "description": "Gros plan mi-corps, coach positionne derriere ou a cote de l'eleve, main sur le coude pour corriger l'angle du coup, pads ou sac visibles, lumiere naturelle.",
+      "alt_text": "Coach thai corrigeant la technique du coude d'un eleve a Wildcat Muay Thai Chiang Mai",
+      "aspect_ratio": "4:3"
+    }
+  ],
+  "cta": {
+    "url": "/classes/beginners",
+    "anchor": "Book your first class",
+    "campaign": "blog-culture-nurturing"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "culture",
+    "tags": [
+      "muay-thai",
+      "kickboxing",
+      "culture",
+      "comparison"
+    ],
+    "draft": false,
+    "locale": "en",
+    "source_locale": "en",
+    "translation_key": "muay-thai-vs-kickboxing"
+  }
+}

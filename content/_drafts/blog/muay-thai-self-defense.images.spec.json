@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "article_slug": "muay-thai-self-defense",
+  "article_spec_hash": "sha256:16019d763c15cab62a09164e3acb1efef5b3798a1521c338a77ce8e1b12e1cce",
+  "visual_context_hash": "sha256:5437b54a002f8c6a31a90a2d7b3723ff91eabb44d318f32c40a5197d8d185e28",
+  "status": "generated",
+  "images": [
+    {
+      "id": "IMG-001",
+      "role": "cover",
+      "placement": "cover",
+      "intent": "Editorial cover establishing the honest, top-funnel evaluation angle: a Thai coach teaching real clinch control to a beginner, warm and welcoming, not warrior/hardcore.",
+      "subject": "Coach thai guidant un eleve debutant en position de clinch, ring en plein air",
+      "description": "Plan moyen, golden hour. Le coach tient les bras de l'eleve pour montrer le controle de la tete/nuque en clinch. Arriere-plan bananiers et ring plein air, lumiere chaude fin de journee.",
+      "preset": "blog-cover",
+      "provider": null,
+      "text": {
+        "mode": "overlay",
+        "content": "Is Muay Thai Good for Self-Defense? The Honest Answer",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "16:9",
+        "dimensions": "1792x1024",
+        "focal_position": "center",
+        "safe_zone": null
+      },
+      "references": [
+        {
+          "path": "visual/refs/blog-cover-bg.webp",
+          "purpose": "style",
+          "required": true
+        }
+      ],
+      "negative_constraints": [
+        "no aggressive or warrior imagery",
+        "no dark or dramatic imagery",
+        "no crispated or intimidating expressions"
+      ],
+      "output": {
+        "path": "src/content/blog/covers/muay-thai-self-defense.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Coach thai enseignant le clinch a un eleve debutant a Wildcat Muay Thai, Chiang Mai",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-002",
+      "role": "inline-photo",
+      "placement": "after-h2:What muay thai actually gives you for self-defense",
+      "intent": "Show real technical precision at close range, not violence.",
+      "subject": "Gros plan sur une technique de genou ou de coude en courte distance sur pao",
+      "description": "Plan rapproche, angle legerement lateral, un eleve frappe un pao tenu par le coach avec un genou ou un coude, mouvement net et controle. Lumiere naturelle.",
+      "preset": "blog-inline",
+      "provider": null,
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "4:3",
+        "dimensions": "1600x1200",
+        "focal_position": "center",
+        "safe_zone": null
+      },
+      "references": [
+        {
+          "path": "visual/refs/blog-cover-style.webp",
+          "purpose": "style",
+          "required": true
+        }
+      ],
+      "negative_constraints": [
+        "no dark or dramatic imagery",
+        "no visible text or typography"
+      ],
+      "output": {
+        "path": "public/images/blog/muay-thai-self-defense-2.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "A student at Wildcat Muay Thai training a close-range knee strike on pads in Chiang Mai",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-003",
+      "role": "inline-photo",
+      "placement": "after-h2:Where muay thai falls short, honestly",
+      "intent": "Show the framed, coached reality of training rather than a street-fight fantasy.",
+      "subject": "Deux eleves en sparring leger controle, coach observant a cote",
+      "description": "Plan moyen montrant deux eleves en echange de coups controles, coach en position d'observation active pret a corriger.",
+      "preset": "blog-inline",
+      "provider": null,
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "4:3",
+        "dimensions": "1600x1200",
+        "focal_position": "center",
+        "safe_zone": null
+      },
+      "references": [
+        {
+          "path": "visual/refs/blog-cover-style.webp",
+          "purpose": "style",
+          "required": true
+        }
+      ],
+      "negative_constraints": [
+        "no dark or dramatic imagery",
+        "no visible text or typography"
+      ],
+      "output": {
+        "path": "public/images/blog/muay-thai-self-defense-3.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Two students in light, coached sparring at Wildcat Muay Thai in Chiang Mai",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-004",
+      "role": "portrait",
+      "placement": "after-h2:Why training at an authentic camp in Thailand is different",
+      "intent": "E-E-A-T differentiator: a real Thai coach, warm and welcoming, not intimidating.",
+      "subject": "Portrait d'un coach thai du camp en position de garde, souriant",
+      "description": "Portrait mi-corps, expression ouverte et accueillante, position de garde relachee. Fond jardin tropical flou, lumiere doree.",
+      "preset": "service-portrait",
+      "provider": null,
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "4:3",
+        "dimensions": "1280x1280",
+        "focal_position": "center",
+        "safe_zone": null
+      },
+      "references": [
+        {
+          "path": "visual/refs/portrait-ambient.webp",
+          "purpose": "style",
+          "required": true
+        }
+      ],
+      "negative_constraints": [
+        "no dark or dramatic imagery",
+        "no visible text or typography",
+        "no aggressive pose"
+      ],
+      "output": {
+        "path": "public/images/blog/muay-thai-self-defense-4.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Portrait of a Thai coach at Wildcat Muay Thai in Chiang Mai, relaxed guard stance",
+      "approval_required": true
+    }
+  ]
+}

@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "source_brief": "content/_drafts/blog/saison-des-brulis-chiang-mai.md",
+  "slug": "saison-des-brulis-chiang-mai",
+  "module": "C",
+  "snippet": {
+    "title": "Saison des brûlis à Chiang Mai : le vécu du camp",
+    "h1": "Pollution et saison des brûlis à Chiang Mai : ce qu'on vit vraiment au camp",
+    "description": "La pollution à Chiang Mai pendant la saison des brûlis, racontée par Meaw : calendrier réel, précautions, et notre entraînement en extérieur."
+  },
+  "dates": {
+    "pubDate": "2026-08-11",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1300,
+    "maximum": 1700
+  },
+  "primary_keyword": "pollution chiang mai",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "pollution chiang mai",
+      "natural_form": "la pollution à Chiang Mai",
+      "volume": 170,
+      "placements": [
+        "h1",
+        "meta",
+        "intro",
+        "h2:quest-ce-que-la-saison-des-brulis"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "saison des brulis chiang mai",
+      "natural_form": "la saison des brûlis à Chiang Mai",
+      "volume": 10,
+      "placements": [
+        "title",
+        "h1",
+        "intro",
+        "h2:quest-ce-que-la-saison-des-brulis"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "chiang mai pollution",
+      "natural_form": "la pollution à Chiang Mai",
+      "volume": 170,
+      "placements": [
+        "meta",
+        "alt_text"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "air pollution chiang mai",
+      "natural_form": "la pollution de l'air à Chiang Mai",
+      "volume": 40,
+      "placements": [
+        "h2:pollution-aqi-calendrier"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "indice pollution chiang mai",
+      "natural_form": "l'indice de pollution à Chiang Mai",
+      "volume": 10,
+      "placements": [
+        "h2:pollution-aqi-calendrier"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "indice qualité de l'air",
+      "natural_form": "l'indice de qualité de l'air (AQI)",
+      "volume": 210,
+      "placements": [
+        "h2:pollution-aqi-calendrier"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "pollution chiang mai today",
+      "natural_form": "la pollution à Chiang Mai aujourd'hui",
+      "volume": 10,
+      "placements": [
+        "h2:pollution-aqi-calendrier"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "thailande pollution",
+      "natural_form": "la pollution en Thaïlande",
+      "volume": 30,
+      "placements": [
+        "h2:faut-il-eviter-chiang-mai"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "bangkok pollution",
+      "natural_form": "la pollution à Bangkok",
+      "volume": 210,
+      "placements": [
+        "h2:faut-il-eviter-chiang-mai"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "aqi définition",
+      "natural_form": "l'AQI (indice de qualité de l'air)",
+      "volume": 40,
+      "placements": [
+        "h2:pollution-aqi-calendrier"
+      ]
+    }
+  ],
+  "structure": [
+    {
+      "id": "quest-ce-que-la-saison-des-brulis",
+      "level": 2,
+      "heading": "C'est quoi la saison des brûlis à Chiang Mai ?",
+      "purpose": "Contexte régional et calendrier global, ouverture sur la question réelle des lecteurs",
+      "target_keywords": [
+        "saison des brulis chiang mai",
+        "pollution chiang mai"
+      ]
+    },
+    {
+      "id": "pollution-aqi-calendrier",
+      "level": 2,
+      "heading": "Pollution et qualité de l'air à Chiang Mai : l'indice AQI/PM2.5 et le calendrier mois par mois",
+      "purpose": "Fusion de deux anciens H2 (correctif structure Hn, verdict brief-critic) : vulgarisation obligatoire Module C (PM2.5, AQI) avec renvoi vers suivi officiel en direct sans chiffre inventé, puis tableau qualitatif mois par mois de la qualité de l'air sans chiffre PM2.5 non sourcé",
+      "target_keywords": [
+        "air pollution chiang mai",
+        "indice pollution chiang mai",
+        "indice qualité de l'air",
+        "aqi définition",
+        "pollution chiang mai today",
+        "pollution chiang mai",
+        "saison des brulis chiang mai"
+      ]
+    },
+    {
+      "id": "ce-quon-observe-au-camp",
+      "level": 2,
+      "heading": "Ce qu'on observe au camp, saison après saison",
+      "purpose": "Témoignage première personne de Meaw, E-E-A-T module C en remplacement de la section témoignages clients (aucune donnée dispo sur ce sujet) ; doit produire une phrase autonome citable (GEO)",
+      "target_keywords": [
+        "chiang mai pollution"
+      ]
+    },
+    {
+      "id": "comment-on-adapte-entrainement",
+      "level": 2,
+      "heading": "Comment on adapte l'entraînement les jours difficiles",
+      "purpose": "Adaptations opérationnelles réelles du camp (à confirmer, CLM-003), lien obligatoire vers le planning ; absorbe en sous-partie l'ancien H2 disclaimer YMYL 'Nos précautions, et ce qu'on ne prétend pas' (correctif structure Hn, verdict brief-critic)",
+      "target_keywords": []
+    },
+    {
+      "id": "faut-il-eviter-chiang-mai",
+      "level": 2,
+      "heading": "Faut-il éviter Chiang Mai pendant cette période ? Notre avis honnête",
+      "purpose": "Réponse nuancée, comparaison brève avec Bangkok, CTA vers stay-train et contact",
+      "target_keywords": [
+        "thailande pollution",
+        "bangkok pollution"
+      ]
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "Questions fréquentes sur la pollution et la saison des brûlis à Chiang Mai",
+      "purpose": "FAQ basée sur people_also_ask du SERP FR, 3 H3 max (correctif structure Hn)",
+      "target_keywords": []
+    },
+    {
+      "id": "faq-quand-periode",
+      "level": 3,
+      "heading": "Quand est la saison des brûlis à Chiang Mai, et quelle est la meilleure période pour l'éviter ?",
+      "purpose": "Réponse courte PAA, fusion des deux anciennes questions 'quand' et 'meilleure période' (correctif structure Hn)",
+      "target_keywords": []
+    },
+    {
+      "id": "faq-proteger",
+      "level": 3,
+      "heading": "Comment se protéger de la pollution à Chiang Mai ?",
+      "purpose": "Réponse courte PAA, renvoi vers précautions officielles",
+      "target_keywords": []
+    },
+    {
+      "id": "faq-danger-sante",
+      "level": 3,
+      "heading": "La pollution à Chiang Mai est-elle dangereuse pour la santé ?",
+      "purpose": "Réponse courte PAA, disclaimer santé, renvoi vers professionnel",
+      "target_keywords": []
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/classes#schedule",
+      "anchor": "nos horaires d'entraînement",
+      "section_id": "comment-on-adapte-entrainement",
+      "required": true,
+      "reason": "Maillage imposé — montre le planning réel pendant qu'on parle d'ajustement d'horaires"
+    },
+    {
+      "url": "/stay-train",
+      "anchor": "les packages Stay & Train",
+      "section_id": "faut-il-eviter-chiang-mai",
+      "required": true,
+      "reason": "Maillage imposé — CTA conversion séjour"
+    },
+    {
+      "url": "/contact",
+      "anchor": "écris-nous avant de réserver tes dates",
+      "section_id": "faut-il-eviter-chiang-mai",
+      "required": true,
+      "reason": "Maillage imposé — CTA chaud/tiède WhatsApp"
+    },
+    {
+      "url": "/dtv-visa/long-stay-training",
+      "anchor": "le budget d'un séjour longue durée",
+      "section_id": "faut-il-eviter-chiang-mai",
+      "required": false,
+      "reason": "Pertinent pour le persona DTV secondaire (séjour long), non obligatoire"
+    }
+  ],
+  "sources": [
+    {
+      "id": "INT-001",
+      "url": "docs/brand/proofs.md",
+      "title": "Wildcat brand proofs (internal, canonical) — camp, Meaw, positioning",
+      "status": "confirmed",
+      "accessed_at": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "Wildcat est un camp de Muay Thai familial et open-air à Hang Dong, Chiang Mai",
+      "status": "confirmed",
+      "source_ids": [
+        "INT-001"
+      ],
+      "allowed_wording": "décrire le lieu tel quel, sans prétendre convenir à tout le monde",
+      "limits": "aucune"
+    },
+    {
+      "id": "CLM-002",
+      "statement": "Meaw Boonpradub dirige le camp et vit/s'entraîne à Chiang Mai toute l'année, saison des brûlis comprise",
+      "status": "confirmed",
+      "source_ids": [
+        "INT-001"
+      ],
+      "allowed_wording": "utilisable comme voix E-E-A-T à la première personne",
+      "limits": "aucune"
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Le camp adapte ses séances les jours de mauvais air (horaires décalés, travail technique à l'ombre/en intérieur, moins de cardio intense)",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "formuler au conditionnel ou confirmer avec Meaw avant publication finale",
+      "limits": "ne pas présenter comme protocole officiel tant que non confirmé"
+    },
+    {
+      "id": "CLM-004",
+      "statement": "Chiffres précis de PM2.5, données hospitalières ou comparaisons interannuelles pour Chiang Mai",
+      "status": "forbidden",
+      "source_ids": [],
+      "allowed_wording": "aucune sans source vérifiée via /seo-sources",
+      "limits": "ne jamais inventer un chiffre ; renvoyer vers Air4Thai/IQAir en direct"
+    },
+    {
+      "id": "CLM-005",
+      "statement": "L'équipe du camp est anglophone sur place, pas d'accueil en français",
+      "status": "confirmed",
+      "source_ids": [
+        "INT-001"
+      ],
+      "allowed_wording": "ne jamais affirmer un accueil en français ; préciser explicitement si le sujet des échanges pratiques est abordé",
+      "limits": "aucune exception"
+    },
+    {
+      "id": "CLM-006",
+      "statement": "La saison des brûlis en Thaïlande du Nord s'étend globalement de novembre/décembre à avril avec un pic en mars-avril",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "confirmer les dates précises via une source officielle (Air4Thai ou gouvernementale) avant publication finale",
+      "limits": "ne pas donner de dates trop précises sans source"
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "photo",
+      "subject": "Séance d'entraînement matinale en extérieur au camp, golden hour, collines visibles au loin",
+      "description": "Plan moyen sur une séance de paos en extérieur au ring de Wildcat, lumière chaude de début de matinée, collines légèrement voilées en arrière-plan sans effet dramatique.",
+      "alt_text": "Séance d'entraînement matinale en plein air au camp Wildcat Muay Thai à Chiang Mai, collines visibles en arrière-plan",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "IMG-002",
+      "placement": "after-h2:pollution-aqi-calendrier",
+      "type": "infographic",
+      "subject": "Calendrier illustré de la qualité de l'air à Chiang Mai, mois par mois",
+      "description": "Frise des 12 mois codée par teinte qualitative (excellente/variable/mauvaise/bonne saison des pluies), sans chiffre PM2.5 inventé, palette du site.",
+      "alt_text": "Calendrier illustré mois par mois de la qualité de l'air à Chiang Mai, de la saison sèche à la saison des brûlis",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-003",
+      "placement": "after-h2:ce-quon-observe-au-camp",
+      "type": "portrait",
+      "subject": "Meaw Boonpradub sur le terrain du camp",
+      "description": "Portrait candide de Meaw au camp, ring ou jardin en arrière-plan, lumière naturelle, réutiliser si possible la photo de la fiche coach déjà résolue pour la byline.",
+      "alt_text": "Portrait de Meaw Boonpradub, fondatrice de Wildcat Muay Thai, sur le terrain du camp à Chiang Mai",
+      "aspect_ratio": "1:1"
+    },
+    {
+      "id": "IMG-004",
+      "placement": "after-h2:comment-on-adapte-entrainement",
+      "type": "photo",
+      "subject": "Séance de travail technique à l'ombre sous le pavillon couvert",
+      "description": "Plan moyen d'une séance de travail technique sous la partie couverte du ring, lumière tamisée chaude, ambiance calme. Lié à CLM-003 (à confirmer) — vérifier qu'une photo réelle existe avant publication.",
+      "alt_text": "Séance de travail technique à l'ombre sous le pavillon couvert du camp Wildcat Muay Thai à Chiang Mai",
+      "aspect_ratio": "4:3"
+    }
+  ],
+  "cta": {
+    "url": "/stay-train",
+    "anchor": "regarde les packages Stay & Train",
+    "campaign": "blog-fr-burning-season"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "chiang-mai-life",
+    "tags": [
+      "saison-des-brulis",
+      "pollution",
+      "chiang-mai-life"
+    ],
+    "draft": true,
+    "locale": "fr",
+    "source_locale": "en",
+    "translation_key": "burning-season",
+    "page_type": "article"
+  },
+  "source_hash": "sha256:f74982ce32dc62bd31dc732e4641fd1fbce0ba0db2b40e7d566537f639fa439a",
+  "context_hash": "sha256:51c287df1ca1becb6a91a7ad8b055df7ed465a291cc8c10474d361d925cb6d49",
+  "compiled_at": "2026-08-06T21:22:32+00:00",
+  "research_artifacts": [
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-pollution-chiang-mai-fr.json",
+      "hash": "sha256:54372813502190f1c599152da23b4f823f052d139128359e91059ab3b9a31aa3"
+    },
+    {
+      "kind": "serp",
+      "path": ".seo-data/serp-pollution-chiang-mai-fr.json",
+      "hash": "sha256:a8bfc3e65c901fe2535bc086e28ee981f59ece006285649532aba888c7bacfd6"
+    },
+    {
+      "kind": "gatekeeper",
+      "path": ".seo-data/gatekeeper-saison-des-brulis-chiang-mai-fr.json",
+      "hash": "sha256:7c8955b139afb492c3c40e90ffda562ce314d9ca9a1f92d63c48887a286006a0"
+    }
+  ]
+}

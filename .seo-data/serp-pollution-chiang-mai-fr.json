@@ -1,0 +1,150 @@
+{
+  "keyword": "pollution chiang mai",
+  "location": "France",
+  "scanned_at": "2026-08-06T00:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://lepetitjournal.com/thailande/ou-respirer-chiang-mai-saison-brulis-301560",
+      "title": "Où respirer à Chiang Mai pendant la saison des brûlis?",
+      "page_type": "article de presse expat",
+      "competitor_type": "media_local_expat",
+      "covers": [
+        "contexte pollution et classement mondial de Chiang Mai",
+        "données hospitalières (30 000+ consultations depuis janvier)",
+        "liste de 76 lieux publics équipés de purificateurs d'air",
+        "mesures gouvernementales (interdictions de brûlis, gestion des feux)",
+        "comparaison PM2.5 d'une année sur l'autre"
+      ],
+      "missing": [
+        "aucune mention du sport en extérieur ni de l'entraînement physique pendant la période",
+        "pas d'alternatives d'activité indoor pour visiteurs actifs",
+        "article vieux de 2021 remis à jour en surface (mai 2025), données de fond datées",
+        "aucune perspective séjour long/camp d'entraînement pour visiteurs étrangers"
+      ],
+      "eeat_signals": [
+        "auteure nommée : Catherine Vanesse",
+        "photos personnelles des rues de Chiang Mai",
+        "date de publication (29/03/2021) et de mise à jour (22/05/2025) affichées",
+        "sources citées : centre CMUCCDC, Air4Thai, Chiang Mai Breathe Council"
+      ]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.voyagethailande.fr/saison-brulis-thailande-quand-quoi-faire-eviter",
+      "title": "Saison des brûlis en Thaïlande : dates et conseils pour l'éviter",
+      "page_type": "guide de blog voyage",
+      "competitor_type": "blog_voyage_generaliste",
+      "covers": [
+        "dates de la saison des brûlis (janvier à avril, pic en mars)",
+        "niveaux de PM2.5 comparés au seuil OMS",
+        "conseils généraux pour éviter la période ou s'en protéger"
+      ],
+      "missing": [
+        "traite la Thaïlande en général, pas de profondeur Chiang Mai spécifique",
+        "aucun contenu lié au sport, à l'entraînement ou au Muay Thai",
+        "page non accessible en fetch direct (erreur serveur) — E-E-A-T non vérifiable au-delà du titre/snippet"
+      ],
+      "eeat_signals": [
+        "non vérifiable : échec technique du fetch (Header overflow), analyse basée sur le titre et l'extrait de recherche uniquement"
+      ]
+    },
+    {
+      "rank": 3,
+      "url": "https://lepetitjournal.com/bangkok/sante/smog-chiang-mai-respire-mieux-2025-410871",
+      "title": "Smog - Chiang Mai respire beaucoup mieux en 2025 !",
+      "page_type": "article de presse expat",
+      "competitor_type": "media_local_expat",
+      "covers": [
+        "données chiffrées : -40% de feux de forêt en zones protégées vs 2024",
+        "comparaison interannuelle 2024/2025 (photos Songkran)",
+        "causes de la pollution (brûlis agricoles, feux de forêt, stagnation atmosphérique)",
+        "mesures gouvernementales de prévention et sensibilisation"
+      ],
+      "missing": [
+        "zéro conseil pratique pour voyageurs ou résidents (aucun masque, filtre, geste de prévention santé)",
+        "aucune mention d'activité physique ou de séjour sportif",
+        "auteur générique (« la rédaction de Bangkok »), pas d'expertise santé nommée"
+      ],
+      "eeat_signals": [
+        "sources citées : IQAir (données mesurables), Bangkok Post (citation du gouverneur 2024)",
+        "date de publication et de mise à jour affichées (16/04/2025)",
+        "pas d'auteur individuel identifié — E-E-A-T faible sur l'expertise"
+      ]
+    },
+    {
+      "rank": 4,
+      "url": "https://forumvoyage.forumactif.com/t5029-pollution-a-chiang-mai",
+      "title": "Pollution à Chiang Mai",
+      "page_type": "forum UGC",
+      "competitor_type": "forum_communautaire",
+      "covers": [
+        "témoignages de voyageurs sur les conditions rencontrées sur place",
+        "échanges informels sur les périodes à risque"
+      ],
+      "missing": [
+        "aucune structure éditoriale ni donnée chiffrée fiable",
+        "aucun signal E-E-A-T (auteurs anonymes, pas de sources)",
+        "rien d'actionnable pour préparer un séjour sportif ou un camp d'entraînement"
+      ],
+      "eeat_signals": [
+        "aucun — contenu généré par des utilisateurs anonymes sans vérification"
+      ]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.destinationchiangmai-fr.com/meilleure-saison-pour-un-trek-a-chiang-mai",
+      "title": "Meilleure saison pour un trek à Chiang Mai",
+      "page_type": "guide commercial d'agence locale",
+      "competitor_type": "agence_locale_concurrente_indirecte",
+      "covers": [
+        "comparaison des 3 saisons (sèche, chaude, pluies) pour le trekking",
+        "section dédiée à la pollution mars-avril avec niveaux PM2.5",
+        "conseils pratiques par saison, dont masques filtrants"
+      ],
+      "missing": [
+        "angle trekking uniquement, aucune mention du Muay Thai ou d'un sport de combat",
+        "pas de données santé détaillées ni de sourcing médical",
+        "aucune perspective camp d'entraînement ou séjour longue durée orienté sport"
+      ],
+      "eeat_signals": [
+        "agence de trekking locale (biais commercial assumé, pas neutre)",
+        "guide francophone mentionné",
+        "articles référencés datés de 2025"
+      ]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Quand est la saison des brûlis à Chiang Mai ?",
+      "Comment se protéger de la pollution à Chiang Mai ?",
+      "Quelle est la meilleure période pour éviter la pollution à Chiang Mai ?",
+      "La pollution à Chiang Mai est-elle dangereuse pour la santé ?"
+    ],
+    "featured_snippet": false,
+    "image_pack": true,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "toutes les sources traitent les causes (brûlis agricoles, feux de forêt, stagnation atmosphérique)",
+    "toutes situent la saison janvier-avril avec un pic en mars",
+    "la plupart citent des niveaux de PM2.5 comparés au seuil OMS",
+    "plusieurs évoquent les mesures gouvernementales (interdictions, prévention)",
+    "aucune ne s'adresse à un public venant s'entraîner physiquement (sport, Muay Thai) à Chiang Mai"
+  ],
+  "gap": {
+    "description": "Aucun résultat ne répond à la question opérationnelle d'un francophone qui prépare un séjour d'entraînement Muay Thai à Chiang Mai pendant la saison des brûlis : est-ce raisonnable de s'entraîner en extérieur, comment un camp réel adapte ses horaires/activités, quelles fenêtres restent viables, et quelles précautions concrètes prendre sur place plutôt que des généralités touristiques ou des alertes anxiogènes sans solution.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "contenu daté qui continue à ranker tel quel (article 2021 mis à jour en surface)",
+    "aucun signal d'expérience terrain d'un opérateur qui vit et fait vivre la saison des brûlis au quotidien (tous sont médias généralistes, agences trekking ou UGC anonyme)",
+    "zéro conseil actionnable pour une activité physique intense en extérieur pendant la période",
+    "traitement générique Thaïlande ou générique Chiang Mai, jamais recoupé avec un objectif de voyage précis (entraînement, séjour long)",
+    "sourcing santé faible : citations de données AQI mais aucune validation médicale, malgré le sujet YMYL"
+  ],
+  "recommended_angle": "Écrire depuis la position unique de Wildcat — un camp qui opère réellement à Chiang Mai pendant la saison des brûlis (voix de Meaw Boonpradub, propriétaire) — pour répondre concrètement à « peut-on s'entraîner en Muay Thai à Chiang Mai pendant la saison des brûlis ? » avec des adaptations réelles de camp (horaires décalés, séances allégées ou indoor les jours rouges, suivi AQI via Air4Thai/IQAir) plutôt que des généralités touristiques, tout en restant prudent sur le YMYL (aucun conseil médical, renvoi vers surveillance AQI officielle) et sans jamais laisser entendre un accueil en français — l'équipe du camp reste anglophone."
+}

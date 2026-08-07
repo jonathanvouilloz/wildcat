@@ -1,0 +1,91 @@
+{
+  "keyword": "muay thai headband",
+  "location": "United States / Global",
+  "scanned_at": "2026-08-06T00:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.amazon.com/muay-thai-headband/s?k=muay+thai+headband",
+      "title": "Amazon.com: Muay Thai Headband",
+      "page_type": "directory",
+      "competitor_type": "marketplace",
+      "covers": ["product listings", "buyer reviews", "price comparison"],
+      "missing": ["cultural or historical explanation", "any editorial content", "authenticity guidance"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 2,
+      "url": "https://rajadamnern.com/blog/muay-thai-headband/",
+      "title": "Mongkhon - Muay Thai Headband, History and Cultural Meaning",
+      "page_type": "blog",
+      "competitor_type": "institutional",
+      "covers": ["definition of mongkhon", "history/warrior origins", "color symbolism", "Wai Kru and Ram Muay ceremony", "blessing ritual", "connection to gym/fighter identity", "Buddhist spiritual dimension"],
+      "missing": ["pra jiad / armband distinction", "named author or credentialed voice", "cited sources", "first-person or in-camp perspective", "tourist/student etiquette guidance"],
+      "eeat_signals": ["institutional authority (Rajadamnern Stadium brand)"]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.ebay.com/itm/405181341076",
+      "title": "MMA Martial Art Muay Thai Traditional Mongkol Headband Handmade Braided Rope",
+      "page_type": "directory",
+      "competitor_type": "marketplace",
+      "covers": ["product listing", "handmade claim", "shipping/price info"],
+      "missing": ["cultural or historical explanation", "authenticity/blessing context", "editorial content"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 4,
+      "url": "https://www.hayabusafight.com/blogs/community/the-history-and-tradition-of-muay-thai-arm-and-head",
+      "title": "The History and Tradition of Muay Thai Arm and Head Bands • Hayabusa Fight",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["mongkol history/blessing", "pra jiad history (18th-century soldier origin)", "Wai Kru ceremony", "Muay Thai origins/Art of Eight Limbs", "training gear cross-sell"],
+      "missing": ["named author or credentials", "cited sources", "Thailand-based insider voice", "tourist/student etiquette guidance", "depth on color symbolism"],
+      "eeat_signals": ["established fight-gear brand authority"]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.muaythaicitizen.com/mongkhon-muay-thai-headband-meaning/",
+      "title": "Mongkhon - Muay Thai Headband Meaning - Muay Thai Citizen",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["definition and Thai name", "history from ancient Siam", "handmade production and temple blessing", "religious/animist elements incl. Muslim fighters' Quran verses", "sacred taboos and handling protocols", "Wai Kru Ram Muay ceremony"],
+      "missing": ["pra jiad / armband distinction", "author credentials or bio", "cited sources", "Thailand-based insider or camp-owner voice", "practical guidance for foreign students/tourists"],
+      "eeat_signals": ["named author (Kay)"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "What is a Muay Thai headband called?",
+      "What is the difference between mongkhon and pra jiad?",
+      "Why do Muay Thai fighters wear a headband?",
+      "Why is the mongkhon removed before the fight starts?",
+      "Can anyone wear a mongkhon?"
+    ],
+    "featured_snippet": true,
+    "image_pack": true,
+    "video": false
+  },
+  "intent_signal": "mixed",
+  "common_ground": [
+    "Mongkhon = definition, construction, and Thai origin of the word",
+    "Historical link to Siamese warriors tying cloth around the head before battle",
+    "Blessing by a monk/shaman as source of spiritual protection",
+    "Worn during Wai Kru Ram Muay, removed by the trainer before the fight begins",
+    "Framed as respect for gym, trainers, and lineage"
+  ],
+  "gap": {
+    "description": "No result is written by a named, in-Thailand practitioner (camp owner/coach) combining mongkhon AND pra jiad in one piece with practical, respectful guidance for foreign students and tourists — whether they can wear one, how to request or buy one respectfully, and what happens at an actual Chiang Mai camp. 'mongkhon' as a search term appears saturated with generic third-party/brand-blog explainers (no named author or credentials on 2 of 3 content pages, zero cited sources on any), while marketplace listings (Amazon, eBay) occupy 2 of 5 organic slots with zero cultural content — leaving the informational SERP thinner than volume+competition would suggest.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Pra jiad (armband) is covered by only 1 of 3 content pages (Hayabusa) despite being the natural companion topic — most searchers landing on 'muay thai headband' likely want both explained together",
+    "None of the top content results have a visible named author with credentials or an accessible bio (Rajadamnern = brand-institutional voice with no byline, Hayabusa = commerce blog, Muay Thai Citizen = first-name-only 'Kay')",
+    "Zero cited sources or expert quotes across all 3 content pages — claims (dates, rituals, symbolism) are stated without attribution",
+    "No coverage of tourist/student etiquette: whether a beginner can wear a mongkhon, how to avoid superficial appropriation, what's appropriate to buy vs what must be earned/gifted",
+    "No first-person or photographic documentation of an actual blessing ceremony or camp practice — everything reads as researched-and-written-elsewhere, not lived"
+  ],
+  "recommended_angle": "Have Meaw write the piece as a Thai camp owner in Chiang Mai who has handed mongkhons to her own fighters and watched foreign students ask about theirs — explain mongkhon AND pra jiad together (closing the gap Hayabusa is the only one to attempt), then answer the question competitors skip: what a respectful outsider does and doesn't do with the headband (never buy a 'costume' one to wear outside training, never treat it as a souvenir, ask your kru before wearing one for photos), grounded in real Wildcat camp practice rather than generic Wikipedia-style history."
+}

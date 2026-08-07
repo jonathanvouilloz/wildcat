@@ -1,0 +1,73 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/muay-thai-vs-kickboxing#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/muay-thai-vs-kickboxing",
+      "headline": "Muay Thai vs Kickboxing: A Chiang Mai Coach's Take",
+      "description": "Muay Thai vs kickboxing, compared by coaches who train both in Chiang Mai. Clinch, elbows, knees, and the culture history skips. Read the breakdown.",
+      "datePublished": "2026-08-18",
+      "dateModified": "2026-08-18",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/muay-thai-vs-kickboxing.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/muay-thai-vs-kickboxing#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is more effective, Muay Thai or kickboxing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Neither is universally more effective. Muay Thai's extra weapons (elbows, knees, clinch) give it a wider technical range; kickboxing's tighter toolkit is faster to pick up. Effectiveness depends on the ruleset and how much time you put in."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a Muay Thai fighter beat a kickboxer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the two individual fighters and which ruleset they're competing under. Under Muay Thai rules, a Muay Thai fighter's clinch and elbow game gives a real edge. Under kickboxing rules, that same fighter loses access to those tools."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which is better for self-defense, Muay Thai or kickboxing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Muay Thai's extra range gives more options at close distance, but no combat sport guarantees an outcome in a street fight. Awareness and local legal considerations matter as much as which style you trained."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Muay Thai harder than kickboxing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The clinch and elbow work generally take longer to learn safely than a standard kickboxing combination does, given the added risk of close-range strikes. That's a longer learning curve, not necessarily a \"harder\" sport overall."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which burns more calories, Muay Thai or kickboxing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both are intense, full-body workouts. The honest answer depends on intensity, session length, and your own body rather than the sport itself. We won't quote a calorie figure without real data behind it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Muay Thai a form of kickboxing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not exactly. Thai kickboxing versus Muay Thai gets used interchangeably in casual conversation, but Muay Thai predates the term \"kickboxing\" by centuries and permits elbows and clinch work that standard kickboxing rulesets don't. ---"
+          }
+        }
+      ]
+    }
+  ]
+}

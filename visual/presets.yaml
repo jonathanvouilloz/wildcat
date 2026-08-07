@@ -1,0 +1,169 @@
+# presets.yaml — cas d'usage de génération d'image pour le projet wildcat
+#
+# Chaque preset = une configuration technique (ratio, dimensions, layout) réutilisable.
+# Composable avec le base_style de docs/design/moodboard.md via le moteur render_prompt.py.
+#
+# Pipeline blog : source = "template" (fond statique + texte PIL, aucun appel API)
+# Font requise : visual/fonts/Satoshi-Bold.ttf
+#   → Télécharger sur fontshare.com/fonts/satoshi (TTF, Bold 700)
+#   → Placer dans visual/fonts/Satoshi-Bold.ttf
+
+version: 1
+
+defaults:
+  reference_image: refs/portrait-ambient.webp
+  output_format: webp
+  output_quality: 88
+
+# Placement-first routing
+placement_to_preset:
+  cover: blog-cover
+  "after-h2:*": blog-inline
+  "after-h3:*": blog-inline
+
+# Fallback mapping
+brief_type_to_preset:
+  photo: blog-inline
+  portrait: service-portrait
+  cover: blog-cover
+  infographic: SKIP
+  schema: SKIP
+  illustration: SKIP
+
+presets:
+
+  blog-cover:
+    description: "Cover 16:9 depuis photo de camp (fond statique) + texte centré blanc PIL. Aucun appel API."
+    source: template
+    template_image: visual/refs/blog-cover-bg.webp  # 1792x1024 — fond branded Wildcat (forest + tiger watermark)
+    compose_text: true
+    font_file: fonts/Satoshi-Bold.ttf
+    dimensions: "1792x1024"
+    text_overlay:
+      title_x_ratio: 0.175         # left edge à 17.5% → bloc sur 65% de largeur, centré horizontalement
+      title_y_ratio: 0.34          # recalculé pour 3 lignes × ~120px → centre bloc ~520px
+      align: center
+      gradient: false
+      banner: false
+      rotation: 0
+      uppercase: false
+      shadow: true
+      text_color: "#FFFFFF"
+      font_size_ratio: 0.058       # 0.050 × 1.15 = +15%
+      tracking: -0.04
+      line_spacing: 1.15
+      max_title_width_ratio: 0.65
+    output_dir: src/content/blog/covers
+    output_naming: "{slug}.webp"
+
+  blog-inline:
+    description: "Image 4:3 pour insertion dans le corps d'un article — style ref camp Wildcat"
+    aspect_ratio: "4:3"
+    dimensions: "1600x1200"
+    layout_directives: |
+      A warm, candid documentary photo of outdoor Muay Thai training at a tropical garden gym.
+      Golden hour natural light, Chiang Mai Thailand, open-air ring surrounded by banana trees.
+      Avoid dramatic or aggressive imagery. Warm colors, welcoming atmosphere.
+    text_overlay_supported: false
+    reference_image: refs/blog-cover-style.webp
+    output_dir: public/images/blog
+    output_naming: "{slug}-{index}.webp"
+
+  service-portrait:
+    description: "Portrait 1:1 pour page coach ou service"
+    aspect_ratio: "1:1"
+    dimensions: "1280x1280"
+    layout_directives: |
+      A warm, natural portrait of a Muay Thai coach or student in an outdoor tropical setting.
+      Golden hour lighting, approachable expression, no aggressive pose.
+      Documentary DSLR style, shallow depth of field.
+    text_overlay_supported: false
+    reference_image: refs/portrait-ambient.webp
+    output_dir: public/images/services
+    output_naming: "service-{slug}.webp"
+
+  category-hero:
+    description: "Hero 4:5 pour catégorie ou landing section"
+    aspect_ratio: "4:5"
+    dimensions: "1024x1280"
+    layout_directives: |
+      A warm portrait-format photo of outdoor Muay Thai training, Chiang Mai, golden hour.
+      Open-air gym, tropical vegetation, candid documentary style.
+    text_overlay_supported: false
+    reference_image: refs/scene-wide.webp
+    output_dir: public/images/categories
+    output_naming: "cat-{slug}.webp"
+
+  scene-wide:
+    description: "Scène large 16:10 pour hero ou landing"
+    aspect_ratio: "16:10"
+    dimensions: "1600x1000"
+    layout_directives: |
+      A wide environmental shot of an outdoor Muay Thai gym in Chiang Mai, Thailand.
+      Tropical garden, open-air ring, golden hour warm light, 1-2 people training.
+      Documentary style, no stock-photo feel.
+    text_overlay_supported: false
+    reference_image: refs/scene-wide.webp
+    output_dir: public/images/scenes
+    output_naming: "scene-{slug}.webp"
+
+  blog-cover-gemini:
+    description: "Cover 16:9 générée par Gemini (photo IA unique par article) + texte overlay PIL."
+    source: gemini
+    aspect_ratio: "16:9"
+    dimensions: "1792x1024"
+    layout_directives: |
+      Generate a VERY WIDE horizontal banner image in 16:9 landscape ratio,
+      exactly 1792 pixels wide by 1024 pixels tall.
+
+      Style: warm, candid documentary DSLR photography. Outdoor Muay Thai gym in Chiang Mai,
+      Thailand. Tropical garden setting, banana trees, open-air ring, golden hour natural light.
+      Welcoming and family-friendly atmosphere — NOT dark, aggressive or warrior-gym aesthetic.
+
+      CLEAN PHOTO ONLY. Absolutely NO text, NO typography, NO banner, NO graphic elements,
+      NO letters, NO numbers anywhere in the image.
+
+      Composition: subject or scene positioned on the RIGHT HALF of the frame (right 50-60%
+      of width). The LEFT HALF must be darker, blurry background or empty sky — fades to dark
+      on the left. This reserves the left area for post-generation text overlay.
+    compose_text: true
+    font_file: fonts/Satoshi-Bold.ttf
+    text_overlay:
+      position: bottom-left
+      gradient: true
+      banner: false
+      rotation: 0
+      uppercase: false
+      shadow: true
+      text_color: "#F6F1E6"
+      accent_color: "#E0A62B"
+      font_size_ratio: 0.038
+      tracking: -0.02
+      line_spacing: 1.15
+      max_title_width_ratio: 0.70
+    reference_image: refs/blog-cover-style.webp
+    output_dir: src/content/blog/covers
+    output_naming: "{slug}.webp"
+
+  gmb-post-template:
+    description: "Image GMB 1200x900 (4:3) depuis fond statique + texte court overlay PIL. Lue par /gmb-generate-images."
+    source: template
+    template_image: visual/refs/gmb-bg.png
+    compose_text: true
+    font_file: fonts/Satoshi-Bold.ttf
+    dimensions: "1200x900"
+    text_overlay:
+      position: center
+      gradient: true
+      banner: false
+      rotation: 0
+      uppercase: false
+      shadow: false
+      text_color: "#F6F1E6"         # cream
+      font_size_ratio: 0.08
+      tracking: -0.02
+      line_spacing: 1.1
+      max_title_width_ratio: 0.85
+      font_weight: 700
+    output_dir: static/gmb-assets
+    output_naming: "post-{index:02d}.png"

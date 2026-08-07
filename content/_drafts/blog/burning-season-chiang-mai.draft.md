@@ -1,21 +1,3 @@
----
-title: "Burning Season in Chiang Mai 2026: Trainer's Honest Guide"
-h1: "What Burning Season in Chiang Mai Really Means for Your Training"
-description: "How Wildcat adapts Muay Thai training during Chiang Mai's burning season, month by month, from someone who trains here year-round."
-tldr:
-  - "Burning season in Chiang Mai typically runs late February through April, peaking in March, driven by regional agricultural burning and the valley's geography."
-  - "November through January is the cleanest stretch of the year, the best window for a training trip."
-  - "On high-AQI days, Wildcat shifts session timing and moves technical work under the covered ring instead of cancelling training."
-  - "If you have asthma, a heart or lung condition, or you're training with kids, check the AQI and talk to a doctor before intense outdoor sessions in peak season."
-  - "Booking dates that land in March? Message us before you commit and we'll tell you honestly what that week looks like."
-publishDate: 2026-08-11
-category: chiang-mai-life
-cover: ../covers/burning-season-chiang-mai.webp
-coverAlt: "Open-air Muay Thai training session at Wildcat during Chiang Mai's hazy burning season golden hour"
-draft: false
-translationKey: burning-season
----
-
 Every year, sometime in late January, the same message shows up on WhatsApp. Someone who has already booked flights and a training package asks, carefully, "Is it true you can't train outside during burning season?" They have read a forum thread, or a headline about Chiang Mai's air quality, and now they are wondering if they just wasted their trip.
 
 *This article shares how we adapt outdoor Muay Thai training to Chiang Mai's air quality. It isn't medical advice. If you have asthma, a heart or lung condition, are pregnant, or are training with young children, check the current AQI and talk to a doctor before intense outdoor exercise during high-pollution periods.*

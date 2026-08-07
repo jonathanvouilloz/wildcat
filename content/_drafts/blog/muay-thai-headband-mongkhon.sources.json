@@ -1,0 +1,65 @@
+{
+  "slug": "muay-thai-headband-mongkhon",
+  "generated": "2026-08-07",
+  "level": "evergreen",
+  "citations": [
+    {
+      "claim": "CLM-001: the mongkhon traditionally traces back to young men in Siam tearing a piece of a loved one's clothing (often a mother's sarong) to wear into battle for luck and protection",
+      "status": "Confirmé",
+      "url": "https://en.wikipedia.org/wiki/Muay_Thai#Traditional_wear",
+      "source": "Wikipedia, \"Muay Thai\", section \"Traditional wear\"",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "CLM-002: the mongkhon is commonly blessed by a Buddhist monk before it is given to a fighter, regardless of the fighter's own religion",
+      "status": "Confirmé",
+      "url": "https://en.wikipedia.org/wiki/Muay_Thai#Traditional_wear",
+      "source": "Wikipedia, \"Muay Thai\", section \"Traditional wear\"",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "CLM-005: the pra jiad's origin is told the same way as the mongkhon's, a family member's clothing (often a mother's sarong) tied around the arm for luck before battle",
+      "status": "Confirmé",
+      "url": "https://en.wikipedia.org/wiki/Pra_Jiad",
+      "source": "Wikipedia, \"Pra Jiad\"",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "Sealing the ring: fighters circle the ring and bow three times at each corner in salutation to Buddha, Dharma, and the Sangha of monks",
+      "status": "Confirmé",
+      "url": "https://en.wikipedia.org/wiki/Wai_khru_ram_muay",
+      "source": "Wikipedia, \"Wai khru ram muay\"",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "The ram muay is set to live music called sarama, played on the pi (quadruple-reed instrument) and a pair of klong khaek hand drums",
+      "status": "Confirmé",
+      "url": "https://en.wikipedia.org/wiki/Sarama_(Thai_music)",
+      "source": "Wikipedia, \"Sarama (Thai music)\"",
+      "accessed": "2026-08-07",
+      "placement": "inline"
+    },
+    {
+      "claim": "CLM-003: the trainer/kru removes the mongkhon from the fighter's head right before the fight begins; the pra jiad stays on",
+      "status": "Confirmé",
+      "url": "https://rajadamnern.com/blog/muay-thai-headband/",
+      "source": "Rajadamnern Stadium, \"Mongkhon, Muay Thai Headband, History and Cultural Meaning\" (Jan 6, 2025)",
+      "accessed": "2026-08-07",
+      "placement": "quote"
+    }
+  ],
+  "unverified": [
+    {
+      "claim": "CLM-004: at Wildcat, new students typically first encounter the mongkhon and wai kru ritual by watching a class before ever wearing one themselves",
+      "reason": "First-party experiential claim about Wildcat's own students; no explicit confirmation from Meaw exists in project documents (proofs.md needs_review). Kept general and plausible per the spec's allowed_wording, no link added, not an external claim to source."
+    },
+    {
+      "claim": "Universal color-to-meaning code for mongkhon/pra jiad colors",
+      "reason": "Explicitly not asserted in the article. One Thai institutional source (Rajadamnern Stadium) does publish a specific color chart, but no independent corroboration was found and other camps are known to differ, so the article deliberately avoids presenting any chart as universal fact and defers to asking the kru."
+    }
+  ]
+}

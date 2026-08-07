@@ -1,0 +1,28 @@
+{
+  "contract_version": 1,
+  "run_id": "bcf6f6ed-37bc-4952-a4f6-a9f98090d901",
+  "slug": "ed-visa-vs-dtv-muay-thai",
+  "locale": "en",
+  "updated_at": "2026-08-06T21:47:33+00:00",
+  "status": "failed",
+  "status_reason": "seo-lint (shadow) reported 4 mechanical errors (tldr.present_before_first_h2, tldr.bullets, ending.order, bold.not_in_links). Per article-producer doctrine, any lint error halts the run at status=failed regardless of shadow/enforce mode. Investigation shows these are tooling/template false positives (seo_lint.py hardcodes a French TLDR blockquote marker, a French \"Sources et Références\" heading, and a CTA exemption limited to ?utm_source=blog) that do not match this project's established EN convention (frontmatter tldr, \"Sources and References\", ?intent= CTAs). Control test: running the identical linter against the already-published sibling src/content/blog/en/dtv-visa-cost-breakdown.md reproduces the exact same 4 errors. No genuine content defect found. Awaiting explicit decision: accept as known non-blocking shadow findings (matches silo precedent) and mark ready_to_publish, or fix seo_lint.py first.",
+  "artifacts": {
+    "brief": "content/_drafts/blog/ed-visa-vs-dtv-muay-thai.md",
+    "spec": "content/_drafts/blog/ed-visa-vs-dtv-muay-thai.spec.json",
+    "draft": "content/_drafts/blog/ed-visa-vs-dtv-muay-thai.draft.md",
+    "sources_sidecar": "content/_drafts/blog/ed-visa-vs-dtv-muay-thai.sources.json",
+    "article": "src/content/blog/en/ed-visa-vs-dtv-muay-thai.md",
+    "schema": "content/_drafts/blog/ed-visa-vs-dtv-muay-thai.schema.json",
+    "cover": "src/content/blog/covers/ed-visa-vs-dtv-muay-thai.webp",
+    "review_static": "content/_drafts/blog/ed-visa-vs-dtv-muay-thai.review-static.json",
+    "review_editorial": "content/_drafts/blog/ed-visa-vs-dtv-muay-thai.review-editorial.json",
+    "events": "content/_drafts/blog/ed-visa-vs-dtv-muay-thai.events.jsonl"
+  },
+  "hashes": {
+    "article": "sha256:728fc5604ea855e7b650a132aa552e76f5ddcd7ad5e14159ea4b5ac225e00a55",
+    "cover": "sha256:c88ff7769e6e5db2ed1ee521e2351e75ec14b9ba5e9083978999efd5d468c6f6",
+    "spec": "sha256:3cd5a6d2641a36aa179c96a0dbe6746f1b3f88db091402be9ba72f4f832d7267"
+  },
+  "ready_to_publish": false,
+  "resume_command": "Fix seo_lint.py (parameterize TLDR marker / sources heading / CTA exemption from project.yaml.content + locale) or explicitly accept shadow findings, then re-run: python C:/Users/jojo-/.claude/skills/_seo-shared/pipelines-v2/seo_lint.py --article src/content/blog/en/ed-visa-vs-dtv-muay-thai.md --spec content/_drafts/blog/ed-visa-vs-dtv-muay-thai.spec.json --rules C:/Users/jojo-/.claude/skills/_seo-shared/contracts/lint-rules.json --output content/_drafts/blog/ed-visa-vs-dtv-muay-thai.review-static.json --project C:/Users/jojo-/noyau/projets/wildcat"
+}

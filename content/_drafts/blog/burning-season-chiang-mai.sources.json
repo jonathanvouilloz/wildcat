@@ -1,0 +1,45 @@
+{
+  "slug": "burning-season-chiang-mai",
+  "generated": "2026-08-06",
+  "level": "ymyl",
+  "citations": [
+    {
+      "claim": "Field and waste burning is a main outdoor source of PM2.5; long-term and short-term exposure to particulate matter is linked to cardiovascular and respiratory illness.",
+      "status": "Confirme",
+      "url": "https://www.who.int/teams/environment-climate-change-and-health/air-quality-and-health/health-impacts/types-of-pollutants",
+      "source": "World Health Organization, Air pollution and health, types of pollutants",
+      "accessed": "2026-08-06",
+      "placement": "inline"
+    },
+    {
+      "claim": "PM2.5 and AQI general definitions (vulgarisation).",
+      "status": "Confirme",
+      "url": "https://www.who.int/teams/environment-climate-change-and-health/air-quality-and-health/health-impacts/types-of-pollutants",
+      "source": "World Health Organization, Air pollution and health, types of pollutants",
+      "accessed": "2026-08-06",
+      "placement": "sources-block"
+    }
+  ],
+  "unverified": [
+    {
+      "claim": "IQAir Chiang Mai real-time/historical air quality data (iqair.com/thailand/chiang-mai).",
+      "reason": "Site returned a bot-protection challenge page (Vercel security checkpoint) on repeated fetch attempts from this environment; content could not be independently read."
+    },
+    {
+      "claim": "IQAir Thailand Newsroom article on Chiang Mai ranking among the most polluted cities during burning season 2026.",
+      "reason": "Site returned HTTP 429 (rate limited) on repeated fetch attempts; content could not be independently read."
+    },
+    {
+      "claim": "Thailand Pollution Control Department (pcd.go.th) official AQI thresholds and data.",
+      "reason": "Connection timed out from this environment (TCP connect failure to www.pcd.go.th:443); site not reachable."
+    },
+    {
+      "claim": "Chiang Mai provincial government (chiangmai.go.th) agricultural burn-ban announcement dates for 2026.",
+      "reason": "Connection timed out from this environment; site not reachable. No specific 2026 burn-ban dates are cited in the article for this reason."
+    },
+    {
+      "claim": "Exact timing of burning season (late February through April, peak March) and the Nov-Jan clean-air / May-Oct rainy season pattern.",
+      "reason": "Consistent with the brief's seed sources and general public knowledge of the region's dry-season burning cycle, but not independently re-verified against a live IQAir/PCD source in this pass. Article language is hedged (\"typically\", \"usually\") rather than presenting exact dates as fixed."
+    }
+  ]
+}

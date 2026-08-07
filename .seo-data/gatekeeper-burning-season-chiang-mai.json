@@ -1,0 +1,15 @@
+{
+  "topic": "burning season chiang mai",
+  "generated_at": "2026-08-06T21:10:00Z",
+  "candidates": [
+    {
+      "keyword": "burning season chiang mai",
+      "verdict": "PASS",
+      "gates": { "surprise_gap": "pass", "grounding": "pass" },
+      "signals": { "intent": "know", "pseo_scalable": false },
+      "failed_pillar": null,
+      "rationale": "SERP gap confirmé (.seo-data/serp-burning-season-chiang-mai.json) : les rankers traitent la saison des feux comme un problème touriste générique (masque, purificateur, décaler le séjour) — aucun n'aborde l'angle entraînement sportif en extérieur. Grounding fort : Meaw vit et fait tourner le camp à Chiang Mai toute l'année, expérience directe de l'adaptation des séances pendant la saison des feux (docs/brand/voice.md, docs/brand/proofs.md).",
+      "priority": "haute"
+    }
+  ]
+}

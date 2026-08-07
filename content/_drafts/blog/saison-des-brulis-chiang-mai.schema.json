@@ -1,0 +1,49 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/saison-des-brulis-chiang-mai#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/saison-des-brulis-chiang-mai",
+      "headline": "Saison des brûlis à Chiang Mai : le vécu du camp",
+      "description": "La pollution à Chiang Mai pendant la saison des brûlis, racontée par Meaw : calendrier réel, précautions, et notre entraînement en extérieur.",
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/saison-des-brulis-chiang-mai.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/saison-des-brulis-chiang-mai#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quand est la saison des brûlis à Chiang Mai, et quelle est la meilleure période pour l'éviter ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Elle couvre généralement la fin de la saison sèche, avec les semaines les plus délicates plutôt en mars et début avril. Pour l'éviter, viser novembre à janvier reste le choix le plus fiable, avec février comme option correcte mais plus variable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment se protéger de la pollution à Chiang Mai ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le réflexe le plus utile est de suivre l'indice du jour sur une source officielle en direct (Air4Thai ou IQAir Chiang Mai) plutôt que de se fier à une estimation générale, et d'ajuster ses activités extérieures en conséquence les jours marqués comme mauvais. En cas de sensibilité respiratoire connue, un avis médical avant le départ reste la meilleure précaution."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La pollution à Chiang Mai est-elle dangereuse pour la santé ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ça dépend du niveau atteint un jour donné et de la sensibilité de chacun. Pour toute question de santé personnelle, consulte un professionnel de santé plutôt qu'une source générale, et surveille les indices officiels avant et pendant ton séjour. ---"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "contract_version": 1,
+  "run_id": "7d6744c4-72d1-4a72-af3c-d26e794507cd",
+  "slug": "muay-thai-headband-mongkhon",
+  "locale": "en",
+  "updated_at": "2026-08-07T06:22:00+00:00",
+  "status": "ready_to_publish",
+  "status_reason": "Resumed the interrupted run (previous run_id fd1c0750, status=failed on a since-fixed linter). Root cause of the 4 prior lint errors was not a tooling false positive after all: seo_lint.py has since been corrected to be locale-aware (frontmatter.tldr accepted, English 'Sources and References' heading recognized, /contact added to the final-CTA whitelist) AND, separately, the article genuinely lacked its canonical ending structure (no Conclusion, no CTA, no Sources block after FAQ), and seo-sources had never actually run for this slug (0 real citations, only unlinked prose claims). Both gaps are now closed: (1) seo-sources ran for real (WebSearch + WebFetch), producing content/_drafts/blog/muay-thai-headband-mongkhon.sources.json with 5 claims cross-checked against 5 real, dated Thai/academic-adjacent sources (Wikipedia x4: Muay Thai/Traditional wear, Wai khru ram muay, Pra Jiad, Sarama; Rajadamnern Stadium blog x1, verbatim quote), rewriting the draft in place with inline citations; (2) the draft was extended with FAQ -> Conclusion -> single arrow CTA (/contact?intent=class) -> Sources and References, matching src/content/blog/en/dtv-visa-cost-breakdown.md's template exactly. Article and schema were re-assembled (build_article.py --force, build_schema.py) from the updated draft, and seo_lint.py was re-run with --project . (project root, not project.yaml) per the corrected invocation: result 0 errors, 2 warnings (description.max_estimated_px 968px vs 960px soft target; links.contextual_target_per_1000_min 1.90 vs target 3, expected given 3 required internal links against a longer article). seo-review re-run: status PASS, 9/9 criteria, publication_recommendation ready_to_publish (supersedes the prior BLOCKED_BY_STATIC_LINT verdict).",
+  "artifacts": {
+    "brief": "content/_drafts/blog/muay-thai-headband-mongkhon.md",
+    "spec": "content/_drafts/blog/muay-thai-headband-mongkhon.spec.json",
+    "draft": "content/_drafts/blog/muay-thai-headband-mongkhon.draft.md",
+    "article": "src/content/blog/en/muay-thai-headband-mongkhon.md",
+    "schema": "content/_drafts/blog/muay-thai-headband-mongkhon.schema.json",
+    "cover": "src/content/blog/covers/muay-thai-headband-mongkhon.webp",
+    "review_static": "content/_drafts/blog/muay-thai-headband-mongkhon.review-static.json",
+    "review_editorial": "content/_drafts/blog/muay-thai-headband-mongkhon.review-editorial.json",
+    "events": "content/_drafts/blog/muay-thai-headband-mongkhon.events.jsonl"
+  },
+  "hashes": {
+    "article": "sha256:2d244f7aefcd1bd310e58f3b7aec4bd9b1ed66e84faecb5acd942f0c958fd0f6",
+    "cover": "sha256:b1bbbabb7218efb8c28904961e044cc34e0c7ffd8d03f586cdeab21380443b9b",
+    "spec": "sha256:b8ffc88662cab46511e173c0379bc312d6cc824cd131875570ca1f8c9060b1c3",
+    "schema": "sha256:30b411922f1aee259691d731003d442dfde457e01682096119dfe04f3d8607bd",
+    "review_static": "sha256:26595c466c349b027a7481ed6a1b3ee0e9bbf28b039aaf1ea124281da0479f6b",
+    "review_editorial": "sha256:ef6509a22a9c19fcee5d0fc3dd5158e117b2ee968b307aa754bf7a8dacac0032",
+    "sources": "sha256:3f924f9832752055e24f06612d8ab89e68379321851a73b36d2b64914c49f1a5"
+  },
+  "known_gaps": [
+    "Inline images IMG-002/IMG-003/IMG-004 declared in the spec's images array were not generated in this run (no generate-images/.env API key configured; cover_failure would apply if the cover itself were missing, but a valid cover already existed from a prior successful run and was left untouched); the article body currently has no inline images at all. Generate via /generate-images before publish if inline images are wanted; not a lint blocker (images.todo_remaining is a warning-only rule and reports 0 since no TODO markers were left in the body).",
+    "content/_drafts/blog/muay-thai-headband-mongkhon.schema.json's BlogPosting.image field still resolves to a placeholder https://wildcatmuaythai.com/images/blog/muay-thai-headband-mongkhon.webp because build_schema.py reads spec.frontmatter.image (never set) rather than the actual cover at src/content/blog/covers/muay-thai-headband-mongkhon.webp. Confirmed unchanged after regenerating the schema in this run. Cosmetic, confined to this side artifact: the live page independently resolves og:image and its real JSON-LD image from post.data.cover via astro:assets.",
+    "spec.json's context_hash could not be byte-verified against a fresh compile_context.py run (unchanged from prior run; see original note below).",
+    "2 shadow warnings remain in review-static.json: description.max_estimated_px (968px vs 960px soft target, pre-existing, description untouched in this run) and links.contextual_target_per_1000_min (1.90 vs target 3, expected once the mandatory Conclusion/Sources end matter widened the word count against the 3 required internal links). Neither is an error; both are acceptable per the article-producer failure taxonomy (warning, not fatal).",
+    "The Sarama Wikipedia URL contains unescaped parentheses (Sarama_(Thai_music)); percent-encoded to Sarama_%28Thai_music%29 in both draft.md and the assembled article to avoid ambiguous markdown link-destination parsing, verified the encoded URL still resolves (HTTP 200)."
+  ],
+  "ready_to_publish": true,
+  "resume_command": null
+}

@@ -1,0 +1,29 @@
+{
+  "contract_version": 1,
+  "run_id": "ccd55ef4-fc56-4e07-b7f0-66df9471d882",
+  "slug": "muay-thai-self-defense",
+  "locale": "en",
+  "updated_at": "2026-08-07T06:20:00+00:00",
+  "status": "ready_to_publish",
+  "status_reason": "Resumed run. Fixed the 3 real lint defects identified against the corrected (non-hardcoded-French) seo_lint.py: (1) ending.order — seo-sources had never actually run (spec.sources=[] and no sources.json existed); ran it for real this session (WebSearch/WebFetch unavailable in this environment, substituted with direct curl fetch of en.wikipedia.org/wiki/Muay_Thai and en.wikipedia.org/wiki/Krav_Maga, content actually read and verified before citing, 2 claims Confirme), added 2 light-touch inline citations and a canonical '## Sources and References' block after the CTA. (2) cta.final_unique — the final CTA was a bold link to /classes, outside FINAL_CTA_DESTINATIONS; replaced with '[**Book your first class ->**](/contact?intent=class)' matching the project's intent=class precedent (best-muay-thai-camps-chiang-mai.mdx), while keeping /classes as a required plain contextual link one sentence earlier in the Conclusion (spec.internal_links requirement still satisfied). (3) bold.not_in_links — resolved as a side effect of (2), since the only remaining bold link is now the compliant final CTA. Re-ran seo_lint.py --project . (root, not project.yaml) via run_step.py: 0 errors, 0 warnings. Re-ran seo-review: PASS on all 9 qualitative criteria (previously BLOCKED_BY_STATIC_LINT). Cover: already existed and intact from the original run (template/PIL generation, no image API call required for this preset) -- hash verified unchanged (sha256:b53a4ece...423a7), no cover_failure to log this session, no API key was needed. Did not touch or re-litigate the previously-passing 34 rules. Also aligned the FAQ answer on Krav Maga vs muay thai (previously 'many programs lack live sparring') with the now-verified body claim (sparring delayed for years in some organizations, not absent), for internal consistency; re-ran lint after this edit, still 0 errors.",
+  "artifacts": {
+    "brief": "content/_drafts/blog/muay-thai-self-defense.md",
+    "spec": "content/_drafts/blog/muay-thai-self-defense.spec.json",
+    "images_spec": "content/_drafts/blog/muay-thai-self-defense.images.spec.json",
+    "draft": "content/_drafts/blog/muay-thai-self-defense.draft.md",
+    "article": "src/content/blog/en/muay-thai-self-defense.md",
+    "schema": "content/_drafts/blog/muay-thai-self-defense.schema.json",
+    "cover": "src/content/blog/covers/muay-thai-self-defense.webp",
+    "sources": "content/_drafts/blog/muay-thai-self-defense.sources.json",
+    "review_static": "content/_drafts/blog/muay-thai-self-defense.review-static.json",
+    "review_editorial": "content/_drafts/blog/muay-thai-self-defense.review-editorial.json",
+    "events": "content/_drafts/blog/muay-thai-self-defense.events.jsonl"
+  },
+  "hashes": {
+    "article": "sha256:0257278bd4eddcc862108ed2a81c3ecbaa74b696290ad48d17c701ca6d3b0d8e",
+    "cover": "sha256:b53a4ece6e9956e50ba521b11d19be09e1ee432f4f068edb9215c0fcabc423a7",
+    "spec": "sha256:16019d763c15cab62a09164e3acb1efef5b3798a1521c338a77ce8e1b12e1cce"
+  },
+  "ready_to_publish": true,
+  "resume_command": "None. Run is at ready_to_publish. If further edits are made to the article, re-run: python C:/Users/jojo-/.claude/skills/_seo-shared/pipelines-v2/seo_lint.py --article src/content/blog/en/muay-thai-self-defense.md --spec content/_drafts/blog/muay-thai-self-defense.spec.json --rules C:/Users/jojo-/.claude/skills/_seo-shared/contracts/lint-rules.json --output content/_drafts/blog/muay-thai-self-defense.review-static.json --project ."
+}

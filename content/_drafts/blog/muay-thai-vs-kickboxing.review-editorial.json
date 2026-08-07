@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "criteria": [
+    {
+      "id": "angle_intent",
+      "status": "PASS",
+      "evidence": "Le H1 et l'intro posent d'emblee la question exacte de la requete ('should I do Muay Thai or kickboxing') et refusent le verdict hierarchique impose par le brief ('it depends what you actually want out of training, not which one is better'). Angle differenciant tenu jusqu'a la fin (section 'How to choose' en branches conditionnelles, jamais de 'X gagne').",
+      "correction": ""
+    },
+    {
+      "id": "bluf_progression",
+      "status": "PASS",
+      "evidence": "'The quick answer' donne la reponse et le tableau des criteres avant tout developpement. Chaque fiche Module E (Muay Thai / Kickboxing) ouvre par une phrase de synthese ('Muay Thai is built around eight points of contact...') puis detaille en Pour qui/Pros/Cons/Chiffres.",
+      "correction": ""
+    },
+    {
+      "id": "voice_patte",
+      "status": "PASS",
+      "evidence": "Meaw parle a la premiere personne quand son experience eclaire le sujet (intro, section wai kru, section coachs thai), conforme a patte-ecrite.md. Aucun registre warrior/beast, aucun superlatif non prouve (anti-patterns.md).",
+      "correction": "Motif recurrent 'ce n'est pas X, c'est Y' repere 5-6 fois sur l'article entier (l.37 'not decoration/moment of respect', l.39 'not mystical/closer to a haka', l.49 'different rhythm not a harder one', l.123 FAQ 'not necessarily harder'). Pris isolement chaque occurrence est naturelle et varie en formulation, ce n'est pas une accumulation mecanique au sens de anti-patterns.md, mais a surveiller si un futur refresh ajoute encore ce tour de phrase."
+    },
+    {
+      "id": "semantic_naturalness",
+      "status": "PASS",
+      "evidence": "Mots-cles primaire/secondaires integres en gras a leur premiere occurrence en langage naturel, formes exactes du spec respectees ('kickboxing versus Muay Thai', 'Thai kickboxing versus Muay Thai', 'Muay Thai stance vs kickboxing stance', 'Muay Thai vs MMA', 'a street fight'). Aucune query brute copiee-collee hors contexte.",
+      "correction": ""
+    },
+    {
+      "id": "proofs_limits",
+      "status": "PASS",
+      "evidence": "CLM-001/002/003 confirmes et cites (Wikipedia Muay Thai, Kickboxing, WAKO) avec citations inline + bloc Sources. CLM-004 (calories) reste explicitement non chiffre a deux reprises, conforme au statut forbidden. CLM-005 (camp reel, coachs thais, wai kru/ram muay au camp) utilise sans lien externe, conforme a la doctrine domaine de marque de seo-sources.",
+      "correction": ""
+    },
+    {
+      "id": "links_cta",
+      "status": "PASS",
+      "evidence": "3/3 liens internes obligatoires presents avec ancres exactes du spec (your first class -> /classes/beginners, our coaches -> /about/coaches, our full class schedule -> /classes), sans prefixe de locale, positionnes en suite logique de lecture (decision finale, preuve E-E-A-T coachs). CTA final unique en fin d'article vers /contact?intent=class, coherent avec l'intention top-funnel culture/decouverte de l'article (pas de lien direct DTV ni de prix, conforme anti-cannibalisation).",
+      "correction": ""
+    },
+    {
+      "id": "faq_conclusion",
+      "status": "PASS",
+      "evidence": "Les 6 reponses FAQ apportent une reponse specifique a chaque question (pas de simple resume du corps), notamment sur l'auto-defense et le calcul calorique ou elles reformulent la nuance sans repeter mot pour mot. La conclusion evite le recap mecanique section par section et se termine sur un appel a l'experience plutot qu'une liste.",
+      "correction": ""
+    },
+    {
+      "id": "utility_distinction",
+      "status": "PASS",
+      "evidence": "Le gap identifie par le gatekeeper (.seo-data/gatekeeper-muay-thai-vs-kickboxing.json: 'zero couche culturelle, zero voix vecue en camp thai') est comble par les sections wai kru/ram muay et 'What training actually looks like with Thai coaches', absentes des rankers actuels (gear brands, gyms occidentaux).",
+      "correction": ""
+    },
+    {
+      "id": "localization",
+      "status": "PASS",
+      "evidence": "Article entierement en anglais, orthographe US coherente (centered), liens internes sans prefixe /en/, CTA et exemples adaptes a une audience internationale non-native (EN direct et simple, conforme voice.md). translationKey correspond au slug source, aucune version FR n'existe encore donc pas de risque de melange involontaire.",
+      "correction": ""
+    }
+  ],
+  "priority_actions": [],
+  "publication_recommendation": "ready_to_publish"
+}

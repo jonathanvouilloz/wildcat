@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "source_brief": "content/_drafts/blog/muay-thai-self-defense.md",
+  "slug": "muay-thai-self-defense",
+  "module": "A",
+  "snippet": {
+    "title": "Is Muay Thai Good for Self-Defense? The Honest Answer",
+    "h1": "Is Muay Thai Actually Good for Self-Defense? Here's What It Gives You (and What It Doesn't)",
+    "description": "An honest coach's answer: what muay thai really gives you for self-defense, its real limits, and what beginners actually get from training."
+  },
+  "dates": {
+    "pubDate": "2026-08-25",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1500,
+    "maximum": 1900
+  },
+  "primary_keyword": "is muay thai good for self defense",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "is muay thai good for self defense",
+      "natural_form": "is muay thai good for self-defense",
+      "volume": 480,
+      "placements": [
+        "title",
+        "h1",
+        "intro",
+        "meta"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "is muay thai dangerous",
+      "natural_form": "is muay thai dangerous",
+      "volume": 390,
+      "placements": [
+        "honest-limits",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai training",
+      "natural_form": "muay thai training",
+      "volume": 8100,
+      "placements": [
+        "what-beginners-get",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "is muay thai better than boxing",
+      "natural_form": "how muay thai compares to boxing",
+      "volume": 110,
+      "placements": [
+        "how-it-compares"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "is muay thai good for street fighting",
+      "natural_form": "good for a real street fight",
+      "volume": 90,
+      "placements": [
+        "street-fights-not-ring-fights"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "is muay thai good exercise",
+      "natural_form": "good exercise",
+      "volume": 50,
+      "placements": [
+        "what-beginners-get"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "how good is muay thai for self defense",
+      "natural_form": "how good muay thai actually is for self-defense",
+      "volume": 10,
+      "placements": [
+        "faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "is muay thai kickboxing good for self defense",
+      "natural_form": "muay thai, sometimes called Thai kickboxing",
+      "volume": 10,
+      "placements": [
+        "faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "is muay thai good for self defense reddit",
+      "natural_form": "the question people keep asking online",
+      "volume": 10,
+      "placements": [
+        "faq"
+      ]
+    }
+  ],
+  "structure": [
+    {
+      "id": "real-strengths",
+      "level": 2,
+      "heading": "What muay thai actually gives you for self-defense",
+      "purpose": "Poser les forces reelles et verifiables sans survente : clinch, coudes/genoux/checks courte distance, conditionnement. 3 H3 (plafond).",
+      "target_keywords": [
+        "is muay thai good for self defense",
+        "muay thai training"
+      ]
+    },
+    {
+      "id": "clinch-control",
+      "level": 3,
+      "heading": "Clinch control at close range",
+      "purpose": "Pourquoi le clinch (controle tete/cou, desequilibre) est l'outil le plus transferable a une agression reelle.",
+      "target_keywords": []
+    },
+    {
+      "id": "close-range-tools",
+      "level": 3,
+      "heading": "Elbows, knees, and checks at close range",
+      "purpose": "Fusion de coudes/genoux courte distance et des reflexes defensifs (check, guard) enseignes des le debut.",
+      "target_keywords": []
+    },
+    {
+      "id": "conditioning-composure",
+      "level": 3,
+      "heading": "Conditioning and composure under pressure",
+      "purpose": "L'entrainement repete sous fatigue/contact apprend a rester fonctionnel sous stress.",
+      "target_keywords": []
+    },
+    {
+      "id": "honest-limits",
+      "level": 2,
+      "heading": "Where muay thai falls short, honestly",
+      "purpose": "Nommer sans detour ce que le muay thai ne couvre pas : ground game, desarmement, desescalade, regles de sport vs chaos reel. Section differenciante vs le SERP.",
+      "target_keywords": [
+        "is muay thai dangerous"
+      ]
+    },
+    {
+      "id": "street-fights-not-ring-fights",
+      "level": 3,
+      "heading": "Street fights aren't ring fights",
+      "purpose": "Fusionne depuis l'ancien H2 dedie 'Is muay thai good for street fighting, specifically?' -- repondre a la question adjacente rue vs ring, rattachee aux PAA SERP.",
+      "target_keywords": [
+        "is muay thai good for street fighting",
+        "is muay thai dangerous"
+      ]
+    },
+    {
+      "id": "how-it-compares",
+      "level": 2,
+      "heading": "How it compares to boxing and other martial arts",
+      "purpose": "Comparaison courte et honnete vs boxe, krav maga, bjj -- pas un tableau produit.",
+      "target_keywords": [
+        "is muay thai better than boxing"
+      ]
+    },
+    {
+      "id": "what-you-get-training",
+      "level": 2,
+      "heading": "What you get training with us",
+      "purpose": "Chapeau qui relie les deux angles Wildcat ci-dessous (fusion des anciens H2 beginners + Thailand pour respecter le plafond Hn).",
+      "target_keywords": []
+    },
+    {
+      "id": "what-beginners-get",
+      "level": 3,
+      "heading": "What a beginner actually gets after a few weeks of training",
+      "purpose": "Angle Wildcat concret : ce qu'un debutant retire realistiquement. Lien obligatoire vers /classes/beginners.",
+      "target_keywords": [
+        "muay thai training",
+        "is muay thai good exercise"
+      ]
+    },
+    {
+      "id": "training-in-thailand",
+      "level": 3,
+      "heading": "Why training at an authentic camp in Thailand is different",
+      "purpose": "Differenciateur du gap SERP : coachs thais vs salle occidentale diluee. Lien obligatoire vers /about/coaches.",
+      "target_keywords": [
+        "is muay thai good for self defense"
+      ]
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "FAQ on muay thai and self-defense",
+      "purpose": "Repondre aux 5 PAA du scan SERP plus les long-tails, format ### Question coherent avec le pattern existant du blog.",
+      "target_keywords": [
+        "how good is muay thai for self defense",
+        "is muay thai kickboxing good for self defense",
+        "is muay thai good for self defense reddit"
+      ]
+    },
+    {
+      "id": "conclusion",
+      "level": 2,
+      "heading": "Conclusion",
+      "purpose": "Synthese honnete courte puis CTA unique proportionne. Lien obligatoire vers /classes.",
+      "target_keywords": []
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/classes/beginners",
+      "anchor": "our beginner classes",
+      "section_id": "what-beginners-get",
+      "required": true,
+      "reason": "Maillage obligatoire impose par la commande, coherent avec docs/seo/content-map.md"
+    },
+    {
+      "url": "/about/coaches",
+      "anchor": "our Thai coaches",
+      "section_id": "training-in-thailand",
+      "required": true,
+      "reason": "Maillage obligatoire impose par la commande, preuve E-E-A-T"
+    },
+    {
+      "url": "/classes",
+      "anchor": "check the full class schedule",
+      "section_id": "conclusion",
+      "required": true,
+      "reason": "Maillage obligatoire impose par la commande, CTA nurturing de conclusion"
+    }
+  ],
+  "sources": [],
+  "claims": [],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "photo",
+      "subject": "Coach thai guidant un eleve debutant en position de clinch, ring en plein air",
+      "description": "Plan moyen, golden hour. Le coach tient les bras de l'eleve pour montrer le controle de la tete/nuque en clinch. Arriere-plan bananiers et ring plein air, lumiere chaude fin de journee.",
+      "alt_text": "Coach thai enseignant le clinch a un eleve debutant a Wildcat Muay Thai, Chiang Mai",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "IMG-002",
+      "placement": "after-h2:What muay thai actually gives you for self-defense",
+      "type": "photo",
+      "subject": "Gros plan sur une technique de genou ou de coude en courte distance sur pao",
+      "description": "Plan rapproche, angle legerement lateral, un eleve frappe un pao tenu par le coach avec un genou ou un coude, mouvement net et controle. Lumiere naturelle.",
+      "alt_text": "Eleve de Wildcat Muay Thai s'entrainant au genou courte distance sur pao a Chiang Mai",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-003",
+      "placement": "after-h2:Where muay thai falls short, honestly",
+      "type": "photo",
+      "subject": "Deux eleves en sparring leger controle, coach observant a cote",
+      "description": "Plan moyen montrant deux eleves en echange de coups controles, coach en position d'observation active pret a corriger. Transmet la realite encadree de l'entrainement.",
+      "alt_text": "Sparring leger encadre par un coach a Wildcat Muay Thai, Chiang Mai",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-004",
+      "placement": "after-h2:Why training at an authentic camp in Thailand is different",
+      "type": "portrait",
+      "subject": "Portrait d'un coach thai du camp en position de garde, souriant",
+      "description": "Portrait mi-corps, expression ouverte et accueillante, position de garde relachee. Fond jardin tropical flou, lumiere doree.",
+      "alt_text": "Portrait d'un coach thai de Wildcat Muay Thai a Chiang Mai",
+      "aspect_ratio": "4:3"
+    }
+  ],
+  "cta": {
+    "url": "/classes",
+    "anchor": "check the full class schedule",
+    "campaign": "nurturing-benefits-cluster"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "benefits",
+    "tags": [
+      "self-defense",
+      "benefits",
+      "beginners"
+    ],
+    "draft": false,
+    "locale": "en",
+    "translation_key": "muay-thai-self-defense",
+    "fields": {
+      "author": "Meaw Boonpradub",
+      "category": "benefits",
+      "draft": false,
+      "translationKey": "muay-thai-self-defense",
+      "coverAlt": "Wildcat Muay Thai coach teaching clinch control to a beginner student in Chiang Mai",
+      "tldr": [
+        "Muay thai is genuinely good for self-defense at close range: clinch control, elbows, knees, and composure under pressure.",
+        "It has real limits: no ground fighting, no weapon disarms, and it doesn't teach de-escalation on its own.",
+        "A street fight isn't a ring fight: no referee, no single opponent, and none of the rules your attacker has to follow.",
+        "A few weeks of training builds real reflexes and earned confidence, not a finished self-defense system."
+      ]
+    }
+  },
+  "source_hash": "sha256:897e3b1556818242f62c79a30c5a418f9d7b317d1c8e94883326619416dac287",
+  "context_hash": "sha256:51c287df1ca1becb6a91a7ad8b055df7ed465a291cc8c10474d361d925cb6d49",
+  "compiled_at": "2026-08-06T21:22:41+00:00",
+  "research_artifacts": [
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-muay-thai-self-defense.json",
+      "hash": "sha256:603af216d358d26b999ce44cf267e67df8ab2235b1cacdf2e8e967916487fb12"
+    },
+    {
+      "kind": "serp",
+      "path": ".seo-data/serp-muay-thai-self-defense.json",
+      "hash": "sha256:969871d94312ce7df36f6d29cb159a9b096d7896e98ad4304fd174fd354e763c"
+    },
+    {
+      "kind": "gatekeeper",
+      "path": ".seo-data/gatekeeper-muay-thai-self-defense.json",
+      "hash": "sha256:bf5a751b46cf2cb1946e859f433133e2ce39b81b50ca0561c0babf8d24c8e092"
+    }
+  ]
+}

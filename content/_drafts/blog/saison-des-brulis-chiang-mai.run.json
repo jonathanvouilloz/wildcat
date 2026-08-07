@@ -1,0 +1,44 @@
+{
+  "contract_version": 1,
+  "run_id": "c10fe11c-d030-490b-a8ca-66c0ac696f31",
+  "slug": "saison-des-brulis-chiang-mai",
+  "locale": "fr",
+  "translation_key": "burning-season",
+  "generated_at": "2026-08-06T22:00:00+00:00",
+  "preconditions": {
+    "source_hash_matches_brief": true,
+    "context_hash_matches_batch_snapshot": true,
+    "gatekeeper_pass": true
+  },
+  "steps": [
+    { "step": "images.spec_validation", "status": "success" },
+    { "step": "cover", "status": "failed", "reason": "GEMINI_API_KEY absente de l'environnement (skill generate-images, preset blog-cover-gemini). Cover non generee." },
+    { "step": "seo-write", "status": "success" },
+    { "step": "humanizer", "status": "success" },
+    { "step": "seo-sources", "status": "success" },
+    { "step": "assemble_frontmatter_body", "status": "success" },
+    { "step": "build_schema", "status": "success", "notes": "2 noeuds JSON-LD (BlogPosting + FAQPage)" },
+    { "step": "lint", "status": "success", "mode": "shadow", "errors": 0, "warnings": 1 },
+    { "step": "seo-review", "status": "success", "result": "PASS", "publication_recommendation": "revise" }
+  ],
+  "artifacts": {
+    "draft": "content/_drafts/blog/saison-des-brulis-chiang-mai.draft.md",
+    "article": "src/content/blog/fr/saison-des-brulis-chiang-mai.md",
+    "images_spec": "content/_drafts/blog/saison-des-brulis-chiang-mai.images.spec.json",
+    "sources_sidecar": "content/_drafts/blog/saison-des-brulis-chiang-mai.sources.json",
+    "schema": "content/_drafts/blog/saison-des-brulis-chiang-mai.schema.json",
+    "review_static": "content/_drafts/blog/saison-des-brulis-chiang-mai.review-static.json",
+    "review_editorial": "content/_drafts/blog/saison-des-brulis-chiang-mai.review-editorial.json",
+    "events": "content/_drafts/blog/saison-des-brulis-chiang-mai.events.jsonl",
+    "cover": null
+  },
+  "blockers": [
+    "cover_failure: GEMINI_API_KEY manquante, IMG-001 non generee, article reste draft=true",
+    "image_pending: IMG-002 (infographic calendrier) marquee SKIP par design, a produire via outil deterministe (pas d'IA)",
+    "image_pending: IMG-003 (portrait Meaw) a resoudre en reutilisant la fiche coach existante plutot qu'en generant une nouvelle photo",
+    "image_pending: IMG-004 (photo seance a l'ombre) a produire ou reutiliser un asset reel existant (night-session.webp)",
+    "claim_to_confirm: CLM-003 (adaptations operationnelles du camp) a valider avec Meaw avant de lever le commentaire interne"
+  ],
+  "status": "not_ready_to_publish",
+  "resume_command": "python C:/Users/jojo-/.claude/skills/generate-images/scripts/cli.py --project . --image-spec content/_drafts/blog/saison-des-brulis-chiang-mai.images.spec.json --image-id IMG-001   (apres avoir pose GEMINI_API_KEY dans C:/Users/jojo-/.claude/skills/generate-images/.env)"
+}

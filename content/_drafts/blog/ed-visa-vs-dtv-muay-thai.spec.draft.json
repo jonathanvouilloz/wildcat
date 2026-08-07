@@ -1,0 +1,411 @@
+{
+  "slug": "ed-visa-vs-dtv-muay-thai",
+  "module": "C",
+  "snippet": {
+    "title": "Education Visa Thailand vs DTV: Which Fits Muay Thai",
+    "h1": "Education visa or DTV for Muay Thai training? Here's how to actually decide.",
+    "description": "Meaw at Wildcat compares the Thailand education visa and the DTV for Muay Thai training: structure vs flexibility, and who each one really suits."
+  },
+  "dates": {
+    "pubDate": "2026-08-14",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1500,
+    "maximum": 1850
+  },
+  "primary_keyword": "education visa thailand",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "education visa thailand",
+      "natural_form": "the Thailand education visa",
+      "volume": 720,
+      "placements": [
+        "title",
+        "h1",
+        "intro",
+        "meta"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "education visa thailand requirements",
+      "natural_form": "what the education visa actually requires",
+      "volume": 70,
+      "placements": [
+        "h2:what-ed-visa-requires"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "thailand education visa cost",
+      "natural_form": "the cost of the education visa",
+      "volume": 30,
+      "placements": [
+        "h2:costs-briefly"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "DTV visa",
+      "natural_form": "the DTV / the DTV visa",
+      "volume": null,
+      "placements": [
+        "h2:what-dtv-offers",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "thailand new visa rules 2026",
+      "natural_form": "Thailand's visa rules keep evolving",
+      "volume": 70,
+      "placements": [
+        "h2:costs-briefly",
+        "conclusion"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "education visa thailand chiang mai",
+      "natural_form": "an education visa in Chiang Mai",
+      "volume": 10,
+      "placements": [
+        "h2:what-ed-visa-requires"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "education visa thailand muay thai",
+      "natural_form": "an education visa in Thailand built around Muay Thai",
+      "volume": 10,
+      "placements": [
+        "h2:where-muay-thai-fits"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "non immigrant education visa thailand",
+      "natural_form": "the Non-Immigrant ED visa",
+      "volume": 10,
+      "placements": [
+        "h2:what-ed-visa-requires"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "how to get an education visa in thailand",
+      "natural_form": "how you actually get an education visa in Thailand",
+      "volume": 10,
+      "placements": [
+        "h2:what-ed-visa-requires",
+        "faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "what is the difference between the ed visa and the dtv visa",
+      "natural_form": "the real difference between the ED visa and the DTV",
+      "volume": null,
+      "placements": [
+        "faq"
+      ]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "education visa thailand",
+      "accepted_forms": [
+        "education visa",
+        "Thailand education visa",
+        "ED visa"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "DTV",
+      "accepted_forms": [
+        "DTV visa",
+        "Destination Thailand Visa"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "intro",
+      "level": 2,
+      "heading": "(BLUF, pas de H2 visible)",
+      "purpose": "Répondre tout de suite : structure (ED) vs flexibilité (DTV), et qui choisit quoi. Poser Meaw comme autrice dès le premier paragraphe.",
+      "target_keywords": [
+        "education visa thailand"
+      ]
+    },
+    {
+      "id": "what-ed-visa-requires",
+      "level": 2,
+      "heading": "What the ED visa actually requires",
+      "purpose": "Décrire la mécanique du Non-Immigrant ED : école unique accréditée, assiduité, cycle ~90 jours in-country, permis de ré-entrée. Mentionner que beaucoup d'écoles accréditées sont à Chiang Mai. Répond aussi en prose à l'ancienne question « How long can you stay on an education visa? ». Pas de détail de prix ici.",
+      "target_keywords": [
+        "education visa thailand requirements",
+        "non immigrant education visa thailand",
+        "how to get an education visa in thailand",
+        "education visa thailand chiang mai"
+      ]
+    },
+    {
+      "id": "what-dtv-offers",
+      "level": 2,
+      "heading": "What the DTV offers instead",
+      "purpose": "Décrire le DTV (5 ans multi-entrée, 180 jours/entrée extensible une fois, pas d'assiduité, remote work permis, Muay Thai reconnu soft power) puis enchaîner dans le même H2 sur le framework narratif structure vs flexibilité (prévisibilité de l'ED vs liberté de mouvement du DTV), sans reproduire le tableau déjà publié sur /dtv-visa/muay-thai. Répond aussi en prose à l'ancienne question « Can you work in Thailand on an education visa? » en contraste avec le DTV. Lien obligatoire vers /dtv-visa.",
+      "target_keywords": [
+        "DTV visa"
+      ]
+    },
+    {
+      "id": "where-muay-thai-fits",
+      "level": 2,
+      "heading": "Where Muay Thai actually fits in this decision",
+      "purpose": "Expliquer que le Muay Thai peut justifier les deux routes mais pas au même engagement. Mentionner le retrait 2025 des écoles de langue de la liste soft power DTV sans jamais les réintroduire comme option valide. Répond aussi en prose à l'ancienne question « Is Muay Thai still a valid path for the ED visa, or only the DTV now? ». Lien obligatoire vers /dtv-visa/muay-thai pour le tableau complet.",
+      "target_keywords": [
+        "education visa thailand muay thai"
+      ]
+    },
+    {
+      "id": "what-meaw-sees",
+      "level": 2,
+      "heading": "What Meaw sees on real DTV files",
+      "purpose": "Section E-E-A-T première personne : ce que l'immigration regarde vraiment dans un dossier DTV Muay Thai, sans statistique inventée ni promesse d'acceptation.",
+      "target_keywords": []
+    },
+    {
+      "id": "costs-briefly",
+      "level": 2,
+      "heading": "Costs, briefly, and how to decide",
+      "purpose": "Ordre de grandeur coût ED vs DTV seulement, pas le détail par poste déjà publié ailleurs (lien obligatoire vers /blog/dtv-visa-cost-breakdown et /dtv-visa/long-stay-training), puis conclure le même H2 par le framework structure/flexibilité reformulé en 3 questions actionnables. CTA vers /dtv-visa/eligibility et /stay-train.",
+      "target_keywords": [
+        "thailand education visa cost"
+      ]
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "FAQ on the education visa and the DTV",
+      "purpose": "3 questions issues du bloc PAA réel de la SERP, reformulées pour l'angle Muay Thai. Les 3 autres questions du PAA original sont répondues en prose dans les H2 ci-dessus.",
+      "target_keywords": [
+        "how to get an education visa in thailand",
+        "what is the difference between the ed visa and the dtv visa"
+      ]
+    },
+    {
+      "id": "faq-difference",
+      "level": 3,
+      "heading": "What's the real difference between the ED visa and the DTV?",
+      "purpose": "Résumer le framework structure vs flexibilité en 2-3 phrases.",
+      "target_keywords": [
+        "what is the difference between the ed visa and the dtv visa"
+      ]
+    },
+    {
+      "id": "faq-convert",
+      "level": 3,
+      "heading": "Can you convert a tourist visa into an education visa in Thailand?",
+      "purpose": "Réponse factuelle courte, sourcée.",
+      "target_keywords": []
+    },
+    {
+      "id": "faq-funds",
+      "level": 3,
+      "heading": "Do you need the same proof of funds for the education visa as for the DTV?",
+      "purpose": "Réponse factuelle courte, contraster les seuils.",
+      "target_keywords": []
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/dtv-visa",
+      "anchor": "the full DTV visa guide",
+      "section_id": "what-dtv-offers",
+      "required": true,
+      "reason": "pillar overview du silo DTV, maillage obligatoire"
+    },
+    {
+      "url": "/dtv-visa/eligibility",
+      "anchor": "check your DTV eligibility first",
+      "section_id": "costs-briefly",
+      "required": true,
+      "reason": "maillage obligatoire de la spec utilisateur"
+    },
+    {
+      "url": "/dtv-visa/muay-thai",
+      "anchor": "the full DTV vs ED vs tourist comparison table",
+      "section_id": "where-muay-thai-fits",
+      "required": true,
+      "reason": "évite de dupliquer le tableau comparatif déjà publié ; maillage obligatoire"
+    },
+    {
+      "url": "/stay-train",
+      "anchor": "plan the rest of your stay and training package",
+      "section_id": "costs-briefly",
+      "required": true,
+      "reason": "maillage obligatoire de la spec utilisateur"
+    },
+    {
+      "url": "/blog/dtv-visa-cost-breakdown",
+      "anchor": "the full DTV visa cost breakdown",
+      "section_id": "costs-briefly",
+      "required": true,
+      "reason": "anti-cannibalisation : renvoyer plutôt que dupliquer les chiffres THB"
+    },
+    {
+      "url": "/blog/dtv-vs-tourist-visa-runs-cost",
+      "anchor": "how the DTV compares to tourist visa border runs on cost",
+      "section_id": "costs-briefly",
+      "required": false,
+      "reason": "maillage additionnel optionnel dans le même silo"
+    },
+    {
+      "url": "/contact?intent=dtv",
+      "anchor": "Start your DTV application",
+      "section_id": "conclusion",
+      "required": true,
+      "reason": "CTA chaud, docs/seo/context.md cta_map.hot"
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://thethaiger.com/guides/visa-information/thailand-digital-nomad-visa",
+      "title": "The Thaiger, DTV guide",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://thaievisa.go.th",
+      "title": "Thailand official e-Visa portal",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://www.muaythaivisathailand.com/soft-power-and-the-destination-thailand-visa-for-muay-thai-students/",
+      "title": "Muay Thai Visa Thailand, soft power and the DTV",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-004",
+      "url": "https://www.siam-legal.com/Foreign-Citizens/thailand-education-visa-foreign.php",
+      "title": "Siam Legal, Thailand Education ED Visa",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-005",
+      "url": "https://www.thaiembassy.at/en/type-of-visa/non-immigrant-visa-ed-education.html",
+      "title": "Royal Thai Embassy, Non-Immigrant Visa ED (Education)",
+      "status": "to_verify",
+      "accessed_at": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "The DTV is a 5-year multiple-entry visa allowing 180 days per entry, extendable once per entry for up to 360 continuous days.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-001",
+        "SRC-002"
+      ]
+    },
+    {
+      "id": "CLM-002",
+      "statement": "Muay Thai is an officially recognized soft power qualifying activity for the DTV.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-003"
+      ]
+    },
+    {
+      "id": "CLM-003",
+      "statement": "The Non-Immigrant ED visa requires enrollment at a single accredited school with attendance obligations and typically renews roughly every 90 days in-country.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-004",
+        "SRC-005"
+      ]
+    },
+    {
+      "id": "CLM-004",
+      "statement": "In 2025, general language schools were removed from the DTV soft power qualifying list; Muay Thai remains eligible.",
+      "status": "to_confirm",
+      "source_ids": []
+    },
+    {
+      "id": "CLM-005",
+      "statement": "The DTV allows remote work for foreign employers; the ED visa is not designed for work and does not permit it.",
+      "status": "to_confirm",
+      "source_ids": []
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "photo",
+      "subject": "Meaw examining visa documents at a table on the camp grounds",
+      "description": "Medium shot, golden hour light, Meaw seated at an outdoor table at the camp with visa documents and an open laptop in front of her, focused but warm expression. Blurred background showing the open-air ring and tropical vegetation.",
+      "alt_text": "Wildcat Muay Thai owner comparing Thailand's education visa and DTV options for training",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "IMG-002",
+      "placement": "after-h2:What the DTV offers instead",
+      "type": "photo",
+      "subject": "Two sets of visa documents side by side on a table",
+      "description": "Top-down view, two distinct document stacks (passport, forms, envelope) placed side by side on an outdoor wooden table, suggesting a comparison between two files with no readable personal information. Warm natural light.",
+      "alt_text": "Passport and visa documents laid out while comparing the Thailand education visa and DTV",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-003",
+      "placement": "after-h2:Where Muay Thai actually fits in this decision",
+      "type": "photo",
+      "subject": "Open-air Muay Thai training session at golden hour",
+      "description": "Medium shot of a coach and student doing padwork under the open-air ring, warm late-afternoon light, banana trees in the background. Warm and grounded atmosphere, no aggressive imagery.",
+      "alt_text": "Open-air Muay Thai training session at Wildcat during golden hour in Chiang Mai",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-004",
+      "placement": "after-h2:What Meaw sees on real DTV files",
+      "type": "portrait",
+      "subject": "Meaw talking with a trainee, documents in hand",
+      "description": "Medium portrait of Meaw, open and engaged expression, holding or showing a document to a partially visible or off-camera student. Natural light, camp exterior setting.",
+      "alt_text": "Meaw Boonpradub reviewing a trainee's DTV visa application documents at Wildcat",
+      "aspect_ratio": "1:1"
+    }
+  ],
+  "cta": {
+    "url": "/contact?intent=dtv",
+    "anchor": "Start your DTV application",
+    "campaign": "dtv-silo-blog"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "visa",
+    "tags": [
+      "dtv",
+      "ed-visa",
+      "muay-thai"
+    ],
+    "draft": false,
+    "locale": "en",
+    "translation_key": "ed-visa-vs-dtv"
+  }
+}

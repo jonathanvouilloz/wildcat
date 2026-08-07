@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "criteria": [
+    {
+      "id": "angle_intent",
+      "status": "PASS",
+      "evidence": "The article follows the brief's Mode B angle exactly: deep, respectful explanation (etymology, two-part structure, regional variation, movement symbolism) anchored in Wildcat's actual Chiang Mai camp, framed for curious travelers and beginners rather than hardcore fight fans. Matches serp-wai-kru-ram-muay.json's identified gap (no competitor combines depth with real camp grounding and beginner-friendly framing).",
+      "correction": "None."
+    },
+    {
+      "id": "bluf_progression",
+      "status": "PASS",
+      "evidence": "Each H2/H3 opens with its answer before elaborating, e.g. 'A kru is more than a coach' before explaining lineage, 'The ceremony has two distinct halves' before detailing them, 'Do all Muay Thai fighters have their own ram muay? Largely, yes' before the historical detail.",
+      "correction": "None."
+    },
+    {
+      "id": "voice_patte_ecrite",
+      "status": "PASS",
+      "evidence": "Opens on a lived scene (student kneeling at the ring), not a definition, matching patte-ecrite.md's rhythm rule. First person Meaw used where her direct experience is relevant (intro, closing quote). Brand written 'Wildcat' throughout, no warrior/hardcore register, CTA is warm and proportionate ('Try your first class', not pressuring). Names a limit explicitly ('Nobody here expects a student who isn't Buddhist... to treat the wai kru as worship').",
+      "correction": "None."
+    },
+    {
+      "id": "semantic_naturalness",
+      "status": "PASS",
+      "evidence": "Keywords use the spec's natural_form column throughout: 'wai kru ram muay', 'the wai in muay thai', 'the wai kru dance', 'sealing the ring', 'the movements of the wai kru', 'ram muay music', 'the music that plays during wai kru ram muay', 'becoming a certified kru'. No raw query stuffing (e.g. never 'wai kru dance muay thai Chiang Mai' as a phrase).",
+      "correction": "None."
+    },
+    {
+      "id": "proofs_and_limits",
+      "status": "PASS",
+      "evidence": "The two spec claims flagged 'to_confirm' (regional styles, Buddhist/religious framing) are now backed by real fetched sources (Wikipedia Wai khru ram muay, Wikipedia Muay Thai 20th century section, Evolve MMA) per {slug}.sources.json, with inline attribution. The unconfirmed 'animist' qualifier from the original brief wording was dropped rather than asserted (no source supported it after a real fetch of 3 candidate pages). The hypothesis claim CLM-003 (Wildcat coaches performing ram muay at fight nights, needs_review/unconfirmed) was NOT asserted as a specific fact anywhere in the article; the article only makes the general, sourced statement that camps and teachers pass down their own version of the dance.",
+      "correction": "None. Before publication, Jonathan/Meaw should still confirm CLM-003 if a future revision wants to add a specific first-person claim about Wildcat's own fight-night ram muay."
+    },
+    {
+      "id": "links_cta",
+      "status": "PASS",
+      "evidence": "All 3 required internal links from the spec are present with the spec's required anchors: 'a beginner class' -> /classes/beginners, 'our class schedule' -> /classes, 'Meet our coaches' -> /about/coaches. One additional contextual link to the sibling article on the mongkhon headband avoids duplicating that article's content. Final CTA is the single bold link required by the ending convention, pointing to /contact?intent=class, consistent with the brief's nurturing-only CTA (no DTV, no hard sell).",
+      "correction": "None. links.contextual_target_per_1000_min is a WARN (2.80/1000 vs target 3-6) in the static report, not an error; adding a forced 6th link purely to hit the ratio was judged worse for readability than leaving the warning."
+    },
+    {
+      "id": "faq_conclusion",
+      "status": "PASS",
+      "evidence": "FAQ answers restate the core distinctions (meaning, wai kru vs ram muay, religiosity, regional variation, beginner participation) concisely for snippet/PAA value without being verbatim copies of the body sections; each adds a compressed, standalone answer. Conclusion is a genuine synthesis (two-things-at-once framing) rather than a mechanical recap list.",
+      "correction": "None."
+    },
+    {
+      "id": "utility_distinction",
+      "status": "PASS",
+      "evidence": "Unlike the SERP competitors (Wikipedia's thin sourcing and clinical tone, Evolve's disconnection from any real camp, YOKKAO's promotional angle), this article combines real citations with a lived, family-camp framing and explicit first-time-visitor guidance ('What to Expect If You're New to This'), which none of the top 5 SERP results offer per the gap analysis.",
+      "correction": "None."
+    },
+    {
+      "id": "localization",
+      "status": "PASS",
+      "evidence": "Article is written entirely in EN, matching spec.locale 'en' and spec.frontmatter.locale 'en'. No French sentences, no mixed units, no French-market CTA. translationKey is 'wai-kru-ram-muay-explained', consistent across spec and frontmatter; no FR sibling exists yet so no cross-locale drift risk.",
+      "correction": "None."
+    }
+  ],
+  "priority_actions": [],
+  "publication_recommendation": "ready_to_publish"
+}

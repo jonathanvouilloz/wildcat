@@ -1,0 +1,292 @@
+{
+  "contract_version": 1,
+  "rules_version": 1,
+  "mode": "shadow",
+  "generated_at": "2026-08-06T21:45:48+00:00",
+  "article": "C:\\Users\\jojo-\\noyau\\projets\\wildcat\\src\\content\\blog\\en\\ed-visa-vs-dtv-muay-thai.md",
+  "article_hash": "sha256:728fc5604ea855e7b650a132aa552e76f5ddcd7ad5e14159ea4b5ac225e00a55",
+  "summary": {
+    "errors": 4,
+    "warnings": 1,
+    "evaluated": 38,
+    "not_evaluated": 4
+  },
+  "results": [
+    {
+      "rule": "frontmatter.parse",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "frontmatter parsed"
+    },
+    {
+      "rule": "title.required",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "title present"
+    },
+    {
+      "rule": "title.max_chars",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "52 characters",
+      "observed": 52,
+      "maximum": 60
+    },
+    {
+      "rule": "title.min_chars",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "52 characters",
+      "observed": 52,
+      "minimum": 10
+    },
+    {
+      "rule": "title.max_estimated_px",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "estimated 513px",
+      "observed": 513,
+      "maximum": 580
+    },
+    {
+      "rule": "description.required",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "description present"
+    },
+    {
+      "rule": "description.max_chars",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "145 characters",
+      "observed": 145,
+      "maximum": 155
+    },
+    {
+      "rule": "description.min_chars",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "145 characters",
+      "observed": 145,
+      "minimum": 70
+    },
+    {
+      "rule": "description.max_estimated_px",
+      "status": "WARN",
+      "severity": "warning",
+      "detail": "estimated 963px",
+      "observed": 963,
+      "maximum": 960
+    },
+    {
+      "rule": "h1.not_title",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "H1 differs from title"
+    },
+    {
+      "rule": "source.h1_absent",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 source H1; layout should render frontmatter h1"
+    },
+    {
+      "rule": "headings.no_level_skip",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "no heading level skip",
+      "occurrence": null
+    },
+    {
+      "rule": "em_dash.forbidden_in_metadata",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 em dash in metadata",
+      "observed": 0
+    },
+    {
+      "rule": "em_dash.forbidden_in_headings",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "none in headings",
+      "lines": []
+    },
+    {
+      "rule": "em_dash.preferred_max",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "0 em dash in body",
+      "observed": 0,
+      "preferred_maximum": 2
+    },
+    {
+      "rule": "em_dash.absolute_max",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 em dash in body",
+      "observed": 0,
+      "maximum": 3
+    },
+    {
+      "rule": "style.corrective_juxtaposition_max",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "0 corrective juxtaposition(s)",
+      "observed": 0,
+      "maximum": 1
+    },
+    {
+      "rule": "links.required_from_spec",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "all required links present",
+      "missing": []
+    },
+    {
+      "rule": "links.anchor_not_empty",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 empty anchors",
+      "observed": 0
+    },
+    {
+      "rule": "links.anchor_not_generic",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "anchors descriptive",
+      "anchors": []
+    },
+    {
+      "rule": "links.contextual_target_per_1000_min",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "5.96 internal links / 1000 words",
+      "observed": 5.96,
+      "target": 3
+    },
+    {
+      "rule": "links.contextual_target_per_1000_max",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "5.96 internal links / 1000 words",
+      "observed": 5.96,
+      "target": 6
+    },
+    {
+      "rule": "bold.required_entities",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "required entities bolded",
+      "missing": []
+    },
+    {
+      "rule": "bold.entity_max_occurrences",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "no duplicate entity bold",
+      "duplicates": []
+    },
+    {
+      "rule": "bold.not_in_headings",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "none",
+      "lines": []
+    },
+    {
+      "rule": "bold.not_in_links",
+      "status": "FAIL",
+      "severity": "error",
+      "detail": "1 bold links",
+      "observed": 1
+    },
+    {
+      "rule": "tldr.present_before_first_h2",
+      "status": "FAIL",
+      "severity": "error",
+      "detail": "TLDR missing or misplaced"
+    },
+    {
+      "rule": "tldr.bullets",
+      "status": "FAIL",
+      "severity": "error",
+      "detail": "0 bullets",
+      "observed": 0,
+      "minimum": 3,
+      "maximum": 5
+    },
+    {
+      "rule": "ending.order",
+      "status": "FAIL",
+      "severity": "error",
+      "detail": "required ending order missing"
+    },
+    {
+      "rule": "faq.questions_are_h3",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 bold FAQ questions",
+      "observed": 0
+    },
+    {
+      "rule": "cta.final_unique",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "1 final CTA",
+      "observed": 1,
+      "expected": 1
+    },
+    {
+      "rule": "images.alt_present",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 empty alt",
+      "urls": []
+    },
+    {
+      "rule": "images.alt_length",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "0 alt outside 60-150 chars",
+      "observed": 0
+    },
+    {
+      "rule": "images.todo_remaining",
+      "status": "PASS",
+      "severity": "warning",
+      "detail": "0 image TODO",
+      "observed": 0
+    },
+    {
+      "rule": "dates.pubDate_required",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "publishDate=2026-08-14"
+    },
+    {
+      "rule": "dates.updated_not_before_pub",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "updatedDate absent or not before pubDate"
+    },
+    {
+      "rule": "dates.reviewed_not_before_pub",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "reviewedDate absent or not before pubDate"
+    },
+    {
+      "rule": "schema.valid_json",
+      "status": "PASS",
+      "severity": "error",
+      "detail": "0 blocks, 0 invalid",
+      "errors": []
+    }
+  ],
+  "not_evaluated_rule_ids": [
+    "h1.count",
+    "links.internal_resolve",
+    "publication.live_url_verified",
+    "schema.date_mapping"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "contract_version": 1,
+  "run_id": "d5e0c958-6799-4496-aab3-c480fb57359e",
+  "slug": "muay-thai-vs-kickboxing",
+  "locale": "en",
+  "source_hash": "sha256:f9b0aacde0d1741abb425e66d964f94463f6006dda652537a9b2c32bd40b4afd",
+  "context_hash": "sha256:51c287df1ca1becb6a91a7ad8b055df7ed465a291cc8c10474d361d925cb6d49",
+  "steps": {
+    "cover": {
+      "status": "success",
+      "note": "PIL template preset (blog-cover), pas de cle API image requise pour ce fallback. Fait avant la reprise, non regenere."
+    },
+    "seo-write": { "status": "success" },
+    "humanizer": { "status": "success" },
+    "seo-sources": { "status": "success" },
+    "assemble": {
+      "status": "success",
+      "output": "src/content/blog/en/muay-thai-vs-kickboxing.md",
+      "output_hash": "sha256:d8346d1ac48af9f302fea60ff0adfb81640a96683fbe5b65142fb6b996bec3a3"
+    },
+    "schema": {
+      "status": "success",
+      "output": "content/_drafts/blog/muay-thai-vs-kickboxing.schema.json",
+      "output_hash": "sha256:017bd5cadc87df7c8f3525ea807a0f2e885cae8b379b1b1dac3c4c55da839147"
+    },
+    "lint": {
+      "status": "success",
+      "mode": "shadow",
+      "errors": 0,
+      "warnings": 3,
+      "output": "content/_drafts/blog/muay-thai-vs-kickboxing.review-static.json",
+      "output_hash": "sha256:5cb6af1c827593576dcc8e1b3a1f47642b5fcf80c5d6ee7d53d385d8646538dd"
+    },
+    "seo-review": {
+      "status": "success",
+      "verdict": "PASS",
+      "output": "content/_drafts/blog/muay-thai-vs-kickboxing.review-editorial.json",
+      "output_hash": "sha256:31e678be377009c3bf67a6a2096a0a23dc4248e2128d49631298f9e759b3d6e5"
+    }
+  },
+  "artifacts": {
+    "draft": "content/_drafts/blog/muay-thai-vs-kickboxing.draft.md",
+    "article": "src/content/blog/en/muay-thai-vs-kickboxing.md",
+    "schema": "content/_drafts/blog/muay-thai-vs-kickboxing.schema.json",
+    "cover": "src/content/blog/covers/muay-thai-vs-kickboxing.webp",
+    "review_static": "content/_drafts/blog/muay-thai-vs-kickboxing.review-static.json",
+    "review_editorial": "content/_drafts/blog/muay-thai-vs-kickboxing.review-editorial.json",
+    "events": "content/_drafts/blog/muay-thai-vs-kickboxing.events.jsonl"
+  },
+  "status": "ready_to_publish",
+  "blockers": [],
+  "warnings": [
+    "lint: description.max_estimated_px (largeur estimee de la description legerement au-dessus de la cible, indicative)",
+    "lint: links.contextual_target_per_1000_min (densite de liens internes contextuels sous la cible indicative)",
+    "lint: images.todo_remaining (1 image schema/diagram IMG-002 laissee en TODO:image, aucune images.spec.json pour ce slug)"
+  ],
+  "notes": "Cover deja generee avant la reprise (fallback template PIL, aucune cle API necessaire pour ce mode) : pas de cover_failure a enregistrer. CTA final aligne sur le pattern canonique /contact?intent=class impose par la commande de reprise (remplace /classes/beginners de spec.cta.url ; les 3 liens internes obligatoires restent inchanges)."
+}

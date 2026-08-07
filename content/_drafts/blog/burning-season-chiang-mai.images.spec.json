@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "article_slug": "burning-season-chiang-mai",
+  "article_spec_hash": "sha256:103044069ce3e32d9d92f487638607267ce0f4e03d6640596abaf47cfccb7d92",
+  "visual_context_hash": "sha256:5437b54a002f8c6a31a90a2d7b3723ff91eabb44d318f32c40a5197d8d185e28",
+  "status": "draft",
+  "images": [
+    {
+      "id": "IMG-001",
+      "role": "cover",
+      "placement": "cover",
+      "intent": "Editorial cover establishing the honest, non-alarmist YMYL angle: outdoor training continues during burning season, with a discreet haze visible.",
+      "subject": "Outdoor training session at golden hour with soft haze visible in the background sky",
+      "description": "Photo DSLR naturelle et chaude, style moodboard Wildcat : ring open-air, vegetation tropicale, lumiere doree de fin de journee. Brume atmospherique perceptible mais discrete, aucune imagerie alarmiste, aucun masque N95 en gros plan.",
+      "preset": "blog-cover-gemini",
+      "provider": null,
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "16:9",
+        "dimensions": "1792x1024",
+        "focal_position": "right",
+        "safe_zone": "left half reserved for potential future text, kept clear per moodboard default"
+      },
+      "references": [
+        {
+          "path": "visual/refs/blog-cover-style.webp",
+          "purpose": "style",
+          "required": true
+        }
+      ],
+      "negative_constraints": [
+        "no black or apocalyptic smog",
+        "no N95 mask close-up",
+        "no dark or dramatic imagery",
+        "no visible text or typography",
+        "no person in distress"
+      ],
+      "output": {
+        "path": "src/content/blog/covers/burning-season-chiang-mai.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Open-air Muay Thai training session at Wildcat during Chiang Mai's hazy burning season golden hour",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-002",
+      "role": "inline-photo",
+      "placement": "after-h2:What Burning Season in Chiang Mai Actually Is",
+      "intent": "Establish why air quality specifically matters at an open-air camp (vs an indoor, air-conditioned gym).",
+      "subject": "Wide shot of the open-air ring and tropical garden",
+      "description": "Vue large etablissant le cadre open-air du camp, lumiere naturelle, verdure et bananiers visibles.",
+      "preset": "blog-inline",
+      "provider": null,
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "4:3",
+        "dimensions": "1600x1200",
+        "focal_position": "center",
+        "safe_zone": null
+      },
+      "references": [
+        {
+          "path": "visual/refs/blog-cover-style.webp",
+          "purpose": "style",
+          "required": true
+        }
+      ],
+      "negative_constraints": [
+        "no dark or dramatic imagery",
+        "no visible text or typography"
+      ],
+      "output": {
+        "path": "public/images/blog/burning-season-chiang-mai-2.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Wide view of Wildcat's open-air ring and tropical garden in Chiang Mai, showing the outdoor training setup",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-003",
+      "role": "inline-photo",
+      "placement": "after-h2:How We Adapt Training When the Air Turns Bad",
+      "intent": "Visual proof of the concrete adaptation described in the text (covered ring on high-AQI days).",
+      "subject": "Technical session under the covered ring",
+      "description": "Preuve visuelle de l'adaptation decrite dans le texte : pad work ou clinch sous la couverture, lumiere tamisee chaude, ambiance chaleureuse non alarmiste.",
+      "preset": "blog-inline",
+      "provider": null,
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "4:3",
+        "dimensions": "1600x1200",
+        "focal_position": "center",
+        "safe_zone": null
+      },
+      "references": [
+        {
+          "path": "visual/refs/blog-cover-style.webp",
+          "purpose": "style",
+          "required": true
+        }
+      ],
+      "negative_constraints": [
+        "no dark or dramatic imagery",
+        "no visible text or typography"
+      ],
+      "output": {
+        "path": "public/images/blog/burning-season-chiang-mai-3.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Covered ring technical training session at Wildcat, the setup used on high-AQI burning season days",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-004",
+      "role": "inline-photo",
+      "placement": "after-h2:Planning a Training Trip Around Burning Season",
+      "intent": "Positive contrast image illustrating the clean-air high season (Nov-Jan) booking recommendation.",
+      "subject": "Training session under a clear sky during the clean-air high season",
+      "description": "Image de contraste positif montrant le camp pendant la haute saison d'air propre (novembre-janvier).",
+      "preset": "blog-inline",
+      "provider": null,
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "4:3",
+        "dimensions": "1600x1200",
+        "focal_position": "center",
+        "safe_zone": null
+      },
+      "references": [
+        {
+          "path": "visual/refs/blog-cover-style.webp",
+          "purpose": "style",
+          "required": true
+        }
+      ],
+      "negative_constraints": [
+        "no dark or dramatic imagery",
+        "no visible text or typography"
+      ],
+      "output": {
+        "path": "public/images/blog/burning-season-chiang-mai-4.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Clear-sky training session at Wildcat during Chiang Mai's clean-air high season, November through January",
+      "approval_required": true
+    }
+  ]
+}

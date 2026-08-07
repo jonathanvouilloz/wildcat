@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-08-06T21:52:37.219953+00:00",
+  "slug": "muay-thai-vs-kickboxing",
+  "preset": "blog-cover",
+  "prompt_text": "[template — no prompt]",
+  "reference_image": null,
+  "output": "C:\\Users\\jojo-\\noyau\\projets\\wildcat\\src\\content\\blog\\covers\\muay-thai-vs-kickboxing.webp",
+  "model": "nano-banana-pro-preview",
+  "response_metadata": {
+    "source": "template",
+    "compose": {
+      "composed": true,
+      "source": "template",
+      "template_image": "C:\\Users\\jojo-\\noyau\\projets\\wildcat\\visual\\refs\\blog-cover-bg.webp",
+      "font_path": "C:\\Users\\jojo-\\noyau\\projets\\wildcat\\visual\\fonts\\Satoshi-Bold.ttf",
+      "title_text": "Muay Thai vs Kickboxing: A Chiang Mai Coach's Take",
+      "text_overlay_cfg": {
+        "title_x_ratio": 0.175,
+        "title_y_ratio": 0.34,
+        "align": "center",
+        "gradient": false,
+        "banner": false,
+        "rotation": 0,
+        "uppercase": false,
+        "shadow": true,
+        "text_color": "#FFFFFF",
+        "font_size_ratio": 0.058,
+        "tracking": -0.04,
+        "line_spacing": 1.15,
+        "max_title_width_ratio": 0.65
+      }
+    }
+  }
+}

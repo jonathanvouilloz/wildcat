@@ -1,0 +1,15 @@
+{
+  "topic": "muay thai headband mongkhon",
+  "generated_at": "2026-08-06T21:10:00Z",
+  "candidates": [
+    {
+      "keyword": "muay thai headband",
+      "verdict": "PASS",
+      "gates": { "surprise_gap": "pass", "grounding": "pass" },
+      "signals": { "intent": "know", "pseo_scalable": false },
+      "failed_pillar": null,
+      "rationale": "SERP (.seo-data/serp-muay-thai-headband-mongkhon.json) : mongkhon domine la SERP mais aucun résultat n'est signé par une voix ancrée en Thaïlande, pas de sources citées, 2/5 slots sont des marketplaces sans éditorial, pra jiad quasi absent. Grounding : camp thaï réel, coachs et rituel wai kru pratiqués sur place. Note keyword : primaire réel mesuré = \"muay thai headband\" (590/mo) ; \"mongkhon\" reste le terme couvert dans le titre/contenu, cohérent avec le calendrier éditorial.",
+      "priority": "moyenne"
+    }
+  ]
+}

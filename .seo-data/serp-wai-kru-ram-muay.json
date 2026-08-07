@@ -1,0 +1,152 @@
+{
+  "keyword": "wai kru ram muay",
+  "location": "United States / Global",
+  "scanned_at": "2026-08-06T00:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://yokkao.com/pages/wai-khru-ram-muay",
+      "title": "Wai Khru Ram Muay: Explaning the Muay Thai Ritual Prayer | YOKKAO USA",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": [
+        "definition and etymology of Wai Khru Ram Muay",
+        "pre-fight ritual breakdown (circling ring, kneeling, bowing)",
+        "symbolic meanings (respect to parents, teachers, Buddha)",
+        "Ram Muay dance movements and purposes",
+        "Sarama musical accompaniment",
+        "World Wai Khru Ceremony in Ayutthaya"
+      ],
+      "missing": [
+        "no author or credentials",
+        "no citations or sources",
+        "no first-person camp experience, only a promotional video from a Chiang Mai training center",
+        "no explanation of regional/camp-specific style variation",
+        "no guidance for a visiting foreigner on what to expect or how to react respectfully"
+      ],
+      "eeat_signals": []
+    },
+    {
+      "rank": 2,
+      "url": "https://en.wikipedia.org/wiki/Wai_khru_ram_muay",
+      "title": "Wai khru ram muay",
+      "page_type": "wikipedia",
+      "competitor_type": "institutional",
+      "covers": [
+        "origins and history",
+        "terminology breakdown of the ritual's name components",
+        "step-by-step performance procedure in the ring",
+        "symbolic accessories (Mongkhon and Pra Jiad)",
+        "connection to Buddhist traditions and Hanuman-inspired movements"
+      ],
+      "missing": [
+        "multiple 'citation needed' tags, thin sourcing on key claims",
+        "no regional/style variation (Korat, Chaiya, Lopburi) despite this being a real distinction",
+        "no mention of specific camps or living practitioners",
+        "no visual/video embedding, no sensory or atmospheric description",
+        "clinical encyclopedic tone, zero warmth or narrative connection to a real place"
+      ],
+      "eeat_signals": [
+        "footnote references (Rajadamnern Stadium, one blog source)"
+      ]
+    },
+    {
+      "rank": 3,
+      "url": "https://evolve-mma.com/blog/understanding-the-wai-kru-ram-muay/",
+      "title": "Understanding The Muay Thai Wai Kru | Evolve Daily",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "covers": [
+        "the Wai, Kru, and Ram Muay terminology components",
+        "warm-up and gratitude functions of the ritual",
+        "regional variations and camp-specific styles (Yang Sam Khum, Sao Noi Pa Pang, Hong Hern, Pra Ram Tam Gwang)",
+        "specific movement sequences and symbolic meanings",
+        "historical reference to fighter Nong Toom",
+        "mythological dance interpretations"
+      ],
+      "missing": [
+        "no named author or personal credentials, only organizational byline",
+        "no citations or sources for historical/mythological claims",
+        "not tied to Chiang Mai or any specific camp the reader could visit",
+        "no photos/video embedded despite a highly visual ritual",
+        "generic gym-brand CTA rather than genuine cultural guidance"
+      ],
+      "eeat_signals": [
+        "organizational byline (Evolve MMA)",
+        "named historical fighter reference (Nong Toom)"
+      ]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.muay-thai-guy.com/blog/wai-kru-ram-muay",
+      "title": "What Is The Wai Kru in Muay Thai?",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": [
+        "meaning and origin of Wai Kru",
+        "ritual structure and purpose",
+        "cultural respect angle for foreign practitioners"
+      ],
+      "missing": [
+        "no camp-specific or Chiang Mai grounding",
+        "thin sourcing, no formal citations",
+        "no video/visual walkthrough",
+        "no practical guidance for a foreigner attending or performing their first Wai Kru"
+      ],
+      "eeat_signals": []
+    },
+    {
+      "rank": 5,
+      "url": "https://www.kombatgroup.com/wai-kru-ram-muay/",
+      "title": "Wai Kru and Ram Muay in Muay Thai",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "covers": [
+        "definition and components of the ritual",
+        "general pre-fight sequence",
+        "brief cultural significance"
+      ],
+      "missing": [
+        "no author/credentials",
+        "no sources",
+        "no real camp or Chiang Mai anchoring",
+        "no video, thin on sensory/atmospheric detail",
+        "no guidance for beginners/tourists on etiquette"
+      ],
+      "eeat_signals": []
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "What does Wai Kru Ram Muay mean?",
+      "Why do Muay Thai fighters dance before a fight?",
+      "What is the difference between Wai Kru and Ram Muay?",
+      "Why do Muay Thai fighters wear a headband (Mongkhon)?",
+      "Is the Wai Kru ritual religious?",
+      "Do all Muay Thai fighters have their own Ram Muay?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": true
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "etymology breakdown of Wai (respect gesture) + Khru (teacher) + Ram (dance) + Muay (boxing)",
+    "the two-part structure: Wai Kru (paying respect) then Ram Muay (the dance)",
+    "circling the ring and kneeling/bowing in the four directions",
+    "purpose as a prayer for protection and tribute to teachers/parents/ancestors"
+  ],
+  "gap": {
+    "description": "Every top result is either a bare encyclopedic overview (Wikipedia, thin sourcing, no camp grounding) or a generic gym/brand blog post with zero connection to a real, currently operating Chiang Mai camp. None combine deep, accurate ritual explanation with an actual first-person account of the Wai Kru performed at a specific, named camp — and none give a visiting foreigner practical, respectful guidance on what to do or feel the first time they see or perform it. YouTube dominates the visual side of this query but with no accompanying deep-dive text, leaving a real opening for a text-first, video-friendly explainer written from inside an operating camp.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Wikipedia's historical claims are under-sourced (multiple citation-needed tags) and entirely omits regional style variation (Korat, Chaiya, Lopburi)",
+    "Evolve MMA covers regional variation well but is disconnected from Chiang Mai and reads as generic gym content with a newsletter CTA bolt-on",
+    "YOKKAO's piece leans promotional (video from their own training center) rather than genuinely explanatory, with no author or sourcing",
+    "none of the top 5 results offer a family/beginner-friendly framing — all are written for a hardcore fight-culture audience, not for a curious traveler or student"
+  ],
+  "recommended_angle": "Explain the Wai Kru Ram Muay with real cultural depth and respect (etymology, the two parts, regional style variation, what the movements symbolize) but anchor it in Wildcat's actual Chiang Mai camp and family — what visitors and students see and feel when it's performed there, written warmly for curious travelers and beginners rather than hardcore fight fans, positioning Wildcat as a place where this tradition is lived daily, not just described."
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "saison-des-brulis-chiang-mai",
+  "generated": "2026-08-06",
+  "level": "ymyl",
+  "citations": [
+    {
+      "claim": "L'agriculture sur brulis (residus de recolte, broussailles) est identifiee comme cause principale du PM2.5 en Thailande.",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/Air_pollution_in_Thailand",
+      "source": "Air pollution in Thailand, Wikipedia",
+      "accessed": "2026-08-06",
+      "placement": "inline"
+    },
+    {
+      "claim": "La fenetre de mauvaise qualite d'air couvre generalement fevrier a avril avec un pic souvent en mars, amelioration apres avril.",
+      "status": "Confirme",
+      "url": "https://www.iqair.com/th-en/thailand/chiang-mai/chiang-mai",
+      "source": "IQAir, station de Chiang Mai",
+      "accessed": "2026-08-06",
+      "placement": "inline"
+    },
+    {
+      "claim": "Air4Thai (Pollution Control Department) est la plateforme officielle du gouvernement thailandais pour le suivi PM2.5/AQI en direct.",
+      "status": "Confirme (URL live verifiee, contenu dynamique SPA non extractible statiquement)",
+      "url": "https://air4thai.pcd.go.th/webV3/",
+      "source": "Air4Thai, Pollution Control Department",
+      "accessed": "2026-08-06",
+      "placement": "sources-block"
+    },
+    {
+      "claim": "Le Pollution Control Department (PCD) est l'agence gouvernementale thailandaise en charge des standards de pollution de l'air.",
+      "status": "Confirme",
+      "url": "https://en.wikipedia.org/wiki/Air_pollution_in_Thailand",
+      "source": "Air pollution in Thailand, Wikipedia",
+      "accessed": "2026-08-06",
+      "placement": "sources-block"
+    }
+  ],
+  "unverified": [
+    {
+      "claim": "CLM-003 : adaptations operationnelles precises du camp les jours de mauvais air (horaires decales, travail a l'ombre, cardio reduit).",
+      "reason": "Experience first-party de la marque, non sourcable en externe. Reste to_confirm avec Meaw (hors perimetre seo-sources). Formule au conditionnel dans le draft, marquee par un commentaire HTML interne."
+    }
+  ],
+  "notes": [
+    "IQAir Chiang Mai a repondu 429 (rate limit) sur plusieurs tentatives avant un retry reussi (200) ; Air4Thai (air4thai.pcd.go.th/webV3/) est une SPA sans contenu HTML statique exploitable pour une citation verbatim, mais l'URL est live et sert de pointeur officiel conforme a la demande du brief (CLM-004).",
+    "Aucun chiffre precis de PM2.5/AQI n'a ete publie dans le corps de l'article malgre la disponibilite de donnees historiques 2018-2019 chez IQAir, par coherence avec la decision editoriale du brief (calendrier qualitatif uniquement, verdict brief-critic)."
+  ]
+}

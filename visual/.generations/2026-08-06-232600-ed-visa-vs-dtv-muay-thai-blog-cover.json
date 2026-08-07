@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-08-06T23:26:00+00:00",
+  "slug": "ed-visa-vs-dtv-muay-thai",
+  "preset": "blog-cover",
+  "prompt_text": "[template - no prompt]",
+  "reference_image": null,
+  "output": "C:\\Users\\jojo-\\noyau\\projets\\wildcat\\src\\content\\blog\\covers\\ed-visa-vs-dtv-muay-thai.webp",
+  "output_hash": "sha256:c88ff7769e6e5db2ed1ee521e2351e75ec14b9ba5e9083978999efd5d468c6f6",
+  "dimensions": "1792x1024",
+  "model": "template",
+  "response_metadata": {
+    "source": "template",
+    "compose": {
+      "composed": true,
+      "source": "template",
+      "template_image": "C:\\Users\\jojo-\\noyau\\projets\\wildcat\\visual\\refs\\blog-cover-bg.webp",
+      "font_path": "C:\\Users\\jojo-\\noyau\\projets\\wildcat\\visual\\fonts\\Satoshi-Bold.ttf",
+      "title_text": "Education Visa Thailand vs DTV: Which Fits Muay Thai",
+      "text_overlay_cfg": {
+        "title_x_ratio": 0.175,
+        "title_y_ratio": 0.34,
+        "align": "center",
+        "gradient": false,
+        "banner": false,
+        "rotation": 0,
+        "uppercase": false,
+        "shadow": true,
+        "text_color": "#FFFFFF",
+        "font_size_ratio": 0.058,
+        "tracking": -0.04,
+        "line_spacing": 1.15,
+        "max_title_width_ratio": 0.65
+      }
+    }
+  },
+  "notes": "Fallback legacy shadow mode: aucun content/_drafts/blog/ed-visa-vs-dtv-muay-thai.images.spec.json n'existe pour ce projet (pattern jamais utilise sur wildcat, confirme par absence de tout *.images.spec.json dans le repo). Preset blog-cover resolu depuis project.yaml.content (cover_dir=src/content/blog/covers, cover_pattern={slug}.webp) et visual/presets.yaml (placement_to_preset.cover). title_text = snippet.title exact du spec.json valide (source_hash confirme contre le brief). Verdict visuel : conforme (logo Wildcat correct, zero faute, contraste OK, pas de texte parasite)."
+}

@@ -1,0 +1,144 @@
+{
+  "keyword": "muay thai vs kickboxing",
+  "location": "United States / Global",
+  "scanned_at": "2026-08-06T00:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://blog.joinfightcamp.com/fight-news/muay-thai-vs-kickboxing-whats-the-difference/",
+      "title": "Muay Thai vs Kickboxing: What's the Difference? | FightCamp",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": [
+        "8-point vs 4-point striking system",
+        "history of both disciplines (Thailand 14th century vs Japan 1950s)",
+        "stance and footwork differences",
+        "shin vs foot kicking technique",
+        "clinch work",
+        "5 key technical differences listicle"
+      ],
+      "missing": [
+        "any first-hand training experience or Thai instructor perspective",
+        "cultural/ceremonial context (wai kru, ram muay, music)",
+        "which discipline suits which goal (fitness vs self-defense vs competition)",
+        "what training actually feels like day-to-day",
+        "sources or citations"
+      ],
+      "eeat_signals": ["author byline (Emma Comery, freelance writer)", "author bio noting she trains at a UFC gym", "published date"]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.hayabusafight.com/blogs/community/muay-thai-vs-kickboxing-the-difference",
+      "title": "Muay Thai vs. Kickboxing: All You Need to Know",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": [
+        "origins and history",
+        "equipment/gear requirements",
+        "rules and scoring systems",
+        "philosophy of each discipline",
+        "training approach differences",
+        "gear product recommendations (e-commerce upsell)"
+      ],
+      "missing": [
+        "no author or date shown (low E-E-A-T)",
+        "no personal or on-the-ground perspective",
+        "no discussion of Thailand as the authentic training environment",
+        "no guidance on trying a class or what a beginner should expect",
+        "philosophy section stays abstract, no lived examples"
+      ],
+      "eeat_signals": ["2 cited external sources (Unified Rules of Kickboxing, an NCBI physical-fitness study)"]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.smai.com.au/blogs/news/is-kickboxing-and-muay-thai-the-same",
+      "title": "Is Kickboxing and Muay Thai the Same? – SMAI",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": [
+        "definitions of Muay Thai (\"Art of 8 Limbs\") and Kickboxing (American + K-1)",
+        "technique and conditioning comparison",
+        "strategic differences",
+        "how to choose a sport",
+        "how to find a place to train"
+      ],
+      "missing": [
+        "no individual author, only generic \"TEAM SMAI\" byline",
+        "no date, no credentials",
+        "\"finding a place to train\" stays generic, no real camp example",
+        "no cultural depth on Muay Thai as Thailand's national sport beyond a label",
+        "no video/visual comparison beyond embedded YouTube links"
+      ],
+      "eeat_signals": ["team byline (no individual credentials)", "embedded YouTube demonstration videos"]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.extrememma.com.au/muay-thai-vs-kickboxing-whats-the-difference/",
+      "title": "Muay Thai vs Kickboxing: What's the Difference? - Extreme MMA",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "covers": [
+        "technique differences (strikes, clinch, kicks)",
+        "which is better for fitness / self-defense",
+        "gym promotion for local classes"
+      ],
+      "missing": [
+        "no Thailand cultural context",
+        "generic gym-marketing angle, not travel/experience angle",
+        "no named author or sources"
+      ],
+      "eeat_signals": ["gym business context (local credibility only, not written E-E-A-T)"]
+    },
+    {
+      "rank": 5,
+      "url": "https://x3sports.com/blog/difference-between-muay-thai-and-kickboxing/",
+      "title": "9 Factors: The Difference Between Muay Thai and Kickboxing",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "covers": [
+        "9-factor listicle comparison (technique, rules, stance, scoring, fitness benefits)",
+        "gym class promotion (US-based chain)"
+      ],
+      "missing": [
+        "no Thai cultural or historical depth beyond basics",
+        "no author credentials or sources",
+        "no discussion of training in Thailand vs Western gyms"
+      ],
+      "eeat_signals": ["none visible (no byline, no sources)"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Which is more effective, Muay Thai or kickboxing?",
+      "Can a Muay Thai fighter beat a kickboxer?",
+      "Which is better for self-defense, Muay Thai or kickboxing?",
+      "Is Muay Thai harder than kickboxing?",
+      "Which burns more calories, Muay Thai or kickboxing?",
+      "Is Muay Thai a form of kickboxing?"
+    ],
+    "featured_snippet": true,
+    "image_pack": false,
+    "video": true
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "8-point vs 4-point striking system (clinch/elbows/knees vs punches+kicks only)",
+    "brief origin story: Thailand vs Japan/US",
+    "stance and footwork contrast (flat-footed/centerline vs bouncing)",
+    "generic listicle format (\"5 differences\", \"9 factors\")",
+    "closing CTA to buy gear or join a gym (all sites are gear brands or local franchises)"
+  ],
+  "gap": {
+    "description": "Every ranking result is written by a gear e-commerce brand or a local Western gym marketing its own classes — none are written by someone who has actually trained in Thailand or works with Thai coaches. None cover the cultural/ceremonial layer (wai kru, ram muay, mongkhon, the role of music/rhythm in a fight), none explain why the 'art of 8 limbs' developed the way it did beyond a one-line history blurb, and none help a reader decide practically ('should I book a trip and train Muay Thai in Thailand, or is a kickboxing gym near me enough?'). No result speaks with authentic, lived Thai-camp authority.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "History sections are superficial one-paragraph blurbs recycled across all 5 results, no primary sourcing",
+    "\"Philosophy\" and \"which is better\" sections stay abstract and generic, never grounded in a real camp or real fighters",
+    "E-E-A-T is weak site-wide: 3 of 5 results have no named author at all, and the 2 with bylines are generalist freelancers/marketing teams, not Thai practitioners",
+    "No result addresses total beginners' practical concerns (what a first class feels like, injury risk, what to bring) beyond generic gear upsells"
+  ],
+  "recommended_angle": "Write the comparison from inside an actual Chiang Mai camp with Thai coaches — keep the same practical technique/rules breakdown readers expect (so it still satisfies the query and can win the featured snippet with a clean comparison table), but layer in what none of the affiliate/gear sites can: the cultural roots (wai kru, ram muay, respect for kru), a lived explanation of why Muay Thai trains the way it does, and a warm, family-camp framing of 'if this sounds like you, here's what training it for real, in Thailand, actually feels like' — no warrior/hardcore posture, just genuine welcoming expertise."
+}
