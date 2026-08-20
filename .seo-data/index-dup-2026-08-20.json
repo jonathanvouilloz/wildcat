@@ -1,0 +1,284 @@
+{
+  "site_url": "sc-domain:wildcatmuaythai.com",
+  "generated_at": "2026-08-20T08:35:10Z",
+  "source": "file:C:/Users/jojo-/AppData/Local/Temp/claude/C--Users-jojo--noyau-projets-wildcat/4d6545d4-a7e7-4ef7-97e5-76e31161f345/scratchpad/dupurls.txt",
+  "sitemap_url": null,
+  "page_filter": null,
+  "language": "en-US",
+  "urls_total": 13,
+  "urls_inspected": 13,
+  "summary": {
+    "blocked_robots": 0,
+    "blocked_noindex": 0,
+    "redirect": 1,
+    "soft_404": 0,
+    "not_found": 0,
+    "server_error": 0,
+    "canonical_conflict": 0,
+    "crawled_not_indexed": 0,
+    "discovered_not_indexed": 0,
+    "url_unknown": 0,
+    "indexed": 12,
+    "unknown": 0
+  },
+  "by_state": {
+    "Submitted and indexed": 12,
+    "Page with redirect": 1
+  },
+  "buckets": {
+    "blocked_robots": [],
+    "blocked_noindex": [],
+    "redirect": [
+      {
+        "url": "http://wildcatmuaythai.com/",
+        "bucket": "redirect",
+        "coverage_state": "Page with redirect",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-08-12T08:41:53Z",
+        "google_canonical": "https://wildcatmuaythai.com/en",
+        "user_canonical": "https://wildcatmuaythai.com/en",
+        "referring_urls": [
+          "https://wildcatmuaythai.com/en",
+          "https://wildcatmuaythai.com/en/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "L'URL redirige vers une autre page. Google indexe la cible, pas l'URL soumise.",
+        "suggested_action": "retirer cette URL du sitemap, mettre a jour les liens internes pour pointer directement vers la cible (eviter les chaines de redirections)"
+      }
+    ],
+    "soft_404": [],
+    "not_found": [],
+    "server_error": [],
+    "canonical_conflict": [],
+    "crawled_not_indexed": [],
+    "discovered_not_indexed": [],
+    "url_unknown": [],
+    "indexed": [
+      {
+        "url": "https://wildcatmuaythai.com/en",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-08-12T08:41:53Z",
+        "google_canonical": "https://wildcatmuaythai.com/en",
+        "user_canonical": "https://wildcatmuaythai.com/en",
+        "referring_urls": [
+          "https://wildcatmuaythai.com/fr/",
+          "https://wildcatmuaythai.com/en/about",
+          "https://wildcatmuaythai.com/en/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://wildcatmuaythai.com/en/about/",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-07-06T10:05:19Z",
+        "google_canonical": "https://wildcatmuaythai.com/en/about/",
+        "user_canonical": "https://wildcatmuaythai.com/en/about",
+        "referring_urls": [
+          "https://wildcatmuaythai.com/en/about"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://wildcatmuaythai.com/en/about",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-07-06T10:05:19Z",
+        "google_canonical": "https://wildcatmuaythai.com/en/about",
+        "user_canonical": "https://wildcatmuaythai.com/en/about",
+        "referring_urls": [
+          "http://wildcatmuaythai.com/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://wildcatmuaythai.com/en/stay-train/",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-07-25T12:45:32Z",
+        "google_canonical": "https://wildcatmuaythai.com/en/stay-train/",
+        "user_canonical": "https://wildcatmuaythai.com/en/stay-train",
+        "referring_urls": [
+          "https://wildcatmuaythai.com/en/stay-train"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://wildcatmuaythai.com/en/stay-train",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-07-25T12:45:32Z",
+        "google_canonical": "https://wildcatmuaythai.com/en/stay-train",
+        "user_canonical": "https://wildcatmuaythai.com/en/stay-train",
+        "referring_urls": [
+          "https://wildcatmuaythai.com/en/stay-train/",
+          "https://wildcatmuaythai.com/fr/stay-train",
+          "http://wildcatmuaythai.com/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://wildcatmuaythai.com/fr/dtv-visa/",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-07-08T12:47:44Z",
+        "google_canonical": "https://wildcatmuaythai.com/fr/dtv-visa/",
+        "user_canonical": "https://wildcatmuaythai.com/fr/dtv-visa",
+        "referring_urls": [
+          "https://wildcatmuaythai.com/fr/dtv-visa",
+          "https://wildcatmuaythai.com/en/dtv-visa"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://wildcatmuaythai.com/fr/dtv-visa",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-07-08T12:47:44Z",
+        "google_canonical": "https://wildcatmuaythai.com/fr/dtv-visa",
+        "user_canonical": "https://wildcatmuaythai.com/fr/dtv-visa",
+        "referring_urls": [
+          "https://wildcatmuaythai.com/en/dtv-visa",
+          "https://wildcatmuaythai.com/fr/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://wildcatmuaythai.com/en/fighters/",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-07-06T08:26:25Z",
+        "google_canonical": "https://wildcatmuaythai.com/en/fighters/",
+        "user_canonical": "https://wildcatmuaythai.com/en/fighters",
+        "referring_urls": [
+          "https://wildcatmuaythai.com/fr/fighters"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://wildcatmuaythai.com/en/fighters",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-07-06T08:26:25Z",
+        "google_canonical": "https://wildcatmuaythai.com/en/fighters",
+        "user_canonical": "https://wildcatmuaythai.com/en/fighters",
+        "referring_urls": [
+          "https://wildcatmuaythai.com/fr/fighters",
+          "https://wildcatmuaythai.com/en/about"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://wildcatmuaythai.com/fr/contact/",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-07-08T03:49:30Z",
+        "google_canonical": "https://wildcatmuaythai.com/fr/contact/",
+        "user_canonical": "https://wildcatmuaythai.com/fr/contact",
+        "referring_urls": [
+          "https://wildcatmuaythai.com/fr/contact"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://wildcatmuaythai.com/fr/classes/beginners/",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-07-25T03:26:45Z",
+        "google_canonical": "https://wildcatmuaythai.com/fr/classes/beginners/",
+        "user_canonical": "https://wildcatmuaythai.com/fr/classes/beginners",
+        "referring_urls": [
+          "https://wildcatmuaythai.com/fr/classes/beginners"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://wildcatmuaythai.com/en/blog/best-muay-thai-camps-thailand",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-07-26T04:07:08Z",
+        "google_canonical": "https://wildcatmuaythai.com/en/blog/best-muay-thai-camps-thailand",
+        "user_canonical": "https://wildcatmuaythai.com/en/blog/best-muay-thai-camps-thailand",
+        "referring_urls": [],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      }
+    ],
+    "unknown": []
+  }
+}
