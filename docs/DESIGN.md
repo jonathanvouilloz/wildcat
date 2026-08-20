@@ -8,12 +8,12 @@ Tokens techniques : `src/styles/tokens.css` + `@theme` dans `src/styles/global.c
 
 ## 1. Essence de marque
 
-Wildcat n'est **pas** un fight camp hardcore. C'est un **jardin, une piscine et un ring** où chacun — débutant, voyageur ou nomade installé — pratique le vrai Muay Thai et se sent accueilli comme en famille. Tenu par une femme, bâti sur la chaleur humaine, pas l'intimidation.
+Wildcat n'est **pas** un fight camp hardcore. C'est un **jardin, de l'ombre et un ring** où chacun — débutant, voyageur ou nomade installé — pratique le vrai Muay Thai et se sent accueilli comme en famille. Tenu par une femme, bâti sur la chaleur humaine, pas l'intimidation.
 
 | # | Valeur | En clair |
 |---|--------|----------|
 | 01 | **Family-first** | Tout le monde est bienvenu — femmes, enfants, couples, débutants. No ego at the door. |
-| 02 | **Open-air & alive** | Jardin tropical, bananiers, piscine près du ring. Le décor EST la marque. |
+| 02 | **Open-air & alive** | Jardin tropical, bananiers, ombre autour du ring. Le décor EST la marque. |
 | 03 | **Real Muay Thai** | Technique et entraîneurs thaïs authentiques — sérieux à l'entraînement, chaleureux dans le ton. |
 | 04 | **Stay & belong** | Une semaine ou une saison. DTV-ready, scooter sur place, ta base à Chiang Mai. |
 
@@ -144,12 +144,12 @@ Couleur par défaut `--forest`. Accent via `.em` (Fraunces). `text-wrap: balance
 
 ## 6. Photographie & art direction
 
-**Sun, sweat & green.** Candide et doré, pas studio-glossy. Shooter le vrai lieu : lumière du matin à travers la canopée, la piscine qui reflète le ring, des mains qu'on bande, un coach qui rit avec un élève. C'est ce qui vit déjà sur l'Instagram — on le rend cohérent.
+**Sun, sweat & green.** Candide et doré, pas studio-glossy. Shooter le vrai lieu : lumière du matin à travers la canopée, l'ombre des arbres sur le ring, des mains qu'on bande, un coach qui rit avec un élève. C'est ce qui vit déjà sur l'Instagram — on le rend cohérent.
 
 **Do**
 - Lumière naturelle, balance des blancs chaude, ombres douces
 - Vrais membres & entraîneurs — divers, tous âges, souriants
-- Jardin, piscine, verdure tropicale en décor
+- Jardin, ombre, verdure tropicale en décor
 - Action candide & moments calmes entre les rounds
 
 **Don't**

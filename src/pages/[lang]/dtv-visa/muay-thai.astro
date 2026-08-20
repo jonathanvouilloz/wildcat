@@ -29,6 +29,9 @@ export function getStaticPaths() {
 
 const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
+// Lookup par clé (jamais par position : l'ordre de site.pricing peut bouger).
+const priceOf = (key: string) =>
+  site.pricing.groupAdults.find((item) => item.key === key)?.price ?? 0;
 
 // Témoignage DTV — uniquement si le CMS en a un (pas de fausse review en fallback)
 const testimonialDocs = await safeQuery<FEATURED_TESTIMONIALS_QUERY_RESULT>(
@@ -221,9 +224,9 @@ const faqItems = [
       <p class="body-p">{m.dtv_mt_cost_p1()}</p>
       <p class="body-p">
         {m.dtv_mt_cost_p2_pre()}{' '}
-        <strong>{site.pricing.groupAdults[3].price.toLocaleString('en-US')} {site.pricing.currency}</strong>
+        <strong>{priceOf('month_unlimited').toLocaleString('en-US')} {site.pricing.currency}</strong>
         {m.dtv_mt_cost_p2_mid()}{' '}
-        <strong>{site.pricing.groupAdults[4].price.toLocaleString('en-US')} {site.pricing.currency}</strong>
+        <strong>{priceOf('week_unlimited').toLocaleString('en-US')} {site.pricing.currency}</strong>
         {m.dtv_mt_cost_p2_post()}
       </p>
       <p class="body-p">{m.dtv_mt_cost_p3()}</p>

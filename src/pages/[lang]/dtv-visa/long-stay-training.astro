@@ -11,7 +11,7 @@ import Faq from '../../../components/sections/Faq.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
 import BudgetEstimator from '../../../components/interactive/BudgetEstimator.astro';
-import LongStayPackages from '../../../components/sections/LongStayPackages.astro';
+import StayTrainOffer from '../../../components/sections/StayTrainOffer.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
 import { waLink } from '../../../lib/whatsapp';
@@ -219,15 +219,16 @@ const faqItems = [
       <div class="callout mt-7">
         <h3 class="h3">{m.dtv_lst_total_title()}</h3>
         <p class="body-p">{m.dtv_lst_total_body()}</p>
+        <p class="body-p">{m.dtv_lst_total_st()}</p>
       </div>
 
       <h3 class="h3 mt-7">{m.dtv_lst_cities_title()}</h3>
       <p class="body-p">{m.dtv_lst_cities_body()}</p>
     </Section>
 
-    <!-- H2 — forfaits long-stay (LongStayPackages, deep-link vers le form DTV) -->
+    <!-- H2 — l'offre unique Stay & Train (deep-link vers le form) -->
     <Section soft id="packages">
-      <LongStayPackages lang={lang} />
+      <StayTrainOffer lang={lang} />
     </Section>
 
     <!-- H2 — how the DTV makes it legal (short version, renvois anti-duplication) -->
@@ -268,6 +269,9 @@ const faqItems = [
         contactHref={`${p('/contact')}?intent=dtv`}
         fxUsd={FX_THB_USD}
       />
+      <Callout variant="tip" label={m.dtv_lst_est_st_title()} icon="tabler:package" class="mt-6">
+        <p>{m.dtv_lst_est_st_body()}</p>
+      </Callout>
     </Section>
 
     {

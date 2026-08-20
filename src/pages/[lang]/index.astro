@@ -178,6 +178,8 @@ const hoursSpec = [
   },
 ];
 // priceRange dérivé des prix publics réels (site.pricing) — jamais en dur.
+// `stayTrain` (28 000/mois) en est volontairement exclu : il embarque le logement,
+// et priceRange sur un SportsClub se lit comme le coût de la pratique.
 const allPrices = [
   ...site.pricing.groupAdults,
   ...site.pricing.groupKids,
@@ -283,6 +285,12 @@ const jsonld = {
             title={m.home_stay_title()}
             titleEm={m.home_stay_title_em()}
             lead={m.home_stay_lead()}
+            price={{
+              value: site.pricing.stayTrain.price.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US'),
+              currency: site.pricing.currency,
+              unit: m.pricing_st_unit(),
+            }}
+            cta={{ label: m.pricing_st_cta(), href: `${p('/stay-train')}#packages` }}
             image={{ src: '/assets/gym-garden.jpg', alt: m.home_stay_img_alt() }}
           />
           <div class="guide-cta">

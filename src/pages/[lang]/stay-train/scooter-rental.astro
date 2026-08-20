@@ -166,6 +166,11 @@ const serviceSchema = {
     <Section containerSize="narrow">
       <p class="body-p">{m.scooter_intro_p1()}</p>
       <p class="body-p">{m.scooter_intro_p2()}</p>
+      {/* La moto est incluse dans Stay & Train : le dire ici évite la contradiction. */}
+      <p class="body-p">
+        {m.scooter_st_note()}{' '}
+        <a class="ilink" href={p('/stay-train#packages')}>{m.scooter_link_packages()}</a>.
+      </p>
     </Section>
 
     <!-- La flotte — CMS (toggle available au studio) + fallback site.ts -->

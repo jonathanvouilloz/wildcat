@@ -71,15 +71,15 @@ This is the section most people actually need. Here are real numbers.
 
 At **Wildcat** in Chiang Mai:
 
-- Drop-in session: 400 THB
-- Monthly training package: from 8,000 THB
+- Drop-in session: 350 THB
+- Monthly unlimited training: 5,000 THB
 - Room near camp: 6,000-10,000 THB per month
 - Food (local market, restaurants): 6,000-9,000 THB per month
 - Scooter rental: 3,000 THB per month
 
 **Total monthly budget in Chiang Mai: 25,000-35,000 THB.**
 
-For our [stay and train packages](/stay-train) that combine training and accommodation, the numbers are similar: everything bundled into a predictable monthly spend.
+Our [Stay & Train package](/stay-train#packages) bundles the room, unlimited training, a motorbike and your airport pick-up into 28,000 THB a month, so the only variables left are food and petrol.
 
 ### Training and living in Bangkok
 

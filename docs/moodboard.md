@@ -25,7 +25,7 @@ forbidden_subjects:
   - blood, bruises, overly aggressive fight imagery
   - dark backgrounds, neon lights, underground-gym aesthetic
 allowed_subjects:
-  - open-air ring with tropical garden, banana trees, pool nearby
+  - open-air ring with tropical garden, banana trees, shaded recovery area
   - candid training moments (padwork, clinch, shadowboxing)
   - community and family moments (smiling fighters, coaches and students)
 ---
@@ -49,7 +49,7 @@ Le style photographique : DSLR naturel, pas de filtrage excessif. Couleurs chaud
 ## Lieux et environnements types
 
 - Ring open-air entouré d'arbres tropicaux, lumière naturelle filtrée
-- Zone piscine / jardin adjacente au ring — lieu de vie, pas juste de combat
+- Zone jardin ombragée adjacente au ring — lieu de vie, pas juste de combat
 - Hang Dong, Chiang Mai : routes tranquilles, verdure, atmosphère locale
 - Salle de cours intérieure le soir (si nécessaire) — lumière tamisée chaude, jamais fluorescente
 

@@ -18,7 +18,25 @@
 | A4 | **Preuve de fonds** : Meaw a-t-elle vu des guests passer avec un compte joint / sponsor ? (copy actuelle prudente, à enrichir avec du vécu) | ❌ | `/dtv-visa/eligibility` |
 | A5 | Veille (pas une question Meaw) : assurance santé ~50k USD (discrétion ambassade) + règle « 6 mois de pratique » — re-vérifier avant prod et 1×/an | ⏳ | `/dtv-visa/faq`, `/dtv-visa/eligibility` |
 
-## B. Packages Stay & Train (`/stay-train#packages`)
+## B. Offre unique Stay & Train — 28 000 THB/mois (`/stay-train#packages`)
+
+> **MAJ 2026-08-20** : les 4 forfaits long-stay (12k/17k/24k/36k) sont retirés du site
+> (données conservées commentées dans `src/config/site.ts`). Une seule offre affichée :
+> **28 000 THB / personne / mois**, comprenant chambre privée en maison partagée (1 pers.,
+> clim, toutes charges comprises), pro fight training illimité, 1 moto, transfert aéroport.
+> Non compris : repas, essence.
+
+| # | Question | Statut | Utilisé où |
+|---|---|:---:|---|
+| B0a | **Maison partagée** : salle de bain privée ou partagée ? cuisine ? wifi ? ménage ? occupation simple uniquement (et si couple) ? | ❌ | `pricing_st_inc_room`, `/stay-train#accommodation` |
+| B0b | **Transfert aéroport** : aller simple ou aller-retour ? à quelle heure du jour/nuit ? Qui conduit ? ⚠️ **Aucun formulaire ne collecte le numéro de vol** aujourd'hui (`StayInquiryForm` demande une date d'arrivée seulement) : soit on ajoute le champ, soit la copy reste en déclencheur (« envoie-nous ton vol »). | ❌ | `pricing_st_inc_pickup`, `StayInquiryForm` |
+| B0c | **Durée minimum** du forfait ? Tarif dégressif au-delà d'un mois (un DTV 6 mois = 168 000 THB au tarif affiché) ? | ❌ | `StayTrainOffer`, pages DTV, réponses aux prospects |
+| B0d | **Moto incluse** : quel modèle ? caution ? casque ? assurance ? (mêmes questions qu'en §D, mais sur la moto du forfait) | ❌ | `pricing_st_inc_bike`, `/stay-train/scooter-rental` |
+| B0e | **Paiement** : mensuel, ou tout d'avance ? acompte ? annulation ? | ❌ | `/stay-train#plan`, réponses aux prospects |
+| B0f | **Quand remet-on les 4 anciens forfaits ?** (Meaw a dit « peut-être plus tard ») | ⏳ | `site.ts` (bloc commenté) |
+| B0g | **Piscine** : confirmée supprimée (2026-08-20). Toute mention retirée du site, des articles Wildcat et des docs de marque. | ✅ | Site entier |
+
+## B bis. Packages court terme (`/classes#pricing`)
 
 | # | Question | Statut | Utilisé où |
 |---|---|:---:|---|

@@ -65,25 +65,18 @@ const modelOptions = [
   ...site.scooterFleet.map((s) => ({ value: s.key, label: s.name })),
   { value: 'not-sure', label: m.contact_sct_model_any() },
 ];
-// Forfaits long-stay (site.ts) — label = nom · prix (séparateur ·, pas d'em-dash).
-// `as const` → union hétérogène ; on normalise via un type à champs optionnels.
-type LsPackage = {
-  key: string;
-  price: number;
-  months: number;
-  classes?: number;
-  unlimited?: boolean;
-  popular?: boolean;
-};
-const longStay = site.pricing.longStay as readonly LsPackage[];
-const cur = site.pricing.currency;
+// Qualifieur de forfait (2026-08-20) : depuis que les 4 forfaits long-stay ont
+// laissé place à l'offre unique, la vraie question est « tout compris ou
+// entraînement seul ? ». Affiché pour les intentions stay ET dtv.
+// Label = nom · prix (séparateur ·, pas d'em-dash).
 const fmt = (n: number) => n.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
-const pkgName = (p: LsPackage) =>
-  p.unlimited ? m.pricing_ls_name_unlimited({ months: p.months }) : m.pricing_ls_name_pack({ classes: p.classes ?? 0 });
-const packageOptions = longStay.map((p) => ({
-  value: p.key,
-  label: `${pkgName(p)} · ${fmt(p.price)} ${cur}`,
-}));
+const packageOptions = [
+  {
+    value: site.pricing.stayTrain.key,
+    label: `${m.contact_dtv_pkg_stay()} · ${fmt(site.pricing.stayTrain.price)} ${site.pricing.currency}`,
+  },
+  { value: 'training_only', label: m.contact_dtv_pkg_training() },
+];
 
 // Textes wa.me pré-remplis par intention (le script swap le href ; fallback
 // no-JS = texte general).
@@ -196,7 +189,7 @@ const waTexts: Record<string, string> = {
     </Field>
   </div>
 
-  <div class="xtra" data-i="dtv">
+  <div class="xtra" data-i="stay dtv">
     <Field label={m.contact_dtv_package()} for="ct-dtv-package" class="narrow">
       <Select id="ct-dtv-package" name="dtv_package" placeholder={m.contact_form_choose_ph()} options={packageOptions} />
     </Field>
@@ -346,7 +339,8 @@ const waTexts: Record<string, string> = {
     const disableInactive = (f: HTMLFormElement) => {
       const active = checkedIntent();
       f.querySelectorAll<HTMLElement>('.xtra').forEach((box) => {
-        if (box.dataset.i === active) return;
+        // data-i peut lister plusieurs intentions (ex. « stay dtv »).
+        if ((box.dataset.i ?? '').split(' ').includes(active)) return;
         box
           .querySelectorAll<HTMLInputElement>('input, select, textarea')
           .forEach((field) => (field.disabled = true));
@@ -444,10 +438,11 @@ const waTexts: Record<string, string> = {
     display: none;
     gap: 18px;
   }
-  .cform:has(input[name='intent'][value='class']:checked) .xtra[data-i='class'],
-  .cform:has(input[name='intent'][value='stay']:checked) .xtra[data-i='stay'],
-  .cform:has(input[name='intent'][value='scooter']:checked) .xtra[data-i='scooter'],
-  .cform:has(input[name='intent'][value='dtv']:checked) .xtra[data-i='dtv'] {
+  /* `~=` : un bloc peut servir plusieurs intentions (data-i="stay dtv"). */
+  .cform:has(input[name='intent'][value='class']:checked) .xtra[data-i~='class'],
+  .cform:has(input[name='intent'][value='stay']:checked) .xtra[data-i~='stay'],
+  .cform:has(input[name='intent'][value='scooter']:checked) .xtra[data-i~='scooter'],
+  .cform:has(input[name='intent'][value='dtv']:checked) .xtra[data-i~='dtv'] {
     display: grid;
   }
 

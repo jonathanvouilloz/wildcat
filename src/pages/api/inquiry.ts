@@ -144,9 +144,19 @@ function summaryFor(intent: string, form: FormData, headerExtra?: string): strin
   return lines.join('\n');
 }
 
+/** Valeurs brutes du <select> forfait → libellé lisible dans le message. */
+const PACKAGE_LABELS: Record<string, string> = {
+  stay_train: 'Stay & Train (all inclusive)',
+  training_only: 'Training only',
+};
+
 /** Lignes « label: valeur » des champs propres à chaque intention. */
 function detailsFor(intent: string, g: (k: string) => string): string[] {
   const out: string[] = [];
+  const pkg = () => {
+    const raw = g('dtv_package');
+    if (raw) out.push(`Package: ${PACKAGE_LABELS[raw] ?? raw}`);
+  };
   if (intent === 'class') {
     if (g('cls_level')) out.push(`Level: ${g('cls_level')}`);
     if (g('cls_date')) out.push(`Preferred date: ${g('cls_date')}`);
@@ -154,6 +164,7 @@ function detailsFor(intent: string, g: (k: string) => string): string[] {
     if (g('stay_arrival')) out.push(`Arrival: ${g('stay_arrival')}`);
     if (g('stay_duration')) out.push(`Duration: ${g('stay_duration')}`);
     if (g('stay_people')) out.push(`People: ${g('stay_people')}`);
+    pkg();
     const extras = [g('stay_acc') && 'accommodation', g('stay_scoot') && 'scooter'].filter(Boolean);
     if (extras.length) out.push(`Also wants: ${extras.join(', ')}`);
   } else if (intent === 'scooter') {
@@ -161,7 +172,7 @@ function detailsFor(intent: string, g: (k: string) => string): string[] {
     if (g('sct_from')) out.push(`From: ${g('sct_from')}`);
     if (g('sct_to')) out.push(`To: ${g('sct_to')}`);
   } else if (intent === 'dtv') {
-    if (g('dtv_package')) out.push(`Package: ${g('dtv_package')}`);
+    pkg();
   }
   return out;
 }

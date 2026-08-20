@@ -1,18 +1,23 @@
 ---
 import SectionHead from '../ui/SectionHead.astro';
+import Button from '../ui/Button.astro';
 
 /**
- * StayTrainUpsell — bloc « Stay & Train » (demi-colonne du split home,
- * réutilisé sur /stay-train). Head + titre accentué + lead + image.
+ * StayTrainUpsell — bloc « Stay & Train » (demi-colonne du split home).
+ * Head + titre accentué + lead + prix/CTA optionnels + image.
+ * `price` et `cta` ajoutés 2026-08-20 pour porter l'offre unique 28 000 THB
+ * sur la home (prix formaté par la page, jamais en dur ici).
  */
 export interface Props {
   head: string;
   title: string;
   titleEm: string;
   lead: string;
+  price?: { value: string; currency: string; unit: string };
+  cta?: { label: string; href: string };
   image: { src: string; alt: string };
 }
-const { head, title, titleEm, lead, image } = Astro.props;
+const { head, title, titleEm, lead, price, cta, image } = Astro.props;
 ---
 
 <div>
@@ -21,6 +26,23 @@ const { head, title, titleEm, lead, image } = Astro.props;
     {title}{' '}<span class="em">{titleEm}</span>
   </h2>
   <p class="lead">{lead}</p>
+  {
+    price && (
+      <p class="price">
+        {price.value} <span class="cur">{price.currency}</span>
+        <span class="unit">{price.unit}</span>
+      </p>
+    )
+  }
+  {
+    cta && (
+      <div class="cta">
+        <Button href={cta.href} variant="gold" arrow>
+          {cta.label}
+        </Button>
+      </div>
+    )
+  }
   <div class="imgbox">
     <img src={image.src} alt={image.alt} loading="lazy" />
   </div>
@@ -34,6 +56,32 @@ const { head, title, titleEm, lead, image } = Astro.props;
     font-size: 18px;
     color: var(--ink-2);
     max-width: 60ch;
+    margin: 0 0 22px;
+  }
+  .price {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 34px;
+    letter-spacing: -0.02em;
+    color: var(--forest);
+    line-height: 1;
+    margin: 0 0 6px;
+  }
+  .price .cur {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink-3);
+    letter-spacing: 0;
+  }
+  .price .unit {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--ink-2);
+    letter-spacing: 0;
+    margin-top: 8px;
+  }
+  .cta {
     margin: 0 0 22px;
   }
   .imgbox {

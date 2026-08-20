@@ -69,7 +69,7 @@ If you're weighing whether your situation actually qualifies, or which of the tw
 
 As Meaw Boonpradub, who owns Wildcat and writes DTV enrolment letters for her own trainees, puts it: "I'd rather send someone to a cooking course that actually fits their budget than sell them a Muay Thai package they only half want, just to keep the business."
 
-![Relaxed garden and pool scene at Wildcat camp, the kind of lifestyle DTV holders living off passive income often look for](/images/blog/cheapest-dtv-soft-power-activity-3.webp)
+![Relaxed garden scene at Wildcat camp, the kind of lifestyle DTV holders living off passive income often look for](/images/blog/cheapest-dtv-soft-power-activity-3.webp)
 
 ## FAQ on DTV soft power activity costs
 

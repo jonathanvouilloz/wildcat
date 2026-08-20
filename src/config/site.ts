@@ -138,16 +138,40 @@ export const site = {
       { key: 'private_normal', price: 800 },
     ],
     /**
-     * Forfaits longue durée (THB) — fournis 2026-07-19, packages DTV/long-stay.
-     * Coexistent avec le pricing court-terme ci-dessus (engagement pluri-mois,
-     * tarif/mois plus bas). `classes` absent = illimité (`unlimited: true`).
-     * i18n : labels dérivés au build (pricing_ls_name_*), pas de `pricing_label_*`.
+     * Offre unique « Stay & Train » (THB / personne / mois) — Meaw, 2026-08-20.
+     * Tout compris (chambre privée en maison partagée toutes charges comprises,
+     * pro fight training illimité, une moto, transfert aéroport) SAUF les repas
+     * et l'essence. Coexiste avec le pricing court-terme ci-dessus, qui reste
+     * l'offre « entraînement seul » (/classes#pricing).
+     * i18n : `includes`/`excludes` portent des clés → messages pricing_st_inc_* /
+     * pricing_st_exc_* (record explicite dans StayTrainOffer.astro).
+     *
+     * ⚠ MAJ DU PRIX : 28 000 est aussi écrit en toutes lettres dans la prose de
+     *   stay_faq_a1, dtv_lst_intro_p1, dtv_lst_total_st, dtv_lst_faq_a1,
+     *   dtv_lst_faq_a3, dtv_lst_est_longstay_badge, dtv_lst_est_st_body
+     *   + 2 articles de blog (best-muay-thai-camps-chiang-mai EN/FR,
+     *   chiang-mai-vs-bangkok-muay-thai). Aucun mécanisme ne les synchronise :
+     *   `grep -rn '28,000\|28 000\|28000' src/ messages/`.
      */
-    longStay: [
-      { key: 'pack30', price: 12000, classes: 30, months: 6 },
-      { key: 'pack50', price: 17000, classes: 50, months: 9 },
-      { key: 'unlimited6', price: 24000, months: 6, unlimited: true, popular: true },
-      { key: 'unlimited12', price: 36000, months: 12, unlimited: true },
-    ],
+    stayTrain: {
+      key: 'stay_train',
+      price: 28000,
+      includes: ['room', 'training', 'bike', 'pickup'],
+      excludes: ['meals', 'petrol'],
+    },
+    /**
+     * ⛔ DÉSACTIVÉ 2026-08-20 — les 4 forfaits long-stay (fournis 2026-07-19) sont
+     * remplacés par `stayTrain` ci-dessus. Conservés ici parce que Meaw veut
+     * pouvoir les remettre plus tard. Pour réactiver : décommenter, restaurer
+     * <LongStayPackages> depuis git (supprimé en même temps) sur /classes#pricing,
+     * /stay-train#packages et /dtv-visa/long-stay-training#packages, et remettre
+     * les options `dtv_package` dérivées dans ContactForm.
+     * longStay: [
+     *   { key: 'pack30', price: 12000, classes: 30, months: 6 },
+     *   { key: 'pack50', price: 17000, classes: 50, months: 9 },
+     *   { key: 'unlimited6', price: 24000, months: 6, unlimited: true, popular: true },
+     *   { key: 'unlimited12', price: 36000, months: 12, unlimited: true },
+     * ],
+     */
   },
 } as const;

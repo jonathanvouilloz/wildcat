@@ -97,7 +97,7 @@ Sub-segment includes: digital nomads comparing cost-of-living between the two ci
 
 #### H3: Chiang Mai — the community camp
 - Open-air pavilions, smaller class sizes, more one-on-one pad time
-- Wildcat specifically: Hang Dong location, garden setting, pool
+- Wildcat specifically: Hang Dong location, garden setting, shade
 - Northern Thailand pace — more sustainable for month-long or multi-month stays
 - Fight opportunities: Thapae Boxing Stadium, Kawila Muay Thai Stadium — strong regional circuit
 

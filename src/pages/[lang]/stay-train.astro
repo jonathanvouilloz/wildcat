@@ -10,12 +10,10 @@ import PageHero from '../../components/sections/PageHero.astro';
 import StayInquiryForm from '../../components/sections/StayInquiryForm.astro';
 import FeatureGrid from '../../components/sections/FeatureGrid.astro';
 import { Icon } from 'astro-icon/components';
-import PricingTable from '../../components/sections/PricingTable.astro';
-import LongStayPackages from '../../components/sections/LongStayPackages.astro';
+import StayTrainOffer from '../../components/sections/StayTrainOffer.astro';
 import Faq from '../../components/sections/Faq.astro';
 import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
-import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
 import { waLink } from '../../lib/whatsapp';
 import { safeQuery } from '../../lib/content';
@@ -50,57 +48,6 @@ const features = [
   { icon: 'tabler:motorbike', title: m.stay_feat3_t(), body: m.stay_feat3_b() },
   { icon: 'tabler:bed', title: m.stay_feat4_t(), body: m.stay_feat4_b() },
 ];
-
-// Formules orientées séjour — prix réels site.ts, formatés par locale
-const fmt = (price: number) => price.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
-const priceOf = (list: readonly { key: string; price: number }[], key: string) =>
-  list.find((item) => item.key === key)?.price ?? 0;
-const plans = [
-  {
-    name: m.pricing_card_week_name(),
-    price: fmt(priceOf(site.pricing.groupAdults, 'week_unlimited')),
-    currency: site.pricing.currency,
-    unit: m.pricing_card_week_unit(),
-    features: [
-      m.pricing_card_week_f1(),
-      m.pricing_card_week_f2(),
-      m.pricing_card_week_f3(),
-      m.pricing_card_week_f4(),
-    ],
-    cta: { label: m.cta_book_class(), href: '#plan', variant: 'outline' as const },
-  },
-  {
-    name: m.pricing_card_monthly_name(),
-    price: fmt(priceOf(site.pricing.groupAdults, 'month_unlimited')),
-    currency: site.pricing.currency,
-    unit: m.pricing_card_monthly_unit(),
-    features: [
-      m.pricing_card_monthly_f1(),
-      m.pricing_card_monthly_f2(),
-      m.pricing_card_monthly_f3(),
-      m.pricing_card_monthly_f4(),
-    ],
-    cta: { label: m.pricing_card_monthly_cta(), href: '#plan', variant: 'gold' as const },
-    popular: true,
-  },
-  {
-    name: m.pricing_card_fighter_name(),
-    price: fmt(priceOf(site.pricing.fighter, 'fighter_month')),
-    currency: site.pricing.currency,
-    unit: m.pricing_card_fighter_unit(),
-    features: [
-      m.pricing_card_fighter_f1(),
-      m.pricing_card_fighter_f2(),
-      m.pricing_card_fighter_f3(),
-      m.pricing_card_fighter_f4(),
-    ],
-    cta: { label: m.cta_plan_stay(), href: '#plan', variant: 'forest' as const },
-  },
-];
-
-// Table d'honnêteté #packages — inclus vs à organiser (le différenciateur SERP)
-const included = [m.stay_pack_inc_1(), m.stay_pack_inc_2(), m.stay_pack_inc_3()];
-const arranged = [m.stay_pack_arr_1(), m.stay_pack_arr_2(), m.stay_pack_arr_3()];
 
 // FAQ — 6 PAA de la SERP "muay thai camp thailand" (brief §4 modif 7)
 const faqItems = [
@@ -201,26 +148,9 @@ const faqJsonld = {
         <h2 class="h2 mt-2 mb-3">{m.stay_pack_title()}</h2>
         <p class="lead lead--center">{m.stay_pack_lead()}</p>
       </div>
-      <PricingTable plans={plans} popularLabel={m.pricing_popular()} />
-      {/* la table d'honnêteté : ce que la SERP entière refuse d'afficher */}
-      <div class="pack-split" data-animate="fade-up">
-        <div class="pack-card">
-          <h3 class="h3">{m.stay_pack_inc_title()}</h3>
-          <ul class="pack-list pack-list--inc">
-            {included.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-        <div class="pack-card">
-          <h3 class="h3">{m.stay_pack_arr_title()}</h3>
-          <ul class="pack-list pack-list--arr">
-            {arranged.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-      </div>
+      {/* l'offre unique : ce que la SERP entière refuse d'afficher, prix + périmètre */}
+      <StayTrainOffer lang={lang} showHead={false} showTrainingOnlyLink />
       <p class="pack-honest">{m.stay_pack_honest()}</p>
-      <div class="mt-7">
-        <LongStayPackages lang={lang} />
-      </div>
     </Section>
 
     <Section id="accommodation" soft>
@@ -489,50 +419,7 @@ const faqJsonld = {
     object-fit: cover;
   }
 
-  /* --- #packages : table d'honnêteté inclus / à organiser --- */
-  .pack-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    max-width: 880px;
-    margin: 38px auto 0;
-  }
-  .pack-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--r-md);
-    padding: 24px 26px;
-  }
-  .pack-list {
-    list-style: none;
-    margin: 14px 0 0;
-    padding: 0;
-    display: grid;
-    gap: 10px;
-  }
-  .pack-list li {
-    position: relative;
-    padding-left: 26px;
-    font-size: 15px;
-    color: var(--ink-2);
-    line-height: 1.5;
-  }
-  .pack-list li::before {
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-weight: 700;
-  }
-  .pack-list--inc li::before {
-    content: '✓';
-    color: var(--forest);
-  }
-  .pack-list--arr li::before {
-    content: '◆';
-    color: var(--gold-deep);
-    font-size: 11px;
-    top: 4px;
-  }
+  /* --- #packages : note d'honnêteté sous l'offre --- */
   .pack-honest {
     max-width: 880px;
     margin: 22px auto 0;
@@ -573,9 +460,6 @@ const faqJsonld = {
     .dtv-cross {
       grid-template-columns: 1fr;
       gap: 28px;
-    }
-    .pack-split {
-      grid-template-columns: 1fr;
     }
     .faq-split {
       grid-template-columns: 1fr;

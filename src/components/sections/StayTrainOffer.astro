@@ -1,0 +1,238 @@
+---
+import Button from '../ui/Button.astro';
+import { site } from '../../config/site';
+import { localePath } from '../../lib/routes';
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * StayTrainOffer — l'offre unique « Stay & Train » (28 000 THB/mois tout compris),
+ * 2026-08-20. Remplace LongStayPackages et ses 4 forfaits long-stay (données
+ * conservées commentées dans site.ts). Rend juste le contenu : la page fournit
+ * le <Section>/<Container>.
+ *
+ * Pourquoi pas PricingCard/PricingTable : la grille est en repeat(3,1fr) sans
+ * cols=1 (une carte seule tomberait en tiers orphelin), les features y sont une
+ * liste plate à coche codée en dur (impossible d'exprimer les 2 exclusions), et
+ * le traitement `popular` est comparatif par nature — or il n'y a plus qu'une
+ * offre. On compose donc à partir des primitives : rail prix + Button + deux
+ * listes ✓ / ✕.
+ *
+ * Prix : 100 % depuis site.pricing.stayTrain ; includes/excludes sont des clés
+ * mappées vers les messages par les records ci-dessous (convention site.ts).
+ */
+export interface Props {
+  lang: string;
+  /** Head + lead internes. false quand la page porte déjà son propre block-head. */
+  showHead?: boolean;
+  /** Renvoi « juste l'entraînement ? » vers /classes#pricing. */
+  showTrainingOnlyLink?: boolean;
+}
+const { lang, showHead = true, showTrainingOnlyLink = false } = Astro.props;
+
+const offer = site.pricing.stayTrain;
+const price = offer.price.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
+const contact = localePath(lang, '/contact');
+const classes = localePath(lang, '/classes');
+
+// clé site.ts → message (record explicite, jamais d'accès dynamique)
+const INCLUDES: Record<string, string> = {
+  room: m.pricing_st_inc_room(),
+  training: m.pricing_st_inc_training(),
+  bike: m.pricing_st_inc_bike(),
+  pickup: m.pricing_st_inc_pickup(),
+};
+const EXCLUDES: Record<string, string> = {
+  meals: m.pricing_st_exc_meals(),
+  petrol: m.pricing_st_exc_petrol(),
+};
+const included = offer.includes.map((key) => INCLUDES[key]);
+const excluded = offer.excludes.map((key) => EXCLUDES[key]);
+---
+
+<div class="sto">
+  {
+    showHead && (
+      <div class="sto-head">
+        <h2 class="h2">{m.pricing_st_group()}</h2>
+        <p class="sto-lead">{m.pricing_st_lead()}</p>
+      </div>
+    )
+  }
+
+  <div class="sto-card" data-animate="fade-up">
+    <div class="sto-rail">
+      <span class="sto-price">
+        {price} <span>{site.pricing.currency}</span>
+      </span>
+      <p class="sto-unit">{m.pricing_st_unit()}</p>
+      <Button
+        href={`${contact}?intent=stay&package=${offer.key}`}
+        variant="gold"
+        arrow
+        class="sto-cta"
+      >
+        {m.pricing_st_cta()}
+      </Button>
+    </div>
+
+    <div class="sto-lists">
+      <div>
+        <h3 class="h3">{m.pricing_st_inc_title()}</h3>
+        <ul class="sto-list sto-list--inc">
+          {included.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div>
+        <p class="sto-exc-h">{m.pricing_st_exc_title()}</p>
+        <ul class="sto-list sto-list--exc">
+          {excluded.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {
+    showTrainingOnlyLink && (
+      <p class="sto-alt">
+        {m.pricing_st_alt_pre()}{' '}
+        <a class="ilink" href={`${classes}#pricing`}>
+          {m.pricing_st_alt_link()}
+        </a>
+        .
+      </p>
+    )
+  }
+</div>
+
+<style>
+  .sto-head {
+    max-width: var(--maxw-narrow, 620px);
+    margin-bottom: 26px;
+  }
+  .sto-head .h2 {
+    margin: 0 0 8px;
+  }
+  .sto-lead {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+
+  /* La carte : rail prix à gauche, ce qu'il y a dedans (et pas dedans) à droite. */
+  .sto-card {
+    display: grid;
+    grid-template-columns: minmax(200px, 0.8fr) 1.2fr;
+    gap: 34px;
+    align-items: start;
+    max-width: 880px;
+    margin-inline: auto;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-sm);
+    padding: 32px 34px;
+  }
+  .sto-price {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 46px;
+    letter-spacing: -0.02em;
+    color: var(--forest);
+    line-height: 1;
+  }
+  .sto-price span {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink-3);
+    letter-spacing: 0;
+  }
+  .sto-unit {
+    font-size: 13.5px;
+    color: var(--ink-2);
+    margin: 8px 0 22px;
+  }
+  .sto-card :global(.sto-cta) {
+    width: 100%;
+    justify-content: center;
+  }
+  .sto-lists {
+    display: grid;
+    gap: 22px;
+    min-width: 0;
+  }
+  .sto-lists .h3,
+  .sto-exc-h {
+    margin: 0;
+  }
+  .sto-exc-h {
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .sto-list {
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .sto-list li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .sto-list li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 700;
+  }
+  .sto-list--inc li {
+    color: var(--ink-2);
+  }
+  .sto-list--inc li::before {
+    content: '✓';
+    color: var(--forest);
+  }
+  .sto-list--exc li {
+    color: var(--ink-3);
+  }
+  .sto-list--exc li::before {
+    content: '✕';
+    color: var(--ink-3);
+    font-size: 13px;
+    top: 1px;
+  }
+  .sto-alt {
+    max-width: 880px;
+    margin: 20px auto 0;
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+  /* .ilink est défini page par page (styles scopés) : le composant porte le sien. */
+  .ilink {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 3px;
+  }
+  .ilink:hover {
+    color: var(--gold-deep);
+  }
+
+  @media (max-width: 860px) {
+    .sto-card {
+      grid-template-columns: 1fr;
+      gap: 26px;
+      padding: 28px 24px;
+    }
+    .sto-card :global(.sto-cta) {
+      width: auto;
+    }
+  }
+</style>

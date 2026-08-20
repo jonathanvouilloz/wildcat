@@ -51,6 +51,6 @@ venu 1-4 semaines s'essayer au Muay Thai. Tous cherchent en anglais sur Google
 Comme un·e ami·e qui tient une salle — jamais un sergent instructeur. Sérieux à
 l'entraînement, chaleureux dans le ton : on rassure (process visa clair, prix publics),
 on encourage (tous niveaux, familles bienvenues), on reste concret (horaires, prix THB,
-étapes). Vibe open-air, golden hour, garden & pool — jamais d'imagerie sombre/agressive.
+étapes). Vibe open-air, golden hour, garden & shade — jamais d'imagerie sombre/agressive.
 EN : direct et simple. FR : tutoiement. Tone words : Warm · Welcoming · Genuine ·
 Encouraging · Down-to-earth.
