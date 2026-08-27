@@ -1,6 +1,28 @@
 # E8 — Blog & contenu
 
-**Complexité : M · Statut : EN COURS** — moteur DONE, M1 (4 articles EN + covers) DONE 2026-06-11, **M2 beginners (4 articles EN + covers) DONE 2026-06-13** (topical map `docs/topical-map-beginners.md`), **hub `/chiang-mai-guide` DONE 2026-06-13**, **cluster DTV-coûts COMPLET 2026-07-03 (7/7 articles publiés, échelonnés dans le calendrier édito)**
+**Complexité : M · Statut : EN COURS** — moteur DONE, M1 (4 articles EN + covers) DONE 2026-06-11, **M2 beginners (4 articles EN + covers) DONE 2026-06-13** (topical map `docs/topical-map-beginners.md`), **hub `/chiang-mai-guide` DONE 2026-06-13**, **cluster DTV-coûts COMPLET 2026-07-03 (7/7 articles publiés, échelonnés dans le calendrier édito)**, **article news DTV 31/08/2026 publié 2026-08-27**
+
+## Etat session 2026-08-27 (article news — nouvelles exigences DTV du 31/08/2026)
+
+**Fait :**
+- **Article EN hors calendrier publié** : `src/content/blog/en/dtv-visa-new-requirements-2026.md` (catégorie `visa`, ~2 880 mots, `publishDate` = jour même, pas d'étalement — c'est une news à 4 jours de l'entrée en vigueur). Déclencheur : annonce de l'**ambassade royale de Thaïlande à Vientiane du 27/08/2026** (deux exigences DTV supplémentaires applicables **mondialement au 31/08/2026** : être national ou résident permanent du pays de dépôt + certificat de casier judiciaire).
+- **Recherche de corroboration menée à fond, et négative** : aucune autre mission thaïe (Vientiane EN/TH, Londres, KL, Jakarta, Kota Bharu), ni le portail e-Visa, ni la presse (Thaiger, Nation, Bangkok Post, Pattaya Mail) n'avait publié de formulation équivalente au moment d'écrire. La seule pièce est l'annonce elle-même. **L'article l'assume explicitement** (section « What is still unclear » + note de bas d'article) — obligatoire en YMYL.
+- **Angle trouvé par la recherche** : au **04/08/2026**, Singapour était la *seule* ambassade à restreindre le DTV à ses nationaux/résidents (source `petchnumnoi`, breakdown par pays). Le 31/08 cette exception devient la règle → **la route « ambassade voisine » (Vientiane, Savannakhet) se ferme**. C'est ce qui touche les élèves Muay Thai, qui décident souvent de rester *après* être arrivés à Chiang Mai. Le casier judiciaire, lui, n'est qu'un problème de calendrier (tableau ACRO / FBI / bulletin n°3 / AFP / RCMP / Führungszeugnis / VOG avec délais).
+- **Nuance apostille trouvée** : la Thaïlande a déposé son adhésion à la Convention de La Haye le 30/06/2026 mais **l'entrée en vigueur est au 28/02/2027** → d'ici là c'est la légalisation consulaire à l'ancienne. Personne d'autre n'aura ce détail.
+- **Cover produite par le pipeline du projet, sans IA** : preset `blog-cover` de `visual/presets.yaml` (`source: template` → fond branded `visual/refs/blog-cover-bg.webp` + titre en overlay PIL Satoshi-Bold, zéro appel API), via `python -m cli --project <repo> --preset blog-cover --slug <slug> --title-text "<title>"` depuis `~/.claude/skills/generate-images/scripts`. Rendu identique au set existant.
+- **Conformité vérifiée contre les 7 autres articles DTV** : frontmatter complet (title 43 car., `h1` ≠ `title`, description 158, tldr 5, cover + coverAlt), structure H2 → FAQ H3 → Conclusion → CTA → Sources → note italique, **0 em-dash**, 8 liens internes tous résolus contre `dist/`, `og:image` résolu. `npm run build` ✅.
+
+**Prochain :** **corriger le silo DTV, qui est maintenant faux.** `/dtv-visa/how-to-apply` et `/dtv-visa/faq` (clés `dtv_apply_*` / `dtv_faqp_*` dans `messages/{en,fr}.json`) affirment encore qu'on peut déposer sa demande dans n'importe quelle ambassade hors Thaïlande — c'est caduc au 31/08/2026. Repasser aussi `/dtv-visa/eligibility` et `/dtv-visa/muay-thai` au filtre « où déposer », ajouter le casier judiciaire à la liste de documents, et pointer l'article news depuis le silo. ⚠️ YMYL : mettre `docs/dtv-fact-check.md` à jour dans la foulée (nouvelle entrée datée), et **ne pas durcir plus que l'annonce ne le dit** (ce qu'elle ne précise pas est listé dans l'article).
+
+**Pièges :**
+- **26 images inline du blog cassées en prod** (trouvaille annexe, pré-existante) : les articles référencent `/images/blog/{slug}-{n}.webp` mais `public/images/` ne contient que `content/` (4 fichiers). Vérifié : ni sur disque, ni dans git, ni gitignoré, ni dans `dist/`. Le preset `blog-inline` sort bien vers `public/images/blog` mais il est `source: gemini` → **bloqué sur une clé API absente**, donc porté au puits de tâches de Jonathan. Le nouvel article n'a volontairement aucune image inline, il n'aggrave rien.
+- **Un article news ne s'étale pas** : `publishDate` = jour même, contrairement à la convention `isVisible()` du calendrier édito. Ne pas « corriger » ça en le repoussant.
+- **Aucune citation inventée** : les autres articles du site attribuent des verbatims à Meaw. Ici la voix Wildcat passe par une section « Our take » à la première personne du pluriel, sans guillemets — une citation de Meaw doit venir d'elle.
+- **La cover ne prend pas le titre du frontmatter automatiquement** en mode single : sans `--title-text`, `_derive_cover_texts()` fabrique un titre depuis le slug (majuscules, année strippée). Toujours passer `--title-text` avec le `title` réel.
+
+**Commit :** [b4ba83b] feat(blog): article EN sur les nouvelles exigences DTV du 31 août 2026
+
+---
 
 ## Etat session 2026-07-16 (fix cannibalisation « coût »)
 
@@ -62,7 +84,7 @@
 **Commit :** [e9b031d] feat(blog): topical map DTV-coûts + article A2 « gyms overcharging DTV » (+ [9b545a2] fix title≠H1)
 
 ## Carte du code
-> Mise à jour : 2026-07-16
+> Mise à jour : 2026-08-27
 
 | Fichier | Rôle |
 |---------|------|
@@ -78,11 +100,14 @@
 | `src/content/blog/en/dtv-visa-cost-breakdown.md` | A1 — sous-hub du cluster coût, publié en premier (bloquant le fan-out) |
 | `src/content/blog/en/{cheapest-dtv-soft-power-activity,dtv-vs-tourist-visa-runs-cost,dtv-visa-agent-worth-it,dtv-visa-proof-of-funds,dtv-visa-refund-if-rejected}.md` | A3/A4/A5/A6/A7 — satellites du cluster, `publishDate` échelonné 07-08→07-18 |
 | `~/.claude/skills/seo-sources/SKILL.md` | (hors repo) Vérif sources réelles + citations, Étape 3 de `@article-producer` |
+| `src/content/blog/en/dtv-visa-new-requirements-2026.md` | Article **news** (2026-08-27) sur les 2 exigences DTV du 31/08/2026 — hors calendrier, `publishDate` = jour même. Rend le silo `/dtv-visa` partiellement faux : voir « Prochain » de l'état de session |
+| `visual/presets.yaml` | Presets image du projet — **`blog-cover` = `source: template`** (fond `visual/refs/blog-cover-bg.webp` + overlay PIL, zéro API) ; `blog-inline` = `source: gemini` → sortie `public/images/blog`, **jamais exécuté**, d'où les 26 images inline cassées |
 
 ### Décisions clés
 - **title ≠ H1 = règle Critical**, câblée côté site via le champ frontmatter `h1` (pas via le skill — les skills l'imposaient déjà). Tout futur article DOIT avoir un `h1` distinct (produit par `/seo-enrich`).
 - **Cluster DTV-coûts = jeu GEO**, pas volume (kw à 0/mo, sauf quelques kw confirmés type "thailand border run" 50/mo). Sources externes vérifiées obligatoires (YMYL) via `/seo-sources`.
-- **Scheduling édito = frontmatter `publishDate` uniquement**, pas de nouveau champ ni de changement de statut hub. Le hub trace la production, le markdown gouverne la mise en ligne réelle.
+- **Scheduling édito = frontmatter `publishDate` uniquement**, pas de nouveau champ ni de changement de statut hub. Le hub trace la production, le markdown gouverne la mise en ligne réelle. **Exception : un article de news sort le jour même**, l'étalement ne s'applique qu'au calendrier de fond.
+- **Covers = template, pas génération** (2026-08-27) : toutes les covers blog sortent du preset `blog-cover` (fond branded unique + titre en overlay). Ne pas partir chercher une API image pour une cover ; passer `--title-text` avec le `title` réel du frontmatter.
 
 ## Hub `/chiang-mai-guide` (2026-06-13)
 Page éditoriale EN+FR qui **fusionne les 2 entrées maquette** (Chiang Mai Guide + Things to Do, menu Stay & Train) en UNE page hub à voix Wildcat. **PAS un pilier SEO** (head terms tourisme non-winnables, hors positionnement) : vitrine du cluster blog `chiang-mai-life` (feed `getPostsByCategory` + empty-state) + relais conversion Stay & Train / DTV. Sections : intro famille, getting around (FeatureGrid), saisons & burning season (différenciateur), où voir du Muay Thai (dark → `/fighters`), **Nos recos** (placeholder Meaw, rien d'inventé → checklist I7), feed blog, CtaBanner. JSON-LD `CollectionPage`, hreflang symétrique. Câblage : Nav mega (2→1) + drawer + Footer (`exploreLinks`), helper `getPostsByCategory` (`src/lib/blog.ts`), 53 clés `cmg_*` EN+FR + retrait `nav_stay_todo_*`. Fix UI post-revue : sections soft→cream autour des raccords scratch + divider `wave`→`rough` (le brush/divider cream ne doit pas jouxter une section soft). Recherche Reddit archivée : `.seo-data/reddit/reddit-chiang-mai-*.txt` (3 threads → angles M4). ⏳ recos réelles de Meaw (checklist §I7), photo hero paysage CM (`photos-needed.md` #9, placeholder `background-hero.webp`).
