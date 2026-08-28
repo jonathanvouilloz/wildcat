@@ -1,5 +1,4 @@
 ---
-import { getImage } from 'astro:assets';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Section from '../../../components/layout/Section.astro';
 import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
@@ -9,7 +8,8 @@ import BlogCard from '../../../components/blog/BlogCard.astro';
 import BlogFilters from '../../../components/interactive/BlogFilters.astro';
 import { localePath } from '../../../lib/routes';
 import { waLink } from '../../../lib/whatsapp';
-import { getPostsByLang, getCategoryCounts, parseBlogId, BLOG_CATEGORIES } from '../../../lib/blog';
+import { getPostsByLang, getCategoryCounts, BLOG_CATEGORIES } from '../../../lib/blog';
+import { toBlogCards, categoryLabels } from '../../../lib/blog-cards';
 import { m } from '../../../paraglide/messages.js';
 
 // Page liste du blog (E8) — grille BlogCard filtrable (chips catégories ×
@@ -26,48 +26,15 @@ const p = (path: string) => localePath(lang, path);
 const posts = await getPostsByLang(lang);
 const counts = await getCategoryCounts(lang);
 
-// Records explicites valeur → message (pattern achLabels de /fighters).
-const catLabels: Record<string, string> = {
-  'choosing-a-camp': m.blog_cat_choosing_a_camp(),
-  beginners: m.blog_cat_beginners(),
-  benefits: m.blog_cat_benefits(),
-  'chiang-mai-life': m.blog_cat_chiang_mai_life(),
-  visa: m.blog_cat_visa(),
-  culture: m.blog_cat_culture(),
-};
+const catLabels = categoryLabels();
 // Chips = catégories non vides uniquement (ordre canonique du schéma).
 const categories = BLOG_CATEGORIES.filter((cat) => (counts[cat] ?? 0) > 0).map((cat) => ({
   value: cat as string,
   label: catLabels[cat],
 }));
 
-const dateFmt = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-});
-
 // Covers résolues au build (astro:assets) — BlogCard reste muet (src/alt).
-const cards = await Promise.all(
-  posts.map(async (post) => {
-    const { slug } = parseBlogId(post.id);
-    const cover = post.data.cover
-      ? {
-          src: (await getImage({ src: post.data.cover, width: 640, format: 'webp' })).src,
-          alt: post.data.coverAlt ?? '',
-        }
-      : undefined;
-    return {
-      href: p(`/blog/${slug}`),
-      title: post.data.title,
-      excerpt: post.data.description,
-      category: catLabels[post.data.category],
-      categoryValue: post.data.category as string,
-      date: { iso: post.data.publishDate.toISOString().slice(0, 10), label: dateFmt.format(post.data.publishDate) },
-      image: cover,
-    };
-  })
-);
+const cards = await toBlogCards(lang, posts);
 
 const whatsapp = waLink(m.contact_wa_text_general());
 
@@ -102,11 +69,21 @@ const blogSchema = {
         cards.length > 0 ? (
           <>
             <BlogFilters categories={categories} whatsapp={whatsapp} />
-            {/* stagger sur les <li> (pas sur .bcard : sa racine porte le
-                hover-lift 0.2s, la transition reveal l'écraserait) */}
-            <ul class="blog-grid" data-blog-root data-animate-stagger>
-              {cards.map((card) => (
-                <li data-blog-item data-animate-item data-category={card.categoryValue}>
+            {/* Reveal CARTE PAR CARTE, pas un stagger de conteneur : à 23
+                articles le <ul> dépasse 6,7 viewports et ne franchit jamais
+                le threshold 0.15 de l'observer (grille invisible sur mobile),
+                et le délai cumulé atteignait 1,5 s sur la dernière carte.
+                L'attribut reste sur le <li> et jamais sur .bcard, dont la
+                racine porte le hover-lift 0.2s que le reveal écraserait.
+                data-delay = micro-cascade de rangée (120 ms max en 3 col). */}
+            <ul class="blog-grid" data-blog-root>
+              {cards.map((card, i) => (
+                <li
+                  data-blog-item
+                  data-animate="fade-up"
+                  data-delay={(i % 3) * 0.06}
+                  data-category={card.categoryValue}
+                >
                   <BlogCard
                     href={card.href}
                     title={card.title}

@@ -48,11 +48,20 @@
     io.unobserve(el); // once — un contenu ne re-disparaît jamais
   };
 
+  const RATIO = 0.15;
+
   const io = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
-          reveal(entry.target);
+          // Le ratio max atteignable = hauteur de root / hauteur de l'élément.
+          // Un élément plus haut que ~6,7 viewports ne peut donc JAMAIS
+          // franchir RATIO : sans cette échappatoire il reste à opacity:0 pour
+          // toujours (bug payé sur la grille /blog à 23 cartes en 1 colonne).
+          const unreachable =
+            !!entry.rootBounds &&
+            entry.rootBounds.height < RATIO * entry.boundingClientRect.height;
+          if (entry.intersectionRatio >= RATIO || unreachable) reveal(entry.target);
         } else if (entry.boundingClientRect.bottom < 0) {
           // déjà AU-DESSUS du viewport (arrivée via ancre #faq…) :
           // révéler direct, sinon la section reste invisible au scroll-up
@@ -61,8 +70,11 @@
       }
     },
     // -18% bas : déclenche quand l'élément est franchement DANS le viewport —
-    // à -10% l'animation était quasi finie avant d'être visible (retour Jonathan)
-    { threshold: 0.15, rootMargin: '0px 0px -18% 0px' }
+    // à -10% l'animation était quasi finie avant d'être visible (retour Jonathan).
+    // Le 0 du tableau ne fait que RÉVEILLER le callback dès la 1re intersection
+    // (le gate RATIO ci-dessus reste la règle) — sans lui, un élément qui ne
+    // peut pas atteindre 0.15 ne déclenche aucun callback du tout.
+    { threshold: [0, RATIO], rootMargin: '0px 0px -18% 0px' }
   );
 
   // ⚠️ Flush AVANT toute révélation synchrone : wc-anim vient d'être posée

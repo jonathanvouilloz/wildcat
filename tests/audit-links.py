@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 """Audit interne du build statique Astro : liens cassés, ancres mortes, sitemap."""
 import os, re, sys, html
+
+# console Windows en cp1252 : sans ça le rapport plante sur les flèches →
+sys.stdout.reconfigure(encoding="utf-8")
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 
