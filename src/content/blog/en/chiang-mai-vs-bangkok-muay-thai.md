@@ -181,6 +181,8 @@ A minimum of four weeks gives you enough time to develop real technique. Most pe
 
 Bangkok and Chiang Mai are genuinely different training environments. Bangkok is the right call if professional fighting is your goal. Chiang Mai is where you go to train seriously, keep costs manageable, and build something that lasts longer than a two-week trip.
 
+If Bangkok and Chiang Mai are not your only two candidates, our [guide to the best Muay Thai camps in Thailand](/blog/best-muay-thai-camps-thailand) puts the main camps side by side by profile rather than by city.
+
 For most foreigners reading this, Chiang Mai makes more sense. The monthly costs are lower, the DTV support is stronger, the community is real, and the open-air training environment holds up over months in a way that urban Bangkok doesn't.
 
 [**Plan your training stay at Wildcat →**](/contact?utm_source=blog&utm_medium=article&utm_campaign=chiang-mai-vs-bangkok-muay-thai)

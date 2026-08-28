@@ -1,5 +1,4 @@
 ---
-import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/layout/Section.astro';
 import TornDivider from '../../components/layout/TornDivider.astro';
@@ -9,12 +8,14 @@ import Breadcrumb from '../../components/ui/Breadcrumb.astro';
 import PageHero from '../../components/sections/PageHero.astro';
 import FeatureGrid from '../../components/sections/FeatureGrid.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
+import ReadNext from '../../components/sections/ReadNext.astro';
 import BlogCard from '../../components/blog/BlogCard.astro';
 import { Icon } from 'astro-icon/components';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
 import { waLink } from '../../lib/whatsapp';
-import { getPostsByCategory, parseBlogId } from '../../lib/blog';
+import { getPostsByCategory } from '../../lib/blog';
+import { toBlogCards } from '../../lib/blog-cards';
 import { m } from '../../paraglide/messages.js';
 
 // Hub « Chiang Mai Guide » — fusionne les 2 entrées maquette (Chiang Mai Guide +
@@ -48,33 +49,7 @@ const recos = [
 // Feed blog du cluster chiang-mai-life (vide tant que M4 n'est pas produit →
 // empty-state propre). Covers résolues au build (pattern /blog).
 const guidePosts = await getPostsByCategory(lang, 'chiang-mai-life', 6);
-const dateFmt = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-});
-const blogCards = await Promise.all(
-  guidePosts.map(async (post) => {
-    const { slug } = parseBlogId(post.id);
-    const cover = post.data.cover
-      ? {
-          src: (await getImage({ src: post.data.cover, width: 640, format: 'webp' })).src,
-          alt: post.data.coverAlt ?? '',
-        }
-      : undefined;
-    return {
-      href: p(`/blog/${slug}`),
-      title: post.data.title,
-      excerpt: post.data.description,
-      category: m.blog_cat_chiang_mai_life(),
-      date: {
-        iso: post.data.publishDate.toISOString().slice(0, 10),
-        label: dateFmt.format(post.data.publishDate),
-      },
-      image: cover,
-    };
-  })
-);
+const blogCards = await toBlogCards(lang, guidePosts);
 
 // Tant que l'article burning season (M4.1) n'existe pas, le lien « en savoir
 // plus » pointe la catégorie blog (filtre partageable).
@@ -231,6 +206,8 @@ const collectionSchema = {
         )
       }
     </Section>
+
+    <ReadNext keys={['best-muay-thai-camps-chiang-mai', 'chiang-mai-vs-bangkok-muay-thai', 'burning-season']} />
 
     <CtaBanner
       variant="torn"

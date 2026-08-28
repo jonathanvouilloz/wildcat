@@ -26,6 +26,7 @@ import {
   parseBlogId,
   type BlogEntry,
 } from '../../../lib/blog';
+import { toBlogCards, categoryLabels } from '../../../lib/blog-cards';
 import { m } from '../../../paraglide/messages.js';
 
 // Template article (E8) — markdown rendu en .wc-prose, TOC sticky (H2),
@@ -76,14 +77,7 @@ const updated = post.data.updatedDate
     }
   : undefined;
 
-const catLabels: Record<string, string> = {
-  'choosing-a-camp': m.blog_cat_choosing_a_camp(),
-  beginners: m.blog_cat_beginners(),
-  benefits: m.blog_cat_benefits(),
-  'chiang-mai-life': m.blog_cat_chiang_mai_life(),
-  visa: m.blog_cat_visa(),
-  culture: m.blog_cat_culture(),
-};
+const catLabels = categoryLabels();
 
 // Cover : PAS affichée dans l'article (décision 2026-06-06 — le header
 // éditorial suffit, la photo pleine largeur poussait le contenu sous la
@@ -111,30 +105,8 @@ const authorPhotoAbs = authorPhoto.src.startsWith('http')
   ? authorPhoto.src
   : new URL(authorPhoto.src, base).href;
 
-// Cards "à lire ensuite" (même mapping que la page liste).
-const cardDateFmt = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-});
-const relatedCards = await Promise.all(
-  related.map(async (rel) => ({
-    href: p(`/blog/${parseBlogId(rel.id).slug}`),
-    title: rel.data.title,
-    excerpt: rel.data.description,
-    category: catLabels[rel.data.category],
-    date: {
-      iso: rel.data.publishDate.toISOString().slice(0, 10),
-      label: cardDateFmt.format(rel.data.publishDate),
-    },
-    image: rel.data.cover
-      ? {
-          src: (await getImage({ src: rel.data.cover, width: 640, format: 'webp' })).src,
-          alt: rel.data.coverAlt ?? '',
-        }
-      : undefined,
-  }))
-);
+// Cards "à lire ensuite" (même builder que la page liste et ReadNext).
+const relatedCards = await toBlogCards(lang, related);
 
 // BlogPosting JSON-LD — author = entité Person canonique (#meaw, E-E-A-T).
 const coachesUrl = new URL(p('/about/coaches'), base).href;

@@ -133,6 +133,8 @@ If you are curious what the beginner program looks like in practice, and what we
 
 And if you are already thinking about [practising at home between sessions](/blog/learn-muay-thai-at-home), the principles here apply directly: stance, guard, footwork, jab. Shadow boxing in your living room counts.
 
+And if you are coming from a boxing or kickboxing background, the stance is exactly where the two part ways: [Muay Thai vs kickboxing](/blog/muay-thai-vs-kickboxing) explains why.
+
 Train at your own pace. Ask questions when something does not feel right. That is what the coaches are there for.
 
 *Meaw*

@@ -1,0 +1,83 @@
+---
+import Section from '../layout/Section.astro';
+import SectionHead from '../ui/SectionHead.astro';
+import BlogCard from '../blog/BlogCard.astro';
+import { getPostsByKeys } from '../../lib/blog';
+import { toBlogCards } from '../../lib/blog-cards';
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * ReadNext — maillage retour service → blog.
+ *
+ * Les pages service ne pointaient vers aucun article (audit 2026-08-28 :
+ * 3 liens dans tout le site, docs/maillage-blog.md). Ce bloc rend une grille
+ * d'articles DÉSIGNÉS par translationKey, résolus dans la locale courante.
+ *
+ * Locale-safe par construction : getPostsByKeys omet les clés sans traduction,
+ * et le composant ne rend RIEN en dessous de `min` cartes. Une page FR dont
+ * aucun article n'est traduit n'affiche pas de bloc à moitié vide, et n'a
+ * jamais besoin d'un `lang === 'en'` codé en dur. Le jour où la traduction
+ * arrive, le lien apparaît tout seul.
+ *
+ * Placement : avant le CtaBanner de fin de page.
+ */
+export interface Props {
+  /** translationKey des articles, dans l'ordre d'affichage. */
+  keys: string[];
+  /** Seuil en dessous duquel le bloc ne rend rien (défaut 2). */
+  min?: number;
+  /** Fond soft (défaut) ou transparent, pour alterner avec la section au-dessus. */
+  soft?: boolean;
+}
+const { keys, min = 2, soft = true } = Astro.props;
+
+const lang = Astro.currentLocale ?? 'en';
+const posts = await getPostsByKeys(lang, keys);
+const cards = posts.length >= min ? await toBlogCards(lang, posts) : [];
+---
+
+{
+  cards.length > 0 && (
+    <Section soft={soft} class="readnext">
+      <SectionHead>{m.readnext_head()}</SectionHead>
+      <h2 class="h2 mt-3 mb-7">
+        {m.readnext_title()} <span class="em">{m.readnext_title_em()}</span>
+      </h2>
+      <ul class="rn-grid" data-animate-stagger>
+        {cards.map((card) => (
+          <li data-animate-item>
+            <BlogCard
+              href={card.href}
+              title={card.title}
+              excerpt={card.excerpt}
+              category={card.category}
+              date={card.date}
+              image={card.image}
+            />
+          </li>
+        ))}
+      </ul>
+    </Section>
+  )
+}
+
+<style>
+  .rn-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  @media (max-width: 1024px) {
+    .rn-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 640px) {
+    .rn-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -90,6 +90,24 @@ export async function getPostsByCategory(
   return count ? posts.slice(0, count) : posts;
 }
 
+/**
+ * Articles désignés par `translationKey`, dans l'ordre demandé, filtrés sur
+ * la locale courante — c'est le résolveur du maillage service → blog (ReadNext).
+ *
+ * Une clé sans traduction dans cette locale est simplement OMISE : le bloc
+ * appelant rend moins de cartes, ou rien du tout. C'est ce qui rend les liens
+ * service → blog sûrs sans `lang === 'en'` codé en dur, et auto-réparants
+ * le jour où une traduction FR arrive. Une clé inconnue est ignorée de même ;
+ * tests/audit-links.py reste le filet contre les fautes de frappe (le bloc
+ * disparaît au lieu de pointer un 404).
+ */
+export async function getPostsByKeys(lang: string, keys: string[]): Promise<BlogEntry[]> {
+  const posts = await getPostsByLang(lang);
+  return keys
+    .map((key) => posts.find((post) => post.data.translationKey === key))
+    .filter((post): post is BlogEntry => post !== undefined);
+}
+
 /** Nombre d'articles par catégorie (pour masquer les chips vides). */
 export async function getCategoryCounts(lang: string): Promise<Record<string, number>> {
   const posts = await getPostsByLang(lang);

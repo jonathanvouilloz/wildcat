@@ -188,6 +188,8 @@ Two weeks gives you a feel for the camp and some technique. One month allows rea
 
 The **best Muay Thai camp in Thailand** is the one that matches your actual profile, not the one that dominates Google. Tiger Muay Thai is excellent for fighters who want elite infrastructure and don't mind the cost or scale. Wildcat is the right call for beginners, long-stayers, and anyone navigating the DTV. Santai and Sinbi occupy real niches too.
 
+If you have already settled on the north, [the best Muay Thai camps in Chiang Mai](/blog/best-muay-thai-camps-chiang-mai) goes camp by camp in that one city, and [the burning season guide](/blog/burning-season-chiang-mai) tells you which months to avoid before you book anything.
+
 If you're planning more than three months and want to understand how the visa situation works, or Wildcat just sounds like the right fit, come say hello.
 
 [**Ask us anything, we reply on WhatsApp →**](/contact?utm_source=blog&utm_medium=article&utm_campaign=best-muay-thai-camps-thailand)

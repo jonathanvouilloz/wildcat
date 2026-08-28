@@ -13,6 +13,7 @@ import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import DocChecklist from '../../../components/interactive/DocChecklist.astro';
 import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
 import ApprovalsStrip from '../../../components/sections/ApprovalsStrip.astro';
+import ReadNext from '../../../components/sections/ReadNext.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
 import { waLink } from '../../../lib/whatsapp';
@@ -371,6 +372,8 @@ const howToSchema = {
         </Section>
       )
     }
+
+    <ReadNext keys={['dtv-visa-new-requirements-2026', 'dtv-visa-agent-worth-it', 'dtv-visa-refund-if-rejected']} />
 
     <CtaBanner
       variant="torn"

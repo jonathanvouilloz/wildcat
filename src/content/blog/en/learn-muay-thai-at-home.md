@@ -103,6 +103,10 @@ If home training has got you curious about what to bring when you eventually mak
 
 If you are training at home and wondering what the next step looks like, our [beginner Muay Thai classes in Chiang Mai](/classes/beginners) are designed exactly for people who have been working on the basics and are ready to put them into context with real coaches and real partners.
 
+If you are still deciding whether Muay Thai is even the style you want to put those hours into, [Muay Thai vs kickboxing](/blog/muay-thai-vs-kickboxing) lays out what each one actually gives you.
+
 You do not need to be fit. You do not need experience. You just need to show up. We take care of the rest.
+
+[**Book your first class →**](/contact?intent=class)
 
 Meaw & the Wildcat family

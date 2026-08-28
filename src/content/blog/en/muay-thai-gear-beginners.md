@@ -142,4 +142,6 @@ We see beginners walk in every week. Some arrive with a bag full of gear they'll
 
 If you have questions before you arrive, drop us a message on WhatsApp. We're happy to give you a straight answer.
 
+[**Book your first class →**](/contact?intent=class)
+
 *Meaw*

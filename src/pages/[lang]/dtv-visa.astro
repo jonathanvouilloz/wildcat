@@ -13,6 +13,7 @@ import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
 import ApprovalsStrip from '../../components/sections/ApprovalsStrip.astro';
 import Faq from '../../components/sections/Faq.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
+import ReadNext from '../../components/sections/ReadNext.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
 import { waLink } from '../../lib/whatsapp';
@@ -189,6 +190,8 @@ const faqItems = [
         <Faq items={faqItems} firstOpen />
       </div>
     </Section>
+
+    <ReadNext keys={['dtv-visa-new-requirements-2026', 'dtv-visa-cost-breakdown', 'dtv-visa-agent-worth-it']} />
 
     <CtaBanner
       variant="torn"

@@ -5,6 +5,7 @@ import Breadcrumb from '../../components/ui/Breadcrumb.astro';
 import PageHero from '../../components/sections/PageHero.astro';
 import FighterCard from '../../components/sections/FighterCard.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
+import ReadNext from '../../components/sections/ReadNext.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
 import { waLink } from '../../lib/whatsapp';
@@ -157,6 +158,8 @@ const counters =
         )
       }
     </Section>
+
+    <ReadNext keys={['muay-thai-headband-mongkhon', 'wai-kru-ram-muay-explained']} soft={false} />
 
     <CtaBanner
       variant="scrapbook"

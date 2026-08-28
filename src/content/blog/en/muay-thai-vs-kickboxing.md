@@ -154,6 +154,8 @@ Not exactly. **Thai kickboxing versus Muay Thai** gets used interchangeably in c
 
 There's no version of this comparison that ends with one sport crowned better than the other. Muay Thai gives you the full eight-limb arsenal and the ritual that built it. Kickboxing gives you fast, boxing-based mobility you can find almost anywhere.
 
+If what you actually want out of either sport is to be able to handle yourself, that is a different question again, and we answered it honestly in [is Muay Thai good for self-defense?](/blog/muay-thai-self-defense).
+
 If you're weighing the two and Thailand is even a possibility for you, the fastest way to know which one fits is to actually step into the ring and try it.
 
 [**Book your first class →**](/contact?intent=class)

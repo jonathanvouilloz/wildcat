@@ -10,6 +10,7 @@ import Faq from '../../../components/sections/Faq.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import DtvQuiz from '../../../components/interactive/DtvQuiz.astro';
 import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
+import ReadNext from '../../../components/sections/ReadNext.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
 import { waLink } from '../../../lib/whatsapp';
@@ -256,6 +257,8 @@ const faqItems = [
         </Section>
       )
     }
+
+    <ReadNext keys={['dtv-visa-proof-of-funds', 'dtv-visa-new-requirements-2026', 'dtv-visa-refund-if-rejected']} />
 
     <CtaBanner
       variant="scrapbook"

@@ -9,6 +9,7 @@ import CoachGrid from '../../components/sections/CoachGrid.astro';
 import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
 import InstagramFeed from '../../components/sections/InstagramFeed.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
+import ReadNext from '../../components/sections/ReadNext.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
 import { waLink } from '../../lib/whatsapp';
@@ -155,6 +156,8 @@ const reviews = testimonialDocs.map((doc) => mapTestimonial(doc, lang));
         </Button>
       </div>
     </Section>
+
+    <ReadNext keys={['wai-kru-ram-muay-explained', 'muay-thai-headband-mongkhon', 'muay-thai-self-defense']} />
 
     <CtaBanner
       variant="split"

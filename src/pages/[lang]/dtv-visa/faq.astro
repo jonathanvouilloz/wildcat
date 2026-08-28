@@ -6,6 +6,7 @@ import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
 import Callout from '../../../components/ui/Callout.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import ReadNext from '../../../components/sections/ReadNext.astro';
 import FaqSearch from '../../../components/interactive/FaqSearch.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
@@ -202,6 +203,8 @@ const faqJsonld = {
 
       <p class="reviewed-foot">{m.dtv_faqp_reviewed_foot()}</p>
     </Section>
+
+    <ReadNext keys={['dtv-visa-cost-breakdown', 'dtv-vs-tourist-visa-runs-cost', 'ed-visa-vs-dtv']} />
 
     <CtaBanner
       variant="scrapbook"

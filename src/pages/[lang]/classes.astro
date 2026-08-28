@@ -10,6 +10,7 @@ import ProgramGrid from '../../components/sections/ProgramGrid.astro';
 import DaySchedule from '../../components/sections/DaySchedule.astro';
 import Faq from '../../components/sections/Faq.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
+import ReadNext from '../../components/sections/ReadNext.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
 import { waLink } from '../../lib/whatsapp';
@@ -188,6 +189,8 @@ const faqItems = [
         <Faq items={faqItems} firstOpen />
       </div>
     </Section>
+
+    <ReadNext keys={['muay-thai-vs-kickboxing', 'muay-thai-self-defense', 'wai-kru-ram-muay-explained']} />
 
     <CtaBanner
       variant="scrapbook"

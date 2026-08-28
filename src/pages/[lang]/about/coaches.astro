@@ -7,6 +7,7 @@ import Button from '../../../components/ui/Button.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import CoachGrid from '../../../components/sections/CoachGrid.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import ReadNext from '../../../components/sections/ReadNext.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
 import { waLink } from '../../../lib/whatsapp';
@@ -160,6 +161,8 @@ const personSchema = {
         <Button href={p('/about')} variant="link">{m.coaches_back_about()}</Button>
       </div>
     </Section>
+
+    <ReadNext keys={['wai-kru-ram-muay-explained', 'muay-thai-headband-mongkhon']} />
 
     <CtaBanner
       variant="torn"

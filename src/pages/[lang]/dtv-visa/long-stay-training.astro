@@ -12,6 +12,7 @@ import CtaBanner from '../../../components/sections/CtaBanner.astro';
 import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
 import BudgetEstimator from '../../../components/interactive/BudgetEstimator.astro';
 import StayTrainOffer from '../../../components/sections/StayTrainOffer.astro';
+import ReadNext from '../../../components/sections/ReadNext.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
 import { waLink } from '../../../lib/whatsapp';
@@ -309,6 +310,8 @@ const faqItems = [
       </aside>
       <p class="reviewed">{m.dtv_lst_reviewed()}</p>
     </Section>
+
+    <ReadNext keys={['dtv-visa-cost-breakdown', 'muay-thai-training-thailand-cost', 'burning-season']} soft={false} />
 
     <CtaBanner
       variant="split"

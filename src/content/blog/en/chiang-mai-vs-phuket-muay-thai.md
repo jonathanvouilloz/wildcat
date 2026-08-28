@@ -191,6 +191,8 @@ The style difference is smaller than people expect. Modern competitive Muay Thai
 
 For most foreigners who want to train Muay Thai for more than two weeks, Chiang Mai is the better choice. Lower costs, smaller camps, better beginner support, and a structural advantage for long-stay visas make it the more practical destination for anyone serious about improving.
 
+If you would rather compare camps than cities, we shortlist them by profile in [the best Muay Thai camps in Thailand](/blog/best-muay-thai-camps-thailand), and camp by camp in [the best Muay Thai camps in Chiang Mai](/blog/best-muay-thai-camps-chiang-mai).
+
 Phuket is genuinely excellent for short stays and for fighters who want a high-intensity international environment. Those are real strengths. But if you are planning a month-long stay or longer, the cost difference alone is enough to justify choosing Chiang Mai.
 
 If you have questions about training at Wildcat, what to expect in your first week, or how the DTV process works in practice, send us a message. We reply honestly.

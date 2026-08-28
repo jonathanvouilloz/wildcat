@@ -43,7 +43,7 @@ People also ask about what the colors mean, on both the mongkhon and the pra jia
 
 ## The wai kru ram muay ceremony
 
-The **wai kru ram muay** ceremony is where the mongkhon is worn, and it is really two things happening together. The wai is the gesture of respect, a bow paid to the trainer, the camp, and the lineage of teachers behind them. The ram muay is the dance that follows, a slow, deliberate sequence of movements performed around the ring before the fight begins.
+The **wai kru ram muay** ceremony is where the mongkhon is worn, and it is really two things happening together. The wai is the gesture of respect, a bow paid to the trainer, the camp, and the lineage of teachers behind them. The ram muay is the dance that follows, a slow, deliberate sequence of movements performed around the ring before the fight begins. We take the ceremony apart movement by movement in [the wai kru ram muay explained](/blog/wai-kru-ram-muay-explained); here we stay on the headband.
 
 Together, the wai and the ram muay are how a fighter honors the people who taught them before doing the thing they were taught to do. It is not a warm-up. Watch closely and you will see it is closer to a moment of focus, a way of settling the mind and the body before the adrenaline of the actual fight arrives.
 

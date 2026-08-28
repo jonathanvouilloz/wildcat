@@ -25,7 +25,7 @@ I'm Meaw. I own and run Wildcat Muay Thai in Chiang Mai, and I write these enrol
 
 ## What's actually in a "DTV soft power" package?
 
-Muay Thai is one of the [officially recognised soft power activities](https://www.muaythaivisathailand.com/soft-power-and-the-destination-thailand-visa-for-muay-thai-students/) that qualify you for the DTV. But the "package" a gym sells you for it is, in almost every case, one or two pieces of paper. Not a legal service, not embassy access, not a guarantee. If you haven't already, it helps to understand [the DTV visa for Muay Thai training](/dtv-visa/muay-thai) as a whole before you compare gym prices against each other.
+Muay Thai is one of the [officially recognised soft power activities](https://www.muaythaivisathailand.com/soft-power-and-the-destination-thailand-visa-for-muay-thai-students/) that qualify you for the DTV. But the "package" a gym sells you for it is, in almost every case, one or two pieces of paper. Not a legal service, not embassy access, not a guarantee. If you haven't already, it helps to understand [the DTV visa for Muay Thai training](/dtv-visa/muay-thai) as a whole before you compare gym prices against each other. And no gym can produce the criminal record certificate that became mandatory on 31 August 2026, whatever its package promises: see [the new DTV rules from 31 August 2026](/blog/dtv-visa-new-requirements-2026).
 
 Here's what a gym genuinely provides:
 

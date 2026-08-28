@@ -216,6 +216,8 @@ The DTV visa fee is **10,000 THB**, paid at a Thai embassy or consulate when you
 
 **Muay Thai training in Thailand** is financially accessible for most people who plan properly. Chiang Mai gives you the best cost-to-quality ratio in the country: serious Thai coaches, real training culture, and a total lifestyle cost that starts under $700 per month.
 
+Prices only tell you half of it: which camp actually fits you matters more than the monthly rate. We break that down in [the best Muay Thai camps in Thailand](/blog/best-muay-thai-camps-thailand).
+
 The DTV visa is the clearest path for anyone planning six months or longer. One fee, five years of validity, no quarterly runs to immigration. To understand exactly how the numbers stack up for a long stay, [start with the DTV guide for Muay Thai training](/dtv-visa/muay-thai) or ask us directly on WhatsApp.
 
 [**Get in touch with Wildcat →**](/contact?utm_source=blog&utm_medium=article&utm_campaign=muay-thai-training-thailand-cost)

@@ -108,6 +108,8 @@ Because most answers swing to one extreme or the other: muay thai gets presented
 
 Muay thai gives you real, trainable tools for the parts of a confrontation that happen at close range: clinch control, elbows and knees, and the composure to think clearly under pressure. It doesn't give you the ground game, the de-escalation instincts, or the weapon awareness that a complete self-defense picture needs, and no honest coach will tell you otherwise.
 
+If you are still choosing between striking styles, [Muay Thai vs kickboxing](/blog/muay-thai-vs-kickboxing) compares what each one actually teaches you.
+
 If you want to build the first part properly, in a camp where the coaches grew up with these tools rather than learning them from a manual, come train with us. Take a look at [the full class schedule](/classes) or come try a class yourself.
 
 [**Book your first class →**](/contact?intent=class)

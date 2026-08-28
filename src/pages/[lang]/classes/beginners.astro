@@ -7,6 +7,7 @@ import Button from '../../../components/ui/Button.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import Faq from '../../../components/sections/Faq.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import ReadNext from '../../../components/sections/ReadNext.astro';
 import DocChecklist from '../../../components/interactive/DocChecklist.astro';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
@@ -266,6 +267,8 @@ const articleSchema = {
         </p>
       </div>
     </Section>
+
+    <ReadNext keys={['muay-thai-gear-beginners', 'muay-thai-stance', 'learn-muay-thai-at-home']} />
 
     <CtaBanner
       variant="split"
