@@ -1,17 +1,18 @@
 ---
-title: "Best Muay Thai camps in Thailand: 2026 honest guide"
+title: "Best Muay Thai Camps in Thailand 2026: Honest Guide & Prices"
 h1: "The best Muay Thai camps in Thailand: an honest, camp-by-camp guide"
-description: "Tiger, Sinbi, Santai, Wildcat: an honest comparison of Thailand's best Muay Thai training camps by traveller type, with real prices and visa advice."
+description: "Tiger, Sinbi, Santai, Wildcat: Thailand's Muay Thai training camps compared by traveller type, with real 2026 prices, all-inclusive options and visa advice."
 tldr:
   - "The best camp depends on your profile: Tiger Muay Thai for elite fighters (Phuket), Wildcat for beginners, long-stayers, and DTV applicants (Chiang Mai)."
-  - "Chiang Mai costs significantly less than Phuket: training from 8,000 THB/month vs 15,000–20,000 THB."
-  - "If you plan 3+ months, the DTV visa changes which camp you choose. Not every camp handles training documentation."
+  - "Chiang Mai costs significantly less than Phuket: roughly 5,000–12,000 THB a month for training vs 15,000–20,000 THB at the big Phuket camps."
+  - "All-inclusive rarely means everything: check whether meals, transport and the number of sessions are really in the price."
+  - "Since 15 September 2026 most visitors get 30 days visa-free, so past two months the TR visa or the DTV decides which camp works. Not every camp handles DTV documentation."
   - "Every camp looks great on Instagram. Ask about trainer-to-student ratio and pad time before you commit."
-  - "This guide names the Phuket giants honestly and explains when Chiang Mai makes more sense."
 publishDate: 2026-06-16
+updatedDate: 2026-09-14
 category: choosing-a-camp
 cover: ../covers/best-muay-thai-camps-thailand.webp
-coverAlt: "Best Muay Thai camps in Thailand — Wildcat Muay Thai Chiang Mai"
+coverAlt: "Best Muay Thai camps in Thailand: Wildcat Muay Thai, Chiang Mai"
 draft: false
 translationKey: best-muay-thai-camps-thailand
 ---
@@ -84,7 +85,7 @@ Who it's for:
 - **Women** and anyone who finds large, male-dominated fight camps uncomfortable. The camp is family-run and the atmosphere is easy to settle into.
 - **DTV applicants** who need proper training documentation for a visa application (more on this below).
 
-Real prices: drop-in 400 THB, monthly training from 8,000 THB. [Stay and train packages](/stay-train) (training + help finding accommodation) are available for longer stays.
+Real prices: drop-in 350 THB, unlimited group training 5,000 THB a month. For longer stays there is one [Stay & Train offer](/stay-train) at 28,000 THB per person per month: a private air-conditioned room in a shared house with bills included, unlimited training, a motorbike and the airport transfer. Meals and fuel are on you.
 
 Honest drawbacks: no beach, no Phuket nightlife. If nightlife is part of your Thailand plan, Hang Dong is not where you want to be. The [coaches here](/about/coaches) are Thai and experienced, but you won't find the same depth of English-speaking fight team infrastructure as Tiger.
 
@@ -118,27 +119,44 @@ Cost: training fees are comparable to Chiang Mai, but accommodation in Bangkok r
 
 This section is missing from every other "best camps" article, and it's the most important factor if you're planning more than a short trip.
 
-**Under 30 days:** any camp works. You enter Thailand on a visa exemption (most Western passports get 30–60 days on arrival). Choose based on goal and budget.
+**Under 30 days:** any camp works. Since 15 September 2026, most Western passports get 30 days visa-free on arrival, per the [Tourism Authority of Thailand](https://www.tatnews.org/2026/09/thailand-introduces-new-30-day-and-15-day-visa-exemption-rules-from-15-september/). Choose based on goal and budget.
 
-**1–3 months:** you'll need a tourist visa or METV. Both Phuket and Chiang Mai work fine. The cost difference between the two locations starts to compound at this timeline.
+**1–3 months:** the visa-free stay can be extended once by 30 days at an immigration office (1,900 THB), which covers about two months. For three, apply for a tourist visa (60 days plus a 30-day extension) before you fly. Both Phuket and Chiang Mai work fine. The cost difference between the two locations starts to compound at this timeline.
 
 **3+ months: the DTV changes the calculation**
 
 The Destination Thailand Visa (DTV) is a 5-year, multi-entry visa that allows 180 days per stay. Muay Thai training is one of the qualifying soft power activities. But to apply, you need proper training documentation from your camp.
 
-Not every camp provides this. Some will give you a letter that looks right but doesn't satisfy what Thai immigration actually checks. Others simply don't have a process for it.
+Not every camp provides this. Some will give you a letter that looks right but doesn't satisfy what Thai immigration actually checks. Others simply don't have a process for it. And since 31 August 2026 you file the DTV from your country of nationality or residence, with a criminal record certificate, so the camp paperwork has to be ready before you leave home. [The new DTV rules](/blog/dtv-visa-new-requirements-2026) explain the timing.
 
 At Wildcat, I handle the documentation directly. I know what Thai immigration expects because I've submitted real dossiers. You can read the full process at [how to apply for the DTV](/dtv-visa/how-to-apply).
 
 The Chiang Mai cost advantage compounds over months:
 
-- Training: 8,000–12,000 THB/month vs 15,000–20,000 THB in Phuket
+- Training: roughly 5,000–12,000 THB/month in Chiang Mai (unlimited group training at Wildcat is 5,000) vs 15,000–20,000 THB at the big Phuket camps
 - Accommodation: a studio near the camp runs 6,000–10,000 THB/month; Phuket guesthouses near training camps often run double
 - Living costs: food, transport, and daily expenses are noticeably lower in Chiang Mai
 
 Over 6 months, the difference can be 100,000 THB or more. That's real money.
 
 For a full comparison of options by visa type and stay duration, see the [Chiang Mai vs Phuket deep-dive article](/blog/chiang-mai-vs-phuket-muay-thai) or the full [cost breakdown for Muay Thai training in Thailand](/blog/muay-thai-training-thailand-cost).
+
+---
+
+## All-inclusive Muay Thai camps in Thailand: what the price really covers
+
+A lot of searches for a **Muay Thai training camp in Thailand** end on the words "all-inclusive". The label is useful, but it means different things at different camps, so read the inclusions line by line before you compare prices.
+
+The big Phuket camps sell modular packages: training, then an accommodation tier on top, with prices spread across several pages. Booking platforms go the other way. NOW Muay Thai's [all-inclusive programmes](https://www.nowmuaythai.com/blog/authentic-all-inclusive-muay-thai-programs-in-thailand-train-and-stay), for example, typically bundle a room, breakfast and dinner and two sessions a day, six days a week, across partner gyms in Chiang Mai, Phuket and Phetchabun, with the price shown only once you book through them.
+
+Four questions separate a real all-inclusive deal from a good-looking one:
+
+1. **Are meals in?** Many packages include the room and training but not food, which in Phuket is a large monthly line.
+2. **How many sessions, and how many days?** "Unlimited" at one camp means two sessions a day; at another it means one.
+3. **Is local transport covered?** Camps outside the centre, including ours in Hang Dong, make a scooter or motorbike close to essential.
+4. **Who do you pay?** Booking direct with the camp avoids a platform margin, and you can ask the owner your questions before you pay.
+
+Our own version is deliberately simple: one price, 28,000 THB per person per month, covering a private room in a shared house with all bills, unlimited training, a motorbike and the airport transfer. Meals and fuel are not included, and we say so up front. The [Stay & Train page](/stay-train) has the details.
 
 ---
 
@@ -164,7 +182,7 @@ Every camp looks good on Instagram. Here's what matters when you're actually dec
 
 ### What is the best Muay Thai camp in Thailand for beginners?
 
-For beginners, Chiang Mai camps offer the best combination of structured classes, lower costs, and a setting that doesn't feel like you've wandered into a fight team. Wildcat and Santai both have genuine beginner tracks with proper progression. Phuket camps like Tiger Muay Thai are technically excellent but built for serious athletes. Beginners can get lost in the volume. Monthly training in Chiang Mai runs 8,000–12,000 THB versus 15,000–20,000 THB in Phuket.
+For beginners, Chiang Mai camps offer the best combination of structured classes, lower costs, and a setting that doesn't feel like you've wandered into a fight team. Wildcat and Santai both have genuine beginner tracks with proper progression. Phuket camps like Tiger Muay Thai are technically excellent but built for serious athletes. Beginners can get lost in the volume. Monthly training in Chiang Mai runs roughly 5,000–12,000 THB versus 15,000–20,000 THB at the big Phuket camps.
 
 ### Is Phuket or Chiang Mai better for Muay Thai training?
 
@@ -172,7 +190,11 @@ It depends on what you want. Phuket works better for elite training infrastructu
 
 ### How much does it cost to train at a Muay Thai camp in Thailand?
 
-Costs vary by location and camp. In Chiang Mai, monthly training fees run 8,000–12,000 THB. In Phuket, expect 15,000–20,000 THB per month for training only, with accommodation extra. Drop-in sessions run 400–600 THB across most camps. Accommodation in Chiang Mai near a training camp costs 6,000–10,000 THB/month for a studio; Phuket guesthouses near camps often run higher. For a detailed breakdown, see the [full cost guide for Muay Thai training in Thailand](/blog/muay-thai-training-thailand-cost).
+Costs vary by location and camp. In Chiang Mai, monthly training fees run roughly 5,000–12,000 THB. In Phuket, expect 15,000–20,000 THB per month for training only at the big camps, with accommodation extra. Drop-in sessions run 350–600 THB across most camps. Accommodation in Chiang Mai near a training camp costs 6,000–10,000 THB/month for a studio; Phuket guesthouses near camps often run higher. For a detailed breakdown, see the [full cost guide for Muay Thai training in Thailand](/blog/muay-thai-training-thailand-cost).
+
+### Are there all-inclusive Muay Thai camps in Thailand?
+
+Yes, but "all-inclusive" varies. Some packages bundle room, two meals and two sessions a day; others cover the room and training but not food or transport. Compare the inclusions, not just the headline price. At Wildcat, the Stay & Train offer is 28,000 THB a month with a private room, unlimited training, a motorbike and the airport transfer, meals and fuel excluded.
 
 ### Which Muay Thai camp in Thailand is best for foreigners?
 
@@ -202,3 +224,6 @@ If you're planning more than three months and want to understand how the visa si
 - DTV documentation requirements: Royal Thai Embassy official guidance, plus Wildcat's own DTV dossier experience
 - Camp overviews from public information: [Tiger Muay Thai](https://www.tigermuaythai.com), [Sinbi Muay Thai](https://sinbimuaythai.com), [Santai Muay Thai](https://santaimuaythai.com)
 - r/MuayThai community feedback (referenced for camp reputation context only)
+- Typical all-inclusive programme inclusions (room, breakfast and dinner, two sessions a day, six days a week): [NOW Muay Thai, all-inclusive programmes](https://www.nowmuaythai.com/blog/authentic-all-inclusive-muay-thai-programs-in-thailand-train-and-stay), consulted 2026-06-05
+- 30-day visa exemption from 15 September 2026: [Tourism Authority of Thailand newsroom](https://www.tatnews.org/2026/09/thailand-introduces-new-30-day-and-15-day-visa-exemption-rules-from-15-september/), consulted 2026-09-14
+- 30-day extension of the exemption (1,900 THB) and tourist visa of 60 days plus 30: [ISSA Compass](https://www.issacompass.com/insights/thailand-tourist-visa-vs-visa-exemption-in-2026-what-the-60-day-stay-rule-actual), consulted 2026-09-14

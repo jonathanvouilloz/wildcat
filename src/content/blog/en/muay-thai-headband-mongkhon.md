@@ -1,8 +1,9 @@
 ---
-title: "The Mongkhon: Muay Thai Headband Meaning, Explained"
+title: "Mongkhon: The Muay Thai Headband's Name and Meaning"
 h1: "What the Mongkhon Headband Really Means, and Why Every Muay Thai Fighter Wears One"
-description: "Mongkhon and pra jiad explained by a Chiang Mai camp owner: what they mean and why the headband comes off before the fight. Read the full story."
+description: "The muay thai headband is called the mongkhon. A Chiang Mai camp owner explains what it means, the pra jiad armband, and why it comes off before the fight."
 publishDate: 2026-08-21
+updatedDate: 2026-09-14
 category: "culture"
 draft: false
 translationKey: "muay-thai-headband-mongkhon"
@@ -17,7 +18,7 @@ cover: "../covers/muay-thai-headband-mongkhon.webp"
 
 *By Meaw Boonpradub, Wildcat Muay Thai, Chiang Mai*
 
-Every fighter who steps into a ring in Thailand wears one, and most visitors have no idea what it actually is. It looks decorative from the stands. It is not. The **muay thai headband** is a sacred piece of the fight, tied on before the ceremony and removed before the first strike, and almost nobody outside Thailand gets told the full story.
+The muay thai headband is called the **mongkhon** (also written mongkon): a sacred cord worn during the pre-fight ceremony and taken off just before the first round. Every fighter who steps into a ring in Thailand wears one, and most visitors have no idea what it actually is. It looks decorative from the stands. It is not. The **muay thai headband** is a sacred piece of the fight, tied on before the ceremony and removed before the first strike, and almost nobody outside Thailand gets told the full story.
 
 I have put a mongkhon on more heads than I can count, and I have watched foreign students stare at one on the wall, unsure if they are even allowed to touch it. This is the explanation I wish someone had given them sooner: what the mongkhon actually is, what its companion the pra jiad is, why the ceremony around them matters, and how to treat both with the respect they were made for.
 

@@ -2,6 +2,19 @@
 
 **Complexité : M · Statut : EN COURS** — moteur DONE, M1 (4 articles EN + covers) DONE 2026-06-11, **M2 beginners (4 articles EN + covers) DONE 2026-06-13** (topical map `docs/topical-map-beginners.md`), **hub `/chiang-mai-guide` DONE 2026-06-13**, **cluster DTV-coûts COMPLET 2026-07-03 (7/7 articles publiés, échelonnés dans le calendrier édito)**, **article news DTV 31/08/2026 publié 2026-08-27**
 
+## Etat session 2026-09-14 (review SEO + actualité visa 31/08 et 15/09 + quick wins GSC)
+
+**Données :** snapshot GSC 16/08→12/09 (`.seo-data/gsc-wildcat-2026-09-14.json`) : 6 079 impr (×3,4 vs période précédente), 145 clics, pos 10,0. Moteurs : article news DTV (1 780 impr), mongkhon (910), best camps (1 409).
+
+**Fait :**
+- **Silo `/dtv-visa` corrigé pour le 31/08/2026** (EN+FR) : dépôt uniquement dans le pays de nationalité ou de résidence légale (fin de la route « pays voisin »), certificat de casier judiciaire requis. ~25 clés réécrites (faq, how-to-apply, eligibility, muay-thai, faqp), nouvelle clé `dtv_apply_doc_criminal` (checklist → 11 documents + `HowToSupply`), quiz Q5 : pays voisin / depuis la Thaïlande passent en **red**. Dates de revue → septembre 2026.
+- **Exemption de visa 30 j au 15/09/2026** : `stay_faq_a6`, `best-muay-thai-camps-thailand` (section visa), `dtv-vs-tourist-visa-runs-cost` **réécrit** (TR 60+30 inchangé vs exemption 30+30, 2 entrées terrestres/an, tableau de rentabilité recalculé, breakeven 4–6 mois). ⚠️ `dtv_mt_tbl_validity_tourist` (60+30) est **juste** : il décrit le visa TR, pas l'exemption.
+- **Article news `dtv-visa-new-requirements-2026` mis à jour** (`updatedDate` 14/09) : title « New DTV Rules & Changes 2026 », règle transitoire publiée, nuance permanent vs legal resident, H2 sur les 30 jours, FAQ DTV holders, sources TAT + ISSA Compass.
+- **Quick wins CTR** : titles + metas `muay-thai-headband-mongkhon` (réponse directe en 1re phrase), `muay-thai-self-defense` (+FAQ kickboxing vs muay thai), `dtv_lst_meta_*` (offre 28 000 THB).
+- **`/seo-refresh` best-muay-thai-camps-thailand** : prix alignés `site.ts` (350 / 5 000 / 28 000), H2 all-inclusive + FAQ, visa à jour. Historique : `content/_history/best-muay-thai-camps-thailand.json`.
+
+**Backlog articles (review du 14/09, volumes DataForSEO US) :** EN « training in Thailand after the 30-day rule » (thailand visa exemption 110, 90-day tourist visa 170, 60-day visa exemption review 210) + FR (visa thailande 8 100, visa touristique thailande 720) · Yi Peng / Loy Krathong 23–25/11 (chiang mai lantern festival 2026 1 600, yi peng chiang mai 260 diff 12) **en ligne début octobre** · reliquat calendrier septembre (4.4 watch fights, R1 taekwondo, R2 karate, 4.3 digital nomad).
+
 ## Etat session 2026-08-27 (article news — nouvelles exigences DTV du 31/08/2026)
 
 **Fait :**

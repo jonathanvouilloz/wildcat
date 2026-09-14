@@ -1,0 +1,94 @@
+[
+  {
+    "date": "2026-09-14",
+    "trigger": "gsc-opportunity",
+    "page_type": "article",
+    "gsc_snapshot": {
+      "period": "2026-08-16..2026-09-12",
+      "clicks": 8,
+      "impressions": 1409,
+      "ctr": 0.0057,
+      "avg_position": 14.9,
+      "top_queries": [
+        {
+          "query": "muay thai camps thailand",
+          "clicks": 0,
+          "impressions": 156,
+          "position": 21.9
+        },
+        {
+          "query": "muay thai camp thailand",
+          "clicks": 0,
+          "impressions": 84,
+          "position": 26.3
+        },
+        {
+          "query": "thailand muay thai camp",
+          "clicks": 0,
+          "impressions": 80,
+          "position": 35.0
+        },
+        {
+          "query": "best muay thai camps in thailand",
+          "clicks": 0,
+          "impressions": 60,
+          "position": 51.6
+        },
+        {
+          "query": "wildcat muay thai",
+          "clicks": 1,
+          "impressions": 34,
+          "position": 8.1
+        },
+        {
+          "query": "muay thai training camp thailand",
+          "clicks": 0,
+          "impressions": 32,
+          "position": 31.6
+        },
+        {
+          "query": "camp muay thai thailand",
+          "clicks": 0,
+          "impressions": 11,
+          "position": 35.8
+        },
+        {
+          "query": "best muay thai camps",
+          "clicks": 1,
+          "impressions": 10,
+          "position": 19.8
+        }
+      ]
+    },
+    "changes": [
+      {
+        "type": "title",
+        "detail": "Title -> 'Best Muay Thai Camps in Thailand 2026: Honest Guide & Prices', meta adds all-inclusive + 2026 prices",
+        "reason": "1 409 impr, CTR 0,57 %, head queries pos 22-52"
+      },
+      {
+        "type": "add_h2",
+        "detail": "H2 'All-inclusive Muay Thai camps in Thailand: what the price really covers' + FAQ all-inclusive",
+        "reason": "queries 'all inclusive muay thai camps in thailand' (pos 26,7) et 'muay thai training camp thailand' (pos 31,6) sans section dédiée"
+      },
+      {
+        "type": "data",
+        "detail": "Prix Wildcat alignés sur site.ts (drop-in 350, mois illimité 5 000, offre Stay & Train 28 000) + fourchettes Chiang Mai 5 000-12 000",
+        "reason": "prix périmés (400 / 8 000) depuis la refonte tarifaire"
+      },
+      {
+        "type": "data",
+        "detail": "Section visa : exemption 30 j + extension 30 j (15/09/2026), TR 60+30, dépôt DTV pays de nationalité/résidence (31/08/2026)",
+        "reason": "fraîcheur, contenu YMYL faux depuis septembre 2026"
+      },
+      {
+        "type": "geo",
+        "detail": "+3 sources datées (TAT, ISSA Compass, NOW Muay Thai), coverAlt sans em-dash",
+        "reason": "citations inline manquantes sur les claims visa et all-inclusive"
+      }
+    ],
+    "reason": "Page la plus impressionnée du blog mais bloquée page 2-3 sur ses têtes de requête : fraîcheur visa/prix + couverture de l'intention all-inclusive / training camp.",
+    "word_count_before": 2297,
+    "word_count_after": 2839
+  }
+]

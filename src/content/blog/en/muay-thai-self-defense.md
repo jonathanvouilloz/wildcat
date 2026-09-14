@@ -1,8 +1,9 @@
 ---
-title: "Is Muay Thai Good for Self-Defense? The Honest Answer"
+title: "Is Muay Thai Good for Self-Defense? A Coach's Honest Answer"
 h1: "Is Muay Thai Actually Good for Self-Defense? Here's What It Gives You (and What It Doesn't)"
-description: "An honest coach's answer: what muay thai really gives you for self-defense, its real limits, and what beginners actually get from training."
+description: "Yes, with limits. A Chiang Mai coach explains what muay thai gives you for self-defense at close range, where it falls short, and how it compares to kickboxing."
 publishDate: 2026-08-25
+updatedDate: 2026-09-14
 author: "Meaw Boonpradub"
 category: "benefits"
 draft: false
@@ -97,6 +98,10 @@ Genuinely good for the close-range, high-pressure parts of a confrontation, and 
 ### Is muay thai kickboxing good for self-defense too?
 
 Muay thai, sometimes called Thai kickboxing, is the same art under two names, so the same honest answer applies: strong at close range and under pressure, incomplete once a fight leaves the standing, one-on-one format.
+
+### Is kickboxing or muay thai better for self-defense?
+
+For self-defense, muay thai usually has the edge over Western-style kickboxing, because it keeps the clinch, the elbows and the knees, the exact tools that matter once someone is chest to chest with you. Kickboxing rules typically limit or break up clinch work, so that range gets far less practice. Both share the same gaps, though: no ground fighting, no weapon awareness, no de-escalation. If you are choosing between the two for other reasons too, [muay thai vs kickboxing](/blog/muay-thai-vs-kickboxing) covers the full comparison.
 
 ### Why does this question keep coming up online?
 

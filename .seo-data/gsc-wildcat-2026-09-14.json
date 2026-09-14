@@ -1,0 +1,735 @@
+{
+  "site_url": "sc-domain:wildcatmuaythai.com",
+  "period": {
+    "start": "2026-08-16",
+    "end": "2026-09-12",
+    "days": 28
+  },
+  "page_filter": null,
+  "generated_at": "2026-09-14T08:48:12Z",
+  "totals": {
+    "impressions": 6079,
+    "clicks": 145,
+    "ctr": 0.0239,
+    "avg_position": 10.0
+  },
+  "site_median_ctr": 0.0,
+  "top_queries": [
+    {
+      "impressions": 77,
+      "clicks": 27,
+      "ctr": 0.3506,
+      "position": 2.6,
+      "query": "wildcat muay thai"
+    },
+    {
+      "impressions": 16,
+      "clicks": 5,
+      "ctr": 0.3125,
+      "position": 4.5,
+      "query": "wildcat muay thai chiang mai"
+    },
+    {
+      "impressions": 10,
+      "clicks": 1,
+      "ctr": 0.1,
+      "position": 19.8,
+      "query": "best muay thai camps"
+    },
+    {
+      "impressions": 5,
+      "clicks": 1,
+      "ctr": 0.2,
+      "position": 3.4,
+      "query": "brulis chiang mai"
+    },
+    {
+      "impressions": 42,
+      "clicks": 1,
+      "ctr": 0.0238,
+      "position": 9.2,
+      "query": "mongkhon muay thai"
+    },
+    {
+      "impressions": 4,
+      "clicks": 1,
+      "ctr": 0.25,
+      "position": 1,
+      "query": "muay thai for kids"
+    },
+    {
+      "impressions": 2,
+      "clicks": 1,
+      "ctr": 0.5,
+      "position": 31,
+      "query": "muay thai near me"
+    },
+    {
+      "impressions": 32,
+      "clicks": 1,
+      "ctr": 0.0312,
+      "position": 10.1,
+      "query": "new dtv rules"
+    },
+    {
+      "impressions": 10,
+      "clicks": 1,
+      "ctr": 0.1,
+      "position": 1.3,
+      "query": "wild cat muay thai"
+    },
+    {
+      "impressions": 1,
+      "clicks": 1,
+      "ctr": 1,
+      "position": 2,
+      "query": "태국 dtv"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9.5,
+      "query": "\"31 august 2026\" \"destination thailand visa\""
+    },
+    {
+      "impressions": 14,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 2.6,
+      "query": "\"new additional requirements\" \"destination thailand visa\" \"31 august 2026\""
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 26.7,
+      "query": "all inclusive muay thai camps in thailand"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11.5,
+      "query": "apply dtv"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5,
+      "query": "beginner muay thai gear"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 12,
+      "query": "best cost"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 20.7,
+      "query": "best muay thai camp"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9,
+      "query": "best muay thai camp thailand"
+    },
+    {
+      "impressions": 60,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 51.6,
+      "query": "best muay thai camps in thailand"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 47,
+      "query": "best muay thai training camps in thailand"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.5,
+      "query": "best thailand muay thai camps"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 31,
+      "query": "best training camps in thailand"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5,
+      "query": "bruli chiang mai"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6.7,
+      "query": "burning season chiang mai 2026"
+    },
+    {
+      "impressions": 11,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 35.8,
+      "query": "camp muay thai thailand"
+    },
+    {
+      "impressions": 4,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9.8,
+      "query": "can i learn muay thai at home"
+    },
+    {
+      "impressions": 4,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 15.5,
+      "query": "can you learn muay thai at home"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5,
+      "query": "can you successfullly defend yourself and fight if youve been dling muay thai for 3 months straight and your coach said that he wants you to move up tot he advnaced class"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 4,
+      "query": "cheap"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6,
+      "query": "chi phí khoá học"
+    },
+    {
+      "impressions": 4,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 3.5,
+      "query": "chiang mai brulis"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 3.5,
+      "query": "chiang mai brûlis 2026"
+    },
+    {
+      "impressions": 11,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8.1,
+      "query": "chiang mai burning season 2026"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 29,
+      "query": "chiang mai mma"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 49.5,
+      "query": "chiang mai muay thai"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 41,
+      "query": "chiang mai muay thai gym"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 43,
+      "query": "defense muay thai"
+    },
+    {
+      "impressions": 12,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8.3,
+      "query": "dtv changes"
+    },
+    {
+      "impressions": 12,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9,
+      "query": "dtv new rules"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11,
+      "query": "dtv rules"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6.5,
+      "query": "dtv visa thailand"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 13,
+      "query": "ed visa muay thai"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11,
+      "query": "education visa thailand muay thai"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6,
+      "query": "eher ruhig"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 3,
+      "query": "for muay thai"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1,
+      "query": "gym"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 15,
+      "query": "gym near me"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 15,
+      "query": "gym ใกล้ ฉัน"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 12,
+      "query": "headband muay thai"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9.7,
+      "query": "how good is muay thai for self defense"
+    }
+  ],
+  "top_pages": [
+    {
+      "impressions": 254,
+      "clicks": 43,
+      "ctr": 0.1693,
+      "position": 6.2,
+      "page": "https://wildcatmuaythai.com/en"
+    },
+    {
+      "impressions": 344,
+      "clicks": 26,
+      "ctr": 0.0756,
+      "position": 8.2,
+      "page": "http://wildcatmuaythai.com/"
+    },
+    {
+      "impressions": 1780,
+      "clicks": 23,
+      "ctr": 0.0129,
+      "position": 7.1,
+      "page": "https://wildcatmuaythai.com/en/blog/dtv-visa-new-requirements-2026"
+    },
+    {
+      "impressions": 141,
+      "clicks": 13,
+      "ctr": 0.0922,
+      "position": 5.5,
+      "page": "https://wildcatmuaythai.com/en/blog/cheapest-dtv-soft-power-activity"
+    },
+    {
+      "impressions": 1345,
+      "clicks": 8,
+      "ctr": 0.0059,
+      "position": 15.3,
+      "page": "https://wildcatmuaythai.com/en/blog/best-muay-thai-camps-thailand"
+    },
+    {
+      "impressions": 255,
+      "clicks": 7,
+      "ctr": 0.0275,
+      "position": 9.3,
+      "page": "https://wildcatmuaythai.com/en/blog/ed-visa-vs-dtv-muay-thai"
+    },
+    {
+      "impressions": 378,
+      "clicks": 5,
+      "ctr": 0.0132,
+      "position": 10.4,
+      "page": "https://wildcatmuaythai.com/en/blog/muay-thai-self-defense"
+    },
+    {
+      "impressions": 47,
+      "clicks": 5,
+      "ctr": 0.1064,
+      "position": 11.1,
+      "page": "https://wildcatmuaythai.com/fr"
+    },
+    {
+      "impressions": 910,
+      "clicks": 4,
+      "ctr": 0.0044,
+      "position": 7.7,
+      "page": "https://wildcatmuaythai.com/en/blog/muay-thai-headband-mongkhon"
+    },
+    {
+      "impressions": 19,
+      "clicks": 3,
+      "ctr": 0.1579,
+      "position": 6.9,
+      "page": "https://wildcatmuaythai.com/en/blog/dtv-visa-cost-breakdown"
+    },
+    {
+      "impressions": 46,
+      "clicks": 3,
+      "ctr": 0.0652,
+      "position": 5.6,
+      "page": "https://wildcatmuaythai.com/fr/blog/saison-des-brulis-chiang-mai"
+    },
+    {
+      "impressions": 59,
+      "clicks": 1,
+      "ctr": 0.0169,
+      "position": 6.3,
+      "page": "https://wildcatmuaythai.com/en/blog/burning-season-chiang-mai"
+    },
+    {
+      "impressions": 87,
+      "clicks": 1,
+      "ctr": 0.0115,
+      "position": 7.4,
+      "page": "https://wildcatmuaythai.com/en/blog/chiang-mai-vs-bangkok-muay-thai"
+    },
+    {
+      "impressions": 18,
+      "clicks": 1,
+      "ctr": 0.0556,
+      "position": 5.9,
+      "page": "https://wildcatmuaythai.com/en/blog/dtv-visa-agent-worth-it"
+    },
+    {
+      "impressions": 66,
+      "clicks": 1,
+      "ctr": 0.0152,
+      "position": 8.2,
+      "page": "https://wildcatmuaythai.com/en/blog/muay-thai-stance-basics"
+    },
+    {
+      "impressions": 224,
+      "clicks": 1,
+      "ctr": 0.0045,
+      "position": 6.5,
+      "page": "https://wildcatmuaythai.com/en/dtv-visa/long-stay-training"
+    },
+    {
+      "impressions": 3,
+      "clicks": 1,
+      "ctr": 0.3333,
+      "position": 9,
+      "page": "https://wildcatmuaythai.com/fr/dtv-visa/eligibility"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.7,
+      "page": "https://wildcatmuaythai.com/en/about/"
+    },
+    {
+      "impressions": 12,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.1,
+      "page": "https://wildcatmuaythai.com/en/blog/best-muay-thai-camps-thailand#bangkok-the-fight-capital"
+    },
+    {
+      "impressions": 10,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8.5,
+      "page": "https://wildcatmuaythai.com/en/blog/best-muay-thai-camps-thailand#chiang-mai-the-affordable-north"
+    },
+    {
+      "impressions": 11,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8.4,
+      "page": "https://wildcatmuaythai.com/en/blog/best-muay-thai-camps-thailand#how-long-are-you-staying-the-visa-question"
+    },
+    {
+      "impressions": 10,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.2,
+      "page": "https://wildcatmuaythai.com/en/blog/best-muay-thai-camps-thailand#quick-picks-by-traveller-profile"
+    },
+    {
+      "impressions": 13,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7,
+      "page": "https://wildcatmuaythai.com/en/blog/best-muay-thai-camps-thailand#the-big-camps-in-phuket"
+    },
+    {
+      "impressions": 8,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8.8,
+      "page": "https://wildcatmuaythai.com/en/blog/best-muay-thai-camps-thailand#what-to-actually-look-for-beyond-the-instagram-photos"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 2.7,
+      "page": "https://wildcatmuaythai.com/en/blog/chiang-mai-vs-bangkok-muay-thai#can-beginners-train-muay-thai-in-bangkok"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 2.7,
+      "page": "https://wildcatmuaythai.com/en/blog/chiang-mai-vs-bangkok-muay-thai#cost-breakdown-real-2026-numbers"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 2.7,
+      "page": "https://wildcatmuaythai.com/en/blog/chiang-mai-vs-bangkok-muay-thai#is-chiang-mai-good-for-women-training-muay-thai"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 2.7,
+      "page": "https://wildcatmuaythai.com/en/blog/chiang-mai-vs-bangkok-muay-thai#quick-verdict"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 2.7,
+      "page": "https://wildcatmuaythai.com/en/blog/chiang-mai-vs-bangkok-muay-thai#the-dtv-visa-why-it-changes-the-bangkok-vs-chiang-mai-math"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 2.7,
+      "page": "https://wildcatmuaythai.com/en/blog/chiang-mai-vs-bangkok-muay-thai#training-atmosphere-fight-capital-vs-family-camp"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 2.7,
+      "page": "https://wildcatmuaythai.com/en/blog/chiang-mai-vs-bangkok-muay-thai#which-city-should-you-choose"
+    },
+    {
+      "impressions": 51,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6.3,
+      "page": "https://wildcatmuaythai.com/en/blog/chiang-mai-vs-phuket-muay-thai"
+    },
+    {
+      "impressions": 41,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.8,
+      "page": "https://wildcatmuaythai.com/en/blog/dtv-visa-proof-of-funds"
+    },
+    {
+      "impressions": 36,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9.6,
+      "page": "https://wildcatmuaythai.com/en/blog/dtv-visa-refund-if-rejected"
+    },
+    {
+      "impressions": 11,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.2,
+      "page": "https://wildcatmuaythai.com/en/blog/dtv-vs-tourist-visa-runs-cost"
+    },
+    {
+      "impressions": 30,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 17.2,
+      "page": "https://wildcatmuaythai.com/en/blog/learn-muay-thai-at-home"
+    },
+    {
+      "impressions": 17,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9.4,
+      "page": "https://wildcatmuaythai.com/en/blog/muay-thai-for-women"
+    },
+    {
+      "impressions": 61,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 12.6,
+      "page": "https://wildcatmuaythai.com/en/blog/muay-thai-gear-beginners"
+    },
+    {
+      "impressions": 7,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.4,
+      "page": "https://wildcatmuaythai.com/en/blog/muay-thai-gym-dtv-overcharging"
+    },
+    {
+      "impressions": 30,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.3,
+      "page": "https://wildcatmuaythai.com/en/blog/muay-thai-training-thailand-cost"
+    },
+    {
+      "impressions": 26,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 30.2,
+      "page": "https://wildcatmuaythai.com/en/blog/muay-thai-vs-kickboxing"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.5,
+      "page": "https://wildcatmuaythai.com/en/chiang-mai-guide"
+    },
+    {
+      "impressions": 26,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8.0,
+      "page": "https://wildcatmuaythai.com/en/classes"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 4.5,
+      "page": "https://wildcatmuaythai.com/en/contact"
+    },
+    {
+      "impressions": 17,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11.2,
+      "page": "https://wildcatmuaythai.com/en/dtv-visa"
+    },
+    {
+      "impressions": 30,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9.3,
+      "page": "https://wildcatmuaythai.com/en/dtv-visa/eligibility"
+    },
+    {
+      "impressions": 5,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.6,
+      "page": "https://wildcatmuaythai.com/en/dtv-visa/faq"
+    },
+    {
+      "impressions": 25,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 10.1,
+      "page": "https://wildcatmuaythai.com/en/dtv-visa/how-to-apply"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 10,
+      "page": "https://wildcatmuaythai.com/en/fighters"
+    },
+    {
+      "impressions": 8,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.6,
+      "page": "https://wildcatmuaythai.com/en/stay-train"
+    }
+  ],
+  "quick_wins": [
+    {
+      "query": "mongkhon",
+      "page": "https://wildcatmuaythai.com/en/blog/muay-thai-headband-mongkhon",
+      "impressions": 138,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8.3,
+      "reason": "position 5-15 + impressions ≥ 100 — push to top 5",
+      "suggested_action": "améliorer title/meta + bold keywords + maillage interne"
+    }
+  ],
+  "ctr_gaps": [],
+  "content_gaps": []
+}
