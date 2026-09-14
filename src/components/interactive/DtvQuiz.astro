@@ -79,8 +79,10 @@ const questions = [
     name: 'q5',
     options: [
       { value: 'a', flag: 'green', label: m.dtv_elig_q5_a() },
-      { value: 'b', flag: 'yellow', label: m.dtv_elig_q5_b() },
-      { value: 'c', flag: 'yellow', label: m.dtv_elig_q5_c() },
+      // Depuis le 31/08/2026 : dépôt pays de nationalité/résidence only → pays voisin et
+      // dépôt depuis la Thaïlande sont des blockers (red), plus des « à vérifier ».
+      { value: 'b', flag: 'red', label: m.dtv_elig_q5_b() },
+      { value: 'c', flag: 'red', label: m.dtv_elig_q5_c() },
     ],
   },
   {

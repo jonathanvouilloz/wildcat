@@ -76,6 +76,7 @@ const checklistGroups = [
       { id: 'photo', label: m.dtv_apply_doc_photo() },
       { id: 'accommodation', label: m.dtv_apply_doc_accommodation() },
       { id: 'flight', label: m.dtv_apply_doc_flight() },
+      { id: 'criminal', label: m.dtv_apply_doc_criminal() },
     ],
   },
   {
@@ -155,6 +156,7 @@ const howToSchema = {
   supply: [
     { '@type': 'HowToSupply', name: m.dtv_apply_doc_passport() },
     { '@type': 'HowToSupply', name: m.dtv_apply_doc_statements() },
+    { '@type': 'HowToSupply', name: m.dtv_apply_doc_criminal() },
     { '@type': 'HowToSupply', name: m.dtv_apply_doc_enrolment() },
   ],
   tool: [{ '@type': 'HowToTool', name: `Thai e-Visa portal (${PORTAL})` }],
