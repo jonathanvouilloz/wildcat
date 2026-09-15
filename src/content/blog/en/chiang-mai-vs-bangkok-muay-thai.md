@@ -20,7 +20,7 @@ Bangkok is the spiritual home of competitive Muay Thai. I'm not going to pretend
 
 But "home of competitive Muay Thai" and "best place for you to train" are not the same thing.
 
-I'm Meaw, owner of **Wildcat Muay Thai** in Hang Dong, Chiang Mai. I've watched hundreds of foreigners make this decision. Here's an honest breakdown of when Bangkok makes sense, and when Chiang Mai wins.
+I'm Meaw, owner of [Wildcat Muay Thai in Hang Dong, Chiang Mai](/). I've watched hundreds of foreigners make this decision. Here's an honest breakdown of when Bangkok makes sense, and when Chiang Mai wins.
 
 ## Quick verdict
 

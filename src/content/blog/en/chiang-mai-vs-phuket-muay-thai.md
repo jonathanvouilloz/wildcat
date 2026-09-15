@@ -45,7 +45,7 @@ The difference in atmosphere between these two cities is real, and it matters mo
 
 ### What Chiang Mai camps feel like
 
-At Wildcat, training happens in an open-air pavilion surrounded by a garden in Hang Dong, a quiet area south of the city. That setting is not unique to us: many Chiang Mai camps share the same character. **Muay Thai training in Chiang Mai** tends to be smaller in scale, which means more pad time per session and coaches who actually learn your name.
+At Wildcat, where I teach [Muay Thai in Chiang Mai](/), training happens in an open-air pavilion surrounded by a garden in Hang Dong, a quiet area south of the city. That setting is not unique to us: many Chiang Mai camps share the same character. **Muay Thai training in Chiang Mai** tends to be smaller in scale, which means more pad time per session and coaches who actually learn your name.
 
 The pace of northern Thailand is different from the south. There is no beach rush, no resort check-in energy. Guests often stay for weeks or months, share meals, go to markets together, and become part of the community. That is the Chiang Mai model.
 

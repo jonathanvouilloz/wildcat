@@ -76,7 +76,7 @@ Rawai Muay Thai, Sumalee Boxing Gym, and several others round out the Phuket sce
 
 I'll keep this section factual and let you decide.
 
-Wildcat is an **open-air Muay Thai camp** in Hang Dong, about 15 minutes south of Chiang Mai city. The ring is outdoors, surrounded by a garden. Classes run 7 days a week, mornings and evenings, structured by level so beginners aren't thrown into fight-team sessions.
+Wildcat is an [open-air Muay Thai camp in Chiang Mai](/), based in Hang Dong, about 15 minutes south of the city. The ring is outdoors, surrounded by a garden. Classes run 7 days a week, mornings and evenings, structured by level so beginners aren't thrown into fight-team sessions.
 
 Who it's for:
 

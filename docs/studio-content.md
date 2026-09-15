@@ -41,8 +41,10 @@ de quoi nourrir aussi un futur compteur « X DTV approved » si tu veux.
 | Fiche | Photo source (haute rés. dans `PNG/image-a-traiter/`) | Note |
 |-------|--------------------------------------------------------|------|
 | Meaw Boonpradub | `meaw.jpg` (déjà en ligne : `meaw-portrait.webp` sur la fiche /about/coaches) | Rôle/bio à saisir ; la photo studio sert aussi à l'AuthorBio du blog |
-| Peter (?) | `peter2.jpg` (carré, le mieux cadré ; alternatives `peter.jpg`, `coach-peter-3.jpg`) | Confirmer nom/rôle exacts |
-| Arun (?) | `arun-og.jpg` (portrait vertical ; variante carrée `fight.jpg`) | Confirmer nom/rôle — coach ou pad-man ? |
+| Peter | `peter2.jpg` (carré, le mieux cadré ; alternatives `peter.jpg`, `coach-peter-3.jpg`) | Coach thaï (confirmé Jonathan 2026-09-15) ; rôle exact à saisir |
+
+**Arun n'est pas coach** (confirmé 2026-09-15) : c'est un combattant → fiche **Fighter** (§3), pas Coach. Photos : `arun-og.jpg`, `fight.jpg`.
+Coachs thaïs à ce jour : Meaw et Peter. Le claim « Real Thai trainers » (`home_coach_title`) reste juste tant que ces deux-là coachent.
 
 ## 3. Fighters guest book (collection **Fighter**) — infos manquantes
 

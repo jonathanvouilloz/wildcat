@@ -64,7 +64,11 @@ function rehypeLocalizeInternalLinks() {
           !href.startsWith('//') &&
           !/^\/(en|fr)(?=[\/?#]|$)/.test(href)
         ) {
-          node.properties.href = `/${locale}${href}`;
+          // "/" seul (ou "/#x", "/?x") = la home : → /en et non /en/, sinon un
+          // hop 308 (trailingSlash 'never') sur chaque lien éditorial vers la home.
+          node.properties.href = /^\/(?=[?#]|$)/.test(href)
+            ? `/${locale}${href.slice(1)}`
+            : `/${locale}${href}`;
         }
       }
       if (Array.isArray(node.children)) node.children.forEach(visit);

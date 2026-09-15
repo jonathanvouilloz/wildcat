@@ -31,7 +31,7 @@ Training fees are the core of your budget. Here's the real range across Thailand
 
 The **per-session rate** in Thailand ranges from **300 to 600 THB**. Northern Thailand camps, including those in the Chiang Mai and Hang Dong area, typically sit at the lower end of that range. Phuket camps, particularly the large international operations near Chalong, charge closer to 550–800 THB per session (~$16–23 USD).
 
-At Wildcat, drop-in sessions start at 400 THB. See [our training rates](/classes#pricing) for current pricing (I don't reprint the full rate card here because it changes seasonally).
+At [Wildcat in Chiang Mai](/), drop-in sessions start at 350 THB. See [our training rates](/classes#pricing) for current pricing (I don't reprint the full rate card here because it changes seasonally).
 
 Practically: if you're planning a short visit of one to two weeks, drop-in is fine. For a month or longer, a monthly package is far better value.
 
