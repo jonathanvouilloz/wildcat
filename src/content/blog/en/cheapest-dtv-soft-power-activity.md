@@ -6,9 +6,10 @@ tldr:
   - "Thai language schools were removed from the DTV's qualifying soft power list in 2025; applicants who want to study Thai are now directed to the ED visa instead."
   - "The cheapest DTV soft power activity is usually cooking, around 10,000 THB, though Muay Thai's low end can match it; Muay Thai spans 7,500 to 25,000 THB depending on the gym."
   - "Muay Thai has the widest price range of the two because gym pricing varies far more than cooking course pricing."
-  - "Six months of enrolment is the practice immigration favors for any soft power activity, not a published legal rule specific to Muay Thai."
+  - "Six months of enrolment is the working minimum for any soft power activity; one- to three-month packages bought just for the visa are increasingly reported as rejected in 2026."
   - "The DTV soft power route doesn't require active income, only 500,000 THB in proof of funds and a genuine enrolment."
 publishDate: 2026-07-27
+updatedDate: 2026-09-24
 author: "Meaw Boonpradub"
 category: visa
 cover: ../covers/cheapest-dtv-soft-power-activity.webp
@@ -59,6 +60,19 @@ Nothing about this is specific to Muay Thai. An embassy reviewing a one-month co
 
 The practical takeaway: don't choose the shortest, cheapest-looking course of either activity and assume duration alone secures approval. A coherent, complete file matters more than shaving a few weeks off any one course.
 
+### Update, September 2026: short "visa-only" packages are getting refused
+
+Embassies have tightened on exactly the kind of enrolment this price comparison could tempt you into. Through 2026, applicant reports describe one- to three-month soft power packages being refused because they read as a tourist trip with a certificate attached, not a real commitment to the activity. [One DTV service that tracks outcomes by embassy](https://petchnumnoi.com/blog/dtv-why-its-getting-harder-to-obtain/) calls six months "a bare minimum" and reports that some missions now expect nine months or more; the Royal Thai Embassy in Dhaka is reported to ask for a full year. None of this is a published global rule, and it varies from one embassy to the next, but the direction is clear.
+
+Two other points come up again and again in refusals:
+
+- **Course dates that don't match your stay.** If you plan to be in Thailand for a year, a three-month enrolment leaves nine months unexplained. The dates on your letter should cover the time you actually intend to spend here.
+- **Funds that arrived late.** Money deposited shortly before applying remains the most reported refusal trigger overall, whatever the activity. The detail is in [our guide to DTV proof of funds](/blog/dtv-visa-proof-of-funds).
+
+Since 31 August 2026 you also have to apply at the Thai embassy covering your country of nationality or legal residence, so you can no longer shop around for a more lenient post ([what changed on 31 August](/blog/dtv-visa-new-requirements-2026)).
+
+What this means for the price comparison above: compare activities on the cost of the length you will actually need, not on the cheapest one-month rate. A course that looks cheap because it's short can end up being the most expensive choice once you count a 10,000 THB application fee that isn't refunded if you're turned down ([what happens to your money after a refusal](/blog/dtv-visa-refund-if-rejected)).
+
 ## Applying for the DTV without active income
 
 You can apply for the DTV soft power route without active income, since the requirement is **proof of funds**, not proof of a job. This matters for retirees, early-retirees, and anyone living off passive income who assumed the DTV was only for remote workers with a paycheck.
@@ -83,7 +97,11 @@ You don't have to choose Muay Thai. The DTV's soft power category also recognise
 
 ### Does the DTV soft power course need to last a certain number of months?
 
-There's no published legal minimum, but six months or more is the length immigration practice has favored through 2025 and 2026, for either qualifying activity. Shorter enrolments face more scrutiny as part of your overall file, not as an automatic rejection trigger.
+There's no published global minimum, but six months or more is the length immigration practice has favored through 2025 and 2026, for either qualifying activity, and some embassies are reported to expect nine to twelve months. One- to three-month enrolments are increasingly reported as refused in 2026, especially when the course dates don't cover your planned stay.
+
+### Are short soft power courses being rejected for the DTV in 2026?
+
+Increasingly, yes, according to applicant reports and DTV services tracking outcomes, though no embassy has published a blanket rule. Packages of one to three months bought only for the visa are the ones most often cited. An enrolment that matches the length of your stay, backed by funds held for at least three months, is the safer file.
 
 ### Can I apply for the DTV without a job or active income?
 
@@ -112,6 +130,8 @@ If you're leaning toward Muay Thai and want a straight answer on where Wildcat's
 - Muay Thai as an officially recognised soft power activity for the DTV: [Muay Thai Visa Thailand, Soft Power and the DTV](https://www.muaythaivisathailand.com/soft-power-and-the-destination-thailand-visa-for-muay-thai-students/), consulted 2026-07-03.
 - Muay Thai gym pricing range (7,500-25,000 THB) for DTV enrolment documents: previously sourced and published in [our breakdown of Muay Thai gyms and DTV papers](/blog/muay-thai-gym-dtv-overcharging).
 - Six-month training length as an observed embassy approval practice, not a published legal rule: internal fact-check, cross-referenced against soft power guidance above, dated 2026-06-05.
+- Short (one- to three-month) soft power enrolments reported as refused, six months described as a bare minimum, nine months or more expected by some missions, one year reported for the Royal Thai Embassy in Dhaka, and course dates expected to match the travel timeline: [Petchnumnoi, why the DTV is getting harder to obtain](https://petchnumnoi.com/blog/dtv-why-its-getting-harder-to-obtain/), updated 4 August 2026, consulted 2026-09-24. Reported practice from a DTV service, not an official government source.
+- Recently deposited funds as the most frequently reported refusal reason, with embassies reviewing 3 to 6 months of bank history: [StampStay, DTV visa guide](https://www.stampstay.com/thailand/dtv-visa), consulted 2026-09-24.
 - Cooking course price estimate (10,000 THB) and historical language school price estimate (7,500 THB, before its removal from the qualifying list): reported in widely-discussed online applicant communities in 2026, reformulated here without individual attribution.
 - Wildcat Muay Thai public training rates: [training packages and pricing](/classes#pricing).
 

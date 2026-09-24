@@ -4,11 +4,12 @@ h1: "Which assets actually count as proof of funds for the DTV visa?"
 description: "See what counts as DTV visa proof of funds: bank account, stocks, crypto, and multiple accounts explained."
 tldr:
   - "A personal bank account holding 500,000 THB is the one option every source agrees on for DTV visa proof of funds."
-  - "Stocks, ETFs, and brokerage accounts are not accepted as proof of funds, confirmed by a Thailand immigration law firm, though one lower-authority page online disagrees."
-  - "Cryptocurrency is explicitly excluded as proof of funds too, confirmed by the same source."
+  - "Stocks, ETFs, brokerage accounts, and cryptocurrency are not accepted as proof of funds, confirmed by a Thailand immigration law firm, though one lower-authority page online disagrees on stocks."
   - "Combining multiple bank accounts appears to be commonly accepted in practice, but it's worth confirming with your embassy since no official source spells it out."
   - "Funds transferred in right before you apply can raise questions, regardless of which asset type you're using."
+  - "The 500,000 THB DTV requirement is separate from the cash check at the border, where immigration can ask any arriving foreigner for 10,000 to 20,000 THB per person."
 publishDate: 2026-07-09
+updatedDate: 2026-09-24
 author: "Meaw Boonpradub"
 category: visa
 cover: ../covers/dtv-visa-proof-of-funds.webp
@@ -65,6 +66,21 @@ The practical fix costs nothing but time: let funds sit in your account for a fe
 
 ![Open-air Muay Thai training at Wildcat, part of preparing a complete DTV file](/images/blog/dtv-visa-proof-of-funds-3.webp)
 
+## DTV proof of funds vs the cash check at the airport
+
+These are two different checks, and people mix them up all the time. The 500,000 THB is what the embassy looks at when it decides whether to issue your DTV. The second check happens later, at the immigration counter when you land, and it applies to every foreign arrival, not only DTV holders.
+
+Under a Ministry of Interior rule dating back to 1980 (amounts last updated in 2000), an immigration officer can ask you to show you have enough money for your stay. The Tourism Authority of Thailand reminded travellers of it on 6 July 2026, then again with the new visa exemption rules of 15 September 2026, and stressed that it isn't a new measure. [The amounts reported with that reminder](https://visasnews.com/en/thailand-reminds-travelers-to-be-ready-to-show-proof-of-funds-on-arrival/):
+
+| Type of entry | Per person | Per family |
+|---|---|---|
+| Visa on arrival, transit visa, certain exemptions | 10,000 THB | 20,000 THB |
+| Tourist visa, non-immigrant visa | 20,000 THB | 40,000 THB |
+
+Children under 12 are exempt. Checks are random, but refusing entry to a traveller who can't show the funds is legal under Section 12(2) of the Immigration Act, for "having no appropriate means of living".
+
+The reminder doesn't name the DTV specifically, so the cautious reading is to carry the higher figure, 20,000 THB per person. Cash is the form least likely to be questioned; a recent bank statement is a reasonable back-up, but acceptance of anything other than cash is at the officer's discretion. If you are coming visa-exempt first, to try the camp before committing to a DTV, the same check applies to you, and since 15 September 2026 that entry only gives you 30 days ([how the new 30-day rule changes the maths](/blog/dtv-vs-tourist-visa-runs-cost)).
+
 ## FAQ on the DTV visa proof of funds
 
 ### Can I use a stock portfolio as proof of funds for the DTV visa?
@@ -82,6 +98,10 @@ It appears to be commonly accepted in practice, as long as each account is in yo
 ### Is it a problem if I just transferred money into my account before applying?
 
 It can be. A large, recent transfer right before an application has been linked to added scrutiny in at least one documented case. Funds that have sat in your account for a few months read as more genuine than a deposit made specifically for the application.
+
+### Do I need to show money when I land in Thailand with a DTV?
+
+You might. The 500,000 THB is checked by the embassy before your visa is issued; the airport check is a separate, random one that applies to all foreign arrivals. It asks for 10,000 to 20,000 THB per person depending on the type of entry, and the prudent choice with a DTV is to have 20,000 THB available to show.
 
 ---
 
@@ -102,5 +122,8 @@ If your funds are spread across a few accounts, or you're not sure how your spec
 - Tightened 2026 scrutiny requiring funds to be held for at least 3 months before application: [Siam Legal International, DTV Visa Thailand guide](https://www.siam-legal.com/thailand-visa/dtv-visa-thailand.php), consulted 2026-07-03.
 - The documented case of a 600,000 THB deposit flagged for arriving too close to an application date: a DTV preparation guide reviewed during research for this article, not independently confirmed by an official government source.
 - Multiple accounts combined toward the threshold: consistent pattern across applicant discussions and community forums, not confirmed by an official government source or by the immigration law firm cited above.
+- Proof of funds on arrival (10,000 / 20,000 THB per person, 20,000 / 40,000 THB per family, children under 12 exempt, Ministry of Interior announcement of 1980 updated in 2000, TAT reminder of 6 July 2026, not a new measure): [VisasNews, Thailand reminds travelers to be ready to show proof of funds on arrival](https://visasnews.com/en/thailand-reminds-travelers-to-be-ready-to-show-proof-of-funds-on-arrival/), consulted 2026-09-24.
+- Proof of sufficient funds restated alongside the 30-day visa exemption rules from 15 September 2026: [Tourism Authority of Thailand newsroom](https://www.tatnews.org/2026/09/thailand-introduces-new-30-day-and-15-day-visa-exemption-rules-from-15-september/), consulted 2026-09-24.
+- Refusal of entry for "having no appropriate means of living following entrance into the Kingdom", Section 12(2) of the Immigration Act B.E. 2522: [Siam Legal Thailand Law Library, Immigration Act sections 11-22](https://library.siam-legal.com/thai-law/thai-immigration-act-entering-and-departing-the-kingdom-sections-11-22/), consulted 2026-09-24.
 
 *Note: the official Thai government checklist for the DTV visa is published as a scanned document by the Ministry of Foreign Affairs and could not be read in full during this article's research. The stocks and cryptocurrency exclusion above is confirmed by a licensed Thailand immigration law firm, not by a directly verified government source. Visa rules, fees, and embassy practices can change, and individual embassies may apply proof of funds requirements differently. Always verify your specific situation with your nearest Thai embassy before applying, especially if your funds involve stocks, crypto, or several accounts combined.*
