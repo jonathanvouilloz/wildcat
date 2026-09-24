@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "article_slug": "thailand-visa-guide-by-training-length",
+  "article_spec_hash": "sha256:68ffd7903591d9831049221239e293de7be3cac34956b01a629dcd6faddeb64d",
+  "visual_context_hash": "sha256:a7d885f2e03f25dc7c85222e28d6a95d62077b90149e00a9f6c53b2cdbc91923",
+  "status": "draft",
+  "images": [
+    {
+      "id": "IMG-001",
+      "role": "cover",
+      "placement": "cover",
+      "intent": "Signal YMYL + E-E-A-T immediat : Meaw (auteur, owner qui gere les dossiers DTV) associee visuellement au sujet visa, sans imagerie officielle/gouvernementale usurpee.",
+      "subject": "Meaw reviewing a passport and visa paperwork outdoors at the camp",
+      "description": "Medium shot, golden hour light, Meaw seated at an outdoor table with a passport, printed forms and a phone, calm and focused expression. Blurred tropical background, open-air training area visible but out of focus. No flag, airline or government logo shown.",
+      "preset": "blog-cover",
+      "provider": "template",
+      "text": {
+        "mode": "overlay",
+        "content": "Thailand Visa Guide 2026: Choose by Training Length",
+        "language": "en",
+        "exact": false,
+        "maximum_lines": 3
+      },
+      "layout": {
+        "aspect_ratio": "16:9",
+        "dimensions": "1792x1024",
+        "focal_position": "center",
+        "safe_zone": "bottom-third reserved for title overlay per blog-cover preset"
+      },
+      "references": [
+        { "path": "refs/blog-cover-bg.webp", "purpose": "style", "required": true }
+      ],
+      "negative_constraints": [
+        "no government or airline logo",
+        "no specific flag rendered as a document detail",
+        "no warrior/aggressive imagery (brand anti-pattern)",
+        "no invented statistics or on-image data"
+      ],
+      "output": {
+        "path": "src/content/blog/covers/thailand-visa-guide-by-training-length.webp",
+        "format": "webp",
+        "quality": 90
+      },
+      "alt_text": "Wildcat Muay Thai owner reviewing Thailand visa paperwork ahead of a long training stay",
+      "approval_required": true
+    }
+  ]
+}

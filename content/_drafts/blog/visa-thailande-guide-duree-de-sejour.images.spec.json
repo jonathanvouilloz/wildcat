@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "article_slug": "visa-thailande-guide-duree-de-sejour",
+  "article_spec_hash": "sha256:1fbc1d0c68cb0db44807c2bd5b1d2346fd956d77c8290071ff9081421a9b2add",
+  "visual_context_hash": "sha256:a7d885f2e03f25dc7c85222e28d6a95d62077b90149e00a9f6c53b2cdbc91923",
+  "status": "draft",
+  "images": [
+    {
+      "id": "IMG-001",
+      "role": "cover",
+      "placement": "cover",
+      "intent": "Signal YMYL + E-E-A-T immediat en FR : Meaw associee visuellement au sujet visa, sans imagerie officielle/gouvernementale usurpee.",
+      "subject": "Meaw examinant un passeport et des documents de visa en extérieur au camp",
+      "description": "Plan moyen, lumière dorée de fin de journée, Meaw assise à une table extérieure avec un passeport, des formulaires imprimés et un téléphone, expression calme et concentrée. Arrière-plan tropical flou, zone d'entraînement en plein air visible mais hors focus. Aucun drapeau, logo de compagnie aérienne ou logo gouvernemental visible.",
+      "preset": "blog-cover",
+      "provider": "template",
+      "text": {
+        "mode": "overlay",
+        "content": "Visa Thaïlande 2026 : lequel choisir selon ton séjour",
+        "language": "fr",
+        "exact": false,
+        "maximum_lines": 3
+      },
+      "layout": {
+        "aspect_ratio": "16:9",
+        "dimensions": "1792x1024",
+        "focal_position": "center",
+        "safe_zone": "bottom-third reserved for title overlay per blog-cover preset"
+      },
+      "references": [
+        { "path": "refs/blog-cover-bg.webp", "purpose": "style", "required": true }
+      ],
+      "negative_constraints": [
+        "aucun logo gouvernemental ou de compagnie aerienne",
+        "aucun drapeau specifique rendu comme detail de document",
+        "aucune imagerie warrior/agressive (anti-pattern de marque)",
+        "aucune statistique ou donnee inventee affichee sur l'image"
+      ],
+      "output": {
+        "path": "src/content/blog/covers/visa-thailande-guide-duree-de-sejour.webp",
+        "format": "webp",
+        "quality": 90
+      },
+      "alt_text": "Fondatrice de Wildcat Muay Thai examinant des documents de visa avant un long séjour d'entraînement",
+      "approval_required": true
+    }
+  ]
+}

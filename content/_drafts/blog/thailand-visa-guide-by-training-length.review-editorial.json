@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "criteria": [
+    {
+      "id": "angle_intent",
+      "status": "PASS",
+      "evidence": "The article organizes entirely around 'choose by training length' (decision table in the 'Choose your Thailand visa by training length' section, then one H2 per duration bracket), matching the brief's Mode B differentiating angle and the confirmed SERP gap (no scanned competitor covers this axis).",
+      "correction": ""
+    },
+    {
+      "id": "bluf_progression",
+      "status": "PASS",
+      "evidence": "Each H2 opens with the direct answer before detail: 'The short version:...', 'Here is the question that actually matters:...' plus immediate table, 'If you are coming for a trial week... the exemption covers it', etc. No section buries its conclusion.",
+      "correction": ""
+    },
+    {
+      "id": "voice_patte",
+      "status": "PASS",
+      "evidence": "We-voice throughout, no warrior/hardcore register, no visa-approval promise, closes with the same discretionary-elements disclaimer pattern used in the sibling article dtv-visa-new-requirements-2026.md. British spelling conventions (travellers) match the site's established EN register.",
+      "correction": ""
+    },
+    {
+      "id": "semantic_naturalness",
+      "status": "PASS",
+      "evidence": "Keywords appear in natural_form from the spec ('the 60-day visa exemption (now 30 days)' area rendered as prose, 'a 90-day tourist visa' as 'the tourist visa... 90 days maximum'), no raw query stuffing detected. Confirmed by seo_lint bold.required_entities and no keyword-stuffing rule tripping.",
+      "correction": ""
+    },
+    {
+      "id": "proofs_limits",
+      "status": "PASS",
+      "evidence": "CLM-006 (21 nationalities) is attributed explicitly to visasnews.com with 'we have not seen it independently corroborated elsewhere, so treat it as reported rather than as settled fact.' CLM-011 (Wildcat DTV paperwork) uses only the allowed wording 'we file/we prepare... every month' with no invented count. CLM-010 is carried over as fact per the spec's explicit instruction not to re-hedge an already-verified internal claim. The overstay FAQ answer stays qualitative (no invented fine amount, since no claim/source covers it).",
+      "correction": ""
+    },
+    {
+      "id": "links_cta",
+      "status": "PASS",
+      "evidence": "All 7 required internal links plus both optional links (Stay & Train, drop-in pricing) are present with the exact anchors from the spec's maillage table, and seo_lint's links.required_from_spec rule passed with an empty missing list. Exactly one final CTA, '[**Ask us about your visa timeline →**](/contact?intent=dtv)', matching the spec's cta block.",
+      "correction": ""
+    },
+    {
+      "id": "faq_conclusion",
+      "status": "PASS",
+      "evidence": "All 7 FAQ answers add a distinct angle (overstay consequences, DTV-holder impact, nationality exceptions) rather than restating the body verbatim. Conclusion is a short synthesis plus a single transition line into the CTA, not a mechanical recap.",
+      "correction": ""
+    },
+    {
+      "id": "utility_distinction",
+      "status": "PASS",
+      "evidence": "The decision table and the four length-bracket sections give a reader an actionable answer a generic 'what changed' recap would not, directly exploiting the gap the brief's SERP scan identified.",
+      "correction": ""
+    },
+    {
+      "id": "localization",
+      "status": "PASS",
+      "evidence": "Locale is en throughout, register is simple direct EN for a non-native audience, THB currency and site-specific figures (28,000 THB Stay & Train referenced only via link, not restated), no French mixed in, translationKey matches slug, no locale-prefixed internal links.",
+      "correction": ""
+    }
+  ],
+  "priority_actions": [],
+  "publication_recommendation": "ready_to_publish"
+}

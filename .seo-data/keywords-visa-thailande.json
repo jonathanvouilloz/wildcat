@@ -1,0 +1,26 @@
+{
+  "topic": "visa thailande",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-09-24T00:00:00Z",
+  "fallback_used": "DataForSEO API returned HTTP 402 Payment Required on 2026-09-24 (account out of credits). Volumes below are carried over from a DataForSEO FR pull dated 2026-09-14 provided by the requester, NOT re-validated live.",
+  "primary": {
+    "keyword": "visa thailande",
+    "search_volume": 8100,
+    "cpc": null,
+    "competition": null,
+    "difficulty": null,
+    "intent": "informational",
+    "intent_probability": null,
+    "source": "provided-2026-09-14-unvalidated"
+  },
+  "secondaries": [
+    {"keyword": "visa touristique thailande", "search_volume": 720, "source": "provided-2026-09-14-unvalidated"}
+  ],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": [
+    {"keyword": "visa thailande", "reason": "8100/mo national head term, article FR quasi inexistant sur le blog (3 articles FR seulement au 2026-09-24)"}
+  ]
+}

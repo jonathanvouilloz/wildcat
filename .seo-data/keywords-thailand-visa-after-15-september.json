@@ -1,0 +1,29 @@
+{
+  "topic": "thailand visa exemption",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-09-24T00:00:00Z",
+  "fallback_used": "DataForSEO API returned HTTP 402 Payment Required on 2026-09-24 (account out of credits). Volumes below are carried over from a DataForSEO US pull dated 2026-09-14 provided by the requester, NOT re-validated live. Flag to Jonathan: top up DataForSEO credits, then re-run /seo-keywords to confirm before the next visa-cluster article.",
+  "primary": {
+    "keyword": "thailand visa exemption",
+    "search_volume": 110,
+    "cpc": null,
+    "competition": null,
+    "difficulty": null,
+    "intent": "informational",
+    "intent_probability": null,
+    "source": "provided-2026-09-14-unvalidated"
+  },
+  "secondaries": [
+    {"keyword": "60 day visa exemption thailand", "search_volume": 210, "source": "provided-2026-09-14-unvalidated"},
+    {"keyword": "90-day tourist visa thailand", "search_volume": 170, "source": "provided-2026-09-14-unvalidated"},
+    {"keyword": "thailand visa 30 days 2026", "search_volume": null, "source": "provided-2026-09-14-unvalidated", "note": "volume not given, variant only"},
+    {"keyword": "thailand new visa rules", "search_volume": null, "source": "provided-2026-09-14-unvalidated", "note": "volume not given, variant only"}
+  ],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": [
+    {"keyword": "60 day visa exemption thailand", "reason": "highest volume of the cluster (210/mo) + brand-new rule = low content saturation as of 2026-09-24"}
+  ]
+}

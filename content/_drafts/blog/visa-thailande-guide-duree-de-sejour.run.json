@@ -1,0 +1,86 @@
+{
+  "slug": "visa-thailande-guide-duree-de-sejour",
+  "locale": "fr",
+  "translation_key": "thailand-visa-guide-by-training-length",
+  "updated_at": "2026-09-24T08:52:00+00:00",
+  "status": "ready_to_publish",
+  "ready_to_publish": true,
+  "preconditions": {
+    "source_hash_verified": true,
+    "context_hash_note": "context_hash present in spec.json (sha256:bf0a158a...) references the .project-cache content-context snapshot cited in the brief; not independently recomputed by this worker (no compile_context.py invocation), but the brief's own snapshot hash line matches the spec.",
+    "source_hash": "sha256:52fe964fcb925cca2d08fa494866d46cc7f11fc2e94592f8351b400d4347c729",
+    "brief_hash_verified_against_spec": true
+  },
+  "steps": {
+    "images_spec": {
+      "status": "done_pre_existing",
+      "output": "content/_drafts/blog/visa-thailande-guide-duree-de-sejour.images.spec.json",
+      "note": "Present before this run; article_spec_hash inside it (sha256:1fbc1d0c...) points to the spec.json content BEFORE the tldr field was added in this run, so it no longer matches spec.json's current hash byte-for-byte. Cosmetic staleness only: cover generation reads subject/description/preset directly from images.spec.json, not the spec hash pointer, and the cover output is unaffected."
+    },
+    "cover": {
+      "status": "done",
+      "output": "src/content/blog/covers/visa-thailande-guide-duree-de-sejour.webp",
+      "hash": "sha256:5770deae16f26319c39b93fcab63350f2a84dde9e95281cb8d928e2ec13687b2",
+      "command": "python cli.py --project wildcat --image-spec visa-thailande-guide-duree-de-sejour.images.spec.json --image-id IMG-001",
+      "provider": "template (blog-cover preset, PIL, no API key required)"
+    },
+    "seo_write": {
+      "status": "done",
+      "output": "content/_drafts/blog/visa-thailande-guide-duree-de-sejour.draft.md",
+      "word_count": 2262,
+      "note": "Written directly against the validated brief/spec (Golden Rules: tutoiement, accents, bold_entities x1 each, keyword natural forms, structure H2/H3, FAQ H3, internal links, no em-dash)."
+    },
+    "humanizer": {
+      "status": "done",
+      "output": "content/_drafts/blog/visa-thailande-guide-duree-de-sejour.draft.md",
+      "note": "Em-dash: 0/0. Corrective juxtaposition reduced to 1 occurrence (the single legitimate 'pas X, mais Y' framing the real question vs. the obvious one). Removed 2 significance-inflation tells ('coeur des regles', 'ce qui compte le plus a retenir' repeated device). No curly quotes, no filler phrases, no forced triads."
+    },
+    "claims_check": {
+      "status": "done",
+      "note": "All 11 spec claims cross-checked against the article body. CLM-006 (21 nationalities) attributed explicitly to visasnews.com, never stated as absolute fact. CLM-007/008 (proof of funds, section 12(2)) kept the 1980/2000 nuance, not flattened. CLM-010 (DTV criteria unchanged) is spec-status to_confirm: used with an explicit hedge in the FAQ answer and flagged with an inline <!-- CLM-010 to_confirm --> HTML comment in the draft body for human confirmation before final publish, following the existing project pattern (burning-season-chiang-mai.md). CLM-011 (Wildcat files DTV paperwork monthly) reused the spec's allowed_wording verbatim, no invented number."
+    },
+    "assembly": {
+      "status": "done",
+      "output": "src/content/blog/fr/visa-thailande-guide-duree-de-sejour.md",
+      "hash": "sha256:cd36b9b8c25fcdbcfb6518ccc7d5b726bb1e65e9b90525d82f4e586f2cf19c48",
+      "command": "build_article.py --spec ... --body ... --project ... --locale fr",
+      "note": "Deterministic frontmatter assembly. tldr (5 bullets) added to spec.json frontmatter.fields before assembly per instructions."
+    },
+    "schema": {
+      "status": "done",
+      "output": "content/_drafts/blog/visa-thailande-guide-duree-de-sejour.schema.json",
+      "hash": "sha256:6b91eabc32c8a76f2209ea71404e553985d44a3c0ff0c3ba82fe8eb601e5985b",
+      "nodes": 2,
+      "note": "BlogPosting + FAQPage (7 questions extracted from the FAQ H3 section). Deterministic artifact; the live site renders its own JSON-LD at request time from frontmatter (src/pages/[lang]/blog/[slug].astro), this file is not consumed at build."
+    },
+    "lint": {
+      "status": "done",
+      "mode": "shadow",
+      "output": "content/_drafts/blog/visa-thailande-guide-duree-de-sejour.review-static.json",
+      "hash": "sha256:ee810f6fb7f8a31669b8587eeb759e115421efa3a3b7fe4678ef949956cfe20e",
+      "errors": 0,
+      "warnings": 1,
+      "warning_detail": "links.contextual_target_per_1000_min: 2.71 internal links / 1000 words vs target 3 (severity=warning only, non-blocking even in enforce mode). Expected: the anti-cannibalization constraint caps this article's internal links to the 6 bilingual silo pages listed in the brief, deliberately excluding the 4 EN-only sibling blog articles that would otherwise raise density."
+    },
+    "review": {
+      "status": "done",
+      "output": "content/_drafts/blog/visa-thailande-guide-duree-de-sejour.review-editorial.json",
+      "hash": "sha256:08b2d89aae8bcdf7e15a086bbac21b73b445e0e915c74ea92b138894c969ec45",
+      "result": "PASS",
+      "publication_recommendation": "ready_to_publish",
+      "priority_actions": [
+        "Faire confirmer CLM-010 (criteres DTV inchanges par la reforme du 15/09/2026) avant mise en ligne finale."
+      ]
+    },
+    "cover_join": {
+      "status": "done",
+      "note": "Cover exists at the contract path, article frontmatter cover field points to it (../covers/visa-thailande-guide-duree-de-sejour.webp), coverAlt matches images.spec.json alt_text."
+    }
+  },
+  "blockers": [],
+  "non_blocking_notes": [
+    "CLM-010 (DTV eligibility criteria unchanged by the 15/09 reform) is spec-status to_confirm: hedged in the FAQ answer and flagged inline for human confirmation, per doctrine (never present an unconfirmed claim as fact).",
+    "images.spec.json's article_spec_hash pointer is stale relative to spec.json after the tldr addition (cosmetic only, does not affect the generated cover)."
+  ],
+  "resume_command": "Article is ready_to_publish. No resume needed. If CLM-010 gets independently re-verified, remove the <!-- CLM-010 to_confirm --> comment from content/_drafts/blog/visa-thailande-guide-duree-de-sejour.draft.md and re-run the assembly step (build_article.py) to refresh src/content/blog/fr/visa-thailande-guide-duree-de-sejour.md."
+}

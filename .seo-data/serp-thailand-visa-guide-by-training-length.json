@@ -1,0 +1,28 @@
+{
+  "keyword": "thailand visa exemption 30 days / thailand tourist visa after september 2026",
+  "language": "en",
+  "generated_at": "2026-09-24T00:00:00Z",
+  "method": "WebSearch + WebFetch (general-purpose research subagent, since seo-serp skill tooling for WebSearch/WebFetch is not directly available to content-creator)",
+  "top_results": [
+    {"url": "visasnews.com (multiple dedicated posts)", "type": "specialised visa news", "notes": "cites Royal Gazette vol.143 Special Issue 207 (31/08/2026) with PDF links, dated 31/08/2026; has a dedicated 30-day extension article (17/09/2026) with a section 'Visa exemption or Tourist e-Visa for stays longer than 30 days?' that explicitly says DTV, ED visa and long-stay alternatives are absent from the discussion"},
+    {"url": "en.wikipedia.org/wiki/Visa_policy_of_Thailand", "type": "encyclopedic", "notes": "structured (exemption / VOA-eVisa / ETA upcoming / visa types) but no visible update date in the fetched extract, freshness post-15/09 not guaranteed"},
+    {"url": "th.usembassy.gov/thai-visas-for-americans", "type": "government (US embassy)", "notes": "HTTP 403, not fetchable by automated tools -- even the most authoritative source is hard to access, likely explains why depth on it is thin across the SERP"},
+    {"url": "insubuy.com", "type": "travel insurer / marketing info", "notes": "commercial angle"},
+    {"url": "siam-legal.com", "type": "immigration law firm", "notes": "'Thailand Approves End of 60-Day Visa-Free Stay'"},
+    {"url": "fragomen.com", "type": "corporate immigration law firm", "notes": "client alert format"},
+    {"url": "atlasvolunteers.com, thaiembassy.com, thailandinsiderguide.com, visafoto.com", "type": "generic visa info / agencies", "notes": "not fetched in depth"}
+  ],
+  "intent_signal": "informational (understand the new rule), with a transactional fringe on insurer/agency sites pushing visa-service upsells",
+  "serp_features": {
+    "people_also_ask": "not visible in raw WebSearch results (likely present on mobile SERP, not verifiable with this tooling)",
+    "featured_snippet": "none identified in the fetched extracts",
+    "local_pack": false
+  },
+  "common_ground": "all scanned pages explain what changed on 15 September 2026 (60d to 30d exemption, one 30-day extension, land-border cap); none frame the choice by length of stay for a specific purpose (training, work, retirement)",
+  "gap": {
+    "description": "Zero scanned result (EN) answers 'I want to stay X weeks/months to train, which visa fits' -- confirmed explicitly by visasnews.com's own 17/09/2026 article, which flags DTV/ED/long-stay routes as absent from its own discussion. The SERP is 100% generic 'what changed', with no duration-based decision framework and no sport/training angle.",
+    "weakness": "no first-party grounding on any competitor page; none combine visa mechanics with lived DTV-filing experience"
+  },
+  "recommended_angle": "A duration-based decision grid (<=30 days exemption / 30-60 days exemption+extension / up to 90 days TR / 3-6+ months DTV / ED as alternative) written from the point of view of a camp that files DTV paperwork every month -- an angle none of the scanned competitors cover, explicitly confirmed as a gap by one of the top-ranking pages itself.",
+  "anti_cannibalization_check": "recommended angle does not overlap with existing site content: /blog/dtv-vs-tourist-visa-runs-cost owns the cost comparison, /blog/dtv-visa-new-requirements-2026 owns the 31/08+15/09 news angle, /blog/ed-visa-vs-dtv-muay-thai owns ED-vs-DTV depth"
+}

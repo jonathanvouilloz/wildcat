@@ -1,0 +1,28 @@
+{
+  "keyword": "visa thailande 2026 / exemption de visa thailande 30 jours 2026 combien de temps rester",
+  "language": "fr",
+  "generated_at": "2026-09-24T00:00:00Z",
+  "method": "WebSearch + WebFetch (general-purpose research subagent). Note methodo : la requete FR litterale a d'abord renvoye un SERP quasi 100% anglophone (outil de recherche base US) ; un vrai SERP francophone a ete obtenu avec une requete plus naturelle en francais.",
+  "top_results": [
+    {"url": "air-journal.fr", "type": "presse specialisee aviation/voyage", "notes": "H1 + 4 H2 (maintien France, visa obligatoire long sejour, 2 entrees terrestres/an, liste pays) ; cite Royal Gazette et ambassade de Thailande a Paris sans citation directe (paraphrase) ; date 2/09/2026"},
+    {"url": "lepetitjournal.com", "type": "presse expat francophone", "notes": "H1 seul, pas de H2 structures ; cite 'La Gazette Royale a confirme la date' ; date et mise a jour 1-2/09/2026"},
+    {"url": "visasnews.com/en", "type": "actualite visa specialisee (EN)", "notes": "apparait meme sur requete FR en 3e position, en anglais -- signal que le contenu francophone dedie est mince"},
+    {"url": "visafrancethailande.fr", "type": "agence de visa", "notes": "vecteur commercial"},
+    {"url": "theo-courant.com, quefaireenthailande.com, thailandeevasion.com", "type": "blogs voyage", "notes": "non fetches en profondeur"},
+    {"url": "demarches-thailande.com", "type": "agence / service de demarches", "notes": "vecteur commercial, angle 'ce qui change pour vous'"},
+    {"url": "thailandee.com/blog", "type": "media communautaire expat", "notes": "non fetche en profondeur"}
+  ],
+  "intent_signal": "informationnel, domine par la presse d'actualite voyage (air-journal, lepetitjournal) plutot que par les agences, mais composante transactionnelle latente visible via les agences en position 4 et 8",
+  "serp_features": {
+    "people_also_ask": "non determinable depuis cet outil",
+    "featured_snippet": "non determinable depuis cet outil",
+    "local_pack": false
+  },
+  "common_ground": "toutes les pages FR scannees expliquent le changement 60j vers 30j + prolongation payante ; aucune ne traite le DTV, l'ED, ou un guide de choix de visa selon la duree du sejour",
+  "gap": {
+    "description": "Le SERP FR est encore plus pauvre que l'EN sur l'angle duree d'entrainement : zero contenu sportif, zero guide de choix. Meme gap qu'en EN, confirme independamment sur un corpus different.",
+    "weakness": "contenu FR majoritairement presse d'actualite generaliste ou agences commerciales ; aucun acteur combine expertise visa reelle (dossiers DTV) et angle entrainement/sejour long"
+  },
+  "recommended_angle": "Meme grille de decision par duree que la version EN, adaptee a l'intention large francophone 'visa thailande' (8100/mo) avec un angle entrainement/sejour long absent du SERP francophone scanne.",
+  "anti_cannibalization_check": "aucun article FR existant sur le sujet visa (le blog FR ne compte que 3 articles au 2026-09-24, aucun sur les visas) ; pas de risque de cannibalisation interne"
+}

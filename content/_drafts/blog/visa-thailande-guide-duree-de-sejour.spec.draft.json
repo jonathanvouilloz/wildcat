@@ -1,0 +1,107 @@
+{
+  "slug": "visa-thailande-guide-duree-de-sejour",
+  "module": "C",
+  "snippet": {
+    "title": "Visa Thaïlande 2026 : lequel choisir selon ton séjour",
+    "h1": "Quel visa pour la Thaïlande selon la durée de ton séjour d'entraînement ?",
+    "description": "Depuis le 15 septembre 2026, l'exemption de visa en Thaïlande passe à 30 jours. Le bon visa dépend de la durée de ton séjour d'entraînement."
+  },
+  "dates": {
+    "pubDate": "2026-09-24",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": { "minimum": 1900, "maximum": 2600 },
+  "primary_keyword": "visa thailande",
+  "keywords": [
+    { "role": "primary", "query": "visa thailande", "natural_form": "un visa pour la Thaïlande", "volume": 8100, "placements": ["title", "h1", "intro", "meta"] },
+    { "role": "secondary", "query": "visa touristique thailande", "natural_form": "le visa touristique thaïlandais", "volume": 720, "placements": ["h2:visa-touristique-90-jours", "body"] },
+    { "role": "secondary", "query": "exemption de visa thailande", "natural_form": "l'exemption de visa en Thaïlande", "volume": null, "placements": ["intro", "h2:ce-qui-a-change"] },
+    { "role": "secondary", "query": "visa thailande 2026", "natural_form": "les règles de visa Thaïlande en 2026", "volume": null, "placements": ["intro", "h2:ce-qui-a-change"] },
+    { "role": "secondary", "query": "duree du sejour en thailande sans visa", "natural_form": "combien de temps rester en Thaïlande sans visa", "volume": null, "placements": ["h2:exemption-30-jours"] },
+    { "role": "secondary", "query": "visa thailande longue duree", "natural_form": "un visa longue durée pour la Thaïlande", "volume": null, "placements": ["h2:long-sejour-dtv-ou-ed"] },
+    { "role": "long_tail", "query": "visa thailande pour entrainement muay thai", "natural_form": "un visa Thaïlande pour un entraînement de Muay Thai", "volume": null, "placements": ["h2:long-sejour-dtv-ou-ed"] },
+    { "role": "long_tail", "query": "combien de temps rester en thailande sans visa", "natural_form": "combien de temps on peut rester en Thaïlande sans visa", "volume": null, "placements": ["h2:exemption-30-jours"] },
+    { "role": "long_tail", "query": "nombre d'entrees terrestres thailande", "natural_form": "le nombre d'entrées terrestres autorisées", "volume": null, "placements": ["h2:21-nationalites"] }
+  ],
+  "bold_entities": [
+    { "entity": "visa Thaïlande", "accepted_forms": ["exemption de visa", "l'exemption"], "required": true, "maximum_occurrences": 1 },
+    { "entity": "visa touristique (TR)", "accepted_forms": ["visa touristique"], "required": true, "maximum_occurrences": 1 },
+    { "entity": "DTV", "accepted_forms": ["Destination Thailand Visa"], "required": true, "maximum_occurrences": 1 },
+    { "entity": "Muay Thai", "accepted_forms": [], "required": true, "maximum_occurrences": 1 },
+    { "entity": "Chiang Mai", "accepted_forms": [], "required": true, "maximum_occurrences": 1 },
+    { "entity": "Wildcat", "accepted_forms": [], "required": true, "maximum_occurrences": 1 },
+    { "entity": "preuve de fonds", "accepted_forms": [], "required": true, "maximum_occurrences": 1 },
+    { "entity": "TDAC", "accepted_forms": ["Thailand Digital Arrival Card"], "required": true, "maximum_occurrences": 1 }
+  ],
+  "structure": [
+    { "id": "ce-qui-a-change", "level": 2, "heading": "Ce qui a changé le 15 septembre 2026", "purpose": "Recap court", "target_keywords": ["exemption de visa thailande", "visa thailande 2026"] },
+    { "id": "21-nationalites", "level": 3, "heading": "Les 21 nationalités qui doivent désormais demander un visa à l'avance", "purpose": "Sous-section factuelle courte, fusionnee sous ce-qui-a-change suite au verdict brief-critic (reduction du nombre de H2)", "target_keywords": ["nombre d'entrees terrestres thailande"] },
+    { "id": "preuve-de-fonds-tdac", "level": 3, "heading": "Preuve de fonds et TDAC", "purpose": "Sous-section pratique, fusionnee sous ce-qui-a-change suite au verdict brief-critic (reduction du nombre de H2)", "target_keywords": [] },
+    { "id": "choisir-par-duree", "level": 2, "heading": "Choisis ton visa Thaïlande selon la durée de ton séjour", "purpose": "Grille de decision differenciante, coeur de l'article", "target_keywords": ["visa thailande"] },
+    { "id": "exemption-30-jours", "level": 2, "heading": "S'entraîner avec l'exemption de 30 jours", "purpose": "Mecanique de l'exemption post-reforme", "target_keywords": ["duree du sejour en thailande sans visa", "combien de temps rester en thailande sans visa"] },
+    { "id": "visa-touristique-90-jours", "level": 2, "heading": "Jusqu'à 90 jours : le visa touristique (TR)", "purpose": "Explique le TR comme option intermediaire", "target_keywords": ["visa touristique thailande"] },
+    { "id": "long-sejour-dtv-ou-ed", "level": 2, "heading": "À partir de 3 à 6 mois : le DTV, ou l'ED en alternative", "purpose": "Route longue duree, renvoie vers le silo DTV bilingue", "target_keywords": ["visa thailande pour entrainement muay thai", "visa thailande longue duree"] }
+  ],
+  "internal_links": [
+    { "url": "/dtv-visa", "anchor": "le guide complet du visa DTV", "section_id": "long-sejour-dtv-ou-ed", "required": true, "reason": "maillage pillar du silo DTV, page bilingue" },
+    { "url": "/dtv-visa/eligibility", "anchor": "vérifie ton éligibilité au DTV", "section_id": "long-sejour-dtv-ou-ed", "required": true, "reason": "maillage satellite du silo DTV, page bilingue" },
+    { "url": "/dtv-visa/long-stay-training", "anchor": "budgétise un séjour d'entraînement long", "section_id": "long-sejour-dtv-ou-ed", "required": true, "reason": "maillage satellite conversion, page bilingue" },
+    { "url": "/stay-train", "anchor": "notre offre Stay & Train", "section_id": "long-sejour-dtv-ou-ed", "required": false, "reason": "conversion additionnelle, page bilingue" },
+    { "url": "/classes#pricing", "anchor": "les tarifs des cours à la séance", "section_id": "exemption-30-jours", "required": false, "reason": "conversion court sejour, page bilingue" },
+    { "url": "/contact?intent=dtv", "anchor": "Pose-nous tes questions sur ton visa", "section_id": "conclusion", "required": true, "reason": "CTA final unique" }
+  ],
+  "sources": [
+    { "id": "SRC-001", "url": "https://www.tatnews.org/2026/09/thailand-introduces-new-30-day-and-15-day-visa-exemption-rules-from-15-september/", "title": "TAT Newsroom, regles d'exemption de visa de 30 et 15 jours des le 15 septembre", "status": "verified", "accessed_at": "2026-09-24T00:00:00Z" },
+    { "id": "SRC-002", "url": "https://visasnews.com/en/thailand-these-21-nationalities-will-need-a-visa-starting-september-15-2026/", "title": "VisasNews, 21 nationalites necessitant un visa des le 15 septembre 2026", "status": "verified", "accessed_at": "2026-09-24T00:00:00Z" },
+    { "id": "SRC-003", "url": "https://www.issacompass.com/insights/thailand-tourist-visa-vs-visa-exemption-in-2026-what-the-60-day-stay-rule-actual", "title": "ISSA Compass, visa touristique thailandais vs exemption en 2026", "status": "verified", "accessed_at": "2026-09-24T00:00:00Z" },
+    { "id": "SRC-004", "url": "https://www.issacompass.com/insights/thailand-visa-exemption-2026", "title": "ISSA Compass, vue d'ensemble de l'exemption de visa 2026", "status": "verified", "accessed_at": "2026-09-24T00:00:00Z" },
+    { "id": "SRC-005", "url": "https://visasnews.com/en/thailand-reminds-travelers-to-be-ready-to-show-proof-of-funds-on-arrival/", "title": "VisasNews, rappel de la preuve de fonds a l'arrivee", "status": "verified", "accessed_at": "2026-09-24T00:00:00Z" },
+    { "id": "SRC-006", "url": "https://samuiforsale.com/law-texts/immigration-act.html", "title": "Texte de loi heberge, Thailand Immigration Act B.E. 2522, Section 12", "status": "verified", "accessed_at": "2026-09-24T00:00:00Z" },
+    { "id": "SRC-007", "url": "https://en.wikipedia.org/wiki/Thailand_Digital_Arrival_Card", "title": "Wikipedia, Thailand Digital Arrival Card", "status": "verified", "accessed_at": "2026-09-24T00:00:00Z" }
+  ],
+  "claims": [
+    { "id": "CLM-001", "statement": "L'exemption de visa en Thaïlande est passée de 60 à 30 jours pour la plupart des nationalités le 15 septembre 2026, avec une prolongation de 30 jours possible.", "status": "confirmed", "source_ids": ["SRC-001", "SRC-003"] },
+    { "id": "CLM-002", "statement": "La prolongation de 30 jours coûte 1 900 THB et est accordée à la discrétion de l'immigration thaïlandaise, jamais automatiquement.", "status": "confirmed", "source_ids": ["SRC-001"], "limits": "Montant non capture verbatim dans ce fetch de tatnews.org ; corrobore par docs/dtv-fact-check.md et par l'article EN dtv-visa-new-requirements-2026 deja publie." },
+    { "id": "CLM-003", "statement": "Les entrées sous exemption via un poste-frontière terrestre sont limitées à deux par année civile, sauf Malaisie, Brunei, Indonésie et Singapour.", "status": "confirmed", "source_ids": ["SRC-001"] },
+    { "id": "CLM-004", "statement": "Les voyageurs admis avant le 15 septembre 2026 conservent la durée de séjour accordée à leur entrée.", "status": "confirmed", "source_ids": ["SRC-001"], "limits": "Non capture verbatim dans ce fetch ; corrobore par l'article EN dtv-visa-new-requirements-2026 deja publie sur ce site." },
+    { "id": "CLM-005", "statement": "Le visa touristique thaïlandais (TR) donne 60 jours, prolongeables une fois de 30 jours pour un maximum de 90 jours, et se demande avant le départ.", "status": "confirmed", "source_ids": ["SRC-003"] },
+    { "id": "CLM-006", "statement": "21 nationalités (Albanie, Andorre, Colombie, Cuba, Dominique, République dominicaine, Équateur, Guatemala, Jamaïque, Kosovo, Monaco, Maroc, Mexique, Panama, Papouasie-Nouvelle-Guinée, Saint-Marin, Sri Lanka, Tonga, Trinité-et-Tobago, Uruguay, Ouzbékistan) perdent l'entrée sans visa dès le 15 septembre 2026 et doivent demander un e-Visa à l'avance.", "status": "confirmed", "source_ids": ["SRC-002"], "limits": "Claim a source unique, non recoupee independamment au moment de la recherche. Presenter comme rapporte par visasnews.com, jamais comme un fait absolu non attribue." },
+    { "id": "CLM-007", "statement": "Preuve de fonds à l'arrivée : 10 000 THB par personne (20 000 THB famille) sous exemption/VOA/transit, 20 000 THB par personne (40 000 THB famille) sous visa touristique/non-immigrant, moins de 12 ans exemptés. Pas une nouvelle règle : exigence du ministère de l'Intérieur de 1980, montants mis à jour en 2000.", "status": "confirmed", "source_ids": ["SRC-005"], "limits": "La source presente ca comme une regle de 1980 avec montants mis a jour en 2000 ; ne pas aplatir en simple '1980'." },
+    { "id": "CLM-008", "statement": "L'entrée peut être refusée au titre de la section 12(2) de l'Immigration Act B.E. 2522 (1979) pour absence de moyens de subsistance suffisants.", "status": "confirmed", "source_ids": ["SRC-006"], "limits": "La source explicitement demandee (library.siam-legal.com) a renvoye HTTP 403 a deux reprises ; claim corrobore via le texte de loi heberge et des sources secondaires independantes." },
+    { "id": "CLM-009", "statement": "La TDAC (Thailand Digital Arrival Card) est obligatoire depuis le 1er mai 2025 pour tout étranger entrant par air, terre ou mer, à soumettre jusqu'à 72 heures avant l'arrivée, via tdac.immigration.go.th.", "status": "confirmed", "source_ids": ["SRC-007"], "limits": "Le portail gouvernemental officiel est une SPA JavaScript, non fetchable par des outils automatises ; confirme via une source secondaire citant l'Immigration Bureau et le Bangkok Post." },
+    { "id": "CLM-010", "statement": "Le Muay Thai reste une activité soft power qualifiante pour le DTV ; les 500 000 THB de fonds, les 10 000 THB de frais et la validité de 5 ans sont inchangés par cette réforme.", "status": "to_confirm", "source_ids": [], "limits": "Deja verifie cote projet dans docs/dtv-fact-check.md et publie dans dtv-visa-new-requirements-2026 (EN) ; pas re-fetche pour cet article FR." },
+    { "id": "CLM-011", "statement": "Wildcat prépare des dossiers DTV pour ses élèves chaque mois.", "status": "to_confirm", "source_ids": [], "allowed_wording": "on prepare / on depose ca chaque mois", "limits": "Claim operationnel de premiere main ; ne jamais quantifier avec un chiffre invente." }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "photo",
+      "subject": "Meaw examinant un passeport et des documents de visa en extérieur au camp",
+      "description": "Plan moyen, lumière dorée de fin de journée, Meaw assise à une table extérieure avec un passeport, des formulaires imprimés et un téléphone, expression calme et concentrée. Arrière-plan tropical flou, zone d'entraînement en plein air visible mais hors focus. Aucun drapeau, logo de compagnie aérienne ou logo gouvernemental visible.",
+      "alt_text": "Fondatrice de Wildcat Muay Thai examinant des documents de visa avant un long séjour d'entraînement",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "cta": {
+    "url": "/contact?intent=dtv",
+    "anchor": "Pose-nous tes questions sur ton visa",
+    "campaign": "blog-visa-cluster"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "visa",
+    "tags": ["visa", "dtv", "entrainement"],
+    "draft": false,
+    "locale": "fr",
+    "translation_key": "thailand-visa-guide-by-training-length",
+    "fields": {
+      "author": "Meaw Boonpradub",
+      "category": "visa",
+      "draft": false,
+      "translationKey": "thailand-visa-guide-by-training-length",
+      "coverAlt": "Fondatrice de Wildcat Muay Thai examinant des documents de visa avant un long séjour d'entraînement"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "criteria": [
+    {
+      "id": "angle_intent",
+      "status": "PASS",
+      "evidence": "L'article tient l'angle Mode B du brief (grille de choix par durée d'entraînement, absente du SERP francophone scanné) : H2 'Choisis ton visa Thaïlande selon la durée de ton séjour' avec tableau durée/visa/anticipation, ancré sur l'expérience DTV mensuelle de Wildcat (CLM-011).",
+      "correction": ""
+    },
+    {
+      "id": "bluf_progression",
+      "status": "PASS",
+      "evidence": "Chaque H2 ouvre sur la réponse avant le détail : 'Le changement tient en une phrase...', 'C'est la vraie question derrière tout ça...', 'le DTV entre en jeu' avant les nuances. Pas de répétition mécanique de structure d'un H2 à l'autre (intro directe, table, mécanique factuelle, liens de silo).",
+      "correction": ""
+    },
+    {
+      "id": "voice_patte",
+      "status": "PASS",
+      "evidence": "Tutoiement constant, 'Wildcat' jamais 'WildCat', aucun registre warrior/hardcore, CTA chaleureux ('Pose-nous tes questions sur ton visa'), disclaimer YMYL en italique en tête d'article conforme au pattern déjà utilisé sur le silo DTV (dtv_apply_disclaimer/dtv_elig_disclaimer). Une seule juxtaposition corrective ('pas..., mais...') dans tout l'article, conforme à la limite anti-patterns.",
+      "correction": ""
+    },
+    {
+      "id": "semantic_naturalness",
+      "status": "PASS",
+      "evidence": "Aucune forme brute de query dans la prose (vérifié : 'visa thailande' non accentué absent du corps) ; les formulations naturelles du brief sont utilisées ('un visa Thaïlande', 'l'exemption de visa en Thaïlande', 'le visa touristique thaïlandais'). Les 8 entités bold_entities apparaissent chacune exactement une fois, hors headings et hors liens (confirmé par le lint statique).",
+      "correction": ""
+    },
+    {
+      "id": "proofs_limits",
+      "status": "PASS",
+      "evidence": "CLM-006 (21 nationalités) attribué explicitement à visasnews.com avec mention 'source unique, non recoupée' dans le corps et le TLDR, jamais présenté comme fait absolu. CLM-007/008 (preuve de fonds, section 12(2)) formulés avec la nuance 1980/montants 2000 exigée par le claim, pas aplatis. CLM-010 (critères DTV inchangés) marqué to_confirm dans la spec : réutilisé avec hedge explicite dans la FAQ ('D'après ce qu'on vérifie régulièrement... vérifie toujours la version en vigueur') et flaggé par un commentaire HTML <!-- CLM-010 to_confirm --> dans le draft pour review humaine avant mise en ligne, suivant le pattern déjà utilisé sur burning-season-chiang-mai.md. CLM-011 (Wildcat prépare des dossiers DTV chaque mois) reprend l'allowed_wording de la spec sans chiffre inventé.",
+      "correction": "Avant publication finale, faire confirmer CLM-010 (critères DTV inchangés par la réforme du 15/09) par Meaw ou par un nouveau fetch, comme déjà signalé dans le corps."
+    },
+    {
+      "id": "links_cta",
+      "status": "PASS",
+      "evidence": "6/6 liens de la table de maillage présents avec l'ancre exacte du brief, tous vers des pages bilingues du silo /dtv-visa, /stay-train, /classes, /contact (aucun lien vers les 4 articles EN-only interdits). CTA final unique et conforme : [**Pose-nous tes questions sur ton visa →**](/contact?intent=dtv) en Conclusion, cohérent avec l'intention DTV de l'article.",
+      "correction": ""
+    },
+    {
+      "id": "faq_conclusion",
+      "status": "PASS",
+      "evidence": "Les 7 questions FAQ du brief sont toutes présentes en H3, chaque réponse apporte une information nouvelle (overstay, prolongation unique, TR vs DTV, DTV déjà obtenu, nationalité hors liste, preuve de fonds) sans reformuler le corps mot pour mot. La conclusion résume la logique de décision sans y accoler un récapitulatif mécanique, et rappelle explicitement que l'équipe répond en anglais (contrainte projet respectée).",
+      "correction": ""
+    },
+    {
+      "id": "utility_distinction",
+      "status": "PASS",
+      "evidence": "Le tableau de décision par durée et l'ancrage sur l'expérience de dépôt de dossiers DTV mensuels sont la valeur ajoutée identifiée par le scan SERP (aucun concurrent FR scanné ne les propose) ; l'article ne se contente pas de reformuler l'actualité 60->30 jours.",
+      "correction": ""
+    },
+    {
+      "id": "localization",
+      "status": "PASS",
+      "evidence": "Locale fr cohérente de bout en bout : brief FR propre (pas une traduction du brief EN), SERP FR distinct, maillage limité aux pages bilingues (contrairement à l'EN qui lie 4 articles EN-only), aucun claim 'accueil en français' (rappel explicite dans la conclusion : réponse en anglais). translationKey partagé avec la version EN ('thailand-visa-guide-by-training-length') sans être une traduction littérale : angle, structure et exemples sont propres au marché francophone.",
+      "correction": ""
+    }
+  ],
+  "priority_actions": [
+    "Faire confirmer CLM-010 (critères DTV inchangés par la réforme du 15/09/2026) avant mise en ligne finale, ou retirer le commentaire to_confirm une fois vérifié."
+  ],
+  "publication_recommendation": "ready_to_publish"
+}

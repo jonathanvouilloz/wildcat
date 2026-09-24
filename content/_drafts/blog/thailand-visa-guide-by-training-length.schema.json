@@ -1,0 +1,81 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/thailand-visa-guide-by-training-length#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/thailand-visa-guide-by-training-length",
+      "headline": "Thailand Visa Guide 2026: Choose by Training Length",
+      "description": "Thailand's visa exemption dropped to 30 days on 15 September 2026. See which visa fits your training stay, from a weekend to a 5-year DTV.",
+      "datePublished": "2026-09-24",
+      "dateModified": "2026-09-24",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/thailand-visa-guide-by-training-length.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/thailand-visa-guide-by-training-length#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need a visa at all for a short Muay Thai trip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not for most nationalities. If you are eligible for the visa exemption, a trip of up to 30 days needs no visa application at all, just a passport, proof of funds and a return or onward ticket. You only need to think about a visa once you want to stay longer than the exemption, with or without its extension, allows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if I overstay my 30-day exemption?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You owe a fine for every day past your permitted stay, and immigration handles the exact consequences case by case. A short overstay is usually resolved on the way out at the airport, but a longer one can mean detention or a future entry ban. If you think you will run past your allowed days, apply for the extension in advance or leave and re-enter cleanly rather than letting the date pass."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I extend my visa exemption more than once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The exemption allows one extension of up to 30 days, for a 1,900 THB fee, and it is granted at the discretion of the immigration officer reviewing your file. Once that extension runs out, you need a different visa category to stay longer, or you need to leave the country."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the 90-day tourist visa the same as the DTV?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, they solve different problems. The tourist visa (TR) tops out at 90 days including its extension, and it is meant for a defined short trip. The DTV runs five years, with 180 days per entry and one 180-day extension, and it is built around a longer commitment such as Muay Thai training as a soft power activity. If your training block is under three months, the tourist visa is simpler. Past that, the DTV is the route that actually fits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the 30-day rule change anything for an existing DTV holder?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The 15 September 2026 change affects visa-free entry only. If you already hold a DTV, you still get 180 days per entry and the option of one 180-day extension, handled through Thai Immigration, entirely separate from the exemption rules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my nationality is not on the exemption list?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Then you need to apply for a visa in advance regardless of how long you plan to stay, exemption timelines do not apply to you at all. The clearest way to check is the official e-Visa portal or your nearest Thai embassy, since exemption eligibility varies by nationality and can change, as the 21 nationalities losing it from 15 September 2026 show."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to show proof of funds even on a short trip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, in principle, regardless of trip length. Immigration can ask to see 10,000 THB per person under the exemption, or 20,000 THB per person if you hold a tourist or non-immigrant visa, with double those amounts for a family and an exemption for children under 12. It is rarely checked at random, but it is a real requirement, not a formality that disappeared, so carrying proof costs you nothing and removes the risk entirely."
+          }
+        }
+      ]
+    }
+  ]
+}

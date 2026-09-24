@@ -1,0 +1,15 @@
+{
+  "topic": "thailand visa exemption / choosing a Thailand visa by length of training stay",
+  "generated_at": "2026-09-24T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "thailand visa exemption",
+      "verdict": "PASS",
+      "gates": {"surprise_gap": "pass", "grounding": "pass"},
+      "signals": {"intent": "know", "pseo_scalable": false},
+      "failed_pillar": null,
+      "rationale": "Surprise Gap : un LLM generique repond correctement sur ce qui a change le 15/09/2026 (fait recent, deja documente) mais ne peut pas produire une grille de choix par duree d'entrainement ancree dans une pratique reelle de depot DTV -- confirme par la recherche SERP elle-meme, qui montre qu'aucun des ~15 resultats EN+FR scannes (dont le top 1 visasnews.com) ne traite cet angle ; un article visasnews.com du 17/09/2026 signale explicitement DTV/ED/long-sejour comme 'absent from the discussion'. Grounding : Wildcat prepare des dossiers DTV chaque mois (eeat_proof docs/seo/context.md), possede deja un silo /dtv-visa complet et des articles freres verifies (dtv-visa-new-requirements-2026, dtv-vs-tourist-visa-runs-cost, ed-visa-vs-dtv-muay-thai) qui fournissent la matiere first-party sans duplication.",
+      "priority": "haute"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "topic": "visa thailande / choisir son visa thailande selon la duree du sejour d'entrainement",
+  "generated_at": "2026-09-24T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "visa thailande",
+      "verdict": "PASS",
+      "gates": {"surprise_gap": "pass", "grounding": "pass"},
+      "signals": {"intent": "know", "pseo_scalable": false},
+      "failed_pillar": null,
+      "rationale": "Surprise Gap : le SERP francophone reel (air-journal.fr, lepetitjournal.com, agences) ne couvre que l'actualite 60j->30j, jamais un angle sportif ou une grille de choix par duree -- gap confirme par la recherche, encore plus net qu'en EN (zero contenu sportif identifie). Grounding : meme matiere first-party que la version EN (dossiers DTV mensuels geres par Meaw), et le blog FR ne compte que 3 articles au 2026-09-24 dont aucun sur les visas -- aucun risque de cannibalisation interne.",
+      "priority": "haute"
+    }
+  ]
+}

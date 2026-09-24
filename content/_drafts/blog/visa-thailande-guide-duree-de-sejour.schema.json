@@ -1,0 +1,81 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/visa-thailande-guide-duree-de-sejour#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/visa-thailande-guide-duree-de-sejour",
+      "headline": "Visa Thaïlande 2026 : lequel choisir selon ton séjour",
+      "description": "Depuis le 15 septembre 2026, l'exemption de visa en Thaïlande passe à 30 jours. Le bon visa dépend de la durée de ton séjour d'entraînement.",
+      "datePublished": "2026-09-24",
+      "dateModified": "2026-09-24",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/visa-thailande-guide-duree-de-sejour.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/visa-thailande-guide-duree-de-sejour#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il un visa pour un court séjour Muay Thai ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas forcément. Si ton séjour tient dans les 30 jours de l'exemption et que ta nationalité y a droit, tu n'as rien à demander à l'avance, seulement la TDAC à soumettre avant l'arrivée. Au-delà, il faut prévoir une prolongation, un visa touristique ou un DTV selon la durée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il en cas de dépassement de l'exemption de 30 jours ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rester au-delà de la durée accordée expose à des pénalités et peut compliquer une future entrée en Thaïlande. Le plus sûr reste de demander la prolongation avant l'échéance, ou de préparer une sortie du pays à temps plutôt que de laisser filer les jours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on prolonger l'exemption plus d'une fois ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Une seule prolongation de 30 jours est possible par entrée, pour 1 900 THB, et elle reste à la discrétion de l'immigration : ce n'est jamais automatique. Au-delà, il faut sortir du pays et revenir, ou passer sur un visa touristique ou un DTV selon la durée visée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le visa touristique de 90 jours, c'est la même chose que le DTV ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le visa touristique (TR) plafonne à 90 jours, se demande avant le départ et convient à un séjour ciblé de deux à trois mois. Le DTV est un visa distinct, pensé pour un projet plus long, avec ses propres critères d'éligibilité et sa propre validité."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La règle des 30 jours change-t-elle quelque chose pour un DTV déjà obtenu ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le DTV reste un visa à part entière, avec ses propres règles de validité et d'entrée, indépendantes de l'exemption. D'après ce qu'on vérifie régulièrement sur les dossiers de nos élèves, la réforme du 15 septembre ne modifie rien pour un DTV déjà en poche, mais vérifie toujours la version en vigueur auprès de ton ambassade avant de t'y fier entièrement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et si ma nationalité n'est pas sur la liste des pays exemptés ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si ta nationalité ne bénéficie d'aucune exemption, ou si elle vient d'en sortir comme les 21 nationalités mentionnées plus haut, la marche à suivre reste la même : demander un e-Visa avant le départ, via le portail officiel, en fonction de la durée de séjour visée (touristique ou DTV selon le cas)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il montrer une preuve de fonds même pour un court séjour ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Cette exigence s'applique quel que soit le type d'entrée, exemption comprise : 10 000 THB par personne sous exemption ou visa à l'arrivée, 20 000 THB sous visa touristique ou non-immigrant, avec des montants doublés pour une famille et une exemption pour les moins de 12 ans."
+          }
+        }
+      ]
+    }
+  ]
+}

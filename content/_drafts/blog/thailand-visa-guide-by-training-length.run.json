@@ -1,0 +1,57 @@
+{
+  "contract_version": 1,
+  "slug": "thailand-visa-guide-by-training-length",
+  "locale": "en",
+  "status": "ready_to_publish",
+  "updated_at": "2026-09-24T09:05:00+00:00",
+  "steps": [
+    { "step": "cover", "status": "success" },
+    { "step": "write", "status": "success" },
+    { "step": "humanizer", "status": "success" },
+    { "step": "assemble", "status": "success", "attempts": 3, "note": "attempt 2 fixed a trailing '---' inside the last FAQ answer before build_schema.py's FAQ extraction; attempt 3 fixed a bold_entities lint mismatch on 'Thailand visa exemption'" },
+    { "step": "schema", "status": "success", "attempts": 3 },
+    { "step": "lint", "status": "success", "mode": "shadow", "attempts": 2, "final_summary": { "errors": 0, "warnings": 0, "evaluated": 38, "not_evaluated": 4 } },
+    { "step": "review", "status": "success", "result": "PASS", "recommendation": "ready_to_publish" }
+  ],
+  "artifacts": {
+    "brief": {
+      "path": "content/_drafts/blog/thailand-visa-guide-by-training-length.md",
+      "hash": "sha256:9d576abf55af85f8f3be904365d5984839691718c45a5bc5bdad775eb1467f5f"
+    },
+    "spec": {
+      "path": "content/_drafts/blog/thailand-visa-guide-by-training-length.spec.json",
+      "hash": "sha256:f4aae4dd6d48c23eafb9890c6dd6936fb5b5da98826b2d2abd99b35f491bcf3b",
+      "note": "hash changed from source spec (sha256:68ffd79...) after adding frontmatter.fields.tldr post-write; source_hash/context_hash against the brief and content-context snapshot are unchanged and still match"
+    },
+    "draft": {
+      "path": "content/_drafts/blog/thailand-visa-guide-by-training-length.draft.md",
+      "hash": "sha256:f6896cf73107dec530d6711efc187702210c695a8e2bc63d2f895611db8c4445",
+      "word_count": 2708
+    },
+    "article": {
+      "path": "src/content/blog/en/thailand-visa-guide-by-training-length.md",
+      "hash": "sha256:3257fc11d124bf19e8f49373fd587e2517b5574ad5b477bca6193f4afa470006"
+    },
+    "cover": {
+      "path": "src/content/blog/covers/thailand-visa-guide-by-training-length.webp",
+      "hash": "sha256:5c14667696229b0fbe11d9aea6856b0d35cfb68d9e81dc21cdd7efd3e68842bf",
+      "preset": "blog-cover",
+      "provider": "template"
+    },
+    "schema": {
+      "path": "content/_drafts/blog/thailand-visa-guide-by-training-length.schema.json",
+      "hash": "sha256:b729850b846ff729a5f0e3d78f3f5960138944c826e696e25bc2f7ad600f37d8"
+    },
+    "review_static": {
+      "path": "content/_drafts/blog/thailand-visa-guide-by-training-length.review-static.json",
+      "hash": "sha256:3d49643fc1af4b4ac2f67c3b0172df6263807edf7214d661feeca3a3ef7d600d"
+    },
+    "review_editorial": {
+      "path": "content/_drafts/blog/thailand-visa-guide-by-training-length.review-editorial.json",
+      "hash": "sha256:92545abac085d463ef6f82561e3ef37f37fb4aa39e5d53fbc64ec1f0a02358f6"
+    },
+    "events": {
+      "path": "content/_drafts/blog/thailand-visa-guide-by-training-length.events.jsonl"
+    }
+  }
+}
