@@ -8,4 +8,5 @@
 | Contact & intake (conversion) | docs/features/contact-intake.md | itératif (DONE 2026-07-19) |
 
 ## Reprendre ici
-E8 — revue SEO du 29/09 faite (détail feature file). 7 articles programmés oct.→déc. (`docs/editorial-calendar.md` §Q4 2026) : à chaque sortie, poser les liens entrants listés. Relire GSC après le 15/10 (fin spam update) et mesurer la fusion du silo DTV.
+E8 — le 06/10 (1re sortie Q4), poser les liens entrants listés dans `docs/editorial-calendar.md` §Q4 ; relire GSC après le 15/10.
+Commit : [c586a8f] feat(blog): 7 articles Q4 2026 programmés

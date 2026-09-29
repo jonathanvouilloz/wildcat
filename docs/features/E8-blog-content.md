@@ -10,7 +10,11 @@
 
 **Prochain :** poser le maillage entrant de chaque article le jour de sa sortie (table dans le calendrier) ; relire GSC après le 15/10.
 
-**Pièges :** le content-creator est tombé (limite d'usage) après les specs : les workers ont été relancés à la main, `/seo-review` non exécuté sur les 7 articles (lint OK, sources re-vérifiées par un passage dédié). Ne jamais lier un article programmé avant sa date (404 en prod).
+**Pièges :** le content-creator est tombé (limite d'usage) après les specs : les workers ont été relancés à la main, `/seo-review` non exécuté sur les 7 articles (lint OK, sources re-vérifiées par un passage dédié). Ne jamais lier un article programmé avant sa date (404 en prod). Lanternes Yi Peng interdites à Hang Dong (règles 2025, Thaiger) : écrit dans l'article du 06/10. Racine du problème d'indexation = autorité (backlinks), pas le code.
+**Prochain (détail) :** le 06/10, ouvrir `docs/editorial-calendar.md` §Q4 « Maillage entrant » et ajouter les liens vers `best-time-train-muay-thai-thailand` depuis `burning-season-chiang-mai`, `chiang-mai-vs-phuket-muay-thai`, `thailand-visa-guide-by-training-length` ; idem à chaque date suivante.
+**Commit :** [c586a8f] feat(blog): 7 articles Q4 2026 programmés (06/10 → 15/12) + calendrier Q4 (+ [63331f6] revue SEO 29/09 : fusion DTV, refresh, lastmod)
+
+---
 
 ## Etat session 2026-09-14 (review SEO + actualité visa 31/08 et 15/09 + quick wins GSC)
 
@@ -107,30 +111,28 @@
 **Commit :** [e9b031d] feat(blog): topical map DTV-coûts + article A2 « gyms overcharging DTV » (+ [9b545a2] fix title≠H1)
 
 ## Carte du code
-> Mise à jour : 2026-08-27
+> Mise à jour : 2026-09-29
 
 | Fichier | Rôle |
 |---------|------|
-| `src/content.config.ts` | Schéma zod collection `blog` — champ `h1` optionnel (distinct du `title`) ajouté 2026-07-03 |
-| `src/pages/[lang]/blog/[slug].astro` | Template article — rend `<h1>{post.data.h1 ?? post.data.title}</h1>` (fallback title) ; `<title>` + JSON-LD `headline` restent sur `title` |
-| `src/lib/blog.ts` | Helpers collection (`getPostsByLang`/`getAlternates`/`getRelated`/`getPostsByCategory`) — `isVisible()` = mécanisme de scheduling édito (draft + publishDate futur → invisible en PROD, visible en dev) |
-| `src/pages/[lang]/dtv-visa/long-stay-training.astro` | Page « budget long séjour SUR DTV » — re-scopée 2026-07-16 (anti-cannibalisation) : lien retour vers blog cost guide inséré après p1, **gardé `lang === 'en'`** (blog EN-only) |
-| `messages/{en,fr}.json` | Clés `dtv_lst_*` de la page long-stay — title/H1/H2 re-scopés budget-DTV + `dtv_lst_costguide_line`/`_link` (lien blog) ajoutées 2026-07-16 |
-| `src/content/blog/en/muay-thai-training-thailand-cost.md` | Article **owner du « coût générique »** (ne pas re-scoper) ; 3 liens frères `/chiang-mai-vs-*` corrigés `/blog/…` 2026-07-16 |
-| `.seo-data/cannibalisation-wildcatmuaythai-com-2026-04-15_to_2026-07-14.json` | Rapport audit cannibalisation + verdicts A/B/C/Triade (source de vérité locale, `/seo` ne le rend pas encore) |
-| `docs/topical-map-dtv-costs.md` | Contrat de production du cluster DTV-coûts (7 mini-briefs A1-A7 + maillage + cannibalisation) — mis à jour 2026-07-03 (correction langue school retirée du soft power 2025) |
-| `docs/dtv-fact-check.md` | Fact-check YMYL du silo DTV — #15 mis à jour 2026-07-03 (soft power activities 2025-2026, retrait langue) |
-| `src/content/blog/en/dtv-visa-cost-breakdown.md` | A1 — sous-hub du cluster coût, publié en premier (bloquant le fan-out) |
-| `src/content/blog/en/{cheapest-dtv-soft-power-activity,dtv-vs-tourist-visa-runs-cost,dtv-visa-agent-worth-it,dtv-visa-proof-of-funds,dtv-visa-refund-if-rejected}.md` | A3/A4/A5/A6/A7 — satellites du cluster, `publishDate` échelonné 07-08→07-18 |
-| `~/.claude/skills/seo-sources/SKILL.md` | (hors repo) Vérif sources réelles + citations, Étape 3 de `@article-producer` |
-| `src/content/blog/en/dtv-visa-new-requirements-2026.md` | Article **news** (2026-08-27) sur les 2 exigences DTV du 31/08/2026 — hors calendrier, `publishDate` = jour même. Rend le silo `/dtv-visa` partiellement faux : voir « Prochain » de l'état de session |
-| `visual/presets.yaml` | Presets image du projet — **`blog-cover` = `source: template`** (fond `visual/refs/blog-cover-bg.webp` + overlay PIL, zéro API) ; `blog-inline` = `source: gemini` → sortie `public/images/blog`, **jamais exécuté**, d'où les 26 images inline cassées |
+| `src/pages/[lang]/dtv-visa.astro` | Pilier DTV unique depuis la fusion du 29/09 (BLUF, soft power, table DTV/ED/Tourist `#compare`, FAQ 33 Q `#faq` + seul FAQPage du silo) |
+| `astro.config.mjs` | 301 `/dtv-visa/{faq,muay-thai}` → `/dtv-visa` ; `blogLastmodMap()` → `<lastmod>` sitemap des articles depuis le frontmatter |
+| `messages/{en,fr}.json` | Clés pilier DTV (`dtv_*`, `dtv_mt_*`, `dtv_faqp_*`, `dtv_update_*`), `stay_meta_*` recentrés Chiang Mai, FAQ home `faq_q6/q7` + `faq_l6` |
+| `src/pages/[lang]/index.astro` | FAQ home : 2 PAA ajoutées (combats à Chiang Mai → `/fighters`, âge → `/classes/beginners`) |
+| `src/components/sections/Nav.astro` | Mega menu + drawer DTV re-pointés sur `/dtv-visa#compare` et `#faq` |
+| `src/content/blog/en/best-muay-thai-camps-thailand.md` | Porteur de la tête « muay thai camp(s) thailand » (refresh régions + tableau 11 camps, prix vérifiés 29/09) |
+| `src/content/blog/{en,fr}/*` (7 nouveaux) | Articles Q4 programmés par `publishDate` (06/10 → 15/12) ; briefs/specs dans `content/_drafts/blog/` |
+| `src/lib/blog.ts` | `isVisible()` : `publishDate` futur = invisible en prod, sortie par le rebuild quotidien (GitHub Actions `scheduled-rebuild.yml`, runs OK) |
+| `docs/editorial-calendar.md` | §Q4 2026 : planning, maillage entrant à poser à chaque sortie, refresh planifiés, réserve T1 2027 |
+| `.seo-data/q4-2026/` + `gsc-wildcat-2026-09-29.json`, `index-…-2026-09-29.json`, `cannibalisation-…-2026-07-01_to_2026-09-27.json` | Données de la revue du 29/09 (SERP réelles, autocomplete, veille actu datée) |
 
 ### Décisions clés
-- **title ≠ H1 = règle Critical**, câblée côté site via le champ frontmatter `h1` (pas via le skill — les skills l'imposaient déjà). Tout futur article DOIT avoir un `h1` distinct (produit par `/seo-enrich`).
-- **Cluster DTV-coûts = jeu GEO**, pas volume (kw à 0/mo, sauf quelques kw confirmés type "thailand border run" 50/mo). Sources externes vérifiées obligatoires (YMYL) via `/seo-sources`.
-- **Scheduling édito = frontmatter `publishDate` uniquement**, pas de nouveau champ ni de changement de statut hub. Le hub trace la production, le markdown gouverne la mise en ligne réelle. **Exception : un article de news sort le jour même**, l'étalement ne s'applique qu'au calendrier de fond.
-- **Covers = template, pas génération** (2026-08-27) : toutes les covers blog sortent du preset `blog-cover` (fond branded unique + titre en overlay). Ne pas partir chercher une API image pour une cover ; passer `--title-text` avec le `title` réel du frontmatter.
+- **title ≠ H1 = règle Critical** (champ frontmatter `h1`).
+- **Scheduling = `publishDate` uniquement** ; un article news sort le jour même. Jamais de lien vers un article programmé avant sa date.
+- **Covers = template `blog-cover`**, `--title-text` = title réel.
+- **« muay thai camp thailand » = le listicle**, `/stay-train` = « muay thai camp chiang mai » (arbitrage SERP 29/09).
+- **Silo DTV à 4 pages** (pilier, eligibility, how-to-apply, long-stay-training) : ne pas recréer de satellite sur une intention déjà couverte par le blog.
+- **Pas de DataForSEO** tant que les crédits sont vides : volumes historiques `.seo-data/keywords-*.json` + autocomplete + SERP réelles.
 
 ## Hub `/chiang-mai-guide` (2026-06-13)
 Page éditoriale EN+FR qui **fusionne les 2 entrées maquette** (Chiang Mai Guide + Things to Do, menu Stay & Train) en UNE page hub à voix Wildcat. **PAS un pilier SEO** (head terms tourisme non-winnables, hors positionnement) : vitrine du cluster blog `chiang-mai-life` (feed `getPostsByCategory` + empty-state) + relais conversion Stay & Train / DTV. Sections : intro famille, getting around (FeatureGrid), saisons & burning season (différenciateur), où voir du Muay Thai (dark → `/fighters`), **Nos recos** (placeholder Meaw, rien d'inventé → checklist I7), feed blog, CtaBanner. JSON-LD `CollectionPage`, hreflang symétrique. Câblage : Nav mega (2→1) + drawer + Footer (`exploreLinks`), helper `getPostsByCategory` (`src/lib/blog.ts`), 53 clés `cmg_*` EN+FR + retrait `nav_stay_todo_*`. Fix UI post-revue : sections soft→cream autour des raccords scratch + divider `wave`→`rough` (le brush/divider cream ne doit pas jouxter une section soft). Recherche Reddit archivée : `.seo-data/reddit/reddit-chiang-mai-*.txt` (3 threads → angles M4). ⏳ recos réelles de Meaw (checklist §I7), photo hero paysage CM (`photos-needed.md` #9, placeholder `background-hero.webp`).
