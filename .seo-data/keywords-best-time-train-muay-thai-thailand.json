@@ -1,0 +1,75 @@
+{
+  "topic": "best time to train muay thai in thailand",
+  "location_name": "US / Global",
+  "language_code": "en",
+  "generated_at": "2026-09-29T00:00:00Z",
+  "source": "historique DataForSEO (.seo-data/keywords-*.json, agrégat q4-2026/kw-all.tsv) + autocomplete Google 29/09/2026 ; AUCUN nouvel appel API (pas de crédits)",
+  "primary": {
+    "keyword": "best time to train muay thai in thailand",
+    "search_volume": null,
+    "intent": "informational/commercial",
+    "volume_status": "estimated_autocomplete_or_unmeasured",
+    "note": "estimé (autocomplete) ; DataForSEO US = 0 (keywords-best-time-to-train-muay-thai-in-thailand.json)"
+  },
+  "secondaries": [
+    {
+      "keyword": "best month to train muay thai in thailand",
+      "search_volume": null,
+      "volume_status": "estimated_autocomplete_or_unmeasured",
+      "note": "estimé (autocomplete)"
+    },
+    {
+      "keyword": "best time to go to thailand for muay thai",
+      "search_volume": null,
+      "volume_status": "estimated_autocomplete_or_unmeasured",
+      "note": "estimé (autocomplete)"
+    },
+    {
+      "keyword": "chiang mai in november",
+      "search_volume": null,
+      "volume_status": "estimated_autocomplete_or_unmeasured",
+      "note": "estimé (autocomplete : weather, reddit, festival)"
+    },
+    {
+      "keyword": "chiang mai in december",
+      "search_volume": null,
+      "volume_status": "estimated_autocomplete_or_unmeasured",
+      "note": "estimé (autocomplete : weather, temperature)"
+    },
+    {
+      "keyword": "loy krathong 2026 chiang mai",
+      "search_volume": null,
+      "volume_status": "estimated_autocomplete_or_unmeasured",
+      "note": "estimé (autocomplete : date, tickets)"
+    },
+    {
+      "keyword": "chiang mai burning season",
+      "search_volume": 260,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO US (keywords-chiang-mai-burning-season.json)"
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "burning season thailand",
+      "search_volume": 480,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO US (kw-all.tsv)"
+    },
+    {
+      "keyword": "yi peng 2026 chiang mai",
+      "search_volume": null,
+      "volume_status": "estimated_autocomplete_or_unmeasured",
+      "note": "estimé (autocomplete : date, tickets)"
+    },
+    {
+      "keyword": "muay thai rainy season thailand",
+      "search_volume": null,
+      "volume_status": "estimated_autocomplete_or_unmeasured",
+      "note": "estimé (PAA/autocomplete voisins) ; non mesuré"
+    }
+  ],
+  "related": [],
+  "quick_wins": [],
+  "limits": "Aucun crédit DataForSEO cette session : volumes = historique `.seo-data/keywords-*.json` (agrégat `.seo-data/q4-2026/kw-all.tsv`, juin-sept. 2026). Un volume marqué « estimé (autocomplete) » n'est PAS une mesure : il vient de `.seo-data/q4-2026/ac-en.txt` / `ac-fr.txt` (29/09/2026)."
+}

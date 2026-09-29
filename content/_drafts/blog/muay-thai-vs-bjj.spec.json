@@ -1,0 +1,370 @@
+{
+  "slug": "muay-thai-vs-bjj",
+  "module": "E",
+  "snippet": {
+    "title": "Muay Thai vs Jiu Jitsu: Which Should You Learn First?",
+    "h1": "Muay Thai or jiu jitsu? A Chiang Mai coach on choosing, and why many do both",
+    "description": "Muay Thai vs jiu jitsu (BJJ) compared honestly: striking vs grappling, self-defense, injuries, age and who should pick which. Read the verdict."
+  },
+  "dates": {
+    "pubDate": "2026-11-03",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1700,
+    "maximum": 2200
+  },
+  "primary_keyword": "muay thai vs jiu jitsu",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "muay thai vs jiu jitsu",
+      "natural_form": "Muay Thai vs jiu jitsu",
+      "volume": 880,
+      "placements": [
+        "Title",
+        "H1",
+        "intro",
+        "meta"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai vs bjj",
+      "natural_form": "Muay Thai vs BJJ",
+      "volume": null,
+      "placements": [
+        "H1",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "is bjj good for self defense",
+      "natural_form": "whether BJJ is good for self-defense",
+      "volume": 480,
+      "placements": [
+        "H2 self-défense"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai vs bjj for self defense",
+      "natural_form": "Muay Thai vs BJJ for self-defense",
+      "volume": null,
+      "placements": [
+        "H2 self-défense"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai vs bjj for women",
+      "natural_form": "Muay Thai vs BJJ for women",
+      "volume": null,
+      "placements": [
+        "H2 femmes/âge"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai vs bjj injuries",
+      "natural_form": "injuries in Muay Thai and BJJ",
+      "volume": null,
+      "placements": [
+        "H2 blessures"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai vs bjj street fight",
+      "natural_form": "Muay Thai vs BJJ in a street fight",
+      "volume": null,
+      "placements": [
+        "H2 self-défense"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai vs bjj who would win",
+      "natural_form": "who would win, Muay Thai or BJJ",
+      "volume": null,
+      "placements": [
+        "FAQ"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai vs bjj vs boxing",
+      "natural_form": "Muay Thai vs BJJ vs boxing",
+      "volume": null,
+      "placements": [
+        "FAQ"
+      ]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "muay thai vs jiu jitsu",
+      "accepted_forms": [
+        "Muay Thai vs jiu jitsu",
+        "Muay thai vs jiu jitsu"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "muay thai vs bjj",
+      "accepted_forms": [
+        "Muay Thai vs BJJ",
+        "Muay thai vs bjj"
+      ],
+      "required": false,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "is bjj good for self defense",
+      "accepted_forms": [
+        "Whether bjj is good for self-defense",
+        "whether BJJ is good for self-defense"
+      ],
+      "required": false,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "in-one-table",
+      "level": 2,
+      "heading": "Muay Thai vs BJJ in one table",
+      "purpose": "BLUF + tableau : ce qu'on frappe/contrôle, distance, sol/debout, ce qu'on apprend en 3 mois, risques, coût de départ. Précise d'emblée que Wildcat enseigne le Muay Thai et pas le BJJ.",
+      "target_keywords": [
+        "muay thai vs jiu jitsu",
+        "muay thai vs bjj"
+      ]
+    },
+    {
+      "id": "striking-vs-grappling",
+      "level": 2,
+      "heading": "Striking vs grappling: what each one teaches you",
+      "purpose": "Ce que chaque art travaille : distance, clinch, coups (8 points) vs contrôle au sol, soumissions, garde. Origines en une phrase chacune, sourcées (Muay Thai : Thaïlande ; BJJ : Brésil, issu du judo/jiu-jitsu japonais).",
+      "target_keywords": []
+    },
+    {
+      "id": "self-defense",
+      "level": 2,
+      "heading": "Which is better for self-defense?",
+      "purpose": "Réponse nuancée, distincte de l'article self-defense : ici le choix d'un art, pas la self-défense seule. Forces de chacun, limites (sol/plusieurs adversaires/armes), pourquoi les coachs recommandent souvent de combiner. Renvoi vers l'article self-defense pour le détail rue.",
+      "target_keywords": [
+        "is bjj good for self defense",
+        "muay thai vs bjj for self defense",
+        "muay thai vs bjj street fight"
+      ]
+    },
+    {
+      "id": "injuries-and-training-load",
+      "level": 2,
+      "heading": "Injuries and training load",
+      "purpose": "Types de blessures typiques (Muay Thai : tibias, mains, contusions ; BJJ : genoux, épaules, cou, doigts), sourcés par des études. Aucune affirmation « moins risqué » sans données ; disclaimer santé.",
+      "target_keywords": [
+        "muay thai vs bjj injuries"
+      ]
+    },
+    {
+      "id": "women-age-and-time",
+      "level": 2,
+      "heading": "For women, kids, older beginners and busy schedules",
+      "purpose": "Femmes, enfants/ados (sans âge minimum Wildcat), débutants de 30/40 ans, temps disponible : quoi choisir, sans stéréotype. Renvoi vers l'article femmes. Aucun âge minimum Wildcat publié : ne pas en inventer.",
+      "target_keywords": [
+        "muay thai vs bjj for women"
+      ]
+    },
+    {
+      "id": "can-you-train-both",
+      "level": 2,
+      "heading": "Can you train both, and how to pick a verdict by profile",
+      "purpose": "Faire les deux : ordre et charge. Verdict par profil (objectif, âge, blessures, budget). Chiang Mai : dire qu'il existe des académies de BJJ en ville SANS nommer de concurrent sans source. FAQ finale (qui gagne, reddit, boxing).",
+      "target_keywords": [
+        "muay thai vs bjj who would win",
+        "muay thai vs bjj vs boxing"
+      ]
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/blog/muay-thai-self-defense",
+      "anchor": "our full self-defense breakdown",
+      "section_id": "self-defense",
+      "required": true,
+      "reason": "Lien bidirectionnel obligatoire (cannibalisation à cadrer)."
+    },
+    {
+      "url": "/blog/muay-thai-vs-kickboxing",
+      "anchor": "Muay Thai vs kickboxing",
+      "section_id": "in-one-table",
+      "required": true,
+      "reason": "Même squelette, autre comparaison."
+    },
+    {
+      "url": "/blog/muay-thai-for-women",
+      "anchor": "Muay Thai for women",
+      "section_id": "women-age-and-time",
+      "required": true,
+      "reason": "Sujet femmes."
+    },
+    {
+      "url": "/classes/beginners",
+      "anchor": "a first Muay Thai class",
+      "section_id": "can-you-train-both",
+      "required": true,
+      "reason": "Satellite débutants."
+    },
+    {
+      "url": "/blog/muay-thai-stance-basics",
+      "anchor": "the Muay Thai stance",
+      "section_id": "striking-vs-grappling",
+      "required": false,
+      "reason": "Bases techniques."
+    },
+    {
+      "url": "/classes",
+      "anchor": "our class schedule and prices",
+      "section_id": "can-you-train-both",
+      "required": false,
+      "reason": "Pillar service."
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://en.wikipedia.org/wiki/Brazilian_jiu-jitsu",
+      "title": "BJJ : origine et règles",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://en.wikipedia.org/wiki/Muay_Thai",
+      "title": "Muay Thai : règles, 8 points",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/",
+      "title": "Études de blessures (à rechercher : Muay Thai injury rates ; BJJ injuries)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-004",
+      "url": "https://www.ifmamuaythai.org/",
+      "title": "IFMA (fédération internationale)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-005",
+      "url": "https://wildcatmuaythai.com/en/classes",
+      "title": "Wildcat : prix, horaires et offre (src/config/site.ts, /classes, /stay-train)",
+      "status": "verified",
+      "accessed_at": "2026-09-29T00:00:00Z"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "Muay Thai is a striking art using fists, elbows, knees and shins with clinch work; BJJ is a grappling art focused on ground control and submissions.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Définitions générales sourcées (Wikipedia/IFMA/IBJJF).",
+      "limits": "Rester descriptif, pas de hiérarchie."
+    },
+    {
+      "id": "CLM-002",
+      "statement": "BJJ developed in Brazil from Japanese judo/jiu-jitsu taught in the early 20th century (Maeda, Gracie family).",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "« BJJ grew out of Japanese judo and jiu-jitsu brought to Brazil in the early 1900s ». Sourcer.",
+      "limits": "Ne pas trancher les controverses d'origine."
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Typical injuries differ: Muay Thai skews to shins, hands and bruising; BJJ to knees, shoulders, neck and fingers.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Uniquement si retrouvé dans une étude/revue indexée (PubMed/PMC), avec année.",
+      "limits": "Aucun pourcentage sans source ; pas de « X est plus sûr ». Disclaimer santé."
+    },
+    {
+      "id": "CLM-004",
+      "statement": "Many coaches suggest combining a striking art with grappling for self-defense.",
+      "status": "hypothesis",
+      "source_ids": [],
+      "allowed_wording": "Formuler comme opinion de l'auteur sourcée par un texte réel, ou l'omettre ; pas de « coachs disent » sans source.",
+      "limits": "Aucune citation attribuée à Meaw."
+    },
+    {
+      "id": "CLM-005",
+      "statement": "Wildcat teaches Muay Thai and does not teach BJJ.",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "allowed_wording": "Programmes du site (src/config/site.ts, /classes).",
+      "limits": "Ne pas nommer d'académie concurrente sans source."
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "illustration",
+      "subject": "Muay Thai and BJJ comparison cover, Wildcat Muay Thai Chiang Mai",
+      "description": "Cover 16:9 template Wildcat (blog-cover), titre en overlay.",
+      "alt_text": "Muay Thai and BJJ comparison cover, Wildcat Muay Thai Chiang Mai",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "cta": {
+    "url": "/classes/beginners",
+    "anchor": "See what a first Muay Thai class looks like",
+    "campaign": "blog-comparison-nurture"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "culture",
+    "tags": [
+      "muay thai vs bjj",
+      "muay thai vs jiu jitsu",
+      "bjj",
+      "martial arts comparison"
+    ],
+    "draft": false,
+    "locale": "en",
+    "source_locale": "en",
+    "translation_key": "muay-thai-vs-bjj"
+  },
+  "schema_version": 1,
+  "source_brief": "content/_drafts/blog/muay-thai-vs-bjj.md",
+  "source_hash": "sha256:f9d04764db51d569ff90ef317112226a72718e4953e99fa74de890ca79963c71",
+  "context_hash": "sha256:0bd101b129e2607a20396245820f87ae28a0b9b28603087659ea8b39a1e3edd3",
+  "compiled_at": "2026-09-29T15:27:26+00:00",
+  "research_artifacts": [
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-muay-thai-vs-bjj.json",
+      "hash": "sha256:5485820e1df525d9bfe1ce4b39b3e4ba414777dbf598db56e13cdef8d3800e4d"
+    },
+    {
+      "kind": "serp",
+      "path": ".seo-data/serp-muay-thai-vs-bjj.json",
+      "hash": "sha256:5512e4d592d88d2b30bd6cd8b19c32db0c5681fe9da24dd8a293b60bac6717c1"
+    },
+    {
+      "kind": "gatekeeper",
+      "path": ".seo-data/gatekeeper-muay-thai-vs-bjj.json",
+      "hash": "sha256:4c69956514614070627e5285cc2cdb12b089b26090f062be5d2330e8cedf8f0e"
+    }
+  ]
+}

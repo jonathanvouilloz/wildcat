@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "article_slug": "muay-thai-vs-bjj",
+  "article_spec_hash": "sha256:81f54581cbcbf771347c974ab9d00e6ab4a023b18ce40bccc2a987bb0e955c85",
+  "visual_context_hash": "sha256:5437b54a002f8c6a31a90a2d7b3723ff91eabb44d318f32c40a5197d8d185e28",
+  "status": "draft",
+  "images": [
+    {
+      "id": "IMG-001",
+      "role": "cover",
+      "placement": "cover",
+      "intent": "Cover template Wildcat : fond branded forest + texte du titre en overlay déterministe (aucune génération IA).",
+      "subject": "Muay Thai and BJJ comparison cover, Wildcat Muay Thai Chiang Mai",
+      "description": "Cover 16:9 template Wildcat (blog-cover), titre en overlay.",
+      "preset": "blog-cover",
+      "provider": null,
+      "text": {
+        "mode": "overlay",
+        "content": "Muay Thai vs Jiu Jitsu: Which Should You Learn First?",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "16:9",
+        "dimensions": "1792x1024",
+        "focal_position": "center",
+        "safe_zone": "texte centré sur 65 % de largeur"
+      },
+      "references": [],
+      "negative_constraints": [
+        "no AI generation",
+        "no additional text"
+      ],
+      "output": {
+        "path": "src/content/blog/covers/muay-thai-vs-bjj.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Muay Thai and BJJ comparison cover, Wildcat Muay Thai Chiang Mai",
+      "approval_required": false
+    }
+  ]
+}

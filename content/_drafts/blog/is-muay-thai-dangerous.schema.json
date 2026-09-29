@@ -1,0 +1,81 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/is-muay-thai-dangerous#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/is-muay-thai-dangerous",
+      "headline": "Is Muay Thai Dangerous? Injuries, Sparring and Beginners",
+      "description": "Is Muay Thai dangerous? Real injury risks, sparring, beginners and age, and how a good camp keeps training safe. Read before your first class.",
+      "datePublished": "2026-11-17",
+      "dateModified": "2026-11-17",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/is-muay-thai-dangerous.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/is-muay-thai-dangerous#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Muay Thai more dangerous than boxing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We cannot give you an honest \"yes\" or \"no\". Studies measure different people in different ways, so ranking sports is unreliable. The difference in what gets hit is real: Muay Thai adds kicks, knees and elbows, and boxing is fists only. Your risk depends far more on how you train than on which name is on the door."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Muay Thai more dangerous than BJJ or MMA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each has its own injury pattern: striking arts carry more impacts, grappling arts carry more joint and rib injuries. For a side-by-side look, see Muay Thai vs BJJ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Muay Thai safe for beginners?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can be, in a gym that keeps beginners on technique and pads, controls the pace and makes sparring optional. Many beginners come away with sore shins and tired muscles rather than anything serious. See the section above for questions to ask."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do my shins hurt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sore shins are common at the start and usually mean your legs are adapting to impact. Rest, build up slowly and follow your coach's advice. Sharp pain, swelling that does not settle, or pain that gets worse with rest is a reason to see a doctor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you get knocked out in training?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can happen, mainly in hard sparring. That is why control and supervision matter, and why light sparring is the standard for new students. If someone is knocked out, they need medical attention, and they should not train again until they have been checked."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Muay Thai kill you?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Very serious harm is rare in the studies above, which mostly describe minor injuries, but the sport is not risk free and nobody can promise otherwise, which is exactly why supervision, protection and honest coaching are worth paying for."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need travel insurance to train in Thailand?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Read your policy. Many policies exclude or limit contact sports, and some cover only certain activities. Check the exclusions and ask your insurer before you go, especially for a longer stay."
+          }
+        }
+      ]
+    }
+  ]
+}

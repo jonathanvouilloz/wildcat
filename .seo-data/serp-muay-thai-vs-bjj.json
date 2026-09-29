@@ -1,0 +1,191 @@
+{
+  "keyword": "muay thai vs jiu jitsu",
+  "location": "US / Global",
+  "scanned_at": "2026-09-29T00:00:00Z",
+  "scan_type": "WebSearch (moteur non-Google) + WebFetch des pages ; pas Google direct",
+  "sample_size": 5,
+  "notes": "Ordre des résultats = ordre renvoyé par l'outil WebSearch (moteur non-Google, US), pas un rang Google vérifié. Les 5 pages ont toutes été ouvertes via WebFetch (analyse par modèle de résumé : les listes de H2 peuvent être légèrement simplifiées). Aucune fonctionnalité SERP (PAA, related) n'est exposée par cet outil : les champs serp_features sont donc vides ou déduits, pas observés.",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.hayabusafight.com/blogs/community/jiu-jitsu-vs-muay-thai",
+      "title": "Jiu-Jitsu vs. Muay Thai: Which Martial Art is Best for You?",
+      "page_type": "blog de marque (équipement de combat)",
+      "competitor_type": "marque / e-commerce (Hayabusa)",
+      "author_date": "non visible",
+      "word_count_approx": 2200,
+      "covers": [
+        "Différence striking vs grappling",
+        "Débutants (reco BJJ pour un impact moindre)",
+        "Règles / conditions de victoire",
+        "Self-défense",
+        "Fitness",
+        "Combiner les deux pour le MMA",
+        "Grades (ceintures vs armbands)",
+        "Tableau pros/cons",
+        "Prévention des blessures (impact vs contraintes articulaires, générique)",
+        "Conseils débutants"
+      ],
+      "missing": [
+        "Blessures non sourcées (aucune étude)",
+        "Âge et femmes quasi absents",
+        "Aucun aveu de neutralité : nombreux liens produits (gants, gear)",
+        "Voix de camp thaï absente, pas d'entraîneur cité",
+        "Seulement 2 sources (Gracie Mag historique, règles), rien de médical"
+      ],
+      "eeat_signals": [
+        "Marque connue, équipe éditoriale interne non nommée",
+        "Aucun auteur ni credential visible"
+      ]
+    },
+    {
+      "rank": 2,
+      "url": "https://yokkao.com/pages/muay-thai-vs-bjj",
+      "title": "Muay Thai VS Brazilian Jiu Jitsu - What's Better? | YOKKAO",
+      "page_type": "page de marque (équipement Muay Thai)",
+      "competitor_type": "marque / e-commerce (YOKKAO, marque thaïe)",
+      "author_date": "non visible",
+      "word_count_approx": 1100,
+      "covers": [
+        "About BJJ (origines judo, Royce Gracie UFC)",
+        "About Muay Thai (Muay Boran, influences boxe occidentale, coudes/genoux)",
+        "Which is better? (un pur Nak Muay sans grappling a peu de chances face aux soumissions BJJ ; les vidéos web déforment souvent le Muay Thai)",
+        "Picking the right art : conseil d'essayer des cours, cite Saenchai"
+      ],
+      "missing": [
+        "Pas de verdict structuré par profil (juste 'essayez des cours')",
+        "Blessures, âge, femmes : rien",
+        "Aucune étude citée",
+        "Pas de voix de camp/entraîneur, seulement la référence Saenchai",
+        "Auteur absent"
+      ],
+      "eeat_signals": [
+        "Marque thaïe reconnue, mais page anonyme",
+        "Ton de neutralité : concède qu'une conclusion 'sera de la pure spéculation' (aveu partiel de limite, pas un aveu d'intérêt commercial)"
+      ]
+    },
+    {
+      "rank": 3,
+      "url": "https://muaythai.com/muay-thai-vs-jiu-jitsu/",
+      "title": "Muay Thai vs Jiu Jitsu - Muay Thai",
+      "page_type": "blog / média de niche Muay Thai",
+      "competitor_type": "média / site d'information de niche",
+      "author_date": "Bobby Bradshaw, 7 août 2023 (mis à jour 22 juin 2026)",
+      "word_count_approx": 1300,
+      "covers": [
+        "Histoires des deux arts",
+        "Différences (striking vs grappling, règles, 1D vs 2D, surface de combat)",
+        "Similitudes (clinch / sweeps)",
+        "Game plans (stuff the takedown vs obtenir le takedown)",
+        "Apprendre les deux (MMA, self-défense)",
+        "Mighty Mouse vs Rodtang (exemple)",
+        "Which is better to learn (conclusion selon objectif)"
+      ],
+      "missing": [
+        "Aucune blessure",
+        "Aucun âge/femmes",
+        "Pas d'aveu de neutralité",
+        "Pas de sources formelles (un lien vers l'histoire des Gracie)",
+        "Voix thaïe minimale, auteur basé à Houston"
+      ],
+      "eeat_signals": [
+        "Auteur nommé, coach/pratiquant multi-disciplines (kickboxing, karaté, MMA, jiu jitsu), Houston TX",
+        "Date de mise à jour récente (juin 2026)",
+        "Domaine exact-match 'muaythai.com'"
+      ]
+    },
+    {
+      "rank": 4,
+      "url": "https://rajadamnern.com/blog/muay-thai-vs-jiu-jitsu/",
+      "title": "Muay Thai vs Jiu Jitsu: Which One is More Effective?",
+      "page_type": "blog de stade/organisation",
+      "competitor_type": "marque / organisation d'événements (Rajadamnern Stadium)",
+      "author_date": "19 avril 2024, pas d'auteur individuel",
+      "word_count_approx": 2000,
+      "covers": [
+        "Méthodes d'entraînement et philosophies",
+        "Self-défense et compétition",
+        "Bénéfices physiques et mentaux",
+        "Lequel est le meilleur (guidelines selon objectifs)",
+        "Conclusion : le Muay Thai 'se démarque souvent'"
+      ],
+      "missing": [
+        "Aucune blessure sourcée",
+        "Âge/femmes absents",
+        "Biais pro-Muay Thai non déclaré en amont (présente 'équilibré' puis conclut pour le Muay Thai)",
+        "Aucune source",
+        "Pas de témoignage de pratiquant malgré l'hébergement par un stade thaï"
+      ],
+      "eeat_signals": [
+        "Site d'un stade thaï historique (autorité de marque)",
+        "Aucun auteur ni credential"
+      ]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.kingz.com/blogs/news/muay-thai-vs-bjj",
+      "title": "Muay Thai vs BJJ: Choosing Your Path to Self-Defense | Kingz",
+      "page_type": "blog de marque (textile BJJ)",
+      "competitor_type": "marque / e-commerce (Kingz, BJJ apparel)",
+      "author_date": "Kingz Team, 19 décembre 2025",
+      "word_count_approx": 2800,
+      "covers": [
+        "Key takeaways",
+        "What is Muay Thai / basics",
+        "What is BJJ / basics",
+        "Portées de combat (longue distance à sol)",
+        "Tableau comparatif par scénario",
+        "Temps pour progresser",
+        "Pourquoi mixer les deux",
+        "Fitness et blessures courantes",
+        "Which should you learn (par profil)",
+        "FAQ, conclusion"
+      ],
+      "missing": [
+        "Blessures générales, non sourcées (pas d'études)",
+        "Pas d'aveu explicite de conflit d'intérêt (vendeur BJJ), même si le texte reconnaît des avantages du Muay Thai",
+        "Aucune source académique/médicale",
+        "Aucune voix de camp thaï ni d'instructeur",
+        "Femmes/âge traités mais superficiellement"
+      ],
+      "eeat_signals": [
+        "Signé 'Kingz Team' sans credential",
+        "Le plus complet du top 5 : verdict par profil (taille, voyageurs/commuters, femmes, limites d'âge/mouvement), sections femmes et âge dédiées"
+      ]
+    }
+  ],
+  "other_results": [
+    {"url": "https://www.fairtex.com/blogs/news/muay-thai-vs-bjj", "note": "Fairtex Global, marque thaïe ; vue dans les résultats, NON ouverte"},
+    {"url": "https://www.nagafighter.com/muay-thai-vs-brazilian-jiu-jitsu/", "note": "NAGA, organisation de tournois grappling ; vue, NON ouverte"},
+    {"url": "https://bjjfanatics.com/blogs/news/muay-thai-vs-bjj", "note": "BJJ Fanatics, marque/e-commerce BJJ ; vue, NON ouverte"},
+    {"url": "https://submissionshark.com/blogs/shark-tank-bjj-studies-premium-content/muay-thai-vs-jiu-jitsu-who-wins", "note": "Submission Shark, marque BJJ ; vue, NON ouverte"},
+    {"url": "https://www.ubudmuaythai.com/blog/muay-thai-vs-bjj", "note": "Camp Muay Thai à Ubud (Bali) : blog de camp, seul angle 'camp' vu ; NON ouvert"},
+    {"url": "https://born-to-roll.com/bjj-vs-muay-thai-1", "note": "Salle BJJ à Phuket (Thaïlande) ; NON ouvert"},
+    {"url": "https://graciebarratacoma.com/bjj-vs-muay-thai-martial-art/", "note": "Salle BJJ (Gracie Barra) ; NON ouvert"},
+    {"url": "https://kzmma.com/blog/muay-thai-vs-bjj", "note": "Salle MMA (Kaizen MMA) ; NON ouvert"},
+    {"note": "Aucune vidéo YouTube ni Reddit renvoyée par WebSearch sur ces 2 requêtes ; leur présence dans la vraie SERP Google (vidéos, Reddit, PAA) n'est pas vérifiée"}
+  ],
+  "serp_features": {
+    "people_also_ask": [],
+    "related": [
+      "muay thai vs bjj for self-defense",
+      "muay thai vs bjj for beginners",
+      "muay thai vs bjj for fitness / weight loss",
+      "should you learn both muay thai and bjj (MMA)",
+      "who wins muay thai vs jiu jitsu"
+    ],
+    "note": "PAA non observable avec WebSearch. 'related' = intitulés de sections et variantes de titres observés dans les pages/résultats, pas de vraies related searches Google."
+  },
+  "common_ground": [
+    "Définition striking (8 membres) vs grappling/sol (soumissions)",
+    "Verdict 'ça dépend de l'objectif' + 'apprendre les deux' pour MMA/self-défense complet",
+    "Sections self-défense, fitness, débutants, MMA",
+    "Ton neutre-promotionnel, produit par des marques d'équipement (Hayabusa, YOKKAO, Kingz) ou stade",
+    "Contenu générique, sans données ni sources"
+  ],
+  "gap": {
+    "description": "Sur les 5 pages ouvertes : aucune ne cite de source médicale/étude sur les blessures, quasi aucune ne traite âge et femmes (Kingz seul, en surface), aucune n'a la voix d'un entraîneur/camp thaï qui fait les deux ou en dit les limites, et aucune ne déclare son intérêt commercial ou ne fait de verdict par profil franc assumé comme tel (les marques poussent leur produit, le stade penche Muay Thai sans le dire). Verdicts par profil : présents mais génériques (Kingz le plus abouti)."
+  },
+  "recommended_angle": "Verdict par profil (objectif, âge, morphologie, femmes, voyageur en Thaïlande) écrit par un camp de Muay Thai qui déclare d'entrée ne pas vendre le BJJ, avec blessures sourcées (études, à vérifier via /seo-sources) et voix concrète de camp thaï (Meaw, Peter). Angle à confirmer : pas de camp de Muay Thai observé dans le top 5 ouvert ; seul Ubud Muay Thai (non ouvert) est un camp dans les résultats étendus.",
+  "intent_signal": "Informationnel comparatif/décisionnel : 'lequel apprendre / lequel est meilleur pour mon objectif' (choix d'art martial, débutant). Peu d'intention transactionnelle directe hors ventes de matériel par les marques."
+}

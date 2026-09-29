@@ -1,0 +1,75 @@
+{
+  "topic": "stage boxe thaï thaïlande prix",
+  "location_name": "FR / France",
+  "language_code": "fr",
+  "generated_at": "2026-09-29T00:00:00Z",
+  "source": "historique DataForSEO (.seo-data/keywords-*.json, agrégat q4-2026/kw-all.tsv) + autocomplete Google 29/09/2026 ; AUCUN nouvel appel API (pas de crédits)",
+  "primary": {
+    "keyword": "stage boxe thaï thaïlande prix",
+    "search_volume": 140,
+    "intent": "informational/commercial",
+    "volume_status": "confirmed_dataforseo_historical",
+    "note": "DataForSEO FR (kw-all.tsv)"
+  },
+  "secondaries": [
+    {
+      "keyword": "camp muay thai thailande",
+      "search_volume": 210,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO FR (kw-all.tsv)"
+    },
+    {
+      "keyword": "stage muay thai thailande",
+      "search_volume": 140,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO FR (kw-all.tsv)"
+    },
+    {
+      "keyword": "camp d'entrainement muay thai thailande",
+      "search_volume": 70,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO FR (kw-all.tsv)"
+    },
+    {
+      "keyword": "muay thai thailande",
+      "search_volume": 90,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO FR (kw-all.tsv)"
+    },
+    {
+      "keyword": "camp muay thai thailande prix",
+      "search_volume": null,
+      "volume_status": "estimated_autocomplete_or_unmeasured",
+      "note": "estimé (autocomplete FR)"
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "stage boxe thaï thaïlande débutant",
+      "search_volume": 10,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO FR (kw-all.tsv)"
+    },
+    {
+      "keyword": "camp muay thai thailande francais",
+      "search_volume": 70,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO FR (kw-all.tsv), variante de « camp muay thai thaïlande français »"
+    },
+    {
+      "keyword": "camp muay thai koh samui",
+      "search_volume": 110,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO FR (kw-all.tsv)"
+    },
+    {
+      "keyword": "meilleur camp muay thai thaïlande",
+      "search_volume": 20,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO FR (kw-all.tsv)"
+    }
+  ],
+  "related": [],
+  "quick_wins": [],
+  "limits": "Aucun crédit DataForSEO cette session : volumes = historique `.seo-data/keywords-*.json` (agrégat `.seo-data/q4-2026/kw-all.tsv`, juin-sept. 2026). Un volume marqué « estimé (autocomplete) » n'est PAS une mesure : il vient de `.seo-data/q4-2026/ac-en.txt` / `ac-fr.txt` (29/09/2026)."
+}

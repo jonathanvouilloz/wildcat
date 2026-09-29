@@ -1,0 +1,21 @@
+{
+  "topic": "where to watch muay thai fights in chiang mai",
+  "generated_at": "2026-09-29T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "where to watch muay thai fights in chiang mai",
+      "verdict": "PASS",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "pass"
+      },
+      "signals": {
+        "intent": "know",
+        "pseo_scalable": false
+      },
+      "failed_pillar": null,
+      "rationale": "Surprise gap : La SERP mélange billetteries (GetYourGuide, soryingarena), Reddit et guides datés (chiangmaitraveller 2024, NOW 2024). Aucun guide neutre, à jour, avec horaires/prix sourcés ni voix de camp dont les guests combattent dans ces stades. Angle : « quel stade pour quel spectateur », show ou vrais combats, trajet depuis Hang Dong. Grounding : camp réel à Hang Dong, coachs thaïs, prix publics (src/config/site.ts), /fighters, docs/brand/proofs.md. Volume : estimé autocomplete (non mesuré, explicitement signalé).",
+      "priority": "haute"
+    }
+  ]
+}

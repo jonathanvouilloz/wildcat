@@ -1,0 +1,21 @@
+{
+  "topic": "muay thai vs jiu jitsu",
+  "generated_at": "2026-09-29T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "muay thai vs jiu jitsu",
+      "verdict": "PASS",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "pass"
+      },
+      "signals": {
+        "intent": "know",
+        "pseo_scalable": false
+      },
+      "failed_pillar": null,
+      "rationale": "Surprise gap : SERP réelle scannée le 29/09/2026 (WebSearch moteur non-Google + WebFetch des 5 pages ; .seo-data/serp-muay-thai-vs-bjj.json) : 1 hayabusafight.com (marque gear, sans auteur, deux sources seulement), 2 yokkao.com (marque thaïe, anonyme, pas de verdict par profil), 3 muaythai.com (média de niche, aucune blessure ni âge), 4 rajadamnern.com (stade, penche Muay Thai sans le dire, aucune source), 5 kingz.com (marque BJJ, le plus complet mais vendeur BJJ non déclaré). Aucune des 5 ne cite de source médicale sur les blessures ; âge et femmes quasi absents ; aucune voix de camp thaï ; aucun aveu d'intérêt commercial. Les verdicts par profil existent mais génériques. Grounding : camp réel à Hang Dong, coachs thaïs, prix publics (src/config/site.ts), /fighters, docs/brand/proofs.md. Volume : 880/mo (DataForSEO historique).",
+      "priority": "haute"
+    }
+  ]
+}

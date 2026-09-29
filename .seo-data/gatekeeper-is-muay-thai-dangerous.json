@@ -1,0 +1,21 @@
+{
+  "topic": "is muay thai dangerous",
+  "generated_at": "2026-09-29T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "is muay thai dangerous",
+      "verdict": "PASS",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "pass"
+      },
+      "signals": {
+        "intent": "know",
+        "pseo_scalable": false
+      },
+      "failed_pillar": null,
+      "rationale": "Surprise gap : SERP réelle scannée le 29/09/2026 (WebSearch moteur non-Google + WebFetch des 5 pages ; .seo-data/serp-is-muay-thai-dangerous.json) : 1 rajadamnern.com (stade, 2024, anonyme, aucune source), 2 muaythaicitizen.com (blog perso, sans étude), 3 minotaurfightstore.co.uk (e-commerce, une seule étude, rien sur âge ni choix d'un gym), 4 dynamicstriking.com (sans auteur ni source), 5 phoenixmuaythai.co.uk (republication du texte du rang 2). Aucune ne combine risques sourcés par des études, sparring expliqué concrètement, âge et enfants, commotions et questions à poser à un gym ; aucune n'a la voix d'un camp qui enseigne les débutants. Grounding : camp réel à Hang Dong, coachs thaïs, prix publics (src/config/site.ts), /fighters, docs/brand/proofs.md. Volume : 390/mo (DataForSEO historique).",
+      "priority": "moyenne"
+    }
+  ]
+}

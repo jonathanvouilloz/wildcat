@@ -1,0 +1,17 @@
+{
+  "keyword": "best time to train muay thai in thailand",
+  "location": "US / Global",
+  "scanned_at": "2026-09-29T00:00:00Z",
+  "scan_type": "real Google SERP 29/09/2026 (Chrome, IP européenne, pws=0) telle que consignée dans .seo-data/q4-2026/serp-q4-2026.md ; pas de re-scan dédié (pas de crédits DataForSEO)",
+  "source_file": ".seo-data/q4-2026/serp-q4-2026.md",
+  "mini_brief": "C2",
+  "limits": "Limites du scan : IP européenne (résultats filtrés « loi européenne »), AI Overview non vérifiable. Si la requête n'a pas été scannée en dédié, les SERP voisines et les PAA du fichier source servent de proxy : c'est dit dans la ligne gap.",
+  "intent_signal": "Informationnelle de planification (pré-réservation). Une seule intention : choisir quand partir s'entraîner.",
+  "gap": {
+    "description": "La SERP est Phuket-centrée et datée (YOKKAO et Sumalee 2019, kstmuaythai 2025, NOW 07/2026). Personne ne compare nord et sud en tableau, ne parle de la chaleur réelle d'un camp open-air, de la saison des brûlis dite honnêtement ni de l'exemption de 30 jours du 15/09/2026. Angle : un camp de Chiang Mai qui dit quel mois marche pour qui."
+  },
+  "recommended_angle": "Guide mois par mois nord vs sud, écrit depuis un camp open-air de Chiang Mai : honnête sur la chaleur et les brûlis, précis sur Yi Peng/Loy Krathong 2026 (avec ce qui n'est pas confirmé), et relié à la vraie contrainte de durée (30 jours sans visa).",
+  "serp_features": {
+    "people_also_ask": "PAA/autocomplete : best month, beginners, chiang mai november/december weather, yi peng, rainy season, how long to stay (exemption 30 j)."
+  }
+}

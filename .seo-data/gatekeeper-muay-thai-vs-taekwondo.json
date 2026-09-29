@@ -1,0 +1,21 @@
+{
+  "topic": "muay thai vs taekwondo",
+  "generated_at": "2026-09-29T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "muay thai vs taekwondo",
+      "verdict": "PASS",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "pass"
+      },
+      "signals": {
+        "intent": "know",
+        "pseo_scalable": false
+      },
+      "failed_pillar": null,
+      "rationale": "Surprise gap : SERP M à 70 % vidéo (3 vidéos + Shorts, Reddit, Fairtex, Rockstar Academy, Quora) : peu d'articles écrits, sans verdict par profil ni voix de camp thaï. Angle : comparaison honnête, respectueuse du taekwondo, verdict par profil, squelette éprouvé. Grounding : camp réel à Hang Dong, coachs thaïs, prix publics (src/config/site.ts), /fighters, docs/brand/proofs.md. Volume : 880/mo (DataForSEO historique).",
+      "priority": "moyenne"
+    }
+  ]
+}

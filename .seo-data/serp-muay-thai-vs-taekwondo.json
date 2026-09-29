@@ -1,0 +1,17 @@
+{
+  "keyword": "muay thai vs taekwondo",
+  "location": "US / Global",
+  "scanned_at": "2026-09-29T00:00:00Z",
+  "scan_type": "real Google SERP 29/09/2026 (Chrome, IP européenne, pws=0) telle que consignée dans .seo-data/q4-2026/serp-q4-2026.md ; pas de re-scan dédié (pas de crédits DataForSEO)",
+  "source_file": ".seo-data/q4-2026/serp-q4-2026.md",
+  "mini_brief": "R1",
+  "limits": "Limites du scan : IP européenne (résultats filtrés « loi européenne »), AI Overview non vérifiable. Si la requête n'a pas été scannée en dédié, les SERP voisines et les PAA du fichier source servent de proxy : c'est dit dans la ligne gap.",
+  "intent_signal": "Comparative / choix de discipline. Une seule intention : choisir entre Muay Thai et taekwondo.",
+  "gap": {
+    "description": "SERP M à 70 % vidéo (3 vidéos + Shorts, Reddit, Fairtex, Rockstar Academy, Quora) : peu d'articles écrits, sans verdict par profil ni voix de camp thaï. Angle : comparaison honnête, respectueuse du taekwondo, verdict par profil, squelette éprouvé."
+  },
+  "recommended_angle": "Comparatif honnête d'un camp de Muay Thai : ce que chaque art fait bien, coups de pied et contact, pourquoi « qui gagne » est mal posé, verdict par profil (enfant, ex-taekwondoïste, fitness).",
+  "serp_features": {
+    "people_also_ask": "PAA/autocomplete : kicks, fight, who would win, which is better, self defense, street fight, vs karate, reddit."
+  }
+}

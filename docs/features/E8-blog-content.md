@@ -2,6 +2,16 @@
 
 **Complexité : M · Statut : EN COURS** — moteur DONE, M1 (4 articles EN + covers) DONE 2026-06-11, **M2 beginners (4 articles EN + covers) DONE 2026-06-13** (topical map `docs/topical-map-beginners.md`), **hub `/chiang-mai-guide` DONE 2026-06-13**, **cluster DTV-coûts COMPLET 2026-07-03 (7/7 articles publiés, échelonnés dans le calendrier édito)**, **article news DTV 31/08/2026 publié 2026-08-27**
 
+## Etat session 2026-09-29 (revue SEO complète + plan Q4)
+
+**Données :** GSC 31/08→27/09 : 5 452 impr (+42 % vs août), 122 clics, pos 13,0 ; pic semaine du 24/08 (article news DTV) puis décrue. Indexation : **33/61 URLs** (18 crawled-not-indexed dont le pilier `/dtv-visa`, 7 inconnues dont `/en/classes/beginners`). Cannibalisation 3 mois : aucun vrai conflit (résidus slash, marque) ; « muay thai camp thailand » servi par le listicle et non `/stay-train`. Mongkhon / self-defense : fin de lune de miel mi-septembre (position stable, impressions effondrées). Spam update Google en cours depuis le 24/09.
+
+**Fait :** fusion `/dtv-visa/faq` + `/dtv-visa/muay-thai` → pilier `/dtv-visa` (301) ; refresh listicle camps (régions, tableau, prix vérifiés), mongkhon, self-defense, cost, visa EN/FR (TDAC, taxe 450 THB, TM.7), burning EN/FR, DTV requirements ; `/stay-train` recentré Chiang Mai ; FAQ home +2 PAA ; `<lastmod>` sitemap blog ; **7 articles Q4 produits et programmés** (06/10 → 15/12, détail `docs/editorial-calendar.md` §Q4 2026).
+
+**Prochain :** poser le maillage entrant de chaque article le jour de sa sortie (table dans le calendrier) ; relire GSC après le 15/10.
+
+**Pièges :** le content-creator est tombé (limite d'usage) après les specs : les workers ont été relancés à la main, `/seo-review` non exécuté sur les 7 articles (lint OK, sources re-vérifiées par un passage dédié). Ne jamais lier un article programmé avant sa date (404 en prod).
+
 ## Etat session 2026-09-14 (review SEO + actualité visa 31/08 et 15/09 + quick wins GSC)
 
 **Données :** snapshot GSC 16/08→12/09 (`.seo-data/gsc-wildcat-2026-09-14.json`) : 6 079 impr (×3,4 vs période précédente), 145 clics, pos 10,0. Moteurs : article news DTV (1 780 impr), mongkhon (910), best camps (1 409).

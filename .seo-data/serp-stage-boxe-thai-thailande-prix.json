@@ -1,0 +1,17 @@
+{
+  "keyword": "stage boxe thaï thaïlande prix",
+  "location": "FR / France",
+  "scanned_at": "2026-09-29T00:00:00Z",
+  "scan_type": "real Google SERP 29/09/2026 (Chrome, IP européenne, pws=0) telle que consignée dans .seo-data/q4-2026/serp-q4-2026.md ; pas de re-scan dédié (pas de crédits DataForSEO)",
+  "source_file": ".seo-data/q4-2026/serp-q4-2026.md",
+  "mini_brief": "C5",
+  "limits": "Limites du scan : IP européenne (résultats filtrés « loi européenne »), AI Overview non vérifiable. Si la requête n'a pas été scannée en dédié, les SERP voisines et les PAA du fichier source servent de proxy : c'est dit dans la ligne gap.",
+  "intent_signal": "Commerciale / comparaison de budget. Une seule intention : savoir ce que coûte un stage de Muay Thaï en Thaïlande et comment choisir.",
+  "gap": {
+    "description": "La SERP FR = agences à marge (voyage-en-liberté, voyagethailande à 2 090 €) et blogs d'expérience isolés ; aucun guide prix neutre et à jour en THB. Angle : prix publics et réservation directe, ce que « tout compris » cache, comparaison par région."
+  },
+  "recommended_angle": "Guide FR des prix réels d'un stage de Muay Thaï en Thaïlande : tarifs publics en THB, comparaison agence vs direct, décodage du « tout compris » et visa depuis le 15/09/2026, par un camp qui affiche ses prix.",
+  "serp_features": {
+    "people_also_ask": "Autocomplete FR : prix, débutant, phuket, krabi, français, club, camp boxe thai ; PAA prix d'un camp."
+  }
+}

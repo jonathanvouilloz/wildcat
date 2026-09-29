@@ -1,0 +1,73 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/watch-muay-thai-fights-chiang-mai#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/watch-muay-thai-fights-chiang-mai",
+      "headline": "Muay Thai Fights in Chiang Mai: Stadiums, Prices, Tips",
+      "description": "Where to watch Muay Thai fights in Chiang Mai: stadiums, days, ticket prices, show or real fight, and how to get there from Hang Dong. Read the guide.",
+      "datePublished": "2026-10-20",
+      "dateModified": "2026-10-20",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/watch-muay-thai-fights-chiang-mai.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/watch-muay-thai-fights-chiang-mai#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are there Muay Thai fights in Chiang Mai tonight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Very likely, unless it is a Sunday. Several venues list fights Monday to Saturday at 21:00. Check the venue's calendar for the date, because some venues, like Loi Kroh, only run on certain nights and seasonal ones close for months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much do tickets cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Listed prices are mostly 600 THB for standard, 1,000 THB for ringside and about 1,500 THB for VIP where offered. These were the figures on the venues' own pages and one affiliate guide on 29 September 2026. Confirm the price when you book."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What time do the fights start and how long do they last?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Listings say 21:00, with the show running about two to three hours. The first bout can start late."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a dress code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "None of the venue pages we opened states one. If you are unsure, ask the venue when you book."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the fights fake?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One guide describes most venues as tourist-oriented, with uneven matchups, and Chiang Mai Boxing Stadium as the one closest to a local fight night. Every venue is different and quality varies by night, so read the card, and go on a Friday or Saturday if you can."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I book ahead?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the guides we read recommend booking online in advance, particularly for ringside and weekend nights. ---"
+          }
+        }
+      ]
+    }
+  ]
+}

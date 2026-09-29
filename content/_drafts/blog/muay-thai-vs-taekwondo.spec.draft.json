@@ -1,0 +1,345 @@
+{
+  "slug": "muay-thai-vs-taekwondo",
+  "module": "E",
+  "snippet": {
+    "title": "Muay Thai vs Taekwondo: Which Should You Learn?",
+    "h1": "Muay Thai vs taekwondo, compared from inside a Chiang Mai camp",
+    "description": "Muay Thai vs taekwondo: kicks, contact, rules, self-defense and who should choose which. Compared by coaches in Chiang Mai. Read the table."
+  },
+  "dates": {
+    "pubDate": "2026-12-15",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1600,
+    "maximum": 2100
+  },
+  "primary_keyword": "muay thai vs taekwondo",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "muay thai vs taekwondo",
+      "natural_form": "Muay Thai vs taekwondo",
+      "volume": 880,
+      "placements": [
+        "Title",
+        "H1",
+        "intro",
+        "meta"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai vs taekwondo kicks",
+      "natural_form": "kicks in Muay Thai and taekwondo",
+      "volume": null,
+      "placements": [
+        "H2 coups de pied"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai vs taekwondo which is better",
+      "natural_form": "which is better, Muay Thai or taekwondo",
+      "volume": null,
+      "placements": [
+        "H2 verdict"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai vs taekwondo for self defense",
+      "natural_form": "Muay Thai vs taekwondo for self-defense",
+      "volume": null,
+      "placements": [
+        "H2 self-défense"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai vs taekwondo vs karate",
+      "natural_form": "Muay Thai vs taekwondo vs karate",
+      "volume": null,
+      "placements": [
+        "FAQ"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai vs taekwondo who would win",
+      "natural_form": "who would win, Muay Thai or taekwondo",
+      "volume": 30,
+      "placements": [
+        "FAQ"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai vs taekwondo fight",
+      "natural_form": "a Muay Thai vs taekwondo fight",
+      "volume": null,
+      "placements": [
+        "FAQ"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai vs taekwondo street fight",
+      "natural_form": "a street fight, Muay Thai vs taekwondo",
+      "volume": null,
+      "placements": [
+        "H2 self-défense"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai vs taekwondo reddit",
+      "natural_form": "Reddit debates on Muay Thai vs taekwondo",
+      "volume": null,
+      "placements": [
+        "FAQ"
+      ]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "muay thai vs taekwondo",
+      "accepted_forms": [
+        "Muay Thai vs taekwondo",
+        "Muay thai vs taekwondo"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "muay thai vs taekwondo kicks",
+      "accepted_forms": [
+        "Kicks in muay thai and taekwondo",
+        "kicks in Muay Thai and taekwondo"
+      ],
+      "required": false,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "muay thai vs taekwondo which is better",
+      "accepted_forms": [
+        "Which is better, muay thai or taekwondo",
+        "which is better, Muay Thai or taekwondo"
+      ],
+      "required": false,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "in-one-table",
+      "level": 2,
+      "heading": "Muay Thai vs taekwondo in one table",
+      "purpose": "BLUF + tableau : points de contact, coups de pied, poings, clinch, règles/scoring, origine, statut olympique, contact. Squelette de muay-thai-vs-kickboxing.",
+      "target_keywords": [
+        "muay thai vs taekwondo"
+      ]
+    },
+    {
+      "id": "muay-thai-lived-in-a-thai-camp",
+      "level": 2,
+      "heading": "Muay Thai: eight limbs, clinch and the ritual layer",
+      "purpose": "8 points de contact, clinch, coudes/genoux, cadre culturel (wai kru, ram muay) en renvoyant vers les articles existants. IFMA reconnue par le CIO (2021, officiel).",
+      "target_keywords": []
+    },
+    {
+      "id": "taekwondo-what-it-is-good-at",
+      "level": 2,
+      "heading": "Taekwondo: speed, range and precise kicking",
+      "purpose": "Ce que le taekwondo fait bien (vitesse, amplitude, coups de pied à la tête, sport olympique depuis 2000 : à sourcer), ses limites (poings limités, pas de clinch ni de coudes/genoux). Ton respectueux, sans dénigrer.",
+      "target_keywords": [
+        "muay thai vs taekwondo kicks"
+      ]
+    },
+    {
+      "id": "kicks-and-self-defense",
+      "level": 2,
+      "heading": "Kicks, contact and self-defense: which transfers better?",
+      "purpose": "Comparaison des coups de pied (roundhouse/teep) et du contact plein ; self-défense en une section nuancée, renvoi vers l'article self-defense. Aucune conclusion « qui gagne » ; expliquer pourquoi la question est mal posée (règles).",
+      "target_keywords": [
+        "muay thai vs taekwondo for self defense",
+        "muay thai vs taekwondo street fight"
+      ]
+    },
+    {
+      "id": "verdict-by-profile",
+      "level": 2,
+      "heading": "Which should you learn? A verdict by profile",
+      "purpose": "Profil : enfant/ado, ex-taekwondo, fitness, objectif combat, passage du taekwondo au Muay Thai. Renvoi vers le comparatif BJJ (publié avant). Aucun âge minimum Wildcat.",
+      "target_keywords": [
+        "muay thai vs taekwondo which is better"
+      ]
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "FAQ: Muay Thai vs taekwondo",
+      "purpose": "Qui gagnerait, vs karate, reddit, fight, adaptation d'un ancien taekwondoïste.",
+      "target_keywords": [
+        "muay thai vs taekwondo who would win",
+        "muay thai vs taekwondo vs karate"
+      ]
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/blog/muay-thai-vs-kickboxing",
+      "anchor": "Muay Thai vs kickboxing",
+      "section_id": "in-one-table",
+      "required": true,
+      "reason": "Squelette parent."
+    },
+    {
+      "url": "/blog/muay-thai-vs-bjj",
+      "anchor": "Muay Thai vs BJJ",
+      "section_id": "verdict-by-profile",
+      "required": true,
+      "reason": "Comparatif publié le 03/11 (antérieur au 15/12)."
+    },
+    {
+      "url": "/blog/muay-thai-self-defense",
+      "anchor": "our self-defense breakdown",
+      "section_id": "kicks-and-self-defense",
+      "required": true,
+      "reason": "Lien self-défense."
+    },
+    {
+      "url": "/classes/beginners",
+      "anchor": "a first Muay Thai class",
+      "section_id": "verdict-by-profile",
+      "required": true,
+      "reason": "Satellite débutants."
+    },
+    {
+      "url": "/blog/muay-thai-stance-basics",
+      "anchor": "the Muay Thai stance",
+      "section_id": "taekwondo-what-it-is-good-at",
+      "required": false,
+      "reason": "Bases techniques."
+    },
+    {
+      "url": "/blog/wai-kru-ram-muay-explained",
+      "anchor": "wai kru and ram muay",
+      "section_id": "muay-thai-lived-in-a-thai-camp",
+      "required": false,
+      "reason": "Ritual layer."
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://en.wikipedia.org/wiki/Taekwondo",
+      "title": "Taekwondo : origine, règles, JO",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://en.wikipedia.org/wiki/Muay_Thai",
+      "title": "Muay Thai : règles, 8 points",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://www.olympics.com/ioc/recognised-international-federations/international-federation-of-muaythai-associations",
+      "title": "IOC : IFMA reconnue",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-004",
+      "url": "https://www.worldtaekwondo.org/",
+      "title": "World Taekwondo (règles officielles)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-005",
+      "url": "https://wildcatmuaythai.com/en/classes",
+      "title": "Wildcat : prix, horaires et offre (src/config/site.ts, /classes, /stay-train)",
+      "status": "verified",
+      "accessed_at": "2026-09-29T00:00:00Z"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "Muay Thai uses eight points of contact (fists, elbows, knees, shins) plus clinch work; taekwondo focuses on kicks with limited punching, mainly to the torso.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Règles World Taekwondo et IFMA (sources officielles/Wikipedia).",
+      "limits": "Décrire les règles de compétition, pas « le taekwondo est inutile »."
+    },
+    {
+      "id": "CLM-002",
+      "statement": "IFMA is fully recognised by the IOC since 2021.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "« IFMA is a fully recognised federation of the IOC since 2021 » (olympics.com, officiel).",
+      "limits": "Ne pas suggérer une présence aux JO."
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Taekwondo became an official Olympic sport at the 2000 Sydney Games (demonstration earlier).",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Sourcer World Taekwondo/IOC.",
+      "limits": "Vérifier avant publication."
+    },
+    {
+      "id": "CLM-004",
+      "statement": "Taekwondo originated in Korea in the mid-20th century; Muay Thai has Thai origins with a ritual layer (wai kru, ram muay).",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Sources de référence ; formulation prudente sur l'histoire.",
+      "limits": "Ne pas trancher les controverses d'origine."
+    },
+    {
+      "id": "CLM-005",
+      "statement": "Wildcat teaches Muay Thai and does not teach taekwondo.",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "allowed_wording": "Programmes du site (/classes).",
+      "limits": "Pas de nom d'école concurrente."
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "illustration",
+      "subject": "Muay Thai and taekwondo comparison cover, Wildcat Muay Thai Chiang Mai",
+      "description": "Cover 16:9 template Wildcat (blog-cover), titre en overlay.",
+      "alt_text": "Muay Thai and taekwondo comparison cover, Wildcat Muay Thai Chiang Mai",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "cta": {
+    "url": "/classes/beginners",
+    "anchor": "See what a first Muay Thai class looks like",
+    "campaign": "blog-comparison-nurture"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "culture",
+    "tags": [
+      "muay thai vs taekwondo",
+      "taekwondo",
+      "martial arts comparison",
+      "kicks"
+    ],
+    "draft": false,
+    "locale": "en",
+    "source_locale": "en",
+    "translation_key": "muay-thai-vs-taekwondo"
+  }
+}

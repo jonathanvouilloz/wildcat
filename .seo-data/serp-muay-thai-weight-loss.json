@@ -1,0 +1,17 @@
+{
+  "keyword": "muay thai weight loss",
+  "location": "US / Global",
+  "scanned_at": "2026-09-29T00:00:00Z",
+  "scan_type": "real Google SERP 29/09/2026 (Chrome, IP européenne, pws=0) telle que consignée dans .seo-data/q4-2026/serp-q4-2026.md ; pas de re-scan dédié (pas de crédits DataForSEO)",
+  "source_file": ".seo-data/q4-2026/serp-q4-2026.md",
+  "mini_brief": "C4",
+  "limits": "Limites du scan : IP européenne (résultats filtrés « loi européenne »), AI Overview non vérifiable. Si la requête n'a pas été scannée en dédié, les SERP voisines et les PAA du fichier source servent de proxy : c'est dit dans la ligne gap.",
+  "intent_signal": "Informationnelle avec porte commerciale (séjour). Une seule intention : savoir si et comment le Muay Thai fait maigrir.",
+  "gap": {
+    "description": "SERP F-M : Reddit ancien (13 ans), gyms et marques (NOW, Squatwolf, ATT, Tiger), Juniper 2019, NIH. Personne ne combine calories sourcées, honnêteté « vous changez de vie » et un mois en camp thaï avec le rôle de la nourriture. Angle : zéro promesse chiffrée, sources, et nourriture thaïe hors offre."
+  },
+  "recommended_angle": "Réponse honnête et sourcée : oui le Muay Thai aide à perdre du poids, mais surtout parce qu'un mois de camp change ton mode de vie ; calories sourcées, rôle de l'alimentation, attentes réalistes, aucune promesse de kilos.",
+  "serp_features": {
+    "people_also_ask": "PAA/autocomplete : before and after, reddit, transformation, women, camp, fat loss, weight gain, diet, calories."
+  }
+}

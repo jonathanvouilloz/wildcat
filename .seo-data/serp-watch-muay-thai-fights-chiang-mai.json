@@ -1,0 +1,17 @@
+{
+  "keyword": "where to watch muay thai fights in chiang mai",
+  "location": "US / Global",
+  "scanned_at": "2026-09-29T00:00:00Z",
+  "scan_type": "real Google SERP 29/09/2026 (Chrome, IP européenne, pws=0) telle que consignée dans .seo-data/q4-2026/serp-q4-2026.md ; pas de re-scan dédié (pas de crédits DataForSEO)",
+  "source_file": ".seo-data/q4-2026/serp-q4-2026.md",
+  "mini_brief": "C1",
+  "limits": "Limites du scan : IP européenne (résultats filtrés « loi européenne »), AI Overview non vérifiable. Si la requête n'a pas été scannée en dédié, les SERP voisines et les PAA du fichier source servent de proxy : c'est dit dans la ligne gap.",
+  "intent_signal": "Informationnelle avec transaction légère (choisir et réserver un billet ce soir). Une seule intention : où et comment aller voir un combat à Chiang Mai.",
+  "gap": {
+    "description": "La SERP mélange billetteries (GetYourGuide, soryingarena), Reddit et guides datés (chiangmaitraveller 2024, NOW 2024). Aucun guide neutre, à jour, avec horaires/prix sourcés ni voix de camp dont les guests combattent dans ces stades. Angle : « quel stade pour quel spectateur », show ou vrais combats, trajet depuis Hang Dong."
+  },
+  "recommended_angle": "Guide de stades honnête par un camp de Hang Dong dont les guests combattent dans ces stades : quel stade pour quel spectateur, ringside ou standard, comment reconnaître un show, comment y aller ; tout horaire et prix attribué à une source datée.",
+  "serp_features": {
+    "people_also_ask": "PAA/autocomplete : tonight, reddit, tickets, events, matches, best fights, stadium schedule, capacity, vip."
+  }
+}

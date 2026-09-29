@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "article_slug": "watch-muay-thai-fights-chiang-mai",
+  "article_spec_hash": "sha256:ec35af25fdc6e57d6b583e5fa408cdecc7ff7dcbb9285a89143bb39f2dcac122",
+  "visual_context_hash": "sha256:5437b54a002f8c6a31a90a2d7b3723ff91eabb44d318f32c40a5197d8d185e28",
+  "status": "draft",
+  "images": [
+    {
+      "id": "IMG-001",
+      "role": "cover",
+      "placement": "cover",
+      "intent": "Cover template Wildcat : fond branded forest + texte du titre en overlay déterministe (aucune génération IA).",
+      "subject": "Muay Thai fight night in Chiang Mai, cover of a stadium guide by Wildcat",
+      "description": "Cover 16:9 template Wildcat (blog-cover), titre en overlay.",
+      "preset": "blog-cover",
+      "provider": null,
+      "text": {
+        "mode": "overlay",
+        "content": "Muay Thai Fights in Chiang Mai: Stadiums, Prices, Tips",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "16:9",
+        "dimensions": "1792x1024",
+        "focal_position": "center",
+        "safe_zone": "texte centré sur 65 % de largeur"
+      },
+      "references": [],
+      "negative_constraints": [
+        "no AI generation",
+        "no additional text"
+      ],
+      "output": {
+        "path": "src/content/blog/covers/watch-muay-thai-fights-chiang-mai.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Muay Thai fight night in Chiang Mai, cover of a stadium guide by Wildcat",
+      "approval_required": false
+    }
+  ]
+}

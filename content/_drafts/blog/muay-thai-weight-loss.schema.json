@@ -1,0 +1,65 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/muay-thai-weight-loss#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/muay-thai-weight-loss",
+      "headline": "Muay Thai for Weight Loss: What a Month Really Does",
+      "description": "Does Muay Thai help you lose weight? Sourced calorie numbers, what a month at a Thai camp changes, and how to eat. No kilos promised. Read the facts.",
+      "datePublished": "2026-12-01",
+      "dateModified": "2026-12-01",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/muay-thai-weight-loss.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/muay-thai-weight-loss#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Muay Thai good for women who want to lose weight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, it is a good fit, for the same reasons as for anyone else. Read more in Muay Thai for women."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Muay Thai better than boxing for weight loss?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both are demanding, and neither has a proven advantage that fits everyone. Muay Thai adds kicks, knees and clinch, so it uses more of the body. The best choice is the one you enjoy enough to keep doing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Muay Thai help with fat loss without losing muscle?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can support it, especially with enough protein and rest. Exact results vary from person to person, so we cannot give a figure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will I gain weight or muscle?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some people do gain muscle, especially in their legs and shoulders, while losing fat. That can keep the scale still even while your body changes. If your appetite jumps too, you may gain weight overall. Both are normal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What about Reddit stories of dramatic transformations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Individual stories are real, but they are individual. They often include changes in diet, sleep and stress that never make the headline. Use them as inspiration, not as a forecast."
+          }
+        }
+      ]
+    }
+  ]
+}

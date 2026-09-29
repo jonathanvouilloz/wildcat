@@ -1,0 +1,360 @@
+{
+  "slug": "muay-thai-weight-loss",
+  "module": "C",
+  "snippet": {
+    "title": "Muay Thai for Weight Loss: What a Month Really Does",
+    "h1": "Does Muay Thai help you lose weight? What a month of training really does",
+    "description": "Does Muay Thai help you lose weight? Sourced calorie numbers, what a month at a Thai camp changes, and how to eat. No kilos promised. Read the facts."
+  },
+  "dates": {
+    "pubDate": "2026-12-01",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1700,
+    "maximum": 2200
+  },
+  "primary_keyword": "muay thai weight loss",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "muay thai weight loss",
+      "natural_form": "Muay Thai for weight loss",
+      "volume": 170,
+      "placements": [
+        "Title",
+        "H1",
+        "intro",
+        "meta"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai for weight loss",
+      "natural_form": "Muay Thai for weight loss",
+      "volume": 170,
+      "placements": [
+        "H1",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "is muay thai good for weight loss",
+      "natural_form": "whether Muay Thai is good for weight loss",
+      "volume": 40,
+      "placements": [
+        "H2 réponse directe"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai calories burned calculator",
+      "natural_form": "how many calories a Muay Thai session burns",
+      "volume": 20,
+      "placements": [
+        "H2 calories"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "weight loss camp thailand",
+      "natural_form": "a weight loss camp in Thailand",
+      "volume": 30,
+      "placements": [
+        "H2 mois au camp"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai weight loss before and after",
+      "natural_form": "before-and-after results",
+      "volume": 20,
+      "placements": [
+        "H2 attentes"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai weight loss diet",
+      "natural_form": "eating for Muay Thai weight loss",
+      "volume": 10,
+      "placements": [
+        "H2 manger"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "fighters diet plan for cutting weight",
+      "natural_form": "how fighters cut weight",
+      "volume": 30,
+      "placements": [
+        "H2 cut vs perte de poids"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai weight loss transformation",
+      "natural_form": "a Muay Thai transformation",
+      "volume": 10,
+      "placements": [
+        "H2 attentes"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai fat loss",
+      "natural_form": "fat loss with Muay Thai",
+      "volume": null,
+      "placements": [
+        "FAQ"
+      ]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "muay thai weight loss",
+      "accepted_forms": [
+        "Muay Thai for weight loss",
+        "Muay thai for weight loss"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "muay thai for weight loss",
+      "accepted_forms": [
+        "Muay Thai for weight loss",
+        "Muay thai for weight loss"
+      ],
+      "required": false,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "is muay thai good for weight loss",
+      "accepted_forms": [
+        "Whether muay thai is good for weight loss",
+        "whether Muay Thai is good for weight loss"
+      ],
+      "required": false,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "does-it-help",
+      "level": 2,
+      "heading": "Does Muay Thai help you lose weight? The direct answer",
+      "purpose": "BLUF : oui, comme effet d'un exercice intense et régulier combiné à l'alimentation ; ni magie ni promesse. Réponse aux PAA. Zéro promesse chiffrée de kilos.",
+      "target_keywords": [
+        "is muay thai good for weight loss",
+        "muay thai weight loss"
+      ]
+    },
+    {
+      "id": "calories-per-session",
+      "level": 2,
+      "heading": "How many calories a session really burns",
+      "purpose": "Chiffres sourcés (Compendium of Physical Activities et/ou études) : plages par intensité, poids corporel, durée ; expliquer pourquoi les « 1 000 kcal » des gyms sont des maxima. Une séance Wildcat = 1 h 30 (09:00-10:30 etc., site.ts). Aucun chiffre non sourcé.",
+      "target_keywords": [
+        "muay thai calories burned calculator"
+      ]
+    },
+    {
+      "id": "a-month-at-a-thai-camp",
+      "level": 2,
+      "heading": "What a month at a Thai camp does to your body",
+      "purpose": "Ce qui change en un mois : volume d'entraînement, sommeil, chaleur, routine (« vous perdrez du poids surtout parce que vous changez de vie »). Repères réalistes de perte saine (NHS : 0,5 à 1 kg/semaine) SANS promesse. Offre Wildcat : 5 000 THB/mois illimité ; 28 000 THB/mois tout compris hors repas et essence.",
+      "target_keywords": [
+        "weight loss camp thailand",
+        "muay thai weight loss before and after",
+        "muay thai weight loss transformation"
+      ]
+    },
+    {
+      "id": "eating-in-thailand",
+      "level": 2,
+      "heading": "Eating in Thailand without undoing the training",
+      "purpose": "Les repas ne sont PAS inclus dans l'offre 28 000 THB : le choix t'appartient. Principes généraux sourcés (déficit, protéines, hydratation, plats thaïs courants), sans plan strict ni régime miracle ; renvoi coût de la vie vers l'article de coût.",
+      "target_keywords": [
+        "muay thai weight loss diet"
+      ]
+    },
+    {
+      "id": "weight-loss-vs-making-weight",
+      "level": 2,
+      "heading": "Weight loss vs making weight: not the same thing",
+      "purpose": "Distinction perte de poids sur la durée vs « weight cut » de compétition ; risques de la déshydratation (revue NIH/PMC, Barley et al. 2025 à retrouver et vérifier). Message : ne pas imiter les fighters.",
+      "target_keywords": [
+        "fighters diet plan for cutting weight"
+      ]
+    },
+    {
+      "id": "faq-and-expectations",
+      "level": 2,
+      "heading": "2, 4 or 12 weeks: realistic expectations, and FAQ",
+      "purpose": "Attentes réalistes par durée, sans chiffre de kilos ; avis d'un professionnel de santé en cas de doute. FAQ : femmes, vs boxing, fat loss, prise de poids/muscle (weight gain), Reddit/retours d'expérience.",
+      "target_keywords": [
+        "muay thai fat loss"
+      ]
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/stay-train",
+      "anchor": "Stay & Train at Wildcat",
+      "section_id": "a-month-at-a-thai-camp",
+      "required": true,
+      "reason": "Porte commerciale (28 000 THB/mois)."
+    },
+    {
+      "url": "/classes#pricing",
+      "anchor": "our class prices",
+      "section_id": "a-month-at-a-thai-camp",
+      "required": true,
+      "reason": "5 000 THB/mois illimité."
+    },
+    {
+      "url": "/classes/beginners",
+      "anchor": "your first class",
+      "section_id": "does-it-help",
+      "required": true,
+      "reason": "Satellite débutants."
+    },
+    {
+      "url": "/blog/muay-thai-for-women",
+      "anchor": "Muay Thai for women",
+      "section_id": "faq-and-expectations",
+      "required": false,
+      "reason": "Sujet femmes."
+    },
+    {
+      "url": "/blog/muay-thai-training-thailand-cost",
+      "anchor": "the full cost of training in Thailand",
+      "section_id": "eating-in-thailand",
+      "required": true,
+      "reason": "Coût de la vie, repas."
+    },
+    {
+      "url": "/blog/best-time-train-muay-thai-thailand",
+      "anchor": "the best time of year to train in Thailand",
+      "section_id": "a-month-at-a-thai-camp",
+      "required": false,
+      "reason": "Article publié le 06/10 (antérieur au 01/12)."
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://pacompendium.com/",
+      "title": "Compendium of Physical Activities (MET)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=muay+thai+energy+expenditure",
+      "title": "Études dépense énergétique Muay Thai (à trier)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://www.nhs.uk/live-well/healthy-weight/managing-your-weight/",
+      "title": "NHS : rythme de perte de poids",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-004",
+      "url": "https://pmc.ncbi.nlm.nih.gov/",
+      "title": "Revue NIH/PMC sur le weight cutting (Barley et al. 2025, à retrouver)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-005",
+      "url": "https://wildcatmuaythai.com/en/classes",
+      "title": "Wildcat : prix, horaires et offre (src/config/site.ts, /classes, /stay-train)",
+      "status": "verified",
+      "accessed_at": "2026-09-29T00:00:00Z"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "A Muay Thai session burns a range of calories depending on intensity, body weight and duration; gym claims of 1,000 calories per hour are upper-end figures.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Sourcer le Compendium of Physical Activities (MET) ou des études : donner une plage, pas un chiffre unique.",
+      "limits": "Aucun chiffre sans source ; pas de « brûle X kcal garanti »."
+    },
+    {
+      "id": "CLM-002",
+      "statement": "A healthy rate of weight loss is around 0.5 to 1 kg per week according to health guidance.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "« NHS guidance suggests 0.5 to 1 kg a week ». Vérifier la source.",
+      "limits": "Repère, pas promesse ; renvoyer vers un professionnel de santé."
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Rapid weight cutting by combat-sport athletes carries health risks (dehydration).",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Sourcer la revue NIH/PMC (Barley et al., 2025 à retrouver et vérifier).",
+      "limits": "Ne pas citer de pourcentages sans source."
+    },
+    {
+      "id": "CLM-004",
+      "statement": "Meals are not included in Wildcat's 28,000 THB Stay & Train monthly offer; neither is petrol.",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "allowed_wording": "src/config/site.ts (excludes: meals, petrol).",
+      "limits": "Ne pas donner de prix de repas non sourcé."
+    },
+    {
+      "id": "CLM-005",
+      "statement": "Wildcat unlimited monthly group training is 5,000 THB; group sessions last about 1.5 hours.",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "allowed_wording": "src/config/site.ts (month_unlimited 5000 ; créneaux 09:00-10:30, 15:30-17:00, 17:00-18:30, 18:30-20:00).",
+      "limits": "Aucune promesse de résultat."
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "illustration",
+      "subject": "Muay Thai weight loss guide cover, Wildcat Muay Thai Chiang Mai",
+      "description": "Cover 16:9 template Wildcat (blog-cover), titre en overlay.",
+      "alt_text": "Muay Thai weight loss guide cover, Wildcat Muay Thai Chiang Mai",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "cta": {
+    "url": "/stay-train",
+    "anchor": "See the all-inclusive Stay & Train month",
+    "campaign": "blog-benefits-nurture"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "benefits",
+    "tags": [
+      "muay thai weight loss",
+      "muay thai calories",
+      "weight loss camp thailand",
+      "muay thai diet"
+    ],
+    "draft": false,
+    "locale": "en",
+    "source_locale": "en",
+    "translation_key": "muay-thai-weight-loss"
+  }
+}

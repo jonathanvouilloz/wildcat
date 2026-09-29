@@ -1,0 +1,168 @@
+{
+  "keyword": "is muay thai dangerous",
+  "location": "US / Global",
+  "scanned_at": "2026-09-29T00:00:00Z",
+  "scan_type": "WebSearch (moteur non-Google) + WebFetch des pages ; pas Google direct",
+  "sample_size": 5,
+  "limits": "Ordre = celui renvoyé par le moteur WebSearch (non-Google), pas la SERP Google réelle. Les analyses de pages sont issues de WebFetch (résumé par un modèle), donc les listes de H2 et absences sont à confirmer au besoin. Pas de PAA Google réels obtenus : les questions ci-dessous viennent des FAQ/H2 des pages et de l'autocomplete consigné dans le scan précédent (.seo-data/q4-2026/serp-q4-2026.md).",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://rajadamnern.com/blog/is-muay-thai-dangerous/",
+      "title": "Is Muay Thai Dangerous? Risks, Safety Tips & Stay Safe",
+      "page_type": "Blog d'un stade / marque thaïe (Rajadamnern Stadium), 29 oct. 2024, auteur non identifié",
+      "competitor_type": "marque / stade",
+      "covers": [
+        "Common Injuries in Muay Thai",
+        "How to Reduce the Risks of Injury",
+        "Muay Thai vs Other Combat Sports",
+        "Is Muay Thai Safe for Beginners? (contact léger/nul au début)",
+        "Tips to Stay Safe",
+        "Sparring et commotions cités en passant"
+      ],
+      "missing": [
+        "Aucune étude ni source externe",
+        "Rien sur l'âge / les enfants",
+        "Pas de questions à poser à un gym",
+        "Sparring survolé, non expliqué",
+        "Aucune statistique de blessures ; pas de citation d'expert",
+        "Pas de voix de camp/coach (ton informatif générique)"
+      ],
+      "eeat_signals": [
+        "Autorité de marque (stade historique) mais pas d'auteur ni de credentials",
+        "Aucun expert cité"
+      ]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.muaythaicitizen.com/is-muay-thai-dangerous/",
+      "title": "Is Muay Thai Dangerous? - Muay Thai Citizen",
+      "page_type": "Blog perso de pratiquant (auteur Kay, ~2016/2021)",
+      "competitor_type": "blog / pratiquant",
+      "covers": [
+        "Introduction à l'entraînement",
+        "How dangerous is Muay Thai sparring? (optionnel, pas au programme débutant, équipement, supervision)",
+        "Conseil : essai gratuit, ego à laisser à la porte"
+      ],
+      "missing": [
+        "Aucune étude, aucune statistique",
+        "Commotions/cerveau non mentionnés",
+        "Âge/enfants quasi absent (auteur 40+ seulement)",
+        "Questions à poser à un gym seulement sous-entendues",
+        "Pas de credentials"
+      ],
+      "eeat_signals": [
+        "Expérience personnelle du pratiquant, ton sincère",
+        "Disclaimer médical général",
+        "Aucune expertise formelle"
+      ]
+    },
+    {
+      "rank": 3,
+      "url": "https://minotaurfightstore.co.uk/is-muay-thai-dangerous/",
+      "title": "Is Muay Thai Dangerous? A Beginner's Guide to Safe Training",
+      "page_type": "Blog d'un e-commerce d'équipement (UK), auteur Andrej P, 3 oct. 2024",
+      "competitor_type": "marque / e-commerce",
+      "covers": [
+        "Is Muay Thai Dangerous and Why?",
+        "How to stay safe (équipement, ne pas en faire trop, technique)",
+        "FAQ : self-défense, commotions courantes ?, morphologie idéale",
+        "1 étude citée (Springer) : plus de la moitié des combattants blessés en combat, un cinquième en fractures",
+        "Sparring léger, non obligatoire ; 3 séances/semaine conseillées"
+      ],
+      "missing": [
+        "Une seule source, sans citation détaillée",
+        "Pas d'âge/enfants",
+        "Pas de questions à poser à un gym ni de conseil pour choisir un instructeur",
+        "Pas de médecin/expert",
+        "Pas de voix thaïe"
+      ],
+      "eeat_signals": [
+        "Marque commerciale établie",
+        "Une citation académique, ton équilibré",
+        "Pas de credentials d'auteur"
+      ]
+    },
+    {
+      "rank": 4,
+      "url": "https://dynamicstriking.com/blogs/news/can-muay-thai-kill",
+      "title": "Can Muay Thai Kill? Debunking the Myth",
+      "page_type": "Blog d'une marque d'équipement, auteur et date absents",
+      "competitor_type": "marque / e-commerce",
+      "covers": [
+        "Is Muay Thai Safe?",
+        "Has Anyone Ever Been Killed Competing in Muay Thai? (décès très rares : pathologies préexistantes, coupe de poids extrême)",
+        "How Do I Stay Safe?"
+      ],
+      "missing": [
+        "Aucune source",
+        "Pas de conseils débutants, pas d'âge, pas de commotions/cerveau",
+        "Pas de critères pour évaluer un gym",
+        "Pas de voix de camp"
+      ],
+      "eeat_signals": [
+        "Aucun auteur ni date",
+        "Affirmations non sourcées"
+      ]
+    },
+    {
+      "rank": 5,
+      "url": "https://phoenixmuaythai.co.uk/how-dangerous-is-muay-thai/",
+      "title": "How dangerous is Muay Thai? - Phoenix Muay Thai",
+      "page_type": "Blog de club (UK) ; republication du texte de Muay Thai Citizen (Kay 2016, republié par Rick Lewis, janv. 2021)",
+      "competitor_type": "club / gym",
+      "covers": [
+        "Mêmes sections que le rang 2 (sparring optionnel, pas au programme débutant, supervision)"
+      ],
+      "missing": [
+        "Aucune étude, aucune statistique",
+        "Commotions/cerveau et enfants absents",
+        "Pas de guide de sélection d'un gym",
+        "Contenu dupliqué de la page rang 2"
+      ],
+      "eeat_signals": [
+        "Ton conversationnel, auteur d'origine crédité",
+        "Recommande une autorisation médicale",
+        "Faible autorité"
+      ]
+    }
+  ],
+  "other_results": [
+    "Quora : Are Thai Muay Thai fighters dangerous and strong? (forum, non ouvert)",
+    "Quora : Is practicing Muay Thai dangerous? ... hit hard surfaces to kill the nerves (forum, non ouvert)",
+    "https://www.flyhighfitness.org/is-muay-thai-dangerous/ : gym de Dubaï, 10 myths and facts, 26 fév. 2025 (ouvert : optionnalité du sparring, tous âges, aucune source, pas de commotions, ton marketing)",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC5237632/ : Perception of injury risk among amateur Muay Thai fighters (étude PMC, listée, NON ouverte ici : source potentielle à citer)"
+  ],
+  "serp_features": {
+    "people_also_ask": [
+      "Is Muay Thai more dangerous than boxing?",
+      "Is Muay Thai safe for kids?",
+      "Is Muay Thai safe for beginners?",
+      "Can Muay Thai kill? / Has anyone died in Muay Thai?",
+      "Are concussions common in Muay Thai? / brain damage",
+      "Is sparring compulsory?",
+      "Am I too old to start Muay Thai?"
+    ],
+    "related": [
+      "muay thai injuries",
+      "muay thai vs boxing dangerous",
+      "muay thai for beginners safe",
+      "muay thai brain damage",
+      "muay thai sparring safety",
+      "hard surfaces / nerve killing myth (Quora)"
+    ],
+    "note": "PAA non lus sur Google ; liste reconstituée depuis les FAQ/titres des pages et l'autocomplete du scan précédent."
+  },
+  "common_ground": [
+    "Réponse : oui en compétition, gérable à l'entraînement",
+    "Sparring optionnel et absent du programme débutant",
+    "Équipement + supervision + technique",
+    "Ton rassurant, pas de chiffres",
+    "Format court (3-6 H2)"
+  ],
+  "gap": {
+    "description": "Aucune des 5 pages n'associe risques sourcés par des études (une seule citation partielle), sparring expliqué concrètement, âge/enfants, commotions et cerveau, et questions à poser à un gym ; aucune n'a la voix d'un camp thaï qui enseigne les débutants (seul le stade Rajadamnern est thaï, mais anonyme et non sourcé)."
+  },
+  "recommended_angle": "Réponse honnête à « is Muay Thai dangerous? » : risques réels sourcés (étude PMC5237632 et similaires à vérifier), sparring et chocs à la tête expliqués, débutants, âge/enfants, et liste de questions à poser à n'importe quel camp, avec la voix d'un camp de Chiang Mai qui enseigne les débutants ; distincte de l'efficacité en rue.",
+  "intent_signal": "Informationnelle sécurité : évaluer le risque avant de s'inscrire ou d'inscrire un enfant. Une seule intention, profil débutant/parent prudent."
+}

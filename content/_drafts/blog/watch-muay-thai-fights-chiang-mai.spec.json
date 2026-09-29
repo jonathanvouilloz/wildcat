@@ -1,0 +1,385 @@
+{
+  "slug": "watch-muay-thai-fights-chiang-mai",
+  "module": "B",
+  "snippet": {
+    "title": "Muay Thai Fights in Chiang Mai: Stadiums, Prices, Tips",
+    "h1": "Where to watch Muay Thai fights in Chiang Mai: a stadium guide from a camp in Hang Dong",
+    "description": "Where to watch Muay Thai fights in Chiang Mai: stadiums, days, ticket prices, show or real fight, and how to get there from Hang Dong. Read the guide."
+  },
+  "dates": {
+    "pubDate": "2026-10-20",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1600,
+    "maximum": 2100
+  },
+  "primary_keyword": "where to watch muay thai fights in chiang mai",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "where to watch muay thai fights in chiang mai",
+      "natural_form": "where to watch Muay Thai fights in Chiang Mai",
+      "volume": null,
+      "placements": [
+        "Title",
+        "H1",
+        "intro",
+        "meta"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "chiang mai muay thai fights",
+      "natural_form": "Muay Thai fights in Chiang Mai",
+      "volume": 90,
+      "placements": [
+        "H2 tableau",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "loi kroh boxing stadium",
+      "natural_form": "Loi Kroh Boxing Stadium",
+      "volume": 90,
+      "placements": [
+        "H2 Loi Kroh/Kalare"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "kalare boxing stadium",
+      "natural_form": "Kalare Boxing Stadium",
+      "volume": 70,
+      "placements": [
+        "H2 Loi Kroh/Kalare"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "chiang mai muay thai stadium",
+      "natural_form": "the Muay Thai stadiums in Chiang Mai",
+      "volume": 50,
+      "placements": [
+        "H2 tableau"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "thapae boxing stadium",
+      "natural_form": "Thapae Boxing Stadium",
+      "volume": 40,
+      "placements": [
+        "H2 Thapae"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "muay thai fights chiang mai tonight",
+      "natural_form": "Muay Thai fights in Chiang Mai tonight",
+      "volume": null,
+      "placements": [
+        "FAQ"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "chiang mai boxing stadium tickets",
+      "natural_form": "tickets for a Chiang Mai boxing stadium",
+      "volume": null,
+      "placements": [
+        "H2 billet"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "best muay thai stadium chiang mai",
+      "natural_form": "the best stadium for Muay Thai in Chiang Mai",
+      "volume": 10,
+      "placements": [
+        "H2 billet",
+        "verdict"
+      ]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "where to watch muay thai fights in chiang mai",
+      "accepted_forms": [
+        "Where to watch muay thai fights in chiang mai",
+        "where to watch Muay Thai fights in Chiang Mai"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "chiang mai muay thai fights",
+      "accepted_forms": [
+        "Muay Thai fights in Chiang Mai",
+        "Muay thai fights in chiang mai"
+      ],
+      "required": false,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "loi kroh boxing stadium",
+      "accepted_forms": [
+        "Loi Kroh Boxing Stadium",
+        "Loi kroh boxing stadium"
+      ],
+      "required": false,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "stadiums-at-a-glance",
+      "level": 2,
+      "heading": "Chiang Mai's Muay Thai stadiums at a glance",
+      "purpose": "Tableau : stade / jours / heure / prix des places / ambiance / pour qui. Chaque horaire et prix attribué à une source datée (billetterie ou site officiel) avec mention « vérifie avant d'y aller » ; les sources divergent (Thapae : « tous les jours sauf dimanche » vs autres jours). Loi Kroh : lundi-samedi 21 h, 600/1 000 THB selon une page de billetterie non datée : à présenter comme indicatif tant que non recoupé.",
+      "target_keywords": [
+        "chiang mai muay thai fights",
+        "chiang mai muay thai stadium"
+      ]
+    },
+    {
+      "id": "chiang-mai-boxing-stadium-and-thapae",
+      "level": 2,
+      "heading": "Chiang Mai Boxing Stadium and Thapae Boxing Stadium",
+      "purpose": "Inclut Kawila (mentionné par la veille, à vérifier s'il est encore actif ; sinon l'omettre). Ce que chacun offre, à qui il convient (première fois, groupe, photographes). Uniquement des faits sourcés ; pas de description d'ambiance inventée, ou attribuée à un avis daté.",
+      "target_keywords": [
+        "thapae boxing stadium"
+      ]
+    },
+    {
+      "id": "loi-kroh-and-kalare",
+      "level": 2,
+      "heading": "Loi Kroh, Kalare and the newer venues around Night Bazaar and Anusarn",
+      "purpose": "Loi Kroh et Kalare (Night Bazaar) puis Anusarn Market : positionnement, horaires et prix sourcés.",
+      "target_keywords": [
+        "loi kroh boxing stadium",
+        "kalare boxing stadium"
+      ]
+    },
+    {
+      "id": "tourist-show-or-real-fights",
+      "level": 2,
+      "heading": "Tourist show or real fights? How to tell, and which ticket to buy",
+      "purpose": "Comment distinguer une carte de vrais combattants d'un show touristique (indices observables, sans dénigrer un stade nommé sans source). Ringside ou standard : quoi acheter selon le profil. Répond à « best stadium » et « tickets ».",
+      "target_keywords": [
+        "chiang mai boxing stadium tickets",
+        "best muay thai stadium chiang mai"
+      ]
+    },
+    {
+      "id": "getting-there-from-hang-dong",
+      "level": 2,
+      "heading": "Getting there from Hang Dong, and getting back",
+      "purpose": "Trajet depuis le camp de Nong Kwai, Hang Dong : Grab ou scooter (lien location de scooters du camp, moto incluse dans l'offre 28 000 THB). Donner temps/distance UNIQUEMENT s'ils sont sourcés (carte) ; sinon « demande-nous le prix et la durée actuels ». Conseil : les cours de Wildcat finissent à 20:00 max ; ne pas promettre de horaire de départ.",
+      "target_keywords": []
+    },
+    {
+      "id": "want-to-fight-not-just-watch",
+      "level": 2,
+      "heading": "Want to fight, not just watch? What our fighters guest book shows",
+      "purpose": "Passerelle vers /fighters (livre d'or) et /classes. Wildcat n'invente ni palmarès ni nombre de combats ; les guests qui combattent le font dans les stades de Chiang Mai (venues du livre d'or : Thapae, Kalare, Loi Kroh). FAQ courte : ce soir ? tenue ? enfants ? capacité, billets VIP/ringside, événements spéciaux ?",
+      "target_keywords": [
+        "muay thai fights chiang mai tonight"
+      ]
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/fighters",
+      "anchor": "our fighters guest book",
+      "section_id": "want-to-fight-not-just-watch",
+      "required": true,
+      "reason": "Preuve first-party : les guests qui combattent à Chiang Mai."
+    },
+    {
+      "url": "/classes",
+      "anchor": "our classes",
+      "section_id": "want-to-fight-not-just-watch",
+      "required": true,
+      "reason": "Pillar service."
+    },
+    {
+      "url": "/stay-train/scooter-rental",
+      "anchor": "renting a scooter from the camp",
+      "section_id": "getting-there-from-hang-dong",
+      "required": true,
+      "reason": "Trajet."
+    },
+    {
+      "url": "/",
+      "anchor": "Muay Thai in Chiang Mai",
+      "section_id": "stadiums-at-a-glance",
+      "required": true,
+      "reason": "Ancre exacte vers la home (objectif A2) : `/` est transformé en /en par le plugin, ne pas écrire /en/."
+    },
+    {
+      "url": "/blog/chiang-mai-vs-bangkok-muay-thai",
+      "anchor": "Chiang Mai vs Bangkok for Muay Thai",
+      "section_id": "tourist-show-or-real-fights",
+      "required": false,
+      "reason": "Contexte des scènes de combat."
+    },
+    {
+      "url": "/blog/wai-kru-ram-muay-explained",
+      "anchor": "the wai kru and ram muay you see before a fight",
+      "section_id": "tourist-show-or-real-fights",
+      "required": false,
+      "reason": "Ce qu'on voit avant le combat."
+    },
+    {
+      "url": "/blog/muay-thai-headband-mongkhon",
+      "anchor": "the mongkhon",
+      "section_id": "tourist-show-or-real-fights",
+      "required": false,
+      "reason": "Idem."
+    },
+    {
+      "url": "/chiang-mai-guide",
+      "anchor": "our Chiang Mai guide",
+      "section_id": "getting-there-from-hang-dong",
+      "required": false,
+      "reason": "Hub ville."
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://www.soryingarena.com/",
+      "title": "Billetterie stade (soryingarena) : horaires/prix à vérifier",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://www.chiangmaitraveller.com/",
+      "title": "Guide stades Chiang Mai (2024, à daté avant usage)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://en.wikipedia.org/wiki/Muay_Thai",
+      "title": "Muay Thai (contexte, stades)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-004",
+      "url": "https://www.tatnews.org/",
+      "title": "TAT : agenda et infos officielles à vérifier",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-005",
+      "url": "https://wildcatmuaythai.com/en/classes",
+      "title": "Wildcat : prix, horaires et offre (src/config/site.ts, /classes, /stay-train)",
+      "status": "verified",
+      "accessed_at": "2026-09-29T00:00:00Z"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "Chiang Mai has several Muay Thai venues open to visitors, including Thapae Boxing Stadium, Loi Kroh Boxing Stadium, Kalare Boxing Stadium and a Chiang Mai Boxing Stadium, plus newer venues near Anusarn Market.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Lister uniquement les stades vérifiés sur une page officielle ou de billetterie datée.",
+      "limits": "Aucune actualité datée trouvée sur les stades de Chiang Mai en août-sept. 2026 (news-2026-09-29.md) : ne pas présumer d'un changement ni d'une fermeture."
+    },
+    {
+      "id": "CLM-002",
+      "statement": "Loi Kroh runs Monday to Saturday at about 21:00 with tickets around 600 and 1,000 THB, according to a ticketing page (undated).",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "« Loi Kroh is listed Monday to Saturday from 21:00, with tickets listed at 600 and 1,000 THB (check before you go) ».",
+      "limits": "Source non datée : à recouper. Sans recoupement : fourchette et « prix listés », jamais un tarif ferme."
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Opening days and times differ between sources for Thapae (for example every day except Sunday vs other days).",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Présenter les horaires comme « listés par [source, date] » et conseiller de vérifier le jour même.",
+      "limits": "Divergence documentée dans serp-q4-2026.md C1 : à trancher ou à afficher comme incertaine."
+    },
+    {
+      "id": "CLM-004",
+      "statement": "Guests who train and fight through Wildcat fight in Chiang Mai stadiums, and the guest book lists Thapae, Kalare and Loi Kroh as venue options.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "« Our guests have fought in Chiang Mai stadiums; the guest book on /fighters shows venues ». Aucun nombre de combats, aucun nom de guest.",
+      "limits": "Le guest book contient 1 fighter saisi au studio (état du projet) : ne pas extrapoler un volume."
+    },
+    {
+      "id": "CLM-005",
+      "statement": "Wildcat is in Nong Kwai, Hang Dong, outside the old city; the Stay & Train offer includes one scooter.",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "allowed_wording": "Adresse : docs/site.ts et /contact. Moto incluse : offre 28 000 THB/mois.",
+      "limits": "Temps de trajet non documenté : uniquement s'il est sourcé."
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "illustration",
+      "subject": "Muay Thai fight night in Chiang Mai, cover of a stadium guide by Wildcat",
+      "description": "Cover 16:9 template Wildcat (blog-cover), titre en overlay.",
+      "alt_text": "Muay Thai fight night in Chiang Mai, cover of a stadium guide by Wildcat",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "cta": {
+    "url": "/fighters",
+    "anchor": "See the guests who fought in Chiang Mai",
+    "campaign": "blog-chiang-mai-nurture"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "chiang-mai-life",
+    "tags": [
+      "muay thai fights chiang mai",
+      "chiang mai stadiums",
+      "loi kroh",
+      "thapae",
+      "kalare"
+    ],
+    "draft": false,
+    "locale": "en",
+    "source_locale": "en",
+    "translation_key": "watch-muay-thai-fights-chiang-mai"
+  },
+  "schema_version": 1,
+  "source_brief": "content/_drafts/blog/watch-muay-thai-fights-chiang-mai.md",
+  "source_hash": "sha256:41ee97a645815ebda9e7e106dd7322184f7527952bb0c4a59910b99e98c3457d",
+  "context_hash": "sha256:0bd101b129e2607a20396245820f87ae28a0b9b28603087659ea8b39a1e3edd3",
+  "compiled_at": "2026-09-29T15:26:45+00:00",
+  "research_artifacts": [
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-watch-muay-thai-fights-chiang-mai.json",
+      "hash": "sha256:5d72008a51e591979e2ca95610d114f73b9d0fa956d08d187061e941dc99d5f7"
+    },
+    {
+      "kind": "serp",
+      "path": ".seo-data/serp-watch-muay-thai-fights-chiang-mai.json",
+      "hash": "sha256:c85eae5736bd0e9ddd2428f212c0ab8611db4f5a873568cfcc76cd398a43ed77"
+    },
+    {
+      "kind": "gatekeeper",
+      "path": ".seo-data/gatekeeper-watch-muay-thai-fights-chiang-mai.json",
+      "hash": "sha256:48db20cc681285cc06fcba571e75dfe0a08893e98298f584d9c69fa87292a782"
+    }
+  ]
+}

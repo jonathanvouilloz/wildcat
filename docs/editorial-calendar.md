@@ -171,3 +171,61 @@ Les autres articles restent EN-only en V1. Le FR s'ajoute après validation GSC,
 | S12–S13 | 1–11 sept | M4 + comparaisons | 4.4 · 4.3 · R1 · R2 | Planifié |
 
 **Total V1 : 26 articles publiés + 10 restants · fin le 11 septembre 2026.**
+
+---
+
+## Q4 2026 — plan du 29 septembre (revue SEO complète)
+
+> Source : revue SEO du 29/09/2026 (GSC 31/08→27/09, indexation 61 URLs, cannibalisation 3 mois,
+> veille actu, 19 SERP réelles). Données : `.seo-data/gsc-wildcat-2026-09-29.json`,
+> `.seo-data/index-wildcatmuaythai-com-2026-09-29.json`, `.seo-data/q4-2026/`.
+> Cadence réduite à **1 article / 2 semaines** : le frein n'est plus la production mais
+> l'indexation (33/61 URLs indexées). Chaque article sort seul via `publishDate` (rebuild quotidien).
+
+### Articles produits le 29/09, programmés
+
+| Sortie | Slug | Locale | Kw principal | Vol. | Statut |
+|---|---|---|---|---|---|
+| mar. 6 oct. | `best-time-train-muay-thai-thailand` | EN | best time to train muay thai in thailand (+ Yi Peng 24–25/11) | autocomplete | [x] prêt |
+| mar. 20 oct. | `watch-muay-thai-fights-chiang-mai` | EN | where to watch muay thai fights chiang mai | ~350 cumulé | [x] prêt |
+| mar. 3 nov. | `muay-thai-vs-bjj` | EN | muay thai vs jiu jitsu | 880 | [x] prêt |
+| mar. 10 nov. | `stage-boxe-thai-thailande-prix` | FR | stage boxe thaï thaïlande prix + camp muay thai thailande | 140 + 210 | [x] prêt |
+| mar. 17 nov. | `is-muay-thai-dangerous` | EN | is muay thai dangerous | 390 | [x] prêt |
+| mar. 1er déc. | `muay-thai-weight-loss` | EN | muay thai weight loss | 170 | [x] prêt |
+| mar. 15 déc. | `muay-thai-vs-taekwondo` | EN | muay thai vs taekwondo | 880 | [x] prêt |
+
+### Maillage entrant à poser le jour de la sortie (jamais avant : lien vers un article futur = 404)
+
+| Article | Liens entrants à ajouter |
+|---|---|
+| best-time-train | `burning-season-chiang-mai`, `chiang-mai-vs-phuket-muay-thai`, `thailand-visa-guide-by-training-length`, hub `/chiang-mai-guide` |
+| watch-fights | FAQ home `faq_a6` (lien fighters → article), `wai-kru-ram-muay-explained`, `muay-thai-headband-mongkhon`, `chiang-mai-vs-bangkok-muay-thai` |
+| vs-bjj | `muay-thai-self-defense` (section BJJ), `muay-thai-vs-kickboxing` |
+| stage-boxe FR | `meilleur-camp-muay-thai-chiang-mai`, `visa-thailande-guide-duree-de-sejour`, `/fr/stay-train` |
+| dangerous | `muay-thai-self-defense` (FAQ « Is Muay Thai dangerous to train? »), `/classes/beginners` via `muay-thai-for-women` |
+| weight-loss | `muay-thai-for-women`, `muay-thai-training-thailand-cost`, best-time-train |
+| vs-taekwondo | `muay-thai-vs-kickboxing`, `muay-thai-vs-bjj` |
+
+### Refresh faits le 29/09 (updatedDate 2026-09-29)
+
+`best-muay-thai-camps-thailand` (régions + tableau + prix vérifiés), `muay-thai-headband-mongkhon`,
+`muay-thai-self-defense`, `muay-thai-training-thailand-cost`, `dtv-visa-new-requirements-2026`,
+`thailand-visa-guide-by-training-length`, `visa-thailande-guide-duree-de-sejour`,
+`burning-season-chiang-mai`, `saison-des-brulis-chiang-mai`. Pilier `/dtv-visa` fusionné (faq + muay-thai).
+
+### Refresh planifiés
+
+| Quand | Quoi | Pourquoi |
+|---|---|---|
+| après le 15/10 | relire GSC (fin spam update du 24/09) ; `/seo-cannibalisation` sur « muay thai camp thailand » (listicle vs `/stay-train`) | mesurer la fusion DTV et le refresh listicle |
+| début nov. | `/chiang-mai-guide` : encart saison / Yi Peng ; vérifier le programme municipal Yi Peng 2026 dans l'article du 06/10 | dates municipales non confirmées au 29/09 |
+| fin nov. | burning season EN+FR : mesures 2027 si annoncées | la recherche monte de décembre à mars |
+| début déc. | `dtv-visa-new-requirements-2026` + silo DTV : retours terrain 31/08, apostille (28/02/2027) | YMYL, fraîcheur |
+| mi-janv. 2027 | `wai-kru-ram-muay-explained` : dates World Muay Thai Day (6/02) et Journée nationale (17/03) 2027 | publiées par la TAT en début d'année |
+
+### Réserve T1 2027
+
+`muay-thai-vs-karate` (590) · `muay-thai-benefits` (210) · « too old to start Muay Thai » (PAA, volume à mesurer) ·
+`digital-nomad-train-muay-thai-chiang-mai` (50) · FR : traduction de `best-time-train` et `muay-thai-for-women` (démo FR).
+Écartés (motif dans `.seo-data/q4-2026/serp-q4-2026.md`) : Yi Peng dédié (SERP billetterie), kids (0), Noël (merch),
+TDAC (site officiel), exemption 30 j dédiée (cannibalise les guides visa).

@@ -1,0 +1,65 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/stage-boxe-thai-thailande-prix#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/stage-boxe-thai-thailande-prix",
+      "headline": "Stage de boxe thaï en Thaïlande : les vrais prix en 2026",
+      "description": "Stage de boxe thaï en Thaïlande : prix à la séance, au mois et tout compris, agence ou réservation directe, par région. Compare avant de réserver.",
+      "datePublished": "2026-11-10",
+      "dateModified": "2026-11-10",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/stage-boxe-thai-thailande-prix.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/stage-boxe-thai-thailande-prix#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien de jours faut-il pour un stage ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une semaine permet de goûter au rythme ; deux à quatre semaines suffisent pour travailler ta technique pour de bon. Jusqu'à 30 jours, l'exemption de visa couvre ton séjour."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on partir sans aucune expérience ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Un camp bien tenu accueille les débutants, avec des gants prêtés et une progression douce. Précise ton niveau quand tu écris, pour que le coach s'y adapte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on venir en famille ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les enfants sont acceptés en cours de groupe, avec une grille dédiée. Chez nous, le drop-in enfant est à 300 THB et le mois illimité à 3 000 THB. Écris-nous pour l'organisation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Y a-t-il un camp pensé pour les francophones ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chez nous, l'équipe est anglophone : on te répond en anglais, et on sait que ça compte pour certains. Si la langue est un critère, demande-le à n'importe quel camp avant de réserver."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quand partir ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ça dépend de la région : la haute saison démarre le 1er octobre chez Rawai Muay Thai, à Phuket, avec des chambres plus chères qu'en basse saison. À Chiang Mai, le ciel est plus dégagé de novembre à janvier ; vérifie la qualité de l'air en direct avant de choisir tes dates."
+          }
+        }
+      ]
+    }
+  ]
+}

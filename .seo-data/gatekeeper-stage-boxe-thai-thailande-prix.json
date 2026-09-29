@@ -1,0 +1,21 @@
+{
+  "topic": "stage boxe thaï thaïlande prix",
+  "generated_at": "2026-09-29T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "stage boxe thaï thaïlande prix",
+      "verdict": "PASS",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "pass"
+      },
+      "signals": {
+        "intent": "know",
+        "pseo_scalable": false
+      },
+      "failed_pillar": null,
+      "rationale": "Surprise gap : La SERP FR = agences à marge (voyage-en-liberté, voyagethailande à 2 090 €) et blogs d'expérience isolés ; aucun guide prix neutre et à jour en THB. Angle : prix publics et réservation directe, ce que « tout compris » cache, comparaison par région. Grounding : camp réel à Hang Dong, coachs thaïs, prix publics (src/config/site.ts), /fighters, docs/brand/proofs.md. Volume : 140/mo (DataForSEO historique).",
+      "priority": "haute"
+    }
+  ]
+}

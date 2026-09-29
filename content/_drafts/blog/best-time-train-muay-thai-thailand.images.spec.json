@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "article_slug": "best-time-train-muay-thai-thailand",
+  "article_spec_hash": "sha256:780aa1e7fd57928c798de3a24017b88eb076e1783eb0e47afe2d8b3d5ca43d39",
+  "visual_context_hash": "sha256:5437b54a002f8c6a31a90a2d7b3723ff91eabb44d318f32c40a5197d8d185e28",
+  "status": "draft",
+  "images": [
+    {
+      "id": "IMG-001",
+      "role": "cover",
+      "placement": "cover",
+      "intent": "Cover template Wildcat : fond branded forest + texte du titre en overlay déterministe (aucune génération IA).",
+      "subject": "Open-air Muay Thai training garden at Wildcat in Chiang Mai, used as the cover of a month-by-month training guide",
+      "description": "Cover 16:9 template Wildcat (blog-cover) avec le titre en overlay.",
+      "preset": "blog-cover",
+      "provider": null,
+      "text": {
+        "mode": "overlay",
+        "content": "Best Time to Train Muay Thai in Thailand, Month by Month",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "16:9",
+        "dimensions": "1792x1024",
+        "focal_position": "center",
+        "safe_zone": "texte centré sur 65 % de largeur"
+      },
+      "references": [],
+      "negative_constraints": [
+        "no AI generation",
+        "no additional text"
+      ],
+      "output": {
+        "path": "src/content/blog/covers/best-time-train-muay-thai-thailand.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Open-air Muay Thai training garden at Wildcat in Chiang Mai, used as the cover of a month-by-month training guide",
+      "approval_required": false
+    }
+  ]
+}

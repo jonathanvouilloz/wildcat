@@ -1,72 +1,66 @@
 {
-  "topic": "muay thai weight loss",
+  "topic": "where to watch muay thai fights in chiang mai",
   "location_name": "US / Global",
   "language_code": "en",
   "generated_at": "2026-09-29T00:00:00Z",
   "source": "historique DataForSEO (.seo-data/keywords-*.json, agrégat q4-2026/kw-all.tsv) + autocomplete Google 29/09/2026 ; AUCUN nouvel appel API (pas de crédits)",
   "primary": {
-    "keyword": "muay thai weight loss",
-    "search_volume": 170,
+    "keyword": "where to watch muay thai fights in chiang mai",
+    "search_volume": null,
     "intent": "informational/commercial",
-    "volume_status": "confirmed_dataforseo_historical",
-    "note": "DataForSEO US (kw-all.tsv)"
+    "volume_status": "estimated_autocomplete_or_unmeasured",
+    "note": "estimé (autocomplete : where to watch muay thai in chiang mai, best stadium to watch) ; cluster mesuré `chiang mai muay thai fights` = 90 (DataForSEO US)"
   },
   "secondaries": [
     {
-      "keyword": "muay thai for weight loss",
-      "search_volume": 170,
+      "keyword": "chiang mai muay thai fights",
+      "search_volume": 90,
       "volume_status": "confirmed_dataforseo_historical",
       "note": "DataForSEO US (kw-all.tsv)"
     },
     {
-      "keyword": "is muay thai good for weight loss",
+      "keyword": "loi kroh boxing stadium",
+      "search_volume": 90,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO US (kw-all.tsv)"
+    },
+    {
+      "keyword": "kalare boxing stadium",
+      "search_volume": 70,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO US (kw-all.tsv)"
+    },
+    {
+      "keyword": "chiang mai muay thai stadium",
+      "search_volume": 50,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO US (kw-all.tsv)"
+    },
+    {
+      "keyword": "thapae boxing stadium",
       "search_volume": 40,
-      "volume_status": "confirmed_dataforseo_historical",
-      "note": "DataForSEO US (kw-all.tsv)"
-    },
-    {
-      "keyword": "muay thai calories burned calculator",
-      "search_volume": 20,
-      "volume_status": "confirmed_dataforseo_historical",
-      "note": "DataForSEO US (kw-all.tsv)"
-    },
-    {
-      "keyword": "weight loss camp thailand",
-      "search_volume": 30,
-      "volume_status": "confirmed_dataforseo_historical",
-      "note": "DataForSEO US (kw-all.tsv)"
-    },
-    {
-      "keyword": "muay thai weight loss before and after",
-      "search_volume": 20,
       "volume_status": "confirmed_dataforseo_historical",
       "note": "DataForSEO US (kw-all.tsv)"
     }
   ],
   "long_tail": [
     {
-      "keyword": "muay thai weight loss diet",
-      "search_volume": 10,
-      "volume_status": "confirmed_dataforseo_historical",
-      "note": "DataForSEO US (kw-all.tsv)"
-    },
-    {
-      "keyword": "fighters diet plan for cutting weight",
-      "search_volume": 30,
-      "volume_status": "confirmed_dataforseo_historical",
-      "note": "DataForSEO US (kw-all.tsv)"
-    },
-    {
-      "keyword": "muay thai weight loss transformation",
-      "search_volume": 10,
-      "volume_status": "confirmed_dataforseo_historical",
-      "note": "DataForSEO US (kw-all.tsv)"
-    },
-    {
-      "keyword": "muay thai fat loss",
+      "keyword": "muay thai fights chiang mai tonight",
       "search_volume": null,
       "volume_status": "estimated_autocomplete_or_unmeasured",
       "note": "estimé (autocomplete)"
+    },
+    {
+      "keyword": "chiang mai boxing stadium tickets",
+      "search_volume": null,
+      "volume_status": "estimated_autocomplete_or_unmeasured",
+      "note": "estimé (autocomplete)"
+    },
+    {
+      "keyword": "best muay thai stadium chiang mai",
+      "search_volume": 10,
+      "volume_status": "confirmed_dataforseo_historical",
+      "note": "DataForSEO US/FR (kw-all.tsv)"
     }
   ],
   "related": [],

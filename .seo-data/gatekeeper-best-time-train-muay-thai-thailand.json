@@ -1,0 +1,21 @@
+{
+  "topic": "best time to train muay thai in thailand",
+  "generated_at": "2026-09-29T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "best time to train muay thai in thailand",
+      "verdict": "PASS",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "pass"
+      },
+      "signals": {
+        "intent": "know",
+        "pseo_scalable": false
+      },
+      "failed_pillar": null,
+      "rationale": "Surprise gap : La SERP est Phuket-centrée et datée (YOKKAO et Sumalee 2019, kstmuaythai 2025, NOW 07/2026). Personne ne compare nord et sud en tableau, ne parle de la chaleur réelle d'un camp open-air, de la saison des brûlis dite honnêtement ni de l'exemption de 30 jours du 15/09/2026. Angle : un camp de Chiang Mai qui dit quel mois marche pour qui. Grounding : camp réel à Hang Dong, coachs thaïs, prix publics (src/config/site.ts), /fighters, docs/brand/proofs.md. Volume : estimé autocomplete (non mesuré, explicitement signalé).",
+      "priority": "haute"
+    }
+  ]
+}

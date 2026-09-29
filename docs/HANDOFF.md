@@ -1,4 +1,4 @@
-# HANDOFF — 2026-09-14
+# HANDOFF — 2026-09-29
 
 ## Features actives
 | Feature | Fichier | Statut |
@@ -8,5 +8,4 @@
 | Contact & intake (conversion) | docs/features/contact-intake.md | itératif (DONE 2026-07-19) |
 
 ## Reprendre ici
-E8 — **articles d'actualité et saisonniers** issus de la review SEO du 14/09 (détail dans le fichier feature) : article EN « 30-day visa exemption & training » + version FR (visa thaïlande 30 jours), puis Yi Peng / Loy Krathong (23–25/11) à mettre en ligne début octobre. Le silo `/dtv-visa` est corrigé pour le 31/08 et le 15/09.
-Commit : voir `git log` du 2026-09-14 (fix(dtv), docs(blog), feat(seo))
+E8 — revue SEO du 29/09 faite (détail feature file). 7 articles programmés oct.→déc. (`docs/editorial-calendar.md` §Q4 2026) : à chaque sortie, poser les liens entrants listés. Relire GSC après le 15/10 (fin spam update) et mesurer la fusion du silo DTV.

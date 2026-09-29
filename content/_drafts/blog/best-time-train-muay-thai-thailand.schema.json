@@ -1,0 +1,65 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/best-time-train-muay-thai-thailand#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/best-time-train-muay-thai-thailand",
+      "headline": "Best Time to Train Muay Thai in Thailand, Month by Month",
+      "description": "Best time to train Muay Thai in Thailand, north vs south, month by month, with Chiang Mai in November and December. See the table before you book.",
+      "datePublished": "2026-10-06",
+      "dateModified": "2026-10-06",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/best-time-train-muay-thai-thailand.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/best-time-train-muay-thai-thailand#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the best month for a beginner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For Chiang Mai, December or January. The weather is at its friendliest and the mornings are cool. Book early, because that is also when everyone else wants to come."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Chiang Mai or Phuket: which is better?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the month. The north is at its best from November to February, and Phuket from around December to April. Outside those windows the answer changes, so pick the region that matches your dates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you train Muay Thai in the rainy season?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Rain usually comes in bursts, so mornings tend to be more reliable. You get quieter camps and lower prices, in exchange for less predictable weather."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Chiang Mai too hot to train?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "March and April are hot, and the air quality can be poor. November to February is far more comfortable. Our camp is open-air, so we feel the weather, and we adapt session times when we need to."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far ahead should I book?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As early as you can for November to February. We do not give a fixed number of weeks, because demand changes each year. If you have set dates, message us and we will tell you honestly what that period looks like."
+          }
+        }
+      ]
+    }
+  ]
+}

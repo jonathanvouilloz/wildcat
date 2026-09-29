@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "article_slug": "muay-thai-weight-loss",
+  "article_spec_hash": "sha256:f76c80ed2f3a2d79d64be1fe915767c7c2596e3824bb89dcd8d60be831671917",
+  "visual_context_hash": "sha256:5437b54a002f8c6a31a90a2d7b3723ff91eabb44d318f32c40a5197d8d185e28",
+  "status": "draft",
+  "images": [
+    {
+      "id": "IMG-001",
+      "role": "cover",
+      "placement": "cover",
+      "intent": "Cover template Wildcat : fond branded forest + texte du titre en overlay déterministe (aucune génération IA).",
+      "subject": "Muay Thai weight loss guide cover, Wildcat Muay Thai Chiang Mai",
+      "description": "Cover 16:9 template Wildcat (blog-cover), titre en overlay.",
+      "preset": "blog-cover",
+      "provider": null,
+      "text": {
+        "mode": "overlay",
+        "content": "Muay Thai for Weight Loss: What a Month Really Does",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "16:9",
+        "dimensions": "1792x1024",
+        "focal_position": "center",
+        "safe_zone": "texte centré sur 65 % de largeur"
+      },
+      "references": [],
+      "negative_constraints": [
+        "no AI generation",
+        "no additional text"
+      ],
+      "output": {
+        "path": "src/content/blog/covers/muay-thai-weight-loss.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Muay Thai weight loss guide cover, Wildcat Muay Thai Chiang Mai",
+      "approval_required": false
+    }
+  ]
+}

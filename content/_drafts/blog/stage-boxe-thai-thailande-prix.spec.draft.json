@@ -1,0 +1,382 @@
+{
+  "slug": "stage-boxe-thai-thailande-prix",
+  "module": "B",
+  "snippet": {
+    "title": "Stage de boxe thaï en Thaïlande : les vrais prix en 2026",
+    "h1": "Combien coûte un stage de boxe thaï en Thaïlande ? Les prix réels, région par région",
+    "description": "Stage de boxe thaï en Thaïlande : prix à la séance, au mois et tout compris, agence ou réservation directe, par région. Compare avant de réserver."
+  },
+  "dates": {
+    "pubDate": "2026-11-10",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1900,
+    "maximum": 2400
+  },
+  "primary_keyword": "stage boxe thaï thaïlande prix",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "stage boxe thaï thaïlande prix",
+      "natural_form": "le prix d'un stage de boxe thaï en Thaïlande",
+      "volume": 140,
+      "placements": [
+        "Title",
+        "H1",
+        "intro",
+        "meta"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "camp muay thai thailande",
+      "natural_form": "un camp de Muay Thaï en Thaïlande",
+      "volume": 210,
+      "placements": [
+        "H2 régions",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "stage muay thai thailande",
+      "natural_form": "un stage de Muay Thaï en Thaïlande",
+      "volume": 140,
+      "placements": [
+        "H2 tableau",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "camp d'entrainement muay thai thailande",
+      "natural_form": "un camp d'entraînement de Muay Thaï en Thaïlande",
+      "volume": 70,
+      "placements": [
+        "H2 tout compris"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai thailande",
+      "natural_form": "le Muay Thaï en Thaïlande",
+      "volume": 90,
+      "placements": [
+        "intro",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "camp muay thai thailande prix",
+      "natural_form": "le prix d'un camp de Muay Thaï en Thaïlande",
+      "volume": null,
+      "placements": [
+        "H2 tableau"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "stage boxe thaï thaïlande débutant",
+      "natural_form": "un stage de boxe thaï pour débutant en Thaïlande",
+      "volume": 10,
+      "placements": [
+        "H2 débutant"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "camp muay thai thailande francais",
+      "natural_form": "un camp de Muay Thaï en Thaïlande pour francophones",
+      "volume": 70,
+      "placements": [
+        "FAQ (sans promettre l'accueil en français)"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "camp muay thai koh samui",
+      "natural_form": "un camp de Muay Thaï à Koh Samui",
+      "volume": 110,
+      "placements": [
+        "H2 régions"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "meilleur camp muay thai thaïlande",
+      "natural_form": "le meilleur camp de Muay Thaï en Thaïlande",
+      "volume": 20,
+      "placements": [
+        "H2 régions",
+        "lien"
+      ]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "stage boxe thaï thaïlande prix",
+      "accepted_forms": [
+        "Le prix d'un stage de boxe thaï en thaïlande",
+        "le prix d'un stage de boxe thaï en Thaïlande"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "camp muay thai thailande",
+      "accepted_forms": [
+        "Un camp de muay thaï en thaïlande",
+        "un camp de Muay Thaï en Thaïlande"
+      ],
+      "required": false,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "stage muay thai thailande",
+      "accepted_forms": [
+        "Un stage de muay thaï en thaïlande",
+        "un stage de Muay Thaï en Thaïlande"
+      ],
+      "required": false,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "combien-coute-un-stage",
+      "level": 2,
+      "heading": "Combien coûte un stage de boxe thaï en Thaïlande ?",
+      "purpose": "BLUF chiffré + tableau séance / semaine / mois / tout compris. Tarifs Wildcat de site.ts : 350 THB la séance, 2 000 THB la semaine illimitée, 3 000 THB les 10 séances, 4 000 THB/mois (1 séance/jour) et 5 000 THB/mois illimité (à vérifier dans site.ts pour libellés exacts), 28 000 THB/mois tout compris. Conversion en euros seulement avec un taux daté et sourcé, sinon THB seul.",
+      "target_keywords": [
+        "stage boxe thaï thaïlande prix",
+        "stage muay thai thailande"
+      ]
+    },
+    {
+      "id": "agence-ou-reservation-directe",
+      "level": 2,
+      "heading": "Agence ou réservation directe : où part la différence",
+      "purpose": "Les agences ajoutent une marge (exemple public : voyagethailande à 2 090 €, à re-sourcer avec date et contenu du forfait ; ne comparer que des forfaits équivalents). Avantages/limites réels de la réservation directe. Aucun fait négatif sur un concurrent sans source.",
+      "target_keywords": [
+        "camp muay thai thailande prix"
+      ]
+    },
+    {
+      "id": "prix-par-region",
+      "level": 2,
+      "heading": "Phuket, Koh Samui, Krabi, Bangkok ou Chiang Mai : les prix par région",
+      "purpose": "Fourchettes par région, chaque camp cité avec prix public, source et date d'accès (Tiger, Sumalee, Punch it, etc., uniquement si vérifiés). Region sans source = retirée. Lien vers le guide FR des meilleurs camps de Chiang Mai.",
+      "target_keywords": [
+        "camp muay thai thailande",
+        "camp muay thai koh samui",
+        "meilleur camp muay thai thaïlande"
+      ]
+    },
+    {
+      "id": "tout-compris-ce-qui-est-vraiment-inclus",
+      "level": 2,
+      "heading": "« Tout compris » : ce qui est vraiment inclus (et ce qui ne l'est pas)",
+      "purpose": "Décodage : à Wildcat, 28 000 THB/personne/mois = chambre privée en maison partagée clim + charges, entraînement pro illimité, 1 moto, transfert aéroport ; HORS repas et essence. Poser les bonnes questions à n'importe quel camp (repas, essence, assurance, visa, durée mini). Aucun détail non confirmé (maison, modalités transfert, durée mini).",
+      "target_keywords": [
+        "camp d'entrainement muay thai thailande"
+      ]
+    },
+    {
+      "id": "budget-total-et-debutant",
+      "level": 2,
+      "heading": "Le budget total d'un mois, et à quoi t'attendre en stage débutant",
+      "purpose": "Budget : vol, vie sur place (repas, essence), assurance, visa ; chiffres sourcés uniquement (renvoi vers le guide de coût EN non lié : pas de lien cross-locale). Stage débutant : journée type, pas de niveau requis ; pas d'âge minimum inventé.",
+      "target_keywords": [
+        "stage boxe thaï thaïlande débutant"
+      ]
+    },
+    {
+      "id": "visa-et-faq",
+      "level": 2,
+      "heading": "Visa : 30 jours sans visa depuis le 15 septembre, puis DTV ; FAQ",
+      "purpose": "Depuis le 15/09/2026, exemption de 30 jours (TAT). Au-delà : DTV via le guide FR ; disclaimer « vérifie auprès de l'ambassade ». FAQ : camp à combien de jours, stage sans expérience, en famille, quand partir. AUCUN claim « accueil en français ».",
+      "target_keywords": [
+        "camp muay thai thailande francais"
+      ]
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/stay-train",
+      "anchor": "l'offre Stay & Train de Wildcat",
+      "section_id": "tout-compris-ce-qui-est-vraiment-inclus",
+      "required": true,
+      "reason": "Pillar conversion séjour (FR)."
+    },
+    {
+      "url": "/classes",
+      "anchor": "nos tarifs et horaires de cours",
+      "section_id": "combien-coute-un-stage",
+      "required": true,
+      "reason": "Pillar service : prix publics."
+    },
+    {
+      "url": "/dtv-visa",
+      "anchor": "le visa DTV Muay Thaï",
+      "section_id": "visa-et-faq",
+      "required": true,
+      "reason": "Pillar DTV (les pages /dtv-visa/muay-thai et /faq sont redirigées : ne pas y lier)."
+    },
+    {
+      "url": "/blog/meilleur-camp-muay-thai-chiang-mai",
+      "anchor": "le guide des meilleurs camps de Muay Thaï à Chiang Mai",
+      "section_id": "prix-par-region",
+      "required": true,
+      "reason": "Article FR existant."
+    },
+    {
+      "url": "/blog/visa-thailande-guide-duree-de-sejour",
+      "anchor": "le guide du visa selon la durée de ton séjour",
+      "section_id": "visa-et-faq",
+      "required": true,
+      "reason": "Article FR existant."
+    },
+    {
+      "url": "/blog/saison-des-brulis-chiang-mai",
+      "anchor": "la saison des brûlis à Chiang Mai",
+      "section_id": "budget-total-et-debutant",
+      "required": false,
+      "reason": "Article FR existant (saisonnalité)."
+    },
+    {
+      "url": "/classes/beginners",
+      "anchor": "un premier cours de Muay Thaï",
+      "section_id": "budget-total-et-debutant",
+      "required": false,
+      "reason": "Satellite débutants."
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://www.tatnews.org/2026/09/thailand-introduces-new-30-day-and-15-day-visa-exemption-rules-from-15-september/",
+      "title": "TAT : exemption 30 jours",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://www.voyagethailande.com/",
+      "title": "Agence FR (forfait à 2 090 €, à re-sourcer)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://www.voyage-en-liberte.fr/",
+      "title": "Agence FR",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-004",
+      "url": "https://www.tigermuaythai.com/",
+      "title": "Tiger Muay Thai (prix publics à vérifier)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-005",
+      "url": "https://www.sumaleeboxinggym.com/",
+      "title": "Sumalee (prix publics à vérifier)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-006",
+      "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
+      "title": "Taux de change de référence BCE",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-007",
+      "url": "https://wildcatmuaythai.com/en/classes",
+      "title": "Wildcat : prix, horaires et offre (src/config/site.ts, /classes, /stay-train)",
+      "status": "verified",
+      "accessed_at": "2026-09-29T00:00:00Z"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "Prix publics Wildcat : 350 THB la séance, 5 000 THB par mois illimité, et 28 000 THB par personne et par mois tout compris (chambre privée en maison partagée climatisée avec charges, entraînement pro illimité, une moto, transfert aéroport ; repas et essence non inclus).",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-007"
+      ],
+      "allowed_wording": "Valeurs et libellés de src/config/site.ts et /stay-train.",
+      "limits": "Aucun détail non confirmé (maison, modalités transfert, durée mini, caution moto : docs/checklist.md §B)."
+    },
+    {
+      "id": "CLM-002",
+      "statement": "Les agences vendent des stages de Muay Thaï avec une marge, par exemple un forfait affiché à 2 090 euros par une agence française.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "« Une agence francophone affiche un forfait à 2 090 € » : re-sourcer avec URL, date et contenu du forfait.",
+      "limits": "Ne pas comparer des forfaits non équivalents ; pas d'accusation."
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Fourchettes de prix publics de camps à Phuket, Koh Samui, Krabi et Bangkok.",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "Uniquement des prix publics vérifiés avec source + date d'accès.",
+      "limits": "Prix concurrents = claims : région sans source, retirée."
+    },
+    {
+      "id": "CLM-004",
+      "statement": "Depuis le 15 septembre 2026, la plupart des nationalités peuvent entrer en Thaïlande sans visa pour 30 jours (60 auparavant).",
+      "status": "to_confirm",
+      "source_ids": [],
+      "allowed_wording": "TAT (officiel).",
+      "limits": "Vérifie auprès de l'ambassade ; ne jamais promettre un visa."
+    },
+    {
+      "id": "CLM-005",
+      "statement": "Les montants en euros sont convertis depuis les THB à un taux de change daté.",
+      "status": "hypothesis",
+      "source_ids": [],
+      "allowed_wording": "Taux sourcé (BCE/xe) avec date, ou pas de conversion.",
+      "limits": "Pas de taux inventé."
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "illustration",
+      "subject": "Stage de boxe thaï en Thaïlande : prix réels, couverture Wildcat Muay Thai Chiang Mai",
+      "description": "Cover 16:9 template Wildcat (blog-cover), titre en overlay.",
+      "alt_text": "Stage de boxe thaï en Thaïlande : prix réels, couverture Wildcat Muay Thai Chiang Mai",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "cta": {
+    "url": "/stay-train",
+    "anchor": "Découvre l'offre Stay & Train de Wildcat",
+    "campaign": "blog-prix-fr"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "choosing-a-camp",
+    "tags": [
+      "stage boxe thaï thaïlande",
+      "prix stage muay thai",
+      "camp muay thai thaïlande",
+      "tout compris"
+    ],
+    "draft": false,
+    "locale": "fr",
+    "source_locale": "fr",
+    "translation_key": "stage-boxe-thai-thailande-prix"
+  }
+}

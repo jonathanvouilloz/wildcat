@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "article_slug": "muay-thai-vs-taekwondo",
+  "article_spec_hash": "sha256:f46dc967d7a825a9c8ef8be03d3c1afc734644d5ad01cf0927aaf335a34e554e",
+  "visual_context_hash": "sha256:5437b54a002f8c6a31a90a2d7b3723ff91eabb44d318f32c40a5197d8d185e28",
+  "status": "draft",
+  "images": [
+    {
+      "id": "IMG-001",
+      "role": "cover",
+      "placement": "cover",
+      "intent": "Cover template Wildcat : fond branded forest + texte du titre en overlay déterministe (aucune génération IA).",
+      "subject": "Muay Thai and taekwondo comparison cover, Wildcat Muay Thai Chiang Mai",
+      "description": "Cover 16:9 template Wildcat (blog-cover), titre en overlay.",
+      "preset": "blog-cover",
+      "provider": null,
+      "text": {
+        "mode": "overlay",
+        "content": "Muay Thai vs Taekwondo: Which Should You Learn?",
+        "exact": true
+      },
+      "layout": {
+        "aspect_ratio": "16:9",
+        "dimensions": "1792x1024",
+        "focal_position": "center",
+        "safe_zone": "texte centré sur 65 % de largeur"
+      },
+      "references": [],
+      "negative_constraints": [
+        "no AI generation",
+        "no additional text"
+      ],
+      "output": {
+        "path": "src/content/blog/covers/muay-thai-vs-taekwondo.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Muay Thai and taekwondo comparison cover, Wildcat Muay Thai Chiang Mai",
+      "approval_required": false
+    }
+  ]
+}

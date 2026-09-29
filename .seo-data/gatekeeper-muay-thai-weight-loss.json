@@ -1,0 +1,21 @@
+{
+  "topic": "muay thai weight loss",
+  "generated_at": "2026-09-29T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "muay thai weight loss",
+      "verdict": "PASS",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "pass"
+      },
+      "signals": {
+        "intent": "know",
+        "pseo_scalable": false
+      },
+      "failed_pillar": null,
+      "rationale": "Surprise gap : SERP F-M : Reddit ancien (13 ans), gyms et marques (NOW, Squatwolf, ATT, Tiger), Juniper 2019, NIH. Personne ne combine calories sourcées, honnêteté « vous changez de vie » et un mois en camp thaï avec le rôle de la nourriture. Angle : zéro promesse chiffrée, sources, et nourriture thaïe hors offre. Grounding : camp réel à Hang Dong, coachs thaïs, prix publics (src/config/site.ts), /fighters, docs/brand/proofs.md. Volume : 170/mo (DataForSEO historique).",
+      "priority": "moyenne"
+    }
+  ]
+}
