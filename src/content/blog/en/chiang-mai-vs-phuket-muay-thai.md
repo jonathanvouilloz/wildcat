@@ -105,7 +105,7 @@ How the timeline breaks down:
 
 Not every camp can provide the training documentation that supports a DTV application. The accredited document set includes training schedules, attendance records, and confirmation letters that immigration officers expect. Chiang Mai has a stronger ecosystem of DTV-supporting gyms than Phuket does at this point. At Wildcat, I handle the documentation personally.
 
-If you are planning a stay of three months or more and want visa security, the choice of city and camp matters. Read the full breakdown on the [DTV visa for Muay Thai](/dtv-visa/muay-thai) page, and the step-by-step process on [how to apply for the DTV](/dtv-visa/how-to-apply).
+If you are planning a stay of three months or more and want visa security, the choice of city and camp matters. Read the full breakdown on the [DTV visa for Muay Thai](/dtv-visa) page, and the step-by-step process on [how to apply for the DTV](/dtv-visa/how-to-apply).
 
 One reminder that applies to all visa content: rules change. Always verify current requirements with your embassy or the Thai immigration authority before applying.
 

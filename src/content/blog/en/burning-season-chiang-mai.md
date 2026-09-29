@@ -9,6 +9,7 @@ tldr:
   - "If you have asthma, a heart or lung condition, or you're training with kids, check the AQI and talk to a doctor before intense outdoor sessions in peak season."
   - "Booking dates that land in March? Message us before you commit and we'll tell you honestly what that week looks like."
 publishDate: 2026-08-11
+updatedDate: 2026-09-29
 category: chiang-mai-life
 cover: ../covers/burning-season-chiang-mai.webp
 coverAlt: "Open-air Muay Thai training session at Wildcat during Chiang Mai's hazy burning season golden hour"
@@ -35,6 +36,12 @@ The practical effect shows up as **PM2.5** (fine particles small enough to get p
 On an average day outside burning season, Chiang Mai's air quality sits in a normal, healthy range. During peak weeks in March, local AQI readings and independent air monitoring services commonly report the city climbing into ranges that international air quality standards classify as unhealthy, and on the worst days, hazardous. Those aren't casual labels: they exist to flag real health risk, not just haze that looks bad in photos.
 
 We don't dramatize this and we don't wave it away either. Like most people living here, we keep an eye on a real-time AQI monitor, the same kind of app or station reading that residents and other camps check daily. It's common practice across the city, not a special Wildcat system, and it's the honest starting point for everything else in this guide.
+
+### What the 2026 season looked like
+
+The 2026 season is a fair example of a bad year. The province banned open burning from 1 January to 31 May, [as announced by the Chiang Mai governor on 2 January](https://en.thairath.co.th/news/local/2905468). The smoke came anyway. At 7am on 2 April, IQAir ranked Chiang Mai the second most polluted city in the world, with an AQI of 231, in the purple band where health effects hit everyone, [according to The Nation](https://www.nationthailand.com/news/general/40064573). Two days later, on 4 April, the Interior Ministry confirmed emergency disaster zones in Chiang Mai, Lamphun and Phayao provinces, covering seven Chiang Mai districts, among them Mae Rim, Mae Taeng, Chiang Dao and Samoeng, [per The Nation](https://www.nationthailand.com/news/general/40064673).
+
+Two lessons from that. A burn ban on paper does not guarantee clean air, because much of the smoke drifts in from fires in the hills and across the border. And the worst of 2026 landed in late March and early April, a little later than the "March peak" most guides quote.
 
 ## The Honest Month-by-Month Training Calendar
 
@@ -68,6 +75,17 @@ If your travel dates are flexible, **Thailand's 2026 burning season** is the one
 
 If your dates are already fixed and they land in March, message us before you commit rather than guessing either way. We'll give you a straight answer on what that particular week has looked like recently, rather than a generic reassurance. This matters more the longer your trip is: a two-week holiday that overlaps a bad week is a minor adjustment, but a multi-month stay built entirely around March training deserves an honest conversation first. You can see the full [Stay & Train packages](/stay-train) for longer visits, and if you're planning a multi-month stay around a DTV visa, our [long-stay training budget](/dtv-visa/long-stay-training) guide breaks down what that costs on top of the visa itself.
 
+### Planning January to April 2027
+
+As of 29 September 2026, we have found no announced measure or official forecast for the 2027 season: no new burn ban dates, no new national plan. We will not guess. What we can say is how we would plan a trip in the first months of 2027, based on how 2026 went:
+
+- **January**: the safest bet of the four months. Book it with confidence.
+- **February**: usually fine for most of the month. Keep a few flexible days at the end in case the haze arrives early.
+- **Mid-March to mid-April**: the risk window. If you have a respiratory condition, avoid it. If you come anyway, book accommodation you can cancel and expect some adapted sessions under the roof.
+- **After Songkran (13 to 15 April)**: the first rains usually start clearing the air, but in 2026 the bad days ran into April, so don't count on a fixed date.
+
+The province usually announces its burn ban around the turn of the year, as it did on 2 January 2026. We will update this guide when the 2027 measures are published.
+
 Either way, [message us on WhatsApp](/contact) if you want an honest read on your specific dates before you book anything.
 
 ## FAQ: Burning Season and Training in Chiang Mai
@@ -78,7 +96,11 @@ It's the period, roughly late February through April, when regional agricultural
 
 ### How bad does burning season actually get in Chiang Mai?
 
-On peak days, the AQI can reach levels classified as unhealthy, and on the worst days, hazardous, by international air quality standards. Not every day of burning season looks like that, but it happens often enough in March to plan around.
+On peak days, the AQI can reach levels classified as unhealthy, and on the worst days, hazardous, by international air quality standards. On 2 April 2026, for example, Chiang Mai hit an AQI of 231 and ranked second most polluted city in the world that morning. Not every day of burning season looks like that, but it happens often enough between March and early April to plan around.
+
+### Is the 2027 burning season expected to be better?
+
+Nobody can say yet. As of late September 2026, no official forecast or new measure for 2027 has been announced. Check this guide and a live AQI source again in January.
 
 ### Is it safe to visit Chiang Mai during burning season?
 
@@ -111,4 +133,9 @@ If you're planning a training trip and want an honest read on your specific date
 - Thailand Pollution Control Department (pcd.go.th), Thailand's official air quality authority: not reachable during this research pass, so no specific figure or threshold from it is quoted here.
 - Chiang Mai provincial government (chiangmai.go.th), source for agricultural burn-ban announcements: not reachable during this research pass; for that reason this article does not cite exact 2026 burn-ban dates.
 
-*Note: air quality conditions and official burn-ban dates vary year to year and were not independently re-verified for every claim in this article. Check a real-time AQI source before your trip, and talk to a doctor if you have a condition that makes you sensitive to air pollution.*
+- 2026 open-burning ban in Chiang Mai province, 1 January to 31 May 2026: [Thairath English](https://en.thairath.co.th/news/local/2905468), published 2 January 2026, consulted 2026-09-29.
+- AQI 231 and second most polluted city in the world on 2 April 2026, per IQAir data at 7am: [The Nation](https://www.nationthailand.com/news/general/40064573), published 2 April 2026, consulted 2026-09-29.
+- Emergency disaster zones in Chiang Mai, Lamphun and Phayao confirmed by the Interior Ministry on 4 April 2026: [The Nation](https://www.nationthailand.com/news/general/40064673), published 4 April 2026, consulted 2026-09-29.
+- Absence of announced 2027 measures: search of Thai press and official announcements on 2026-09-29, nothing found.
+
+*Note: updated on 29 September 2026 with the facts of the 2026 season. Air quality conditions and official burn-ban dates vary year to year, and no 2027 measure had been announced at the time of this update. Check a real-time AQI source before your trip, and talk to a doctor if you have a condition that makes you sensitive to air pollution.*

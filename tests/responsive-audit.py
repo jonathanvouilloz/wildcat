@@ -17,7 +17,7 @@ PAGES = [
     "/", "/about", "/about/coaches",
     "/classes", "/classes/beginners",
     "/dtv-visa", "/dtv-visa/eligibility", "/dtv-visa/how-to-apply",
-    "/dtv-visa/muay-thai", "/dtv-visa/long-stay-training", "/dtv-visa/faq",
+    "/dtv-visa/long-stay-training",
     "/stay-train", "/stay-train/scooter-rental",
     "/fighters", "/contact",
     "/blog",

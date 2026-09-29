@@ -40,7 +40,7 @@ Muay Thai is [one of the officially recognised soft power activities](https://ww
 
 The gap exists mostly because of how gyms bundle the price, not because the paperwork itself is more complex somewhere. Some camps only issue DTV documents alongside a mandatory long training package, often six months paid upfront, which pushes the number up even if you only plan to train a month before you leave to apply. Others simply charge a separate "DTV processing fee" on top of their normal training rate for the same one-page letter. We covered this in detail in [our breakdown of gyms overcharging for DTV papers](/blog/muay-thai-gym-dtv-overcharging), including the exact signals that tell a fair price from an inflated one. Muay Thai isn't your only soft power option either, if you're weighing the cost against alternatives, see [our comparison of the cheapest DTV soft power activities](/blog/cheapest-dtv-soft-power-activity).
 
-At Wildcat, the enrolment letter is included in the normal training price, with no separate DTV line item: **5,000 THB a month** for unlimited group training, or **7,000 THB a month** for the Fighter program. If you want the fuller picture of what training here for your DTV actually looks like, see [the DTV visa for Muay Thai training](/dtv-visa/muay-thai).
+At Wildcat, the enrolment letter is included in the normal training price, with no separate DTV line item: **5,000 THB a month** for unlimited group training, or **7,000 THB a month** for the Fighter program. If you want the fuller picture of what training here for your DTV actually looks like, see [the DTV visa for Muay Thai training](/dtv-visa).
 
 ## Layer 3: do you need an agent? Usually not
 

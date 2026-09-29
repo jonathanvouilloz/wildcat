@@ -30,7 +30,7 @@ For the full cost picture beyond the course itself, embassy fee, agent or no age
 
 The DTV's Thai Soft Power category itself covers a wider list than most people assume: Muay Thai, **Thai cuisine**, medical treatment, seminars, and art events, according to the same two sources. Cooking and Muay Thai remain the two activities with the clearest pricing and the most established paper trail for applicants, which is why the rest of this comparison focuses on them.
 
-Muay Thai is [one of the officially recognised soft power activities](https://www.muaythaivisathailand.com/soft-power-and-the-destination-thailand-visa-for-muay-thai-students/) for the DTV. If you're set on Muay Thai specifically, [the DTV visa for Muay Thai training](/dtv-visa/muay-thai) covers everything about that route in detail, including how it compares to the ED and tourist visa for training purposes.
+Muay Thai is [one of the officially recognised soft power activities](https://www.muaythaivisathailand.com/soft-power-and-the-destination-thailand-visa-for-muay-thai-students/) for the DTV. If you're set on Muay Thai specifically, [the DTV visa for Muay Thai training](/dtv-visa) covers everything about that route in detail, including how it compares to the ED and tourist visa for training purposes.
 
 What both currently qualifying activities share: an enrolment document from the school or camp, sometimes an attendance record, and a genuine commitment to actually show up. Neither functions as a shortcut around the embassy's own review of your full file.
 

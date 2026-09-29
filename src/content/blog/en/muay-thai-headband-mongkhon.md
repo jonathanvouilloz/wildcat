@@ -1,9 +1,9 @@
 ---
-title: "Mongkhon: The Muay Thai Headband's Name and Meaning"
+title: "Mongkhon (Mongkol): The Muay Thai Headband's Meaning & How to Get One"
 h1: "What the Mongkhon Headband Really Means, and Why Every Muay Thai Fighter Wears One"
-description: "The muay thai headband is called the mongkhon. A Chiang Mai camp owner explains what it means, the pra jiad armband, and why it comes off before the fight."
+description: "It's called the mongkhon (or mongkol). A Chiang Mai camp owner explains what the Muay Thai headband means, the pra jiad armband, and how to get one."
 publishDate: 2026-08-21
-updatedDate: 2026-09-14
+updatedDate: 2026-09-29
 category: "culture"
 draft: false
 translationKey: "muay-thai-headband-mongkhon"
@@ -12,13 +12,14 @@ tldr:
   - "The muay thai headband, called the mongkhon, is worn during the wai kru ram muay ceremony and comes off right before the fight starts."
   - "Its companion, the pra jiad armband, does the opposite: it stays on for the entire bout."
   - "Both are traditionally handmade and blessed by a monk or master before being given to a fighter."
-  - "Visitors are welcome to ask about wearing a mongkhon, just never as a souvenir; ask your kru first."
+  - "You can buy a mongkhon in any Muay Thai shop, but the one worn in a fight traditionally comes from your kru."
+  - "Coloured pra jiad rankings are a modern grading system used mostly by gyms abroad, not an old Thai tradition."
 cover: "../covers/muay-thai-headband-mongkhon.webp"
 ---
 
 *By Meaw Boonpradub, Wildcat Muay Thai, Chiang Mai*
 
-The muay thai headband is called the **mongkhon** (also written mongkon): a sacred cord worn during the pre-fight ceremony and taken off just before the first round. Every fighter who steps into a ring in Thailand wears one, and most visitors have no idea what it actually is. It looks decorative from the stands. It is not. The **muay thai headband** is a sacred piece of the fight, tied on before the ceremony and removed before the first strike, and almost nobody outside Thailand gets told the full story.
+The muay thai headband is called the **mongkhon** (also written mongkol, mongkon or mongkong, depending on who transliterated the Thai): a sacred cord worn during the pre-fight ceremony and taken off just before the first round. Every fighter who steps into a ring in Thailand wears one, and most visitors have no idea what it actually is. It looks decorative from the stands. It is not. The **muay thai headband** is a sacred piece of the fight, tied on before the ceremony and removed before the first strike, and almost nobody outside Thailand gets told the full story.
 
 I have put a mongkhon on more heads than I can count, and I have watched foreign students stare at one on the wall, unsure if they are even allowed to touch it. This is the explanation I wish someone had given them sooner: what the mongkhon actually is, what its companion the pra jiad is, why the ceremony around them matters, and how to treat both with the respect they were made for.
 
@@ -32,7 +33,7 @@ Here is the distinction most articles skip entirely. The mongkhon is not the onl
 
 Traditionally, people trace the mongkhon back to a time when Siam was in a near-constant state of war, when young men would tear a piece off a loved one's clothing, often a mother's sarong, and wear it into battle for luck and to ward off harm, according to [Wikipedia's overview of Muay Thai](https://en.wikipedia.org/wiki/Muay_Thai#Traditional_wear). That is the story most often told in gyms across Thailand, passed down more than it has been formally documented, so it's worth reading as tradition rather than a dated historical fact.
 
-What is easier to confirm is how a mongkhon reaches a fighter today. It's typically handmade, cord wound and braided by hand rather than machine-stamped, and it's commonly blessed by a monk before it is given to a fighter, whether or not the fighter is Buddhist, according to that same [Muay Thai overview](https://en.wikipedia.org/wiki/Muay_Thai#Traditional_wear). That blessing is what turns a length of cord into something a fighter treats as protection, not decoration. Exactly how and when that happens varies from camp to camp and teacher to teacher, and we keep that part general here rather than describing one specific process as universal.
+What is easier to confirm is how a mongkhon reaches a fighter today. It's typically handmade, cord wound and braided by hand rather than machine-stamped, and it's commonly blessed by a monk before it is given to a fighter, whether or not the fighter is Buddhist, according to that same [Muay Thai overview](https://en.wikipedia.org/wiki/Muay_Thai#Traditional_wear). Traditionally the teachers or trainers in a camp make it by hand from rope and cloth, and some carry sacred amulets worked into the cord, according to [YOKKAO's guide to the mongkhon and pra jiad](https://yokkao.com/pages/muay-thai-mongkhon-and-pra-jiad). That blessing is what turns a length of cord into something a fighter treats as protection, not decoration. Exactly how and when that happens varies from camp to camp and teacher to teacher, and we keep that part general here rather than describing one specific process as universal.
 
 ## The pra jiad: the mongkhon's often-overlooked companion
 
@@ -40,7 +41,29 @@ If the mongkhon gets all the attention, the pra jiad quietly does its own job an
 
 The difference that actually matters for anyone watching a fight: the pra jiad stays on for the entire bout, while the mongkhon comes off before the first exchange. We will get to exactly why in the next section, but it's worth sitting with that contrast for a moment, because it tells you something about what each object is for. One is worn for the ceremony and the walk to the ring. The other is worn to fight.
 
-People also ask about what the colors mean, on both the mongkhon and the pra jiad, and this is where it is easy to find confident-sounding answers online that are not actually true. Colors can carry meaning tied to a camp's lineage or a kru's own choices, but there is no single, universal color code that applies across every gym in Thailand, whatever some sites claim with a tidy chart. If you want to know what a specific one means, the honest answer is to ask the kru who tied it. That answer will actually be true for the one in front of you.
+
+## How a pra jiad is made
+
+There is no factory standard for a pra jiad. The oldest version is the one in the origin story: a strip of a family member's clothing knotted around the arm. Today they are made from fabric, rope, or a mix of the two, according to [YOKKAO's guide](https://yokkao.com/pages/muay-thai-mongkhon-and-pra-jiad), and some fighters now use satin or silk, according to [Rajadamnern Stadium's guide to the pra jiad](https://rajadamnern.com/blog/pra-jiad/).
+
+Making one is simple. Most of the meaning comes from the steps around it:
+
+1. The cloth is chosen. Fighters often pick the type and colour with their trainer or mentor, per the same Rajadamnern guide.
+2. It is rolled or twisted into a band long enough to wrap around the biceps.
+3. It is blessed, usually by a Buddhist monk or a respected elder, before the fight.
+4. It is tied on so it cannot come loose during the bout, because unlike the mongkhon it stays on until the final bell.
+
+If you want one as a training keepsake, a strip of cotton from someone who matters to you is closer to the original spirit than anything you can order online.
+
+## Pra jiad colours and "rankings": what they really mean
+
+People search for pra jiad rankings the way they would search for karate belts, and this is where confident answers online stop being true.
+
+Traditional Muay Thai in Thailand has no armband grading. A fighter's standing comes from their fights. YOKKAO describes the belt-style armband system as non-traditional, something some foreign gyms use as "a kind of belt system similar to that in Karate or Taekwondo." The best-known version is the **khan** grading: the [United World Muay Thai Association](https://uwmta.org/ranking%20systems.html) lists sixteen khan levels, from a white armband at 1st khan up to gold for grand master, and presents it as a framework for Western schools that want belt-style progression.
+
+So a student in London or Texas wearing a green-and-white pra jiad is probably showing their grade at that gym. A fighter in a Thai stadium almost certainly is not.
+
+As for what a single colour means, some sites publish tidy charts (red for bravery, blue for wisdom), but no one code holds across every gym in Thailand. Colour can reflect a camp's lineage, a kru's choice, or simply the cloth that was at hand. If you want to know what a specific one means, ask the kru who tied it.
 
 ## The wai kru ram muay ceremony
 
@@ -58,11 +81,19 @@ The whole sequence is set to live music called sarama, traditionally played by u
 
 This is the question we get the most, and the answer is simple. The trainer, or the kru, removes the mongkhon from the fighter's head right before the first strike of the fight. As [Rajadamnern Stadium's history of the mongkhon](https://rajadamnern.com/blog/muay-thai-headband/) puts it, "at the culmination of these rituals, just before the fight begins, the trainer removes the Mongkhon from the fighter's head, a symbolic gesture of releasing them into battle with their blessings." It marks the transition point exactly: the ceremony and the respect paid to the teacher and the lineage is done, and the fight itself begins. The pra jiad, tied on the arm, stays exactly where it is.
 
+## Can you buy a mongkhon? (and should you wear one)
+
+Yes, you can buy one. YOKKAO notes that they "can be purchased in Muay Thai specialty shops," and plenty of stores sell them online next to gloves and shorts. The question people actually mean is the second one: can you wear it?
+
+Here is the traditional view. A mongkhon you buy is an object. A mongkhon your kru places on your head is a blessing. The one worn into a fight traditionally comes from your teacher, often made in the camp and blessed before it is given to you, and your kru is the one who takes it off after the wai kru. Walking into the ring with one you ordered yourself skips the part that gives it meaning.
+
+In practice, buying one to keep at home or to learn about is fine. Wearing one in training or for a photo, ask your kru first; most say yes to someone who asks respectfully. Wearing one in a fight, only if your kru gives it to you, and if you fight out of a Thai camp they will handle that part anyway.
+
 ## Wearing a mongkhon respectfully: etiquette for visitors, and how we teach it at Wildcat
 
 Here is the part almost nobody covers, and it is the part I actually get asked about the most. Can a visitor wear a mongkhon? Is it disrespectful to want to try one on for a photo?
 
-The honest answer is: it depends entirely on how you approach it. A mongkhon is not a souvenir, and buying one to wear around town, or as a costume piece with no connection to actual training, treats a meaningful object like a prop. That is the version to avoid. Asking your kru first, before you put one on for a photo, or before wearing one during actual training, is the version that is genuinely welcome. Most coaches in Thailand are happy to explain the object to someone who is curious and asks with respect, rather than someone who just wants a picture.
+The honest answer is: it depends entirely on how you approach it. Wearing one around town as a costume piece, with no connection to actual training, treats a meaningful object like a prop. That is the version to avoid. Asking your kru first is the version that is genuinely welcome. Most coaches in Thailand are happy to explain the object to someone who is curious and asks with respect, rather than someone who just wants a picture.
 
 At Wildcat, new students often meet the mongkhon and the wai kru ceremony for the first time simply by watching a class before they ever wear one themselves. Coaches here explain the gesture as it comes up, in the flow of training rather than as a formal lecture, and nobody is pushed to take part before they are ready to understand what it means. If you want to see what that first exposure actually looks like in practice, [a first class at Wildcat](/classes/beginners) walks through exactly that. You can also check [our class schedule](/classes) for times and pricing, or read more about [our coaches](/about/coaches), the people who actually carry this tradition forward and pass it on to every new student who trains here.
 
@@ -88,6 +119,14 @@ The trainer removes it right before the first strike. It marks the moment the ce
 
 Not casually, and not as a souvenir. If you are curious about wearing one during training or for a photo, ask your kru first. Most coaches are glad to explain it to someone who asks respectfully.
 
+### Can I buy a mongkhon online?
+
+Yes, Muay Thai shops sell them. Keep it and learn from it, but only wear one in a fight if your kru gives it to you.
+
+### Do pra jiad colours show rank?
+
+Only at gyms that use a grading system, like the khan levels common in schools abroad. In traditional Thai Muay Thai, armband colour is not a rank.
+
 ### What does "wai khru ram muay" mean?
 
 The wai is the gesture of respect paid to a trainer and camp lineage. The ram muay is the dance performed around the ring before a fight. Together, they make up the ceremony in which the mongkhon is worn.
@@ -108,6 +147,9 @@ The mongkhon and the pra jiad are not costume pieces. They are two different obj
 - The wai khru ram muay ceremony structure, etymology, and the ring-sealing bows to Buddha, Dharma, and the Sangha: [Wikipedia, "Wai khru ram muay"](https://en.wikipedia.org/wiki/Wai_khru_ram_muay), consulted 2026-08-07.
 - Pra jiad description and origin as a family member's clothing tied on for luck before battle: [Wikipedia, "Pra Jiad"](https://en.wikipedia.org/wiki/Pra_Jiad), consulted 2026-08-07.
 - Sarama music and its instrumentation (pi, klong khaek drums): [Wikipedia, "Sarama (Thai music)"](https://en.wikipedia.org/wiki/Sarama_%28Thai_music%29), consulted 2026-08-07.
+- Mongkhon handmade from rope and cloth by camp teachers, sometimes with sacred amulets; mongkhon sold in specialty shops; pra jiad materials; armband grading described as non-traditional: [YOKKAO, "Muay Thai Pra Jiad & Mongkhon Explained"](https://yokkao.com/pages/muay-thai-mongkhon-and-pra-jiad), consulted 2026-09-29.
+- Pra jiad in satin and silk, colour chosen with the trainer, blessing by a monk or elder, tied so it cannot come loose: [Rajadamnern Stadium, "Pra Jiad, Muay Thai Arm Band, History and Ranking System"](https://rajadamnern.com/blog/pra-jiad/), consulted 2026-09-29.
+- Khan grading (16 levels, white to gold) as a framework for schools: [United World Muay Thai Association, "Ranking systems"](https://uwmta.org/ranking%20systems.html), consulted 2026-09-29.
 - The mongkhon being removed by the trainer right before the fight begins: [Rajadamnern Stadium, "Mongkhon, Muay Thai Headband, History and Cultural Meaning"](https://rajadamnern.com/blog/muay-thai-headband/), consulted 2026-08-07.
 
 *Note: color symbolism and blessing practices vary by camp and by kru. Treat any single "meaning chart" you find online as one gym's convention, not a universal rule, and ask your own kru for what a specific mongkhon or pra jiad means.*

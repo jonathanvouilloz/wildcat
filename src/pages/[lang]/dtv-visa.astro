@@ -5,27 +5,31 @@ import TornDivider from '../../components/layout/TornDivider.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
 import Button from '../../components/ui/Button.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import Callout from '../../components/ui/Callout.astro';
 import DtvStamp from '../../components/ui/DtvStamp.astro';
 import PageHero from '../../components/sections/PageHero.astro';
 import DtvSteps from '../../components/sections/DtvSteps.astro';
 import FeatureGrid from '../../components/sections/FeatureGrid.astro';
 import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
 import ApprovalsStrip from '../../components/sections/ApprovalsStrip.astro';
-import Faq from '../../components/sections/Faq.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
 import ReadNext from '../../components/sections/ReadNext.astro';
-import { site } from '../../config/site';
+import FaqSearch from '../../components/interactive/FaqSearch.astro';
 import { localePath } from '../../lib/routes';
 import { waLink } from '../../lib/whatsapp';
 import { safeQuery } from '../../lib/content';
+import { getPostsByKeys, blogPath } from '../../lib/blog';
 import { FEATURED_TESTIMONIALS_QUERY } from '../../lib/queries';
 import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../lib/sanity.types';
 import { urlFor } from '../../lib/image';
-import { pickLocale } from '../../lib/i18n-content';
 import { mapTestimonial } from '../../lib/testimonials';
 import { m } from '../../paraglide/messages.js';
 
-// Pilier DTV — page commerciale du silo n°1 (kw : "DTV visa Chiang Mai").
+// Pilier DTV — page unique et forte du silo n°1 (kw EN : "muay thai visa thailand"
+// + "DTV visa Chiang Mai" ; FR : "visa dtv muay thai thailande").
+// Fusion 2026-09-29 : absorbe l'ex-satellite muay-thai (BLUF, soft power, table
+// DTV/ED/Tourist, documents) et l'ex-satellite faq (FAQ 33 Q + FAQPage JSON-LD),
+// redirigées en 301 ici (astro.config.mjs). Cf. docs/DECISIONS.md.
 // CTA "apply" → /contact tant que la mini-app (E6) n'existe pas.
 export function getStaticPaths() {
   return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
@@ -33,6 +37,9 @@ export function getStaticPaths() {
 
 const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
+
+// Article « changements 2026 » (EN only pour l'instant) : lien masqué si absent.
+const [updatePost] = await getPostsByKeys(lang, ['dtv-visa-new-requirements-2026']);
 
 // Témoignages DTV — uniquement si le CMS en a (pas de fausse review en
 // fallback). 1re quote dans le split #eligibility, jusqu'à 3 de plus en
@@ -56,32 +63,151 @@ const approvals = testimonialDocs
     name: doc.name ?? '',
   }));
 
+const updateFacts = [m.dtv_update_fact1(), m.dtv_update_fact2(), m.dtv_update_fact3()];
+
 const steps = [
   { title: m.dtv_step1_t(), body: m.dtv_step1_b() },
   { title: m.dtv_step2_t(), body: m.dtv_step2_b() },
   { title: m.dtv_step3_t(), body: m.dtv_step3_b() },
 ];
 
-const included = [
-  { icon: 'tabler:file-text', title: m.dtv_inc1_t(), body: m.dtv_inc1_b() },
+// Ce qu'on fournit : les 3 documents du dossier (lettre, planning, reçu),
+// puis ce qui sert pendant le séjour (confirmation pour les prolongations,
+// moto, chambre). Fusion des ex-dtv_inc_* du pilier et dtv_mt_prov* de /muay-thai.
+const provided = [
+  { icon: 'tabler:file-text', title: m.dtv_mt_prov1_t(), body: m.dtv_mt_prov1_b() },
+  { icon: 'tabler:calendar-week', title: m.dtv_mt_prov2_t(), body: m.dtv_mt_prov2_b() },
+  { icon: 'tabler:receipt', title: m.dtv_mt_prov3_t(), body: m.dtv_mt_prov3_b() },
   { icon: 'tabler:circle-check', title: m.dtv_inc2_t(), body: m.dtv_inc2_b() },
   { icon: 'tabler:motorbike', title: m.dtv_inc3_t(), body: m.dtv_inc3_b() },
   { icon: 'tabler:home-2', title: m.dtv_inc4_t(), body: m.dtv_inc4_b() },
 ];
 
-const faqItems = [
-  { q: m.dtv_faq_q1(), a: m.dtv_faq_a1() },
-  { q: m.dtv_faq_q2(), a: m.dtv_faq_a2() },
-  { q: m.dtv_faq_q3(), a: m.dtv_faq_a3() },
-  { q: m.dtv_faq_q4(), a: m.dtv_faq_a4() },
-  { q: m.dtv_faq_q5(), a: m.dtv_faq_a5() },
+// Table comparative DTV / ED / Tourist — chaque cellule = message i18n.
+const compareRows = [
+  { label: m.dtv_mt_tbl_row_validity(), dtv: m.dtv_mt_tbl_validity_dtv(), ed: m.dtv_mt_tbl_validity_ed(), tourist: m.dtv_mt_tbl_validity_tourist() },
+  { label: m.dtv_mt_tbl_row_cost(), dtv: m.dtv_mt_tbl_cost_dtv(), ed: m.dtv_mt_tbl_cost_ed(), tourist: m.dtv_mt_tbl_cost_tourist() },
+  { label: m.dtv_mt_tbl_row_funds(), dtv: m.dtv_mt_tbl_funds_dtv(), ed: m.dtv_mt_tbl_funds_ed(), tourist: m.dtv_mt_tbl_funds_tourist() },
+  { label: m.dtv_mt_tbl_row_gym(), dtv: m.dtv_mt_tbl_gym_dtv(), ed: m.dtv_mt_tbl_gym_ed(), tourist: m.dtv_mt_tbl_gym_tourist() },
+  { label: m.dtv_mt_tbl_row_admin(), dtv: m.dtv_mt_tbl_admin_dtv(), ed: m.dtv_mt_tbl_admin_ed(), tourist: m.dtv_mt_tbl_admin_tourist() },
+  { label: m.dtv_mt_tbl_row_change(), dtv: m.dtv_mt_tbl_change_dtv(), ed: m.dtv_mt_tbl_change_ed(), tourist: m.dtv_mt_tbl_change_tourist() },
+  { label: m.dtv_mt_tbl_row_apply(), dtv: m.dtv_mt_tbl_apply_dtv(), ed: m.dtv_mt_tbl_apply_ed(), tourist: m.dtv_mt_tbl_apply_tourist() },
+  { label: m.dtv_mt_tbl_row_remote(), dtv: m.dtv_mt_tbl_remote_dtv(), ed: m.dtv_mt_tbl_remote_ed(), tourist: m.dtv_mt_tbl_remote_tourist() },
+  { label: m.dtv_mt_tbl_row_suits(), dtv: m.dtv_mt_tbl_suits_dtv(), ed: m.dtv_mt_tbl_suits_ed(), tourist: m.dtv_mt_tbl_suits_tourist() },
 ];
 
-// JSON-LD : le FAQPage du silo est porté par /dtv-visa/faq (un seul FAQPage par
-// contenu — Option A, cf. brief dtv-faq). Le BreadcrumbList est émis par <Breadcrumb>.
+const verdicts = [
+  { profile: m.dtv_mt_verdict1_who(), pick: m.dtv_mt_verdict1_pick() },
+  { profile: m.dtv_mt_verdict2_who(), pick: m.dtv_mt_verdict2_pick() },
+  { profile: m.dtv_mt_verdict3_who(), pick: m.dtv_mt_verdict3_pick() },
+];
+
+// FAQ complète — 7 thèmes, 33 questions (les 30 de l'ex-/faq + 3 uniques de
+// l'ex-/muay-thai ; les doublons des deux mini-FAQ ont été retirés).
+const themes = [
+  {
+    t: m.dtv_faqp_theme1_t(),
+    intro: m.dtv_faqp_theme1_intro(),
+    link: { label: m.dtv_faqp_theme1_link(), href: p('/dtv-visa/eligibility') },
+    items: [
+      { q: m.dtv_faqp_q1(), a: m.dtv_faqp_a1() },
+      { q: m.dtv_faqp_q2(), a: m.dtv_faqp_a2() },
+      { q: m.dtv_faqp_q3(), a: m.dtv_faqp_a3() },
+      { q: m.dtv_faqp_q4(), a: m.dtv_faqp_a4() },
+      { q: m.dtv_faqp_q5(), a: m.dtv_faqp_a5() },
+      { q: m.dtv_faqp_q6(), a: m.dtv_faqp_a6() },
+      { q: m.dtv_faqp_q7(), a: m.dtv_faqp_a7() },
+      { q: m.dtv_faqp_q8(), a: m.dtv_faqp_a8() },
+    ],
+  },
+  {
+    t: m.dtv_faqp_theme2_t(),
+    intro: m.dtv_faqp_theme2_intro(),
+    items: [
+      { q: m.dtv_faqp_q9(), a: m.dtv_faqp_a9() },
+      { q: m.dtv_faqp_q10(), a: m.dtv_faqp_a10() },
+      { q: m.dtv_faqp_q11(), a: m.dtv_faqp_a11() },
+      { q: m.dtv_faqp_q12(), a: m.dtv_faqp_a12() },
+    ],
+  },
+  {
+    t: m.dtv_faqp_theme3_t(),
+    intro: m.dtv_faqp_theme3_intro(),
+    link: { label: m.dtv_faqp_theme3_link(), href: p('/dtv-visa/how-to-apply') },
+    items: [
+      { q: m.dtv_faqp_q13(), a: m.dtv_faqp_a13() },
+      { q: m.dtv_faqp_q14(), a: m.dtv_faqp_a14() },
+      { q: m.dtv_faqp_q15(), a: m.dtv_faqp_a15() },
+      { q: m.dtv_faqp_q16(), a: m.dtv_faqp_a16() },
+      { q: m.dtv_faqp_q17(), a: m.dtv_faqp_a17() },
+      { q: m.dtv_faqp_q18(), a: m.dtv_faqp_a18() },
+    ],
+  },
+  {
+    t: m.dtv_faqp_theme4_t(),
+    intro: m.dtv_faqp_theme4_intro(),
+    items: [
+      { q: m.dtv_faqp_q19(), a: m.dtv_faqp_a19() },
+      { q: m.dtv_faqp_q20(), a: m.dtv_faqp_a20() },
+      { q: m.dtv_faqp_q21(), a: m.dtv_faqp_a21() },
+      { q: m.dtv_faqp_q22(), a: m.dtv_faqp_a22() },
+      { q: m.dtv_faqp_q23(), a: m.dtv_faqp_a23() },
+    ],
+  },
+  {
+    t: m.dtv_faqp_theme5_t(),
+    intro: m.dtv_faqp_theme5_intro(),
+    note: m.dtv_faqp_theme5_note(),
+    items: [
+      { q: m.dtv_faqp_q24(), a: m.dtv_faqp_a24() },
+      { q: m.dtv_faqp_q25(), a: m.dtv_faqp_a25() },
+      { q: m.dtv_faqp_q26(), a: m.dtv_faqp_a26() },
+    ],
+  },
+  {
+    t: m.dtv_faqp_theme6_t(),
+    intro: m.dtv_faqp_theme6_intro(),
+    items: [
+      { q: m.dtv_faqp_q27(), a: m.dtv_faqp_a27() },
+      { q: m.dtv_faqp_q28(), a: m.dtv_faqp_a28() },
+    ],
+  },
+  {
+    t: m.dtv_faqp_theme7_t(),
+    intro: m.dtv_faqp_theme7_intro(),
+    link: { label: m.dtv_faqp_theme7_link(), href: p('/dtv-visa/long-stay-training') },
+    items: [
+      { q: m.dtv_faqp_q29(), a: m.dtv_faqp_a29() },
+      { q: m.dtv_mt_faq_q1(), a: m.dtv_mt_faq_a1() },
+      { q: m.dtv_mt_faq_q3(), a: m.dtv_mt_faq_a3() },
+      { q: m.dtv_mt_faq_q4(), a: m.dtv_mt_faq_a4() },
+      { q: m.dtv_faqp_q30(), a: m.dtv_faqp_a30() },
+    ],
+  },
+];
+
+// Sources officielles citées (externes, non nofollow — confiance YMYL).
+const EVISA_URL = 'https://www.thaievisa.go.th/';
+const CONSULATE_URL = 'https://thaiconsulatela.thaiembassy.org/en/publicservice/dtv-visa';
+
+// FAQPage JSON-LD — seul FAQPage du silo DTV, construit depuis les MÊMES
+// messages que le contenu visible. Le BreadcrumbList est émis par <Breadcrumb>.
+const faqJsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: lang,
+  mainEntity: themes
+    .flatMap((th) => th.items)
+    .map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+};
 ---
 
 <BaseLayout title={m.dtv_meta_title()} description={m.dtv_meta_desc()}>
+  <script type="application/ld+json" slot="jsonld" is:inline set:html={JSON.stringify(faqJsonld)} />
 
   <main>
     <Breadcrumb
@@ -105,19 +231,54 @@ const faqItems = [
     {/* le hero dark (forest-deep) déchire sur l'intro (cream) */}
     <TornDivider variant="ridge-seg-a" color="var(--forest-deep)" flipY />
 
+    {/* BLUF + disclaimer YMYL + revue datée + règles 2026 + intro */}
     <Section containerSize="narrow">
+      <p class="bluf">{m.dtv_mt_bluf()}</p>
+      <Callout variant="note" label={m.callout_note_label()} class="mb-4">
+        <p>{m.dtv_mt_disclaimer()}</p>
+      </Callout>
+      <p class="reviewed">
+        <span class="dot" aria-hidden="true">●</span>{m.dtv_faqp_reviewed()}
+      </p>
+      <p class="reviewed-by">
+        {m.dtv_faqp_reviewed_by()}{' '}
+        <a class="ilink" href={p('/about/coaches')}>{m.byline_author_link()}</a>
+      </p>
+
+      <Callout variant="brief" label={m.dtv_update_label()} facts={updateFacts} class="mt-7 mb-7">
+        {
+          updatePost && (
+            <p slot="footer">
+              <a class="ilink" href={blogPath(updatePost)}>{m.dtv_update_link()}</a>
+            </p>
+          )
+        }
+      </Callout>
+
       <SectionHead>{m.dtv_intro_head()}</SectionHead>
       <h2 class="h2 mt-2 mb-4">{m.dtv_intro_title()}</h2>
       <p class="body-p">{m.dtv_intro_p1()}</p>
       <p class="body-p">{m.dtv_intro_p2()}</p>
       <ul class="sat-links">
-        <li><a href={p('/dtv-visa/muay-thai')}>{m.dtv_link_mt()} &rarr;</a></li>
+        <li><a href="#compare">{m.dtv_link_mt()} &rarr;</a></li>
         <li><a href={p('/dtv-visa/long-stay-training')}>{m.dtv_link_lst()} &rarr;</a></li>
       </ul>
     </Section>
 
-    {/* la section how-to (forest) mord vers le haut sur l'intro (cream) */}
-    <TornDivider variant="ridge-seg-b" color="var(--forest)" />
+    {/* Base soft power */}
+    <Section soft containerSize="narrow" id="soft-power">
+      <SectionHead>{m.dtv_mt_soft_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-4">{m.dtv_mt_soft_title()}</h2>
+      <p class="body-p">{m.dtv_mt_soft_p1()}</p>
+      <p class="body-p">{m.dtv_mt_soft_p2()}</p>
+      <p class="body-p">
+        {m.dtv_mt_soft_p3()}{' '}
+        <a href={p('/classes')} class="ilink">{m.dtv_mt_link_classes()}</a>.
+      </p>
+    </Section>
+
+    {/* la section how-to (forest) mord vers le haut sur le soft power (soft) */}
+    <TornDivider variant="ridge-seg-b" color="var(--forest)" bg="var(--soft)" />
 
     <Section dark>
       <SectionHead onDark>{m.dtv_how_head()}</SectionHead>
@@ -130,15 +291,75 @@ const faqItems = [
       </p>
     </Section>
 
-    <Section soft>
+    {/* Ce qu'on fournit (documents du dossier + séjour) */}
+    <Section soft id="provided">
       <SectionHead>{m.dtv_inc_head()}</SectionHead>
-      <h2 class="h2 mt-2 mb-7">
+      <h2 class="h2 mt-2 mb-4">
         {m.dtv_inc_title()} <span class="em">{m.dtv_inc_title_em()}</span>
       </h2>
-      <FeatureGrid items={included} />
+      <p class="body-p mb-7">{m.dtv_mt_prov_intro()}</p>
+      <FeatureGrid items={provided} />
+      <p class="body-p mt-7">{m.dtv_mt_prov_outro()}</p>
+      <p class="body-p">
+        <a href={p('/dtv-visa/how-to-apply')} class="ilink">{m.dtv_mt_link_howto()}</a>
+        {' · '}
+        <a href={p('/stay-train')} class="ilink">{m.dtv_mt_link_staytrain()}</a>
+      </p>
     </Section>
 
-    <Section id="eligibility">
+    {/* Table comparative DTV / ED / Tourist + verdicts par profil */}
+    <Section id="compare">
+      <SectionHead>{m.dtv_mt_cmp_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-3">{m.dtv_mt_cmp_title()}</h2>
+      <p class="body-p mb-7">{m.dtv_mt_cmp_intro()}</p>
+
+      <div class="tbl-scroll" tabindex="0" role="region" aria-label={m.dtv_mt_cmp_table_label()}>
+        <table class="cmp">
+          <caption class="sr-only">{m.dtv_mt_cmp_caption()}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{m.dtv_mt_tbl_col_criteria()}</th>
+              <th scope="col" class="hot">{m.dtv_mt_tbl_col_dtv()}</th>
+              <th scope="col">{m.dtv_mt_tbl_col_ed()}</th>
+              <th scope="col">{m.dtv_mt_tbl_col_tourist()}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              compareRows.map((row) => (
+                <tr>
+                  <th scope="row">{row.label}</th>
+                  <td class="hot" data-label={m.dtv_mt_tbl_col_dtv()}>{row.dtv}</td>
+                  <td data-label={m.dtv_mt_tbl_col_ed()}>{row.ed}</td>
+                  <td data-label={m.dtv_mt_tbl_col_tourist()}>{row.tourist}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h3 mt-9 mb-4">{m.dtv_mt_verdict_title()}</h3>
+      <ul class="verdicts">
+        {
+          verdicts.map((v) => (
+            <li>
+              <span class="who">{v.profile}</span>
+              <span class="pick">{v.pick}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="note mt-6">{m.dtv_mt_verdict_note()}</p>
+      <div class="mt-6 link-row">
+        <Button href={p('/dtv-visa/eligibility')} variant="forest" arrow>
+          {m.dtv_mt_cmp_elig_cta()}
+        </Button>
+        <a href={p('/dtv-visa/how-to-apply')} class="ilink">{m.dtv_mt_link_howto()}</a>
+      </div>
+    </Section>
+
+    <Section soft id="eligibility">
       <div class="elig">
         <div>
           <SectionHead>{m.dtv_elig_head()}</SectionHead>
@@ -180,18 +401,54 @@ const faqItems = [
       }
     </Section>
 
-    <Section soft id="faq">
-      <div class="faq-split">
-        <div>
-          <SectionHead>{m.dtv_faq_head()}</SectionHead>
-          <h2 class="h2 mt-2">{m.dtv_faq_title()}</h2>
-          <p class="sat-link"><a href={p('/dtv-visa/faq')}>{m.dtv_link_full_faq()} &rarr;</a></p>
-        </div>
-        <Faq items={faqItems} firstOpen />
+    {/* FAQ complète (porteuse du FAQPage JSON-LD) + filtre live */}
+    <Section containerSize="narrow" id="faq">
+      <SectionHead>{m.dtv_faq_head()}</SectionHead>
+      <h2 class="h2 mt-2 mb-3">{m.dtv_faq_title()}</h2>
+      <p class="body-p mb-7">{m.dtv_faq_intro()}</p>
+
+      <FaqSearch whatsapp={waLink(m.contact_wa_text_dtv())} contactHref={`${p('/contact')}?intent=dtv`} />
+
+      <div class="faq-root" data-faq-root>
+        {
+          themes.map((theme) => (
+            <section class="theme" data-faq-theme>
+              <h3 class="h3 theme-title">{theme.t}</h3>
+              <p class="theme-intro">{theme.intro}</p>
+              {theme.note && <p class="theme-note">{theme.note}</p>}
+              <div class="faq">
+                {theme.items.map((item) => (
+                  <details data-faq-item>
+                    <summary>
+                      {item.q} <span class="pm" aria-hidden="true">+</span>
+                    </summary>
+                    <div class="ans-wrap" data-faq-panel>
+                      <div class="ans">{item.a}</div>
+                    </div>
+                  </details>
+                ))}
+              </div>
+              {theme.link && (
+                <p class="theme-link">
+                  <a href={theme.link.href}>{theme.link.label} &rarr;</a>
+                </p>
+              )}
+            </section>
+          ))
+        }
+      </div>
+
+      <div class="sources">
+        <SectionHead>{m.dtv_faqp_sources_title()}</SectionHead>
+        <p class="sources-intro">{m.dtv_faqp_sources_intro()}</p>
+        <ul>
+          <li><a href={EVISA_URL} target="_blank" rel="noopener">{m.dtv_faqp_source_evisa()} &rarr;</a></li>
+          <li><a href={CONSULATE_URL} target="_blank" rel="noopener">{m.dtv_faqp_source_consulate()} &rarr;</a></li>
+        </ul>
       </div>
     </Section>
 
-    <ReadNext keys={['dtv-visa-new-requirements-2026', 'dtv-visa-cost-breakdown', 'dtv-visa-agent-worth-it']} />
+    <ReadNext keys={['dtv-visa-new-requirements-2026', 'ed-visa-vs-dtv', 'dtv-visa-cost-breakdown']} />
 
     <CtaBanner
       variant="torn"
@@ -214,6 +471,58 @@ const faqItems = [
     margin: 0 0 16px;
     max-width: 64ch;
   }
+  .bluf {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink);
+    font-weight: 500;
+    margin: 0 0 18px;
+    max-width: 66ch;
+  }
+  .ilink {
+    color: var(--gold-deep);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+  }
+  .ilink:hover {
+    color: var(--forest);
+  }
+  .ilink:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Revue datée (E-E-A-T / YMYL) */
+  .reviewed {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 12px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--soft-2);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--forest);
+  }
+  .reviewed .dot {
+    font-size: 9px;
+    color: var(--success, var(--forest-light));
+  }
+  .reviewed-by {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink-2);
+    line-height: 1.6;
+    max-width: 64ch;
+  }
+
   /* Liens satellites (maillage pillar → cluster) */
   .sat-links {
     list-style: none;
@@ -247,6 +556,125 @@ const faqItems = [
   .h2--dark {
     color: var(--cream);
   }
+
+  /* Table comparative */
+  .tbl-scroll {
+    overflow-x: auto;
+    border-radius: var(--r-md);
+    -webkit-overflow-scrolling: touch;
+  }
+  .tbl-scroll:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+  .cmp {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    min-width: 720px;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .cmp thead th {
+    background: var(--soft-2);
+    color: var(--forest);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: bottom;
+  }
+  .cmp thead th.hot {
+    background: var(--forest);
+    color: var(--cream);
+  }
+  .cmp tbody th[scope='row'] {
+    text-align: left;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--soft);
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    width: 22%;
+  }
+  .cmp td {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .cmp td.hot {
+    background: var(--soft-2);
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .cmp tbody tr:last-child th,
+  .cmp tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  /* Verdicts */
+  .verdicts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .verdicts li {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--r-md);
+    padding: 16px 20px;
+  }
+  .verdicts .who {
+    display: block;
+    font-weight: 700;
+    color: var(--forest);
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .verdicts .pick {
+    display: block;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+  .note {
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.6;
+    max-width: 66ch;
+    margin: 0;
+  }
+  .link-row {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* Éligibilité + témoignages */
   .elig {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
@@ -267,17 +695,242 @@ const faqItems = [
   .approvals {
     margin-top: 46px;
   }
-  .faq-split {
+
+  /* FAQ par thèmes */
+  .faq-root {
     display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 46px;
-    align-items: start;
+    gap: 44px;
   }
+  .theme[hidden] {
+    display: none;
+  }
+  .theme-title {
+    margin: 0 0 6px;
+    color: var(--forest);
+  }
+  .theme-intro {
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.55;
+    max-width: 64ch;
+  }
+  .theme-note {
+    margin: 0 0 18px;
+    padding: 12px 16px;
+    border-left: 3px solid var(--gold);
+    background: var(--surface);
+    border-radius: var(--r-sm);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-3);
+    line-height: 1.55;
+    max-width: 68ch;
+  }
+  .theme-intro + .faq {
+    margin-top: 16px;
+  }
+  .theme-link {
+    margin: 16px 0 0;
+  }
+  .theme-link a {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .theme-link a:hover {
+    color: var(--gold-deep);
+  }
+
+  /* Accordéon <details> — markup/style repris de Faq.astro (+ data-faq-item). */
+  .faq {
+    display: grid;
+    gap: 10px;
+  }
+  .faq details {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+  }
+  .faq details[hidden] {
+    display: none;
+  }
+  .faq summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 19px 24px 19px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--forest);
+  }
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq summary:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: -3px;
+    border-radius: var(--r-md);
+  }
+  .pm {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--soft-2);
+    color: var(--forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background 0.25s, color 0.25s, transform 0.3s cubic-bezier(0.33, 1, 0.45, 1);
+  }
+  .faq details[open] summary .pm {
+    background: var(--gold);
+    color: #1c1407;
+    transform: rotate(45deg);
+  }
+  /* fermeture en cours (anim) : le « × » repart en « + » */
+  .faq details[open][data-closing] summary .pm {
+    background: var(--soft-2);
+    color: var(--forest);
+    transform: rotate(0deg);
+  }
+  /* wrapper animé (FAQ v2) : AUCUN padding propre (scrollHeight fiable) */
+  .ans-wrap {
+    overflow: hidden;
+  }
+  .ans {
+    padding: 2px 28px 22px 30px;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.55;
+    max-width: 64ch;
+  }
+
+  /* Sources officielles */
+  .sources {
+    margin-top: 44px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .sources-intro {
+    margin: 8px 0 12px;
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+  .sources ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+  .sources a {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .sources a:hover {
+    color: var(--gold-deep);
+  }
+
   @media (max-width: 860px) {
-    .elig,
-    .faq-split {
+    .elig {
       grid-template-columns: 1fr;
       gap: 30px;
     }
   }
+  @media (prefers-reduced-motion: reduce) {
+    .pm {
+      transition: none;
+    }
+  }
 </style>
+
+<script>
+  // Accordéon animé (FAQ v2) — même technique que Faq.astro mais SANS
+  // exclusivité : la FAQ filtrable doit pouvoir rester multi-ouverte, et
+  // FaqSearch pose `open`/`hidden` par programme (reste en snap, voulu).
+  (() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const anims = new WeakMap<HTMLDetailsElement, Animation>();
+
+    const panelOf = (d: HTMLDetailsElement) =>
+      d.querySelector<HTMLElement>(':scope > [data-faq-panel]');
+
+    const cancelAnim = (d: HTMLDetailsElement) => {
+      const a = anims.get(d);
+      if (a) {
+        a.cancel();
+        anims.delete(d);
+      }
+    };
+
+    function openItem(d: HTMLDetailsElement) {
+      const p = panelOf(d);
+      if (!p) return;
+      const from = anims.has(d) ? p.getBoundingClientRect().height : 0;
+      cancelAnim(d);
+      d.removeAttribute('data-closing');
+      d.setAttribute('open', '');
+      if (reduce) return;
+      const anim = p.animate(
+        [
+          { height: `${from}px`, opacity: from > 0 ? 1 : 0.35 },
+          { height: `${p.scrollHeight}px`, opacity: 1 },
+        ],
+        { duration: 300, easing: 'cubic-bezier(0.33, 1, 0.45, 1)' }
+      );
+      anims.set(d, anim);
+      anim.onfinish = () => anims.delete(d);
+    }
+
+    function closeItem(d: HTMLDetailsElement) {
+      if (!d.hasAttribute('open') || d.hasAttribute('data-closing')) return;
+      const p = panelOf(d);
+      if (!p) return;
+      if (reduce) {
+        d.removeAttribute('open');
+        return;
+      }
+      const from = p.getBoundingClientRect().height || p.scrollHeight;
+      cancelAnim(d);
+      d.setAttribute('data-closing', '');
+      const anim = p.animate(
+        [
+          { height: `${from}px`, opacity: 1 },
+          { height: '0px', opacity: 0.3 },
+        ],
+        { duration: 260, easing: 'cubic-bezier(0.45, 0, 0.55, 1)' }
+      );
+      anims.set(d, anim);
+      anim.onfinish = () => {
+        anims.delete(d);
+        d.removeAttribute('data-closing');
+        d.removeAttribute('open');
+      };
+    }
+
+    document
+      .querySelectorAll<HTMLDetailsElement>('[data-faq-root] details[data-faq-item]')
+      .forEach((d) => {
+        const summary = d.querySelector(':scope > summary');
+        if (!summary) return;
+        summary.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isOpen = d.hasAttribute('open') && !d.hasAttribute('data-closing');
+          if (isOpen) closeItem(d);
+          else openItem(d);
+        });
+      });
+  })();
+</script>

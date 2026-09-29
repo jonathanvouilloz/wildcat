@@ -53,7 +53,7 @@ In practice, they ask for a different commitment. The ED route means immersion a
 
 Worth being precise here: **an education visa in Thailand built around Muay Thai** is not the same case as language schools. As [The Thaiger reports](https://thethaiger.com/guides/visa-information/thailand-digital-nomad-visa), citing the Ministry of Foreign Affairs, "Thai language schools were removed from the Ministry of Foreign Affairs' qualifying soft power list" in 2025, and applicants wanting to study Thai are now directed to the ED visa instead. Muay Thai wasn't affected and remains valid. If you see older content suggesting language study still qualifies for the DTV, treat it as outdated.
 
-So Muay Thai still works as a path for both visas, but "works" means something different each time: one ties your legal status to a single school, the other to a documented, ongoing training relationship that can flex as your plans change. For the complete comparison across all three visa types, [the full DTV vs ED vs tourist comparison table](/dtv-visa/muay-thai) breaks down eligibility, cost, and administration side by side.
+So Muay Thai still works as a path for both visas, but "works" means something different each time: one ties your legal status to a single school, the other to a documented, ongoing training relationship that can flex as your plans change. For the complete comparison across all three visa types, [the full DTV vs ED vs tourist comparison table](/dtv-visa#compare) breaks down eligibility, cost, and administration side by side.
 
 ![Open-air Muay Thai training session at Wildcat during golden hour in Chiang Mai](/images/blog/ed-visa-vs-dtv-muay-thai-3.webp)
 

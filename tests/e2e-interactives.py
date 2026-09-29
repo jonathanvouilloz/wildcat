@@ -121,7 +121,7 @@ with sync_playwright() as p:
     check("estimator: total séjour affiché", total.count() >= 1 and len(total.first.inner_text().strip()) > 0)
 
     # ---------- 4. Filtre FAQ ----------
-    page.goto(f"{BASE}/en/dtv-visa/faq", wait_until="networkidle")
+    page.goto(f"{BASE}/en/dtv-visa#faq", wait_until="networkidle")  # FAQ fusionnée dans le pillar (2026-09-29)
     items = page.locator("[data-faq-item]")
     ni = items.count()
     check("faq: ~30 questions", ni >= 25, f"{ni} items")
@@ -243,7 +243,7 @@ with sync_playwright() as p:
     check("stay FR: 'stage' présent en H2", "stage" in h2s)
 
     # ---------- 8. Pages FR + erreurs JS ----------
-    for path in ["/fr/dtv-visa/eligibility", "/fr/dtv-visa/faq", "/fr/dtv-visa/muay-thai",
+    for path in ["/fr/dtv-visa", "/fr/dtv-visa/eligibility",
                  "/fr/dtv-visa/how-to-apply", "/fr/dtv-visa/long-stay-training",
                  "/fr/classes/beginners", "/fr/classes", "/fr/stay-train"]:
         r = page.goto(f"{BASE}{path}", wait_until="networkidle")

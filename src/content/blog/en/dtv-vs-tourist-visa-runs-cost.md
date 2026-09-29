@@ -34,7 +34,7 @@ A **Thailand border run** means leaving the country and coming back in on a new 
 
 **How many visa runs are realistic per year** now depends on which route you use. On the exemption alone, a full year means around six 60-day cycles, five exits and six extensions, with no more than two of those exits over land. Immigration officers also assess each visa-exempt arrival at their discretion, and repeated back-to-back entries are exactly the pattern that draws questions. There is no published number of runs they will tolerate, so if frequent border running is your plan, expect it to get harder the more often you do it.
 
-This article stays on the cost question. If you are weighing whether a visa run routine even fits your training plan, [the DTV visa for Muay Thai training](/dtv-visa/muay-thai) lays out how the three visa options compare for that purpose.
+This article stays on the cost question. If you are weighing whether a visa run routine even fits your training plan, [the DTV visa for Muay Thai training](/dtv-visa#compare) lays out how the three visa options compare for that purpose.
 
 ## The DTV's own costs, including the optional extension
 

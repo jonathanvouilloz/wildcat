@@ -3,6 +3,7 @@ title: "Thailand Visa Guide 2026: Choose by Training Length"
 h1: "Which Thailand visa fits how long you actually want to train?"
 description: "Thailand's visa exemption dropped to 30 days on 15 September 2026. See which visa fits your training stay, from a weekend to a 5-year DTV."
 publishDate: 2026-09-24
+updatedDate: 2026-09-29
 author: "Meaw Boonpradub"
 category: "visa"
 draft: false
@@ -33,11 +34,13 @@ According to [visasnews.com](https://visasnews.com/en/thailand-these-21-national
 
 Most trainees reading this hold a passport from the US, the UK, the EU, Australia or Canada, none of which are on that list. But if you are one of these 21 nationalities, or you are travelling with a training partner who is, the practical step is the same either way: apply for an e-Visa before the flight, not after landing.
 
-### Proof of funds and the TDAC
+### Proof of funds, the TDAC and the planned entry fee
 
-Two separate requirements sit alongside the exemption reform, neither one new, both worth knowing before you land. First, **proof of funds**: Thai immigration can ask to see 10,000 THB per person (20,000 THB per family) if you are entering under the exemption, a visa on arrival or in transit, or 20,000 THB per person (40,000 THB per family) if you hold a tourist or non-immigrant visa. Children under 12 are exempt. This is not a rule written for the 2026 reform. It dates to a 1980 Ministry of Interior requirement, with the amounts last updated in 2000, and entry can technically be refused under Section 12(2) of the Immigration Act for insufficient means of subsistence. Checks are random rather than systematic, and cash is the form least likely to be questioned, so carrying enough removes the risk. Our full breakdown, including how this interacts with DTV fund requirements, lives in [our DTV proof of funds guide](/blog/dtv-visa-proof-of-funds).
+Two separate requirements sit alongside the exemption reform, neither one new, both worth knowing before you land. A third item is only a plan for now. First, **proof of funds**: Thai immigration can ask to see 10,000 THB per person (20,000 THB per family) if you are entering under the exemption, a visa on arrival or in transit, or 20,000 THB per person (40,000 THB per family) if you hold a tourist or non-immigrant visa. Children under 12 are exempt. This is not a rule written for the 2026 reform. It dates to a 1980 Ministry of Interior requirement, with the amounts last updated in 2000, and entry can technically be refused under Section 12(2) of the Immigration Act for insufficient means of subsistence. Checks are random rather than systematic, and cash is the form least likely to be questioned, so carrying enough removes the risk. Our full breakdown, including how this interacts with DTV fund requirements, lives in [our DTV proof of funds guide](/blog/dtv-visa-proof-of-funds).
 
-Second, the **TDAC** (Thailand Digital Arrival Card). It has been mandatory since 1 May 2025 for every foreign arrival by air, land or sea, submitted online up to 72 hours before you land, at tdac.immigration.go.th. This one is unrelated to the September reform and has simply become routine, but it still trips up people who have not travelled to Thailand since it launched.
+Second, the **TDAC** (Thailand Digital Arrival Card). It has been mandatory since 1 May 2025 for every foreign arrival by air, land or sea, submitted online up to 72 hours before you land, at tdac.immigration.go.th. This one is unrelated to the September reform and has simply become routine, but it still trips up people who have not travelled to Thailand since it launched. It is free, and you fill in a new one for every entry.
+
+Third, something you do not pay yet. On 14 August 2026, Thailand's National Tourism Policy Committee approved in principle a **tourist entry fee of 450 THB** per foreign visitor, [according to The Nation](https://www.nationthailand.com/news/tourism/40069809). It still has to go through a 30-day public hearing, the committee again and the Cabinet. Collection is targeted for the first quarter of 2027, starting with air arrivals, with land and sea arrivals about a year later. Today there is nothing to pay and no legal start date, so ignore any site that asks you for it.
 
 ## Choose your Thailand visa by training length
 
@@ -52,9 +55,9 @@ Here is the question that actually matters: how long do you want to train? Every
 
 We prepare DTV enrolment paperwork for trainees at **Wildcat** every month, and the pattern is consistent. The people who plan around their real training goal from the start have an easier file than the people who arrive on a short stamp and try to convert it once they have already fallen for the camp. The next four sections walk through each row.
 
-## Training on the 30-day exemption
+## Training on the 30-day visa exemption in 2026
 
-If you are coming for a trial week, a short training camp, or you genuinely are not sure yet whether Chiang Mai is for you, the exemption covers it without any paperwork before you fly. Since 15 September 2026, it gives 30 days on arrival, down from the previous 60. One extension of up to 30 more days is possible at a Thai immigration office, for a 1,900 THB fee, but it is granted at the discretion of the officer handling your file, not automatically. If you are entering through a land border, you are limited to two exemption entries per calendar year, except from Malaysia, Brunei, Indonesia or Singapore. If you already entered before 15 September, none of this changes what you were granted on arrival.
+If you are coming for a trial week, a short training camp, or you genuinely are not sure yet whether Chiang Mai is for you, the exemption covers it without any paperwork before you fly. Since 15 September 2026, it gives 30 days on arrival, down from the previous 60. One extension of up to 30 more days is possible at a Thai immigration office, with the TM.7 form and a 1,900 THB fee, but it is granted at the discretion of the officer handling your file, not automatically. The Thai embassies in Washington, Brussels, London and Paris confirmed that extension after the reform, [as reported by visasnews.com on 17 September](https://visasnews.com/en/thailand-30-day-visa-free-stay-can-be-extended-by-another-30-days/). If you are entering through a land border, you are limited to two exemption entries per calendar year, except from Malaysia, Brunei, Indonesia or Singapore. If you already entered before 15 September, none of this changes what you were granted on arrival.
 
 For most people testing the water, 30 to 60 days is plenty to try classes, get a feel for the camp, and decide whether to come back for longer. If that is your plan, [drop-in class pricing](/classes#pricing) covers what a short stay actually costs on the training side.
 
@@ -98,6 +101,14 @@ No. The 15 September 2026 change affects visa-free entry only. If you already ho
 
 Then you need to apply for a visa in advance regardless of how long you plan to stay, exemption timelines do not apply to you at all. The clearest way to check is the official e-Visa portal or your nearest Thai embassy, since exemption eligibility varies by nationality and can change, as the 21 nationalities losing it from 15 September 2026 show.
 
+### Do I need the TDAC (Thailand Digital Arrival Card)?
+
+Yes, on every entry, whatever visa you hold, DTV included. It is free and the only official site is [tdac.immigration.go.th](https://tdac.immigration.go.th/). Fill it in during the three days before you land. Several lookalike sites charge a fee for the same form, so check the address before you type your passport number.
+
+### Do I have to pay a tourist entry fee?
+
+Not yet. A 450 THB fee was approved in principle on 14 August 2026, with collection targeted for early 2027 on air arrivals. It is not law yet and nobody collects it today.
+
 ### Do I need to show proof of funds even on a short trip?
 
 Yes, in principle, regardless of trip length. Immigration can ask to see 10,000 THB per person under the exemption, or 20,000 THB per person if you hold a tourist or non-immigrant visa, with double those amounts for a family and an exemption for children under 12. It is rarely checked at random, but it is a real requirement, not a formality that disappeared, so carrying proof costs you nothing and removes the risk entirely.
@@ -116,6 +127,9 @@ If you are not sure yet which of these fits the training block you have in mind,
 
 - 30-day visa exemption from 15 September 2026, the one further 30-day extension, and the two-entry land border limit: [Tourism Authority of Thailand newsroom](https://www.tatnews.org/2026/09/thailand-introduces-new-30-day-and-15-day-visa-exemption-rules-from-15-september/), consulted 2026-09-24.
 - The 1,900 THB extension fee, discretionary approval, and travellers admitted before 15 September keeping their granted stay: corroborated via this site's internal DTV fact-check and [the full rundown of the 31 August and 15 September changes](/blog/dtv-visa-new-requirements-2026), already published on this site.
+- The 30-day extension of the exemption with the TM.7 form, 1,900 THB, at the officer's discretion, as stated by the Thai embassies in Washington, Brussels, London and Paris: [visasnews.com](https://visasnews.com/en/thailand-30-day-visa-free-stay-can-be-extended-by-another-30-days/), published 17 September 2026, consulted 2026-09-29.
+- The 450 THB tourist entry fee approved in principle by the National Tourism Policy Committee, the steps still required and the target of the first quarter of 2027 for air arrivals: [The Nation](https://www.nationthailand.com/news/tourism/40069809), published 15 August 2026, consulted 2026-09-29.
+- The TDAC being free, required before each entry including on multiple-entry visas, and available only on the Immigration Bureau portal: [Siam Legal International, TDAC guide](https://www.siam-legal.com/thailand-visa/tdac-thailand-digital-arrival-card.php) and [tdac.immigration.go.th](https://tdac.immigration.go.th/), consulted 2026-09-29.
 - The 21 nationalities losing visa-free entry from 15 September 2026: [visasnews.com](https://visasnews.com/en/thailand-these-21-nationalities-will-need-a-visa-starting-september-15-2026/), consulted 2026-09-24. Single-source report, not independently corroborated at the time of writing.
 - The tourist visa (TR) giving 60 days plus one 30-day extension, for 90 days maximum, applied for before departure: [ISSA Compass, Thailand tourist visa vs visa exemption in 2026](https://www.issacompass.com/insights/thailand-tourist-visa-vs-visa-exemption-in-2026-what-the-60-day-stay-rule-actual), consulted 2026-09-24.
 - Proof of funds requirements at arrival, 10,000/20,000 THB under the exemption and 20,000/40,000 THB under a visa, the 1980 rule with amounts updated in 2000: [visasnews.com, proof of funds on arrival reminder](https://visasnews.com/en/thailand-reminds-travelers-to-be-ready-to-show-proof-of-funds-on-arrival/), consulted 2026-09-24.

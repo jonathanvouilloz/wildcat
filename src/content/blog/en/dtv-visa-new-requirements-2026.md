@@ -3,13 +3,13 @@ title: "New DTV Rules & Changes 2026: What Changed on 31 August"
 h1: "Thailand tightens the DTV: apply at home, and bring a criminal record certificate"
 description: "Since 31 August 2026, DTV applicants file in their country of nationality or residence with a criminal record certificate. Updated for the 30-day visa exemption."
 tldr:
-  - "Since 31 August 2026, two extra DTV requirements apply at Thai embassies worldwide, first announced by the Royal Thai Embassy in Vientiane. Files submitted before that date stay under the old rules."
+  - "Since 31 August 2026, two extra DTV requirements apply at Thai embassies worldwide, first announced by the Royal Thai Embassy in Vientiane. A transitional rule covered files paid before that date; every application filed now falls under the new rules."
   - "You must file in your country of nationality or legal residence, which ends the practice of flying to a nearby embassy on a tourist trip to apply."
   - "You must also produce a criminal record clearance certificate from your country of nationality or residence."
   - "Muay Thai still qualifies, and the 500,000 THB funds rule, the 10,000 THB fee and the 5 year validity are unchanged."
   - "From 15 September 2026 the visa-free stay also drops to 30 days, extendable once by 30, so order the police certificate before you fly, not after you arrive."
 publishDate: 2026-08-27
-updatedDate: 2026-09-14
+updatedDate: 2026-09-29
 author: "Meaw Boonpradub"
 category: visa
 cover: ../covers/dtv-visa-new-requirements-2026.webp
@@ -20,7 +20,7 @@ translationKey: dtv-visa-new-requirements-2026
 
 Two new conditions were added to the **Destination Thailand Visa** and took effect on **31 August 2026**. You now have to apply in a country where you actually belong, and you have to hand over a **criminal record clearance certificate**. Neither is complicated in itself. Together they change the order in which you should plan a long training stay in Thailand.
 
-*Updated 14 September 2026: the transitional rule for files submitted before 31 August is now reported, and the separate cut of the visa-free stay to 30 days takes effect on 15 September. Both are covered below.*
+*Updated 29 September 2026: embassies have started publishing how recent the criminal record certificate must be, and they do not agree on what counts as "permanent residence". Both are covered below. The transitional rule for files paid before 31 August no longer helps anyone starting an application today.*
 
 We prepare DTV enrolment paperwork for trainees at Wildcat every month, so this one matters to us directly. Here is what the announcement says, what it kills, what it does not touch, and what we would tell anyone who was about to book a flight to Chiang Mai with a plan to sort the visa later.
 
@@ -33,7 +33,20 @@ The [Royal Thai Embassy in Vientiane](https://vientiane.thaiembassy.org/en/page/
 
 The embassy then applies both to itself: from that date, people applying in Vientiane must be Lao nationals or permanent residents of the Lao PDR, and must submit a criminal record certificate from Laos or from their own country.
 
-When we first published this, the Vientiane notice was the only source. Two weeks on, visa services and legal firms across Thailand report the same two requirements applied worldwide, and [ISSA Compass](https://www.issacompass.com/insights/thailand-dtv-apply-country-of-citizenship-or-residence-rule-change) adds that applications submitted before 31 August are processed under the old rules. One wording difference is worth knowing. The embassy notice says "permanent resident", while ISSA Compass describes legal residence more broadly, including a residence card, a long-stay visa or a work permit tied to a local employer. A tourist stamp, a visa exemption entry or a rental contract on its own does not count under either reading. If you live outside your country of nationality, confirm with the embassy you intend to file at what it accepts before you order anything.
+When we first published this, the Vientiane notice was the only source. Two weeks on, visa services and legal firms across Thailand report the same two requirements applied worldwide, and [ISSA Compass](https://www.issacompass.com/insights/thailand-dtv-apply-country-of-citizenship-or-residence-rule-change) adds that applications submitted before 31 August are processed under the old rules. That transitional rule only covered files that were submitted and paid on the e-Visa portal before 31 August, [according to a review of embassy pages by dtvthaivisa.com](https://dtvthaivisa.com/blog/dtv-visa-new-rules-31-august-2026). A saved draft or an unpaid application did not count. If you are starting a DTV application now, the transitional rule does not apply to you. The new requirements do.
+
+One wording difference is worth knowing. The embassy notice says "permanent resident", while ISSA Compass describes legal residence more broadly, including a residence card, a long-stay visa or a work permit tied to a local employer. A tourist stamp, a visa exemption entry or a rental contract on its own does not count under either reading. If you live outside your country of nationality, confirm with the embassy you intend to file at what it accepts before you order anything.
+
+### Each post reads "permanent residence" its own way
+
+The Department of Consular Affairs announced the rule on 28 August without defining which residence documents qualify, [as The Thaiger reported on 15 September](https://thethaiger.com/guides/visa-information/thailands-new-dtv-rule-creates-uncertainty). The missions have filled that gap differently:
+
+- **Vientiane** asks for Lao nationality or permanent residence in Laos.
+- **Ho Chi Minh City** accepts a Vietnamese temporary residence card as well as a permanent one.
+- **Los Angeles** lists a valid US visa, a driving licence or a green card as possible proof.
+- **Moscow** asks for permanent residence in its English guidance, but also mentions a valid Russian visa with a registration paper for non-Russians.
+
+For most trainees this changes nothing: you file in your own country with your own passport. It matters if you live abroad on a work or study permit. In that case, the checklist of the embassy or consulate you plan to use is what settles it, not a general guide (this one included).
 
 ## The part nobody planned for: the neighbouring embassy route has closed
 
@@ -67,7 +80,24 @@ Three practical points sit on top of that table.
 
 **Legalisation.** Some posts may want the certificate legalised as well as translated. Thailand deposited its instrument of accession to the Hague Apostille Convention on 30 June 2026, but [the Convention only enters into force for Thailand on 28 February 2027](https://silklegal.com/thailands-accession-to-the-apostille-convention-what-businesses-and-individuals-should-know/). Until then the older consular legalisation chain is what applies, and it is slower than an apostille. Ask your embassy whether they want the plain certificate or a legalised one before you pay for anything.
 
-**Validity window.** Many countries expect a police certificate issued within three to six months of the application. Order yours eight months ahead and you may have to pay for it twice.
+**Validity window.** The certificate has a shelf life, and each post sets its own. Read the next section before you order.
+
+### How recent must the criminal record be?
+
+Several embassies now state how old the certificate may be when you file. The table below comes from [a review of embassy DTV pages published by dtvthaivisa.com on 3 September 2026](https://dtvthaivisa.com/blog/dtv-visa-new-rules-31-august-2026). That is a visa service, not an official source, so check your embassy's own page before you rely on it.
+
+| Embassy or consulate | Certificate must be issued within |
+|---|---|
+| London | 6 months |
+| Rome | 6 months |
+| Frankfurt | 6 months |
+| Paris | 3 months |
+| Munich | 3 months |
+| Washington DC and Los Angeles | 3 months |
+| Missions in Japan | 3 months |
+| Bern, Taipei, Helsinki, Savannakhet | Not stated at the time of that review |
+
+In practice: if you file in Paris, a bulletin n°3 you requested in June is already too old for an October application. The same review found that a certificate in another language needs a certified English translation, and that none of the checklists it looked at asked for an apostille. That fits the timeline above, since the Apostille Convention only takes effect for Thailand in February 2027.
 
 ## This is not an isolated move
 
@@ -105,10 +135,10 @@ If you already hold a DTV, the announcement does not reach you. It governs new a
 
 ## What is still unclear
 
-We would rather flag the gaps than fill them with guesses. On a visa question, a confident wrong answer costs you money. One point is now settled: files submitted before 31 August are processed under the old rules. These remain open.
+We would rather flag the gaps than fill them with guesses. On a visa question, a confident wrong answer costs you money. Two points are now settled: files paid before 31 August stayed under the old rules, and several embassies have published a validity window for the certificate. These remain open.
 
-- **What counts as residence.** The embassy notice says permanent resident, while visa services report that long-stay permits and local work permits are being accepted. The two readings may not match at every post, so ask yours.
-- **What the certificate has to look like.** Format, age limit, translation and legalisation requirements are still not specified.
+- **What counts as residence.** There is still no central definition, and posts from Vientiane to Los Angeles accept different documents. Ask the one you will file at.
+- **What the certificate has to look like.** Some posts now publish a validity window, but format, translation and legalisation rules still vary embassy by embassy.
 - **How strictly each post applies it.** The rule is worldwide, but embassy practice has historically varied, so verify with the mission you will file at.
 
 ## Our take
@@ -125,7 +155,7 @@ Our position for trainees is simple. Treat the DTV as a decision you make at hom
 
 ### When exactly do the new DTV requirements start?
 
-They have applied worldwide since 31 August 2026, as announced by the Royal Thai Embassy in Vientiane on 27 August. Applications submitted before that date are processed under the old rules.
+They have applied worldwide since 31 August 2026, as announced by the Royal Thai Embassy in Vientiane on 27 August. Only applications submitted and paid before that date stayed under the old rules, so anything you file today follows the new ones.
 
 ### Can I still apply for the DTV in Laos?
 
@@ -141,11 +171,11 @@ No. The announcement covers new applications submitted to Thai embassies and con
 
 ### Which criminal record certificate does Thailand want?
 
-One issued by the authorities of your country of nationality, or of the country where you file the application. The announcement does not specify a format, an age limit or whether translation and legalisation are required, so confirm those points with the embassy you will apply at.
+One issued by the authorities of your country of nationality, or of the country where you file the application. The central announcement does not set a format or an age limit. Embassies do, and they differ: according to a visa service's review of embassy pages, London wants a certificate issued within 6 months and Paris within 3. Confirm the rule, and any translation requirement, with the embassy you will apply at.
 
 ### Is Muay Thai still a qualifying activity for the DTV?
 
-Yes. Muay Thai training remains on the soft power list, and nothing in this announcement changes that. [The DTV for Muay Thai training](/dtv-visa/muay-thai) covers how the soft power route works in practice.
+Yes. Muay Thai training remains on the soft power list, and nothing in this announcement changes that. [Our DTV visa guide](/dtv-visa) covers how the soft power route works in practice.
 
 ### I am already in Thailand and want to switch to a DTV. What can I do?
 
@@ -173,7 +203,9 @@ If you are weighing a long training stay in Chiang Mai and want to know what the
 - 30-day visa exemption for 60 countries and territories from 15 September 2026, Royal Gazette publication on 31 August 2026, and the limit of two land border entries per calendar year: [Tourism Authority of Thailand newsroom](https://www.tatnews.org/2026/09/thailand-introduces-new-30-day-and-15-day-visa-exemption-rules-from-15-september/), consulted 2026-09-14.
 - One 30-day extension of the exemption at 1,900 THB, and the unchanged 60-day tourist visa with one 30-day extension: [ISSA Compass, tourist visa vs visa exemption in 2026](https://www.issacompass.com/insights/thailand-tourist-visa-vs-visa-exemption-in-2026-what-the-60-day-stay-rule-actual), updated 14 September 2026, consulted 2026-09-14.
 - Transitional rule for applications submitted before 31 August 2026 and the documents reported as proof of legal residence: [ISSA Compass, DTV country of citizenship or residence rule](https://www.issacompass.com/insights/thailand-dtv-apply-country-of-citizenship-or-residence-rule-change), updated 14 September 2026, consulted 2026-09-14.
+- Transitional rule limited to applications submitted and paid before 31 August 2026, criminal record validity windows by embassy (London, Rome, Frankfurt 6 months; Paris, Munich, Washington DC, Los Angeles, Japan 3 months), translation and apostille notes: [dtvthaivisa.com, DTV visa new rules](https://dtvthaivisa.com/blog/dtv-visa-new-rules-31-august-2026), published 3 September 2026, consulted 2026-09-29. A visa service compiling embassy pages, not an official source.
+- No central definition of permanent residence in the 28 August announcement, and the differing documents accepted in Vientiane, Ho Chi Minh City, Los Angeles and Moscow: [The Thaiger](https://thethaiger.com/guides/visa-information/thailands-new-dtv-rule-creates-uncertainty), published 15 September 2026, consulted 2026-09-29.
 - 500,000 THB seasoned for at least three months, removal of general Thai language schools from the soft power list, and mandatory use of the e-Visa portal: internal DTV fact-check for this site, cross-referenced against [Siam Legal International](https://www.siam-legal.com/thailand-visa/dtv-visa-thailand.php) and [ExpatDen](https://www.expatden.com/thailand/destination-thailand-visa-dtv/), consulted 2026-08-27.
 - Police certificate names, issuing authorities and indicative lead times: published guidance from each issuer and from third party visa services, consulted 2026-08-27. Lead times and fees change frequently and should be checked against the issuer before you plan around them.
 
-*Note: this article was first published on 27 August 2026, when the change was documented by a single embassy announcement, and updated on 14 September 2026 once the transitional rule and the 30-day visa exemption were published. Details such as the accepted certificate format, its validity window, translation and legalisation requirements, and exactly which residence documents each post accepts are still not specified officially. Visa rules and embassy practice change, and individual posts apply them differently. Verify your own situation with the Thai embassy or consulate where you intend to apply before ordering documents or booking travel.*
+*Note: this article was first published on 27 August 2026, when the change was documented by a single embassy announcement, updated on 14 September 2026 once the transitional rule and the 30-day visa exemption were published, and updated again on 29 September 2026 with embassy validity windows for the criminal record certificate and the differing readings of permanent residence. There is still no central rule on the certificate format or on which residence documents qualify, and the validity table comes from a secondary review of embassy pages. Visa rules and embassy practice change, and individual posts apply them differently. Verify your own situation with the Thai embassy or consulate where you intend to apply before ordering documents or booking travel.*

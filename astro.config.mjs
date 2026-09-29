@@ -1,6 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import { loadEnv } from 'vite';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
@@ -77,6 +80,28 @@ function rehypeLocalizeInternalLinks() {
   };
 }
 
+// Sitemap <lastmod> des articles — lu dans le frontmatter (updatedDate ?? publishDate).
+// Crawl budget minuscule (site jeune) : un lastmod exact aide Google à prioriser le
+// recrawl des articles mis à jour. Pages de service volontairement sans lastmod :
+// leur contenu vit dans messages/*.json, aucune date fiable à émettre.
+function blogLastmodMap() {
+  const map = new Map();
+  const root = fileURLToPath(new URL('./src/content/blog/', import.meta.url));
+  for (const lang of ['en', 'fr']) {
+    const dir = join(root, lang);
+    if (!existsSync(dir)) continue;
+    for (const file of readdirSync(dir)) {
+      if (!/\.(md|mdx)$/.test(file)) continue;
+      const fm = readFileSync(join(dir, file), 'utf8').split(/^---\s*$/m)[1] ?? '';
+      const date = (key) => fm.match(new RegExp(`^${key}:\\s*["']?(\\d{4}-\\d{2}-\\d{2})`, 'm'))?.[1];
+      const d = date('updatedDate') ?? date('publishDate');
+      if (d) map.set(`/${lang}/blog/${file.replace(/\.(md|mdx)$/, '')}`, new Date(d).toISOString());
+    }
+  }
+  return map;
+}
+const BLOG_LASTMOD = blogLastmodMap();
+
 // https://astro.build/config
 export default defineConfig({
   // Q5 tranchée (2026-06-05) : wildcatmuaythai.com. Sert au sitemap, hreflang et canonical.
@@ -104,8 +129,15 @@ export default defineConfig({
   },
 
   // La racine renvoie vers la langue par défaut (les pages vivent sous /[lang]).
+  // Fusion silo DTV (2026-09-29) : /dtv-visa/faq et /dtv-visa/muay-thai absorbées
+  // par le pilier /dtv-visa (crawl budget, contenu qui se recouvrait). 301 permanentes.
+  // Voir docs/DECISIONS.md.
   redirects: {
     '/': '/en',
+    '/en/dtv-visa/faq': { status: 301, destination: '/en/dtv-visa' },
+    '/fr/dtv-visa/faq': { status: 301, destination: '/fr/dtv-visa' },
+    '/en/dtv-visa/muay-thai': { status: 301, destination: '/en/dtv-visa' },
+    '/fr/dtv-visa/muay-thai': { status: 301, destination: '/fr/dtv-visa' },
   },
 
   // LCP : les <link rel="stylesheet"> bloquaient le first paint (~14 Ko sur 3
@@ -205,10 +237,12 @@ export default defineConfig({
       // les links des entrées articles (l'URL reste listée ; les hreflang
       // corrects sont dans le <head> des pages). L'index /blog, lui, est
       // symétrique → links conservés.
-      serialize: (item) =>
-        /\/(en|fr)\/blog\/.+/.test(new URL(item.url).pathname)
-          ? { ...item, links: undefined }
-          : item,
+      serialize: (item) => {
+        const path = new URL(item.url).pathname;
+        if (!/\/(en|fr)\/blog\/.+/.test(path)) return item;
+        const lastmod = BLOG_LASTMOD.get(path);
+        return { ...item, links: undefined, ...(lastmod ? { lastmod } : {}) };
+      },
     }),
     icon(),
   ]

@@ -8,6 +8,7 @@ tldr:
   - "Au camp, les jours compliqués se gèrent par des ajustements concrets d'horaires et de lieu, pas par un arrêt de l'entraînement."
   - "Si tes dates tombent en pleine saison des brûlis, écris-nous avant de réserver : on te dira honnêtement à quoi ressemble la semaine."
 publishDate: 2026-08-11
+updatedDate: 2026-09-29
 category: "chiang-mai-life"
 cover: "../covers/saison-des-brulis-chiang-mai.webp"
 coverAlt: "Entraînement en extérieur au camp Wildcat à la lumière dorée de fin de journée, légère brume sur la végétation tropicale"
@@ -45,6 +46,12 @@ Ce tableau reste qualitatif, pas chiffré, et sert de repère de planification, 
 
 Si tu planifies un séjour et que tu veux éviter la période la plus sensible, novembre à janvier reste le choix le plus sûr sur le papier.
 
+### Ce qu'a donné la saison 2026
+
+Pas de chiffre du jour dans cet article, mais un chiffre passé aide à comprendre l'ordre de grandeur. La province avait interdit tout brûlage à l'air libre du 1er janvier au 31 mai 2026, [annonce du gouverneur de Chiang Mai du 2 janvier](https://en.thairath.co.th/news/local/2905468). La fumée est arrivée quand même. Le 2 avril à 7 h, IQAir classait Chiang Mai deuxième ville la plus polluée au monde, avec un AQI de 231, dans la zone violette où tout le monde subit des effets sur la santé, [selon The Nation](https://www.nationthailand.com/news/general/40064573). Le 4 avril, le ministère de l'Intérieur confirmait des zones de catastrophe d'urgence dans les provinces de Chiang Mai, Lamphun et Phayao, dont sept districts de Chiang Mai comme Mae Rim, Mae Taeng, Chiang Dao ou Samoeng, [d'après The Nation](https://www.nationthailand.com/news/general/40064673).
+
+Deux enseignements. Une interdiction de brûlage ne garantit pas un air propre, parce qu'une bonne partie de la fumée vient des collines et de l'autre côté de la frontière. Et en 2026, le pire est tombé fin mars et début avril, un peu plus tard que le « pic de mars » qu'on lit partout.
+
 <!-- TODO:image infographic : calendrier illustré des 12 mois, qualité de l'air qualitative sans chiffre PM2.5, brief: content/_drafts/blog/saison-des-brulis-chiang-mai.md#image-2 -->
 
 ## Ce qu'on observe au camp, saison après saison
@@ -77,6 +84,17 @@ Non, pas systématiquement, mais oui si tes dates tombent pile sur les semaines 
 
 Si tu peux choisir tes dates librement, viser novembre à janvier reste le plus simple : c'est la période où l'air est le plus fiable, et où tu profites du camp sans y penser. Si tes dates sont déjà fixées en mars ou avril, beaucoup de semaines restent tout à fait vivables. On préfère te le dire franchement plutôt que de vendre une saison idéale qui n'existe pas cette semaine-là.
 
+### Préparer un séjour entre janvier et avril 2027
+
+Au 29 septembre 2026, on n'a trouvé aucune mesure annoncée ni prévision officielle pour la saison 2027 : pas de nouvelles dates d'interdiction, pas de nouveau plan national. On ne va pas deviner à leur place. Voici plutôt comment on planifierait un séjour début 2027, à partir de ce qu'a donné 2026 :
+
+- **Janvier** : le mois le plus sûr des quatre. Réserve sans trop d'hésitation.
+- **Février** : correct la plupart du temps. Garde quelques jours de souplesse en fin de mois si la brume arrive tôt.
+- **Mi-mars à mi-avril** : la fenêtre à risque. Avec une sensibilité respiratoire, évite-la. Si tu viens quand même, prends un logement annulable et attends-toi à des séances adaptées sous le toit.
+- **Après Songkran (13 au 15 avril)** : les premières pluies nettoient en général l'air, mais en 2026 les mauvais jours ont débordé sur avril, donc pas de date garantie.
+
+La province annonce d'habitude son interdiction de brûlage vers le Nouvel An, comme le 2 janvier 2026. On mettra ce guide à jour quand les mesures 2027 seront publiées.
+
 Un point de comparaison utile : **la pollution en Thaïlande** touche aussi Bangkok à certaines périodes de l'année, pour des raisons différentes (trafic, chantiers, conditions météo), et **la pollution à Bangkok** fait régulièrement la une localement. Les causes et le calendrier diffèrent, mais le phénomène touche toute l'Asie du Sud-Est à sa façon.
 
 Si tu envisages un séjour plus long que quelques semaines, ça vaut aussi le coup de regarder [le budget d'un séjour longue durée](/dtv-visa/long-stay-training) en parallèle du choix de tes dates.
@@ -92,6 +110,10 @@ Elle couvre généralement la fin de la saison sèche, avec les semaines les plu
 ### Comment se protéger de la pollution à Chiang Mai ?
 
 Le réflexe le plus utile est de suivre l'indice du jour sur une source officielle en direct (Air4Thai ou IQAir Chiang Mai) plutôt que de se fier à une estimation générale, et d'ajuster ses activités extérieures en conséquence les jours marqués comme mauvais. En cas de sensibilité respiratoire connue, un avis médical avant le départ reste la meilleure précaution.
+
+### La saison des brûlis 2027 sera-t-elle meilleure ?
+
+Personne ne peut le dire aujourd'hui. Fin septembre 2026, aucune prévision officielle ni nouvelle mesure pour 2027 n'a été annoncée. Reviens vérifier ce guide et un indice en direct en janvier.
 
 ### La pollution à Chiang Mai est-elle dangereuse pour la santé ?
 
@@ -114,3 +136,7 @@ Si tu prépares un séjour d'entraînement et que tu hésites sur tes dates à c
 - [Air4Thai, Pollution Control Department (gouvernement thaïlandais)](https://air4thai.pcd.go.th/webV3/) : plateforme officielle de suivi PM2.5/AQI en direct (consulté le 2026-08-06)
 - [IQAir, station de Chiang Mai](https://www.iqair.com/th-en/thailand/chiang-mai/chiang-mai) : indice de qualité de l'air en direct et données saisonnières (consulté le 2026-08-06)
 - [Air pollution in Thailand, Wikipedia](https://en.wikipedia.org/wiki/Air_pollution_in_Thailand) : contexte régional sur les brûlis agricoles et le rôle du Pollution Control Department (consulté le 2026-08-06)
+- [Thairath English, interdiction de brûlage à Chiang Mai](https://en.thairath.co.th/news/local/2905468) : du 1er janvier au 31 mai 2026, publié le 2 janvier 2026 (consulté le 2026-09-29)
+- [The Nation, AQI 231 le 2 avril 2026](https://www.nationthailand.com/news/general/40064573) : deuxième ville la plus polluée au monde selon IQAir (consulté le 2026-09-29)
+- [The Nation, zones de catastrophe du 4 avril 2026](https://www.nationthailand.com/news/general/40064673) : Chiang Mai, Lamphun et Phayao (consulté le 2026-09-29)
+- Mesures 2027 : aucune annonce trouvée dans la presse thaïlandaise ni les sources officielles au 29 septembre 2026

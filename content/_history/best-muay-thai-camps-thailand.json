@@ -90,5 +90,47 @@
     "reason": "Page la plus impressionnée du blog mais bloquée page 2-3 sur ses têtes de requête : fraîcheur visa/prix + couverture de l'intention all-inclusive / training camp.",
     "word_count_before": 2297,
     "word_count_after": 2839
+  },
+  {
+    "date": "2026-09-29",
+    "trigger": "serp-gap",
+    "page_type": "article",
+    "gsc_snapshot": {
+      "period": "2026-08-31..2026-09-27",
+      "impressions": 2033,
+      "clicks": 9,
+      "avg_position": "21-35 sur les têtes 'muay thai camp(s) thailand'",
+      "source": ".seo-data/gsc-wildcat-2026-09-29.json"
+    },
+    "changes": [
+      {
+        "type": "title",
+        "detail": "Title -> 'Muay Thai Camps in Thailand 2026: Honest Picks by Region & Price' (64 car.), h1 'Muay Thai camps in Thailand: an honest guide, region by region', description 149 car. multi-régions",
+        "reason": "0 clic sur la tête 1 900/mois, title centré 'best' alors que la requête est 'camp(s) thailand'"
+      },
+      {
+        "type": "add_h2",
+        "detail": "Tableau 'at a glance' (11 camps, prix public, hébergement, idéal pour) + H2 Koh Samui, Krabi & Ao Nang, Pai and the far north, Isan, journée type, zero experience / 30-40+, coût d'un mois",
+        "reason": "SERP T4 2026 (A1) : concurrents couvrent 10-20 camps toutes régions, nous 3 régions ; PAA 'too old', 'how much', Reddit 'zero experience'"
+      },
+      {
+        "type": "data",
+        "detail": "Prix concurrents vérifiés sur sites officiels le 29/09 : Tiger 13 500 (MT only, +7% TVA) / 16 800 / all-in 42 800 ; Sinbi 8 000/12 000 ; Punch it 9 600 ; Superpro 7 500 ; Over The Top 6 500 ; Charn Chai 9 000/12 000 ; Kem 36 000 all-in ; Santai 11 000. Honour, Battle Conquer (mois), Wisarut : 'contact the camp'. Fourchette Phuket 15-20k corrigée",
+        "reason": "prix concurrents = claims ; ancienne fourchette Tiger non sourcée"
+      },
+      {
+        "type": "fix",
+        "detail": "Lien /dtv-visa/muay-thai -> /dtv-visa (fusion en cours) ; 'Lanna MMA (now Tiger Muay Thai Chiang Mai)' remplacé par Lanna Muay Thai + Tiger San Sai sourcés ; +liens visa-guide, chiang-mai-vs-bangkok, gear-beginners",
+        "reason": "claim non vérifiable, URL en fusion"
+      },
+      {
+        "type": "geo",
+        "detail": "+14 sources datées 2026-09-29 dans le bloc Sources",
+        "reason": "chaque prix concurrent cité inline"
+      }
+    ],
+    "reason": "Refresh SERP gap : passer d'un comparatif 3 régions à un guide national par région, sans devenir un classement.",
+    "word_count_before": 3030,
+    "word_count_after": 4549
   }
 ]

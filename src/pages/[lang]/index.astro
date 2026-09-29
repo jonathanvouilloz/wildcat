@@ -161,6 +161,8 @@ const faqItems = [
   { q: m.faq_q3(), a: m.faq_a3() },
   { q: m.faq_q4(), a: m.faq_a4() },
   { q: m.faq_q5(), a: m.faq_a5() },
+  { q: m.faq_q6(), a: m.faq_a6(), link: { label: m.faq_l6(), href: p('/fighters') } },
+  { q: m.faq_q7(), a: m.faq_a7(), link: { label: m.stay_faq_l2(), href: p('/classes/beginners') } },
 ];
 
 const instagram = site.social.find((s) => s.label === 'Instagram')?.href ?? '#';

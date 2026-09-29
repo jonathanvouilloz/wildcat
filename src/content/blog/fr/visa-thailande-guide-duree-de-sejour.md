@@ -3,6 +3,7 @@ title: "Visa Thaïlande 2026 : lequel choisir selon ton séjour"
 h1: "Quel visa pour la Thaïlande selon la durée de ton séjour d'entraînement ?"
 description: "Depuis le 15 septembre 2026, l'exemption de visa en Thaïlande passe à 30 jours. Le bon visa dépend de la durée de ton séjour d'entraînement."
 publishDate: 2026-09-24
+updatedDate: 2026-09-29
 author: "Meaw Boonpradub"
 category: "visa"
 draft: false
@@ -19,9 +20,9 @@ cover: "../covers/visa-thailande-guide-duree-de-sejour.webp"
 
 Tu pensais avoir 60 jours sur place ? Depuis le 15 septembre 2026, il faut recalculer. **L'exemption de visa** en Thaïlande vient de passer de 60 à 30 jours, et le bon **visa Thaïlande** à choisir dépend surtout d'une seule chose : combien de temps tu veux réellement t'entraîner à **Chiang Mai**. Voici comment on s'y retrouve, sans jargon administratif inutile.
 
-*Ces informations reflètent les règles en vigueur au 24 septembre 2026. Les règles d'immigration thaïlandaises évoluent régulièrement : vérifie toujours la version actuelle auprès de ton ambassade ou du portail officiel avant de préparer ton dossier. Rien ici ne remplace un conseil juridique.*
+*Ces informations reflètent les règles en vigueur au 29 septembre 2026. Les règles d'immigration thaïlandaises évoluent régulièrement : vérifie toujours la version actuelle auprès de ton ambassade ou du portail officiel avant de préparer ton dossier. Rien ici ne remplace un conseil juridique.*
 
-## Ce qui a changé le 15 septembre 2026
+## 30 jours sans visa depuis le 15 septembre 2026 : ce qui a changé
 
 Le changement tient en une phrase : l'exemption de visa qui donnait 60 jours à l'arrivée pour la plupart des nationalités est tombée à 30 jours, avec une prolongation possible d'une seule fois. C'est le point le plus important des règles de visa Thaïlande en 2026, et ça concerne directement quiconque prévoyait un séjour d'entraînement de plusieurs semaines sans y penser à l'avance. Deux points pratiques accompagnent ce changement et méritent d'être connus avant de réserver un vol.
 
@@ -31,11 +32,13 @@ Selon visasnews.com, 21 nationalités perdent l'entrée sans visa à compter du 
 
 Un autre détail change pour tout le monde, exemption comprise : le nombre d'entrées terrestres autorisées. Les entrées par un poste-frontière terrestre sous exemption sont désormais limitées à deux par année civile, sauf pour les voyageurs venant de Malaisie, du Brunei, d'Indonésie ou de Singapour. Ceux qui étaient déjà en Thaïlande avant le 15 septembre gardent la durée de séjour accordée à leur entrée : la réforme ne s'applique pas rétroactivement.
 
-### Preuve de fonds et TDAC
+### Preuve de fonds, TDAC et future taxe d'entrée
 
-Deux formalités indépendantes de la réforme du 15 septembre, mais bonnes à connaître au même moment. La première, c'est la **preuve de fonds** à l'arrivée : 10 000 THB par personne (20 000 THB pour une famille) sous exemption, visa à l'arrivée ou transit, et 20 000 THB par personne (40 000 THB pour une famille) sous visa touristique ou non-immigrant, les moins de 12 ans étant exemptés. Ce n'est pas une nouvelle règle : c'est une exigence du ministère de l'Intérieur thaïlandais datant de 1980, avec des montants mis à jour en 2000, que la Tourism Authority of Thailand a simplement rappelée début juillet 2026. En théorie, une entrée peut être refusée au titre de la section 12(2) de l'Immigration Act pour absence de moyens de subsistance suffisants, même si ce contrôle reste rarement systématique en pratique.
+Deux formalités indépendantes de la réforme du 15 septembre, mais bonnes à connaître au même moment. Un troisième point n'est encore qu'un projet. La première, c'est la **preuve de fonds** à l'arrivée : 10 000 THB par personne (20 000 THB pour une famille) sous exemption, visa à l'arrivée ou transit, et 20 000 THB par personne (40 000 THB pour une famille) sous visa touristique ou non-immigrant, les moins de 12 ans étant exemptés. Ce n'est pas une nouvelle règle : c'est une exigence du ministère de l'Intérieur thaïlandais datant de 1980, avec des montants mis à jour en 2000, que la Tourism Authority of Thailand a simplement rappelée début juillet 2026. En théorie, une entrée peut être refusée au titre de la section 12(2) de l'Immigration Act pour absence de moyens de subsistance suffisants, même si ce contrôle reste rarement systématique en pratique.
 
-La deuxième formalité, c'est la **TDAC**, la Thailand Digital Arrival Card. Elle est obligatoire depuis le 1er mai 2025 pour tout étranger entrant en Thaïlande par avion, par voie terrestre ou par bateau, et se soumet en ligne jusqu'à 72 heures avant l'arrivée, sur tdac.immigration.go.th. Elle n'a rien à voir avec le type de visa choisi : que tu arrives sous exemption, avec un visa touristique ou avec un DTV, elle reste obligatoire dans tous les cas.
+La deuxième formalité, c'est la **TDAC**, la Thailand Digital Arrival Card. Elle est obligatoire depuis le 1er mai 2025 pour tout étranger entrant en Thaïlande par avion, par voie terrestre ou par bateau, et se soumet en ligne jusqu'à 72 heures avant l'arrivée, sur tdac.immigration.go.th. Elle n'a rien à voir avec le type de visa choisi : que tu arrives sous exemption, avec un visa touristique ou avec un DTV, elle reste obligatoire dans tous les cas. Elle est gratuite et se remplit à nouveau à chaque entrée : si un site te demande de payer, ce n'est pas le bon.
+
+Le troisième point, tu n'as rien à payer pour l'instant. Le 14 août 2026, le Comité national de politique touristique a approuvé sur le principe une **taxe d'entrée touristique de 450 THB** par visiteur étranger, [selon The Nation](https://www.nationthailand.com/news/tourism/40069809). Il reste une consultation publique de 30 jours, un nouveau passage devant le comité puis le Conseil des ministres. La collecte est visée au premier trimestre 2027 pour les arrivées en avion, environ un an plus tard par voie terrestre et maritime. Aujourd'hui, aucune date légale n'est fixée et rien n'est prélevé.
 
 ## Choisis ton visa Thaïlande selon la durée de ton séjour
 
@@ -54,7 +57,7 @@ Chez **Wildcat**, on prépare des dossiers DTV pour nos élèves chaque mois, et
 
 ## S'entraîner avec l'exemption de 30 jours
 
-Depuis le 15 septembre 2026, l'exemption donne 30 jours à l'arrivée, avec une prolongation possible d'une seule fois, pour 30 jours supplémentaires. Cette prolongation coûte 1 900 THB et reste à la discrétion de l'immigration thaïlandaise : elle n'est jamais accordée automatiquement, il faut la demander en personne, en général dans un bureau d'immigration local avant l'échéance des 30 premiers jours.
+Depuis le 15 septembre 2026, l'exemption donne 30 jours à l'arrivée, avec une prolongation possible d'une seule fois, pour 30 jours supplémentaires. Cette prolongation coûte 1 900 THB et reste à la discrétion de l'immigration thaïlandaise : elle n'est jamais accordée automatiquement, il faut la demander en personne avec le formulaire TM.7, en général dans un bureau d'immigration local avant l'échéance des 30 premiers jours. Les ambassades de Thaïlande à Washington, Bruxelles, Londres et Paris ont confirmé cette prolongation après la réforme, [d'après visasnews.com le 17 septembre](https://visasnews.com/en/thailand-30-day-visa-free-stay-can-be-extended-by-another-30-days/).
 
 Deux autres points à garder en tête. D'abord, la limite de deux entrées terrestres par année civile ne s'applique pas aux voyageurs venant de Malaisie, du Brunei, d'Indonésie ou de Singapour, qui gardent un régime différent. Ensuite, si tu étais déjà en Thaïlande avant le 15 septembre 2026, tu conserves la durée qui t'a été accordée à ton entrée, sans avoir à te soucier de la nouvelle règle avant ta prochaine sortie du pays.
 
@@ -102,6 +105,14 @@ Non. Le DTV reste un visa à part entière, avec ses propres règles de validit�
 
 Si ta nationalité ne bénéficie d'aucune exemption, ou si elle vient d'en sortir comme les 21 nationalités mentionnées plus haut, la marche à suivre reste la même : demander un e-Visa avant le départ, via le portail officiel, en fonction de la durée de séjour visée (touristique ou DTV selon le cas).
 
+### Faut-il remplir la TDAC (Thailand Digital Arrival Card) ?
+
+Oui, à chaque entrée, quel que soit ton visa, DTV compris. Elle est gratuite et le seul site officiel est [tdac.immigration.go.th](https://tdac.immigration.go.th/). Remplis-la dans les trois jours qui précèdent ton arrivée, et méfie-toi des sites copies qui la font payer.
+
+### Y a-t-il une taxe d'entrée à payer ?
+
+Pas encore. Une taxe de 450 THB a été approuvée sur le principe le 14 août 2026, avec une collecte visée début 2027 pour les arrivées en avion. Elle n'est pas encore en vigueur.
+
 ### Faut-il montrer une preuve de fonds même pour un court séjour ?
 
 Oui. Cette exigence s'applique quel que soit le type d'entrée, exemption comprise : 10 000 THB par personne sous exemption ou visa à l'arrivée, 20 000 THB sous visa touristique ou non-immigrant, avec des montants doublés pour une famille et une exemption pour les moins de 12 ans.
@@ -117,6 +128,9 @@ Si tu hésites encore sur ta propre situation, le plus simple reste d'en parler 
 ## Sources et Références
 
 - [Tourism Authority of Thailand, annonce des nouvelles règles d'exemption de 30 et 15 jours](https://www.tatnews.org/2026/09/thailand-introduces-new-30-day-and-15-day-visa-exemption-rules-from-15-september/) : règles applicables depuis le 15 septembre 2026 (consulté le 2026-09-24)
+- [VisasNews, prolongation de 30 jours de l'exemption](https://visasnews.com/en/thailand-30-day-visa-free-stay-can-be-extended-by-another-30-days/) : TM.7, 1 900 THB, à la discrétion de l'agent, d'après les ambassades de Washington, Bruxelles, Londres et Paris, publié le 17 septembre 2026 (consulté le 2026-09-29)
+- [The Nation, taxe d'entrée touristique de 450 THB](https://www.nationthailand.com/news/tourism/40069809) : approbation de principe, étapes restantes et collecte visée au premier trimestre 2027, publié le 15 août 2026 (consulté le 2026-09-29)
+- [Siam Legal International, guide TDAC](https://www.siam-legal.com/thailand-visa/tdac-thailand-digital-arrival-card.php) et [portail officiel TDAC](https://tdac.immigration.go.th/) : gratuité, une fiche par entrée, visas multi-entrées compris (consulté le 2026-09-29)
 - [VisasNews, liste des 21 nationalités nécessitant désormais un visa](https://visasnews.com/en/thailand-these-21-nationalities-will-need-a-visa-starting-september-15-2026/) : source unique, non recoupée indépendamment (consulté le 2026-09-24)
 - [ISSA Compass, visa touristique thaïlandais vs exemption en 2026](https://www.issacompass.com/insights/thailand-tourist-visa-vs-visa-exemption-in-2026-what-the-60-day-stay-rule-actual) : mécanique du TR et de ses 90 jours (consulté le 2026-09-24)
 - [ISSA Compass, vue d'ensemble de l'exemption de visa 2026](https://www.issacompass.com/insights/thailand-visa-exemption-2026) : contexte général de la réforme (consulté le 2026-09-24)

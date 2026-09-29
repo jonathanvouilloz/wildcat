@@ -108,7 +108,7 @@ The second factor is accreditation. **DTV accreditation** for training documenta
 
 Bangkok has fewer DTV-qualified gyms. The process is possible, but the support network is thinner. Higher monthly costs eating into your reserve just add more pressure.
 
-If you're planning a long stay on a DTV, read our full guide to [DTV visa for Muay Thai training](/dtv-visa/muay-thai) and our [long-stay training on a DTV](/dtv-visa/long-stay-training) page for the breakdown of requirements, timelines, and documentation.
+If you're planning a long stay on a DTV, read our full guide to [DTV visa for Muay Thai training](/dtv-visa) and our [long-stay training on a DTV](/dtv-visa/long-stay-training) page for the breakdown of requirements, timelines, and documentation.
 
 ## Is Chiang Mai good for women training Muay Thai?
 
