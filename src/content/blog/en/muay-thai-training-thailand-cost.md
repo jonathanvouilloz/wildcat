@@ -9,7 +9,7 @@ tldr:
   - "A 450 THB tourist entry fee was approved in principle in August 2026, but nothing is collected yet. The target is early 2027."
   - "The DTV's 500,000 THB proof of funds stays in your account. It is not a cost."
 publishDate: 2026-06-26
-updatedDate: 2026-09-29
+updatedDate: 2026-10-01
 author: "Meaw Boonpradub"
 category: choosing-a-camp
 cover: ../covers/muay-thai-training-thailand-cost.webp
@@ -89,7 +89,7 @@ Rent is the second-largest cost. Location matters: suburban camps like those in 
 - Phuket (near Tiger Muay Thai / Sinbi): 10,000–18,000 THB per month
 - Bangkok (near Fairtex): 12,000–22,000 THB per month
 
-If you would rather not look for a room at all, our Stay & Train offer is 28,000 THB per person per month. It includes a private room in a shared house with all bills paid, unlimited training, a motorbike and the airport pickup. Meals and petrol are not included. The [Stay & Train page](/stay-train#packages) lists exactly what is in and out.
+If you would rather not look for a room at all, our Stay & Train offer is 28,000 THB per person per month, or 8,000 THB a week for a shorter trip. It includes a private room in a shared house with all bills paid, unlimited training, a motorbike and the airport pickup. Meals and petrol are not included. The [Stay & Train page](/stay-train#packages) lists exactly what is in and out.
 
 A practical tip: the 10–15 minute rule. If your accommodation is more than 15 minutes from your camp by scooter, you will lose training time and motivation over a long stay. Proximity to the gym matters more than neighbourhood.
 

@@ -31,6 +31,7 @@ Un stage se compose de trois blocs : l'entraînement, le logement, et tout le re
 | 1 semaine illimitée | 2 000 THB | 53 € |
 | 1 mois, 1 séance par jour | 4 000 THB | 105 € |
 | 1 mois illimité | 5 000 THB | 131 € |
+| 1 semaine tout compris (logement, moto, transfert) | 8 000 THB | 210 € |
 | 1 mois tout compris (logement, moto, transfert) | 28 000 THB | 736 € |
 
 Les gants et les bandes sont prêtés, donc tu n'achètes rien pour essayer. Tu retrouves la grille complète et les créneaux sur [nos tarifs et horaires de cours](/classes). Pour **un stage de Muay Thaï en Thaïlande** d'une à quatre semaines, la formule la plus logique est souvent la semaine illimitée ou le mois illimité : si tu comptes t'entraîner presque tous les jours, c'est plus simple et plus prévisible que de compter les séances.
@@ -69,9 +70,9 @@ Sumalee précise que les moins de 16 ans paient moitié prix ; Sinbi loue gants 
 
 ## « Tout compris » : ce qui est vraiment inclus (et ce qui ne l'est pas)
 
-Le mot « tout compris » ne veut rien dire tant que la liste n'est pas écrite. Pour un camp d'entraînement de Muay Thaï en Thaïlande, voici ce que couvre notre offre à 28 000 THB (environ 736 €) par personne et par mois :
+Le mot « tout compris » ne veut rien dire tant que la liste n'est pas écrite. Pour un camp d'entraînement de Muay Thaï en Thaïlande, voici ce que couvre notre offre à 28 000 THB (environ 736 €) par personne et par mois, ou 8 000 THB (environ 210 €) la semaine :
 
-- une chambre privée en maison partagée climatisée, toutes charges comprises ;
+- une chambre privée en maison partagée climatisée, toutes charges comprises, avec mini-cuisine et frigo ;
 - l'entraînement professionnel illimité ;
 - une moto pour la durée du séjour ;
 - le transfert depuis l'aéroport.

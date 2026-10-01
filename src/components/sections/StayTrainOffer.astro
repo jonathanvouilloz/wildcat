@@ -5,8 +5,8 @@ import { localePath } from '../../lib/routes';
 import { m } from '../../paraglide/messages.js';
 
 /**
- * StayTrainOffer — l'offre unique « Stay & Train » (28 000 THB/mois tout compris),
- * 2026-08-20. Remplace LongStayPackages et ses 4 forfaits long-stay (données
+ * StayTrainOffer — l'offre unique « Stay & Train » (28 000 THB/mois tout compris,
+ * ou 8 000 THB/semaine depuis 2026-10-01), 2026-08-20. Remplace LongStayPackages et ses 4 forfaits long-stay (données
  * conservées commentées dans site.ts). Rend juste le contenu : la page fournit
  * le <Section>/<Container>.
  *
@@ -30,7 +30,9 @@ export interface Props {
 const { lang, showHead = true, showTrainingOnlyLink = false } = Astro.props;
 
 const offer = site.pricing.stayTrain;
-const price = offer.price.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
+const fmt = (n: number) => n.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
+const price = fmt(offer.price);
+const weekPrice = fmt(offer.weekPrice);
 const contact = localePath(lang, '/contact');
 const classes = localePath(lang, '/classes');
 
@@ -65,6 +67,7 @@ const excluded = offer.excludes.map((key) => EXCLUDES[key]);
         {price} <span>{site.pricing.currency}</span>
       </span>
       <p class="sto-unit">{m.pricing_st_unit()}</p>
+      <p class="sto-week">{m.pricing_st_week({ price: weekPrice })}</p>
       <Button
         href={`${contact}?intent=stay&package=${offer.key}`}
         variant="gold"
@@ -150,7 +153,15 @@ const excluded = offer.excludes.map((key) => EXCLUDES[key]);
   .sto-unit {
     font-size: 13.5px;
     color: var(--ink-2);
-    margin: 8px 0 22px;
+    margin: 8px 0 14px;
+  }
+  .sto-week {
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--ink-2);
+    margin: 0 0 22px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
   }
   .sto-card :global(.sto-cta) {
     width: 100%;

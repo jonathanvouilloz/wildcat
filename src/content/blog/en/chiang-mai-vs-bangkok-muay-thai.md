@@ -79,7 +79,7 @@ At **Wildcat** in Chiang Mai:
 
 **Total monthly budget in Chiang Mai: 25,000-35,000 THB.**
 
-Our [Stay & Train package](/stay-train#packages) bundles the room, unlimited training, a motorbike and your airport pick-up into 28,000 THB a month, so the only variables left are food and petrol.
+Our [Stay & Train package](/stay-train#packages) bundles the room, unlimited training, a motorbike and your airport pick-up into 28,000 THB a month (or 8,000 THB a week), so the only variables left are food and petrol.
 
 ### Training and living in Bangkok
 

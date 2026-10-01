@@ -156,6 +156,8 @@ export const site = {
     stayTrain: {
       key: 'stay_train',
       price: 28000,
+      /** Prix à la semaine (1–3 semaines), mêmes inclusions — Meaw 2026-10-01. */
+      weekPrice: 8000,
       includes: ['room', 'training', 'bike', 'pickup'],
       excludes: ['meals', 'petrol'],
     },

@@ -9,7 +9,7 @@ tldr:
   - "All-inclusive rarely means everything: check meals, transport and the number of sessions before you compare prices."
   - "Since 15 September 2026 most visitors get 30 days visa-free, so past two months the tourist visa or the DTV decides which camp works. Not every camp handles DTV documentation."
 publishDate: 2026-06-16
-updatedDate: 2026-09-29
+updatedDate: 2026-10-01
 category: choosing-a-camp
 cover: ../covers/best-muay-thai-camps-thailand.webp
 coverAlt: "Best Muay Thai camps in Thailand: Wildcat Muay Thai, Chiang Mai"
@@ -160,7 +160,7 @@ Who it's for:
 - **Women** and anyone who finds large, male-dominated fight camps uncomfortable. The camp is family-run and the atmosphere is easy to settle into.
 - **DTV applicants** who need proper training documentation for a visa application (more on this below).
 
-Real prices: drop-in 350 THB, unlimited group training 5,000 THB a month. For longer stays there is one [Stay & Train offer](/stay-train) at 28,000 THB per person per month: a private air-conditioned room in a shared house with bills included, unlimited training, a motorbike and the airport transfer. Meals and fuel are on you.
+Real prices: drop-in 350 THB, unlimited group training 5,000 THB a month. For longer stays there is one [Stay & Train offer](/stay-train) at 28,000 THB per person per month, or 8,000 THB a week for shorter stays: a private air-conditioned room in a shared house with bills included, unlimited training, a motorbike and the airport transfer. Meals and fuel are on you.
 
 Honest drawbacks: no beach, no Phuket nightlife. If nightlife is part of your Thailand plan, Hang Dong is not where you want to be. The [coaches here](/about/coaches) are Thai and experienced, but you won't find the depth of fight team infrastructure that Tiger has.
 
@@ -260,7 +260,7 @@ Four questions separate a real all-inclusive deal from a good-looking one:
 3. **Is local transport covered?** Camps outside the centre, including ours in Hang Dong, make a scooter or motorbike close to essential.
 4. **Who do you pay?** Booking direct with the camp avoids a platform margin, and you can ask the owner your questions before you pay.
 
-Our own version is deliberately simple: one price, 28,000 THB per person per month, covering a private room in a shared house with all bills, unlimited training, a motorbike and the airport transfer. Meals and fuel are not included, and we say so up front.
+Our own version is deliberately simple: 28,000 THB per person per month (8,000 THB a week if you come for less), covering a private room in a shared house with all bills, unlimited training, a motorbike and the airport transfer. Meals and fuel are not included, and we say so up front.
 
 ---
 
