@@ -30,6 +30,14 @@
 .wc-anim [data-animate='fade-right'] {
   transform: translateX(28px);
 }
+/* une colonne : le décalage latéral avant révélation créait un scroll
+   horizontal (audit 360px, 2026-10-16) → entrée verticale à la place */
+@media (max-width: 860px) {
+  .wc-anim [data-animate='fade-left'],
+  .wc-anim [data-animate='fade-right'] {
+    transform: translateY(24px);
+  }
+}
 .wc-anim [data-animate='scale'] {
   transform: scale(0.95); /* jamais scale(0) */
 }

@@ -10,6 +10,7 @@ import PageHero from '../../../components/sections/PageHero.astro';
 import DtvSteps from '../../../components/sections/DtvSteps.astro';
 import Faq from '../../../components/sections/Faq.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import InquirySection from '../../../components/sections/InquirySection.astro';
 import DocChecklist from '../../../components/interactive/DocChecklist.astro';
 import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
 import ApprovalsStrip from '../../../components/sections/ApprovalsStrip.astro';
@@ -188,7 +189,7 @@ const howToSchema = {
       title={m.dtv_apply_hero_title()}
       titleEm={m.dtv_apply_hero_title_em()}
       lead={m.dtv_apply_hero_lead()}
-      cta={{ label: m.cta_start_dtv(), href: `${p('/contact')}?intent=dtv` }}
+      cta={{ label: m.cta_start_dtv(), href: '#ask' }}
     />
 
     <Section containerSize="narrow">
@@ -279,7 +280,7 @@ const howToSchema = {
           doneLabel={m.dtv_apply_progress_done_label()}
           doneSub={m.dtv_apply_progress_done_sub()}
           resetLabel={m.dtv_apply_checklist_reset()}
-          doneCta={{ label: m.dtv_apply_checklist_done_cta(), href: `${p('/contact')}?intent=dtv` }}
+          doneCta={{ label: m.dtv_apply_checklist_done_cta(), href: '#ask' }}
         />
       </div>
     </Section>
@@ -315,7 +316,7 @@ const howToSchema = {
       <p class="body-p mt-5">
         {m.dtv_apply_fees_future()}{' '}
         {/* En attendant la mini-app DTV (E6) : contact pré-ciblé intent=dtv */}
-        <a class="ilink" href={`${p('/contact')}?intent=dtv`}>{m.dtv_apply_fees_future_link()}</a>.
+        <a class="ilink" href="#ask">{m.dtv_apply_fees_future_link()}</a>.
       </p>
     </Section>
 
@@ -375,6 +376,8 @@ const howToSchema = {
       )
     }
 
+    <InquirySection intent="dtv" />
+
     <ReadNext keys={['dtv-visa-new-requirements-2026', 'dtv-visa-agent-worth-it', 'dtv-visa-refund-if-rejected']} />
 
     <CtaBanner
@@ -383,7 +386,7 @@ const howToSchema = {
       title={m.dtv_apply_cta_title()}
       titleEm={m.dtv_apply_cta_title_em()}
       sub={m.dtv_apply_cta_sub()}
-      ctaPrimary={{ label: m.cta_start_dtv(), href: `${p('/contact')}?intent=dtv` }}
+      ctaPrimary={{ label: m.cta_start_dtv(), href: '#ask' }}
       ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_dtv()) }}
       image={{ src: '/assets/night-session.webp' }}
     />

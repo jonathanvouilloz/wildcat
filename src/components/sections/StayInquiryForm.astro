@@ -150,7 +150,7 @@ const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: 
     };
 
     const modal = document.querySelector<HTMLDialogElement>('dialog[data-wa-modal]');
-    if (base) submitViaWhatsApp(form, { waBase: base, buildText, modal });
+    if (base) submitViaWhatsApp(form, { waBase: base, buildText, modal, recoKey: () => 'stay' });
   });
 </script>
 

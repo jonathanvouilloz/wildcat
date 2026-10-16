@@ -7,6 +7,7 @@ import Breadcrumb from '../../../components/ui/Breadcrumb.astro';
 import SectionHead from '../../../components/ui/SectionHead.astro';
 import Callout from '../../../components/ui/Callout.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import InquirySection from '../../../components/sections/InquirySection.astro';
 import BlogCard from '../../../components/blog/BlogCard.astro';
 import BlogToc from '../../../components/blog/BlogToc.astro';
 import ShareButtons from '../../../components/blog/ShareButtons.astro';
@@ -78,6 +79,17 @@ const updated = post.data.updatedDate
   : undefined;
 
 const catLabels = categoryLabels();
+// Formulaire de fin d'article : intention déduite de la catégorie (2026-10-16).
+// Le CtaBanner parle d'un premier cours : il ne vise #ask que pour l'intention class.
+const intentByCategory = {
+  'choosing-a-camp': 'stay',
+  beginners: 'class',
+  benefits: 'class',
+  'chiang-mai-life': 'stay',
+  visa: 'dtv',
+  culture: 'class',
+} as const;
+const intent = intentByCategory[post.data.category];
 
 // Cover : PAS affichée dans l'article (décision 2026-06-06 — le header
 // éditorial suffit, la photo pleine largeur poussait le contenu sous la
@@ -212,6 +224,8 @@ const articleSchema = {
       </article>
     </div>
 
+    <InquirySection intent={intent} />
+
     <!-- À lire ensuite -->
     {
       relatedCards.length > 0 && (
@@ -237,7 +251,7 @@ const articleSchema = {
       title={m.blog_cta_title()}
       titleEm={m.blog_cta_title_em()}
       sub={m.blog_cta_sub()}
-      ctaPrimary={{ label: m.blog_cta_btn(), href: `${p('/contact')}?intent=class` }}
+      ctaPrimary={{ label: m.blog_cta_btn(), href: intent === 'class' ? '#ask' : `${p('/contact')}?intent=class` }}
       ctaSecondary={{ label: m.cta_whatsapp(), href: waLink(m.contact_wa_text_class()) }}
       image={{ src: '/assets/family-party.webp' }}
     />

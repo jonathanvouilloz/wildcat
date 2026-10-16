@@ -25,6 +25,8 @@ export interface WaSubmitOptions {
   beforeSubmit?: (form: HTMLFormElement) => void;
   /** Modal de confirmation in-site (WhatsappSubmitModal). Si absent → fallback. */
   modal?: HTMLDialogElement | null;
+  /** Groupe de lectures conseillées à afficher dans le modal (`[data-reco]`, repli « general »). */
+  recoKey?: (form: HTMLFormElement) => string;
 }
 
 export function submitViaWhatsApp(form: HTMLFormElement, opts: WaSubmitOptions): void {
@@ -49,8 +51,9 @@ export function submitViaWhatsApp(form: HTMLFormElement, opts: WaSubmitOptions):
     if (!form.checkValidity()) return;
     e.preventDefault();
 
-    // 1. message WhatsApp depuis les champs ACTIFS (avant tout disable).
+    // 1. message WhatsApp + groupe de lectures, depuis les champs ACTIFS (avant tout disable).
     const text = opts.buildText(form);
+    const reco = opts.recoKey?.(form);
 
     // 2. nettoyage optionnel (email propre côté Meaw).
     opts.beforeSubmit?.(form);
@@ -82,6 +85,14 @@ export function submitViaWhatsApp(form: HTMLFormElement, opts: WaSubmitOptions):
       if (preview) preview.textContent = text;
       const send = modal.querySelector<HTMLAnchorElement>('[data-wa-send]');
       if (send) send.href = waUrl;
+      const groups = [...modal.querySelectorAll<HTMLElement>('[data-reco]')];
+      const pick =
+        groups.find((g) => g.dataset.reco === reco) ??
+        groups.find((g) => g.dataset.reco === reco?.split('-')[0]) ??
+        groups.find((g) => g.dataset.reco === 'general');
+      groups.forEach((g) => (g.hidden = g !== pick));
+      const recoBox = modal.querySelector<HTMLElement>('[data-wa-reco]');
+      if (recoBox) recoBox.hidden = !reco || !pick;
       modal.showModal();
       return;
     }

@@ -1,0 +1,46 @@
+---
+import Section from '../layout/Section.astro';
+import SectionHead from '../ui/SectionHead.astro';
+import ContactForm from './ContactForm.astro';
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * InquirySection — le ContactForm multistep posé sur une page transactionnelle
+ * (2026-10-16), intention présélectionnée : le visiteur démarre à l'étape 2.
+ * Une seule par page (ContactForm a des id fixes + un seul modal par page),
+ * et jamais sur une page qui porte déjà StayInquiryForm.
+ */
+export interface Props {
+  intent: 'class' | 'stay' | 'scooter' | 'dtv';
+  id?: string;
+}
+const { intent, id = 'ask' } = Astro.props;
+const lang = Astro.currentLocale ?? 'en';
+
+const titles = {
+  class: m.contact_intent_class(),
+  stay: m.contact_intent_stay(),
+  scooter: m.contact_intent_scooter(),
+  dtv: m.contact_intent_dtv(),
+};
+---
+
+<Section id={id} containerSize="narrow">
+  <SectionHead>{m.nav_contact()}</SectionHead>
+  <h2 class="h2 mt-2 mb-3">{titles[intent]}</h2>
+  <p class="body-p mb-6">{m.contact_inline_lead()}</p>
+  <div class="iq-card">
+    <ContactForm lang={lang} intent={intent} />
+  </div>
+</Section>
+
+<style>
+  /* même carte que la colonne formulaire de /contact */
+  .iq-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: clamp(22px, 3vw, 34px);
+    box-shadow: var(--shadow-sm);
+  }
+</style>

@@ -29,10 +29,18 @@ import { m } from '../../paraglide/messages.js';
  * - Clé absente (PUBLIC_WEB3FORMS_KEY) : warning build, le form reste rendu
  *   (Web3Forms rejettera) — même philosophie que HelpfulWidget.
  */
+/*
+ * Multistep (2026-10-16) : 1. le besoin → 2. les détails de l'intention
+ * (sautée pour « general ») → 3. les coordonnées. Le découpage est posé par le
+ * script (`data-ms` sur le form) : sans JS, les 3 étapes s'affichent d'un bloc,
+ * comme avant. `intent` (ou ?intent=) présélectionne et démarre à l'étape 2.
+ * Après envoi, le modal propose des pages/articles selon l'intention (recoKey).
+ */
 export interface Props {
   lang: string;
+  intent?: 'class' | 'stay' | 'scooter' | 'dtv' | 'general';
 }
-const { lang } = Astro.props;
+const { lang, intent } = Astro.props;
 
 const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
 if (!accessKey) console.warn('[ContactForm] PUBLIC_WEB3FORMS_KEY missing — submissions will fail.');
@@ -89,7 +97,7 @@ const waTexts: Record<string, string> = {
 };
 ---
 
-<form method="POST" action="https://api.web3forms.com/submit" class="cform" data-cform>
+<form method="POST" action="https://api.web3forms.com/submit" class="cform" data-cform data-preset={intent}>
   <input type="hidden" name="access_key" value={accessKey} />
   <input type="hidden" name="redirect" value={redirectUrl} />
   <input type="hidden" name="subject" value="[Wildcat] Website contact" data-subject />
@@ -100,45 +108,42 @@ const waTexts: Record<string, string> = {
     <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
   </div>
 
-  <fieldset class="intents">
-    <legend class="intents-legend">{m.contact_intent_legend()}</legend>
-    <div class="intents-grid">
-      {
-        intents.map((it) => (
-          <label class="icard">
-            <input
-              type="radio"
-              name="intent"
-              value={it.value}
-              checked={it.value === 'general'}
-            />
-            <Icon name={it.icon} class="icard-ic" aria-hidden="true" />
-            <span class="icard-lb">{it.label}</span>
-          </label>
-        ))
-      }
-    </div>
-  </fieldset>
+  <div class="ms-bar" aria-hidden="true"><span data-ms-bar></span></div>
 
-  <div class="pair">
-    <Field label={m.contact_form_name()} for="ct-name" required>
-      <Input id="ct-name" name="name" placeholder={m.contact_form_name_ph()} autocomplete="name" required />
-    </Field>
-    <Field label={m.contact_form_email()} for="ct-email" required>
-      <Input
-        id="ct-email"
-        name="email"
-        type="email"
-        placeholder={m.contact_form_email_ph()}
-        autocomplete="email"
-        required
-      />
-    </Field>
+  <!-- Étape 1 — le besoin -->
+  <div class="step" data-step="1">
+    <p class="step-n">{m.contact_step_progress({ n: '1' })}</p>
+    <fieldset class="intents">
+      <legend class="intents-legend step-t" tabindex="-1">{m.contact_intent_legend()}</legend>
+      <div class="intents-grid">
+        {
+          intents.map((it) => (
+            <label class="icard">
+              <input
+                type="radio"
+                name="intent"
+                value={it.value}
+                checked={it.value === (intent ?? 'general')}
+              />
+              <Icon name={it.icon} class="icard-ic" aria-hidden="true" />
+              <span class="icard-lb">{it.label}</span>
+            </label>
+          ))
+        }
+      </div>
+    </fieldset>
+    <div class="step-nav">
+      <button type="button" class="step-btn step-btn--next" data-next>{m.contact_step_next()}</button>
+    </div>
   </div>
 
-  <Field label={m.contact_form_phone()} for="ct-phone" class="narrow">
-    <Input id="ct-phone" name="phone" type="tel" placeholder={m.contact_form_phone_ph()} autocomplete="tel" />
-  </Field>
+  <!-- Étape 2 — les détails de l'intention (sautée pour « general ») -->
+  <div class="step" data-step="2">
+    <p class="step-n">{m.contact_step_progress({ n: '2' })}</p>
+    <div>
+      <p class="step-t" tabindex="-1">{m.contact_step2_title()}</p>
+      <p class="step-hint">{m.contact_step2_hint()}</p>
+    </div>
 
   <!-- Champs contextuels — affichés par :has() selon l'intention cochée -->
   <div class="xtra" data-i="class">
@@ -195,13 +200,47 @@ const waTexts: Record<string, string> = {
     </Field>
   </div>
 
-  <Field label={m.contact_form_msg()} for="ct-msg" required>
-    <Textarea id="ct-msg" name="message" rows={6} placeholder={m.contact_form_msg_ph()} required />
-  </Field>
-  <Checkbox name="consent" required>{m.contact_form_consent()}</Checkbox>
+    <div class="step-nav">
+      <button type="button" class="step-btn" data-back>{m.contact_step_back()}</button>
+      <button type="button" class="step-btn step-btn--next" data-next>{m.contact_step_next()}</button>
+    </div>
+  </div>
 
-  <div class="submit">
-    <Button type="submit" variant="gold" arrow>{m.contact_form_submit()}</Button>
+  <!-- Étape 3 — les coordonnées -->
+  <div class="step" data-step="3">
+    <p class="step-n">{m.contact_step_progress({ n: '3' })}</p>
+    <p class="step-t" tabindex="-1">{m.contact_step3_title()}</p>
+    <div class="pair">
+      <Field label={m.contact_form_name()} for="ct-name" required>
+        <Input id="ct-name" name="name" placeholder={m.contact_form_name_ph()} autocomplete="name" required />
+      </Field>
+      <Field label={m.contact_form_email()} for="ct-email" required>
+        <Input
+          id="ct-email"
+          name="email"
+          type="email"
+          placeholder={m.contact_form_email_ph()}
+          autocomplete="email"
+          required
+        />
+      </Field>
+    </div>
+
+    <Field label={m.contact_form_phone()} for="ct-phone" class="narrow">
+      <Input id="ct-phone" name="phone" type="tel" placeholder={m.contact_form_phone_ph()} autocomplete="tel" />
+    </Field>
+
+    <!-- requis sans JS ; avec JS, requis seulement pour « general » (les autres
+         intentions ont déjà leurs champs structurés) -->
+    <Field label={m.contact_form_msg()} for="ct-msg">
+      <Textarea id="ct-msg" name="message" rows={5} placeholder={m.contact_form_msg_ph()} required />
+    </Field>
+    <Checkbox name="consent" required>{m.contact_form_consent()}</Checkbox>
+
+    <div class="step-nav">
+      <button type="button" class="step-btn" data-back>{m.contact_step_back()}</button>
+      <Button type="submit" variant="gold" arrow>{m.contact_form_submit()}</Button>
+    </div>
   </div>
 
   <!-- Fast lane WhatsApp — pré-rempli selon l'intention cochée -->
@@ -256,8 +295,10 @@ const waTexts: Record<string, string> = {
     if (raw) {
       const want = LEGACY[raw] ?? raw;
       const radio = form.querySelector<HTMLInputElement>(`input[name="intent"][value="${want}"]`);
-      if (radio) radio.checked = true;
+      // defaultChecked aussi : form.reset() (fermeture du modal) garde l'intention.
+      if (radio) radio.checked = radio.defaultChecked = true;
     }
+    const preset = Boolean(form.dataset.preset || raw);
     // Pré-sélectionne le forfait dans le dropdown DTV s'il existe.
     if (pkg) {
       const sel = form.querySelector<HTMLSelectElement>('select[name="dtv_package"]');
@@ -274,14 +315,59 @@ const waTexts: Record<string, string> = {
 
     const update = () => {
       const v = checkedIntent();
+      if (msg) msg.required = v === 'general';
       if (subject && SUBJECTS[v]) subject.value = `[Wildcat] ${SUBJECTS[v]}`;
       const text = wrap?.dataset['wa' + v[0].toUpperCase() + v.slice(1)];
       if (wrap && link && base && text) link.href = `${base}?text=${encodeURIComponent(text)}`;
     };
+    // ---- Multistep ----
+    const steps = [...form.querySelectorAll<HTMLElement>('.step')];
+    const bar = form.querySelector<HTMLElement>('[data-ms-bar]');
+    const msg = form.querySelector<HTMLTextAreaElement>('textarea[name="message"]');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let cur = 1;
+    const isGeneral = () => checkedIntent() === 'general';
+    const show = (n: number, focus = true) => {
+      cur = n;
+      steps.forEach((s) => (s.hidden = Number(s.dataset.step) !== n));
+      if (bar) bar.style.width = `${(n / 3) * 100}%`;
+      if (!focus) return;
+      if (form.getBoundingClientRect().top < 0)
+        form.scrollIntoView({ block: 'start', behavior: reduced ? 'auto' : 'smooth' });
+      steps[n - 1]?.querySelector<HTMLElement>('.step-t')?.focus({ preventScroll: true });
+    };
+    const next = () => show(cur === 1 && !isGeneral() ? 2 : 3);
+    const back = () => show(cur === 3 && !isGeneral() ? 2 : 1);
+    const startStep = () => (preset ? (isGeneral() ? 3 : 2) : 1);
+
+    form.dataset.ms = '';
+    form.querySelectorAll('[data-next]').forEach((b) => b.addEventListener('click', next));
+    form.querySelectorAll('[data-back]').forEach((b) => b.addEventListener('click', back));
+    // Clic souris/tactile sur une card = on avance (le clavier garde « Suivant » :
+    // les flèches changent la radio sans sauter d'étape).
+    form.querySelector('.intents-grid')?.addEventListener('pointerup', (e) => {
+      if ((e.target as HTMLElement).closest('.icard')) setTimeout(next, 160);
+    });
+    // Entrée avant l'étape 3 = étape suivante (sinon le navigateur tente un
+    // submit bloqué par les champs requis cachés de l'étape 3).
+    form.addEventListener('keydown', (e) => {
+      const t = e.target as HTMLElement;
+      if (e.key !== 'Enter' || cur === 3 || t.tagName === 'TEXTAREA' || t.tagName === 'BUTTON') return;
+      e.preventDefault();
+      next();
+    });
+    form.addEventListener('reset', () =>
+      setTimeout(() => {
+        update();
+        show(startStep(), false);
+      }),
+    );
+
     form.addEventListener('change', (e) => {
       if ((e.target as HTMLInputElement).name === 'intent') update();
     });
     update();
+    show(startStep(), false);
 
     // Message WhatsApp lisible, construit depuis les champs remplis (EN dans
     // les 2 locales — équipe anglophone). Lu AVANT le disable des .xtra.
@@ -348,7 +434,15 @@ const waTexts: Record<string, string> = {
     };
 
     const modal = document.querySelector<HTMLDialogElement>('dialog[data-wa-modal]');
-    if (base) submitViaWhatsApp(form, { waBase: base, buildText, beforeSubmit: disableInactive, modal });
+    // Lectures conseillées dans le modal : par intention, et par niveau pour un cours.
+    const recoKey = (f: HTMLFormElement) => {
+      const v = checkedIntent();
+      const level = fieldValue(f, 'cls_level');
+      return v === 'class' && level ? `class-${level}` : v;
+    };
+
+    if (base)
+      submitViaWhatsApp(form, { waBase: base, buildText, beforeSubmit: disableInactive, modal, recoKey });
   });
 </script>
 
@@ -459,8 +553,111 @@ const waTexts: Record<string, string> = {
     gap: 10px;
   }
 
-  .submit {
+  /* ---- Multistep ----
+     Sans JS (pas de data-ms) : étapes empilées, ni compteur ni Suivant/Retour. */
+  .step {
+    display: grid;
+    gap: 18px;
+  }
+  .step[hidden],
+  .cform:not([data-ms]) :is(.ms-bar, .step-n, [data-next], [data-back]) {
+    display: none;
+  }
+  /* rien à détailler pour « general » : l'étape 2 disparaît, avec ou sans JS */
+  .cform:has(input[name='intent'][value='general']:checked) .step[data-step='2'] {
+    display: none;
+  }
+  .ms-bar {
+    height: 4px;
+    border-radius: 999px;
+    background: var(--line);
+    overflow: hidden;
+  }
+  .ms-bar span {
+    display: block;
+    width: 33.3%;
+    height: 100%;
+    background: var(--gold);
+    border-radius: inherit;
+    transition: width 0.3s var(--ease-out, ease);
+  }
+  .step-n {
+    margin: 0 0 -10px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+  }
+  .step-t {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    outline: none;
+  }
+  .step-hint {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .cform[data-ms] .step:not([hidden]) {
+    animation: step-in 0.25s ease both;
+  }
+  @keyframes step-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+  /* étape 1 seule à l'écran : cards plus généreuses */
+  .cform[data-ms] .icard {
+    padding: 20px 10px 16px;
+  }
+  .cform[data-ms] .icard-ic {
+    width: 30px;
+    height: 30px;
+  }
+  .cform[data-ms] .intents-legend {
+    margin-bottom: 14px;
+  }
+  .step-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
     margin-top: 6px;
+  }
+  .step-btn {
+    padding: 10px 4px;
+    border: 0;
+    background: transparent;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink-2);
+    cursor: pointer;
+  }
+  .step-btn:hover {
+    color: var(--ink);
+  }
+  .step-btn--next {
+    margin-left: auto;
+    padding: 11px 24px;
+    border-radius: 999px;
+    background: var(--forest);
+    color: var(--cream);
+  }
+  .step-btn--next:hover {
+    background: var(--forest-light);
+    color: var(--cream);
+  }
+  .step-btn:focus-visible {
+    outline: 2px solid var(--field-border-focus);
+    outline-offset: 2px;
   }
 
   /* ---- Fast lane WhatsApp ---- */
@@ -512,8 +709,12 @@ const waTexts: Record<string, string> = {
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .icard {
+    .icard,
+    .ms-bar span {
       transition: none;
+    }
+    .cform[data-ms] .step:not([hidden]) {
+      animation: none;
     }
   }
 </style>

@@ -1,6 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { m } from '../../paraglide/messages.js';
+import { localePath } from '../../lib/routes';
+import { getPostsByKeys, blogPath } from '../../lib/blog';
 
 /**
  * WhatsappSubmitModal — modal de confirmation après submit (2026-07-19).
@@ -14,7 +16,52 @@ import { m } from '../../paraglide/messages.js';
  *
  * Rendu une fois par form (ContactForm, StayInquiryForm) ; les deux forms ne
  * coexistent jamais sur une même page → un seul `[data-wa-modal]` par page.
+ *
+ * Lectures conseillées (2026-10-16) : un groupe `[data-reco]` par intention
+ * (et par niveau pour les cours), montré par wa-form.ts selon `recoKey`.
+ * Articles résolus par translationKey dans la locale (clé absente = ignorée).
  */
+type Reco = { href: string; title: string; desc: string };
+const lang = Astro.currentLocale ?? 'en';
+const page = (path: string, title: string, desc: string): Reco => ({
+  href: localePath(lang, path),
+  title,
+  desc,
+});
+const posts = async (keys: string[]): Promise<Reco[]> =>
+  (await getPostsByKeys(lang, keys)).map((e) => ({ href: blogPath(e), title: e.data.title, desc: m.nav_blog() }));
+
+const beginner = page('/classes/beginners', m.nav_train_beginner_title(), m.nav_train_beginner_desc());
+const schedule = page('/classes#schedule', m.nav_train_schedule_title(), m.nav_train_schedule_desc());
+const pricing = page('/classes#pricing', m.nav_train_pricing_title(), m.nav_train_pricing_desc());
+const guide = page('/chiang-mai-guide', m.nav_stay_guide_title(), m.nav_stay_guide_desc());
+
+const groups: Record<string, Reco[]> = {
+  'class-first-time': [beginner, schedule, ...(await posts(['muay-thai-gear-beginners']))],
+  'class-some-experience': [schedule, pricing, ...(await posts(['muay-thai-stance']))],
+  'class-experienced': [
+    page('/fighters', m.nav_train_fight_title(), m.nav_train_fight_desc()),
+    schedule,
+    ...(await posts(['watch-muay-thai-fights-chiang-mai'])),
+  ],
+  class: [schedule, beginner, pricing],
+  stay: [
+    page('/stay-train#packages', m.nav_stay_packages_title(), m.nav_stay_packages_desc()),
+    ...(await posts(['muay-thai-training-thailand-cost', 'stage-boxe-thai-thailande-prix'])),
+    guide,
+  ],
+  scooter: [page('/stay-train/scooter-rental', m.nav_stay_scooter_title(), m.nav_stay_scooter_desc()), guide],
+  dtv: [
+    page('/dtv-visa/how-to-apply', m.nav_dtv_apply_title(), m.nav_dtv_apply_desc()),
+    page('/dtv-visa/eligibility', m.nav_dtv_eligible_title(), m.nav_dtv_eligible_desc()),
+    ...(await posts(['dtv-visa-proof-of-funds', 'thailand-visa-guide-by-training-length'])),
+  ],
+  general: [
+    page('/about', m.nav_about_story_title(), m.nav_about_story_desc()),
+    page('/about/coaches', m.nav_about_coaches_title(), m.nav_about_coaches_desc()),
+    schedule,
+  ],
+};
 ---
 
 <dialog class="wamodal" data-wa-modal aria-labelledby="wamodal-title">
@@ -41,6 +88,24 @@ import { m } from '../../paraglide/messages.js';
         <span>{m.contact_modal_wa_cta()}</span>
       </a>
       <button type="button" class="wamodal-dismiss" data-wa-close>{m.contact_modal_close()}</button>
+    </div>
+
+    <div class="wamodal-reco" data-wa-reco hidden>
+      <span class="wamodal-preview-lb">{m.contact_reco_title()}</span>
+      {
+        Object.entries(groups).map(([key, items]) => (
+          <ul data-reco={key} hidden>
+            {items.slice(0, 3).map((it) => (
+              <li>
+                <a href={it.href}>
+                  <b>{it.title}</b>
+                  <span>{it.desc}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        ))
+      }
     </div>
   </div>
 </dialog>
@@ -74,6 +139,9 @@ import { m } from '../../paraglide/messages.js';
     background: var(--cream);
     border-radius: var(--r-lg, 18px);
     box-shadow: 0 24px 60px -20px rgba(12, 26, 17, 0.55);
+    /* les lectures conseillées allongent la boîte : scroll interne sur petit écran */
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
   }
 
   .wamodal-x {
@@ -210,6 +278,45 @@ import { m } from '../../paraglide/messages.js';
   }
   .wamodal-dismiss:hover {
     color: var(--ink);
+  }
+
+  /* ---- Lectures conseillées ---- */
+  .wamodal-reco {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+  }
+  .wamodal-reco ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+  }
+  .wamodal-reco ul[hidden] {
+    display: none;
+  }
+  .wamodal-reco a {
+    display: grid;
+    gap: 1px;
+    padding: 9px 12px;
+    border-radius: var(--r-md);
+    background: color-mix(in srgb, var(--field-bg, #fff), #fff 30%);
+    border: 1px solid var(--line);
+    transition: border-color 0.15s ease;
+  }
+  .wamodal-reco a:hover {
+    border-color: var(--forest);
+  }
+  .wamodal-reco b {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+  .wamodal-reco a span {
+    font-size: 13px;
+    color: var(--ink-2);
   }
 
   /* Entrée fondu + léger scale (progressive : @starting-style, ignoré si non

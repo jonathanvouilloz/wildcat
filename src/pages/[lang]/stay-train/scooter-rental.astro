@@ -9,6 +9,7 @@ import PageHero from '../../../components/sections/PageHero.astro';
 import FeatureGrid from '../../../components/sections/FeatureGrid.astro';
 import Faq from '../../../components/sections/Faq.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import InquirySection from '../../../components/sections/InquirySection.astro';
 import { Icon } from 'astro-icon/components';
 import { site } from '../../../config/site';
 import { localePath } from '../../../lib/routes';
@@ -284,6 +285,8 @@ const serviceSchema = {
       </div>
     </Section>
 
+    <InquirySection intent="scooter" />
+
     <CtaBanner
       variant="scrapbook"
       hand={m.scooter_cta_hand()}
@@ -291,7 +294,7 @@ const serviceSchema = {
       titleEm={m.scooter_cta_title_em()}
       sub={m.scooter_cta_sub()}
       ctaPrimary={{ label: m.cta_whatsapp(), href: waScooter }}
-      ctaSecondary={{ label: m.scooter_cta_msg(), href: `${p('/contact')}?intent=scooter` }}
+      ctaSecondary={{ label: m.scooter_cta_msg(), href: '#ask' }}
       image={{ src: '/assets/night-session.webp' }}
     />
   </main>

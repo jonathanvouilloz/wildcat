@@ -7,6 +7,7 @@ import Button from '../../../components/ui/Button.astro';
 import PageHero from '../../../components/sections/PageHero.astro';
 import Faq from '../../../components/sections/Faq.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import InquirySection from '../../../components/sections/InquirySection.astro';
 import ReadNext from '../../../components/sections/ReadNext.astro';
 import DocChecklist from '../../../components/interactive/DocChecklist.astro';
 import { site } from '../../../config/site';
@@ -97,7 +98,7 @@ const articleSchema = {
       title={m.classes_beg_hero_title()}
       titleEm={m.classes_beg_hero_title_em()}
       lead={m.classes_beg_hero_lead()}
-      cta={{ label: m.classes_beg_cta_book(), href: `${p('/contact')}?intent=class` }}
+      cta={{ label: m.classes_beg_cta_book(), href: '#ask' }}
       texture="/assets/decor/tiger-hero-bg.webp"
       full
     >
@@ -189,7 +190,7 @@ const articleSchema = {
         doneLabel={m.classes_beg_cl_done()}
         doneSub={m.classes_beg_cl_done_sub()}
         resetLabel={m.classes_beg_cl_reset()}
-        doneCta={{ label: m.classes_beg_cta_book(), href: `${p('/contact')}?intent=class` }}
+        doneCta={{ label: m.classes_beg_cta_book(), href: '#ask' }}
       />
     </Section>
 
@@ -238,7 +239,7 @@ const articleSchema = {
       </p>
       <p class="body-p">{m.classes_beg_weeks_cta_lead()}</p>
       <div class="mt-5">
-        <Button href={`${p('/contact')}?intent=class`} variant="gold" arrow>{m.classes_beg_cta_book()}</Button>
+        <Button href="#ask" variant="gold" arrow>{m.classes_beg_cta_book()}</Button>
       </div>
     </Section>
 
@@ -268,6 +269,8 @@ const articleSchema = {
       </div>
     </Section>
 
+    <InquirySection intent="class" />
+
     <ReadNext keys={['muay-thai-gear-beginners', 'muay-thai-stance', 'learn-muay-thai-at-home']} />
 
     <CtaBanner
@@ -277,7 +280,7 @@ const articleSchema = {
       titleEm={m.classes_beg_cta_title_em()}
       sub={m.classes_beg_cta_sub()}
       caption={m.classes_beg_cta_caption()}
-      ctaPrimary={{ label: m.classes_beg_cta_book(), href: `${p('/contact')}?intent=class` }}
+      ctaPrimary={{ label: m.classes_beg_cta_book(), href: '#ask' }}
       ctaSecondary={{ label: m.cta_whatsapp(), href: whatsapp }}
       image={{ src: '/assets/meaw-training.webp', alt: m.classes_beg_cta_img_alt() }}
     />

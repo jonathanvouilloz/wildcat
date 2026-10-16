@@ -10,6 +10,7 @@ import ProgramGrid from '../../components/sections/ProgramGrid.astro';
 import DaySchedule from '../../components/sections/DaySchedule.astro';
 import Faq from '../../components/sections/Faq.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
+import InquirySection from '../../components/sections/InquirySection.astro';
 import ReadNext from '../../components/sections/ReadNext.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
@@ -28,9 +29,9 @@ const p = (path: string) => localePath(lang, path);
 /* ---------- Programmes (taxonomie du mega menu Train) ---------- */
 // Card Beginner → satellite /classes/beginners (lien pillar→satellite structurant,
 // ancre dédiée) · card Fight Team → /fighters. Les autres convertissent en
-// CTA explicite « Book this class » → form pré-ciblé /contact?intent=class
+// CTA explicite « Book this class » → formulaire de la page (#ask, InquirySection)
 // (fin du learn-more déguisé qui atterrissait sur un form générique).
-const bookClass = `${p('/contact')}?intent=class`;
+const bookClass = '#ask';
 // Photos réelles du camp (batch 2026-06-06) — alt = titre du programme.
 const programs = [
   {
@@ -189,6 +190,8 @@ const faqItems = [
         <Faq items={faqItems} firstOpen />
       </div>
     </Section>
+
+    <InquirySection intent="class" />
 
     <ReadNext keys={['muay-thai-vs-kickboxing', 'muay-thai-self-defense', 'wai-kru-ram-muay-explained']} />
 

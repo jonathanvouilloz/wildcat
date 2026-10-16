@@ -8,6 +8,7 @@ import PageHero from '../../../components/sections/PageHero.astro';
 import FeatureGrid from '../../../components/sections/FeatureGrid.astro';
 import Faq from '../../../components/sections/Faq.astro';
 import CtaBanner from '../../../components/sections/CtaBanner.astro';
+import InquirySection from '../../../components/sections/InquirySection.astro';
 import DtvQuiz from '../../../components/interactive/DtvQuiz.astro';
 import TestimonialQuote from '../../../components/sections/TestimonialQuote.astro';
 import ReadNext from '../../../components/sections/ReadNext.astro';
@@ -32,7 +33,7 @@ const lang = Astro.currentLocale ?? 'en';
 const p = (path: string) => localePath(lang, path);
 
 // CTA /contact pré-ciblé sur le sujet DTV (topic supporté par ContactForm).
-const contactDtv = `${p('/contact')}?intent=dtv`;
+const contactDtv = '#ask';
 const whatsapp = waLink(m.contact_wa_text_dtv());
 
 // Social proof DTV (CMS only, masqué si vide) — 1 quote avant le CTA final.
@@ -257,6 +258,8 @@ const faqItems = [
         </Section>
       )
     }
+
+    <InquirySection intent="dtv" />
 
     <ReadNext keys={['dtv-visa-proof-of-funds', 'dtv-visa-new-requirements-2026', 'dtv-visa-refund-if-rejected']} />
 
