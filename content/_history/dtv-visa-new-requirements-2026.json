@@ -1,0 +1,106 @@
+[
+  {
+    "date": "2026-10-16",
+    "trigger": "gsc-opportunity",
+    "page_type": "article",
+    "gsc_snapshot": {
+      "period": "2026-06-01 → 2026-10-11",
+      "clicks": 2,
+      "impressions": 90,
+      "ctr": null,
+      "avg_position": null,
+      "top_queries": [
+        {
+          "query": "new dtv rules",
+          "clicks": 1,
+          "impressions": 32,
+          "position": 10.1,
+          "imp_last4w": 0,
+          "imp_prev4w": 32
+        },
+        {
+          "query": "\"new additional requirements\" \"destination thailand visa\" \"31 august 2026\"",
+          "clicks": 0,
+          "impressions": 14,
+          "position": 2.6,
+          "imp_last4w": 0,
+          "imp_prev4w": 14
+        },
+        {
+          "query": "dtv changes",
+          "clicks": 0,
+          "impressions": 12,
+          "position": 8.3,
+          "imp_last4w": 0,
+          "imp_prev4w": 12
+        },
+        {
+          "query": "dtv new rules",
+          "clicks": 0,
+          "impressions": 12,
+          "position": 9,
+          "imp_last4w": 0,
+          "imp_prev4w": 12
+        },
+        {
+          "query": "thailand dtv changes",
+          "clicks": 0,
+          "impressions": 10,
+          "position": 8.7,
+          "imp_last4w": 0,
+          "imp_prev4w": 10
+        },
+        {
+          "query": "\"31 august 2026\" \"destination thailand visa\"",
+          "clicks": 0,
+          "impressions": 2,
+          "position": 9.5,
+          "imp_last4w": 0,
+          "imp_prev4w": 2
+        },
+        {
+          "query": "dtv visa thailand",
+          "clicks": 0,
+          "impressions": 2,
+          "position": 6.5,
+          "imp_last4w": 0,
+          "imp_prev4w": 2
+        },
+        {
+          "query": "thai dtv",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 39,
+          "imp_last4w": 0,
+          "imp_prev4w": 1
+        }
+      ]
+    },
+    "changes": [
+      {
+        "type": "title",
+        "detail": "'What Changed on 31 August' -> 'Where Things Stand in October'; description + TLDR 1 reecrits",
+        "reason": "article d'actu retombe (89 impr prev4w -> 1 last4w), signal de fraicheur"
+      },
+      {
+        "type": "add_h2",
+        "detail": "+H2 'Where the DTV rules stand in October 2026' + H3 'What changed since our last update'",
+        "reason": "requetes 'new dtv rules'/'dtv changes' pos 8-10 = intention etat actuel"
+      },
+      {
+        "type": "data",
+        "detail": "Londres (residence UK/IE/BOT, certificat <= 6 mois, dependants < 16 ans), Irlande/Australie 6 mois, aucune annonce centrale depuis le 28/08, exemption 30 j confirmee",
+        "reason": "fraicheur YMYL"
+      },
+      {
+        "type": "geo",
+        "detail": "+2 FAQ, +4 sources datees 2026-10-16, note de revision",
+        "reason": "sources datees"
+      }
+    ],
+    "reason": "Mise a jour datee octobre 2026 d'un article d'actu retombe: etat des regles DTV + ce qui a change depuis le 29/09.",
+    "word_count_before": 4008,
+    "word_count_after": 4570,
+    "archive": "content/_history/en/dtv-visa-new-requirements-2026/2026-10-16-before.md"
+  }
+]

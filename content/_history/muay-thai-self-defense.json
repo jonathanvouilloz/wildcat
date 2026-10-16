@@ -1,0 +1,116 @@
+[
+  {
+    "date": "2026-10-16",
+    "trigger": "gsc-opportunity",
+    "page_type": "article",
+    "archived_version": "content/_history/en/muay-thai-self-defense/2026-09-29.md",
+    "gsc_snapshot": {
+      "period": "2026-06-01 → 2026-10-11",
+      "clicks": 0,
+      "impressions": 224,
+      "ctr": 0.0,
+      "avg_position": 13.0,
+      "top_queries": [
+        {
+          "query": "is muay thai good for self defense",
+          "clicks": 0,
+          "impressions": 95,
+          "position": 9.4,
+          "imp_last4w": 6,
+          "imp_prev4w": 89
+        },
+        {
+          "query": "muay thai self defense",
+          "clicks": 0,
+          "impressions": 21,
+          "position": 17.2,
+          "imp_last4w": 6,
+          "imp_prev4w": 15
+        },
+        {
+          "query": "muay thai for self defense",
+          "clicks": 0,
+          "impressions": 19,
+          "position": 15.9,
+          "imp_last4w": 6,
+          "imp_prev4w": 13
+        },
+        {
+          "query": "wildcat muay thai",
+          "clicks": 0,
+          "impressions": 13,
+          "position": 9.4,
+          "imp_last4w": 0,
+          "imp_prev4w": 13
+        },
+        {
+          "query": "mai thai self defense",
+          "clicks": 0,
+          "impressions": 11,
+          "position": 15.3,
+          "imp_last4w": 0,
+          "imp_prev4w": 11
+        },
+        {
+          "query": "is muay thai good for self defence",
+          "clicks": 0,
+          "impressions": 6,
+          "position": 11.2,
+          "imp_last4w": 0,
+          "imp_prev4w": 6
+        },
+        {
+          "query": "is thai boxing good for self defense",
+          "clicks": 0,
+          "impressions": 5,
+          "position": 18,
+          "imp_last4w": 1,
+          "imp_prev4w": 4
+        },
+        {
+          "query": "muay thai defense",
+          "clicks": 0,
+          "impressions": 4,
+          "position": 38.3,
+          "imp_last4w": 0,
+          "imp_prev4w": 4
+        }
+      ]
+    },
+    "changes": [
+      {
+        "type": "reinforce",
+        "detail": "verdict table right after the direct answer, mentions Thai boxing",
+        "reason": "'is muay thai good for self defense' pos 9.4 + 'is thai boxing good for self defense'"
+      },
+      {
+        "type": "add_h2",
+        "detail": "H3 weapons and multiple attackers with BJS 2023 stat + safety order",
+        "reason": "honest limits; impressions fell 199 -> 25 over 4 weeks"
+      },
+      {
+        "type": "reinforce",
+        "detail": "comparison table muay thai/boxing/kickboxing/BJJ/krav maga",
+        "reason": "'muay thai or boxing/kickboxing for self defense'"
+      },
+      {
+        "type": "reinforce",
+        "detail": "beginner timeline table 2 weeks to 6 months",
+        "reason": "what a beginner gains and when"
+      },
+      {
+        "type": "add_h2",
+        "detail": "+2 FAQ (vs boxing, 3 months)",
+        "reason": "long-tail queries"
+      },
+      {
+        "type": "geo",
+        "detail": "+1 source BJS Criminal Victimization 2023",
+        "reason": "data density"
+      }
+    ],
+    "reason": "Enrich content for GSC sub-intents; title, meta and slug unchanged by Jonathan's decision.",
+    "word_count_before": 2526,
+    "word_count_after": 3330
+  }
+]

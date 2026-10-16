@@ -1,0 +1,141 @@
+{
+  "keyword": "muay thai fight in thailand",
+  "secondary_keywords_scanned": ["fight in thailand", "how to fight muay thai in thailand as a foreigner"],
+  "location": "US/EN",
+  "scanned_at": "2026-10-16",
+  "sample_size": 8,
+  "method_note": "WebSearch returns result lists without exact rank order (rank is the order returned). PAA, featured snippet and packs are not exposed by WebSearch: serp_features values are NOT observed. Page contents read via WebFetch for punchitgym, weseektravel, sumaleeboxinggym, kstmuaythai, thaiest.",
+  "results": [
+    {
+      "rank": 1,
+      "query": "muay thai fight in thailand",
+      "url": "https://thaiest.com/blog/muay-thai-in-thailand",
+      "title": "Muay Thai in Thailand: Best Places to Watch Fights",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["stadiums by region (Bangkok, South, East, North)", "ticket prices per destination", "5x3 min format", "ritual and attire"],
+      "missing": ["how to fight as a foreigner", "purses", "weight classes", "medical", "visa", "insurance"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 2,
+      "query": "muay thai fight in thailand",
+      "url": "https://www.kstmuaythai.com/?p=1771",
+      "title": "Having Your First Muay Thai Fight in Bangkok, Thailand",
+      "page_type": "blog",
+      "competitor_type": "local-business (gym)",
+      "covers": ["trainer or gym owner arranges the fight", "Bangkok entry-level promotions (Asiatique, Super Muay Thai, True4U, MX)", "Lumpinee/Rajadamnern take years", "weigh-in differences by promotion"],
+      "missing": ["lead time", "purse amounts", "medical exam detail", "visa and work permit", "insurance", "Chiang Mai"],
+      "eeat_signals": ["first-person author experience"]
+    },
+    {
+      "rank": 3,
+      "query": "muay thai fight in thailand",
+      "url": "https://sumaleeboxinggym.com/muay-thai-fight-in-thailand-10-tips-to-prepare/",
+      "title": "Muay Thai Fight in Thailand: 10 Tips to Prepare",
+      "page_type": "blog",
+      "competitor_type": "local-business (gym)",
+      "covers": ["5x3 format", "training volume (about 20 h/week, 8+ weeks)", "sparring", "safe weight cut", "mindset"],
+      "missing": ["how the fight is booked", "purses", "weight classes", "medical", "visa", "insurance", "cost"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 4,
+      "query": "muay thai fight in thailand",
+      "url": "https://www.tigermuaythai.com/tiger-muay-thai-fighters-go-5-1-over-three-nights-in-patong-phuket-thailand-fights",
+      "title": "Tiger Muay Thai fighters go 5-1 over three nights in Patong, Phuket",
+      "page_type": "blog",
+      "competitor_type": "local-business (gym news)",
+      "covers": ["fight results Phuket"],
+      "missing": ["practical guide content"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 5,
+      "query": "how to fight muay thai in thailand as a foreigner",
+      "url": "https://www.weseektravel.com/fighting-muay-thai-in-thailand/",
+      "title": "Fighting Muay Thai in Thailand as a Foreigner",
+      "page_type": "blog",
+      "competitor_type": "editorial (travel blog)",
+      "covers": ["owner arranges fight (Khao Lak example)", "daily schedule", "monthly training and accommodation costs in USD", "5x3 fight, 5x5 sparring"],
+      "missing": ["purses in THB", "weight classes", "medical", "visa", "insurance", "date and lead time"],
+      "eeat_signals": ["first-person"]
+    },
+    {
+      "rank": 6,
+      "query": "how to fight muay thai in thailand as a foreigner",
+      "url": "https://punchitgym.com/muay-thai-professional-fighter-as-a-foreigner-in-thailand/",
+      "title": "Muay Thai professional fighter as a foreigner in Thailand",
+      "page_type": "blog",
+      "competitor_type": "local-business (gym)",
+      "covers": ["start as paying student", "2-3 months to be fight-ready", "50/50 purse split with gym", "income realism (hardly possible for 90%)", "max one fight per month"],
+      "missing": ["official sources", "visa detail beyond hints", "insurance", "medical", "Chiang Mai"],
+      "eeat_signals": ["gym operator voice"]
+    },
+    {
+      "rank": 7,
+      "query": "how to fight muay thai in thailand as a foreigner",
+      "url": "https://punchitgym.com/how-to-fight-in-thailand-from-beginner-to-first-stadium-fight/",
+      "title": "How to Fight in Thailand From Beginner to First Stadium Fight",
+      "page_type": "blog",
+      "competitor_type": "local-business (gym)",
+      "covers": ["narrative of the fight night", "weigh-in at 7am", "5 rounds as a story"],
+      "missing": ["almost all practical facts: how booked, purse, weight, medical, visa, cost"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 8,
+      "query": "how to fight muay thai in thailand as a foreigner",
+      "url": "https://www.thailandstarterkit.com/health/ama-recap-frances-watthana/",
+      "title": "Recap of Our Muay Thai AMA with Frances Watthanaya",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["no work permit for pro fighters (grey area)", "tourist visa upkeep", "gym-sponsored foreigners"],
+      "missing": ["purses", "weights", "medical", "step-by-step"],
+      "eeat_signals": ["named fighter interview"]
+    }
+  ],
+  "serp_features": {
+    "note": "Not observable via WebSearch. Not claimed.",
+    "local_pack": null,
+    "people_also_ask": [],
+    "featured_snippet": null,
+    "image_pack": null,
+    "video": null
+  },
+  "paa_questions": {
+    "status": "NOT OBSERVED. Candidate questions below are inferred from SERP content gaps, to be validated in DataForSEO or a manual check.",
+    "candidates": [
+      "Can a foreigner fight Muay Thai in Thailand?",
+      "How much do foreigners get paid to fight Muay Thai in Thailand?",
+      "How long do you need to train before your first Muay Thai fight in Thailand?",
+      "Do you need a work permit to fight Muay Thai in Thailand?",
+      "Is travel insurance valid for a Muay Thai fight?"
+    ]
+  },
+  "keyword_intent_verdict": {
+    "muay thai fight in thailand": "MIXED, leaning spectator. Top results are stadium watching guides (thaiest, tickets, Phuket/Patong results, Fury vs Wach). Right for a broad article only if the title explicitly says 'fight' (as participant); risks being outranked by watch-intent pages.",
+    "fight in thailand": "Mixed and noisy (boxing events, Bangkok underground fight club, Wikipedia fighter pages, plus the gym guide). Not recommended as primary.",
+    "how to fight muay thai in thailand as a foreigner": "BEST for the target. Intent is participant, informational and practical; SERP is gym blogs and personal accounts, no official or complete guide. Use this as the primary angle and H1 intent; add 'muay thai fight in thailand' as secondary in title/H2 for coverage.",
+    "recommendation": "how to fight muay thai in thailand as a foreigner"
+  },
+  "intent_signal": "mixed (watch for 'muay thai fight in thailand'; informational-participant for 'how to fight ... as a foreigner')",
+  "common_ground": [
+    "5 rounds of 3 minutes",
+    "gym or trainer arranges the fight",
+    "months of training before a first fight",
+    "Lumpinee and Rajadamnern are out of reach for beginners",
+    "weight cut advice (generic)"
+  ],
+  "gap": {
+    "description": "No result gives a complete, sourced, practical guide to fighting as a foreigner: booking process and lead time, realistic purse numbers in THB, weight classes, medical check at the stadium, visa and work-permit status (DTV vs paid fights), insurance exclusions, and Chiang Mai venues. Nobody writes from a Chiang Mai camp.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Visa and work-permit status is vague ('grey area') and unsourced in 2/8 results",
+    "Purse numbers appear only as anecdotes (50/50 split, 3000-5000 THB) with no dates",
+    "Medical and insurance not covered at all",
+    "Narrative pieces (punchitgym) contain almost no usable facts"
+  ],
+  "recommended_angle": "A camp-side practical guide from a Chiang Mai gym: how a foreigner actually gets a first fight (who books it, lead time, what level is expected), what you are paid, weight and cut basics, what the stadium checks, insurance and visa traps (DTV vs paid fights), with sourced facts and honest caveats."
+}

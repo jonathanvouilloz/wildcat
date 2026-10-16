@@ -1,0 +1,733 @@
+{
+  "generated_at": "2026-10-16",
+  "source": "DataForSEO google_ads search_volume + labs bulk_keyword_difficulty",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "threshold": "kw principal >= 10/mois",
+  "note": "volume null = pas de donnée (< 10/mois) ; kd null = non calculé (volume trop faible)",
+  "candidates": [
+    {
+      "candidate": "dtv-visa-cost-breakdown",
+      "translationKey": "dtv-visa-cost-breakdown",
+      "kw_fr": "visa dtv thailande prix",
+      "volume": 20,
+      "kd": null,
+      "decision": "traduit",
+      "slug_fr": "visa-dtv-thailande-prix",
+      "publishDate": "2026-10-22",
+      "risk": null,
+      "tested": [
+        {
+          "kw": "prix visa dtv",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "cout visa dtv",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "visa dtv prix",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "visa dtv thailande prix",
+          "vol": 20,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "tarif visa dtv",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "visa dtv cout",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "combien coute le visa dtv",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        }
+      ]
+    },
+    {
+      "candidate": "dtv-visa-proof-of-funds",
+      "translationKey": "dtv-visa-proof-of-funds",
+      "kw_fr": null,
+      "volume": null,
+      "kd": null,
+      "decision": "non traduit (0 volume FR mesuré)",
+      "slug_fr": null,
+      "publishDate": null,
+      "risk": null,
+      "tested": [
+        {
+          "kw": "visa dtv preuve de fonds",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "visa dtv 500000 bahts",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "dtv preuve financiere",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "visa dtv justificatif financier",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "visa dtv releve bancaire",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "visa dtv conditions",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        }
+      ]
+    },
+    {
+      "candidate": "ed-visa-vs-dtv-muay-thai",
+      "translationKey": "ed-visa-vs-dtv",
+      "kw_fr": "visa etudiant thailande",
+      "volume": 140,
+      "kd": 0,
+      "decision": "traduit (secondaire : visa ed thailande 50)",
+      "slug_fr": "visa-etudiant-thailande-ed-ou-dtv",
+      "publishDate": "2026-10-29",
+      "risk": "re-synchronisé sur l'EN rafraîchi du 2026-10-16",
+      "tested": [
+        {
+          "kw": "visa ed thailande",
+          "vol": 50,
+          "kd": 8,
+          "comp": "LOW"
+        },
+        {
+          "kw": "visa etudiant thailande",
+          "vol": 140,
+          "kd": 0,
+          "comp": "LOW"
+        },
+        {
+          "kw": "visa ed muay thai",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "visa ed boxe thai",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "visa education thailande",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "visa ed ou dtv",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "visa muay thai thailande",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "visa boxe thai thailande",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        }
+      ]
+    },
+    {
+      "candidate": "dtv-visa-new-requirements-2026",
+      "translationKey": "dtv-visa-new-requirements-2026",
+      "kw_fr": null,
+      "volume": null,
+      "kd": null,
+      "decision": "non traduit : formulations spécifiques à 0 ; seul 'visa dtv thailande' (260) a du volume et c'est la tête du pilier /fr/dtv-visa (cannibalisation)",
+      "slug_fr": null,
+      "publishDate": null,
+      "risk": "EN en refresh",
+      "tested": [
+        {
+          "kw": "visa dtv 2026",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "nouvelles regles visa dtv",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "visa dtv nouvelles conditions",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "visa dtv casier judiciaire",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "dtv visa 2026",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "visa dtv thailande",
+          "vol": 260,
+          "kd": 0,
+          "comp": "LOW"
+        },
+        {
+          "kw": "destination thailand visa",
+          "vol": 30,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "visa dtv",
+          "vol": 170,
+          "kd": 0,
+          "comp": "LOW"
+        }
+      ]
+    },
+    {
+      "candidate": "muay-thai-gear-beginners",
+      "translationKey": "muay-thai-gear-beginners",
+      "kw_fr": "equipement boxe thai",
+      "volume": 480,
+      "kd": 0,
+      "decision": "traduit (SERP probablement e-commerce, competition HIGH)",
+      "slug_fr": "equipement-boxe-thai-debutant",
+      "publishDate": "2026-11-05",
+      "risk": null,
+      "tested": [
+        {
+          "kw": "equipement muay thai",
+          "vol": 170,
+          "kd": 0,
+          "comp": "HIGH"
+        },
+        {
+          "kw": "equipement boxe thai",
+          "vol": 480,
+          "kd": 0,
+          "comp": "HIGH"
+        },
+        {
+          "kw": "equipement boxe thai debutant",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "equipement muay thai debutant",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "materiel boxe thai",
+          "vol": 90,
+          "kd": 0,
+          "comp": "HIGH"
+        },
+        {
+          "kw": "materiel muay thai",
+          "vol": 30,
+          "kd": null,
+          "comp": "HIGH"
+        },
+        {
+          "kw": "tenue boxe thai",
+          "vol": 110,
+          "kd": 0,
+          "comp": "HIGH"
+        },
+        {
+          "kw": "gants boxe thai debutant",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        }
+      ]
+    },
+    {
+      "candidate": "muay-thai-stance-basics",
+      "translationKey": "muay-thai-stance",
+      "kw_fr": "garde boxe thai",
+      "volume": 70,
+      "kd": 0,
+      "decision": "traduit (garde muay thai 70 en secondaire)",
+      "slug_fr": "garde-boxe-thai-bases",
+      "publishDate": "2026-11-12",
+      "risk": null,
+      "tested": [
+        {
+          "kw": "garde muay thai",
+          "vol": 70,
+          "kd": 0,
+          "comp": "LOW"
+        },
+        {
+          "kw": "garde boxe thai",
+          "vol": 70,
+          "kd": 0,
+          "comp": "LOW"
+        },
+        {
+          "kw": "position boxe thai",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "position muay thai",
+          "vol": 30,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "technique boxe thai debutant",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "technique muay thai debutant",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "bases boxe thai",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "boxe thai debutant",
+          "vol": 30,
+          "kd": 46,
+          "comp": "LOW"
+        },
+        {
+          "kw": "muay thai debutant",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "mouvement boxe thai",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        }
+      ]
+    },
+    {
+      "candidate": "muay-thai-vs-kickboxing",
+      "translationKey": "muay-thai-vs-kickboxing",
+      "kw_fr": "muay thai vs kickboxing",
+      "volume": 90,
+      "kd": 0,
+      "decision": "traduit",
+      "slug_fr": "muay-thai-vs-kickboxing-differences",
+      "publishDate": "2026-11-19",
+      "risk": null,
+      "tested": [
+        {
+          "kw": "muay thai vs kickboxing",
+          "vol": 90,
+          "kd": 0,
+          "comp": "LOW"
+        },
+        {
+          "kw": "boxe thai vs kickboxing",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "difference boxe thai kickboxing",
+          "vol": 10,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "difference muay thai kickboxing",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "kickboxing ou boxe thai",
+          "vol": null,
+          "kd": 0,
+          "comp": null
+        },
+        {
+          "kw": "boxe thai ou kick boxing",
+          "vol": 10,
+          "kd": 0,
+          "comp": "LOW"
+        },
+        {
+          "kw": "muay thai ou kickboxing",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "difference entre boxe thai et kick boxing",
+          "vol": 20,
+          "kd": null,
+          "comp": "LOW"
+        }
+      ]
+    },
+    {
+      "candidate": "is-muay-thai-dangerous",
+      "translationKey": "is-muay-thai-dangerous",
+      "kw_fr": "la boxe thai est elle dangereuse",
+      "volume": 10,
+      "kd": null,
+      "decision": "retenu au seuil (10/mois), produit puis supprimé : priorité au volume (arbitrage coordinateur 2026-10-16)",
+      "slug_fr": null,
+      "publishDate": null,
+      "risk": "EN publié le 2026-11-17 seulement",
+      "tested": [
+        {
+          "kw": "boxe thai dangereux",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "muay thai dangereux",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "la boxe thai est elle dangereuse",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "boxe thai dangereuse",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "blessure boxe thai",
+          "vol": 10,
+          "kd": 46,
+          "comp": "LOW"
+        },
+        {
+          "kw": "boxe thai blessure",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "risques boxe thai",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        }
+      ]
+    },
+    {
+      "candidate": "muay-thai-weight-loss",
+      "translationKey": "muay-thai-weight-loss",
+      "kw_fr": "boxe thai perte de poids",
+      "volume": 10,
+      "kd": null,
+      "decision": "retenu, non produit (plafond 6 atteint ; seuil limite 10/mois)",
+      "slug_fr": null,
+      "publishDate": null,
+      "risk": "EN publié le 2026-12-01",
+      "tested": [
+        {
+          "kw": "boxe thai perte de poids",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "muay thai perte de poids",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "boxe thai maigrir",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "muay thai maigrir",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "boxe thai calories",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "muay thai calories",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "calories boxe thai",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "boxe thai pour maigrir",
+          "vol": 10,
+          "kd": null,
+          "comp": null
+        }
+      ]
+    },
+    {
+      "candidate": "muay-thai-self-defense",
+      "translationKey": "muay-thai-self-defense",
+      "kw_fr": "boxe thai self defense",
+      "volume": 10,
+      "kd": null,
+      "decision": "retenu, non produit (plafond 6 ; seuil limite 10/mois)",
+      "slug_fr": null,
+      "publishDate": null,
+      "risk": "EN en refresh",
+      "tested": [
+        {
+          "kw": "boxe thai self defense",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "muay thai self defense",
+          "vol": 10,
+          "kd": 26,
+          "comp": "LOW"
+        },
+        {
+          "kw": "boxe thai autodefense",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "muay thai self defense efficace",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "meilleur sport de combat self defense",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "sport de combat self defense",
+          "vol": 10,
+          "kd": 49,
+          "comp": "LOW"
+        },
+        {
+          "kw": "boxe thai efficace dans la rue",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "muay thai dans la rue",
+          "vol": 10,
+          "kd": null,
+          "comp": null
+        }
+      ]
+    },
+    {
+      "candidate": "wai-kru-ram-muay-explained",
+      "translationKey": "wai-kru-ram-muay-explained",
+      "kw_fr": "wai kru",
+      "volume": 110,
+      "kd": 0,
+      "decision": "traduit (wai khru / ram muay / wai kru ram muay à 110 chacun)",
+      "slug_fr": "wai-kru-ram-muay",
+      "publishDate": "2026-12-03",
+      "risk": null,
+      "tested": [
+        {
+          "kw": "wai kru",
+          "vol": 110,
+          "kd": 0,
+          "comp": "LOW"
+        },
+        {
+          "kw": "wai khru",
+          "vol": 110,
+          "kd": 0,
+          "comp": "LOW"
+        },
+        {
+          "kw": "ram muay",
+          "vol": 110,
+          "kd": 2,
+          "comp": "LOW"
+        },
+        {
+          "kw": "danse boxe thai",
+          "vol": 20,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "wai kru ram muay",
+          "vol": 110,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "danse muay thai",
+          "vol": 30,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "rituel boxe thai",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        }
+      ]
+    },
+    {
+      "candidate": "muay-thai-headband-mongkhon",
+      "translationKey": "muay-thai-headband-mongkhon",
+      "kw_fr": "mongkhon",
+      "volume": 140,
+      "kd": 8,
+      "decision": "traduit (secondaire : mongkol 90, bandeau boxe thai 20), depuis l'EN enrichi du 2026-10-16",
+      "slug_fr": "mongkhon-bandeau-boxe-thai",
+      "publishDate": "2026-11-26",
+      "risk": null,
+      "tested": [
+        {
+          "kw": "mongkhon",
+          "vol": 140,
+          "kd": 8,
+          "comp": "MEDIUM"
+        },
+        {
+          "kw": "mongkol",
+          "vol": 90,
+          "kd": 0,
+          "comp": "HIGH"
+        },
+        {
+          "kw": "mongkol muay thai",
+          "vol": 70,
+          "kd": 0,
+          "comp": "HIGH"
+        },
+        {
+          "kw": "mongkhon boxe thai",
+          "vol": null,
+          "kd": null,
+          "comp": null
+        },
+        {
+          "kw": "bandeau boxe thai",
+          "vol": 20,
+          "kd": null,
+          "comp": "HIGH"
+        },
+        {
+          "kw": "bandeau muay thai",
+          "vol": 20,
+          "kd": null,
+          "comp": "MEDIUM"
+        },
+        {
+          "kw": "pra jiad",
+          "vol": 40,
+          "kd": null,
+          "comp": "LOW"
+        },
+        {
+          "kw": "prajioud",
+          "vol": 10,
+          "kd": null,
+          "comp": "LOW"
+        }
+      ]
+    }
+  ],
+  "cannibalisation": [
+    "visa-etudiant-thailande-ed-ou-dtv vs visa-thailande-guide-duree-de-sejour : le guide cite l'ED en une ligne, intentions distinctes (choix par durée vs ED/DTV)",
+    "visa-dtv-thailande-prix vs stage-boxe-thai-thailande-prix : 'prix' du visa vs prix du stage, intentions distinctes ; vs pilier /fr/dtv-visa : l'article reste sur le coût, renvoie au pilier",
+    "dtv-visa-new-requirements-2026 non traduit pour ne pas viser 'visa dtv thailande' (tête du pilier /fr/dtv-visa)",
+    "equipement-boxe-thai-debutant vs stage-boxe-thai-thailande-prix : pas de recouvrement de kw (équipement vs prix/camp)",
+    "best-muay-thai-camps-thailand toujours exclu (conflit avec stage-boxe-thai-thailande-prix)"
+  ],
+  "updated_at": "2026-10-16 (révision : priorité volume, re-synchro ED)"
+}

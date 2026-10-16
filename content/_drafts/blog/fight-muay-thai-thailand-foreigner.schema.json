@@ -1,0 +1,65 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://wildcatmuaythai.com/blog/fight-muay-thai-thailand-foreigner#article",
+      "mainEntityOfPage": "https://wildcatmuaythai.com/blog/fight-muay-thai-thailand-foreigner",
+      "headline": "Fight Muay Thai in Thailand as a Foreigner: Camp Guide",
+      "description": "Foreigners can fight Muay Thai in Thailand. See how a first fight is booked, typical purses, weight classes, medical checks, insurance and visa traps.",
+      "datePublished": "2026-10-27",
+      "dateModified": "2026-10-27",
+      "author": {
+        "@type": "Person",
+        "name": "Meaw Boonpradub"
+      },
+      "image": "https://wildcatmuaythai.com/images/blog/fight-muay-thai-thailand-foreigner.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wildcatmuaythai.com/blog/fight-muay-thai-thailand-foreigner#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can a foreigner fight Muay Thai in Thailand?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Foreigners fight in Thailand, usually on cards that a gym or trainer arranges. Expect the coach to judge your level first. Lumpinee and Rajadamnern are not an entry point."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much do foreigners get paid to fight Muay Thai in Thailand?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Very little at first: one gym quotes about 3,000 to 5,000 THB per bout, shared 50/50 with the gym. Plan as if the fight pays nothing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long do you need to train before your first fight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the coach. One gym asks for several months of regular training plus three to four weeks of fight preparation, another for eight weeks or more at about 20 hours a week."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you need a work permit to fight Muay Thai in Thailand?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sources conflict. One calls it a grey area with no permit category for fighters, while a visa agency says paid fights call for a Non-B visa and a work permit. Ask the embassy, Thai immigration or a lawyer before accepting any money."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is travel insurance valid for a Muay Thai fight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not automatically. Many policies exclude martial arts or cover only training on a higher plan. Read the policy, ask the insurer in writing whether a fight is covered, and keep the answer."
+          }
+        }
+      ]
+    }
+  ]
+}

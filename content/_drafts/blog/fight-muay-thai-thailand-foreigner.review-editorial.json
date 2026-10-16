@@ -1,0 +1,10 @@
+{"slug":"fight-muay-thai-thailand-foreigner","reviewed_at":"2026-10-16","verdict":"PASS_WITH_WARNINGS","blocking":[],
+"warnings":[
+"Links density slightly above 6 per 1000 words (many required links).",
+"Description estimated 977px vs 960 (spec text unchanged on purpose).",
+"Most external sources are gym/agency pages, undated or old (KST 2017); attributed in text.",
+"Visa section presents two conflicting sources without verdict; no official source found.",
+"GEO quote 3 corrected: the '90%' line is from Punch it Gym, not the Frances AMA recap (AMA only says a select number earn a living, usually gym-sponsored).",
+"Rest periods: WMC table lists 7/14/21/30 days with conditions; article says 'from 7 days up to 30 days after a KO loss'.",
+"Inline images IMG-002/IMG-003 not produced (AI photos need human approval; real camp photos preferred)."],
+"wildcat_claims_check":"Only Fight Team copy, Fighter program 7000 THB, guest book (Alena Denninger, Thapae) used; nothing on frequency, matchmaking, fees, insurance, minimum level."}

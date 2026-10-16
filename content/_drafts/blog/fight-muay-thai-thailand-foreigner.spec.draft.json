@@ -1,0 +1,697 @@
+{
+  "slug": "fight-muay-thai-thailand-foreigner",
+  "module": "C",
+  "snippet": {
+    "title": "Fight Muay Thai in Thailand as a Foreigner: Camp Guide",
+    "h1": "How a foreigner gets a first Muay Thai fight in Thailand, from a Chiang Mai camp",
+    "description": "Foreigners can fight Muay Thai in Thailand. See how a first fight is booked, typical purses, weight classes, medical checks, insurance and visa traps."
+  },
+  "dates": {
+    "pubDate": "2026-10-27",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1800,
+    "maximum": 2400
+  },
+  "primary_keyword": "fight muay thai in thailand",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "fight muay thai in thailand",
+      "natural_form": "fight Muay Thai in Thailand",
+      "volume": 10,
+      "placements": [
+        "Title",
+        "H1",
+        "intro",
+        "meta"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai fight in thailand",
+      "natural_form": "a Muay Thai fight in Thailand",
+      "volume": 1600,
+      "placements": [
+        "intro",
+        "H2 format",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai fight bangkok",
+      "natural_form": "a Muay Thai fight in Bangkok",
+      "volume": 720,
+      "placements": [
+        "H3 Bangkok"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai fight phuket",
+      "natural_form": "a Muay Thai fight in Phuket",
+      "volume": 70,
+      "placements": [
+        "H3 Phuket"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "fight camps in thailand",
+      "natural_form": "fight camps in Thailand",
+      "volume": 70,
+      "placements": [
+        "H2 booking",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "first muay thai fight in thailand",
+      "natural_form": "your first Muay Thai fight in Thailand",
+      "volume": 10,
+      "placements": [
+        "H2 ready",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "how to fight muay thai in thailand as a foreigner",
+      "natural_form": "how to fight Muay Thai in Thailand as a foreigner",
+      "volume": null,
+      "placements": [
+        "H2 short answer",
+        "FAQ"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "how to fight in thailand",
+      "natural_form": "how to fight in Thailand",
+      "volume": 10,
+      "placements": [
+        "FAQ",
+        "body"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "how to get a fight in thailand",
+      "natural_form": "how to get a fight in Thailand",
+      "volume": 10,
+      "placements": [
+        "H2 booking",
+        "FAQ"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "first fight in thailand",
+      "natural_form": "your first fight in Thailand",
+      "volume": 10,
+      "placements": [
+        "body"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "can a foreigner fight muay thai in thailand",
+      "natural_form": "can a foreigner fight Muay Thai in Thailand",
+      "volume": null,
+      "placements": [
+        "FAQ"
+      ]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "fight muay thai in thailand",
+      "accepted_forms": [
+        "fight Muay Thai in Thailand",
+        "Fight Muay Thai in Thailand"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "a muay thai fight in bangkok",
+      "accepted_forms": [
+        "a Muay Thai fight in Bangkok"
+      ],
+      "required": false,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "fight camps in thailand",
+      "accepted_forms": [
+        "fight camps in Thailand"
+      ],
+      "required": false,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "short-answer-and-booking",
+      "level": 2,
+      "heading": "Can a foreigner fight Muay Thai in Thailand? The short answer and how a first fight is booked",
+      "purpose": "BLUF 80-120 mots : oui, courant ; le gym ou l'entraineur organise le combat ; Lumpinee/Rajadamnern pas un point d'entree ; format 5x3 min, coudes legaux ; annonce du plan.",
+      "target_keywords": [
+        "how to fight muay thai in thailand as a foreigner",
+        "fight muay thai in thailand"
+      ]
+    },
+    {
+      "id": "how-a-first-fight-is-booked",
+      "level": 3,
+      "heading": "How a foreigner actually gets a first fight",
+      "purpose": "Le gym choisit et propose ; etapes numerotees generiques ; delais cites par d'autres camps (3-4 semaines, 2-3 mois) en low confidence attribuee. Ne rien decrire du process interne Wildcat.",
+      "target_keywords": [
+        "how to get a fight in thailand",
+        "fight camps in thailand",
+        "first fight in thailand"
+      ]
+    },
+    {
+      "id": "ready-and-format",
+      "level": 2,
+      "heading": "Are you ready? Level, format and weight classes",
+      "purpose": "Niveau/volume (sources de camps, attribuees) puis format 5x3 et categories de poids ; aucun protocole de coupe de poids ; lien Fight Team.",
+      "target_keywords": [
+        "first muay thai fight in thailand",
+        "muay thai fight in thailand"
+      ]
+    },
+    {
+      "id": "are-you-ready",
+      "level": 3,
+      "heading": "Level, training volume and who gets refused",
+      "purpose": "Checklist de niveau et volume (sources de camps, attribuees), sparring, +40 ans, 'ca depend du coach' ; lien Fight Team.",
+      "target_keywords": [
+        "first muay thai fight in thailand"
+      ]
+    },
+    {
+      "id": "format-and-weight-classes",
+      "level": 3,
+      "heading": "Format and weight classes: what the table really means",
+      "purpose": "5x3 min / 2 min repos / coudes (WMC, medium) ; TABLEAU categories en lb (kg si source) ; noms identiques = poids differents selon promotion ; pesee ; AUCUN protocole de coupe de poids.",
+      "target_keywords": [
+        "muay thai fight in thailand"
+      ]
+    },
+    {
+      "id": "where-to-fight",
+      "level": 2,
+      "heading": "Where to fight: Chiang Mai, Bangkok or Phuket",
+      "purpose": "TABLEAU venues x villes (entree debutant, ambiance, a verifier). H3 par ville. Chiang Mai = Thapae, Kalare, Loi Kroh (livre d'or) ; renvoi vers l'article stades pour horaires/prix.",
+      "target_keywords": [
+        "muay thai fight bangkok",
+        "muay thai fight phuket",
+        "muay thai fight in thailand"
+      ]
+    },
+    {
+      "id": "chiang-mai",
+      "level": 3,
+      "heading": "A Muay Thai fight in Chiang Mai",
+      "purpose": "Stades du livre d'or Wildcat ; combats typiquement entre occidentaux et Thais (low) ; lien watch-muay-thai-fights-chiang-mai.",
+      "target_keywords": [
+        "muay thai fight in thailand"
+      ]
+    },
+    {
+      "id": "bangkok",
+      "level": 3,
+      "heading": "A Muay Thai fight in Bangkok",
+      "purpose": "Promotions d'entree (Asiatique, Super Muay Thai, True4U, MX) ; elite = annees ; low confidence.",
+      "target_keywords": [
+        "muay thai fight bangkok"
+      ]
+    },
+    {
+      "id": "phuket",
+      "level": 3,
+      "heading": "A Muay Thai fight in Phuket",
+      "purpose": "Generique tant que non source ; renvoi chiang-mai-vs-phuket.",
+      "target_keywords": [
+        "muay thai fight phuket"
+      ]
+    },
+    {
+      "id": "money-safety-visa",
+      "level": 2,
+      "heading": "Money, safety and visa: what can go wrong",
+      "purpose": "Trois risques concrets (bourse, medical/assurance, visa), un H3 chacun, ton realiste sans dramatisation.",
+      "target_keywords": [
+        "fight muay thai in thailand",
+        "how to fight muay thai in thailand as a foreigner"
+      ]
+    },
+    {
+      "id": "what-you-get-paid",
+      "level": 3,
+      "heading": "What you actually get paid",
+      "purpose": "Bourse debutant ~3 000-5 000 THB, 50/50 (low, attribue, non date) ; ne vit pas de ca ; elite 10-15x (low) ; seul prix Wildcat : Fighter program 7 000 THB/mois ; lien cout.",
+      "target_keywords": [
+        "fight muay thai in thailand"
+      ]
+    },
+    {
+      "id": "safety",
+      "level": 3,
+      "heading": "Safety: medical check, rest periods and insurance",
+      "purpose": "Medecin ringside et repos obligatoires 7/14/21/30 j (WMC, medium) ; controle tension (anecdote) ; pas de doc thai officiel trouve ; assurance voyage excluant le combat (low) ; confirmer par ecrit.",
+      "target_keywords": [
+        "first muay thai fight in thailand"
+      ]
+    },
+    {
+      "id": "visa-and-work-permit",
+      "level": 3,
+      "heading": "Visa and work permit: tourist, DTV, ED and a paid fight",
+      "purpose": "Deux positions en CONFLIT presentees telles quelles ; DTV couvre l'entrainement (medium) ; combat remunere = zone a risque ; verifier ambassade/avocat ; aucune promesse.",
+      "target_keywords": [
+        "how to fight muay thai in thailand as a foreigner"
+      ]
+    },
+    {
+      "id": "fighting-from-wildcat",
+      "level": 2,
+      "heading": "Fighting from Wildcat: what we can tell you",
+      "purpose": "Strictement les faits du repo : Fight Team (classes_prog6_b), Fighter program 7 000 THB, livre d'or /fighters (Thapae, Kalare, Loi Kroh). Voir section 'Ne pas affirmer' du brief. CTA chaud.",
+      "target_keywords": [
+        "first muay thai fight in thailand"
+      ]
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "FAQ: fighting Muay Thai in Thailand",
+      "purpose": "5 Q/R 40-70 mots : etranger peut-il combattre, bourse, delai, permis de travail (conflit), assurance. PAA non observes.",
+      "target_keywords": [
+        "can a foreigner fight muay thai in thailand",
+        "how to fight in thailand"
+      ]
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/fighters",
+      "anchor": "our fighters guest book",
+      "section_id": "fighting-from-wildcat",
+      "required": true,
+      "reason": "Livre d'or des guests qui ont combattu via le camp."
+    },
+    {
+      "url": "/classes",
+      "anchor": "the Fight Team at Wildcat",
+      "section_id": "are-you-ready",
+      "required": true,
+      "reason": "Programme Fight Team."
+    },
+    {
+      "url": "/classes#pricing",
+      "anchor": "the Fighter program price",
+      "section_id": "what-you-get-paid",
+      "required": true,
+      "reason": "Ancre #pricing existe (classes.astro)."
+    },
+    {
+      "url": "/classes#schedule",
+      "anchor": "our class schedule",
+      "section_id": "are-you-ready",
+      "required": false,
+      "reason": "Ancre #schedule existe."
+    },
+    {
+      "url": "/contact?intent=class",
+      "anchor": "Ask us about fighting from Wildcat",
+      "section_id": "fighting-from-wildcat",
+      "required": true,
+      "reason": "CTA chaud."
+    },
+    {
+      "url": "/blog/watch-muay-thai-fights-chiang-mai",
+      "anchor": "Muay Thai fights in Chiang Mai: stadiums and tickets",
+      "section_id": "chiang-mai",
+      "required": true,
+      "reason": "Publie 2026-10-20, anterieur a 2026-10-27."
+    },
+    {
+      "url": "/blog/chiang-mai-vs-bangkok-muay-thai",
+      "anchor": "Chiang Mai vs Bangkok for Muay Thai",
+      "section_id": "bangkok",
+      "required": true,
+      "reason": "Comparatif."
+    },
+    {
+      "url": "/blog/chiang-mai-vs-phuket-muay-thai",
+      "anchor": "Chiang Mai vs Phuket for Muay Thai",
+      "section_id": "phuket",
+      "required": true,
+      "reason": "Comparatif."
+    },
+    {
+      "url": "/blog/ed-visa-vs-dtv-muay-thai",
+      "anchor": "Education Visa vs DTV for Muay Thai",
+      "section_id": "visa-and-work-permit",
+      "required": true,
+      "reason": "Visa."
+    },
+    {
+      "url": "/blog/thailand-visa-guide-by-training-length",
+      "anchor": "which visa fits your training length",
+      "section_id": "visa-and-work-permit",
+      "required": true,
+      "reason": "Guide visa."
+    },
+    {
+      "url": "/dtv-visa#compare",
+      "anchor": "DTV, ED and tourist visa compared",
+      "section_id": "visa-and-work-permit",
+      "required": false,
+      "reason": "Ancre du pillar."
+    },
+    {
+      "url": "/blog/muay-thai-training-thailand-cost",
+      "anchor": "what Muay Thai training costs in Thailand",
+      "section_id": "what-you-get-paid",
+      "required": true,
+      "reason": "Cout."
+    },
+    {
+      "url": "/blog/is-muay-thai-dangerous",
+      "anchor": "how dangerous Muay Thai really is",
+      "section_id": "safety",
+      "required": false,
+      "reason": "CONDITIONNEL : publishDate 2026-11-17 posterieure a 2026-10-27 ; omettre sauf si publie."
+    },
+    {
+      "url": "/blog/wai-kru-ram-muay-explained",
+      "anchor": "the wai kru and ram muay",
+      "section_id": "format-and-weight-classes",
+      "required": false,
+      "reason": "Rituel avant combat."
+    },
+    {
+      "url": "/blog/muay-thai-headband-mongkhon",
+      "anchor": "the mongkhon headband",
+      "section_id": "format-and-weight-classes",
+      "required": false,
+      "reason": "Rituel avant combat."
+    },
+    {
+      "url": "/classes/beginners",
+      "anchor": "a first class at Wildcat",
+      "section_id": "are-you-ready",
+      "required": false,
+      "reason": "Satellite debutants."
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://muaythai2000.com/en/pages/rule.php",
+      "title": "WMC rulebook (format, categories, medecin, repos)",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://muaythai2000.com/en/pages/laws.php",
+      "title": "Boxing Act B.E. 2542",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://www.kstmuaythai.com/?p=1771",
+      "title": "First Muay Thai fight in Bangkok",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-004",
+      "url": "https://punchitgym.com/muay-thai-fights-for-foreigners-in-thailand/",
+      "title": "Punch it Gym : fights for foreigners",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-005",
+      "url": "https://punchitgym.com/muay-thai-professional-fighter-as-a-foreigner-in-thailand/",
+      "title": "Punch it Gym : pro fighter foreigner",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-006",
+      "url": "https://sumaleeboxinggym.com/muay-thai-fight-in-thailand-10-tips-to-prepare/",
+      "title": "Sumalee : 10 tips",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-007",
+      "url": "https://muaythaicitizen.com/muay-thai-weight-classes/",
+      "title": "Weight classes",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-008",
+      "url": "https://www.muaythaicitizen.com/fighting-on-holidays/",
+      "title": "Fighting on holidays",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-009",
+      "url": "https://www.thailandstarterkit.com/health/ama-recap-frances-watthana/",
+      "title": "AMA Frances Watthanaya",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-010",
+      "url": "https://www.issacompass.com/professions/thailand-visa-for-professional-athletes",
+      "title": "Visa pro athletes",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-011",
+      "url": "https://thethaiger.com/visas/dtv/",
+      "title": "DTV Thaiger",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-012",
+      "url": "https://www.thailandstarterkit.com/health/world-nomads-review/",
+      "title": "World Nomads review",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-013",
+      "url": "https://8limbsus.com/muay-thai-forum/topic/1268-fighting-in-thailand-insurance/",
+      "title": "Insurance forum",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-014",
+      "url": "https://www.chiangmaicitylife.com/citylife-articles/boxing-in-chiang-mai-where-to-go",
+      "title": "Boxing in Chiang Mai",
+      "status": "to_verify",
+      "accessed_at": null
+    },
+    {
+      "id": "SRC-015",
+      "url": "https://wildcatmuaythai.com/en/fighters",
+      "title": "Wildcat : prix, Fight Team, livre d'or (site.ts, messages, content/fighters)",
+      "status": "verified",
+      "accessed_at": null
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "Foreigners fight in Thailand; the gym or trainer arranges the bout.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-003",
+        "SRC-005"
+      ],
+      "allowed_wording": "Attribuer : 'at many camps'.",
+      "limits": "Source gym unique, medium."
+    },
+    {
+      "id": "CLM-002",
+      "statement": "Bouts run up to 5 rounds of 3 minutes with 2-minute rests; elbows are legal.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-001"
+      ],
+      "allowed_wording": "Selon le reglement WMC.",
+      "limits": "Reglement d'une organisation."
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Weight classes follow the WMC list and the same names cover different weights across promotions.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-001",
+        "SRC-007"
+      ],
+      "allowed_wording": "kg uniquement quand la source les donne.",
+      "limits": "Confirmer la limite avec l'organisateur."
+    },
+    {
+      "id": "CLM-004",
+      "statement": "A beginner purse is about 3,000-5,000 THB per fight, split 50/50 with the gym.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "allowed_wording": "'One gym reports...', non date.",
+      "limits": "Low, anecdote ; jamais un tarif Wildcat."
+    },
+    {
+      "id": "CLM-005",
+      "statement": "Preparation takes 3-4 weeks minimum, or 2-3 months for someone who has never competed, at the camps cited.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-004",
+        "SRC-005"
+      ],
+      "allowed_wording": "Attribuer aux camps cites.",
+      "limits": "Low ; pas une regle Wildcat."
+    },
+    {
+      "id": "CLM-006",
+      "statement": "A ringside physician examines fighters before weigh-in and after the bout; rest is mandatory (7, 14, 21 days, 30 after a KO loss).",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-001"
+      ],
+      "allowed_wording": "Selon le reglement WMC.",
+      "limits": "Aucun document thai officiel trouve."
+    },
+    {
+      "id": "CLM-007",
+      "statement": "Many travel insurance policies exclude combat sports or bouts.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-012",
+        "SRC-013"
+      ],
+      "allowed_wording": "'Check your policy in writing.'",
+      "limits": "Low ; ne pas nommer d'assureur sans source verifiee."
+    },
+    {
+      "id": "CLM-008",
+      "statement": "Paid fighting and visa status: sources conflict (grey area vs Non-B plus work permit).",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-009",
+        "SRC-010"
+      ],
+      "allowed_wording": "Presenter les deux positions, renvoyer ambassade/avocat.",
+      "limits": "Aucune source officielle ; ne pas trancher."
+    },
+    {
+      "id": "CLM-009",
+      "statement": "The DTV covers Muay Thai training with an enrolment letter and 500,000 THB funds; 180 days per entry.",
+      "status": "to_confirm",
+      "source_ids": [
+        "SRC-011"
+      ],
+      "allowed_wording": "Reprendre le guide visa interne.",
+      "limits": "Medium ; regles evolutives."
+    },
+    {
+      "id": "CLM-010",
+      "statement": "Wildcat Fight Team offers fight prep, clinch and sparring with our coaches, plus corner support on fight night; Fighter program is 7,000 THB per month (twice a day).",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-015"
+      ],
+      "allowed_wording": "Reprendre la phrase du site telle quelle.",
+      "limits": "Rien de plus sur matchmaking, frais, frequence, assurance."
+    },
+    {
+      "id": "CLM-011",
+      "statement": "Wildcat guests have fought at Thapae, Kalare and Loi Kroh stadiums in Chiang Mai (fighters guest book).",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-015"
+      ],
+      "allowed_wording": "'Guests have fought at...'.",
+      "limits": "Pas de record W/L ni de partenariat."
+    },
+    {
+      "id": "CLM-012",
+      "statement": "Wildcat sets match frequency, matchmaking rules, fees, insurance, minimum level or partner stadiums beyond the guest book.",
+      "status": "forbidden",
+      "source_ids": [],
+      "allowed_wording": "Ne pas affirmer ; a demander a Meaw.",
+      "limits": "Voir section 'Ne pas affirmer' du brief."
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "illustration",
+      "subject": "Wildcat branded cover for a guide to fighting Muay Thai in Thailand as a foreigner",
+      "description": "Cover 16:9 template Wildcat (blog-cover), titre en overlay.",
+      "alt_text": "Wildcat branded cover with the title of a guide to fighting Muay Thai in Thailand as a foreigner, from a Chiang Mai camp.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "id": "IMG-002",
+      "placement": "after-h2:Where to fight: Chiang Mai, Bangkok or Phuket",
+      "type": "photo",
+      "subject": "Open-air Muay Thai ring in a tropical garden at golden hour",
+      "description": "Scene large du ring open-air du camp, sans personne reconnaissable.",
+      "alt_text": "Open-air Muay Thai ring in a tropical garden at golden hour, where a camp in Hang Dong, Chiang Mai prepares guests for a first fight.",
+      "aspect_ratio": "4:3"
+    },
+    {
+      "id": "IMG-003",
+      "placement": "after-h2:Are you ready? Level, format and weight classes",
+      "type": "photo",
+      "subject": "Padwork between a coach and a student, tight on gloves and pads",
+      "description": "Moment candide, visages non distinctifs.",
+      "alt_text": "A coach holding Thai pads for a student during a candid padwork round at an open-air Muay Thai gym in Chiang Mai.",
+      "aspect_ratio": "4:3"
+    }
+  ],
+  "cta": {
+    "url": "/contact?intent=class",
+    "anchor": "Ask us about fighting from Wildcat",
+    "campaign": "blog-fight-foreigner"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "chiang-mai-life",
+    "tags": [
+      "fight muay thai in thailand",
+      "muay thai fight thailand foreigner",
+      "first muay thai fight",
+      "muay thai purse",
+      "chiang mai"
+    ],
+    "draft": false,
+    "locale": "en",
+    "source_locale": "en",
+    "translation_key": "fight-muay-thai-thailand-foreigner"
+  }
+}

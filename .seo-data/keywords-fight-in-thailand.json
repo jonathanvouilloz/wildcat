@@ -1,0 +1,316 @@
+{
+  "topic": "fight in thailand",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-10-16T14:20:45Z",
+  "primary": {
+    "keyword": "fight in thailand",
+    "search_volume": 50,
+    "cpc": 1.75,
+    "competition": "LOW",
+    "competition_index": 8,
+    "difficulty": 4,
+    "intent": "informational",
+    "intent_probability": 0.9949
+  },
+  "secondaries": [
+    {
+      "keyword": "muay thai fight in thailand",
+      "search_volume": 1600,
+      "cpc": 1.63,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "water fight in thailand",
+      "search_volume": 260,
+      "cpc": 0.04,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "rooster fight in thailand",
+      "search_volume": 210,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "water gun fight in thailand",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "first muay thai fight in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "chicken fight in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "songkran water fight in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "how to fight in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "muay thai near me",
+      "search_volume": 49500,
+      "cpc": 2.36,
+      "competition": "MEDIUM",
+      "competition_index": 43
+    },
+    {
+      "keyword": "muay thai training",
+      "search_volume": 6600,
+      "cpc": 2.12,
+      "competition": "LOW",
+      "competition_index": 12
+    },
+    {
+      "keyword": "muay thai vs kickboxing",
+      "search_volume": 4400,
+      "cpc": 2.05,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "muay thai pronunciation",
+      "search_volume": 1300,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai fight bangkok",
+      "search_volume": 720,
+      "cpc": 1.91,
+      "competition": "MEDIUM",
+      "competition_index": 54
+    },
+    {
+      "keyword": "muay thai champion",
+      "search_volume": 720,
+      "cpc": 3.25,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "muay thai restaurant",
+      "search_volume": 320,
+      "cpc": 1.09,
+      "competition": "LOW",
+      "competition_index": 3
+    },
+    {
+      "keyword": "one championship schedule today",
+      "search_volume": 260,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai youtube",
+      "search_volume": 140,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai massage",
+      "search_volume": 90,
+      "cpc": 0.97,
+      "competition": "MEDIUM",
+      "competition_index": 34
+    },
+    {
+      "keyword": "fight camps in thailand",
+      "search_volume": 70,
+      "cpc": 1.24,
+      "competition": "MEDIUM",
+      "competition_index": 36
+    },
+    {
+      "keyword": "thai fight league",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "did thailand fight in ww2",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "one championship fight schedule",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "bar in thailand that lets you fight",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "related": [
+    {
+      "keyword": "muay thai",
+      "search_volume": 201000,
+      "cpc": 1.58,
+      "competition": "LOW",
+      "competition_index": 12
+    },
+    {
+      "keyword": "rajadamnern stadium",
+      "search_volume": 2900,
+      "cpc": 1.22,
+      "competition": "MEDIUM",
+      "competition_index": 57
+    },
+    {
+      "keyword": "muay thai fight schedule",
+      "search_volume": 20,
+      "cpc": 1.24,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "israeli in thailand fight",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "cow fight in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "fight in thailand soi 6",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "fight muay thai in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "buffalo fight in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "how to get a fight in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "first fight in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "muay thai",
+      "search_volume": 201000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai training",
+      "search_volume": 6600,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai vs kickboxing",
+      "search_volume": 4400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai fight in thailand",
+      "search_volume": 1600,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai pronunciation",
+      "search_volume": 1300,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai champion",
+      "search_volume": 720,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "muay thai restaurant",
+      "search_volume": 320,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "water fight in thailand",
+      "search_volume": 260,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "one championship schedule today",
+      "search_volume": 260,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "rooster fight in thailand",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

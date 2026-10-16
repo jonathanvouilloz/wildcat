@@ -194,6 +194,20 @@ Les autres articles restent EN-only en V1. Le FR s'ajoute après validation GSC,
 | mar. 1er déc. | `muay-thai-weight-loss` | EN | muay thai weight loss | 170 | [x] prêt |
 | mar. 15 déc. | `muay-thai-vs-taekwondo` | EN | muay thai vs taekwondo | 880 | [x] prêt |
 
+**Ajouts du 16/10** (plan `docs/features/q4-refresh-conversion-fr.md`) : 1 article EN + 7 traductions FR
+localisées (jeudis), tri FR → `.seo-data/fr-translation-triage-2026-10-16.json`.
+
+| Sortie | Slug | Locale | Kw principal | Vol. | Statut |
+|---|---|---|---|---|---|
+| jeu. 22 oct. | `visa-dtv-thailande-prix` | FR | visa dtv thaïlande prix | 20 | [x] prêt |
+| mar. 27 oct. | `fight-muay-thai-thailand-foreigner` | EN | fight muay thai in thailand (+ muay thai fight in thailand 1600) | 10 | [x] prêt · faits Wildcat à valider (questions Meaw §3) |
+| jeu. 29 oct. | `visa-etudiant-thailande-ed-ou-dtv` | FR | visa étudiant thaïlande | 140 | [x] prêt |
+| jeu. 5 nov. | `equipement-boxe-thai-debutant` | FR | équipement boxe thaï | 480 | [x] prêt |
+| jeu. 12 nov. | `garde-boxe-thai-bases` | FR | garde boxe thaï | 70 | [x] prêt |
+| jeu. 19 nov. | `muay-thai-vs-kickboxing-differences` | FR | muay thai vs kickboxing | 90 | [x] prêt |
+| jeu. 26 nov. | `mongkhon-bandeau-boxe-thai` | FR | mongkhon | 140 | [x] prêt |
+| jeu. 3 déc. | `wai-kru-ram-muay` | FR | wai kru | 110 | [x] prêt |
+
 ### Maillage entrant à poser le jour de la sortie (jamais avant : lien vers un article futur = 404)
 
 | Article | Liens entrants à ajouter |
@@ -205,6 +219,15 @@ Les autres articles restent EN-only en V1. Le FR s'ajoute après validation GSC,
 | dangerous | `muay-thai-self-defense` (FAQ « Is Muay Thai dangerous to train? »), `/classes/beginners` via `muay-thai-for-women` |
 | weight-loss | `muay-thai-for-women`, `muay-thai-training-thailand-cost`, best-time-train |
 | vs-taekwondo | `muay-thai-vs-kickboxing`, `muay-thai-vs-bjj` |
+| fight-foreigner | `watch-muay-thai-fights-chiang-mai`, `/fighters`, FAQ `/classes` (Fight Team) |
+| wai-kru FR (03/12) | repointer le lien wai kru de `mongkhon-bandeau-boxe-thai` de `/en/blog/wai-kru-ram-muay-explained` vers le FR |
+
+### Refresh faits le 16/10 (updatedDate 2026-10-16, données GSC `.seo-data/gsc-wildcat-2026-10-16.json`)
+
+`best-muay-thai-camps-thailand` (types de camps, packages, méthode de choix, lien `/stay-train#packages`),
+`ed-visa-vs-dtv-muay-thai` (H1 recentré « Muay Thai education visa », sections ED sourcées),
+`dtv-visa-new-requirements-2026` (état d'octobre, title daté), `muay-thai-headband-mongkhon` et
+`muay-thai-self-defense` (enrichis, title/meta inchangés, décision Jonathan). À re-mesurer mi-novembre.
 
 ### Refresh faits le 29/09 (updatedDate 2026-09-29)
 

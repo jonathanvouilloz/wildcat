@@ -1,0 +1,24 @@
+{
+  "keyword": "fight muay thai in thailand",
+  "source": "serp-fight-muay-thai-in-thailand.json",
+  "generated_at": "2026-10-16",
+  "techniques": [
+    {"entity": "5 rounds of 3 minutes, elbows legal", "presence": "5/8", "status": "Confirmé", "placement": "H2 format"},
+    {"entity": "gym or trainer arranges the fight", "presence": "5/8", "status": "Confirmé", "placement": "H2 how it works"},
+    {"entity": "months of training before first fight / amateur or sparring experience", "presence": "4/8", "status": "Déduit", "placement": "H2 level"},
+    {"entity": "Lumpinee and Rajadamnern out of reach for beginners", "presence": "3/8", "status": "Confirmé", "placement": "H2 venues"},
+    {"entity": "weight cut and weigh-in", "presence": "4/8", "status": "Déduit", "placement": "H2 weight"}
+  ],
+  "quantitative_proofs": [
+    {"proof": "Beginner purse about 3,000-5,000 THB per fight, split 50/50 with gym (gym anecdote, undated)", "source": "https://punchitgym.com/muay-thai-professional-fighter-as-a-foreigner-in-thailand/", "status": "Non vérifié"},
+    {"proof": "Training about 20 h/week for 8+ weeks before a fight (gym advice)", "source": "https://sumaleeboxinggym.com/muay-thai-fight-in-thailand-10-tips-to-prepare/", "status": "Déduit"},
+    {"proof": "Max 5 rounds of 3 minutes, 2-minute rests (WMC rulebook)", "source": "https://muaythai2000.com/en/pages/rule.php", "status": "Confirmé"}
+  ],
+  "multimodal": ["table weight classes", "table venues Chiang Mai vs Bangkok vs Phuket", "checklist readiness", "photo reelle camp"],
+  "divergence": [
+    {"angle": "Visa and work permit for paid fights: DTV vs tourist, sources disagree, say so", "absent_from_top": true},
+    {"angle": "Insurance exclusions for combat sports and what to check", "absent_from_top": true},
+    {"angle": "Chiang Mai vs Bangkok/Phuket entry route for a first fight, from a camp whose guests fight in Chiang Mai", "absent_from_top": true},
+    {"angle": "Ringside medical check and mandatory rest in rulebook", "absent_from_top": true}
+  ]
+}

@@ -1,0 +1,3883 @@
+{
+ "source": "GSC via seo-stats Neon (gsc_query_page_observations)",
+ "range": "2026-06-01 → 2026-10-11",
+ "exported": "2026-10-16",
+ "pages": {
+  "/": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 37,
+    "impressions": 334,
+    "position": 5.4,
+    "imp_last4w": 72,
+    "imp_prev4w": 71
+   },
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 12,
+    "impressions": 68,
+    "position": 5.8,
+    "imp_last4w": 16,
+    "imp_prev4w": 17
+   },
+   {
+    "query": "wild cat muay thai",
+    "clicks": 3,
+    "impressions": 25,
+    "position": 4,
+    "imp_last4w": 16,
+    "imp_prev4w": 9
+   },
+   {
+    "query": "muay thai chiang mai",
+    "clicks": 1,
+    "impressions": 20,
+    "position": 23.2,
+    "imp_last4w": 4,
+    "imp_prev4w": 4
+   },
+   {
+    "query": "muay thai",
+    "clicks": 0,
+    "impressions": 19,
+    "position": 4.4,
+    "imp_last4w": 4,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "muay thai near me",
+    "clicks": 3,
+    "impressions": 18,
+    "position": 12.3,
+    "imp_last4w": 1,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "ค่ายมวยใกล้ฉัน",
+    "clicks": 0,
+    "impressions": 14,
+    "position": 6,
+    "imp_last4w": 7,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "chiang mai muay thai",
+    "clicks": 0,
+    "impressions": 14,
+    "position": 35.4,
+    "imp_last4w": 5,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "muay thai gyms in chiang mai",
+    "clicks": 0,
+    "impressions": 9,
+    "position": 38.8,
+    "imp_last4w": 4,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "chiang mai muay thai gym",
+    "clicks": 0,
+    "impressions": 7,
+    "position": 38.6,
+    "imp_last4w": 1,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "ยิมใกล้ฉัน",
+    "clicks": 0,
+    "impressions": 6,
+    "position": 21.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "muay thai gym near me",
+    "clicks": 1,
+    "impressions": 6,
+    "position": 9.3,
+    "imp_last4w": 1,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "gym near me",
+    "clicks": 0,
+    "impressions": 6,
+    "position": 11.8,
+    "imp_last4w": 1,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "มวยไทย",
+    "clicks": 0,
+    "impressions": 5,
+    "position": 6,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai for kids",
+    "clicks": 1,
+    "impressions": 4,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 4
+   },
+   {
+    "query": "muay thai gyms chiang mai",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 45.8,
+    "imp_last4w": 1,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "wildcat",
+    "clicks": 1,
+    "impressions": 4,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai gym chiang mai",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 27.7,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "wild cat gym",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 1,
+    "imp_last4w": 2,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai gym",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 7,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wild cat thailand",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 7,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "mma chiang mai",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 36.3,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai in chiang mai",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 33.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muaythai",
+    "clicks": 1,
+    "impressions": 3,
+    "position": 1,
+    "imp_last4w": 3,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "chiang mai mma",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 34,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "wildcat gym",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai thailand",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 63.5,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai kids near me",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "toddler muay thai",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "gym",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 12.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 3.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "maui thai",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai gyms thailand",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 49.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "泰拳",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 2.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "เรียนป้องกันตัว ใกล้ฉัน",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 7.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "which is the best",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 6,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "kick boxing",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "chiang mai muay thai gyms",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 35,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai school thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 94,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "alley kat muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "kids.gymnastics near me",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 11,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "ค่ายมวยเชียงใหม่",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 68,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "ควย นักมวย twitter",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 5,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camp chiang mai",
+    "clicks": 1,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "chiang mai boxing",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 40,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "fitness boxing",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thai box",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "gym in thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 80,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camps thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 107,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "ค่ายมวย ใกล้ฉัน",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "cheap",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 4,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai gyms",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 63,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "mma gyms near me",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 19,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "chiang mai muay thai gym prices",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 40,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muaythai thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 78,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "kid muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "watch muay thai chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 9,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "calisthenics academy chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "mauy thai class",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "มวยไทยใกล้ฉัน",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "eher ruhig",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 6,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "famous muay thai gyms in thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 91,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "ค่ายมวย เชียงใหม่",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 61,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai boxing",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "gyms in chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 108,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "ยิมนาสติกใกล้ฉัน",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 28,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "เส้นทาง",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "mouy thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "x muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "chiang mai best muay thai gyms",
+    "clicks": 1,
+    "impressions": 1,
+    "position": 21,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai women near me",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "ค่ายมวยใกล้ฉัน ราคาถูก",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai class chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 4,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "นำทางไป",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 11,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "ตะวันฉาย อัปเปอร์คัตมวยไทย",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 11,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai training chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 36,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "boxe thailandaise",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 5,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "all inclusive muay thai camps in thailand",
+    "clicks": 1,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thai boxing",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 10,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thai boxing kids",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 8,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "ซ้อมมวยใกล้ฉัน",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 8,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay tai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "gymnastics near me",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 29,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "boxing thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai children",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 4,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "chiang rai muay thai gym",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 10,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "where to watch muay thai in chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camp thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 4,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wit muay thai gym",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "ah1 wildcat",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai pads",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 45,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "wit muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "thai boxing in thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 87,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai boksen",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 9,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "เรียนมวยไทย",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "karate classes near me",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "มวยใกล้ฉัน",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "มวยไทยเชียงใหม่",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "karate class",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand muay thai gyms",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 91,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": ".muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 38,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "can you find me the cheapest one please",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "gym ใกล้ ฉัน",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 15,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "kids muay thai near me",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "ยิมมวย",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "kickboxing for kids",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "chai muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wildcat boxing club",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "boxing gym chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 58,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "คิวทองทีเคดีมวยไทย",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 4,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "เอ๊ะ wildcat",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 11,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   }
+  ],
+  "/_astro/muay-thai-training-thailand-cost.DBHIDcuZ_Z7AjIb.webp?dpl=dpl_2agWHanPiiBginju7awnGeKstuVf": [
+   {
+    "query": "how much does it cost to train muay thai in thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 5,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 55,
+    "impressions": 323,
+    "position": 3,
+    "imp_last4w": 75,
+    "imp_prev4w": 77
+   },
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 10,
+    "impressions": 57,
+    "position": 2.8,
+    "imp_last4w": 15,
+    "imp_prev4w": 18
+   },
+   {
+    "query": "wild cat muay thai",
+    "clicks": 3,
+    "impressions": 24,
+    "position": 2.1,
+    "imp_last4w": 16,
+    "imp_prev4w": 8
+   },
+   {
+    "query": "wild cat gym",
+    "clicks": 0,
+    "impressions": 8,
+    "position": 8,
+    "imp_last4w": 7,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wildcat gym",
+    "clicks": 1,
+    "impressions": 6,
+    "position": 18.7,
+    "imp_last4w": 3,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "\"dtv visa\"",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 47.8,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai cat",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 32,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai gyms in chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 22,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai in chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 41,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wildcat boxing club",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 46,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wildcat sport and fitness",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 75,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai gyms thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "ค่ายมวยใกล้ฉัน ราคาถูก",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai gym",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camp thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 4,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 10,
+    "position": 4.4,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "\"dtv visa\"",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 58,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/about/coaches": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 8,
+    "position": 9.6,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "\"dtv visa\"",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 20.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 9,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/best-muay-thai-camps-thailand": [
+   {
+    "query": "muay thai camps thailand",
+    "clicks": 0,
+    "impressions": 848,
+    "position": 25.5,
+    "imp_last4w": 371,
+    "imp_prev4w": 163
+   },
+   {
+    "query": "muay thai camp thailand",
+    "clicks": 1,
+    "impressions": 550,
+    "position": 26.6,
+    "imp_last4w": 393,
+    "imp_prev4w": 102
+   },
+   {
+    "query": "thailand muay thai camp",
+    "clicks": 0,
+    "impressions": 464,
+    "position": 34.9,
+    "imp_last4w": 328,
+    "imp_prev4w": 98
+   },
+   {
+    "query": "muay thai training camp thailand",
+    "clicks": 0,
+    "impressions": 258,
+    "position": 31.2,
+    "imp_last4w": 210,
+    "imp_prev4w": 39
+   },
+   {
+    "query": "best muay thai camps in thailand",
+    "clicks": 0,
+    "impressions": 202,
+    "position": 52.8,
+    "imp_last4w": 40,
+    "imp_prev4w": 62
+   },
+   {
+    "query": "wildcat muay thai",
+    "clicks": 2,
+    "impressions": 112,
+    "position": 8,
+    "imp_last4w": 39,
+    "imp_prev4w": 33
+   },
+   {
+    "query": "muay thai boxing camp thailand",
+    "clicks": 0,
+    "impressions": 86,
+    "position": 35.3,
+    "imp_last4w": 71,
+    "imp_prev4w": 10
+   },
+   {
+    "query": "camp muay thai thailand",
+    "clicks": 0,
+    "impressions": 54,
+    "position": 38.2,
+    "imp_last4w": 37,
+    "imp_prev4w": 14
+   },
+   {
+    "query": "muay thai training camp in thailand",
+    "clicks": 0,
+    "impressions": 45,
+    "position": 29.3,
+    "imp_last4w": 41,
+    "imp_prev4w": 4
+   },
+   {
+    "query": "wild cat muay thai",
+    "clicks": 0,
+    "impressions": 40,
+    "position": 10.3,
+    "imp_last4w": 38,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "best muay thai camps",
+    "clicks": 1,
+    "impressions": 36,
+    "position": 19.9,
+    "imp_last4w": 17,
+    "imp_prev4w": 9
+   },
+   {
+    "query": "muay thai thailand camp",
+    "clicks": 0,
+    "impressions": 34,
+    "position": 31.8,
+    "imp_last4w": 22,
+    "imp_prev4w": 6
+   },
+   {
+    "query": "muay thai camps in thailand",
+    "clicks": 0,
+    "impressions": 30,
+    "position": 28.8,
+    "imp_last4w": 25,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "muay thai camp",
+    "clicks": 0,
+    "impressions": 29,
+    "position": 48.3,
+    "imp_last4w": 27,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 0,
+    "impressions": 27,
+    "position": 7.6,
+    "imp_last4w": 10,
+    "imp_prev4w": 10
+   },
+   {
+    "query": "all inclusive muay thai camps in thailand",
+    "clicks": 0,
+    "impressions": 21,
+    "position": 30.6,
+    "imp_last4w": 13,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "muay thai training camps thailand",
+    "clicks": 0,
+    "impressions": 20,
+    "position": 18.2,
+    "imp_last4w": 15,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "best muay thai camp",
+    "clicks": 1,
+    "impressions": 19,
+    "position": 11.8,
+    "imp_last4w": 15,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "thailand muay thai camps",
+    "clicks": 0,
+    "impressions": 17,
+    "position": 31.2,
+    "imp_last4w": 15,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camps",
+    "clicks": 0,
+    "impressions": 16,
+    "position": 44,
+    "imp_last4w": 11,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "muay thai in thailand camps",
+    "clicks": 0,
+    "impressions": 12,
+    "position": 35.1,
+    "imp_last4w": 10,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camp thailand training",
+    "clicks": 0,
+    "impressions": 11,
+    "position": 21.3,
+    "imp_last4w": 11,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camp in thailand",
+    "clicks": 0,
+    "impressions": 11,
+    "position": 31.4,
+    "imp_last4w": 11,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand muay thai training camp",
+    "clicks": 0,
+    "impressions": 9,
+    "position": 28.6,
+    "imp_last4w": 8,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "best muay thai camp thailand",
+    "clicks": 0,
+    "impressions": 9,
+    "position": 23.6,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai thailand camps",
+    "clicks": 1,
+    "impressions": 8,
+    "position": 17.3,
+    "imp_last4w": 6,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "best muay thai camps thailand",
+    "clicks": 0,
+    "impressions": 6,
+    "position": 20.2,
+    "imp_last4w": 4,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai training camp",
+    "clicks": 0,
+    "impressions": 5,
+    "position": 6.8,
+    "imp_last4w": 5,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "best training camps in thailand",
+    "clicks": 0,
+    "impressions": 5,
+    "position": 26,
+    "imp_last4w": 1,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "muay thai training camps",
+    "clicks": 0,
+    "impressions": 5,
+    "position": 5.4,
+    "imp_last4w": 5,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai training thailand",
+    "clicks": 0,
+    "impressions": 5,
+    "position": 20.2,
+    "imp_last4w": 5,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand muay thai training camps",
+    "clicks": 0,
+    "impressions": 5,
+    "position": 42,
+    "imp_last4w": 4,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "best thailand muay thai camps",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 15.8,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "best muay thai camp in bangkok",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 32.3,
+    "imp_last4w": 3,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand muay thai training",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 18,
+    "imp_last4w": 3,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "best muay thai training camps in thailand",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 36,
+    "imp_last4w": 1,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "best muay thai camps in thailand for beginners",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 47.7,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand camps",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 45,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand thai boxing camps",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 62.3,
+    "imp_last4w": 3,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai training thailand camp",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 31,
+    "imp_last4w": 3,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "best muay thai camp in thailand",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 21.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "\"dtv visa\"",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 33,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "all-inclusive muay thai camps in thailand",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 49.5,
+    "imp_last4w": 2,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "fight camp thailand",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 49.5,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai thailand training camp",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 11.5,
+    "imp_last4w": 2,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai training camps in thailand",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 35.5,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand muay thai camp packages",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 42,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camp thailand price",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 14,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai training phuket",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 45,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "trainingskamp thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 4,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand trainingscamp",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "best muay thai training in thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "studio santai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 19,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camp bangkok",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 85,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thai box camp thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "what about march",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "camp muay thai bangkok",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 53,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai phuket camp",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand fight camp",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 12,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai training camp with accommodation",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 10,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai thailand training",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 33,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "beginner muay thai camp thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 50,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand martial arts camp",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 16,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "mma camp thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 44,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai gym thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 90,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "نعم",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 5,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand fight camps",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 47,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "all inclusive muay thai camps in phuket",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "chiang mai",
+    "clicks": 1,
+    "impressions": 1,
+    "position": 4,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "tajlandii",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 13,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "اجل",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "3 month muay thai camp thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "bali muay thai training camp",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camp thailand beginners",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 16,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "yes",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 6,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "mma camps thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 24,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "lowest cost options",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 24,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "février",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 5,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai classes",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "sinbi",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 4,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "best muay thai gyms in thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 14,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thai boxing camp thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 22,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "cheap muay thai camp thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 31,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "yes both",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "for a fight",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai classes in thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "best all inclusive muay thai camps in thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 54,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "learning muay thai in thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "thai camp international",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 10,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/burning-season-chiang-mai": [
+   {
+    "query": "chiang mai burning season 2026",
+    "clicks": 0,
+    "impressions": 11,
+    "position": 8.1,
+    "imp_last4w": 0,
+    "imp_prev4w": 11
+   },
+   {
+    "query": "burning season chiang mai 2026",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 6.7,
+    "imp_last4w": 0,
+    "imp_prev4w": 3
+   }
+  ],
+  "/en/blog/cheapest-dtv-soft-power-activity": [
+   {
+    "query": "чианг май",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "which is better",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "listele",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "anything else",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "chi phí khoá học",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 6,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "how much do the courses cost?",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 6,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "ja",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 10,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "art school?",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 9,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wat is de goedkoopste manier?",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "can you find me the cheapest one please",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 8,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "sprache?",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "да сориентируйте",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "самый дешевый курс",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "melyik a legolcsóbb?",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "is there any cheaper way?",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 6,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "i am looking for the cheapest",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 13,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "what’s the cheapest",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 4,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "cheapest",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 12,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/chiang-mai-vs-bangkok-muay-thai": [
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 27,
+    "imp_last4w": 1,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "what to compare when choosing a muay thai gym in chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 17,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "price comparison",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 17,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/chiang-mai-vs-phuket-muay-thai": [
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 6.8,
+    "imp_last4w": 2,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "best cost",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 12,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 9,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/dtv-visa-agent-worth-it": [
+   {
+    "query": "\"dtv visa\"",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/dtv-visa-cost-breakdown": [
+   {
+    "query": "dtv visa price",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 11,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/dtv-visa-new-requirements-2026": [
+   {
+    "query": "new dtv rules",
+    "clicks": 1,
+    "impressions": 32,
+    "position": 10.1,
+    "imp_last4w": 0,
+    "imp_prev4w": 32
+   },
+   {
+    "query": "\"new additional requirements\" \"destination thailand visa\" \"31 august 2026\"",
+    "clicks": 0,
+    "impressions": 14,
+    "position": 2.6,
+    "imp_last4w": 0,
+    "imp_prev4w": 14
+   },
+   {
+    "query": "dtv changes",
+    "clicks": 0,
+    "impressions": 12,
+    "position": 8.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 12
+   },
+   {
+    "query": "dtv new rules",
+    "clicks": 0,
+    "impressions": 12,
+    "position": 9,
+    "imp_last4w": 0,
+    "imp_prev4w": 12
+   },
+   {
+    "query": "thailand dtv changes",
+    "clicks": 0,
+    "impressions": 10,
+    "position": 8.7,
+    "imp_last4w": 0,
+    "imp_prev4w": 10
+   },
+   {
+    "query": "\"31 august 2026\" \"destination thailand visa\"",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 9.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "dtv visa thailand",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 6.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "thai dtv",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 39,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "태국 dtv",
+    "clicks": 1,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "dtv rules",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 11,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "thailand dtv",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "site.thaiembassy.org \"dtv\" \"31 august 2026\"",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 10,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "thailand dtv visa requirements 2026",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 80,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/dtv-visa-proof-of-funds": [
+   {
+    "query": "thai dtv",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 10,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "\"dtv visa\"",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 16,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/dtv-visa-refund-if-rejected": [
+   {
+    "query": "\"dtv visa\"",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 9,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "dtv",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 17,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "dtv visa",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 10,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "how much does a dtv visa cost",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 68,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/dtv-vs-tourist-visa-runs-cost": [
+   {
+    "query": "how much does a dtv visa cost",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 55,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "\"dtv visa\"",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 15,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thai dtv",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/ed-visa-vs-dtv-muay-thai": [
+   {
+    "query": "muay thai education visa",
+    "clicks": 0,
+    "impressions": 44,
+    "position": 12.8,
+    "imp_last4w": 31,
+    "imp_prev4w": 13
+   },
+   {
+    "query": "muay thai ed visa chiang mai",
+    "clicks": 0,
+    "impressions": 15,
+    "position": 9.8,
+    "imp_last4w": 15,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai ed visa",
+    "clicks": 0,
+    "impressions": 14,
+    "position": 16,
+    "imp_last4w": 10,
+    "imp_prev4w": 4
+   },
+   {
+    "query": "ed visa muay thai",
+    "clicks": 0,
+    "impressions": 9,
+    "position": 10.7,
+    "imp_last4w": 6,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "ed visa thailand muay thai",
+    "clicks": 0,
+    "impressions": 9,
+    "position": 11.4,
+    "imp_last4w": 9,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand education visa muay thai",
+    "clicks": 0,
+    "impressions": 8,
+    "position": 11.5,
+    "imp_last4w": 4,
+    "imp_prev4w": 4
+   },
+   {
+    "query": "muay thai education visa chiang mai",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 9,
+    "imp_last4w": 3,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai visa thailand",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 15.3,
+    "imp_last4w": 4,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand ed visa muay thai",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 7,
+    "imp_last4w": 4,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "education visa muay thai",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 11,
+    "imp_last4w": 3,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "education visa thailand muay thai",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 4.3,
+    "imp_last4w": 2,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai visa",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 35.3,
+    "imp_last4w": 3,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand muay thai visa",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 47.7,
+    "imp_last4w": 1,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "dtv visa muay thai",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 28,
+    "imp_last4w": 2,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "is it multi entry?",
+    "clicks": 1,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "איגרוף",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai dtv",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 8,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "dtv visa thailand muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 20,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "is there a difference?",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "for muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 14,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "retry",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 13,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai ed visa bangkok",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 25,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/learn-muay-thai-at-home": [
+   {
+    "query": "can you learn muay thai at home",
+    "clicks": 0,
+    "impressions": 15,
+    "position": 19.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 8,
+    "position": 8.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "can i learn muay thai at home",
+    "clicks": 0,
+    "impressions": 8,
+    "position": 9.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "learn muay thai at home",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 16,
+    "imp_last4w": 0,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "how to learn muay thai at home",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 22.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "learn muay thai from home",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 29,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai for beginners at home",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 25,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "muay thai training at home",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 27,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "how to thai for homeowners",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 201,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai at home",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 11,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "can you train muay thai at home",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 29,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/muay-thai-for-women": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 7,
+    "position": 10.1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "\"dtv visa\"",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 28,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 13,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/muay-thai-gear-beginners": [
+   {
+    "query": "muay thai gyms in chiang mai",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 12.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai gear for beginners",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 14.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "beginner muay thai gear",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 6,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "thai equipment for single parents",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 233.7,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai equipment list",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 9.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "thai equipment for college students",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 202,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai equipment for beginners",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 5.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "да",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai equipment for backpackers",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 17,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "as a girl",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 4,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "for beginners",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 20,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "yes",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 21,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "thai equipment for backpackers",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 203,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "thailand gear",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 15,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "thai equipment for expecting parents",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 231,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/muay-thai-gym-dtv-overcharging": [
+   {
+    "query": "dtv visa thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 18,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "(\"muay thai\") (coach or lessons or instructor or tutor or teacher) (\"looking for\" or recommend or \"anyone know\" or want)",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 10,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "\"dtv visa\"",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 8,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/muay-thai-headband-mongkhon": [
+   {
+    "query": "mongkhon",
+    "clicks": 0,
+    "impressions": 167,
+    "position": 8.4,
+    "imp_last4w": 23,
+    "imp_prev4w": 144
+   },
+   {
+    "query": "mongkhon muay thai",
+    "clicks": 1,
+    "impressions": 53,
+    "position": 9.1,
+    "imp_last4w": 9,
+    "imp_prev4w": 44
+   },
+   {
+    "query": "muay thai headband",
+    "clicks": 0,
+    "impressions": 30,
+    "position": 11.9,
+    "imp_last4w": 15,
+    "imp_prev4w": 15
+   },
+   {
+    "query": "muay thai headband name",
+    "clicks": 0,
+    "impressions": 17,
+    "position": 7.8,
+    "imp_last4w": 2,
+    "imp_prev4w": 15
+   },
+   {
+    "query": "muay thai mongkhon",
+    "clicks": 0,
+    "impressions": 13,
+    "position": 16.7,
+    "imp_last4w": 3,
+    "imp_prev4w": 10
+   },
+   {
+    "query": "muay thai headband meaning",
+    "clicks": 0,
+    "impressions": 12,
+    "position": 9.9,
+    "imp_last4w": 2,
+    "imp_prev4w": 10
+   },
+   {
+    "query": "what is the muay thai headband called",
+    "clicks": 0,
+    "impressions": 6,
+    "position": 8.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 6
+   },
+   {
+    "query": "what do muay thai fighters wear on their head",
+    "clicks": 0,
+    "impressions": 6,
+    "position": 9,
+    "imp_last4w": 1,
+    "imp_prev4w": 5
+   },
+   {
+    "query": "why do muay thai fighters wear headbands",
+    "clicks": 0,
+    "impressions": 5,
+    "position": 10.8,
+    "imp_last4w": 1,
+    "imp_prev4w": 4
+   },
+   {
+    "query": "mhawkhon",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 5.7,
+    "imp_last4w": 0,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "why do muay thai fighters have armbands",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 50.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "mongkhon thai",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 7,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "mong kong muay thai",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 8.5,
+    "imp_last4w": 1,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "thai headband",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 8.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "muay thai mongkon",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 30.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "mongkun",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "why do muay thai fighters wear armbands",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 11,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "monkhon",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 6,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai fighter headband",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 9,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "mong khon",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "headband muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 12,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "why do muay thai fighters wear armbands and headbands",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 21,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai head band",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 13,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai arm bands meaning",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 41,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "monkong",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 9,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   }
+  ],
+  "/en/blog/muay-thai-self-defense": [
+   {
+    "query": "is muay thai good for self defense",
+    "clicks": 0,
+    "impressions": 95,
+    "position": 9.4,
+    "imp_last4w": 6,
+    "imp_prev4w": 89
+   },
+   {
+    "query": "muay thai self defense",
+    "clicks": 0,
+    "impressions": 21,
+    "position": 17.2,
+    "imp_last4w": 6,
+    "imp_prev4w": 15
+   },
+   {
+    "query": "muay thai for self defense",
+    "clicks": 0,
+    "impressions": 19,
+    "position": 15.9,
+    "imp_last4w": 6,
+    "imp_prev4w": 13
+   },
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 13,
+    "position": 9.4,
+    "imp_last4w": 0,
+    "imp_prev4w": 13
+   },
+   {
+    "query": "mai thai self defense",
+    "clicks": 0,
+    "impressions": 11,
+    "position": 15.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 11
+   },
+   {
+    "query": "is muay thai good for self defence",
+    "clicks": 0,
+    "impressions": 6,
+    "position": 11.2,
+    "imp_last4w": 0,
+    "imp_prev4w": 6
+   },
+   {
+    "query": "is thai boxing good for self defense",
+    "clicks": 0,
+    "impressions": 5,
+    "position": 18,
+    "imp_last4w": 1,
+    "imp_prev4w": 4
+   },
+   {
+    "query": "muay thai defense",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 38.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 4
+   },
+   {
+    "query": "muay thai self defence",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 30.5,
+    "imp_last4w": 1,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "is muay thai good for self-defense",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 14.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 4
+   },
+   {
+    "query": "self defense muay thai",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 17.7,
+    "imp_last4w": 0,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "is muay thai effective for self defense",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 10.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "muay thai is it good for self defense",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 7.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "muay thai for self-defense",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 23.7,
+    "imp_last4w": 2,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "how good is muay thai for self defense",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 9.7,
+    "imp_last4w": 0,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "kickboxing or muay thai for self defense",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 7,
+    "imp_last4w": 0,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "is muay thai the best for self defense",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 7.7,
+    "imp_last4w": 0,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "muay thai or kickboxing for self defense",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 11.7,
+    "imp_last4w": 0,
+    "imp_prev4w": 3
+   },
+   {
+    "query": "thai self defense",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 13,
+    "imp_last4w": 2,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai or boxing for self defense",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 17.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "thai boxing for self defense",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 27,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai good for self defense",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 10,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "can you successfullly defend yourself and fight if youve been dling muay thai for 3 months straight and your coach said that he wants you to move up tot he advnaced class",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 5,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "self defence and fitness",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai for self defence",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 32,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "is muay thai self defense",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "نسقسيك",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 5,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai self defense techniques",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 29,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "defense muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 43,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "is muay thai or kickboxing better for self defense",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 10,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "is muay thai a good self defense",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 30,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "is muay thai good self defense",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 11,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai is good for self defense",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 1,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai as self defense",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 26,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   }
+  ],
+  "/en/blog/muay-thai-stance-basics": [
+   {
+    "query": "muay thai stance",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 9,
+    "imp_last4w": 1,
+    "imp_prev4w": 2
+   }
+  ],
+  "/en/blog/muay-thai-training-thailand-cost": [
+   {
+    "query": "how much is muay thai training",
+    "clicks": 0,
+    "impressions": 7,
+    "position": 26.7,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "how much are muay thai classes",
+    "clicks": 0,
+    "impressions": 5,
+    "position": 43.2,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "how much is muay thai classes",
+    "clicks": 0,
+    "impressions": 5,
+    "position": 57.4,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wildcat muay thai",
+    "clicks": 1,
+    "impressions": 2,
+    "position": 10.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "how much is muay thai",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 36,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "cost of muay thai classes",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 71,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "how much is a muay thai class",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 31,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "cost of muay thai training in thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 67,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "training muay thai in thailand cost",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 68,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai training in thailand cost",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 72,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai visa bangkok price",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 8,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai packages thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 21,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "how much does it cost to train muay thai in thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 6,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand training camp prices",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 9,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai visa thailand cost",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 10,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/blog/muay-thai-vs-kickboxing": [
+   {
+    "query": "kickboxing vs myofascial release",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 204.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "kickboxing country of origin",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 9,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "muay thai vs kickboxing",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 75,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "myofascial release vs kickboxing",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 215,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/chiang-mai-guide": [
+   {
+    "query": "\"dtv visa\"",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 68,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 11,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 12,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/classes": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 39,
+    "position": 5.6,
+    "imp_last4w": 31,
+    "imp_prev4w": 8
+   },
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 0,
+    "impressions": 10,
+    "position": 5.8,
+    "imp_last4w": 9,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "wild cat muay thai",
+    "clicks": 0,
+    "impressions": 5,
+    "position": 7.4,
+    "imp_last4w": 4,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "mai thai classes",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 36,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muaythai class",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 98,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "cost of muay thai classes",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 17,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai classes chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 4,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai prices",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 17,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "mai thai training",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 57,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/dtv-visa": [
+   {
+    "query": "muay thai visa chiang mai",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 43,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/dtv-visa/eligibility": [
+   {
+    "query": "dtv visa thailand requirements",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 61,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/dtv-visa/faq": [
+   {
+    "query": "my dtv.in",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 32,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "dtv info",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 64,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "what is a dtv",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 68,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "what is a dtv visa",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 60,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/dtv-visa/how-to-apply": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 8,
+    "imp_last4w": 2,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "\"dtv visa\"",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 9.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "apply dtv",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 11.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "exact documentation",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "dtv application fee",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 11,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "dtv e",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "dtv card",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 48,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wild cat muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 8,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   }
+  ],
+  "/en/dtv-visa/long-stay-training": [
+   {
+    "query": "cost of muay thai training in thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 87,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/stay-train": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 48,
+    "position": 6.7,
+    "imp_last4w": 36,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 1,
+    "impressions": 11,
+    "position": 3.4,
+    "imp_last4w": 11,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand muay thai camp packages",
+    "clicks": 0,
+    "impressions": 8,
+    "position": 14.8,
+    "imp_last4w": 8,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "all inclusive muay thai camps in thailand",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 12,
+    "imp_last4w": 3,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai training thailand cost",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 23,
+    "imp_last4w": 2,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wild cat muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 6,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camp thailand training",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 42,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand muay thai training camps",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai training camp thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camp",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 83,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "muay thai camps thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand muay thai camp",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 76,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   }
+  ],
+  "/en/stay-train/": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 8.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 5,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "thailand muay thai camp packages",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 40,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/fr": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 9,
+    "impressions": 30,
+    "position": 3.3,
+    "imp_last4w": 9,
+    "imp_prev4w": 4
+   },
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 2,
+    "impressions": 6,
+    "position": 3.2,
+    "imp_last4w": 0,
+    "imp_prev4w": 5
+   },
+   {
+    "query": "wildcat gym",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 11.3,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "wild cat muay thai",
+    "clicks": 1,
+    "impressions": 3,
+    "position": 2.7,
+    "imp_last4w": 2,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "wildcat fitness center",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 100,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   },
+   {
+    "query": "camp boxe thai chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 39,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "chiang mai boxe thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wild cat thailand",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 0,
+    "imp_prev4w": 1
+   }
+  ],
+  "/fr/": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 3,
+    "impressions": 13,
+    "position": 3.1,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "wildcat muay thai chiang mai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 2,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/fr/about": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 5,
+    "position": 9.8,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/fr/blog": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 11,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/fr/blog/saison-des-brulis-chiang-mai": [
+   {
+    "query": "brulis chiang mai",
+    "clicks": 1,
+    "impressions": 5,
+    "position": 3.4,
+    "imp_last4w": 0,
+    "imp_prev4w": 5
+   },
+   {
+    "query": "chiang mai brulis",
+    "clicks": 0,
+    "impressions": 4,
+    "position": 3.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 4
+   },
+   {
+    "query": "bruli chiang mai",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "chiang mai brûlis 2026",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 3.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 2
+   },
+   {
+    "query": "chiang mai pollution",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 3,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   }
+  ],
+  "/fr/blog/visa-thailande-guide-duree-de-sejour": [
+   {
+    "query": "visa thaïlande maroc prix",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 7,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "visa thaïlande 2026",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 8,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   },
+   {
+    "query": "visa thailande 2026",
+    "clicks": 0,
+    "impressions": 1,
+    "position": 9,
+    "imp_last4w": 1,
+    "imp_prev4w": 0
+   }
+  ],
+  "/fr/dtv-visa": [
+   {
+    "query": "visa dtv muay thai thailande",
+    "clicks": 0,
+    "impressions": 98,
+    "position": 36.3,
+    "imp_last4w": 33,
+    "imp_prev4w": 22
+   }
+  ],
+  "/fr/dtv-visa/": [
+   {
+    "query": "visa dtv muay thai thailande",
+    "clicks": 0,
+    "impressions": 81,
+    "position": 68.6,
+    "imp_last4w": 1,
+    "imp_prev4w": 35
+   }
+  ],
+  "/fr/dtv-visa/eligibility": [
+   {
+    "query": "visa dtv muay thai thailande",
+    "clicks": 0,
+    "impressions": 9,
+    "position": 53.4,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/fr/dtv-visa/how-to-apply": [
+   {
+    "query": "visa dtv muay thai thailande",
+    "clicks": 0,
+    "impressions": 3,
+    "position": 97.7,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ],
+  "/fr/stay-train": [
+   {
+    "query": "wildcat muay thai",
+    "clicks": 0,
+    "impressions": 2,
+    "position": 7.5,
+    "imp_last4w": 0,
+    "imp_prev4w": 0
+   }
+  ]
+ }
+}

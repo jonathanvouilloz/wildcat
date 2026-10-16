@@ -1,0 +1,111 @@
+[
+  {
+    "date": "2026-10-16",
+    "trigger": "gsc-opportunity",
+    "page_type": "article",
+    "gsc_snapshot": {
+      "period": "2026-06-01 → 2026-10-11",
+      "clicks": 1,
+      "impressions": 134,
+      "ctr": null,
+      "avg_position": null,
+      "top_queries": [
+        {
+          "query": "muay thai education visa",
+          "clicks": 0,
+          "impressions": 44,
+          "position": 12.8,
+          "imp_last4w": 31,
+          "imp_prev4w": 13
+        },
+        {
+          "query": "muay thai ed visa chiang mai",
+          "clicks": 0,
+          "impressions": 15,
+          "position": 9.8,
+          "imp_last4w": 15,
+          "imp_prev4w": 0
+        },
+        {
+          "query": "muay thai ed visa",
+          "clicks": 0,
+          "impressions": 14,
+          "position": 16,
+          "imp_last4w": 10,
+          "imp_prev4w": 4
+        },
+        {
+          "query": "ed visa muay thai",
+          "clicks": 0,
+          "impressions": 9,
+          "position": 10.7,
+          "imp_last4w": 6,
+          "imp_prev4w": 3
+        },
+        {
+          "query": "ed visa thailand muay thai",
+          "clicks": 0,
+          "impressions": 9,
+          "position": 11.4,
+          "imp_last4w": 9,
+          "imp_prev4w": 0
+        },
+        {
+          "query": "thailand education visa muay thai",
+          "clicks": 0,
+          "impressions": 8,
+          "position": 11.5,
+          "imp_last4w": 4,
+          "imp_prev4w": 4
+        },
+        {
+          "query": "muay thai education visa chiang mai",
+          "clicks": 0,
+          "impressions": 4,
+          "position": 9,
+          "imp_last4w": 3,
+          "imp_prev4w": 1
+        },
+        {
+          "query": "muay thai visa thailand",
+          "clicks": 0,
+          "impressions": 4,
+          "position": 15.3,
+          "imp_last4w": 4,
+          "imp_prev4w": 0
+        }
+      ]
+    },
+    "changes": [
+      {
+        "type": "meta",
+        "detail": "H1 recentre sur 'Muay Thai education visa'; description reecrite (title inchange, contient deja 'Education Visa')",
+        "reason": "'muay thai education visa' 44 impr pos 12.8, cible top 10"
+      },
+      {
+        "type": "add_h2",
+        "detail": "+H2 What is / How long / step by step / cost / attendance / Chiang Mai / tableau ED vs DTV / How to decide",
+        "reason": "requetes ED Muay Thai pos 9.8-16 sans section dediee (duree, cout, demarches, Chiang Mai 15 impr pos 9.8)"
+      },
+      {
+        "type": "data",
+        "detail": "ordre 12/2568 cl. 2.9, OPEC, frais 2000/1900/1000/3800 THB, prix programme CM 33 900-83 700 THB, regles DTV 31/08 et exemption 30 j",
+        "reason": "densite factuelle + fraicheur"
+      },
+      {
+        "type": "geo",
+        "detail": "+3 FAQ, source morte thaiembassy.at remplacee par ambassade Phnom Penh, +Thai Law Online, CMLocals, TAT",
+        "reason": "YMYL, sources datees"
+      },
+      {
+        "type": "link",
+        "detail": "+/blog/dtv-visa-new-requirements-2026, +/blog/thailand-visa-guide-by-training-length; /dtv-visa conserve",
+        "reason": "maillage silo visa"
+      }
+    ],
+    "reason": "Recentrer l'article sur 'muay thai education visa' (pos 10-16) en couvrant concretement l'ED Muay Thai et Chiang Mai.",
+    "word_count_before": 1987,
+    "word_count_after": 3364,
+    "archive": "content/_history/en/ed-visa-vs-dtv-muay-thai/2026-10-16-before.md"
+  }
+]

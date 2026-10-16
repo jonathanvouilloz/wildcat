@@ -132,5 +132,80 @@
     "reason": "Refresh SERP gap : passer d'un comparatif 3 régions à un guide national par région, sans devenir un classement.",
     "word_count_before": 3030,
     "word_count_after": 4549
+  },
+  {
+    "date": "2026-10-16",
+    "trigger": "gsc-opportunity",
+    "page_type": "article",
+    "gsc_snapshot": {
+      "period": "4 semaines au 2026-10-16",
+      "clicks": 5,
+      "impressions": 1771,
+      "avg_position": 28.6,
+      "source": ".seo-data/gsc-wildcat-2026-10-16.json",
+      "top_queries": [
+        {
+          "query": "muay thai camps thailand",
+          "impressions": 848,
+          "position": 25.5
+        },
+        {
+          "query": "muay thai camp thailand",
+          "clicks": 1,
+          "impressions": 550,
+          "position": 26.6
+        },
+        {
+          "query": "thailand muay thai camp",
+          "impressions": 464,
+          "position": 34.9
+        },
+        {
+          "query": "muay thai training camp thailand",
+          "impressions": 258,
+          "position": 31.2
+        },
+        {
+          "query": "muay thai boxing camp thailand",
+          "impressions": 86,
+          "position": 35.3
+        },
+        {
+          "query": "all inclusive muay thai camps in thailand",
+          "impressions": 21,
+          "position": 30.6
+        }
+      ]
+    },
+    "changes": [
+      {
+        "type": "add_h2",
+        "detail": "H2 'The five types of Muay Thai camps in Thailand' + tableau (fight camp, pro gym, mixed fitness, retreat, family/community)",
+        "reason": "famille 'muay thai (training/boxing) camp thailand' ~1 700 impr pos 23-35, intention 'quel type de camp' non couverte"
+      },
+      {
+        "type": "reinforce",
+        "detail": "H2 all-inclusive -> '...and packages' + H3 tableau des packages (Tiger, Kem, Battle Conquer, Charn Chai, Wildcat) + H3 pièges (TVA, prix/nuit, prix couple, transferts) + H3 exemple Wildcat",
+        "reason": "'all inclusive muay thai camps in thailand' pos 30,6, 'thailand muay thai camp packages' émergente"
+      },
+      {
+        "type": "add_h2",
+        "detail": "'What to actually look for' -> 'How to choose a Muay Thai camp in Thailand' avec méthode en 5 étapes (objectif, niveau, durée, budget, région)",
+        "reason": "intention 'comment choisir' sur les têtes camp thailand"
+      },
+      {
+        "type": "link",
+        "detail": "ancre exacte 'all-inclusive Muay Thai camp in Thailand' -> /en/stay-train#packages ; + /blog/best-time-train-muay-thai-thailand, /blog/muay-thai-for-women",
+        "reason": "/en/stay-train porte l'intention réservation (pos 12-15 sur packages/all inclusive)"
+      },
+      {
+        "type": "add_h2",
+        "detail": "FAQ 'Do Muay Thai camps in Thailand include accommodation?'",
+        "reason": "fan-out hébergement"
+      }
+    ],
+    "reason": "Enrichissement topique sur la famille 'muay thai camp thailand' (types, choix, packages) sans toucher title/meta (pos > 20, CTR non diagnostiquable, title changé le 29/09).",
+    "word_count_before": 4565,
+    "word_count_after": 5346
   }
 ]

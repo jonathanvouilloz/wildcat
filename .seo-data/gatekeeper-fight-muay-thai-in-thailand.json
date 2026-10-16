@@ -1,0 +1,15 @@
+{
+  "topic": "fight muay thai in thailand as a foreigner",
+  "generated_at": "2026-10-16T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "fight muay thai in thailand",
+      "verdict": "PASS",
+      "gates": { "surprise_gap": "pass", "grounding": "pass" },
+      "signals": { "intent": "do", "pseo_scalable": false },
+      "failed_pillar": null,
+      "rationale": "Surprise gap : serp-fight-muay-thai-in-thailand.json (gap high) : aucun resultat ne donne un guide complet et source (reservation, bourses en THB, categories de poids, medical, visa/permis, assurance, Chiang Mai). Un LLM generique repond par des generalites non sourcees. Grounding : /fighters (guest book), venues Thapae/Kalare/Loi Kroh et achievements du schema fighter, programme Fight Team et Fighter 7000 THB dans site.ts. Limite : pratiques internes du camp (frais, frequence) non documentees, traitees en generique. Volume : 'fight muay thai in thailand' 10/mois diff 20 (DataForSEO US 2026-10-16) ; 'muay thai fight in thailand' 1600 mais intent mixte spectateur.",
+      "priority": "haute"
+    }
+  ]
+}

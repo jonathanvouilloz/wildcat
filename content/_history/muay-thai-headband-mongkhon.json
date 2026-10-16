@@ -1,0 +1,111 @@
+[
+  {
+    "date": "2026-10-16",
+    "trigger": "gsc-opportunity",
+    "page_type": "article",
+    "archived_version": "content/_history/en/muay-thai-headband-mongkhon/2026-09-29.md",
+    "gsc_snapshot": {
+      "period": "2026-06-01 → 2026-10-11",
+      "clicks": 1,
+      "impressions": 332,
+      "ctr": 0.003,
+      "avg_position": 9.7,
+      "top_queries": [
+        {
+          "query": "mongkhon",
+          "clicks": 0,
+          "impressions": 167,
+          "position": 8.4,
+          "imp_last4w": 23,
+          "imp_prev4w": 144
+        },
+        {
+          "query": "mongkhon muay thai",
+          "clicks": 1,
+          "impressions": 53,
+          "position": 9.1,
+          "imp_last4w": 9,
+          "imp_prev4w": 44
+        },
+        {
+          "query": "muay thai headband",
+          "clicks": 0,
+          "impressions": 30,
+          "position": 11.9,
+          "imp_last4w": 15,
+          "imp_prev4w": 15
+        },
+        {
+          "query": "muay thai headband name",
+          "clicks": 0,
+          "impressions": 17,
+          "position": 7.8,
+          "imp_last4w": 2,
+          "imp_prev4w": 15
+        },
+        {
+          "query": "muay thai mongkhon",
+          "clicks": 0,
+          "impressions": 13,
+          "position": 16.7,
+          "imp_last4w": 3,
+          "imp_prev4w": 10
+        },
+        {
+          "query": "muay thai headband meaning",
+          "clicks": 0,
+          "impressions": 12,
+          "position": 9.9,
+          "imp_last4w": 2,
+          "imp_prev4w": 10
+        },
+        {
+          "query": "what is the muay thai headband called",
+          "clicks": 0,
+          "impressions": 6,
+          "position": 8.3,
+          "imp_last4w": 0,
+          "imp_prev4w": 6
+        },
+        {
+          "query": "what do muay thai fighters wear on their head",
+          "clicks": 0,
+          "impressions": 6,
+          "position": 9,
+          "imp_last4w": 1,
+          "imp_prev4w": 5
+        }
+      ]
+    },
+    "changes": [
+      {
+        "type": "add_h2",
+        "detail": "H3 'Mongkhon, mongkol, mongkon': spellings table, pronunciation, Pali etymology",
+        "reason": "queries mongkhon/mongkon/mhawkhon/monkhon + 'muay thai headband name' pos 6-9"
+      },
+      {
+        "type": "add_h2",
+        "detail": "H2 'Who wears the mongkhon, and when' + H3 handling rules (ground, stepping over, women)",
+        "reason": "queries 'what do muay thai fighters wear on their head', 'why do fighters wear headbands'"
+      },
+      {
+        "type": "reinforce",
+        "detail": "'not a fashion accessory' list in the buy section",
+        "reason": "sub-intent requested by Jonathan"
+      },
+      {
+        "type": "add_h2",
+        "detail": "+5 FAQ (meaning, spelling, head, who, armbands)",
+        "reason": "long-tail questions pos 7-50"
+      },
+      {
+        "type": "geo",
+        "detail": "+4 sources (Wiktionary, Wikipedia, Muay Thai Citizen, Muay Thai Guy)",
+        "reason": "cite sources"
+      }
+    ],
+    "reason": "Enrich content for GSC sub-intents; title, meta and slug unchanged by Jonathan's decision.",
+    "word_count_before": 2776,
+    "word_count_after": 3735
+  }
+]

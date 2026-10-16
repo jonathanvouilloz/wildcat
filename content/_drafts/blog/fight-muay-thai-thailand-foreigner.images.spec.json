@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "article_slug": "fight-muay-thai-thailand-foreigner",
+  "article_spec_hash": "sha256:2ddaccad4c32af5a62622e8db0ba4cdf6ff210adee9f197a4cbf1210fe38b1f0",
+  "visual_context_hash": "sha256:5437b54a002f8c6a31a90a2d7b3723ff91eabb44d318f32c40a5197d8d185e28",
+  "status": "draft",
+  "images": [
+    {
+      "id": "IMG-001",
+      "role": "cover",
+      "placement": "cover",
+      "intent": "Cover template Wildcat : fond branded forest + titre en overlay deterministe (aucune generation IA).",
+      "subject": "Cover of a guide to fighting Muay Thai in Thailand as a foreigner",
+      "description": "Cover 16:9 template Wildcat (blog-cover), titre en overlay.",
+      "preset": "blog-cover",
+      "provider": null,
+      "text": {
+        "mode": "overlay",
+        "content": "Fight Muay Thai in Thailand as a Foreigner",
+        "exact": true,
+        "language": "en"
+      },
+      "layout": {
+        "aspect_ratio": "16:9",
+        "dimensions": "1792x1024",
+        "focal_position": "center",
+        "safe_zone": "texte centre sur 65 % de largeur"
+      },
+      "references": [],
+      "negative_constraints": [
+        "no AI generation",
+        "no additional text"
+      ],
+      "output": {
+        "path": "src/content/blog/covers/fight-muay-thai-thailand-foreigner.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Wildcat branded cover with the title of a guide to fighting Muay Thai in Thailand as a foreigner, from a Chiang Mai camp.",
+      "approval_required": false
+    },
+    {
+      "id": "IMG-002",
+      "role": "inline-photo",
+      "placement": "after-h2:Where to fight: Chiang Mai, Bangkok or Phuket",
+      "intent": "Ancrer le camp (Hang Dong) dans la section venues, ambiance rassurante.",
+      "subject": "Open-air Muay Thai ring in a tropical garden at golden hour",
+      "description": "A warm, candid photo of an outdoor Muay Thai gym in Hang Dong, Chiang Mai: open-air ring, banana trees, golden hour natural light, empty or one distant figure. Prefer a real camp photo if available; AI generation is a fallback.",
+      "preset": "blog-inline",
+      "provider": "gemini",
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": false,
+        "language": "en"
+      },
+      "layout": {
+        "aspect_ratio": "4:3",
+        "dimensions": "1600x1200",
+        "focal_position": "center",
+        "safe_zone": "ring au centre, ciel degage"
+      },
+      "references": [
+        {
+          "path": "visual/refs/scene-wide.webp",
+          "purpose": "composition",
+          "required": true
+        },
+        {
+          "path": "visual/refs/blog-cover-style.webp",
+          "purpose": "style",
+          "required": true
+        }
+      ],
+      "negative_constraints": [
+        "no logo",
+        "no real or invented fighter likeness",
+        "no blood or aggressive pose",
+        "no dark or fight-club aesthetic",
+        "no text in the image",
+        "no stadium, no crowd, no fight in progress"
+      ],
+      "output": {
+        "path": "public/images/blog/fight-muay-thai-thailand-foreigner-1.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "Open-air Muay Thai ring in a tropical garden at golden hour, where a camp in Hang Dong, Chiang Mai prepares guests for a first fight.",
+      "approval_required": true
+    },
+    {
+      "id": "IMG-003",
+      "role": "inline-photo",
+      "placement": "after-h2:Are you ready? Level, format and weight classes",
+      "intent": "Illustrer la preparation et le travail au pad avec un coach.",
+      "subject": "Padwork between a coach and a student, tight on gloves and pads",
+      "description": "A warm, candid documentary photo of padwork at an open-air Muay Thai gym, tight framing on gloves and Thai pads, faces not distinctive, golden hour light, welcoming mood. Prefer a real camp photo if available.",
+      "preset": "blog-inline",
+      "provider": "gemini",
+      "text": {
+        "mode": "none",
+        "content": "",
+        "exact": false,
+        "language": "en"
+      },
+      "layout": {
+        "aspect_ratio": "4:3",
+        "dimensions": "1600x1200",
+        "focal_position": "center",
+        "safe_zone": "gants et pads au tiers droit"
+      },
+      "references": [
+        {
+          "path": "visual/refs/portrait-ambient.webp",
+          "purpose": "style",
+          "required": true
+        },
+        {
+          "path": "visual/refs/blog-cover-style.webp",
+          "purpose": "style",
+          "required": false
+        }
+      ],
+      "negative_constraints": [
+        "no logo",
+        "no real or invented fighter likeness",
+        "no blood or aggressive pose",
+        "no dark or fight-club aesthetic",
+        "no text in the image",
+        "no knockout, no club branding"
+      ],
+      "output": {
+        "path": "public/images/blog/fight-muay-thai-thailand-foreigner-2.webp",
+        "format": "webp",
+        "quality": 88
+      },
+      "alt_text": "A coach holding Thai pads for a student during a candid padwork round at an open-air Muay Thai gym in Chiang Mai.",
+      "approval_required": true
+    }
+  ]
+}

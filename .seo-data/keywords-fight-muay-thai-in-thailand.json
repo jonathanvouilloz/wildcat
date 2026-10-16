@@ -1,0 +1,43 @@
+{
+  "topic": "fight muay thai in thailand",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-10-16T14:21:17Z",
+  "primary": {
+    "keyword": "fight muay thai in thailand",
+    "search_volume": 10,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 0,
+    "difficulty": 20,
+    "intent": "informational",
+    "intent_probability": 0.8392
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "muay thai fight in thailand",
+      "search_volume": 1600,
+      "cpc": 1.63,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "first muay thai fight in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "related": [],
+  "quick_wins": [
+    {
+      "keyword": "muay thai fight in thailand",
+      "search_volume": 1600,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}
