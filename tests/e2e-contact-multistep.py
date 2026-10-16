@@ -52,6 +52,8 @@ with sync_playwright() as p:
     check("clic sur une card → étape 2", visible_step(page) == "2", visible_step(page))
     check("étape 2 : champs cours visibles", page.is_visible("#ct-cls-level"))
     check("étape 2 : champs dtv cachés", not page.is_visible("#ct-dtv-package"))
+    today = page.evaluate("(() => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0') })()")
+    check("date : pas avant aujourd'hui", page.get_attribute("#ct-cls-date", "min") == today, str(page.get_attribute("#ct-cls-date", "min")))
     page.select_option("#ct-cls-level", "first-time")
     page.click(".step[data-step='2'] [data-next]")
     check("Suivant → étape 3", visible_step(page) == "3")
@@ -84,9 +86,14 @@ with sync_playwright() as p:
     page.keyboard.press("Enter")
     check("clavier : Entrée → étape 2 (dtv)", visible_step(page) == "2" and page.is_visible("#ct-dtv-package"))
 
-    # 4. Deep-link ?intent=dtv → étape 2, recos DTV en FR
+    # 4. Deep-link ?intent=dtv → carte cochée mais étape 1 (le CTA du menu porte toujours
+    #    ?intent=class), compteur au-dessus de la barre, recos DTV en FR
     page.goto(f"{BASE}/fr/contact?intent=dtv")
-    check("?intent=dtv → étape 2", visible_step(page) == "2", visible_step(page))
+    checked = page.eval_on_selector("form[data-cform]", "f => f.querySelector('input[name=intent]:checked')?.value")
+    check("?intent=dtv → étape 1, dtv cochée", visible_step(page) == "1" and checked == "dtv", f"{visible_step(page)} / {checked}")
+    check("compteur étape 1", page.inner_text("[data-ms-count]").strip().startswith("Étape 1"), page.inner_text("[data-ms-count]"))
+    page.click(".step[data-step='1'] [data-next]")
+    check("compteur étape 2", page.inner_text("[data-ms-count]").strip().startswith("Étape 2"))
     page.click(".step[data-step='2'] [data-next]")
     fill_contact(page)
     page.click(".step[data-step='3'] button[type=submit]")

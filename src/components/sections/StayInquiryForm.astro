@@ -115,7 +115,7 @@ const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: 
   // Au submit : ouverture WhatsApp pré-remplie (chat de Meaw) + email Web3Forms
   // en tâche de fond. Voir src/scripts/wa-form.ts. Sans JS, le POST natif envoie
   // l'email (fallback) et le lien WhatsApp statique reste le secours.
-  import { submitViaWhatsApp, fieldValue, selectText, isChecked } from '../../scripts/wa-form';
+  import { submitViaWhatsApp, fieldValue, selectText, isChecked, minToday } from '../../scripts/wa-form';
 
   document.querySelectorAll<HTMLFormElement>('form[data-sform]').forEach((form) => {
     const base = form.dataset.waBase;
@@ -150,6 +150,7 @@ const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: 
     };
 
     const modal = document.querySelector<HTMLDialogElement>('dialog[data-wa-modal]');
+    minToday(form);
     if (base) submitViaWhatsApp(form, { waBase: base, buildText, modal, recoKey: () => 'stay' });
   });
 </script>

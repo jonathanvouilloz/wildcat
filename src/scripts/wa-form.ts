@@ -123,3 +123,11 @@ export function isChecked(form: HTMLFormElement, name: string): boolean {
   const el = form.elements.namedItem(name) as HTMLInputElement | null;
   return !!el && el.type === 'checkbox' && el.checked;
 }
+
+/** Interdit les dates passées sur les `<input type="date">` du form. Posé au runtime :
+ *  au build SSG, la date serait celle du déploiement. */
+export function minToday(form: HTMLFormElement): void {
+  const d = new Date();
+  const today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  form.querySelectorAll<HTMLInputElement>('input[type="date"]').forEach((el) => (el.min = today));
+}
