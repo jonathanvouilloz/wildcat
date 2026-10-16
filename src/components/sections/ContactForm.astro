@@ -75,7 +75,7 @@ const modelOptions = [
 ];
 // Qualifieur de forfait (2026-08-20) : depuis que les 4 forfaits long-stay ont
 // laissé place à l'offre unique, la vraie question est « tout compris ou
-// entraînement seul ? ». Affiché pour les intentions stay ET dtv.
+// entraînement seul ? ». Affiché pour l’intention stay (la DTV pose la question en radios).
 // Label = nom · prix (séparateur ·, pas d'em-dash).
 const fmt = (n: number) => n.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
 const packageOptions = [
@@ -84,6 +84,13 @@ const packageOptions = [
     label: `${m.contact_dtv_pkg_stay()} · ${fmt(site.pricing.stayTrain.price)} ${site.pricing.currency}`,
   },
   { value: 'training_only', label: m.contact_dtv_pkg_training() },
+];
+
+const dtvDurationOptions = [
+  { value: '1-3-months', label: m.contact_dtv_dur_short() },
+  { value: '3-6-months', label: m.contact_dtv_dur_mid() },
+  { value: '6-months-plus', label: m.contact_dtv_dur_long() },
+  { value: 'not-sure', label: m.contact_dtv_dur_unsure() },
 ];
 
 // Textes wa.me pré-remplis par intention (le script swap le href ; fallback
@@ -204,10 +211,43 @@ const waTexts: Record<string, string> = {
     </Field>
   </div>
 
-  <div class="xtra" data-i="stay dtv">
+  <div class="xtra" data-i="stay">
     <Field label={m.contact_dtv_package()} for="ct-dtv-package" class="narrow">
       <Select id="ct-dtv-package" name="dtv_package" placeholder={m.contact_form_choose_ph()} options={packageOptions} />
     </Field>
+  </div>
+
+  <!-- DTV (2026-10-16) : les infos dont Meaw a besoin pour répondre sur le visa.
+       Pas de question « d'où fais-tu la demande » : c'est forcément depuis son pays. -->
+  <div class="xtra" data-i="dtv">
+    <p class="dtv-note">{m.contact_dtv_note()}</p>
+    <div class="pair">
+      <Field label={m.contact_dtv_nationality()} for="ct-dtv-nat">
+        <Input id="ct-dtv-nat" name="dtv_nationality" placeholder={m.contact_dtv_nationality_ph()} />
+      </Field>
+      <Field label={m.contact_dtv_arrival()} for="ct-dtv-arrival">
+        <Input id="ct-dtv-arrival" name="dtv_arrival" type="date" />
+      </Field>
+    </div>
+    <Field label={m.contact_dtv_duration()} for="ct-dtv-duration" class="narrow">
+      <Select
+        id="ct-dtv-duration"
+        name="dtv_duration"
+        placeholder={m.contact_form_choose_ph()}
+        options={dtvDurationOptions}
+      />
+    </Field>
+    <fieldset class="choices">
+      <legend>{m.contact_dtv_stay()}</legend>
+      <label class="choice">
+        <input type="radio" name="dtv_stay" value={site.pricing.stayTrain.key} />
+        <span>{m.contact_dtv_stay_wildcat({ price: `${fmt(site.pricing.stayTrain.price)} ${site.pricing.currency}` })}</span>
+      </label>
+      <label class="choice">
+        <input type="radio" name="dtv_stay" value="training_only" />
+        <span>{m.contact_dtv_stay_own()}</span>
+      </label>
+    </fieldset>
   </div>
 
     <div class="step-nav">
@@ -299,8 +339,9 @@ const waTexts: Record<string, string> = {
   document.querySelectorAll<HTMLFormElement>('form[data-cform]').forEach((form) => {
     const params = new URLSearchParams(location.search);
     const pkg = params.get('package');
-    // ?package= implique l'intention DTV (deep-link depuis les cartes forfaits).
-    const raw = params.get('intent') ?? params.get('topic') ?? (pkg ? 'dtv' : null);
+    // ?package= implique l'intention stay (le select forfait ne vit plus que là ;
+    // la DTV demande le logement en radios, 2026-10-16).
+    const raw = params.get('intent') ?? params.get('topic') ?? (pkg ? 'stay' : null);
     if (raw) {
       const want = LEGACY[raw] ?? raw;
       const radio = form.querySelector<HTMLInputElement>(`input[name="intent"][value="${want}"]`);
@@ -310,7 +351,7 @@ const waTexts: Record<string, string> = {
     // Saut direct à l'étape 2 : formulaires intégrés aux pages (prop intent) seulement.
     // ?intent= (CTA du menu, toujours présent) présélectionne la carte sans sauter l'étape 1.
     const preset = Boolean(form.dataset.preset);
-    // Pré-sélectionne le forfait dans le dropdown DTV s'il existe.
+    // Pré-sélectionne le forfait dans le dropdown stay s'il existe.
     if (pkg) {
       const sel = form.querySelector<HTMLSelectElement>('select[name="dtv_package"]');
       if (sel && [...sel.options].some((o) => o.value === pkg)) sel.value = pkg;
@@ -428,8 +469,16 @@ const waTexts: Record<string, string> = {
         if (to) bits.push(`to ${to}`);
         if (bits.length) lines.push(`Scooter: ${bits.join(', ')}`);
       } else if (intent === 'dtv') {
-        const pkg = selectText(f, 'dtv_package');
-        if (pkg) lines.push(`Package: ${pkg}`);
+        const bits: string[] = [];
+        const nat = fieldValue(f, 'dtv_nationality');
+        const arrival = fieldValue(f, 'dtv_arrival');
+        const duration = selectText(f, 'dtv_duration');
+        if (nat) bits.push(nat);
+        if (arrival) bits.push(`arriving ${arrival}`);
+        if (duration) bits.push(`training ${duration.toLowerCase()}`);
+        if (bits.length) lines.push(`DTV: ${bits.join(', ')}`);
+        const stay = f.querySelector<HTMLInputElement>('input[name="dtv_stay"]:checked');
+        if (stay) lines.push(stay.value === 'training_only' ? 'Training only, own accommodation' : 'Stay & Train (all inclusive)');
       }
 
       const msg = fieldValue(f, 'message');
@@ -555,6 +604,51 @@ const waTexts: Record<string, string> = {
   .cform:has(input[name='intent'][value='scooter']:checked) .xtra[data-i~='scooter'],
   .cform:has(input[name='intent'][value='dtv']:checked) .xtra[data-i~='dtv'] {
     display: grid;
+  }
+
+  .dtv-note {
+    margin: 0;
+    padding: 10px 14px;
+    border-left: 3px solid var(--gold);
+    background: color-mix(in srgb, var(--gold), #fff 88%);
+    border-radius: 0 var(--r-md) var(--r-md) 0;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .choices {
+    display: grid;
+    gap: 8px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .choices legend {
+    padding: 0;
+    margin-bottom: 8px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .choice {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    background: var(--field-bg);
+    border: 1.5px solid var(--field-border);
+    border-radius: var(--r-md);
+    font-size: 14.5px;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .choice input {
+    margin-top: 3px;
+    accent-color: var(--forest);
+  }
+  .choice:has(input:checked) {
+    border-color: var(--forest);
+    background: color-mix(in srgb, var(--forest), #fff 92%);
   }
 
   .pair {

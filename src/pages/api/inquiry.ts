@@ -172,7 +172,11 @@ function detailsFor(intent: string, g: (k: string) => string): string[] {
     if (g('sct_from')) out.push(`From: ${g('sct_from')}`);
     if (g('sct_to')) out.push(`To: ${g('sct_to')}`);
   } else if (intent === 'dtv') {
-    pkg();
+    if (g('dtv_nationality')) out.push(`Nationality: ${g('dtv_nationality')}`);
+    if (g('dtv_arrival')) out.push(`Arrival: ${g('dtv_arrival')}`);
+    if (g('dtv_duration')) out.push(`Training: ${g('dtv_duration')}`);
+    const stay = g('dtv_stay');
+    if (stay) out.push(`Stay: ${PACKAGE_LABELS[stay] ?? stay}`);
   }
   return out;
 }

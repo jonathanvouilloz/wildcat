@@ -84,7 +84,7 @@ with sync_playwright() as p:
     page.focus("input[name=intent][value=dtv]")
     page.keyboard.press("Space")
     page.keyboard.press("Enter")
-    check("clavier : Entrée → étape 2 (dtv)", visible_step(page) == "2" and page.is_visible("#ct-dtv-package"))
+    check("clavier : Entrée → étape 2 (dtv)", visible_step(page) == "2" and page.is_visible("#ct-dtv-nat"))
 
     # 4. Deep-link ?intent=dtv → carte cochée mais étape 1 (le CTA du menu porte toujours
     #    ?intent=class), compteur au-dessus de la barre, recos DTV en FR
@@ -94,10 +94,17 @@ with sync_playwright() as p:
     check("compteur étape 1", page.inner_text("[data-ms-count]").strip().startswith("Étape 1"), page.inner_text("[data-ms-count]"))
     page.click(".step[data-step='1'] [data-next]")
     check("compteur étape 2", page.inner_text("[data-ms-count]").strip().startswith("Étape 2"))
+    check("dtv : nationalité + logement visibles, pas de select forfait",
+          page.is_visible("#ct-dtv-nat") and page.is_visible("input[name=dtv_stay]") and not page.is_visible("#ct-dtv-package"))
+    page.fill("#ct-dtv-nat", "Française")
+    page.select_option("#ct-dtv-duration", "3-6-months")
+    page.check("input[name=dtv_stay][value=training_only]")
     page.click(".step[data-step='2'] [data-next]")
     fill_contact(page)
     page.click(".step[data-step='3'] button[type=submit]")
     page.wait_for_timeout(500)
+    preview = page.inner_text("[data-wa-preview]")
+    check("message WhatsApp DTV", "DTV: Française" in preview and "Training only" in preview, " | ".join(preview.splitlines()))
     reco = open_reco(page)
     check("recos dtv FR", reco.startswith("dtv") and "/fr/dtv-visa/how-to-apply" in reco, reco)
 
