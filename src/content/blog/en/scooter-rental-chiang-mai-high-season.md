@@ -6,13 +6,13 @@ tldr:
   - "From November to January, prices go up and monthly rentals get hard to find: many shops only rent by the day or the week, at less favourable rates. Few publish a high-season price list, so ask for the price for your exact dates and book early."
   - "Do not hand over your passport as a deposit. Irish and UK government advice both say no. A copy plus a cash deposit of roughly 1,000 to 5,000 THB is the usual alternative."
   - "You need a licence and an International Driving Permit with the motorcycle category, or a Thai licence. Compulsory Thai insurance covers injury and death, not the bike."
-  - "Our five picks: Wildcat, Mango Scooters, Aya Service, Grape Ride Rental and Funky Bike Rental. Wildcat is first for simplicity: the bike comes with your training and your room."
-publishDate: 2026-11-20
+  - "Our five picks: Wildcat, Mango Scooters, Aya Service, GM MotorBike Rental and Funky Bike Rental. Wildcat is first for simplicity: the bike comes with your training and your room."
+publishDate: 2026-11-14
 author: "Meaw Boonpradub"
 category: chiang-mai-life
 cover: ../covers/scooter-rental-chiang-mai-high-season.webp
 coverAlt: "Cover of a guide to monthly scooter rental in Chiang Mai in high season by Wildcat Muay Thai"
-draft: true
+draft: false
 translationKey: scooter-rental-chiang-mai-high-season
 ---
 
@@ -36,7 +36,7 @@ Our reading: expect to pay more, expect fewer monthly offers, and expect the bik
 
 From a shop's point of view, a bike rented by the day often earns more than the same bike rented by the month, so in busy weeks the monthly rental is the easiest to turn down. That is what we see in peak weeks: shops would rather fill a bike day by day. Cat Motors says its daily, weekly and monthly rentals are "subject to bike availability", and most of its models show monthly rates "on request". That is its own page, not a rumour.
 
-What does a monthly rental cost? Across the guides we read, a 110 to 125 cc scooter is usually around 2,500 to 4,500 THB a month. Published examples from shops: Mango lists a Click 125i at 2,900 THB and a Scoopy 110i at 3,500 THB a month. Our own published monthly rate is 3,000 THB. Larger bikes cost more.
+What does a monthly rental cost? Across the guides we read, a 110 to 125 cc scooter is usually around 2,500 to 4,500 THB a month. Published examples from shops: Mango lists a Click 125i at 2,900 THB and a Scoopy 110i at 3,500 THB a month. Our own monthly rate is 3,000 THB, and it does not change in high season. Larger bikes cost more.
 
 If you are staying a month or more, message early, give exact dates and ask three things: is the monthly rate confirmed for those dates, what is the deposit, and what happens if the bike breaks down.
 
@@ -74,7 +74,7 @@ We did not run a test ride at each shop and we have no commercial deal with any 
 
 We are first because the bike is part of the stay. Our all-inclusive [Stay & Train](/stay-train) offer is 28,000 THB per person per month, or 8,000 THB per week for one to three weeks. It includes a private room in a shared air-conditioned house with utilities, unlimited training, one motorbike and an airport transfer. Meals and petrol are not included. You do not hunt for a shop in peak season: the bike, the room and the training are arranged in one conversation.
 
-If you only need a bike, [renting a scooter at our camp in Hang Dong](/stay-train/scooter-rental) is possible too. Our published rate for the Honda Scoopy i Prestige (2024) is 350 THB a day or 3,000 THB a month. We are a camp, not a rental chain, so the fleet is small. Ask us for the rate and availability for your dates, and for the deposit, helmet and licence terms when you book.
+If you only need a bike, [renting a scooter at our camp in Hang Dong](/stay-train/scooter-rental) is possible too. Our rate for the Honda Scoopy i Prestige (2024) is 350 THB a day or 3,000 THB a month, and it stays the same in high season, monthly rentals included. We are a camp, not a rental chain, so the fleet is small. Ask us about availability for your dates, and for the deposit, helmet and licence terms when you book.
 
 - **Camp:** 132 Moo 7, Chaw Fa Village, Nong Kwai, Hang Dong, Chiang Mai 50230.
 - **Phone and WhatsApp:** +66 85 720 9620. Or [message us about a scooter](/contact?intent=scooter).
@@ -95,13 +95,13 @@ Aya Service is a Chiang Mai and Pai operator that also runs tours and minivans, 
 - **WhatsApp:** +66 86 920 8666 (Aoy). Also listed: 093 308 6688.
 - **Website:** [ayaservice.com](https://www.ayaservice.com/).
 
-### 4. Grape Ride Rental: delivery and monthly deals in Chang Phueak
+### 4. GM MotorBike Rental: a small old-city shop with top reviews
 
-Grape Ride Rental, in the Chang Phueak area north of the old city, says on its [official page](https://graperiderental.carrd.co) that it offers daily, weekly, two-weekly and monthly rentals, with unlimited mileage, breakdown support and free or low-cost delivery to your hotel. It does not publish prices ("contact for deals"), recommends booking in advance in peak seasons, and says it asks for your passport and motorbike licence and a small refundable deposit. Ask whether it keeps the original passport. It lists adult helmets as free.
+GM MotorBike Rental is a small shop in the Sriphum area, the north-east corner of the old city. It has no website and takes bookings on WhatsApp. What stands out is its Google rating: 4.9 out of 5 from 231 reviews when we checked, with reviewers praising fair prices and well-maintained bikes. It does not publish a price list, so ask for the price for your dates, and ask about the deposit and whether it keeps passports. It closes at 18:00.
 
-- **Address:** 8/4 Tanin Alley, Chang Phueak, Mueang, Chiang Mai 50300.
-- **Phone and WhatsApp:** 082 591 0826.
-- **Website:** [graperiderental.carrd.co](https://graperiderental.carrd.co).
+- **Address:** No. 21, Soi 1 Sriphum, Inthawarorot Road, Mueang, Chiang Mai 50200, from its [Google Maps listing](https://maps.app.goo.gl/nyMPXEo5hGkHNZdC6).
+- **Phone and WhatsApp:** +66 93 697 1272, or [message it on WhatsApp](https://wa.me/66936971272).
+- **Website:** none. Its [Google Maps listing](https://maps.app.goo.gl/nyMPXEo5hGkHNZdC6) is the place to check reviews and hours.
 
 ### 5. Funky Bike Rental: a Honda dealer on Huay Kaew Road
 
@@ -113,10 +113,10 @@ Funky Bike Rental says on its [official website](https://www.rentalchiangmai.com
 
 | Shop | Area | Published price | Booking note |
 |---|---|---|---|
-| Wildcat | Hang Dong | Scoopy i: 350/day, 3,000/month. Stay & Train: 28,000/month including a bike | Message for your dates |
+| Wildcat | Hang Dong | Scoopy i: 350/day, 3,000/month. Stay & Train: 28,000/month including a bike | Same rate in high season, monthly included |
 | Mango Scooters | City | Click 125i: 250/day, 2,900/month | Open since 2012 |
 | Aya Service | Chiang Mai and Pai | From 200/day | One-way to Pai listed |
-| Grape Ride Rental | Chang Phueak | Not published | Advance booking recommended in peak seasons |
+| GM MotorBike Rental | Old city (Sriphum) | Not published | 4.9/5 on 231 Google reviews, books on WhatsApp |
 | Funky Bike Rental | Huay Kaew | From 300 (Scoopy i) | Open daily 08:00 to 17:30 |
 
 ## How to pick
@@ -124,7 +124,7 @@ Funky Bike Rental says on its [official website](https://www.rentalchiangmai.com
 - **You are training with us for a few weeks or months:** take the Stay & Train offer and ask for the bike in the same message.
 - **You want a transparent price list:** start with Mango Scooters, and message ahead for November to January.
 - **You want a bike for a Pai trip or a one-way ride:** ask Aya Service.
-- **You want delivery:** try Grape Ride Rental.
+- **You want a small shop in the old city:** try GM MotorBike Rental.
 - **You want a dealer-run shop:** try Funky Bike Rental.
 
 Whoever you choose, do the checks above. For the rest of the trip, [our Chiang Mai guide](/chiang-mai-guide) has the basics.
@@ -165,6 +165,7 @@ In high season, the rental that works is the one you arrange early. Ask for exac
 - Mango Scooters prices, deposit, insurance, open since 2012 and contact: [mangobikesrent.com](https://mangobikesrent.com/) and [contact page](https://mangobikesrent.com/contact-us-2/), consulted 2026-11-14.
 - Aya Service fleet, prices, address and contact: [ayaservice.com/motorcycle](https://www.ayaservice.com/motorcycle) and [contact page](https://www.ayaservice.com/contact), consulted 2026-11-14.
 - Grape Ride Rental terms, address and contact: [graperiderental.carrd.co](https://graperiderental.carrd.co), consulted 2026-11-14.
+- GM MotorBike Rental address, phone, hours and rating (4.9, 231 reviews): [Google Maps listing](https://maps.app.goo.gl/nyMPXEo5hGkHNZdC6), consulted 2026-11-14.
 - Funky Bike Rental prices, hours and phone: [rentalchiangmai.com](https://www.rentalchiangmai.com); address from its official [LINE page](https://page.line.me/funkybikerental), consulted 2026-11-14.
 - Advance booking in high season, directory guide (updated 19 July 2026): [Ride Chiang Mai](https://ridecm-web.pages.dev/rental-guide/best-scooter-rental-chiang-mai-independent-guide/), consulted 2026-11-14.
 - High season price rise, shop blog (6 July 2025): [JeJe Motorcycles](https://jejemotorcycles.com/how-much-does-it-cost-to-rent-a-motorbike-in-chiang-mai/), consulted 2026-11-14.

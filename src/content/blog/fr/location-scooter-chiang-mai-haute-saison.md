@@ -6,13 +6,13 @@ tldr:
   - "De novembre à janvier, les prix montent et la location au mois devient difficile à trouver : beaucoup de loueurs ne louent plus qu'à la journée ou à la semaine, à des tarifs moins avantageux. Peu affichent une grille haute saison : demande le prix pour tes dates exactes et réserve tôt."
   - "Ne laisse pas ton passeport en caution. Les conseils des gouvernements irlandais et britannique disent non. Une copie et une caution en espèces d'environ 1 000 à 5 000 THB (26 à 131 €) sont l'alternative courante."
   - "Il te faut ton permis moto et un permis international avec la catégorie moto, ou un permis thaïlandais. L'assurance obligatoire thaïlandaise couvre les blessures et le décès, pas la moto."
-  - "Nos cinq adresses : Wildcat, Mango Scooters, Aya Service, Grape Ride Rental et Funky Bike Rental. Wildcat est en tête pour la simplicité : la moto arrive avec ton entraînement et ta chambre."
-publishDate: 2026-11-20
+  - "Nos cinq adresses : Wildcat, Mango Scooters, Aya Service, GM MotorBike Rental et Funky Bike Rental. Wildcat est en tête pour la simplicité : la moto arrive avec ton entraînement et ta chambre."
+publishDate: 2026-11-14
 author: "Meaw Boonpradub"
 category: chiang-mai-life
 cover: ../covers/location-scooter-chiang-mai-haute-saison.webp
 coverAlt: "Couverture d'un guide de la location de scooter à Chiang Mai en haute saison par Wildcat Muay Thai"
-draft: true
+draft: false
 translationKey: scooter-rental-chiang-mai-high-season
 ---
 
@@ -38,7 +38,7 @@ Notre lecture : attends-toi à payer plus, à trouver moins d’offres au mois
 
 Du point de vue d’un loueur, une moto louée à la journée rapporte souvent plus que la même moto louée au mois : quand c’est la cohue, la location mensuelle est la plus facile à refuser. C’est ce que nous voyons pendant les semaines de pointe : les loueurs préfèrent remplir une moto jour après jour. Cat Motors indique de son côté que ses locations à la journée, à la semaine et au mois dépendent « de la disponibilité des motos », et la plupart de ses modèles affichent le tarif mensuel « sur demande ». C’est sa propre page, pas une rumeur.
 
-Combien coûte une location au mois ? D’après les guides lus, un scooter de 110 à 125 cc tourne en général autour de 2 500 à 4 500 THB par mois (environ 66 à 118 €). Exemples publiés par des boutiques : Mango affiche un Click 125i à 2 900 THB (76 €) et un Scoopy 110i à 3 500 THB (92 €) par mois. Notre propre tarif mensuel publié est de 3 000 THB (79 €). Les cylindrées plus grosses coûtent plus cher.
+Combien coûte une location au mois ? D’après les guides lus, un scooter de 110 à 125 cc tourne en général autour de 2 500 à 4 500 THB par mois (environ 66 à 118 €). Exemples publiés par des boutiques : Mango affiche un Click 125i à 2 900 THB (76 €) et un Scoopy 110i à 3 500 THB (92 €) par mois. Notre propre tarif mensuel est de 3 000 THB (79 €), et il ne change pas en haute saison. Les cylindrées plus grosses coûtent plus cher.
 
 Si tu restes un mois ou plus, écris tôt, donne des dates exactes et pose trois questions : le tarif mensuel est-il confirmé pour ces dates, quelle est la caution, et que se passe-t-il en cas de panne.
 
@@ -76,7 +76,7 @@ Nous n’avons pas essayé une moto dans chaque boutique et nous n’avons aucun
 
 Nous sommes premiers parce que la moto fait partie du séjour. Notre offre tout compris [Stay & Train](/stay-train) coûte 28 000 THB par personne et par mois (736 €), ou 8 000 THB par semaine (210 €) pour une à trois semaines. Elle comprend une chambre privée dans une maison partagée climatisée, charges comprises, l’entraînement illimité, une moto et un transfert depuis l’aéroport. Les repas et l’essence ne sont pas inclus. Tu n’as pas à courir les boutiques en pleine saison : la moto, la chambre et l’entraînement se règlent dans une seule conversation.
 
-Si tu n’as besoin que d’une moto, [louer un scooter dans notre camp de Hang Dong](/stay-train/scooter-rental) est possible aussi. Notre tarif publié pour la Honda Scoopy i Prestige (2024) est de 350 THB par jour (9 €) ou 3 000 THB par mois (79 €). Nous sommes un camp, pas une chaîne de location : la flotte est petite. Demande-nous le tarif et la disponibilité pour tes dates, ainsi que la caution, le casque et les conditions de permis au moment de réserver. Écris-nous en anglais, l’équipe est anglophone.
+Si tu n’as besoin que d’une moto, [louer un scooter dans notre camp de Hang Dong](/stay-train/scooter-rental) est possible aussi. Notre tarif pour la Honda Scoopy i Prestige (2024) est de 350 THB par jour (9 €) ou 3 000 THB par mois (79 €), et il reste le même en haute saison, location au mois comprise. Nous sommes un camp, pas une chaîne de location : la flotte est petite. Demande-nous la disponibilité pour tes dates, ainsi que la caution, le casque et les conditions de permis au moment de réserver. Écris-nous en anglais, l’équipe est anglophone.
 
 - **Camp :** 132 Moo 7, Chaw Fa Village, Nong Kwai, Hang Dong, Chiang Mai 50230.
 - **Téléphone et WhatsApp :** +66 85 720 9620. Ou [écris-nous au sujet d’un scooter](/contact?intent=scooter).
@@ -97,13 +97,13 @@ Aya Service est un opérateur Chiang Mai et Pai qui propose aussi des excursions
 - **WhatsApp :** +66 86 920 8666 (Aoy). Autre numéro indiqué : 093 308 6688.
 - **Site :** [ayaservice.com](https://www.ayaservice.com/).
 
-### 4. Grape Ride Rental : livraison et offres au mois à Chang Phueak
+### 4. GM MotorBike Rental : une petite boutique de la vieille ville, très bien notée
 
-Grape Ride Rental, dans le quartier de Chang Phueak, au nord de la vieille ville, indique sur sa [page officielle](https://graperiderental.carrd.co) proposer des locations à la journée, à la semaine, à la quinzaine et au mois, avec kilométrage illimité, assistance en cas de panne et livraison gratuite ou peu chère à ton hôtel. Il ne publie pas de prix (« contactez-nous pour une offre »), recommande de réserver à l’avance en haute saison, et dit demander ton passeport, ton permis moto et une petite caution remboursable. Demande s’il garde le passeport original. Il indique des casques adultes gratuits.
+GM MotorBike Rental est une petite boutique du quartier de Sriphum, l’angle nord-est de la vieille ville. Elle n’a pas de site et prend les réservations sur WhatsApp. Ce qui la distingue, c’est sa note Google : 4,9 sur 5 pour 231 avis quand nous avons vérifié, avec des clients qui saluent des prix corrects et des motos bien entretenues. Elle ne publie pas de grille de prix : demande le tarif pour tes dates, ainsi que le montant de la caution et si elle garde les passeports. Elle ferme à 18 h.
 
-- **Adresse :** 8/4 Tanin Alley, Chang Phueak, Mueang, Chiang Mai 50300.
-- **Téléphone et WhatsApp :** 082 591 0826.
-- **Site :** [graperiderental.carrd.co](https://graperiderental.carrd.co).
+- **Adresse :** No. 21, Soi 1 Sriphum, Inthawarorot Road, Mueang, Chiang Mai 50200, d’après sa [fiche Google Maps](https://maps.app.goo.gl/nyMPXEo5hGkHNZdC6).
+- **Téléphone et WhatsApp :** +66 93 697 1272, ou [écris-lui sur WhatsApp](https://wa.me/66936971272).
+- **Site :** aucun. Sa [fiche Google Maps](https://maps.app.goo.gl/nyMPXEo5hGkHNZdC6) donne les avis et les horaires.
 
 ### 5. Funky Bike Rental : un concessionnaire Honda sur Huay Kaew Road
 
@@ -115,10 +115,10 @@ Funky Bike Rental dit sur son [site officiel](https://www.rentalchiangmai.com) �
 
 | Boutique | Zone | Prix publié | À noter |
 |---|---|---|---|
-| Wildcat | Hang Dong | Scoopy i : 350/jour, 3 000/mois. Stay & Train : 28 000/mois avec une moto | Écris pour tes dates |
+| Wildcat | Hang Dong | Scoopy i : 350/jour, 3 000/mois. Stay & Train : 28 000/mois avec une moto | Même tarif en haute saison, au mois compris |
 | Mango Scooters | Ville | Click 125i : 250/jour, 2 900/mois | Ouvert depuis 2012 |
 | Aya Service | Chiang Mai et Pai | À partir de 200/jour | Aller simple vers Pai listé |
-| Grape Ride Rental | Chang Phueak | Non publié | Réservation anticipée conseillée en haute saison |
+| GM MotorBike Rental | Vieille ville (Sriphum) | Non publié | 4,9/5 sur 231 avis Google, réservation sur WhatsApp |
 | Funky Bike Rental | Huay Kaew | À partir de 300 (Scoopy i) | Ouvert tous les jours de 8 h à 17 h 30 |
 
 ## Comment choisir
@@ -126,7 +126,7 @@ Funky Bike Rental dit sur son [site officiel](https://www.rentalchiangmai.com) �
 - **Tu t’entraînes chez nous quelques semaines ou quelques mois :** prends l’offre Stay & Train et demande la moto dans le même message.
 - **Tu veux une grille de prix transparente :** commence par Mango Scooters, et écris à l’avance pour novembre à janvier.
 - **Tu veux une moto pour un trajet vers Pai ou un aller simple :** demande à Aya Service.
-- **Tu veux la livraison :** essaie Grape Ride Rental.
+- **Tu veux une petite boutique dans la vieille ville :** essaie GM MotorBike Rental.
 - **Tu veux une boutique tenue par un concessionnaire :** essaie Funky Bike Rental.
 
 Quel que soit ton choix, fais les vérifications ci-dessus. Pour le reste du séjour, [notre guide de Chiang Mai](/chiang-mai-guide) donne les bases.
@@ -167,6 +167,7 @@ En haute saison, la location qui marche est celle qu’on organise tôt. Demande
 - Mango Scooters, prix, caution, assurance, ouverture depuis 2012 et contact : [mangobikesrent.com](https://mangobikesrent.com/) et [page contact](https://mangobikesrent.com/contact-us-2/), consulté le 2026-11-14.
 - Aya Service, flotte, prix, adresse et contact : [ayaservice.com/motorcycle](https://www.ayaservice.com/motorcycle) et [page contact](https://www.ayaservice.com/contact), consulté le 2026-11-14.
 - Grape Ride Rental, conditions, adresse et contact : [graperiderental.carrd.co](https://graperiderental.carrd.co), consulté le 2026-11-14.
+- GM MotorBike Rental, adresse, téléphone, horaires et note (4,9, 231 avis) : [fiche Google Maps](https://maps.app.goo.gl/nyMPXEo5hGkHNZdC6), consulté le 2026-11-14.
 - Funky Bike Rental, prix, horaires et téléphone : [rentalchiangmai.com](https://www.rentalchiangmai.com) ; adresse depuis sa [page LINE](https://page.line.me/funkybikerental) officielle, consulté le 2026-11-14.
 - Réservation à l’avance en haute saison, guide d’annuaire (mis à jour le 19 juillet 2026) : [Ride Chiang Mai](https://ridecm-web.pages.dev/rental-guide/best-scooter-rental-chiang-mai-independent-guide/), consulté le 2026-11-14.
 - Hausse des prix en haute saison, blog d’une boutique (6 juillet 2025) : [JeJe Motorcycles](https://jejemotorcycles.com/how-much-does-it-cost-to-rent-a-motorbike-in-chiang-mai/), consulté le 2026-11-14.
