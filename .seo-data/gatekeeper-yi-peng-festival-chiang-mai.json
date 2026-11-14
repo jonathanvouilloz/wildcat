@@ -1,0 +1,15 @@
+{
+  "topic": "yi peng festival chiang mai",
+  "generated_at": "2026-11-14T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "yi peng festival chiang mai",
+      "verdict": "PASS",
+      "gates": {"surprise_gap": "pass", "grounding": "pass"},
+      "signals": {"intent": "know", "pseo_scalable": false},
+      "failed_pillar": null,
+      "rationale": "Owner override of the 29/09 rejection (SERP = ticket sellers). Surprise gap: ticket and affiliate pages do not say that lantern release is banned in Hang Dong and Mueang, do not compare khom loi / khom fai / krathong, do not separate the ticketed CAD release from the free city programme, and have no first-hand voice. Grounding: camp in Hang Dong (inside the no-release zone in 2024 and 2025), class schedule in site.ts. Volume: not measured (autocomplete only: 'yi peng festival chiang mai' + free/location/date/reddit).",
+      "priority": "moyenne"
+    }
+  ]
+}

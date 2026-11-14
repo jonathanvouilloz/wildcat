@@ -1,0 +1,15 @@
+{
+  "topic": "monthly scooter rental chiang mai / best scooter rental chiang mai",
+  "generated_at": "2026-11-14T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "monthly scooter rental chiang mai",
+      "verdict": "PASS",
+      "gates": {"surprise_gap": "pass", "grounding": "pass"},
+      "signals": {"intent": "compare", "pseo_scalable": false},
+      "failed_pillar": null,
+      "rationale": "Surprise gap: listicles (directory pages, affiliate) mention seasonality in one line at most and give no dated evidence on Nov-Jan availability, shops that only rent per day or week, or what to check (passport, IDP with motorcycle category, Por Ror Bor limits). Grounding: Wildcat rents scooters at the camp (site.ts scooterFleet, Stay & Train includes a bike). Head 'scooter rental chiang mai' stays on /stay-train/scooter-rental. Volumes: 10/mo (best scooter rental chiang mai, monthly scooter rental chiang mai) from .seo-data/q4-2026/kw-all.tsv, historical DataForSEO.",
+      "priority": "moyenne"
+    }
+  ]
+}

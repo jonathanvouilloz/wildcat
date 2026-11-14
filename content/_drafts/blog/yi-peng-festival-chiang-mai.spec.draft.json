@@ -1,0 +1,206 @@
+{
+ "slug": "yi-peng-festival-chiang-mai",
+ "module": "B",
+ "snippet": {
+  "title": "Yi Peng Festival Chiang Mai 2026: Dates, Rules, Tips",
+  "h1": "Yi Peng in Chiang Mai 2026: dates, lantern rules and how we celebrate from Hang Dong",
+  "description": "Yi Peng festival in Chiang Mai 2026: dates, lantern rules (Hang Dong was a no-release zone in 2024 and 2025), ticketed vs free, krathong tips."
+ },
+ "dates": {
+  "pubDate": "2026-11-16",
+  "updatedDate": null,
+  "reviewedDate": null
+ },
+ "word_count": {
+  "minimum": 1800,
+  "maximum": 2300
+ },
+ "primary_keyword": "yi peng festival chiang mai",
+ "keywords": [
+  {
+   "role": "primary",
+   "query": "yi peng festival chiang mai",
+   "natural_form": "the Yi Peng festival in Chiang Mai",
+   "volume": null,
+   "placements": [
+    "body"
+   ]
+  },
+  {
+   "role": "secondary",
+   "query": "yi peng 2026 chiang mai",
+   "natural_form": "Yi Peng 2026",
+   "volume": null,
+   "placements": [
+    "body"
+   ]
+  },
+  {
+   "role": "secondary",
+   "query": "loy krathong chiang mai 2026",
+   "natural_form": "Loy Krathong 2026 in Chiang Mai",
+   "volume": null,
+   "placements": [
+    "body"
+   ]
+  },
+  {
+   "role": "secondary",
+   "query": "yi peng chiang mai free",
+   "natural_form": "free ways to join",
+   "volume": null,
+   "placements": [
+    "body"
+   ]
+  },
+  {
+   "role": "secondary",
+   "query": "chiang mai lantern festival 2026",
+   "natural_form": "the lantern festival",
+   "volume": null,
+   "placements": [
+    "body"
+   ]
+  },
+  {
+   "role": "long_tail",
+   "query": "yi peng chiang mai tickets",
+   "natural_form": "tickets",
+   "volume": null,
+   "placements": [
+    "body"
+   ]
+  },
+  {
+   "role": "long_tail",
+   "query": "where to release lanterns in chiang mai",
+   "natural_form": "where you may release a lantern",
+   "volume": null,
+   "placements": [
+    "body"
+   ]
+  },
+  {
+   "role": "long_tail",
+   "query": "khom loi vs krathong",
+   "natural_form": "khom loi, khom fai and krathong",
+   "volume": null,
+   "placements": [
+    "body"
+   ]
+  }
+ ],
+ "bold_entities": [
+  {
+   "entity": "yi peng festival chiang mai",
+   "accepted_forms": [
+    "the Yi Peng festival in Chiang Mai",
+    "The yi peng festival in chiang mai"
+   ],
+   "required": true,
+   "maximum_occurrences": 1
+  }
+ ],
+ "structure": [
+  {
+   "id": "at-a-glance",
+   "level": 2,
+   "heading": "Yi Peng 2026 at a glance: dates, what is confirmed and what is not",
+   "purpose": "Dates (TAT), programme source unique, gaps",
+   "target_keywords": []
+  },
+  {
+   "id": "what-is-what",
+   "level": 2,
+   "heading": "Khom loi, khom fai, krathong: what is what, and why Lanna people do it",
+   "purpose": "Culture and terminology",
+   "target_keywords": []
+  },
+  {
+   "id": "lantern-rules",
+   "level": 2,
+   "heading": "Can you release a lantern? The rules, and why Hang Dong is off limits",
+   "purpose": "Rules, precedent, airport",
+   "target_keywords": []
+  },
+  {
+   "id": "ticketed-or-free",
+   "level": 2,
+   "heading": "Ticketed release or free celebration? What you actually get",
+   "purpose": "CAD vs free city events",
+   "target_keywords": []
+  },
+  {
+   "id": "krathong-tips",
+   "level": 2,
+   "heading": "Krathong done right, and practical tips",
+   "purpose": "Eco krathong, logistics, safety",
+   "target_keywords": []
+  },
+  {
+   "id": "our-take",
+   "level": 2,
+   "heading": "Our take: train in the morning, celebrate in the evening",
+   "purpose": "Wildcat opinion, planning link",
+   "target_keywords": []
+  }
+ ],
+ "internal_links": [
+  {
+   "url": "/chiang-mai-guide",
+   "anchor": "our Chiang Mai guide",
+   "section_id": "our-take",
+   "required": true,
+   "reason": "Hub"
+  },
+  {
+   "url": "/classes#schedule",
+   "anchor": "our daily class schedule",
+   "section_id": "our-take",
+   "required": true,
+   "reason": "Planning"
+  },
+  {
+   "url": "/blog/best-time-train-muay-thai-thailand",
+   "anchor": "best time to train Muay Thai in Thailand",
+   "section_id": "at-a-glance",
+   "required": false,
+   "reason": "Saison"
+  },
+  {
+   "url": "/blog/burning-season-chiang-mai",
+   "anchor": "the burning season",
+   "section_id": "our-take",
+   "required": false,
+   "reason": "Saison"
+  },
+  {
+   "url": "/stay-train",
+   "anchor": "Stay & Train",
+   "section_id": "our-take",
+   "required": false,
+   "reason": "Offre"
+  }
+ ],
+ "sources": [],
+ "claims": [],
+ "images": [],
+ "cta": {
+  "url": "/contact?intent=stay",
+  "anchor": "Ask us about your dates on WhatsApp",
+  "campaign": "blog-yi-peng"
+ },
+ "frontmatter": {
+  "author": "Meaw Boonpradub",
+  "category": "chiang-mai-life",
+  "tags": [
+   "yi peng",
+   "loy krathong",
+   "chiang mai"
+  ],
+  "draft": true,
+  "locale": "en",
+  "source_locale": "en",
+  "translation_key": "yi-peng-festival-chiang-mai"
+ }
+}

@@ -1,0 +1,226 @@
+{
+  "slug": "scooter-rental-chiang-mai-high-season",
+  "module": "E",
+  "snippet": {
+    "title": "Monthly Scooter Rental in Chiang Mai: High Season Guide",
+    "h1": "Renting a scooter in Chiang Mai from November to January: what changes, what to check, and 5 places we'd use",
+    "description": "Monthly scooter rental in Chiang Mai is harder to find from November to January. What to check before you sign, plus 5 places to rent."
+  },
+  "dates": {
+    "pubDate": "2026-11-20",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 2000,
+    "maximum": 2500
+  },
+  "primary_keyword": "monthly scooter rental chiang mai",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "monthly scooter rental chiang mai",
+      "natural_form": "monthly scooter rental in Chiang Mai",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "best scooter rental chiang mai",
+      "natural_form": "the best scooter rental in Chiang Mai",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "motorbike rental chiang mai",
+      "natural_form": "motorbike rental",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "scooter rental chiang mai high season",
+      "natural_form": "high season",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "scooter rental chiang mai price",
+      "natural_form": "prices",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "mango scooter rental chiang mai",
+      "natural_form": "Mango Scooters",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "aya scooter rental chiang mai",
+      "natural_form": "Aya Service",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "international driving permit motorcycle thailand",
+      "natural_form": "IDP with motorcycle category",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "monthly scooter rental chiang mai",
+      "accepted_forms": [
+        "monthly scooter rental in Chiang Mai",
+        "Monthly scooter rental in chiang mai"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "what-changes",
+      "level": 2,
+      "heading": "What changes in high season (November to January)",
+      "purpose": "Evidence and limits",
+      "target_keywords": []
+    },
+    {
+      "id": "monthly-or-weekly",
+      "level": 2,
+      "heading": "Monthly or weekly? Why long rentals go first",
+      "purpose": "Monthly availability",
+      "target_keywords": []
+    },
+    {
+      "id": "what-to-check",
+      "level": 2,
+      "heading": "What to check before you rent",
+      "purpose": "Checklist",
+      "target_keywords": []
+    },
+    {
+      "id": "top-5",
+      "level": 2,
+      "heading": "Our top 5 places to rent a scooter in Chiang Mai",
+      "purpose": "Wildcat first, then 4 shops",
+      "target_keywords": []
+    },
+    {
+      "id": "how-to-pick",
+      "level": 2,
+      "heading": "How to pick",
+      "purpose": "Decision guide",
+      "target_keywords": []
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/stay-train/scooter-rental",
+      "anchor": "renting a scooter at our camp in Hang Dong",
+      "section_id": "top-5",
+      "required": true,
+      "reason": "Landing (tête de requête)"
+    },
+    {
+      "url": "/stay-train",
+      "anchor": "Stay & Train",
+      "section_id": "top-5",
+      "required": true,
+      "reason": "Offre"
+    },
+    {
+      "url": "/chiang-mai-guide",
+      "anchor": "our Chiang Mai guide",
+      "section_id": "how-to-pick",
+      "required": true,
+      "reason": "Hub"
+    },
+    {
+      "url": "/blog/best-time-train-muay-thai-thailand",
+      "anchor": "best time to train Muay Thai in Thailand",
+      "section_id": "what-changes",
+      "required": false,
+      "reason": "Saison"
+    },
+    {
+      "url": "/blog/burning-season-chiang-mai",
+      "anchor": "burning season",
+      "section_id": "what-changes",
+      "required": false,
+      "reason": "Saison"
+    }
+  ],
+  "sources": [],
+  "claims": [],
+  "images": [],
+  "cta": {
+    "url": "/contact?intent=scooter",
+    "anchor": "Ask us about a scooter on WhatsApp",
+    "campaign": "blog-scooter-high-season"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "chiang-mai-life",
+    "tags": [
+      "scooter rental",
+      "chiang mai",
+      "high season"
+    ],
+    "draft": true,
+    "locale": "en",
+    "source_locale": "en",
+    "translation_key": "scooter-rental-chiang-mai-high-season"
+  },
+  "schema_version": 1,
+  "source_brief": "content/_drafts/blog/scooter-rental-chiang-mai-high-season.md",
+  "source_hash": "sha256:55be0f2532418a926f452c9808d6085cb58f261442a2fb5608b93a9b078c57b6",
+  "context_hash": "sha256:14e71e55df8d2b3e5279f967dfcd1ca8cb5ff566e435b074e33a2a5e3e418f84",
+  "compiled_at": "2026-11-14T07:52:44+00:00",
+  "research_artifacts": [
+    {
+      "kind": "gatekeeper",
+      "path": ".seo-data/gatekeeper-scooter-rental-chiang-mai-high-season.json",
+      "hash": "sha256:380f66e755bc695c1413650a74c2b5011cd38afd1f8aadfd6159faec81a7addb"
+    },
+    {
+      "kind": "serp",
+      "path": ".seo-data/research-scooter-high-season-2026-11-14.md",
+      "hash": "sha256:f308abb9c651cb71d97e4c77ee8d2ce28feba3fcae1882de6a2b9fd2366d559c"
+    },
+    {
+      "kind": "competitors",
+      "path": ".seo-data/research-scooter-competitors-2026-11-14.md",
+      "hash": "sha256:0b7d397a2d31fabf9f76174e79960649e0a46a2d3f331be24542dd085df63cca"
+    },
+    {
+      "kind": "keywords",
+      "path": ".seo-data/q4-2026/kw-all.tsv",
+      "hash": "sha256:879bd9b0b8048ab9d8dae79390f5677bfed3699f7bba608529ac76d503b4da2a"
+    }
+  ]
+}
