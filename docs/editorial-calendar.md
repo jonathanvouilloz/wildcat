@@ -208,6 +208,13 @@ localisées (jeudis), tri FR → `.seo-data/fr-translation-triage-2026-10-16.jso
 | jeu. 26 nov. | `mongkhon-bandeau-boxe-thai` | FR | mongkhon | 140 | [x] prêt |
 | jeu. 3 déc. | `wai-kru-ram-muay` | FR | wai kru | 110 | [x] prêt |
 
+**Ajouts du 14/11** (demande Jonathan, EN + FR) :
+
+| Sortie | Slug EN / FR | Kw principal | Statut |
+|---|---|---|---|
+| sam. 14 nov. | `scooter-rental-chiang-mai-high-season` / `location-scooter-chiang-mai-haute-saison` | monthly scooter rental chiang mai | [x] publié |
+| lun. 16 nov. | `yi-peng-festival-chiang-mai` / `fete-des-lanternes-chiang-mai` | yi peng festival chiang mai | [~] `draft: true`, attend le go |
+
 ### Maillage entrant à poser le jour de la sortie (jamais avant : lien vers un article futur = 404)
 
 | Article | Liens entrants à ajouter |
@@ -250,5 +257,5 @@ localisées (jeudis), tri FR → `.seo-data/fr-translation-triage-2026-10-16.jso
 
 `muay-thai-vs-karate` (590) · `muay-thai-benefits` (210) · « too old to start Muay Thai » (PAA, volume à mesurer) ·
 `digital-nomad-train-muay-thai-chiang-mai` (50) · FR : traduction de `best-time-train` et `muay-thai-for-women` (démo FR).
-Écartés (motif dans `.seo-data/q4-2026/serp-q4-2026.md`) : Yi Peng dédié (SERP billetterie), kids (0), Noël (merch),
+Écartés (motif dans `.seo-data/q4-2026/serp-q4-2026.md`) : Yi Peng dédié (SERP billetterie, finalement produit le 14/11 à la demande de Jonathan), kids (0), Noël (merch),
 TDAC (site officiel), exemption 30 j dédiée (cannibalise les guides visa).

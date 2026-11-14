@@ -169,6 +169,12 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 - **Décision (forfaits)** : `site.pricing.longStay` (pack30 12 000 / pack50 17 000 / unlimited6 24 000 *populaire* / unlimited12 36 000), **coexiste** avec le pricing court-terme. Cartes via `LongStayPackages.astro` (réutilise `PricingCard`/`PricingTable` + prop `cols=4`) sur `/dtv-visa/long-stay-training`, `/classes#pricing`, `/stay-train#packages`. Sélection = cartes → deep-link `/contact?intent=dtv&package=<key>` → dropdown pré-rempli sur l'intent DTV. La page DTV long-stay lève sa doctrine « ne vend pas de package ».
 - **Alternatives écartées** : (1) date-picker custom — demandé puis retiré par Jonathan, on garde les `input type="date"` natifs ; (2) dropdown package sur plusieurs intents — rattaché à DTV uniquement (ce sont des « DTV packages ») ; (3) modal + redirect banner — écarté, le modal EST la confirmation.
 
+## 2026-11-14 — Articles novembre : Yi Peng dédié + scooter haute saison
+
+- **Yi Peng dédié** : le plan Q4 l'avait écarté (SERP billetterie) ; Jonathan le demande, on le fait sous l'angle Wildcat (fête gratuite en ville plutôt que lâcher payant, pas de lanterne depuis Hang Dong). Faux si l'article ne prend aucune impression d'ici fin novembre 2027.
+- **Scooter** : l'article vise « monthly / best scooter rental chiang mai » et laisse la tête « scooter rental chiang mai » à `/stay-train/scooter-rental`, qu'il maille. Top 5 imposé par Jonathan (Wildcat n°1, puis Mango, Aya, GM, Funky), liens concurrents suivis (backlinks voulus).
+- **Fait propriétaire** : le tarif scooter Wildcat (350/jour, 3 000/mois) ne change pas en haute saison, au mois compris ; la hausse des prix et la rareté du mensuel chez les autres loueurs sont affirmées comme expérience Wildcat (confirmé par Jonathan le 2026-11-14).
+
 ## Décisions EN ATTENTE (questions ouvertes restantes)
 
 | # | Sujet | Options | Impact |
