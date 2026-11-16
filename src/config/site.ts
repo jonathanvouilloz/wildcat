@@ -15,6 +15,9 @@ export const site = {
   domain: 'wildcatmuaythai.com', // Q5 tranchée (2026-06-05)
   // tagline / motto / contact.note → messages : site_tagline, site_motto, footer_contact_note
 
+  /** App équipe : reçoit le signal de clic WhatsApp (POST /public/click). */
+  app: { url: 'https://app.wildcatmuaythai.com' },
+
   contact: {
     // Adresse confirmée 2026-06-04 (Jonathan) — Nong Kwai, Hang Dong.
     address: '132 หมู่ 7 Chaw Fa Vlg, Tambon Nong Kwai, Hang Dong District, Chiang Mai 50230, Thailand',

@@ -117,5 +117,23 @@ const xDefault = alternates.find((alt) => alt.lang === 'en')?.href;
     <script>
       import '../scripts/animations';
     </script>
+    <!-- Code client WC-XXXX sur les liens WhatsApp du camp + signal à l'app équipe -->
+    <script>
+      import { site } from '../config/site';
+      import { codeIn, isCampLink, newCode, pageOf, sendClick, topicOf, withRef } from '../lib/wa-ref';
+
+      document.addEventListener(
+        'click',
+        (e) => {
+          const a = (e.target as Element | null)?.closest<HTMLAnchorElement>('a[href]');
+          const href = a?.href;
+          if (!a || !href || !isCampLink(href, site.contact.whatsapp)) return;
+          const code = codeIn(href) ?? newCode();
+          a.href = withRef(href, code);
+          sendClick(`${site.app.url}/public/click`, code, pageOf(location.pathname), topicOf(location.pathname));
+        },
+        true,
+      );
+    </script>
   </body>
 </html>

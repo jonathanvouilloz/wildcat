@@ -4,6 +4,8 @@
  *
  * Au submit (JS actif) :
  *  1. validation native (checkValidity) — name/email/consent restent requis ;
+ *  1b. code client WC-XXXX : posé dans le champ `ref` (email + routeur interne) et
+ *      ajouté au texte WhatsApp, pour que l'équipe relie le message au formulaire ;
  *  2. construit le message WhatsApp depuis les champs remplis (buildText) ;
  *  3. envoie l'email Web3Forms en tâche de fond (fetch keepalive) → le lead
  *     est capturé même si le visiteur ne clique jamais sur WhatsApp ;
@@ -16,6 +18,9 @@
  * Sans JS : rien de tout ça ne tourne — le POST natif vers Web3Forms envoie
  * l'email (fallback) et redirige vers ?sent=1 (bannière existante).
  */
+import { newCode, pageOf, sendClick, topicOf, withRef } from '../lib/wa-ref';
+import { site } from '../config/site';
+
 export interface WaSubmitOptions {
   /** Numéro wa.me de base, ex. https://wa.me/66857209620 */
   waBase: string;
@@ -55,6 +60,11 @@ export function submitViaWhatsApp(form: HTMLFormElement, opts: WaSubmitOptions):
     const text = opts.buildText(form);
     const reco = opts.recoKey?.(form);
 
+    // 1b. code client, avant new FormData pour qu'il parte avec le formulaire.
+    const code = newCode();
+    const refField = form.elements.namedItem('ref') as HTMLInputElement | null;
+    if (refField) refField.value = code;
+
     // 2. nettoyage optionnel (email propre côté Meaw).
     opts.beforeSubmit?.(form);
 
@@ -77,7 +87,7 @@ export function submitViaWhatsApp(form: HTMLFormElement, opts: WaSubmitOptions):
       keepalive: true,
     }).catch(() => {});
 
-    const waUrl = `${opts.waBase}?text=${encodeURIComponent(text)}`;
+    const waUrl = withRef(`${opts.waBase}?text=${encodeURIComponent(text)}`, code);
 
     // 4a. modal in-site : aperçu + lien wa.me, puis ouverture. On reste sur la page.
     if (modal) {
@@ -98,6 +108,8 @@ export function submitViaWhatsApp(form: HTMLFormElement, opts: WaSubmitOptions):
     }
 
     // 4b. fallback sans modal : ancien comportement (ouverture directe + bannière).
+    // Pas de lien cliqué ici : l'écouteur global ne voit rien, on signale le clic nous-mêmes.
+    sendClick(`${site.app.url}/public/click`, code, pageOf(location.pathname), topicOf(location.pathname));
     const wa = window.open(waUrl, '_blank');
     if (wa) wa.opener = null;
     const redirect = form.querySelector<HTMLInputElement>('input[name="redirect"]')?.value;
