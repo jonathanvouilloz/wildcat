@@ -5,14 +5,16 @@ name: Scheduled rebuild (auto-publish)
 # `publishDate <= Date.now()` (src/lib/blog.ts) ne s'évalue qu'au build,
 # donc un article programmé n'apparaît qu'après un nouveau déploiement.
 #
-# Mécanique : ce workflow tape un Deploy Hook Vercel (URL secrète). Aucune
+# Mécanique : ce workflow tape un Deploy Hook Cloudflare Workers Builds (URL secrète).
+# Depuis 2026-11-16 (avant : Vercel). Aucune
 # fonction serverless n'est ajoutée au site — il reste statique.
 #
 # Setup requis (une seule fois) :
-#   1. Vercel → Project → Settings → Git → Deploy Hooks → créer un hook
-#      (branche `main`), copier l'URL.
+#   1. Hook créé par l'API Workers Builds (POST /accounts/{id}/builds/workers/{script_tag}/deploy_hooks,
+#      branche `main`) ; URL = https://api.cloudflare.com/client/v4/workers/builds/deploy_hooks/<uuid>.
+#      Copie privée sur le VPS jonlabs : ~/.config/cloudflare/wildcat-deploy-hook.
 #   2. GitHub → repo → Settings → Secrets and variables → Actions →
-#      New repository secret : nom `VERCEL_DEPLOY_HOOK`, valeur = l'URL.
+#      New repository secret : nom `DEPLOY_HOOK`, valeur = l'URL.
 
 on:
   schedule:
@@ -25,18 +27,18 @@ jobs:
   rebuild:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Vercel deploy hook
+      - name: Trigger Cloudflare deploy hook
         env:
-          DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+          DEPLOY_HOOK: ${{ secrets.DEPLOY_HOOK }}
         run: |
           if [ -z "$DEPLOY_HOOK" ]; then
-            echo "::warning::Secret VERCEL_DEPLOY_HOOK absent — rien à déclencher."
+            echo "::warning::Secret DEPLOY_HOOK absent — rien à déclencher."
             echo "Ajoute-le dans repo Settings > Secrets > Actions pour activer l'auto-publication."
             exit 0
           fi
-          echo "Déclenchement du redéploiement Vercel…"
+          echo "Déclenchement du redéploiement (Workers Builds)…"
           code=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$DEPLOY_HOOK")
-          echo "Réponse Vercel : HTTP $code"
+          echo "Réponse Cloudflare : HTTP $code"
           if [ "$code" -ge 400 ]; then
             echo "::error::Le deploy hook a répondu $code."
             exit 1

@@ -50,3 +50,6 @@ PNG/image-a-traiter/review*.jpg
 
 # Cache de contexte contenu (dérivé, régénéré par les skills)
 .project-cache/
+
+# wrangler local state
+.wrangler/
