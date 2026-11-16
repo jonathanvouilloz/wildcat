@@ -8,7 +8,7 @@
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "binding": "ASSETS",
-    // trailingSlash never : /en/ → 307/308 vers /en, comme le faisait Vercel.
+    // trailingSlash never : /en/ → 307 vers /en (Vercel faisait 308).
     "html_handling": "drop-trailing-slash"
   },
   "observability": { "enabled": true }

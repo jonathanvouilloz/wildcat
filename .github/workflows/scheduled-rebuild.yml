@@ -7,7 +7,7 @@ name: Scheduled rebuild (auto-publish)
 #
 # Mécanique : ce workflow tape un Deploy Hook Cloudflare Workers Builds (URL secrète).
 # Depuis 2026-11-16 (avant : Vercel). Aucune
-# fonction serverless n'est ajoutée au site — il reste statique.
+# fonction n'est ajoutée au site (seule /api/inquiry tourne à la demande).
 #
 # Setup requis (une seule fois) :
 #   1. Hook créé par l'API Workers Builds (POST /accounts/{id}/builds/workers/{script_tag}/deploy_hooks,
