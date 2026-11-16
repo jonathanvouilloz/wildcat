@@ -315,7 +315,7 @@ const faqJsonld = {
     const box = document.getElementById('plan-closed');
     if (box) {
       fetch(box.dataset.url!)
-        .then((r) => r.json())
+        .then((r) => (r.ok ? r.json() : []))
         .then((list) => {
           const text = closedText(list, box.dataset.lang!);
           if (!text) return;
@@ -337,6 +337,10 @@ const faqJsonld = {
     padding: 16px 18px;
     margin-bottom: 26px;
     font-size: 15px;
+  }
+  /* display:flex above would otherwise beat the UA [hidden] rule */
+  .banner[hidden] {
+    display: none;
   }
   .banner :global(svg) {
     flex: 0 0 auto;

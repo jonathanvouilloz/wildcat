@@ -34,3 +34,9 @@ test('an invalid date gives an empty string', () => {
   assert.equal(closedText([p('nope', '2026-12-10')], 'en'), '');
   assert.equal(closedText([p('2026-12-10', '2026-13-45')], 'en'), '');
 });
+
+test('fr renders a French month and the year once', () => {
+  const t = closedText([p('2026-12-10', '2026-12-25')], 'fr');
+  assert.match(t, /déc/);
+  assert.equal(t.split('2026').length - 1, 1);
+});
