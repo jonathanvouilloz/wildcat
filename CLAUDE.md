@@ -16,14 +16,14 @@ Site vitrine SEO multi-langue (Astro 6 + Sanity CMS) pour **Wildcat Muay Thai**,
 | Storage DTV | À valider — Google Drive API **ou** Supabase Storage |
 | Comm DTV | WhatsApp deep link (`wa.me`) |
 | Traduction auto | DeepL API (pour langues secondaires éventuelles) |
-| Hosting | Vercel |
+| Hosting | Cloudflare Workers (Workers Builds sur `main`, config `wrangler.jsonc`) — Vercel jusqu’au 2026-11-16 |
 
 ## Commandes utiles
 
 ```bash
 npm install            # dépendances
 npm run dev            # serveur dev (localhost:4321) — studio sur /studio
-npm run build          # build production (→ dist/ + .vercel/output)
+npm run build          # build production (→ dist/client + dist/server, Worker Cloudflare)
 npm run preview        # preview du build
 npm run sanity:types   # extract schéma + typegen → src/lib/sanity.types.ts (100% local)
 ```
