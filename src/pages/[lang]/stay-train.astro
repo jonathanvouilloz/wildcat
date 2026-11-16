@@ -23,6 +23,7 @@ import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../lib/sanity.types'
 import { pickLocale } from '../../lib/i18n-content';
 import { mapTestimonial } from '../../lib/testimonials';
 import { m } from '../../paraglide/messages.js';
+import { site } from '../../config/site';
 
 // Pilier Stay & Train — re-cadrage 2026-06-05 (brief content/_drafts/pages/stay-pillar.md).
 // kw EN : "muay thai camp thailand" (1900/mo) — "Chiang Mai" en qualificatif only
@@ -186,6 +187,10 @@ const faqJsonld = {
         <Icon name="tabler:alert-circle" aria-hidden="true" />
         <p>{m.contact_error_body()}</p>
       </div>
+      <div class="banner banner--closed" id="plan-closed" hidden data-url={site.app.url + '/public/closures'} data-lang={lang}>
+        <Icon name="tabler:calendar-off" aria-hidden="true" />
+        <p><b>{m.stay_closed_title()}</b> <span id="plan-closed-text"></span></p>
+      </div>
       <div class="plan-split">
         {/* le form (conversion clé) reste statique — on n'anime jamais une conversion */}
         <div data-animate="fade-up">
@@ -303,6 +308,23 @@ const faqJsonld = {
       if (sent === 'error') document.getElementById('plan-err').hidden = false;
     })();
   </script>
+
+  <script>
+    import { closedText } from '../../lib/closures.ts';
+    // Non bloquant ; si l'app ne répond pas, le bandeau reste caché.
+    const box = document.getElementById('plan-closed');
+    if (box) {
+      fetch(box.dataset.url!)
+        .then((r) => r.json())
+        .then((list) => {
+          const text = closedText(list, box.dataset.lang!);
+          if (!text) return;
+          document.getElementById('plan-closed-text')!.textContent = text;
+          box.hidden = false;
+        })
+        .catch(() => {});
+    }
+  </script>
 </BaseLayout>
 
 <style>
@@ -347,6 +369,14 @@ const faqJsonld = {
   }
   .banner--err :global(svg) {
     color: var(--error);
+  }
+  .banner--closed {
+    background: color-mix(in srgb, var(--warning), #fff 86%);
+    border: 1px solid var(--warning);
+    color: var(--ink);
+  }
+  .banner--closed :global(svg) {
+    color: var(--warning);
   }
   .plan-split {
     display: grid;
