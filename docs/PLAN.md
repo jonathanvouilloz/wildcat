@@ -18,7 +18,7 @@ Plan d'exécution maître. Statuts : `TODO` · `EN COURS` · `DONE` · `BLOQUÉ`
 | E7 | SEO technique | M | TODO | [E7-seo-technical.md](features/E7-seo-technical.md) |
 | E8 | Blog & contenu | M | **EN COURS** (moteur DONE 2026-06-05, M1 4 articles DONE 2026-06-11, M2 beginners 4 articles DONE 2026-06-13, hub `/chiang-mai-guide` DONE 2026-06-13, **cluster DTV-coûts COMPLET 2026-07-03 (7/7 articles publiés, échelonnés 07-03→07-18)** + fix title≠H1 + skill `/seo-sources`, article news DTV 31/08 publié 2026-08-27, **revue SEO 2026-09-29 : silo DTV fusionné (4 pages), 7 articles Q4 programmés 06/10→15/12**) | [E8-blog-content.md](features/E8-blog-content.md) |
 | E9 | Médias & galerie | S | TODO | [E9-media.md](features/E9-media.md) |
-| E10 | Déploiement Vercel | S | TODO | [E10-deploy.md](features/E10-deploy.md) |
+| E10 | Déploiement | S | **EN COURS** (hébergement Cloudflare Workers en prod depuis 2026-11-16 : [hosting-cloudflare.md](features/hosting-cloudflare.md) ; spec Vercel d'origine obsolète) | [E10-deploy.md](features/E10-deploy.md) |
 
 > `docs/features/` ne contient que les epics **restants** (E6→E10) — les specs des epics livrés sont supprimées, leur historique vit dans `DECISIONS.md` et les entrées datées ci-dessous.
 
@@ -39,7 +39,7 @@ E1 Foundation
 4. **E6 DTV app** — peut démarrer dès que E5 (page pillar) + storage (Q1) tranchés.
 5. **E7 SEO technique** — sitemap, hreflang, schema.org, OG (une fois les pages en place).
 6. **E8 Blog** + **E9 Médias** — contenu et galerie.
-7. **E10 Deploy** — Vercel + domaine + env de prod.
+7. **E10 Deploy** — hébergement + domaine + env de prod (Cloudflare Workers depuis 2026-11-16, ex-Vercel).
 
 ## Prochaines étapes prioritaires (reprise session suivante)
 

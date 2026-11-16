@@ -1,5 +1,7 @@
 # Trailing slash & canonical URL — diagnostic, fix, et leçon SEO
 
+> **Mise à jour 2026-11-16** : le site n'est plus sur Vercel mais sur Cloudflare Workers. Le principe (l'hébergeur applique la redirection) reste vrai ; la règle est maintenant `html_handling: "drop-trailing-slash"` dans `wrangler.jsonc` (`/en/` → `/en` en 307, pas 308). Les passages Vercel / `.vercel/output/config.json` ci-dessous décrivent l'état d'origine. Voir [features/hosting-cloudflare.md](features/hosting-cloudflare.md).
+
 > Cas réel rencontré sur Wildcat (Astro 6 SSG + i18n `/en` `/fr`, hébergé Vercel), le
 > 2026-06-13. Document autonome : symptôme → concepts → diagnostic → causes → impact →
 > fix → vérification → checklist réutilisable. Écrit pour servir aussi de matière à une

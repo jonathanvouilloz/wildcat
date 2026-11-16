@@ -1,5 +1,7 @@
 # E10 — Déploiement Vercel
 
+> **Obsolète depuis 2026-11-16** : hébergement passé à Cloudflare Workers, voir [hosting-cloudflare.md](hosting-cloudflare.md). Ci-dessous, la spec Vercel d'origine.
+
 **Complexité : S · Statut : TODO · ⚠️ dépend de Q5 (domaine)**
 
 ## Description

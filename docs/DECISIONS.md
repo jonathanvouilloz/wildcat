@@ -175,6 +175,11 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 - **Scooter** : l'article vise « monthly / best scooter rental chiang mai » et laisse la tête « scooter rental chiang mai » à `/stay-train/scooter-rental`, qu'il maille. Top 5 imposé par Jonathan (Wildcat n°1, puis Mango, Aya, GM, Funky), liens concurrents suivis (backlinks voulus).
 - **Fait propriétaire** : le tarif scooter Wildcat (350/jour, 3 000/mois) ne change pas en haute saison, au mois compris ; la hausse des prix et la rareté du mensuel chez les autres loueurs sont affirmées comme expérience Wildcat (confirmé par Jonathan le 2026-11-14).
 
+## 2026-11-16 | Hébergement : Vercel remplacé par Cloudflare Workers
+- **Contexte** : bascule en prod le 2026-11-16. Détail et retour arrière → [features/hosting-cloudflare.md](features/hosting-cloudflare.md).
+- **Choix** : Worker `wildcat` via `@astrojs/cloudflare` (`prerenderEnvironment: 'node'`, `imageService: 'compile'`), Workers Builds sur `main`, `html_handling: drop-trailing-slash` pour garder `trailingSlash: 'never'`. Classification `general` de `/api/inquiry` : Mistral direct → OpenRouter, même modèle (`mistralai/mistral-small-3.2-24b-instruct`), clé `OPENROUTER_API_KEY`. Deploy hook du rebuild quotidien : secret `DEPLOY_HOOK`.
+- **Alternatives** : rester sur Vercel (écarté par Jon ; l'adaptateur Vercel n'est plus dans le code) ; prérendu dans le runtime workerd (écarté : le feed Instagram et sharp restent en Node au build).
+
 ## Décisions EN ATTENTE (questions ouvertes restantes)
 
 | # | Sujet | Options | Impact |
