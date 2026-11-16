@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import tailwindcss from '@tailwindcss/vite';
-import vercel from '@astrojs/vercel';
+import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
@@ -213,7 +213,9 @@ export default defineConfig({
     ]
   },
 
-  adapter: vercel(),
+  // Cloudflare Workers (2026-11-16, depuis Vercel). Prérendu et images en Node au build, comme avant :
+  // le feed Instagram et sharp tournent au build, seule /api/inquiry tourne sur le Worker.
+  adapter: cloudflare({ prerenderEnvironment: 'node', imageService: 'compile' }),
   integrations: [
     // Studio Sanity embarqué : en SSG le studio est une page statique unique,
     // routing interne en hash router (/studio#/...). React requis par le studio

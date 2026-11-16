@@ -1,0 +1,15 @@
+// Cloudflare Workers (remplace Vercel depuis 2026-11-16). Build : npm run build ; déploiement : npx wrangler deploy.
+// Secrets (wrangler secret put) : TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, RESEND_API_KEY, OPENROUTER_API_KEY.
+// Build (Workers Builds) : APIFY_TOKEN, PUBLIC_WEB3FORMS_KEY, PUBLIC_SITE_URL.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "wildcat",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    // trailingSlash never : /en/ → 307/308 vers /en, comme le faisait Vercel.
+    "html_handling": "drop-trailing-slash"
+  },
+  "observability": { "enabled": true }
+}

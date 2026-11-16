@@ -9,14 +9,14 @@
  * Deux étages :
  *  - class | scooter → auto-réponse email au client (Resend) + résumé Telegram.
  *  - stay  | dtv     → résumé Telegram seul (un humain répond).
- *  - general | vide  → le SEUL cas LLM : message redacté → Mistral → notif taguée.
+ *  - general | vide  → le SEUL cas LLM : message redacté → OpenRouter (mistral-small) → notif taguée.
  *                       JAMAIS d'auto-réponse (risque de répondre à un démarcheur).
  *
  * Rien n'est bloquant : le mail Web3Forms reste la voie de secours. Chaque helper
  * externe s'auto-désactive (early-return) si sa clé d'env est absente → build et
  * requêtes verts même sans les secrets posés.
  *
- * ⚠️ Secrets lus via `process.env` (runtime Node Vercel), PAS `import.meta.env`
+ * ⚠️ Secrets lus via `process.env` (Worker Cloudflare, nodejs_compat), PAS `import.meta.env`
  *    (qui serait inliné au build → undefined à la requête sur ce site SSG).
  */
 import type { APIRoute } from 'astro';
@@ -26,7 +26,7 @@ import { site } from '../../config/site';
 export const prerender = false;
 
 /**
- * Lecture des secrets serveur. `process.env` = runtime Node Vercel (source de
+ * Lecture des secrets serveur. `process.env` = Worker Cloudflare (nodejs_compat ; source de
  * vérité en prod, lu à la requête). Fallback `import.meta.env` = dev local :
  * `astro dev` charge `.env` via Vite sur import.meta.env mais NE peuple PAS
  * process.env — sans ce fallback, tester en local ne marcherait pas. process.env
@@ -36,7 +36,7 @@ export const prerender = false;
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN ?? import.meta.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID ?? import.meta.env.TELEGRAM_CHAT_ID;
 const RESEND_API_KEY = process.env.RESEND_API_KEY ?? import.meta.env.RESEND_API_KEY;
-const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY ?? import.meta.env.MISTRAL_API_KEY;
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY ?? import.meta.env.OPENROUTER_API_KEY;
 
 /**
  * Adresse où atterrissent les réponses des clients à l'auto-réponse.
@@ -49,7 +49,7 @@ const AUTO = new Set(['class', 'scooter']);
 
 export const POST: APIRoute = async ({ request }) => {
   // On fait tout le travail AVANT de répondre : la réponse est ignorée côté client
-  // (fetch keepalive), mais Vercel gèlerait la fonction si on rendait la main trop tôt.
+  // (fetch keepalive), mais le runtime gèlerait la fonction si on rendait la main trop tôt.
   try {
     const form = await request.formData();
     const get = (k: string) => String(form.get(k) ?? '').trim();
@@ -277,17 +277,17 @@ function redact(text: string): string {
 async function classify(
   text: string,
 ): Promise<{ category: string; summary: string; urgent: boolean } | null> {
-  const key = MISTRAL_API_KEY;
+  const key = OPENROUTER_API_KEY;
   if (!key || !text) return null;
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 2000); // 2 s → sinon on notifie « non classé »
   try {
-    const r = await fetch('https://api.mistral.ai/v1/chat/completions', {
+    const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: { authorization: `Bearer ${key}`, 'content-type': 'application/json' },
       signal: ctrl.signal,
       body: JSON.stringify({
-        model: 'mistral-small-latest',
+        model: 'mistralai/mistral-small-3.2-24b-instruct',
         response_format: { type: 'json_object' },
         messages: [
           {
