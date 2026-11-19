@@ -213,7 +213,7 @@ localisées (jeudis), tri FR → `.seo-data/fr-translation-triage-2026-10-16.jso
 | Sortie | Slug EN / FR | Kw principal | Statut |
 |---|---|---|---|
 | sam. 14 nov. | `scooter-rental-chiang-mai-high-season` / `location-scooter-chiang-mai-haute-saison` | monthly scooter rental chiang mai | [x] publié |
-| lun. 16 nov. | `yi-peng-festival-chiang-mai` / `fete-des-lanternes-chiang-mai` | yi peng festival chiang mai | [~] `draft: true`, attend le go |
+| jeu. 19 nov. | `yi-peng-festival-chiang-mai` / `fete-des-lanternes-chiang-mai` | yi peng festival chiang mai | [x] publié (règles lanternes 2026 ajoutées le 20/11, lien entrant depuis `best-time-train`) |
 
 ### Maillage entrant à poser le jour de la sortie (jamais avant : lien vers un article futur = 404)
 

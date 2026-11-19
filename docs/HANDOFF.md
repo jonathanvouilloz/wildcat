@@ -8,7 +8,7 @@ Mise à jour : 2026-11-20
   - preuve sociale sur tout le site, `ProofBar` + `site.proof` (`DECISIONS.md` 2026-11-20).
 
 ## Prochaine action
-1. Yi Peng : `src/content/blog/{en/yi-peng-festival-chiang-mai,fr/fete-des-lanternes-chiang-mai}.md` sont toujours en `draft: true` avec `publishDate: 2026-11-16` (passée). Le 19/11, Jonathan a dit « on garde pour la date prévue » : sans `draft: false`, ils ne sortiront jamais. Le festival a lieu les 24-25/11, à trancher avec lui avant.
+1. Après le 25/11 : passer l'article Yi Peng (EN+FR) au passé ou le laisser vieillir jusqu'au refresh 2027 ; le maillage entrant se limite à `best-time-train` (EN).
 2. Le 03/12 : repointer le lien wai kru de `mongkhon-bandeau-boxe-thai` vers `/fr/blog/wai-kru-ram-muay`.
 3. Refresh prévus : burning season EN+FR fin novembre, silo DTV début décembre (`editorial-calendar.md` § Refresh planifiés).
 
@@ -22,7 +22,7 @@ Mise à jour : 2026-11-20
 Rien après le commit `docs:` de fin de session. Branche `main`, à jour avec `origin/main`.
 
 ## Bloquants et actions du propriétaire
-- Go Yi Peng (voir Prochaine action 1).
+- Yi Peng publié le 19/11 : règles 2026 lues dans deux résumés de presse (Via Chiang Mai, CNX Mag), pas dans l'arrêté thaï.
 - Chiffres de `site.proof` à tenir à jour à la main (avis Google, personnes entraînées, DTV approuvés).
 - Clé Search Console : toujours absente (`cerveau/10-Projets/wildcat/wildcat-human.md`).
 - Meaw : conditions scooter, zones interdites aux lanternes 2026, détails Stay & Train (`docs/checklist.md` §B, §D).

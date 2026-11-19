@@ -1,24 +1,24 @@
 ---
 title: "Fête des lanternes à Chiang Mai 2026 : dates et règles"
 h1: "Yi Peng à Chiang Mai en 2026 : dates, règles pour les lanternes et comment on le vit depuis Hang Dong"
-description: "Fête des lanternes à Chiang Mai 2026 : dates, règles (Hang Dong était zone interdite en 2024 et 2025), billets payants ou fête gratuite, krathong."
+description: "Fête des lanternes à Chiang Mai 2026 : dates, règles (Hang Dong à nouveau zone interdite en 2026), billets payants ou fête gratuite, krathong."
 tldr:
   - "La pleine lune tombe le 24 novembre 2026 : Loy Krathong a lieu ce soir-là. Le lâcher payant du CAD est annoncé les 24 et 25 novembre. Un article thaï sur le programme de la ville parle d'une fête du 23 au 25 novembre."
-  - "Lâcher une lanterne n'est pas libre. Hang Dong, où se trouve notre camp, et tout Mueang Chiang Mai étaient en zone d'interdiction en 2024 et 2025, et nous n'avons trouvé aucune liste 2026 qui dise le contraire. Vérifie l'arrêté de la province avant d'allumer quoi que ce soit."
+  - "Lâcher une lanterne n'est pas libre. Hang Dong, où se trouve notre camp, et tout Mueang Chiang Mai sont à nouveau en zone d'interdiction en 2026, comme en 2024 et 2025. Le lâcher n'est permis que sur des sites autorisés, de 19 h à 1 h les 24 et 25 novembre."
   - "Les compagnies aériennes ont reçu une demande d'éviter certains créneaux les 24 et 25 novembre à l'aéroport de Chiang Mai, et plus de 100 vols sont déjà annulés sur la semaine. Prévois de la marge si tu voles."
   - "Tu peux participer sans lanterne : cortège gratuit, krathong sur la rivière, temples illuminés. Notre conseil : t'entraîner le matin et fêter le soir."
-publishDate: 2026-11-16
+publishDate: 2026-11-19
 author: "Meaw Boonpradub"
 category: chiang-mai-life
 cover: ../covers/fete-des-lanternes-chiang-mai.webp
 coverAlt: "Couverture d'un guide de la fête des lanternes Yi Peng à Chiang Mai en 2026 par Wildcat Muay Thai"
-draft: true
+draft: false
 translationKey: yi-peng-festival-chiang-mai
 ---
 
 Chaque novembre, les mêmes questions arrivent sur WhatsApp : c’est quand, est-ce que je peux lâcher une lanterne, et est-ce que le gros événement payant vaut le coup ? Voici une réponse claire sur **la fête des lanternes à Chiang Mai** en 2026, écrite par un camp de Muay Thai familial de Hang Dong, pas par un vendeur de billets. Nous ne touchons rien sur les événements ci-dessous.
 
-Une chose d’abord, parce qu’elle surprend : notre propre district, Hang Dong, a été une zone où il est interdit de lâcher des lanternes. On explique pourquoi plus bas. Tout ce qui suit vient de pages que nous avons ouvertes le 14 novembre 2026, et quand une seule source affirme quelque chose, on le dit. À Chiang Mai, les plans changent tard : confirme le jour même.
+Une chose d’abord, parce qu’elle surprend : notre propre district, Hang Dong, est une zone où il est interdit de lâcher des lanternes. On explique pourquoi plus bas. Tout ce qui suit vient de pages que nous avons ouvertes le 14 novembre 2026 (le 20 novembre pour les règles 2026 sur les lanternes), et quand une seule source affirme quelque chose, on le dit. À Chiang Mai, les plans changent tard : confirme le jour même.
 
 *Les conversions en euros utilisent le taux de référence de la BCE du 29 septembre 2026 (1 € = 38,056 THB), arrondi à l’euro.*
 
@@ -34,7 +34,7 @@ Une chose d’abord, parce qu’elle surprend : notre propre district, Hang Do
 
 Le même article dit que le site principal quitte la porte de Tha Phae cette année. Nous ne l’avons trouvé nulle part ailleurs : ne planifie pas ta soirée dessus.
 
-**Introuvable.** Nous n’avons pas trouvé le programme officiel de la mairie pour 2026, ni l’arrêté provincial 2026 sur les lanternes. Si tu lis d’autres dates ailleurs, c’est normal : certains sites donnent du 23 au 25 novembre, d’autres du 24 au 26. Cherche les annonces de la ville à l’approche de la date. Pour le reste de la saison, notre guide sur [le meilleur moment pour s’entraîner au Muay Thai en Thaïlande](/en/blog/best-time-train-muay-thai-thailand) (en anglais) donne le tableau mois par mois.
+**Introuvable.** Nous n’avons pas trouvé le programme officiel de la mairie pour 2026. Si tu lis d’autres dates ailleurs, c’est normal : certains sites donnent du 23 au 25 novembre, d’autres du 24 au 26. Cherche les annonces de la ville à l’approche de la date. Pour le reste de la saison, notre guide sur [le meilleur moment pour s’entraîner au Muay Thai en Thaïlande](/en/blog/best-time-train-muay-thai-thailand) (en anglais) donne le tableau mois par mois.
 
 ## Khom loi, khom fai, krathong : de quoi parle-t-on, et pourquoi les Lanna le font
 
@@ -58,7 +58,7 @@ Ce que nous savons des zones :
 
 - **2024.** La province a annoncé une interdiction totale dans six districts, dont tout Hang Dong et tout Mueang Chiang Mai. Les lâchers n’étaient permis qu’en dehors de la zone de sécurité, certains soirs, avec l’autorisation du chef de district demandée à l’avance.
 - **2025.** The Thaiger a rapporté les six mêmes districts en zone rouge, Hang Dong en entier à nouveau, plus une zone supplémentaire autour de l’aéroport. Time Out a rapporté que l’événement du CAD faisait partie des rares autorisés, avec des lanternes qui doivent se dégrader en moins d’un an.
-- **2026.** Nous n’avons pas trouvé l’arrêté provincial. Nous ne pouvons donc pas te dire quels districts figurent sur la liste. Hang Dong y a été chaque année que nous avons pu vérifier : nous partons du principe que c’est encore le cas.
+- **2026.** Même chose. Les règles de la province, publiées le 20 octobre, placent tous les sous-districts de Mueang Chiang Mai et de Hang Dong en zone rouge, plus une partie de Saraphi, Mae Rim, San Sai et San Pa Tong. Les lanternes célestes ne peuvent monter que sur des sites autorisés, de 19 h à 1 h les 24 et 25 novembre ; les lanternes à fumée seulement le 24 novembre, de 10 h à midi. Les autorisations passent par le chef de district, via l’application gouvernementale Bampen, et les délais sont dépassés : en tant que visiteur, tu passes par un événement autorisé. Nous l’avons lu dans deux résumés de presse, pas dans l’arrêté thaï lui-même.
 
 Les sanctions sont sérieuses. Selon la presse, qui rapporte les avertissements de la province, un lâcher non autorisé peut coûter jusqu’à cinq ans de prison, une amende allant jusqu’à 200 000 THB (environ 5 255 €), ou les deux, et davantage si cela provoque un incendie. Nous n’avons pas vérifié la loi elle-même : ce sont des chiffres rapportés.
 
@@ -90,7 +90,7 @@ C’est beaucoup d’argent pour une demi-heure de lanternes. La soirée peut ê
 
 Voici comment nous passerions le 24 novembre. Entraînement le matin, repos l’après-midi, puis direction la vieille ville le soir. Notre [planning des cours](/classes#schedule) propose des séances à 9 h, 15 h 30, 17 h et 18 h 30 : un cours le matin ou en début d’après-midi laisse la soirée libre, avec le temps de manger et d’arriver en ville avant la foule. Le camp est en plein air, dans un jardin avec de l’ombre, et la journée paraît plus douce après une bonne séance.
 
-Ne lâche pas de lanterne depuis Hang Dong, où c’est interdit depuis deux ans, sauf si l’arrêté de cette année dit clairement le contraire. Nous éviterions aussi tout vendeur qui propose de « s’en occuper » pour toi. Mets à l’eau un krathong en matières naturelles, suis le cortège gratuit, et laisse la fête venir à toi. Pour une soirée plus calme plus tard dans la semaine, il y a [les combats de Muay Thai à voir à Chiang Mai](/en/blog/watch-muay-thai-fights-chiang-mai) (en anglais), et [notre guide de Chiang Mai](/chiang-mai-guide) donne les bases. Fin novembre marque aussi le début de la haute saison : si tu prépares un séjour plus long, [Stay & Train](/stay-train) est notre façon de le faire. Pour voir ce que la fumée change plus tard dans l’année, lis [la saison des brûlis à Chiang Mai](/blog/saison-des-brulis-chiang-mai).
+Ne lâche pas de lanterne depuis Hang Dong : c’est encore interdit cette année, comme en 2024 et 2025. Nous éviterions aussi tout vendeur qui propose de « s’en occuper » pour toi. Mets à l’eau un krathong en matières naturelles, suis le cortège gratuit, et laisse la fête venir à toi. Pour une soirée plus calme plus tard dans la semaine, il y a [les combats de Muay Thai à voir à Chiang Mai](/en/blog/watch-muay-thai-fights-chiang-mai) (en anglais), et [notre guide de Chiang Mai](/chiang-mai-guide) donne les bases. Fin novembre marque aussi le début de la haute saison : si tu prépares un séjour plus long, [Stay & Train](/stay-train) est notre façon de le faire. Pour voir ce que la fumée change plus tard dans l’année, lis [la saison des brûlis à Chiang Mai](/blog/saison-des-brulis-chiang-mai).
 
 ## FAQ : Yi Peng et Loy Krathong à Chiang Mai
 
@@ -100,7 +100,7 @@ La pleine lune tombe le 24 novembre 2026 : la nuit principale est donc ce mard
 
 ### Peut-on lâcher une lanterne céleste à Chiang Mai ?
 
-Seulement là où la province l’autorise. Tout Hang Dong et tout Mueang étaient en zone d’interdiction en 2024 et 2025, et nous n’avons pas trouvé de liste 2026. Vérifie d’abord l’arrêté provincial.
+Seulement sur un site autorisé, de 19 h à 1 h les 24 et 25 novembre 2026. Tout Hang Dong et tout Mueang sont à nouveau en zone d’interdiction cette année, comme en 2024 et 2025.
 
 ### L’événement payant du CAD vaut-il le coup ?
 
@@ -127,6 +127,7 @@ Yi Peng fait partie des meilleures semaines pour être à Chiang Mai, et tu peux
 - Date de la pleine lune (24 novembre 2026) et contexte de la fête : [TAT News, Loi Krathong 2026](https://www.tatnews.org/2026/11/loi-krathong-2026-lights-up-thailands-rivers-and-historic-cities/), publié le 5 novembre 2026, consulté le 2026-11-14. Il place aussi le CAD Khomloy les 24 et 25 novembre au CAD Cultural Center Lanna, à Mae On.
 - Déclarations de l’aéroport (zones de lanternes, plus de 200 000 lanternes, créneaux des compagnies, vols annulés, transports au sol et délais d’arrivée) : [The Nation](https://www.nationthailand.com/news/general/40073065), 3 novembre 2026, consulté le 2026-11-14.
 - Programme de la ville (23 au 25 novembre, cortège, chars de krathong géants), source thaïe unique citant le TAT Chiang Mai : [Thansettakij](https://www.thansettakij.com/lifestyle/travel-shopping/672876), 3 novembre 2026, consulté le 2026-11-14.
+- Règles 2026 sur les lanternes (zones rouges couvrant tout Mueang et tout Hang Dong, créneau 19 h à 1 h les 24 et 25 novembre, lanternes à fumée 10 h à midi le 24 novembre, autorisations via l’application Bampen), résumées d’après le bureau des relations publiques du gouvernement à Chiang Mai (20 octobre 2026) par [Via Chiang Mai](https://viachiangmai.com/blog/yi-peng-loy-krathong-chiang-mai/), consulté le 2026-11-20 ; zone de sécurité aérienne incluant 11 sous-districts de Hang Dong : [CNX Mag](http://cnxmag.com/yi-peng-2026-chiang-mai-flights-lantern-rules/), mis à jour le 16 novembre 2026, consulté le 2026-11-20.
 - Interdictions de lanternes 2024 (Hang Dong et Mueang, six districts) : [Thai PBS](https://www.thaipbs.or.th/news/content/346239), consulté le 2026-11-14.
 - Zones rouges et sanctions 2025, telles que rapportées : [The Thaiger, 8 octobre 2025](https://thethaiger.com/news/chiang-mai/chiang-mai-bans-lanterns-in-red-zones-during-yi-peng-festival) et [Time Out Chiang Mai, 10 octobre 2025](https://www.timeout.com/chiang-mai/news/yi-peng-lanterns-grounded-over-public-safety-concerns-101025), consulté le 2026-11-14.
 - Chiffres des vols 2025 : [The Nation, 1er novembre 2025](https://www.nationthailand.com/news/tourism/40057614), consulté le 2026-11-14.

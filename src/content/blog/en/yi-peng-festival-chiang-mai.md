@@ -1,24 +1,24 @@
 ---
 title: "Yi Peng Festival Chiang Mai 2026: Dates, Rules, Tips"
 h1: "Yi Peng in Chiang Mai 2026: dates, lantern rules and how we celebrate from Hang Dong"
-description: "Yi Peng festival in Chiang Mai 2026: dates, lantern rules (Hang Dong was a no-release zone in 2024 and 2025), ticketed vs free, krathong tips."
+description: "Yi Peng festival in Chiang Mai 2026: dates, lantern rules (Hang Dong is a no-release zone again in 2026), ticketed vs free, krathong tips."
 tldr:
   - "The full moon falls on 24 November 2026, so Loy Krathong is that night. The ticketed lantern release at CAD is listed for 24 and 25 November. A Thai report on the city programme says the main festival runs 23 to 25 November."
-  - "Releasing a sky lantern is not a free-for-all. Hang Dong, where our camp is, and all of Mueang Chiang Mai were no-release zones in 2024 and 2025, and we could not find a 2026 list that says otherwise. Check the provincial announcement before you light anything."
+  - "Releasing a sky lantern is not a free-for-all. Hang Dong, where our camp is, and all of Mueang Chiang Mai are no-release zones again in 2026, as in 2024 and 2025. Releases are allowed only at permitted sites, 7 p.m. to 1 a.m. on 24 and 25 November."
   - "Airlines have been asked to avoid parts of 24 and 25 November at Chiang Mai airport, with over 100 flights already cancelled for the week. Leave extra time if you fly."
   - "You can join in without a lantern: a free procession, krathong on the river, temples lit up. Our advice is to train in the morning and celebrate in the evening."
-publishDate: 2026-11-16
+publishDate: 2026-11-19
 author: "Meaw Boonpradub"
 category: chiang-mai-life
 cover: ../covers/yi-peng-festival-chiang-mai.webp
 coverAlt: "Cover of a guide to the Yi Peng festival in Chiang Mai 2026 by Wildcat Muay Thai"
-draft: true
+draft: false
 translationKey: yi-peng-festival-chiang-mai
 ---
 
 Every November the same questions reach us on WhatsApp: when is it, can I release a lantern, and is the big paid event worth it? Here is a plain answer to **the Yi Peng festival in Chiang Mai** for 2026, written by a family-run Muay Thai camp in Hang Dong, not by a ticket seller. We earn nothing from any of the events below.
 
-One thing first, because it surprises people: our own district, Hang Dong, has been a no-release zone for lanterns. We explain why in a moment. Everything here comes from pages we opened on 14 November 2026, and where only one source says something, we say so. Plans in Chiang Mai change late, so confirm on the day.
+One thing first, because it surprises people: our own district, Hang Dong, is a no-release zone for lanterns. We explain why in a moment. Everything here comes from pages we opened on 14 November 2026 (the 2026 lantern rules on 20 November), and where only one source says something, we say so. Plans in Chiang Mai change late, so confirm on the day.
 
 ## Yi Peng 2026 at a glance: dates, what is confirmed and what is not
 
@@ -32,7 +32,7 @@ One thing first, because it surprises people: our own district, Hang Dong, has b
 
 The same article says the main site moves away from Tha Phae Gate this year. We could not find that anywhere else, so do not plan around it.
 
-**Not found.** We could not find the municipality's own 2026 programme, and neither the 2026 provincial lantern announcement. If you read a different date elsewhere, that is normal: some sites list 23 to 25 November, others 24 to 26. Look for the city's own notices closer to the day. For the wider picture of the season, see our guide on the [best time to train Muay Thai in Thailand](/blog/best-time-train-muay-thai-thailand).
+**Not found.** We could not find the municipality's own 2026 programme. If you read a different date elsewhere, that is normal: some sites list 23 to 25 November, others 24 to 26. Look for the city's own notices closer to the day. For the wider picture of the season, see our guide on the [best time to train Muay Thai in Thailand](/blog/best-time-train-muay-thai-thailand).
 
 ## Khom loi, khom fai, krathong: what is what, and why Lanna people do it
 
@@ -56,7 +56,7 @@ Here is what we know about the zones:
 
 - **2024.** The province announced a total ban across six districts, including all of Hang Dong and all of Mueang Chiang Mai. Releases were allowed only outside the safety zone, on set evenings, with the district chief's permission requested in advance.
 - **2025.** The Thaiger reported the same six districts as red zones, again with Hang Dong in full, plus an extra zone around the airport. Time Out reported that the CAD event was one of the few approved, with lanterns that must break down within a year.
-- **2026.** We could not find the provincial announcement. So we cannot tell you which districts are on the list. Hang Dong has been on it every year we could check, so we plan as if it is again.
+- **2026.** Same picture. The province's rules, published on 20 October, put every sub-district of Mueang Chiang Mai and of Hang Dong in the red zones, plus parts of Saraphi, Mae Rim, San Sai and San Pa Tong. Sky lanterns may go up only at permitted sites, from 7 p.m. to 1 a.m. on 24 and 25 November; smoke lanterns only on 24 November, 10 a.m. to noon. Permits go through the district chief, via the government's Bampen app, and the deadlines have passed, so as a visitor your way in is a permitted event. We read this in two press summaries, not in the Thai announcement itself.
 
 The penalties are serious. Press reports of the province's warnings say an unpermitted release can mean up to five years in prison, a fine of up to 200,000 THB, or both, and more if it starts a fire. We have not checked the statute itself, so treat those as reported figures.
 
@@ -88,7 +88,7 @@ That is a lot of money for about half an hour of lanterns. It can be a lovely ev
 
 Here is how we would spend 24 November. Train in the morning, rest in the afternoon and head to the old city in the evening. Our [daily class schedule](/classes#schedule) has sessions at 09:00, 15:30, 17:00 and 18:30, so a morning or early afternoon class leaves the evening free, with time to eat and to get into town before the crowds. The camp is open-air, in a garden with shade, and the day usually feels slower and kinder after a good session.
 
-Do not release a lantern from Hang Dong, where it has been banned two years running, unless this year's announcement clearly says otherwise. We would also skip any seller who offers to "take care of it" for you. Float a krathong made of natural materials, join the free procession, and let the festival come to you. For a quieter night later in the week, there are [Muay Thai fights to watch in Chiang Mai](/blog/watch-muay-thai-fights-chiang-mai), and [our Chiang Mai guide](/chiang-mai-guide) lists the basics. Chiang Mai in late November is also the start of the busy season, so if you are planning a longer stay, [Stay & Train](/stay-train) is the way we do it.
+Do not release a lantern from Hang Dong: it is banned again this year, as it was in 2024 and 2025. We would also skip any seller who offers to "take care of it" for you. Float a krathong made of natural materials, join the free procession, and let the festival come to you. For a quieter night later in the week, there are [Muay Thai fights to watch in Chiang Mai](/blog/watch-muay-thai-fights-chiang-mai), and [our Chiang Mai guide](/chiang-mai-guide) lists the basics. Chiang Mai in late November is also the start of the busy season, so if you are planning a longer stay, [Stay & Train](/stay-train) is the way we do it.
 
 ## FAQ: Yi Peng and Loy Krathong in Chiang Mai
 
@@ -98,7 +98,7 @@ The full moon falls on 24 November 2026, so the main night is that Tuesday. A Th
 
 ### Can I release a sky lantern in Chiang Mai?
 
-Only where the province allows it. All of Hang Dong and Mueang were no-release zones in 2024 and 2025, and we could not find a 2026 list. Check the provincial announcement first.
+Only at a permitted site, from 7 p.m. to 1 a.m. on 24 and 25 November 2026. All of Hang Dong and Mueang are no-release zones again this year, as in 2024 and 2025.
 
 ### Is the ticketed CAD event worth it?
 
@@ -125,6 +125,7 @@ Yi Peng is one of the best weeks to be in Chiang Mai, and you can enjoy all of i
 - Date of the full moon (24 November 2026) and festival background: [TAT News, Loi Krathong 2026](https://www.tatnews.org/2026/11/loi-krathong-2026-lights-up-thailands-rivers-and-historic-cities/), published 5 November 2026, consulted 2026-11-14. It also places CAD Khomloy on 24 and 25 November at the CAD Cultural Center Lanna, Mae On.
 - Airport statements (lantern zones, over 200,000 lanterns, airline windows, cancelled flights, ground transport and arrival times): [The Nation](https://www.nationthailand.com/news/general/40073065), 3 November 2026, consulted 2026-11-14.
 - City programme (23 to 25 November, procession, giant krathong floats), single Thai source crediting TAT Chiang Mai: [Thansettakij](https://www.thansettakij.com/lifestyle/travel-shopping/672876), 3 November 2026, consulted 2026-11-14.
+- 2026 lantern rules (red zones covering all of Mueang and Hang Dong, release window 19:00 to 01:00 on 24 and 25 November, smoke lanterns 10:00 to noon on 24 November, permits through the Bampen app), as summarised from the Chiang Mai Government Public Relations office (20 October 2026) by [Via Chiang Mai](https://viachiangmai.com/blog/yi-peng-loy-krathong-chiang-mai/), consulted 2026-11-20; aviation safety zone including 11 sub-districts of Hang Dong: [CNX Mag](http://cnxmag.com/yi-peng-2026-chiang-mai-flights-lantern-rules/), updated 16 November 2026, consulted 2026-11-20.
 - 2024 lantern bans (Hang Dong and Mueang, six districts): [Thai PBS](https://www.thaipbs.or.th/news/content/346239), consulted 2026-11-14.
 - 2025 red zones and penalties as reported: [The Thaiger, 8 October 2025](https://thethaiger.com/news/chiang-mai/chiang-mai-bans-lanterns-in-red-zones-during-yi-peng-festival), and [Time Out Chiang Mai, 10 October 2025](https://www.timeout.com/chiang-mai/news/yi-peng-lanterns-grounded-over-public-safety-concerns-101025), consulted 2026-11-14.
 - 2025 flight figures: [The Nation, 1 November 2025](https://www.nationthailand.com/news/tourism/40057614), consulted 2026-11-14.
