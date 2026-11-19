@@ -25,8 +25,8 @@ Rien après le commit `docs:` de fin de session. Branche `main`, à jour avec `o
 - Yi Peng publié le 19/11 : règles 2026 lues dans deux résumés de presse (Via Chiang Mai, CNX Mag), pas dans l'arrêté thaï.
 - Chiffres de `site.proof` à tenir à jour à la main (avis Google, personnes entraînées, DTV approuvés).
 - Clé Search Console : toujours absente (`cerveau/10-Projets/wildcat/wildcat-human.md`).
-- Meaw : conditions scooter, zones interdites aux lanternes 2026, détails Stay & Train (`docs/checklist.md` §B, §D).
+- Meaw : conditions scooter, détails Stay & Train (`docs/checklist.md` §B, §D).
 
 ## En production
-- Cloudflare Workers (Worker `wildcat`, Workers Builds sur `main`, rebuild quotidien pour les `publishDate`). Dernier push : `509cb08` (lien fiche Google).
+- Cloudflare Workers (Worker `wildcat`, Workers Builds sur `main`, rebuild quotidien pour les `publishDate`). Dernier push : article Yi Peng EN+FR (19/11).
 - `/api/inquiry` tourne côté serveur (copie des demandes vers Telegram et Resend) ; le reste du site est statique.
