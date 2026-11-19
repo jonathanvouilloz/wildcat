@@ -4,6 +4,16 @@ Format : `Date | Décision | Contexte | Alternatives considérées`
 
 ---
 
+### 2026-11-20 | Preuve sociale : chiffres dans `site.proof`, composant `ProofBar`, pas d'aggregateRating
+- **Contexte** : aucune page ne montrait la note Google ni un chiffre ; seuls des témoignages (CMS, encore vides) et des captures d'approbations DTV. Chiffres donnés et validés par Jonathan le 19/11 : 5,0 sur Google (78 avis), 1 000+ personnes entraînées au moins une fois, 100+ visas DTV approuvés.
+- **Choix** : chiffres tenus à la main dans `site.proof` (une ligne à changer quand ils bougent), affichés par `src/components/ui/ProofBar.astro` (`line` pour les heroes et encarts, `band` pour le corps), couleur héritée du parent. Lien vers la fiche Google Business (`site.reviews.googleUrl`).
+- **Alternatives** : JSON-LD `aggregateRating` sur SportsClub (écarté : Google ignore les avis qu'un commerce héberge sur son propre site) ; chiffres dans les titles/metas (reporté, à tester page par page) ; « 100+ visas DTV approuvés avec notre dossier » (écarté : trop long pour une ligne de hero).
+
+### 2026-11-19 | Formulaires : une seule question forfait, champ `package` pour stay et dtv
+- **Contexte** : l'intention « Préparer un séjour » posait des cases « logement » et « scooter » puis un select tout compris / entraînement seul (contradictoire : le tout compris inclut chambre et moto) ; prix mensuel seul affiché même pour une semaine ; `/stay-train#plan` ne demandait pas le forfait ; DTV posait la même question en radios sous un autre nom (`dtv_stay` vs `dtv_package`) ; le message WhatsApp omettait le forfait.
+- **Choix** : mêmes radios dans `ContactForm` et `StayInquiryForm`, libellé avec prix semaine et mois, champ `package` partout (API comprise) ; cases logement/scooter visibles et envoyées seulement avec « entraînement seul ».
+- **Alternatives** : garder le select et masquer les cases en JS (écarté : le formulaire doit marcher sans JS, `:has()` suffit).
+
 ### 2026-09-29 | « muay thai camp thailand » porté par le listicle, `/stay-train` recentré Chiang Mai ; cadence blog 1 article / 2 semaines
 - **Contexte** : GSC 31/08→27/09 : ~1 200 impr. sur la famille « muay thai camp thailand », servies par `/en/blog/best-muay-thai-camps-thailand` (pos. 22-35) ; `/stay-train` (title ciblé sur ce kw depuis E5f) = 9 impr. SERP mixte listicles + pages de camps. Indexation : 33/61 URLs.
 - **Choix** : le listicle garde la tête nationale (refresh régions + tableau) ; `/stay-train` vise « muay thai camp chiang mai » (title, meta, H1 EN). Cadence blog ramenée à 1 article / 2 semaines : le goulot est l'indexation, pas la production.
