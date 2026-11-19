@@ -25,6 +25,7 @@ import { urlFor } from '../../../lib/image';
 import { pickLocale } from '../../../lib/i18n-content';
 import { mapTestimonial } from '../../../lib/testimonials';
 import { m } from '../../../paraglide/messages.js';
+import ProofBar from '../../../components/ui/ProofBar.astro';
 
 // Satellite procédural du pillar /dtv-visa (Module C — YMYL).
 // Guide pas-à-pas + checklist documents interactive + JSON-LD HowTo.
@@ -185,6 +186,7 @@ const howToSchema = {
     />
 
     <PageHero
+      proof={['dtv', 'google']}
       dark
       title={m.dtv_apply_hero_title()}
       titleEm={m.dtv_apply_hero_title_em()}
@@ -356,6 +358,7 @@ const howToSchema = {
         <Section soft>
           <SectionHead>{m.dtv_reviews_head()}</SectionHead>
           <h2 class="h2 mt-2 mb-6">{m.dtv_reviews_title()}</h2>
+          <ProofBar variant="band" items={['dtv', 'google']} class="mb-8" />
           {dtvReviews.length > 0 && (
             <div class="reviews-grid">
               {dtvReviews.map((review) => (

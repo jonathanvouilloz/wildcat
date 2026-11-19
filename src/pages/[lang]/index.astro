@@ -4,6 +4,7 @@ import LoadingScreen from '../../components/interactive/LoadingScreen.astro';
 import Section from '../../components/layout/Section.astro';
 import TornDivider from '../../components/layout/TornDivider.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
+import ProofBar from '../../components/ui/ProofBar.astro';
 import Button from '../../components/ui/Button.astro';
 import Hero from '../../components/sections/Hero.astro';
 import ValueStrip from '../../components/sections/ValueStrip.astro';
@@ -232,6 +233,7 @@ const jsonld = {
       sub={m.home_hero_sub()}
       ctaPrimary={{ label: m.home_hero_cta1(), href: p('/classes#pricing') }}
       ctaSecondary={{ label: m.home_hero_cta2(), href: p('/classes#schedule') }}
+      proof={['google', 'trained']}
       metas={[
         { b: m.home_hero_meta1_b(), s: m.home_hero_meta1_s() },
         { b: m.home_hero_meta2_b(), s: m.home_hero_meta2_s() },
@@ -342,6 +344,7 @@ const jsonld = {
           {m.home_comm_follow()}
         </a>
       </div>
+      <ProofBar variant="band" class="mb-10" />
       <InstagramFeed />
     </Section>
 

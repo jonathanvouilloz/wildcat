@@ -1,6 +1,7 @@
 ---
 import Container from '../layout/Container.astro';
 import Button from '../ui/Button.astro';
+import ProofBar, { type ProofKey } from '../ui/ProofBar.astro';
 import BrushSeparator from '../../assets/separator-green.svg';
 
 /**
@@ -32,6 +33,8 @@ export interface Props {
   texture?: string;
   /** hero pleine hauteur (comme la home) — contenu centré verticalement */
   full?: boolean;
+  /** preuve sociale sous le CTA (ProofBar line) */
+  proof?: ProofKey[];
 }
 const {
   title,
@@ -45,6 +48,7 @@ const {
   brush = true,
   texture,
   full = false,
+  proof,
 } = Astro.props;
 const hasAside = Astro.slots.has('aside');
 const onDark = dark || !!image;
@@ -102,6 +106,7 @@ const onDark = dark || !!image;
             </div>
           )
         }
+        {proof && <ProofBar items={proof} class="ph-proof" />}
       </div>
       {
         hasAside && (
@@ -266,6 +271,14 @@ const onDark = dark || !!image;
   .cta {
     margin-top: 26px;
   }
+  .grid :global(.ph-proof) {
+    margin-top: 22px;
+    color: var(--ink-2);
+  }
+  .page-hero--dark .grid :global(.ph-proof),
+  .page-hero--photo .grid :global(.ph-proof) {
+    color: rgba(246, 241, 230, 0.88);
+  }
   .aside {
     display: flex;
     justify-content: center;
@@ -285,11 +298,11 @@ const onDark = dark || !!image;
      Transitions sur .in-view UNIQUEMENT (règle motion.css).
      Cascade : eyebrow 0.05s · H1 0.1s · lead 0.28s · CTA/aside 0.42s.
      ------------------------------------------------------------ */
-  :global(html.wc-anim) .grid :is(.ph-eyebrow, .h1, .lead, .cta, .aside) {
+  :global(html.wc-anim) .grid :is(.ph-eyebrow, .h1, .lead, .cta, .aside, :global(.ph-proof)) {
     opacity: 0;
     transform: translateY(16px);
   }
-  :global(html.wc-anim) .grid.in-view :is(.ph-eyebrow, .h1, .lead, .cta, .aside) {
+  :global(html.wc-anim) .grid.in-view :is(.ph-eyebrow, .h1, .lead, .cta, .aside, :global(.ph-proof)) {
     opacity: 1;
     transform: none;
     transition:
@@ -305,13 +318,13 @@ const onDark = dark || !!image;
   :global(html.wc-anim) .grid.in-view .lead {
     transition-delay: 0.28s;
   }
-  :global(html.wc-anim) .grid.in-view :is(.cta, .aside) {
+  :global(html.wc-anim) .grid.in-view :is(.cta, .aside, :global(.ph-proof)) {
     transition-delay: 0.42s;
   }
 
   /* ceinture + bretelles (le script bail déjà sur reduced-motion) */
   @media (prefers-reduced-motion: reduce) {
-    :global(html.wc-anim) .grid :is(.ph-eyebrow, .h1, .lead, .cta, .aside) {
+    :global(html.wc-anim) .grid :is(.ph-eyebrow, .h1, .lead, .cta, .aside, :global(.ph-proof)) {
       opacity: 1;
       transform: none;
       transition: none;

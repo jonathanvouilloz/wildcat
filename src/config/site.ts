@@ -39,6 +39,17 @@ export const site = {
     googleUrl: 'https://www.google.com/search?q=Wildcat+Muay+Thai+Chiang+Mai+reviews',
   },
 
+  /** Preuve sociale affichée par <ProofBar> (validé Jonathan 2026-11-19).
+   *  Chiffres tenus à la main : mettre à jour ici quand ils bougent. */
+  proof: {
+    googleRating: 5,
+    googleCount: 78,
+    /** personnes venues s'entraîner au moins une fois */
+    trained: 1000,
+    /** visas DTV approuvés avec le dossier Wildcat */
+    dtvApproved: 100,
+  },
+
   // Horaires d'ouverture = 1er cours → fin du dernier (flyer 2026-06-04), 7j/7.
   // dayKey → messages footer_hours_* (libellés des jours)
   hours: [{ dayKey: 'daily', time: '07:30 – 20:00' }],

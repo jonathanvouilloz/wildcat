@@ -21,6 +21,7 @@ import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../../lib/sanity.typ
 import { pickLocale } from '../../../lib/i18n-content';
 import { mapTestimonial } from '../../../lib/testimonials';
 import { m } from '../../../paraglide/messages.js';
+import ProofBar from '../../../components/ui/ProofBar.astro';
 
 // Satellite DTV — page "requirements & eligibility" (kw : "dtv visa thailand
 // requirements"). Module C / YMYL : disclaimer + date de revue + signature Meaw.
@@ -75,6 +76,7 @@ const faqItems = [
     />
 
     <PageHero
+      proof={['dtv', 'google']}
       title={m.dtv_elig_hero_title()}
       titleEm={m.dtv_elig_hero_title_em()}
       lead={m.dtv_elig_hero_lead()}
@@ -251,6 +253,7 @@ const faqItems = [
         <Section soft containerSize="narrow">
           <SectionHead>{m.dtv_reviews_head()}</SectionHead>
           <h2 class="h2 mt-2 mb-6">{m.dtv_reviews_title()}</h2>
+          <ProofBar variant="band" items={['dtv', 'google']} class="mb-8" />
           <TestimonialQuote
             {...dtvReview}
             ratingLabel={m.testimonial_rating_label({ rating: String(dtvReview.rating) })}

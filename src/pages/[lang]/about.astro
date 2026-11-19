@@ -23,6 +23,7 @@ import { pickLocale } from '../../lib/i18n-content';
 import { mapTestimonial } from '../../lib/testimonials';
 import { urlFor } from '../../lib/image';
 import { m } from '../../paraglide/messages.js';
+import ProofBar from '../../components/ui/ProofBar.astro';
 
 // About — pillar du silo : histoire (familial, woman-run), coachs en teaser
 // (#coaches conservé — footer + liens legacy ; la page complète vit sur
@@ -138,6 +139,7 @@ const reviews = testimonialDocs.map((doc) => mapTestimonial(doc, lang));
         </h2>
         <p class="body-p centered">{m.about_reviews_lead()}</p>
       </div>
+      <ProofBar variant="band" center class="mb-10" />
       {
         reviews.length > 0 && (
           <div class="reviews">

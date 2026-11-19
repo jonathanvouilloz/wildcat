@@ -1,5 +1,6 @@
 ---
 import Button from '../ui/Button.astro';
+import ProofBar, { type ProofKey } from '../ui/ProofBar.astro';
 import BrushSeparator from '../../assets/separator-green.svg';
 
 /**
@@ -18,6 +19,8 @@ export interface Props {
   ctaPrimary: { label: string; href: string };
   ctaSecondary?: { label: string; href: string };
   metas?: { b: string; s: string }[];
+  /** preuve sociale sous les CTA (ProofBar line) */
+  proof?: ProofKey[];
   image: {
     src: string;
     alt: string;
@@ -27,7 +30,7 @@ export interface Props {
   };
 }
 
-const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Astro.props;
+const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], proof, image } = Astro.props;
 ---
 
 <section class="hero">
@@ -55,6 +58,7 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
       <Button href={ctaPrimary.href} variant="gold" arrow>{ctaPrimary.label}</Button>
       {ctaSecondary && <Button href={ctaSecondary.href} variant="outline" onDark>{ctaSecondary.label}</Button>}
     </div>
+    {proof && <ProofBar items={proof} center class="hero-proof" />}
     {
       metas.length > 0 && (
         <div class="meta-row">
@@ -171,11 +175,11 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
     transition-delay: 0.32s;
   }
 
-  :global(html.wc-anim) .hero-inner :is(.sub, .cta-row, .meta-row) {
+  :global(html.wc-anim) .hero-inner :is(.sub, .cta-row, .meta-row, :global(.hero-proof)) {
     opacity: 0;
     transform: translateY(18px);
   }
-  :global(html.wc-anim) .hero-inner.in-view :is(.sub, .cta-row, .meta-row) {
+  :global(html.wc-anim) .hero-inner.in-view :is(.sub, .cta-row, .meta-row, :global(.hero-proof)) {
     opacity: 1;
     transform: none;
     transition:
@@ -188,6 +192,9 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
   :global(html.wc-anim) .hero-inner.in-view .cta-row {
     transition-delay: 0.8s;
   }
+  :global(html.wc-anim) .hero-inner.in-view :global(.hero-proof) {
+    transition-delay: 0.9s;
+  }
   :global(html.wc-anim) .hero-inner.in-view .meta-row {
     transition-delay: 1s;
   }
@@ -195,7 +202,7 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
   /* ceinture + bretelles (le script bail déjà sur reduced-motion) */
   @media (prefers-reduced-motion: reduce) {
     :global(html.wc-anim) .hero-inner .line-in,
-    :global(html.wc-anim) .hero-inner :is(.sub, .cta-row, .meta-row) {
+    :global(html.wc-anim) .hero-inner :is(.sub, .cta-row, .meta-row, :global(.hero-proof)) {
       opacity: 1;
       transform: none;
       transition: none;
@@ -206,6 +213,10 @@ const { title, titleEm, sub, ctaPrimary, ctaSecondary, metas = [], image } = Ast
     color: rgba(246, 241, 230, 0.88);
     max-width: 52ch;
     margin: 20px 0 28px;
+  }
+  .hero-inner :global(.hero-proof) {
+    margin-top: 22px;
+    color: rgba(246, 241, 230, 0.9);
   }
   .cta-row {
     display: flex;

@@ -1,4 +1,5 @@
 ---
+import ProofBar from '../ui/ProofBar.astro';
 import { m } from '../../paraglide/messages.js';
 
 /**
@@ -35,10 +36,16 @@ const { coachesHref, photo } = Astro.props;
     </div>
   </div>
   <p class="body">{m.blog_authorbio_body()}</p>
+  <ProofBar items={['trained', 'dtv', 'google']} class="bio-proof" />
   <a class="lk" href={coachesHref}>{m.byline_author_link()}</a>
 </aside>
 
 <style>
+  .bio :global(.bio-proof) {
+    margin: 0 0 12px;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
   .bio {
     border-top: 1px solid var(--line);
     padding-top: 24px;

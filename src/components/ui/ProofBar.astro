@@ -1,0 +1,131 @@
+---
+import Stars from './Stars.astro';
+import { site } from '../../config/site';
+import { m } from '../../paraglide/messages.js';
+
+/**
+ * ProofBar — preuve sociale (note Google, personnes entraînées, DTV approuvés).
+ * Chiffres : `site.proof` (source unique). Couleur héritée du parent
+ * (currentColor) → marche sur cream comme sur photo/forest ; étoiles or.
+ * - `line` : une ligne compacte, pour les heroes et les petits encarts.
+ * - `band` : gros chiffres empilés, pour le corps des pages.
+ * Pas de JSON-LD aggregateRating : avis auto-hébergés ignorés par Google.
+ */
+export type ProofKey = 'google' | 'trained' | 'dtv';
+export interface Props {
+  items?: ProofKey[];
+  variant?: 'line' | 'band';
+  center?: boolean;
+  class?: string;
+}
+const { items = ['google', 'trained', 'dtv'], variant = 'line', center = false, class: extra } = Astro.props;
+
+const lang = Astro.currentLocale ?? 'en';
+const loc = lang === 'fr' ? 'fr-FR' : 'en-US';
+const { googleRating, googleCount, trained, dtvApproved } = site.proof;
+const rating = googleRating.toLocaleString(loc, { minimumFractionDigits: 1 });
+const plus = (n: number) => `${n.toLocaleString(loc)}+`;
+---
+
+<ul class:list={['proof', `proof--${variant}`, center && 'proof--center', extra]}>
+  {
+    items.map((key) =>
+      key === 'google' ? (
+        <li class="pf pf--google">
+          <span class="pf-top">
+            <b class="pf-n">{rating}</b>
+            <Stars rating={googleRating} label={m.proof_rating_label({ rating })} />
+          </span>
+          <a class="pf-l" href={site.reviews.googleUrl} target="_blank" rel="noopener">
+            {m.proof_google_reviews({ count: String(googleCount) })}
+          </a>
+        </li>
+      ) : (
+        <li class="pf">
+          <b class="pf-n">{plus(key === 'trained' ? trained : dtvApproved)}</b>
+          <span class="pf-l">{key === 'trained' ? m.proof_trained() : m.proof_dtv()}</span>
+        </li>
+      ),
+    )
+  }
+</ul>
+
+<style>
+  .proof {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .proof--center {
+    justify-content: center;
+  }
+  .pf-n {
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+  a.pf-l {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  }
+  a.pf-l:hover {
+    text-decoration-color: currentColor;
+  }
+
+  /* ---- line ---- */
+  .proof--line {
+    gap: 6px 18px;
+    align-items: center;
+    font-size: 15px;
+  }
+  .proof--line .pf,
+  .proof--line .pf-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .proof--line .pf + .pf::before {
+    content: '·';
+    margin-right: 11px;
+    opacity: 0.6;
+  }
+  .proof--line :global(.wc-stars) {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  /* ---- band ---- */
+  .proof--band {
+    gap: 24px clamp(28px, 5vw, 64px);
+    align-items: flex-start;
+  }
+  .proof--band .pf {
+    display: grid;
+    gap: 4px;
+  }
+  .proof--band .pf-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .proof--band .pf-n {
+    font-size: clamp(34px, 4.4vw, 48px);
+    line-height: 1;
+  }
+  .proof--band .pf-l {
+    font-size: 15px;
+    opacity: 0.85;
+  }
+  .proof--band :global(.wc-stars) {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  .proof--center.proof--band .pf {
+    justify-items: center;
+    text-align: center;
+  }
+</style>

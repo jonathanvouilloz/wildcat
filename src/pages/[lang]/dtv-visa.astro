@@ -24,6 +24,7 @@ import type { FEATURED_TESTIMONIALS_QUERY_RESULT } from '../../lib/sanity.types'
 import { urlFor } from '../../lib/image';
 import { mapTestimonial } from '../../lib/testimonials';
 import { m } from '../../paraglide/messages.js';
+import ProofBar from '../../components/ui/ProofBar.astro';
 
 // Pilier DTV — page unique et forte du silo n°1 (kw EN : "muay thai visa thailand"
 // + "DTV visa Chiang Mai" ; FR : "visa dtv muay thai thailande").
@@ -219,6 +220,7 @@ const faqJsonld = {
     />
 
     <PageHero
+      proof={['dtv', 'google']}
       dark
       title={m.dtv_hero_title()}
       titleEm={m.dtv_hero_title_em()}
@@ -391,6 +393,7 @@ const faqJsonld = {
           </div>
         )
       }
+      <ProofBar variant="band" items={['dtv', 'google']} class="mt-10" />
       {
         approvals.length > 0 && (
           <div class="approvals">

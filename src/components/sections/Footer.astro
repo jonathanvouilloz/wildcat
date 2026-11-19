@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Container from '../layout/Container.astro';
+import ProofBar from '../ui/ProofBar.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
 import { m } from '../../paraglide/messages.js';
@@ -37,6 +38,7 @@ const exploreLabels: Record<(typeof site.exploreLinks)[number]['key'], string> =
           <img src="/assets/logo-horizontal-cream.svg" alt={site.name} width="185" height="46" />
         </div>
         <p class="tag">{m.site_tagline()}</p>
+        <ProofBar items={['google']} class="foot-proof" />
         <div class="social">
           {
             site.social.map((s) => (
@@ -111,6 +113,11 @@ const exploreLabels: Record<(typeof site.exploreLinks)[number]['key'], string> =
     height: 46px;
     width: auto;
     margin-bottom: 16px;
+  }
+  .foot :global(.foot-proof) {
+    margin-top: 14px;
+    font-size: 14px;
+    color: rgba(246, 241, 230, 0.85);
   }
   .tag {
     margin: 0;

@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../../components/layout/Section.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
 import PageHero from '../../components/sections/PageHero.astro';
+import ProofBar from '../../components/ui/ProofBar.astro';
 import ContactForm from '../../components/sections/ContactForm.astro';
 import { site } from '../../config/site';
 import { localePath } from '../../lib/routes';
@@ -35,6 +36,7 @@ const hoursDays: Record<(typeof site.hours)[number]['dayKey'], string> = {
     />
 
     <PageHero
+      proof={['google', 'trained', 'dtv']}
       title={m.contact_hero_title()}
       titleEm={m.contact_hero_title_em()}
       lead={m.contact_hero_lead()}
@@ -89,6 +91,7 @@ const hoursDays: Record<(typeof site.hours)[number]['dayKey'], string> = {
             }
           </ul>
           <p class="note">{m.footer_contact_note()}</p>
+          <ProofBar items={['google']} class="aside-proof" />
         </aside>
       </div>
 
@@ -232,6 +235,11 @@ const hoursDays: Record<(typeof site.hours)[number]['dayKey'], string> = {
     margin: 0;
     font-size: 13.5px;
     color: var(--ink-3);
+  }
+  .aside :global(.aside-proof) {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--ink-2);
   }
   .map {
     margin-top: 38px;
