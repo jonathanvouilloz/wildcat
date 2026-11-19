@@ -73,18 +73,14 @@ const modelOptions = [
   ...site.scooterFleet.map((s) => ({ value: s.key, label: s.name })),
   { value: 'not-sure', label: m.contact_sct_model_any() },
 ];
-// Qualifieur de forfait (2026-08-20) : depuis que les 4 forfaits long-stay ont
-// laissé place à l'offre unique, la vraie question est « tout compris ou
-// entraînement seul ? ». Affiché pour l’intention stay (la DTV pose la question en radios).
-// Label = nom · prix (séparateur ·, pas d'em-dash).
-const fmt = (n: number) => n.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US');
-const packageOptions = [
-  {
-    value: site.pricing.stayTrain.key,
-    label: `${m.contact_dtv_pkg_stay()} · ${fmt(site.pricing.stayTrain.price)} ${site.pricing.currency}`,
-  },
-  { value: 'training_only', label: m.contact_dtv_pkg_training() },
-];
+// Forfait (2026-11-19) : une seule question « tout compris ou entraînement
+// seul ? », mêmes radios pour stay et dtv (champ `package`). Prix semaine + mois
+// parce que les durées proposées vont d'une semaine à 6 mois.
+const fmt = (n: number) => `${n.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US')} ${site.pricing.currency}`;
+const stayTrainLabel = m.contact_dtv_stay_wildcat({
+  week: fmt(site.pricing.stayTrain.weekPrice),
+  month: fmt(site.pricing.stayTrain.price),
+});
 
 const dtvDurationOptions = [
   { value: '1-3-months', label: m.contact_dtv_dur_short() },
@@ -192,10 +188,6 @@ const waTexts: Record<string, string> = {
     <Field label={m.contact_stay_people()} for="ct-stay-people" class="narrow">
       <Select id="ct-stay-people" name="stay_people" placeholder={m.contact_form_choose_ph()} options={peopleOptions} />
     </Field>
-    <div class="checks">
-      <Checkbox name="stay_acc" value="yes">{m.contact_stay_acc()}</Checkbox>
-      <Checkbox name="stay_scoot" value="yes">{m.contact_stay_scoot()}</Checkbox>
-    </div>
   </div>
 
   <div class="xtra" data-i="scooter">
@@ -209,12 +201,6 @@ const waTexts: Record<string, string> = {
     </div>
     <Field label={m.contact_sct_model()} for="ct-sct-model" class="narrow">
       <Select id="ct-sct-model" name="sct_model" placeholder={m.contact_form_choose_ph()} options={modelOptions} />
-    </Field>
-  </div>
-
-  <div class="xtra" data-i="stay">
-    <Field label={m.contact_dtv_package()} for="ct-dtv-package" class="narrow">
-      <Select id="ct-dtv-package" name="dtv_package" placeholder={m.contact_form_choose_ph()} options={packageOptions} />
     </Field>
   </div>
 
@@ -238,17 +224,26 @@ const waTexts: Record<string, string> = {
         options={dtvDurationOptions}
       />
     </Field>
+  </div>
+
+  <!-- Forfait, commun à stay et dtv. Le tout compris inclut chambre et moto :
+       les cases logement/scooter n'apparaissent que pour « entraînement seul » (stay). -->
+  <div class="xtra" data-i="stay dtv">
     <fieldset class="choices">
       <legend>{m.contact_dtv_stay()}</legend>
       <label class="choice">
-        <input type="radio" name="dtv_stay" value={site.pricing.stayTrain.key} />
-        <span>{m.contact_dtv_stay_wildcat({ price: `${fmt(site.pricing.stayTrain.price)} ${site.pricing.currency}` })}</span>
+        <input type="radio" name="package" value={site.pricing.stayTrain.key} />
+        <span>{stayTrainLabel}</span>
       </label>
       <label class="choice">
-        <input type="radio" name="dtv_stay" value="training_only" />
+        <input type="radio" name="package" value="training_only" />
         <span>{m.contact_dtv_stay_own()}</span>
       </label>
     </fieldset>
+    <div class="checks own-extras">
+      <Checkbox name="stay_acc" value="yes">{m.contact_stay_acc()}</Checkbox>
+      <Checkbox name="stay_scoot" value="yes">{m.contact_stay_scoot()}</Checkbox>
+    </div>
   </div>
 
     <div class="step-nav">
@@ -340,8 +335,7 @@ const waTexts: Record<string, string> = {
   document.querySelectorAll<HTMLFormElement>('form[data-cform]').forEach((form) => {
     const params = new URLSearchParams(location.search);
     const pkg = params.get('package');
-    // ?package= implique l'intention stay (le select forfait ne vit plus que là ;
-    // la DTV demande le logement en radios, 2026-10-16).
+    // ?package= implique l'intention stay (CTA de la carte StayTrainOffer).
     const raw = params.get('intent') ?? params.get('topic') ?? (pkg ? 'stay' : null);
     if (raw) {
       const want = LEGACY[raw] ?? raw;
@@ -352,10 +346,9 @@ const waTexts: Record<string, string> = {
     // Saut direct à l'étape 2 : formulaires intégrés aux pages (prop intent) seulement.
     // ?intent= (CTA du menu, toujours présent) présélectionne la carte sans sauter l'étape 1.
     const preset = Boolean(form.dataset.preset);
-    // Pré-sélectionne le forfait dans le dropdown stay s'il existe.
     if (pkg) {
-      const sel = form.querySelector<HTMLSelectElement>('select[name="dtv_package"]');
-      if (sel && [...sel.options].some((o) => o.value === pkg)) sel.value = pkg;
+      const r = form.querySelector<HTMLInputElement>(`input[name="package"][value="${CSS.escape(pkg)}"]`);
+      if (r) r.checked = r.defaultChecked = true;
     }
 
     const checkedIntent = () =>
@@ -417,6 +410,8 @@ const waTexts: Record<string, string> = {
     });
     form.addEventListener('reset', () =>
       setTimeout(() => {
+        // Ré-active les champs coupés par disableInactive au dernier envoi.
+        form.querySelectorAll<HTMLInputElement>('[disabled]').forEach((el) => (el.disabled = false));
         update();
         show(startStep(), false);
       }),
@@ -427,6 +422,13 @@ const waTexts: Record<string, string> = {
     });
     update();
     show(startStep(), false);
+
+    const ownExtras = (f: HTMLFormElement) =>
+      checkedIntent() === 'stay' && f.querySelector('input[name="package"][value="training_only"]:checked') !== null;
+    const packageLine = (f: HTMLFormElement) => {
+      const v = f.querySelector<HTMLInputElement>('input[name="package"]:checked')?.value;
+      return v ? `Package: ${v === 'training_only' ? 'Training only' : 'Stay & Train (all inclusive)'}` : '';
+    };
 
     // Message WhatsApp lisible, construit depuis les champs remplis (EN dans
     // les 2 locales — équipe anglophone). Lu AVANT le disable des .xtra.
@@ -456,9 +458,12 @@ const waTexts: Record<string, string> = {
         if (duration) bits.push(duration);
         if (people) bits.push(`${people} ${people === '1' ? 'person' : 'people'}`);
         if (bits.length) lines.push(`Stay: ${bits.join(', ')}`);
+        const pkgLine = packageLine(f);
+        if (pkgLine) lines.push(pkgLine);
         const extras: string[] = [];
-        if (isChecked(f, 'stay_acc')) extras.push('accommodation');
-        if (isChecked(f, 'stay_scoot')) extras.push('scooter');
+        // Cases cachées (tout compris) ignorées même si cochées avant.
+        if (ownExtras(f) && isChecked(f, 'stay_acc')) extras.push('accommodation');
+        if (ownExtras(f) && isChecked(f, 'stay_scoot')) extras.push('scooter');
         if (extras.length) lines.push(`Also interested in: ${extras.join(', ')}`);
       } else if (intent === 'scooter') {
         const bits: string[] = [];
@@ -478,8 +483,8 @@ const waTexts: Record<string, string> = {
         if (arrival) bits.push(`arriving ${arrival}`);
         if (duration) bits.push(`training ${duration.toLowerCase()}`);
         if (bits.length) lines.push(`DTV: ${bits.join(', ')}`);
-        const stay = f.querySelector<HTMLInputElement>('input[name="dtv_stay"]:checked');
-        if (stay) lines.push(stay.value === 'training_only' ? 'Training only, own accommodation' : 'Stay & Train (all inclusive)');
+        const pkgLine = packageLine(f);
+        if (pkgLine) lines.push(pkgLine);
       }
 
       const msg = fieldValue(f, 'message');
@@ -498,6 +503,8 @@ const waTexts: Record<string, string> = {
           .querySelectorAll<HTMLInputElement>('input, select, textarea')
           .forEach((field) => (field.disabled = true));
       });
+      if (!ownExtras(f))
+        f.querySelectorAll<HTMLInputElement>('.own-extras input').forEach((field) => (field.disabled = true));
     };
 
     const modal = document.querySelector<HTMLDialogElement>('dialog[data-wa-modal]');
@@ -663,6 +670,12 @@ const waTexts: Record<string, string> = {
   .checks {
     display: grid;
     gap: 10px;
+  }
+  .own-extras {
+    display: none;
+  }
+  .cform:has(input[name='intent'][value='stay']:checked):has(input[name='package'][value='training_only']:checked) .own-extras {
+    display: grid;
   }
 
   /* ---- Multistep ----

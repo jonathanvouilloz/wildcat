@@ -136,8 +136,8 @@ le bundle client (contrairement à `PUBLIC_WEB3FORMS_KEY`).
 | `src/config/site.ts` | Source des prix (lecture seule) : `pricing.groupAdults`, `scooterFleet`. | inchangé |
 
 Champs reçus (noms réels du form) : toujours `intent · name · email · phone · message · consent · lang · botcheck` ;
-selon intent : `cls_date cls_level` · `stay_arrival stay_duration stay_people stay_acc stay_scoot` ·
-`sct_from sct_to sct_model` · `dtv_package`. (Les champs des intents inactifs sont `disabled` au submit
+selon intent : `cls_date cls_level` · `stay_arrival stay_duration stay_people package stay_acc stay_scoot` ·
+`sct_from sct_to sct_model` · `dtv_nationality dtv_arrival dtv_duration package`. (Les champs des intents inactifs sont `disabled` au submit
 → absents de la copie. Propre.)
 
 ---

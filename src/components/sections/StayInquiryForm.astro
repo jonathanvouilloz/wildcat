@@ -37,6 +37,12 @@ const durationOptions = [
   { value: '6-months-plus', label: m.contact_stay_dur_6m() },
 ];
 const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: v }));
+// Même question forfait que ContactForm (champ `package`).
+const fmt = (n: number) => `${n.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-US')} ${site.pricing.currency}`;
+const stayTrainLabel = m.contact_dtv_stay_wildcat({
+  week: fmt(site.pricing.stayTrain.weekPrice),
+  month: fmt(site.pricing.stayTrain.price),
+});
 ---
 
 <form
@@ -90,7 +96,20 @@ const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: 
     </Field>
   </div>
 
-  <div class="checks">
+  <fieldset class="choices">
+    <legend>{m.contact_dtv_stay()}</legend>
+    <label class="choice">
+      <input type="radio" name="package" value={site.pricing.stayTrain.key} />
+      <span>{stayTrainLabel}</span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="package" value="training_only" />
+      <span>{m.contact_dtv_stay_own()}</span>
+    </label>
+  </fieldset>
+
+  <!-- Le tout compris inclut chambre et moto : ces cases ne servent qu'à « entraînement seul ». -->
+  <div class="checks own-extras">
     <Checkbox name="stay_acc" value="yes">{m.contact_stay_acc()}</Checkbox>
     <Checkbox name="stay_scoot" value="yes">{m.contact_stay_scoot()}</Checkbox>
   </div>
@@ -140,9 +159,14 @@ const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: 
       if (people) bits.push(`${people} ${people === '1' ? 'person' : 'people'}`);
       if (bits.length) lines.push(`Stay: ${bits.join(', ')}`);
 
+      const pkg = f.querySelector<HTMLInputElement>('input[name="package"]:checked')?.value;
+      if (pkg) lines.push(`Package: ${pkg === 'training_only' ? 'Training only' : 'Stay & Train (all inclusive)'}`);
       const extras: string[] = [];
-      if (isChecked(f, 'stay_acc')) extras.push('accommodation');
-      if (isChecked(f, 'stay_scoot')) extras.push('scooter');
+      // Cases cachées (tout compris) ignorées même si cochées avant.
+      if (pkg === 'training_only') {
+        if (isChecked(f, 'stay_acc')) extras.push('accommodation');
+        if (isChecked(f, 'stay_scoot')) extras.push('scooter');
+      }
       if (extras.length) lines.push(`Also interested in: ${extras.join(', ')}`);
 
       const msg = fieldValue(f, 'message');
@@ -152,7 +176,15 @@ const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: 
 
     const modal = document.querySelector<HTMLDialogElement>('dialog[data-wa-modal]');
     minToday(form);
-    if (base) submitViaWhatsApp(form, { waBase: base, buildText, modal, recoKey: () => 'stay' });
+    // Email propre : pas de cases logement/scooter avec le tout compris.
+    const beforeSubmit = (f: HTMLFormElement) => {
+      if (!f.querySelector('input[name="package"][value="training_only"]:checked'))
+        f.querySelectorAll<HTMLInputElement>('.own-extras input').forEach((el) => (el.disabled = true));
+    };
+    form.addEventListener('reset', () =>
+      setTimeout(() => form.querySelectorAll<HTMLInputElement>('[disabled]').forEach((el) => (el.disabled = false))),
+    );
+    if (base) submitViaWhatsApp(form, { waBase: base, buildText, beforeSubmit, modal, recoKey: () => 'stay' });
   });
 </script>
 
@@ -181,6 +213,48 @@ const peopleOptions = ['1', '2', '3', '4', '5+'].map((v) => ({ value: v, label: 
   .checks {
     display: grid;
     gap: 10px;
+  }
+  /* Mêmes radios forfait que ContactForm. */
+  .choices {
+    display: grid;
+    gap: 8px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .choices legend {
+    padding: 0;
+    margin-bottom: 8px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .choice {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    background: var(--field-bg);
+    border: 1.5px solid var(--field-border);
+    border-radius: var(--r-md);
+    font-size: 14.5px;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .choice input {
+    margin-top: 3px;
+    accent-color: var(--forest);
+  }
+  .choice:has(input:checked) {
+    border-color: var(--forest);
+    background: color-mix(in srgb, var(--forest), #fff 92%);
+  }
+  .own-extras {
+    display: none;
+  }
+  .sform:has(input[name='package'][value='training_only']:checked) .own-extras {
+    display: grid;
   }
   .narrow {
     max-width: 240px;

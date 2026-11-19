@@ -170,7 +170,7 @@ export const site = {
      * pouvoir les remettre plus tard. Pour réactiver : décommenter, restaurer
      * <LongStayPackages> depuis git (supprimé en même temps) sur /classes#pricing,
      * /stay-train#packages et /dtv-visa/long-stay-training#packages, et remettre
-     * les options `dtv_package` dérivées dans ContactForm.
+     * les radios `package` dérivées dans ContactForm et StayInquiryForm.
      * longStay: [
      *   { key: 'pack30', price: 12000, classes: 30, months: 6 },
      *   { key: 'pack50', price: 17000, classes: 50, months: 9 },

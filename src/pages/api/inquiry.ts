@@ -154,7 +154,7 @@ const PACKAGE_LABELS: Record<string, string> = {
 function detailsFor(intent: string, g: (k: string) => string): string[] {
   const out: string[] = [];
   const pkg = () => {
-    const raw = g('dtv_package');
+    const raw = g('package');
     if (raw) out.push(`Package: ${PACKAGE_LABELS[raw] ?? raw}`);
   };
   if (intent === 'class') {
@@ -175,8 +175,7 @@ function detailsFor(intent: string, g: (k: string) => string): string[] {
     if (g('dtv_nationality')) out.push(`Nationality: ${g('dtv_nationality')}`);
     if (g('dtv_arrival')) out.push(`Arrival: ${g('dtv_arrival')}`);
     if (g('dtv_duration')) out.push(`Training: ${g('dtv_duration')}`);
-    const stay = g('dtv_stay');
-    if (stay) out.push(`Stay: ${PACKAGE_LABELS[stay] ?? stay}`);
+    pkg();
   }
   return out;
 }
