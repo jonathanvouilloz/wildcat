@@ -32,11 +32,10 @@ export const site = {
     geo: { latitude: 18.732, longitude: 98.9474 },
   },
 
-  /** Avis Google — CTA /about#reviews. Recherche Google en attendant (pas
-   *  encore d'accès GMB, 2026-06-06) ; TODO: lien direct fiche Business
-   *  Profile quand l'accès est récupéré. */
+  /** Avis Google — lien de partage de la fiche Business Profile (Jonathan, 2026-11-20).
+   *  Utilisé par ProofBar et le CTA /about#reviews. */
   reviews: {
-    googleUrl: 'https://www.google.com/search?q=Wildcat+Muay+Thai+Chiang+Mai+reviews',
+    googleUrl: 'https://share.google/OEBkABTystvBJsM2n',
   },
 
   /** Preuve sociale affichée par <ProofBar> (validé Jonathan 2026-11-19).
