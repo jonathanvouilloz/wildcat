@@ -207,5 +207,98 @@
     "reason": "Enrichissement topique sur la famille 'muay thai camp thailand' (types, choix, packages) sans toucher title/meta (pos > 20, CTR non diagnostiquable, title changé le 29/09).",
     "word_count_before": 4565,
     "word_count_after": 5346
+  },
+  {
+    "date": "2026-11-21",
+    "trigger": "gsc-opportunity",
+    "page_type": "article",
+    "gsc_snapshot": {
+      "period": "2026-10-23..2026-11-19",
+      "clicks": 2,
+      "impressions": 3181,
+      "source": ".seo-data/gsc-bestcamps-2026-11-21.json + .seo-data/serp-camps-thailand-2026-11-21.json (DataForSEO US)",
+      "top_queries": [
+        {
+          "query": "muay thai camp thailand",
+          "clicks": 0,
+          "impressions": 564,
+          "position": 62.3
+        },
+        {
+          "query": "thailand muay thai camp",
+          "clicks": 0,
+          "impressions": 470,
+          "position": 63.2
+        },
+        {
+          "query": "muay thai training camp thailand",
+          "clicks": 0,
+          "impressions": 412,
+          "position": 68.9
+        },
+        {
+          "query": "muay thai camps thailand",
+          "clicks": 0,
+          "impressions": 391,
+          "position": 57.0
+        },
+        {
+          "query": "best muay thai camps in thailand",
+          "clicks": 0,
+          "impressions": 112,
+          "position": 29.1
+        },
+        {
+          "query": "muay thai camp",
+          "clicks": 0,
+          "impressions": 90,
+          "position": 58.9
+        },
+        {
+          "query": "muay thai camps",
+          "clicks": 0,
+          "impressions": 69,
+          "position": 63.7
+        },
+        {
+          "query": "best muay thai camps",
+          "clicks": 0,
+          "impressions": 51,
+          "position": 10.3
+        },
+        {
+          "query": "muay thai thailand camp",
+          "clicks": 0,
+          "impressions": 50,
+          "position": 72.6
+        },
+        {
+          "query": "camp muay thai thailand",
+          "clicks": 0,
+          "impressions": 45,
+          "position": 66.1
+        }
+      ]
+    },
+    "changes": [
+      {
+        "type": "title",
+        "detail": "Title -> 'Best Muay Thai Camps in Thailand 2026: Honest Picks & Prices' (60 car.), h1 'The best Muay Thai camps in Thailand...', description 153 car. avec 'best'",
+        "reason": "têtes 'muay thai camp(s) thailand' passées de pos 32-46 à 57-69 depuis le title sans 'best' (29/09), alors que les variantes 'best' tiennent pos 7-11 (best muay thai camp(s), best thailand muay thai camps, best muay thai camp(s) thailand)"
+      },
+      {
+        "type": "reinforce",
+        "detail": "H2 zero experience -> 'Muay Thai camps in Thailand for beginners: zero experience, 30 or 40+'",
+        "reason": "'muay thai camp thailand beginner(s)' pos 24, 'best ... for beginners' pos 31, sans H2 au mot-clé"
+      },
+      {
+        "type": "add_h2",
+        "detail": "paragraphe 'The cheapest Muay Thai camps in this guide' dans la section coût (prix du tableau, 29/09)",
+        "reason": "requêtes nouvelles cheap/cheapest muay thai camp thailand, 1 month price, pos 29-35"
+      }
+    ],
+    "reason": "Pas de nouvelle croissance du corps (déjà 5 346 mots, 3 refreshs) : on revient au cluster 'best' où la page tient la page 1, les têtes génériques (SERP = sites de camps, Reddit, annuaires, Wildcat hors top 50 US) relèvent des liens externes, pas du contenu.",
+    "word_count_before": 5346,
+    "word_count_after": 5425
   }
 ]

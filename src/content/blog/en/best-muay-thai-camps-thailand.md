@@ -1,7 +1,7 @@
 ---
-title: "Muay Thai Camps in Thailand 2026: Honest Picks by Region & Price"
-h1: "Muay Thai camps in Thailand: an honest guide, region by region"
-description: "Phuket, Koh Samui, Krabi, Pai, Isan, Chiang Mai: Muay Thai camps in Thailand compared with real monthly prices, accommodation and who each one suits."
+title: "Best Muay Thai Camps in Thailand 2026: Honest Picks & Prices"
+h1: "The best Muay Thai camps in Thailand: an honest guide, region by region"
+description: "The best Muay Thai camps in Thailand by region (Phuket, Samui, Krabi, Pai, Isan, Chiang Mai), with real monthly prices, accommodation and who each suits."
 tldr:
   - "The right camp depends on your profile: Tiger Muay Thai in Phuket for fighters who want scale, Wildcat in Chiang Mai for beginners, long stays and DTV applicants."
   - "Published monthly training prices run from 5,000 THB (Wildcat) to 13,500 THB for Muay Thai only at Tiger (plus VAT). Most island camps sit between 6,500 and 12,000 THB."
@@ -9,7 +9,7 @@ tldr:
   - "All-inclusive rarely means everything: check meals, transport and the number of sessions before you compare prices."
   - "Since 15 September 2026 most visitors get 30 days visa-free, so past two months the tourist visa or the DTV decides which camp works. Not every camp handles DTV documentation."
 publishDate: 2026-06-16
-updatedDate: 2026-10-16
+updatedDate: 2026-11-21
 category: choosing-a-camp
 cover: ../covers/best-muay-thai-camps-thailand.webp
 coverAlt: "Best Muay Thai camps in Thailand: Wildcat Muay Thai, Chiang Mai"
@@ -221,9 +221,9 @@ At Wildcat the rhythm is the same, with group classes at 9:00 in the morning and
 
 ---
 
-## Can you go to a camp with zero experience (or at 30, 40+)?
+## Muay Thai camps in Thailand for beginners: zero experience, 30 or 40+
 
-Yes, and plenty of people do. Most foreigners who train in Thailand have never had a lesson before they arrive. Age is less of a problem than people fear. We regularly see students start in their thirties and forties, and the trainers adjust.
+Can you go to a camp with zero experience? Yes, and plenty of people do. Most foreigners who train in Thailand have never had a lesson before they arrive. Age is less of a problem than people fear. We regularly see students start in their thirties and forties, and the trainers adjust.
 
 What changes is the camp you pick. At a camp built around a fight team, a beginner often lands in the same session as people preparing for a fight, so ask what your first week looks like before you book. Start with one session a day: two in the heat is a lot for a body that isn't used to it. And listen to your shins, knees and lower back, because they complain first. I'd rather see a student take a rest day than limp through a week.
 
@@ -234,6 +234,8 @@ You don't need to fight, spar hard or be in shape to start. You need to show up 
 ## How much does one month at a camp cost?
 
 For training alone, the published prices in the table above run from 5,000 THB a month in Chiang Mai to 13,500 THB plus VAT at Tiger. Most camps on the islands sit between 6,500 and 12,000 THB.
+
+**The cheapest Muay Thai camps in this guide**, on published monthly training prices: Wildcat in Chiang Mai (5,000 THB), Over The Top in Ao Nang (6,500 THB, one class a day), Superpro Samui (7,500 THB) and Sinbi in Phuket (8,000 THB, one session a day). Cheap only stays cheap if the rest of the month is too: rent and food cost less in the north than on the islands.
 
 Add a room and food, and a realistic month lands anywhere between about 20,000 THB in the north and well over 40,000 THB at a resort camp in Phuket. Packages help you compare: Kem's 36,000 THB includes a room and two meals, Tiger's basic all-inclusive is 42,800 THB, and our [Stay & Train offer](/stay-train) is 28,000 THB with a room, bills, a motorbike and the airport transfer, meals and fuel not included.
 
