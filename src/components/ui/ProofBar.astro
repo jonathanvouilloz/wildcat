@@ -57,10 +57,9 @@ const plus = (n: number) => `${n.toLocaleString(loc)}+`;
 </ul>
 
 <style>
+  /* pas de reset margin/padding/list-style ici : le preflight Tailwind le fait déjà,
+     et une règle scopée écraserait les utilitaires mb-*/mt-* passés via `class` */
   .proof {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-wrap: wrap;
   }

@@ -37,7 +37,7 @@ How long this takes depends on the camp. The Koh Samui gym says its fight prepar
 
 ## Are you ready? Level, format and weight classes
 
-A coach's opinion beats any checklist you read online, including this one.
+A coach's opinion beats any checklist you read online, including this one. At Wildcat that call belongs to Meaw and Peter, who both hold [the SAT Muay Thai coach license](/blog/sat-certified-muay-thai-coach).
 
 ### Level, training volume and who gets refused
 
