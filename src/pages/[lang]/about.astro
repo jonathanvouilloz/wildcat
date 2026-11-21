@@ -97,6 +97,10 @@ const reviews = testimonialDocs.map((doc) => mapTestimonial(doc, lang));
             {m.about_story_link_pre()}
             <a class="ilink" href={p('/classes')}>{m.about_story_link()}</a>.
           </p>
+          <p class="body-p">
+            {m.about_story_cert_pre()}
+            <a class="ilink" href={`${p('/about/coaches')}#meaw`}>{m.about_story_cert_link()}</a>.
+          </p>
         </div>
         <div class="imgbox">
           {/* l'enseigne dans la végétation — pas de doublon avec la photo famille du hero */}
@@ -139,7 +143,7 @@ const reviews = testimonialDocs.map((doc) => mapTestimonial(doc, lang));
         </h2>
         <p class="body-p centered">{m.about_reviews_lead()}</p>
       </div>
-      <ProofBar variant="band" center class="mb-10" />
+      <ProofBar variant="band" items={['google', 'trained', 'dtv', 'sat']} center class="mb-10" />
       {
         reviews.length > 0 && (
           <div class="reviews">

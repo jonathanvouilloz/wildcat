@@ -47,6 +47,8 @@ export const site = {
     trained: 1000,
     /** visas DTV approuvés avec le dossier Wildcat */
     dtvApproved: 100,
+    /** coachs avec la licence C de la Sports Authority of Thailand (Meaw + Peter, 2026-11-20) */
+    satCoaches: 2,
   },
 
   // Horaires d'ouverture = 1er cours → fin du dernier (flyer 2026-06-04), 7j/7.

@@ -4,14 +4,15 @@ import { site } from '../../config/site';
 import { m } from '../../paraglide/messages.js';
 
 /**
- * ProofBar — preuve sociale (note Google, personnes entraînées, DTV approuvés).
+ * ProofBar — preuve sociale (note Google, personnes entraînées, DTV approuvés,
+ * coachs certifiés SAT).
  * Chiffres : `site.proof` (source unique). Couleur héritée du parent
  * (currentColor) → marche sur cream comme sur photo/forest ; étoiles or.
  * - `line` : une ligne compacte, pour les heroes et les petits encarts.
  * - `band` : gros chiffres empilés, pour le corps des pages.
  * Pas de JSON-LD aggregateRating : avis auto-hébergés ignorés par Google.
  */
-export type ProofKey = 'google' | 'trained' | 'dtv';
+export type ProofKey = 'google' | 'trained' | 'dtv' | 'sat';
 export interface Props {
   items?: ProofKey[];
   variant?: 'line' | 'band';
@@ -22,7 +23,7 @@ const { items = ['google', 'trained', 'dtv'], variant = 'line', center = false, 
 
 const lang = Astro.currentLocale ?? 'en';
 const loc = lang === 'fr' ? 'fr-FR' : 'en-US';
-const { googleRating, googleCount, trained, dtvApproved } = site.proof;
+const { googleRating, googleCount, trained, dtvApproved, satCoaches } = site.proof;
 const rating = googleRating.toLocaleString(loc, { minimumFractionDigits: 1 });
 const plus = (n: number) => `${n.toLocaleString(loc)}+`;
 ---
@@ -39,6 +40,11 @@ const plus = (n: number) => `${n.toLocaleString(loc)}+`;
           <a class="pf-l" href={site.reviews.googleUrl} target="_blank" rel="noopener">
             {m.proof_google_reviews({ count: String(googleCount) })}
           </a>
+        </li>
+      ) : key === 'sat' ? (
+        <li class="pf">
+          <b class="pf-n">{satCoaches}</b>
+          <span class="pf-l">{m.proof_sat()}</span>
         </li>
       ) : (
         <li class="pf">

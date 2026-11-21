@@ -67,6 +67,13 @@ const personSchema = {
   image: new URL('/assets/meaw-portrait.webp', base).href,
   url: pageUrl,
   worksFor: { '@type': 'SportsClub', name: site.name, url: homeUrl },
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    name: m.coaches_meaw_cred_name(),
+    credentialCategory: 'license',
+    dateCreated: '2026-11-20',
+    recognizedBy: { '@type': 'GovernmentOrganization', name: 'Sports Authority of Thailand', url: 'https://www.sat.or.th' },
+  },
 };
 ---
 
@@ -84,7 +91,7 @@ const personSchema = {
     />
 
     <PageHero
-      proof={['trained', 'google']}
+      proof={['sat', 'trained', 'google']}
       image={{ src: '/assets/hero-team.webp', alt: m.coaches_hero_img_alt(), position: 'center 28%' }}
       eyebrow={m.coaches_hero_eyebrow()}
       title={m.coaches_hero_title()}
@@ -118,10 +125,21 @@ const personSchema = {
             <a class="ilink" href={p('/dtv-visa')}>{m.coaches_meaw_link_dtv()}</a>.
           </p>
           <ul class="cred">
+            <li>{m.coaches_meaw_cred_sat()}</li>
             <li>{m.coaches_meaw_cred1()}</li>
             <li>{m.coaches_meaw_cred2()}</li>
             <li>{m.coaches_meaw_cred3()}</li>
           </ul>
+          <figure class="cert">
+            <img
+              src="/assets/meaw-c-license-certificate.webp"
+              alt={m.coaches_meaw_cert_alt()}
+              width="864"
+              height="565"
+              loading="lazy"
+            />
+            <figcaption>{m.coaches_meaw_cert_caption()}</figcaption>
+          </figure>
         </div>
       </div>
     </Section>
@@ -163,7 +181,7 @@ const personSchema = {
       </div>
     </Section>
 
-    <ReadNext keys={['wai-kru-ram-muay-explained', 'muay-thai-headband-mongkhon']} />
+    <ReadNext keys={['sat-certified-muay-thai-coach', 'wai-kru-ram-muay-explained', 'muay-thai-headband-mongkhon']} />
 
     <CtaBanner
       variant="torn"
@@ -255,6 +273,23 @@ const personSchema = {
     color: var(--gold);
     font-size: 11px;
     top: 4px;
+  }
+  /* Certificat SAT — preuve visible, tournée légèrement comme une photo posée */
+  .cert {
+    margin: 24px 0 0;
+    max-width: 420px;
+  }
+  .cert img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-md);
+    transform: rotate(-1.2deg);
+  }
+  .cert figcaption {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--ink-3);
   }
   .values {
     display: grid;
