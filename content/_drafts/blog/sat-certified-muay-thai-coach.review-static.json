@@ -2,9 +2,9 @@
   "contract_version": 1,
   "rules_version": 1,
   "mode": "shadow",
-  "generated_at": "2026-11-21T06:09:37+00:00",
+  "generated_at": "2026-11-21T06:15:28+00:00",
   "article": "src/content/blog/en/sat-certified-muay-thai-coach.md",
-  "article_hash": "sha256:97164a3341b9595d3894309e58549e7cc30feb377eaa84a37e5c4d41225e9b57",
+  "article_hash": "sha256:352184b8365fd6398fa7d42f9472fe2430a6fc342691975b9a464c91507f8290",
   "summary": {
     "errors": 2,
     "warnings": 2,
@@ -28,24 +28,24 @@
       "rule": "title.max_chars",
       "status": "PASS",
       "severity": "error",
-      "detail": "54 characters",
-      "observed": 54,
+      "detail": "53 characters",
+      "observed": 53,
       "maximum": 60
     },
     {
       "rule": "title.min_chars",
       "status": "PASS",
       "severity": "warning",
-      "detail": "54 characters",
-      "observed": 54,
+      "detail": "53 characters",
+      "observed": 53,
       "minimum": 10
     },
     {
       "rule": "title.max_estimated_px",
       "status": "PASS",
       "severity": "warning",
-      "detail": "estimated 546px",
-      "observed": 546,
+      "detail": "estimated 535px",
+      "observed": 535,
       "maximum": 580
     },
     {
@@ -58,16 +58,16 @@
       "rule": "description.max_chars",
       "status": "PASS",
       "severity": "error",
-      "detail": "147 characters",
-      "observed": 147,
+      "detail": "146 characters",
+      "observed": 146,
       "maximum": 155
     },
     {
       "rule": "description.min_chars",
       "status": "PASS",
       "severity": "warning",
-      "detail": "147 characters",
-      "observed": 147,
+      "detail": "146 characters",
+      "observed": 146,
       "minimum": 70
     },
     {
@@ -160,16 +160,16 @@
       "rule": "links.contextual_target_per_1000_min",
       "status": "PASS",
       "severity": "warning",
-      "detail": "6.74 internal links / 1000 words",
-      "observed": 6.74,
+      "detail": "6.68 internal links / 1000 words",
+      "observed": 6.68,
       "target": 3
     },
     {
       "rule": "links.contextual_target_per_1000_max",
       "status": "WARN",
       "severity": "warning",
-      "detail": "6.74 internal links / 1000 words",
-      "observed": 6.74,
+      "detail": "6.68 internal links / 1000 words",
+      "observed": 6.68,
       "target": 6
     },
     {

@@ -1,7 +1,7 @@
 ---
-title: "SAT Certified Muay Thai Coach: Our C-License Explained"
+title: "Muay Thai Instructor Certification: Our SAT C-License"
 h1: "Our coaches are now certified by the Sports Authority of Thailand: what the C-License is, and why it matters when you pick a camp"
-description: "Meaw and Peter earned the Muay Thai coach C-License from the Sports Authority of Thailand in November 2026: what it means and how to check a coach."
+description: "Our coaches Meaw and Peter earned the SAT Muay Thai instructor certification (C-License) in November 2026: what it means and how to check a coach."
 tldr:
   - "On 20 November 2026, Meaw and Peter, our head coach, both received the Muay Thai Coach C-License from the Sports Authority of Thailand (SAT), after a course that ran from 11 to 20 November."
   - "The license is issued through SAT's Office of the Boxing Sport Commission and recognised by the Ministry of Tourism and Sports. It is a government certificate, not a gym's own diploma."
@@ -16,7 +16,7 @@ draft: false
 translationKey: sat-certified-muay-thai-coach
 ---
 
-Good news from the camp: since 20 November 2026, Wildcat has two **SAT certified Muay Thai coaches**. Meaw, who runs the camp and writes these guides, and Peter, our head coach, both passed the Muay Thai Coach C-License course of the Sports Authority of Thailand.
+Good news from the camp: since 20 November 2026, Wildcat has two SAT certified Muay Thai coaches. Meaw, who runs the camp and writes these guides, and Peter, our head coach, both passed the Muay Thai Coach C-License course of the Sports Authority of Thailand.
 
 We've taught Muay Thai in our garden in Hang Dong for years without a paper on the wall. So why spend ten days on a course? Mostly because you can't check our warmth from abroad, but you can check a government certificate. Here is ours, and how to check anyone else's.
 
@@ -28,7 +28,7 @@ The certificate reads: "Has completely succeeded in Muaythai Coach course C-Lice
 
 ## Who issues the license: the Sports Authority of Thailand
 
-The Sports Authority of Thailand (SAT) is the government body for sport in Thailand. Professional boxing, Muay Thai included, falls under its Boxing Sport Commission, and that office runs the coach courses. News reports on earlier sessions describe the same issuer: The Nation wrote in 2024 that trainers attained "a Level C License from the Office of the Boxing Sports Commission, Sports Authority of Thailand".
+In Thailand, the state **Muay Thai instructor certification** comes from the Sports Authority of Thailand (SAT), the government body for sport. Professional boxing, Muay Thai included, falls under its Boxing Sport Commission, and that office runs the coach courses. News reports on earlier sessions describe the same issuer: The Nation wrote in 2024 that trainers attained "a Level C License from the Office of the Boxing Sports Commission, Sports Authority of Thailand".
 
 Any gym can print a nice diploma for its own trainers. This one comes from the state, with a name and a date on it.
 
@@ -67,9 +67,9 @@ Whatever camp you pick, these questions take two minutes on WhatsApp:
 
 If you're comparing camps, our [comparison of Muay Thai camps in Chiang Mai](/blog/best-muay-thai-camps-chiang-mai) goes further.
 
-## FAQ: Muay Thai coach certification in Thailand
+## FAQ: Muay Thai instructor certification in Thailand
 
-### Who certifies Muay Thai coaches in Thailand?
+### Where do you get a Muay Thai instructor certification in Thailand?
 
 The Sports Authority of Thailand, through its Office of the Boxing Sport Commission, under the Ministry of Tourism and Sports. Other bodies run their own programmes, such as IFMA for amateur Muay Thai, but the SAT license is the state one.
 

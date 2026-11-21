@@ -1,0 +1,29 @@
+{
+  "topic": "muay thai trainer certification",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-11-21T06:14:48Z",
+  "primary": {
+    "keyword": "muay thai trainer certification",
+    "search_volume": 10,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 0,
+    "difficulty": null,
+    "intent": "informational",
+    "intent_probability": 0.5908
+  },
+  "secondaries": [
+    {
+      "keyword": "muay thai trainer certification thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}

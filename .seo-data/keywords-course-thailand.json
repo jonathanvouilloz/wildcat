@@ -1,0 +1,216 @@
+{
+  "topic": "muay thai course thailand",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-11-21T06:15:04Z",
+  "primary": {
+    "keyword": "muay thai course thailand",
+    "search_volume": 40,
+    "cpc": 2.02,
+    "competition": "LOW",
+    "competition_index": 18,
+    "difficulty": 27,
+    "intent": "informational",
+    "intent_probability": 0.489
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "tiger muay thai",
+      "search_volume": 4400,
+      "cpc": 1.59,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "tiger muay thai thailand",
+      "search_volume": 4400,
+      "cpc": 1.59,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "bangtao muay thai",
+      "search_volume": 880,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "tiger muay thai phuket",
+      "search_volume": 590,
+      "cpc": 1.35,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "all inclusive muay thai camps in thailand",
+      "search_volume": 110,
+      "cpc": 1.37,
+      "competition": "MEDIUM",
+      "competition_index": 44
+    },
+    {
+      "keyword": "best muay thai camps in thailand",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 14
+    },
+    {
+      "keyword": "tiger muay thai shop",
+      "search_volume": 50,
+      "cpc": 1.04,
+      "competition": "HIGH",
+      "competition_index": 74
+    },
+    {
+      "keyword": "tiger muay thai bali",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "tiger muay thai training camp",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "muay thai instructor course thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 14
+    },
+    {
+      "keyword": "the complete muay thai home study course secrets from thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "muay thai training camp thailand beginner",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "MEDIUM",
+      "competition_index": 43
+    },
+    {
+      "keyword": "muay thai camp thailand 1 month",
+      "search_volume": 10,
+      "cpc": 0.95,
+      "competition": "LOW",
+      "competition_index": 22
+    },
+    {
+      "keyword": "cheap all inclusive muay thai camps in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "best all inclusive muay thai camps in thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 30
+    }
+  ],
+  "related": [
+    {
+      "keyword": "all inclusive muay thai camps in phuket",
+      "search_volume": 10,
+      "cpc": 3.85,
+      "competition": "MEDIUM",
+      "competition_index": 36
+    },
+    {
+      "keyword": "muay thai camp thailand 1 month price",
+      "search_volume": 10,
+      "cpc": 1.29,
+      "competition": "MEDIUM",
+      "competition_index": 48
+    },
+    {
+      "keyword": "2 week muay thai camp thailand",
+      "search_volume": 10,
+      "cpc": 0.8,
+      "competition": "LOW",
+      "competition_index": 21
+    },
+    {
+      "keyword": "tiger muay thai philippines",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "tiger muay thai phuket shop",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "MEDIUM",
+      "competition_index": 50
+    },
+    {
+      "keyword": "best muay thai camps in thailand reddit",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "best muay thai camps in thailand for beginners",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "MEDIUM",
+      "competition_index": 33
+    },
+    {
+      "keyword": "best muay thai gyms in thailand for foreigners",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "tiger muay thai wikipedia",
+      "search_volume": 0,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "tiger muay thai",
+      "search_volume": 4400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "tiger muay thai thailand",
+      "search_volume": 4400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "bangtao muay thai",
+      "search_volume": 880,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "tiger muay thai phuket",
+      "search_volume": 590,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

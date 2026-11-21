@@ -2,9 +2,9 @@
   "slug": "sat-certified-muay-thai-coach",
   "module": "B",
   "snippet": {
-    "title": "SAT Certified Muay Thai Coach: Our C-License Explained",
+    "title": "Muay Thai Instructor Certification: Our SAT C-License",
     "h1": "Our coaches are now certified by the Sports Authority of Thailand: what the C-License is, and why it matters when you pick a camp",
-    "description": "Meaw and Peter earned the Muay Thai coach C-License from the Sports Authority of Thailand in November 2026: what it means and how to check a coach."
+    "description": "Our coaches Meaw and Peter earned the SAT Muay Thai instructor certification (C-License) in November 2026: what it means and how to check a coach."
   },
   "dates": {
     "pubDate": "2026-11-21",
@@ -15,49 +15,50 @@
     "minimum": 900,
     "maximum": 1800
   },
-  "primary_keyword": "sat certified muay thai coach",
+  "primary_keyword": "muay thai instructor certification",
   "keywords": [
     {
       "role": "primary",
-      "query": "sat certified muay thai coach",
-      "natural_form": "SAT certified Muay Thai coaches",
-      "volume": null,
+      "query": "muay thai instructor certification",
+      "natural_form": "Muay Thai instructor certification",
+      "volume": 20,
+      "placements": [
+        "title",
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai instructor certification thailand",
+      "natural_form": "Muay Thai instructor certification in Thailand",
+      "volume": 10,
       "placements": [
         "body"
       ]
     },
     {
       "role": "secondary",
-      "query": "muay thai coach certification",
-      "natural_form": "Muay Thai coach certification",
-      "volume": null,
+      "query": "muay thai certification thailand",
+      "natural_form": "certification in Thailand",
+      "volume": 10,
       "placements": [
         "body"
       ]
     },
     {
       "role": "secondary",
-      "query": "muay thai c license",
-      "natural_form": "C-License",
-      "volume": null,
-      "placements": [
-        "body"
-      ]
-    },
-    {
-      "role": "secondary",
-      "query": "sports authority of thailand muay thai",
-      "natural_form": "Sports Authority of Thailand",
-      "volume": null,
+      "query": "muay thai trainer certification",
+      "natural_form": "trainer certification",
+      "volume": 10,
       "placements": [
         "body"
       ]
     },
     {
       "role": "long_tail",
-      "query": "kru muay thai certification",
-      "natural_form": "coach certificate",
-      "volume": null,
+      "query": "kru certification",
+      "natural_form": "kru certificate",
+      "volume": 10,
       "placements": [
         "body"
       ]
@@ -65,9 +66,9 @@
   ],
   "bold_entities": [
     {
-      "entity": "sat certified muay thai coach",
+      "entity": "muay thai instructor certification",
       "accepted_forms": [
-        "SAT certified Muay Thai coaches"
+        "Muay Thai instructor certification"
       ],
       "required": true,
       "maximum_occurrences": 1
@@ -168,5 +169,27 @@
     "translation_key": "sat-certified-muay-thai-coach"
   },
   "schema_version": 1,
-  "source_brief": null
+  "source_brief": null,
+  "research_artifacts": [
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-instructor-certification.json"
+    },
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-coach-certification.json"
+    },
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-trainer-certification.json"
+    },
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-certified-coach.json"
+    },
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-course-thailand.json"
+    }
+  ]
 }

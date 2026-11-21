@@ -21,7 +21,7 @@
       "role": "primary",
       "query": "coach muay thai certifié thaïlande",
       "natural_form": "coachs de Muay Thai certifiés par l’État thaïlandais",
-      "volume": null,
+      "volume": 0,
       "placements": [
         "body"
       ]
@@ -159,5 +159,11 @@
     "translation_key": "sat-certified-muay-thai-coach"
   },
   "schema_version": 1,
-  "source_brief": null
+  "source_brief": null,
+  "research_artifacts": [
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-coach-muay-thai-fr.json"
+    }
+  ]
 }

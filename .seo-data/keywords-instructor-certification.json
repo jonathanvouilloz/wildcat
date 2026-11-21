@@ -1,0 +1,73 @@
+{
+  "topic": "muay thai instructor certification",
+  "location_code": 2840,
+  "location_name": "United States",
+  "language_code": "en",
+  "generated_at": "2026-11-21T06:14:25Z",
+  "primary": {
+    "keyword": "muay thai instructor certification",
+    "search_volume": 20,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 8,
+    "difficulty": 0,
+    "intent": "informational",
+    "intent_probability": 0.61
+  },
+  "secondaries": [
+    {
+      "keyword": "muay thai instructor certification thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "muay thai instructor certification online",
+      "search_volume": 10,
+      "cpc": 1.6,
+      "competition": "LOW",
+      "competition_index": 20
+    },
+    {
+      "keyword": "muay thai instructor certification singapore",
+      "search_volume": 0,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "muay thai instructor certification usa",
+      "search_volume": 0,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "muay thai certification thailand",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "muay thai international association",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "related": [
+    {
+      "keyword": "kru certification",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "quick_wins": []
+}
