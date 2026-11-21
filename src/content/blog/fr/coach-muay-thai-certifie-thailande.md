@@ -1,7 +1,7 @@
 ---
 title: "Coach de Muay Thai certifié en Thaïlande : notre licence C"
 h1: "Nos coachs sont certifiés par la Sports Authority of Thailand : ce qu’est la licence C, et pourquoi elle compte quand tu choisis un camp"
-description: "Meaw et Peter ont obtenu la licence C de coach de Muay Thai de la Sports Authority of Thailand en novembre 2026 : ce qu’elle vaut, comment vérifier un coach."
+description: "Meaw et Peter ont la licence C de coach de Muay Thai de la Sports Authority of Thailand depuis novembre 2026 : ce qu’elle vaut, comment vérifier un coach."
 tldr:
   - "Le 20 novembre 2026, Meaw et Peter, notre coach principal, ont reçu tous les deux la licence C de coach de Muay Thai de la Sports Authority of Thailand (SAT), après une formation du 11 au 20 novembre."
   - "La licence est délivrée par le bureau de la commission de la boxe de la SAT et reconnue par le ministère du Tourisme et des Sports. C’est un certificat d’État, pas un diplôme maison."
@@ -16,13 +16,13 @@ draft: false
 translationKey: sat-certified-muay-thai-coach
 ---
 
-Une bonne nouvelle au camp : depuis le 20 novembre 2026, **Wildcat compte deux coachs de Muay Thai certifiés par l’État thaïlandais**. Meaw, qui dirige le camp et écrit ces guides, et Peter, notre coach principal, ont tous les deux réussi la formation de licence C de coach de Muay Thai de la Sports Authority of Thailand.
+Une bonne nouvelle au camp : depuis le 20 novembre 2026, Wildcat compte deux **coachs de Muay Thai certifiés par l’État thaïlandais**. Meaw, qui dirige le camp et écrit ces guides, et Peter, notre coach principal, ont tous les deux réussi la formation de licence C de coach de Muay Thai de la Sports Authority of Thailand.
 
-On enseigne le Muay Thai dans notre jardin de Hang Dong depuis des années sans diplôme au mur. Alors pourquoi passer dix jours en formation ? On t’explique ce qu’est cette licence, on te montre le jour de la remise des diplômes et on te dit ce que ça change pour toi. On te montre aussi comment vérifier le certificat de n’importe quel coach, le nôtre compris.
+On enseigne le Muay Thai dans notre jardin de Hang Dong depuis des années sans diplôme au mur. Alors pourquoi passer dix jours en formation ? Surtout parce que tu ne peux pas vérifier notre accueil depuis l’étranger, alors qu’un certificat d’État, si. Voici le nôtre, et comment vérifier celui des autres.
 
 ## Ce qu’on a obtenu, en un paragraphe
 
-Le certificat indique (en anglais) : « Has completely succeeded in Muaythai Coach course C-License, from November 11 – 20, 2026 ». Il est reconnu par le bureau de la commission de la boxe de la Sports Authority of Thailand, sous la tutelle du ministère du Tourisme et des Sports, et il a été délivré le 20 novembre 2026. Celui de Meaw porte son nom complet, Whachiraporn Boonpradub. Peter a obtenu la même licence lors de la même formation.
+Le certificat indique (en anglais) : « Has completely succeeded in Muaythai Coach course C-License, from November 11 – 20, 2026 ». Il est reconnu par le bureau de la commission de la boxe de la Sports Authority of Thailand, sous la tutelle du ministère du Tourisme et des Sports, et il a été délivré le 20 novembre 2026. Celui de Meaw porte son nom complet, Whachiraporn Boonpradub. Peter a obtenu la même licence lors de la même formation.
 
 ![Le certificat en anglais de la licence C de coach de Muay Thai de Meaw, délivré par la Sports Authority of Thailand le 20 novembre 2026](/assets/meaw-c-license-certificate.webp)
 
@@ -30,21 +30,19 @@ Le certificat indique (en anglais) : « Has completely succeeded in Muaythai
 
 La Sports Authority of Thailand (SAT) est l’organisme public du sport en Thaïlande. La boxe professionnelle, Muay Thai compris, dépend de sa commission de la boxe, et c’est ce bureau qui organise les formations de coachs. La presse décrit le même émetteur pour les sessions précédentes : The Nation écrivait en 2024 que des entraîneurs avaient obtenu « a Level C License from the Office of the Boxing Sports Commission, Sports Authority of Thailand ».
 
-C’est tout l’intérêt pour nous. N’importe quel club peut imprimer un joli diplôme pour ses propres entraîneurs. Celui-ci vient de l’État, avec un nom et une date que tu peux vérifier.
+N’importe quel club peut imprimer un joli diplôme pour ses propres entraîneurs. Celui-ci vient de l’État, avec un nom et une date dessus.
 
 ## Où se situe la licence C parmi les niveaux
 
-On n’a pas trouvé de page officielle de la SAT qui liste tous les niveaux et ce que chacun permet. Voici donc seulement ce que disent les sources qu’on a lues :
+La SAT ne publie pas, à notre connaissance, de page qui liste tous les niveaux et ce que chacun permet. Certains clubs parlent d’un niveau B, mais on ne l’a vu dans aucune source fiable. Voici ce que disent les sources :
 
-- **Un cours d’introduction vient d’abord.** En février 2026, la SAT a organisé à Phuket un cours d’instructeur de Muay Thai de niveau introduction pour étrangers, sur cinq jours. Thairath rapporte que les diplômés peuvent ensuite postuler aux formations de niveau supérieur, la licence C.
-- **La licence C est une formation sélective.** Une session de licence C à Phuket en 2025 a duré dix jours et accueilli « 50 candidates who passed the qualification criteria », selon The Thaiger. La nôtre a aussi duré dix jours, du 11 au 20 novembre.
-- **La licence A est celle des instructeurs confirmés.** Le même article de Thairath indique que le cours d’introduction était donné par plus de dix instructeurs experts titulaires de la licence A.
-
-Certains clubs parlent aussi d’un niveau B. On ne l’a pas trouvé dans une source fiable, donc on n’en parle pas.
+- Un cours d’introduction vient d’abord. En février 2026, la SAT a organisé à Phuket un cours d’instructeur de Muay Thai de niveau introduction pour étrangers, sur cinq jours. Thairath rapporte que les diplômés peuvent ensuite postuler aux formations de niveau supérieur, la licence C.
+- La formation de licence C est sélective. Une session de licence C à Phuket en 2025 a duré dix jours et accueilli « 50 candidates who passed the qualification criteria », selon The Thaiger. La nôtre a aussi duré dix jours, du 11 au 20 novembre.
+- Les instructeurs confirmés ont la licence A. Le même article de Thairath indique que le cours d’introduction était donné par plus de dix instructeurs experts titulaires de la licence A.
 
 ## Le jour de la remise des diplômes, en photos
 
-La formation s’est terminée par une cérémonie dans une grande salle en bois. Le dernier jour, tous les diplômés portaient la même tenue traditionnelle bordeaux avec un cordon rouge et jaune, et recevaient leur certificat dans une pochette bleue. Ça ressemblait plus à une remise de diplômes qu’à un séminaire.
+La formation s’est terminée par une cérémonie dans une grande salle en bois. Le dernier jour, tous les diplômés portaient la même tenue traditionnelle bordeaux avec un cordon rouge et jaune, et recevaient leur certificat dans une pochette bleue.
 
 ![Meaw et Peter en tenue traditionnelle bordeaux après avoir reçu leur licence C, novembre 2026](/assets/meaw-c-license-duo.webp)
 
@@ -57,15 +55,15 @@ Maintenant, on est de retour sur le ring du jardin. Si tu veux voir où tout ça
 Pour la plupart de nos guests, presque rien ne change sur le tapis, et c’est très bien comme ça. Les cours restent les mêmes : mêmes horaires, mêmes prix, même jardin. Deux choses sont nouvelles :
 
 1. **Tu peux vérifier qui t’entraîne.** Le certificat de Meaw est affiché sur [notre page des coachs](/about/coaches#meaw), à côté de sa présentation.
-2. **Les longs séjours ont un document de plus.** Pour le visa DTV, le Muay Thai compte comme activité « soft power ». Le guide DTV d’un autre club affirme que certaines ambassades préfèrent des coachs certifiés. On n’a trouvé cette règle dans aucun texte officiel d’ambassade, alors prends-la comme une possibilité. Dans tous les cas, une licence de coach délivrée par l’État est une preuve de plus que l’entraînement est réel. Notre [guide du visa DTV](/dtv-visa) explique le reste du dossier.
+2. **Les longs séjours ont un document de plus.** Pour le visa DTV, le Muay Thai compte comme activité « soft power ». Le guide DTV d’un autre club affirme que certaines ambassades préfèrent des coachs certifiés. Aucun texte officiel d’ambassade qu’on a lu ne le dit, alors prends-le comme une possibilité. Dans tous les cas, une licence de coach délivrée par l’État est une preuve de plus que l’entraînement est réel. Notre [guide du visa DTV](/dtv-visa) explique le reste du dossier.
 
 ## Comment vérifier un coach avant de réserver un camp
 
 Quel que soit le camp que tu choisis, ces questions prennent deux minutes sur WhatsApp :
 
-- **Demande à voir le certificat.** Un vrai certificat indique la personne, la formation, les dates et l’émetteur. Un certificat de la SAT porte le logo de la SAT et celui du ministère du Tourisme et des Sports.
-- **Demande qui donne le cours que tu vas suivre.** Un camp peut avoir un coach certifié et cinq assistants. C’est normal, mais tu dois le savoir.
-- **Ne confonds pas palmarès et licence de coach.** Un grand combattant n’est pas toujours un bon pédagogue, et l’inverse est vrai aussi. La licence évalue l’enseignement.
+- Demande à voir le certificat. Un vrai certificat indique la personne, la formation, les dates et l’émetteur. Un certificat de la SAT porte le logo de la SAT et celui du ministère du Tourisme et des Sports.
+- Demande qui donne le cours que tu vas suivre. Un camp peut avoir un coach certifié et cinq assistants. C’est normal, mais tu dois le savoir.
+- Ne mélange pas palmarès et licence de coach. Un grand combattant n’est pas toujours un bon pédagogue, et l’inverse est vrai aussi. La licence évalue l’enseignement.
 
 Si tu compares les camps, notre [comparatif des camps de Muay Thai à Chiang Mai](/blog/meilleur-camp-muay-thai-chiang-mai) va plus loin.
 
@@ -89,7 +87,11 @@ Meaw et Peter ont la licence C depuis le 20 novembre 2026. Si quelqu’un d’au
 
 ## Conclusion
 
-On n’avait pas besoin d’un certificat pour aimer enseigner. Mais tu ne peux pas voir cette envie avant d’arriver, alors qu’une licence d’État, tu peux la vérifier de chez toi. Si tu veux t’entraîner avec Meaw et Peter, [réserve un cours](/contact?intent=class) ou [pose-nous tes questions sur WhatsApp](/contact).
+Un certificat ne te dit pas si le camp va te plaire. Il te dit que le coach a suivi la formation officielle, et tu peux le vérifier de chez toi. Si tu veux t’entraîner avec Meaw et Peter, donne-nous tes dates et on te trouve une place.
+
+[**Réserver un cours avec Meaw et Peter →**](/contact?intent=class)
+
+---
 
 ## Sources et références
 

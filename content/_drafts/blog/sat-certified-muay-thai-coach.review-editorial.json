@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "static_lint_note": "Lint: ending.order et bold.not_in_links = faux positifs de configuration (pas de project.yaml content.lint : le linter attend « Sources et Références » ; le CTA final en gras est l'exception permise). Mêmes résultats sur yi-peng-festival-chiang-mai, publié.",
+  "criteria": [
+    {
+      "id": "angle_intent",
+      "status": "PASS",
+      "evidence": "Répond à « qu'est-ce qu'un coach certifié SAT / la licence C » et sert d'annonce sourcée.",
+      "correction": ""
+    },
+    {
+      "id": "bluf_progression",
+      "status": "PASS",
+      "evidence": "Chaque H2 donne la réponse en 1re phrase (certificat cité, émetteur, niveaux).",
+      "correction": ""
+    },
+    {
+      "id": "voice",
+      "status": "PASS",
+      "evidence": "EN simple, « we », CTA chaleureux ; plus de chute ni d'annonce de plan après humanizer.",
+      "correction": ""
+    },
+    {
+      "id": "semantic_naturalness",
+      "status": "PASS",
+      "evidence": "Mot-clé en forme naturelle (« SAT certified Muay Thai coaches ») ; volume non mesuré (DataForSEO absent) : Non vérifié.",
+      "correction": ""
+    },
+    {
+      "id": "proofs_limits",
+      "status": "PASS",
+      "evidence": "Conclusion : « It does tell you who is teaching » surinterprète le certificat. FAQ « Are all Wildcat coaches certified? » : « both hold … since » (temps). Licence de Peter confirmée oralement par Jon, certificat non vu. → corrigé le 2026-11-21.",
+      "correction": "Conclusion → « that the coach passed the official course » ; FAQ → « have held » ; garder la licence de Peter (validée par le propriétaire)."
+    },
+    {
+      "id": "links_cta",
+      "status": "PASS",
+      "evidence": "Coaches#meaw, dtv-visa, beginners, comparatif camps ; CTA /contact?intent=class cohérent avec l'intention.",
+      "correction": ""
+    },
+    {
+      "id": "faq_conclusion",
+      "status": "PASS",
+      "evidence": "FAQ = 4 vraies questions de recherche ; conclusion courte avec CTA.",
+      "correction": ""
+    },
+    {
+      "id": "usefulness",
+      "status": "PASS",
+      "evidence": "Certificat réel + méthode de vérification d'un coach ; absent des résumés génériques.",
+      "correction": ""
+    },
+    {
+      "id": "localisation",
+      "status": "PASS",
+      "evidence": "locale en, liens sans préfixe /en.",
+      "correction": ""
+    }
+  ],
+  "priority_actions": [],
+  "publication_recommendation": "ready_to_publish"
+}

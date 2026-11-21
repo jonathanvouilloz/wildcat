@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "static_lint_note": "Lint: ending.order et bold.not_in_links = faux positifs de configuration (pas de project.yaml content.lint : le linter attend « Sources et Références » ; le CTA final en gras est l'exception permise). Mêmes résultats sur yi-peng-festival-chiang-mai, publié.",
+  "criteria": [
+    {
+      "id": "angle_intent",
+      "status": "PASS",
+      "evidence": "Même angle que l'EN, titre FR sur « coach de Muay Thai certifié en Thaïlande ».",
+      "correction": ""
+    },
+    {
+      "id": "bluf_progression",
+      "status": "PASS",
+      "evidence": "Réponses en tête de section.",
+      "correction": ""
+    },
+    {
+      "id": "voice",
+      "status": "PASS",
+      "evidence": "Tutoiement, typographie FR par script, zéro tiret cadratin.",
+      "correction": ""
+    },
+    {
+      "id": "semantic_naturalness",
+      "status": "PASS",
+      "evidence": "« coachs de Muay Thai certifiés par l'État thaïlandais » en gras, naturel ; volume Non vérifié.",
+      "correction": ""
+    },
+    {
+      "id": "proofs_limits",
+      "status": "PASS",
+      "evidence": "Conclusion : « Il te dit qui enseigne » surinterprète le certificat. → corrigé le 2026-11-21.",
+      "correction": "→ « Il te dit que le coach a suivi la formation officielle »."
+    },
+    {
+      "id": "links_cta",
+      "status": "PASS",
+      "evidence": "Liens FR (meilleur-camp-muay-thai-chiang-mai), CTA /contact?intent=class.",
+      "correction": ""
+    },
+    {
+      "id": "faq_conclusion",
+      "status": "PASS",
+      "evidence": "FAQ adaptée au marché FR.",
+      "correction": ""
+    },
+    {
+      "id": "usefulness",
+      "status": "PASS",
+      "evidence": "Idem EN.",
+      "correction": ""
+    },
+    {
+      "id": "localisation",
+      "status": "PASS",
+      "evidence": "locale fr, citations anglaises du certificat signalées comme telles.",
+      "correction": ""
+    }
+  ],
+  "priority_actions": [],
+  "publication_recommendation": "ready_to_publish"
+}

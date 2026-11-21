@@ -1,0 +1,172 @@
+{
+  "slug": "sat-certified-muay-thai-coach",
+  "module": "B",
+  "snippet": {
+    "title": "SAT Certified Muay Thai Coach: Our C-License Explained",
+    "h1": "Our coaches are now certified by the Sports Authority of Thailand: what the C-License is, and why it matters when you pick a camp",
+    "description": "Meaw and Peter earned the Muay Thai coach C-License from the Sports Authority of Thailand in November 2026: what it means and how to check a coach."
+  },
+  "dates": {
+    "pubDate": "2026-11-21",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 900,
+    "maximum": 1800
+  },
+  "primary_keyword": "sat certified muay thai coach",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "sat certified muay thai coach",
+      "natural_form": "SAT certified Muay Thai coaches",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai coach certification",
+      "natural_form": "Muay Thai coach certification",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "muay thai c license",
+      "natural_form": "C-License",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "sports authority of thailand muay thai",
+      "natural_form": "Sports Authority of Thailand",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "kru muay thai certification",
+      "natural_form": "coach certificate",
+      "volume": null,
+      "placements": [
+        "body"
+      ]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "sat certified muay thai coach",
+      "accepted_forms": [
+        "SAT certified Muay Thai coaches"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "what-we-earned-in-one-paragraph",
+      "level": 2,
+      "heading": "What we earned, in one paragraph",
+      "purpose": "",
+      "target_keywords": []
+    },
+    {
+      "id": "who-issues-the-license-the-sports-author",
+      "level": 2,
+      "heading": "Who issues the license: the Sports Authority of Thailand",
+      "purpose": "",
+      "target_keywords": []
+    },
+    {
+      "id": "where-the-c-license-sits-among-the-level",
+      "level": 2,
+      "heading": "Where the C-License sits among the levels",
+      "purpose": "",
+      "target_keywords": []
+    },
+    {
+      "id": "graduation-day-in-pictures",
+      "level": 2,
+      "heading": "Graduation day, in pictures",
+      "purpose": "",
+      "target_keywords": []
+    },
+    {
+      "id": "what-it-changes-for-you",
+      "level": 2,
+      "heading": "What it changes for you",
+      "purpose": "",
+      "target_keywords": []
+    },
+    {
+      "id": "how-to-check-a-coach-before-you-book-a-c",
+      "level": 2,
+      "heading": "How to check a coach before you book a camp",
+      "purpose": "",
+      "target_keywords": []
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/about/coaches#meaw",
+      "anchor": "our coaches page",
+      "section_id": null,
+      "required": true,
+      "reason": ""
+    },
+    {
+      "url": "/dtv-visa",
+      "anchor": "DTV visa guide",
+      "section_id": null,
+      "required": true,
+      "reason": ""
+    },
+    {
+      "url": "/classes/beginners",
+      "anchor": "what your first class looks like",
+      "section_id": null,
+      "required": false,
+      "reason": ""
+    },
+    {
+      "url": "/blog/best-muay-thai-camps-chiang-mai",
+      "anchor": "comparison of Muay Thai camps in Chiang Mai",
+      "section_id": null,
+      "required": false,
+      "reason": ""
+    }
+  ],
+  "sources": [],
+  "claims": [],
+  "images": [],
+  "cta": {
+    "url": "/contact?intent=class",
+    "anchor": "book a class",
+    "campaign": "blog-sat-license"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "choosing-a-camp",
+    "tags": [
+      "coach",
+      "certification"
+    ],
+    "draft": false,
+    "locale": "en",
+    "source_locale": "en",
+    "translation_key": "sat-certified-muay-thai-coach"
+  },
+  "schema_version": 1,
+  "source_brief": null
+}
