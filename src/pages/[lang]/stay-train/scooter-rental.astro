@@ -42,6 +42,7 @@ const fallbackNotes: Record<string, string> = {
   click: m.scooter_fb_click_note(),
 };
 type FleetItem = {
+  slug: string;
   name: string;
   year: number | null;
   color: string | null;
@@ -56,6 +57,7 @@ type FleetItem = {
 const cmsScooters = await safeQuery<SCOOTERS_QUERY_RESULT>({ query: SCOOTERS_QUERY }, []);
 const fleet: FleetItem[] = cmsScooters.length
   ? cmsScooters.map((s) => ({
+      slug: s._id ?? '',
       name: s.name ?? '',
       year: s.year ?? null,
       color: s.color ?? null,
@@ -68,6 +70,7 @@ const fleet: FleetItem[] = cmsScooters.length
       photoAlt: s.photo?.alt ?? s.name ?? null,
     }))
   : site.scooterFleet.map((s) => ({
+      slug: s.key,
       name: s.name,
       year: s.year,
       color: s.color,
@@ -182,7 +185,13 @@ const serviceSchema = {
         <h2 class="h2 mt-2 mb-3">{m.scooter_fleet_title()}</h2>
         <p class="lead">{m.scooter_fleet_intro()}</p>
       </div>
-      <div class="fleet-grid">
+      <div
+        class="fleet-grid"
+        id="scooter-fleet"
+        data-url={site.app.url + '/public/scooters'}
+        data-label-free={m.scooter_card_available()}
+        data-label-out={m.scooter_card_rented()}
+      >
         {
           fleet.map((s) => (
             <Card hover={false} class="scoot">
@@ -194,7 +203,10 @@ const serviceSchema = {
                     <Icon name="tabler:motorbike" aria-hidden="true" />
                   </span>
                 )}
-                <span class:list={['scoot-badge', s.available ? 'is-free' : 'is-out']}>
+                <span
+                  class:list={['scoot-badge', s.available ? 'is-free' : 'is-out']}
+                  data-scooter-badge={s.slug}
+                >
                   {s.available ? m.scooter_card_available() : m.scooter_card_rented()}
                 </span>
               </div>
@@ -299,6 +311,28 @@ const serviceSchema = {
       image={{ src: '/assets/night-session.webp' }}
     />
   </main>
+
+  <script>
+    import { scooterAvailabilityMap } from '../../../lib/scooters.ts';
+    // Non bloquant ; si l'app ne répond pas, les badges statiques du build restent affichés.
+    const grid = document.getElementById('scooter-fleet');
+    if (grid?.dataset.url) {
+      fetch(grid.dataset.url)
+        .then((r) => (r.ok ? r.json() : null))
+        .then((raw) => {
+          const map = scooterAvailabilityMap(raw);
+          grid.querySelectorAll<HTMLElement>('[data-scooter-badge]').forEach((badge) => {
+            const slug = badge.dataset.scooterBadge;
+            if (!slug || !(slug in map)) return;
+            const free = map[slug];
+            badge.classList.toggle('is-free', free);
+            badge.classList.toggle('is-out', !free);
+            badge.textContent = free ? (grid.dataset.labelFree ?? '') : (grid.dataset.labelOut ?? '');
+          });
+        })
+        .catch(() => {});
+    }
+  </script>
 </BaseLayout>
 
 <style>

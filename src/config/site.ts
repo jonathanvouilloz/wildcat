@@ -15,7 +15,7 @@ export const site = {
   domain: 'wildcatmuaythai.com', // Q5 tranchée (2026-06-05)
   // tagline / motto / contact.note → messages : site_tagline, site_motto, footer_contact_note
 
-  /** App équipe : reçoit le signal de clic WhatsApp (POST /public/click) et donne les périodes fermées (GET /public/closures). */
+  /** App équipe : reçoit le signal de clic WhatsApp (POST /public/click) et donne les périodes fermées (GET /public/closures) + dispos scooters (GET /public/scooters). */
   app: { url: 'https://app.wildcatmuaythai.com' },
 
   contact: {
