@@ -250,12 +250,29 @@ localisées (jeudis), tri FR → `.seo-data/fr-translation-triage-2026-10-16.jso
 | après le 15/10 | relire GSC (fin spam update du 24/09) ; `/seo-cannibalisation` sur « muay thai camp thailand » (listicle vs `/stay-train`) | mesurer la fusion DTV et le refresh listicle |
 | début nov. | `/chiang-mai-guide` : encart saison / Yi Peng ; vérifier le programme municipal Yi Peng 2026 dans l'article du 06/10 | dates municipales non confirmées au 29/09 |
 | fin nov. | burning season EN+FR : mesures 2027 si annoncées | la recherche monte de décembre à mars |
-| début déc. | `dtv-visa-new-requirements-2026` + silo DTV : retours terrain 31/08, apostille (28/02/2027) | YMYL, fraîcheur |
+| début déc. | `dtv-visa-new-requirements-2026` + silo DTV : retours terrain 31/08, apostille (28/02/2027) + **délais et exigences par ambassade** (fusion de l'angle `processing-time-embassies`) | YMYL, fraîcheur, évite une URL concurrente |
 | mi-janv. 2027 | `wai-kru-ram-muay-explained` : dates World Muay Thai Day (6/02) et Journée nationale (17/03) 2027 | publiées par la TAT en début d'année |
 
-### Réserve T1 2027
+---
+
+## Vague DTV 2 — T1 2027 (plan du 24 novembre 2026)
+
+> Source : `docs/seo/topical-map-dtv-expansion.md` · Gatekeeper : `.seo-data/gatekeeper-dtv-expansion.json`.
+> **Périmètre** : 5 articles EN + 2 transcréations FR (types de DTV, couple/famille, comparatif longue durée 5–20 ans, vie post-obtention). Aucun nouvel article « prix » (déjà couvert par les 7 articles de juillet 2026). Cadence maintenue à 1 EN / 2 semaines (mardis) + FR les jeudis.
+
+| Sortie cible | Slug | Locale | Sujet / angle | Gatekeeper | Statut |
+|---|---|---|---|---|---|
+| mar. 29 déc. 2026 | `dtv-visa-types-workcation-vs-soft-power` | EN | 3 types de DTV : Workcation vs Soft Power vs Dependent | PASS ⚡ | [ ] à briefer |
+| jeu. 7 janv. 2027 | `visa-dtv-thailande-types-workcation-soft-power` | FR | Types de visa DTV Thaïlande (transcréation FR) | PASS ⚡ | [ ] à briefer |
+| mar. 12 janv. 2027 | `dtv-visa-spouse-dependent` | EN | Couple & famille (conjoint, enfants, partenaires non mariés) | PASS ⚡ | [ ] à briefer |
+| mar. 26 janv. 2027 | `dtv-visa-180-day-extension-tm30` | EN | Extension 180 j Chiang Mai vs vol A/R, TM30, 90-day report | PASS ⚡ | [ ] à briefer |
+| mar. 9 fév. 2027 | `dtv-vs-ltr-elite-retirement-visa` | EN | DTV vs Thailand Privilege (Elite) vs LTR : coût sur 5 ans | PASS | [ ] à briefer |
+| jeu. 18 fév. 2027 | `visa-dtv-vs-elite-ltr-thailande` | FR | Visa DTV vs Thailand Elite / LTR / Retraite (transcréation FR) | PASS | [ ] à briefer |
+| mar. 23 fév. 2027 | `dtv-visa-thai-bank-account` | EN | Compte bancaire thaïlandais sur DTV : refus 2026 & alternatives | PASS ⚡ | [ ] à briefer |
+
+### Réserve T1 2027 (hors DTV)
 
 `muay-thai-vs-karate` (590) · `muay-thai-benefits` (210) · « too old to start Muay Thai » (PAA, volume à mesurer) ·
 `digital-nomad-train-muay-thai-chiang-mai` (50) · FR : traduction de `best-time-train` et `muay-thai-for-women` (démo FR).
-Écartés (motif dans `.seo-data/q4-2026/serp-q4-2026.md`) : Yi Peng dédié (SERP billetterie, finalement produit le 14/11 à la demande de Jonathan), kids (0), Noël (merch),
-TDAC (site officiel), exemption 30 j dédiée (cannibalise les guides visa).
+Écartés (motif dans `.seo-data/q4-2026/serp-q4-2026.md` et `.seo-data/gatekeeper-dtv-expansion.json`) : Yi Peng dédié (SERP billetterie, finalement produit le 14/11 à la demande de Jonathan), kids (0), Noël (merch),
+TDAC (site officiel), exemption 30 j dédiée (cannibalise les guides visa), `dtv-visa-thailand-tax` dédié (`FAIL grounding` YMYL fiscal), `dtv-visa-processing-time-embassies` dédié (fusionné dans le refresh `dtv-visa-new-requirements-2026`).

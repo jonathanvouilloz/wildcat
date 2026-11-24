@@ -1,0 +1,127 @@
+{
+  "topic": "dtv visa thailand — types, comparatifs longue durée & vie après obtention (expansion 2027)",
+  "generated_at": "2026-11-24T23:48:00+07:00",
+  "data_sources": [
+    ".seo-data/gsc-wildcat-2026-11-21.json",
+    ".seo-data/keywords-dtv-*.json",
+    "docs/topical-map-dtv-costs.md",
+    "docs/seo/content-map.md",
+    "docs/brand/proofs.md",
+    "docs/dtv-fact-check.md",
+    "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+  ],
+  "candidates": [
+    {
+      "keyword": "dtv visa thailand categories workcation vs soft power",
+      "slug": "dtv-visa-types-workcation-vs-soft-power",
+      "verdict": "PASS",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "pass"
+      },
+      "signals": {
+        "intent": "do",
+        "pseo_scalable": false
+      },
+      "failed_pillar": null,
+      "rationale": "Les réponses IA génériques listent les 3 catégories sans expliquer les rejets fréquents de portfolios freelances en Workcation (factures non corrélées, site vague) ni quand la voie Soft Power Muay Thai devient plus fiable. Wildcat monte des dossiers Soft Power Muay Thai en direct (100+ approuvés). Zéro chevauchement avec cheapest-dtv-soft-power-activity (qui ne compare que Muay Thai / cuisine / langue).",
+      "priority": "haute"
+    },
+    {
+      "keyword": "dtv visa thailand spouse dependent unmarried partner",
+      "slug": "dtv-visa-spouse-dependent",
+      "verdict": "PASS",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "pass"
+      },
+      "signals": {
+        "intent": "do",
+        "pseo_scalable": false
+      },
+      "failed_pillar": null,
+      "rationale": "Trois angles terrain absents des résumés génériques : exclusion stricte des partenaires non mariés (solution : deux DTV séparés dont Soft Power), divergence entre ambassades sur les 500 000 THB par personne vs par foyer, et dépôt séquentiel (principal d'abord puis dépendants avec frais et apostille). Aligné directement avec le positionnement camp familial de Wildcat.",
+      "priority": "haute"
+    },
+    {
+      "keyword": "dtv visa thailand 180 day extension tm30 90 day report",
+      "slug": "dtv-visa-180-day-extension-tm30",
+      "verdict": "PASS",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "pass"
+      },
+      "signals": {
+        "intent": "do",
+        "pseo_scalable": false
+      },
+      "failed_pillar": null,
+      "rationale": "Complète la réalité terrain post-obtention à l'immigration de Chiang Mai : re-vérification fréquente des 500 000 THB et preuve d'activité continue pour l'extension 1 900 THB, blocage sans reçu TM30, amende 2 000-5 000 THB sur le 90-day report (TM.47), et comparaison honnête avec un simple vol A/R qui réinitialise les deux compteurs. Distinct de dtv-vs-tourist-visa-runs-cost.",
+      "priority": "haute"
+    },
+    {
+      "keyword": "dtv visa vs thailand privilege elite vs ltr visa",
+      "slug": "dtv-vs-ltr-elite-retirement-visa",
+      "verdict": "PASS",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "pass"
+      },
+      "signals": {
+        "intent": "do",
+        "pseo_scalable": false
+      },
+      "failed_pillar": null,
+      "rationale": "Chiffrage complet sur 5 ans (10-14k THB + cours optionnel vs 650k/900k THB Privilege Bronze/Gold vs 50k THB + seuils $80k/$1M LTR) et arbitrages réels (gestion 180 jours, accès banque, droit au travail, assurance). Le format comparatif est le meilleur levier GSC du silo (ed-visa-vs-dtv-muay-thai : 867 impr., 23 clics, pos. 7,4).",
+      "priority": "haute"
+    },
+    {
+      "keyword": "open thai bank account on dtv visa",
+      "slug": "dtv-visa-thai-bank-account",
+      "verdict": "PASS",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "pass"
+      },
+      "signals": {
+        "intent": "do",
+        "pseo_scalable": false
+      },
+      "failed_pillar": null,
+      "rationale": "Forte divergence avec les vieux articles 2024-2025 : en 2026, le durcissement BOT/AMLO anti-comptes mules classe le DTV en catégorie touristique chez Bangkok Bank et Kasikorn (refus quasi systématiques). Expérience quotidienne à Chiang Mai sur les alternatives concrètes (Wise, Revolut, QR PromptPay via fintechs, frais ATM). Inverse exact de dtv-visa-proof-of-funds.",
+      "priority": "moyenne"
+    },
+    {
+      "keyword": "dtv visa thailand tax 180 days",
+      "slug": "dtv-visa-thailand-tax",
+      "verdict": "FAIL",
+      "gates": {
+        "surprise_gap": "fail",
+        "grounding": "fail"
+      },
+      "signals": {
+        "intent": "know",
+        "pseo_scalable": false
+      },
+      "failed_pillar": "grounding",
+      "rationale": "Wildcat est un camp de Muay Thai, pas un cabinet fiscaliste (docs/brand/proofs.md). Sujet YMYL dominé par des cabinets spécialisés (Greenback, MyExpatTaxes, Siam Legal, BDO) ; sans expertise fiscale interne, un article dédié affaiblit E-E-A-T. À traiter uniquement en encart synthétique dans dtv-visa-180-day-extension-tm30 + FAQ /dtv-visa.",
+      "priority": "basse"
+    },
+    {
+      "keyword": "dtv visa processing time by embassy",
+      "slug": "dtv-visa-processing-time-embassies",
+      "verdict": "FAIL",
+      "gates": {
+        "surprise_gap": "pass",
+        "grounding": "fail"
+      },
+      "signals": {
+        "intent": "know",
+        "pseo_scalable": false
+      },
+      "failed_pillar": "grounding",
+      "rationale": "Forte proximité avec dtv-visa-new-requirements-2026 (déjà indexé, 16 impr., pos. 8,1, refresh prévu début décembre) et absence de log structuré par ambassade validé par Meaw (docs/brand/proofs.md : needs_review). Mieux vaut fusionner les délais/exigences par ambassade dans le refresh de dtv-visa-new-requirements-2026 pour éviter une URL mince concurrente.",
+      "priority": "basse"
+    }
+  ]
+}
