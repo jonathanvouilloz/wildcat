@@ -10,7 +10,7 @@ tldr:
 publishDate: 2026-12-13
 author: "Meaw Boonpradub"
 category: visa
-cover: ../covers/dtv-vs-ltr-elite-retirement-visa.webp
+cover: ../covers/visa-dtv-vs-elite-ltr-thailande.webp
 coverAlt: "Comparatif des coûts sur 5 ans entre le visa DTV, Thailand Privilege, LTR et le visa retraite en Thaïlande chez Wildcat Muay Thai Chiang Mai"
 draft: false
 translationKey: dtv-vs-ltr-elite-retirement-visa

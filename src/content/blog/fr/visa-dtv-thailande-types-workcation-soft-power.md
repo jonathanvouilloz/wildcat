@@ -10,7 +10,7 @@ tldr:
 publishDate: 2026-12-01
 author: "Meaw Boonpradub"
 category: visa
-cover: ../covers/dtv-visa-types-workcation-vs-soft-power.webp
+cover: ../covers/visa-dtv-thailande-types-workcation-soft-power.webp
 coverAlt: "Guide Wildcat Muay Thai Chiang Mai comparant les catégories Workcation, Soft Power et Dependent du visa DTV Thaïlande"
 draft: false
 translationKey: dtv-visa-types-workcation-vs-soft-power
