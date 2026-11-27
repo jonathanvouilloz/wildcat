@@ -1,0 +1,15 @@
+{
+  "slug": "dtv-visa-180-day-extension-tm30",
+  "locale": "en",
+  "reviewed_at": "2026-11-27T16:36:45.943496Z",
+  "verdict": "PASS",
+  "summary": "Accurately clarifies once-per-entry 180-day extension rule; practical Chiang Mai TM.7/TM30/TM.47 checklist; balanced extension vs flight table; strict non-advice separation of visa vs tax residency 180-day clocks.",
+  "checks": {
+    "angle_and_bluf": "PASS",
+    "brand_voice_meaw": "PASS",
+    "ymyl_accuracy_and_disclaimers": "PASS",
+    "internal_links_prefix_at_build": "PASS",
+    "zero_em_dashes": "PASS",
+    "zero_deleted_urls": "PASS"
+  }
+}

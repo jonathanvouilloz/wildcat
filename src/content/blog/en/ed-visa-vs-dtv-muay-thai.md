@@ -133,7 +133,7 @@ The decision usually comes down to four questions:
 3. **Can you show around 500,000 THB in your own account?** If not, the ED may be the only long route open to you.
 4. **Months or years?** The ED caps at a year per entry. The DTV runs five.
 
-If you're not sure yet how long you want to train at all, [our Thailand visa guide by training length](/blog/thailand-visa-guide-by-training-length) starts from that question. If the DTV looks like the fit, [check your DTV eligibility first](/dtv-visa/eligibility) before you commit time to building a file.
+If you're not sure yet how long you want to train at all, [our Thailand visa guide by training length](/blog/thailand-visa-guide-by-training-length) starts from that question. If you're planning a 5-to-10-year stay and weighing other long-term visas, see [DTV vs Thailand Privilege (Elite) vs LTR](/blog/dtv-vs-ltr-elite-retirement-visa). If the DTV looks like the fit, [check your DTV eligibility first](/dtv-visa/eligibility) before you commit time to building a file.
 
 ## FAQ on the Muay Thai education visa and the DTV
 

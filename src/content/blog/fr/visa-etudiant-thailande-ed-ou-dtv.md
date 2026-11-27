@@ -126,7 +126,7 @@ La décision tient en général à quatre questions :
 3. **Peux-tu justifier environ 500 000 THB sur ton propre compte ?** Sinon, l'ED est peut-être la seule route longue qui t'est ouverte.
 4. **Des mois ou des années ?** L'ED plafonne à un an par entrée. Le DTV court sur cinq ans.
 
-Si tu ne sais pas encore combien de temps tu veux t'entraîner, [notre guide des visas Thaïlande selon la durée d'entraînement](/blog/visa-thailande-guide-duree-de-sejour) part de cette question. Si le DTV te semble être la bonne route, [vérifie d'abord ton éligibilité au DTV](/dtv-visa/eligibility) avant d'investir du temps dans un dossier.
+Si tu ne sais pas encore combien de temps tu veux t'entraîner, [notre guide des visas Thaïlande selon la durée d'entraînement](/blog/visa-thailande-guide-duree-de-sejour) part de cette question. Si tu vises un séjour de 5 à 10 ans et que tu hésites avec les autres visas longue durée, consulte [notre comparatif DTV vs Thailand Privilege (Elite) vs LTR](/blog/visa-dtv-vs-elite-ltr-thailande). Si le DTV te semble être la bonne route, [vérifie d'abord ton éligibilité au DTV](/dtv-visa/eligibility) avant d'investir du temps dans un dossier.
 
 ## FAQ sur le visa étudiant Muay Thai et le DTV
 

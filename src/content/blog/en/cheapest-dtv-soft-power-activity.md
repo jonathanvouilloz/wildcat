@@ -22,7 +22,7 @@ The **cheapest DTV soft power activity** isn't always Muay Thai, and it isn't al
 
 I'm Meaw. I own and run **Wildcat** Muay Thai in Chiang Mai, so I have an obvious reason to want you to pick Muay Thai. I'm not going to pretend otherwise here. But candidates come to me every month having already ruled out cheaper options simply because nobody told them those options existed, or because they're working from an outdated list. This article is the honest comparison I'd want if I were choosing myself, current rules included, with no thumb on the scale for the activity I happen to run.
 
-For the full cost picture beyond the course itself, embassy fee, agent or no agent, start with [the real cost breakdown of the whole DTV visa](/blog/dtv-visa-cost-breakdown). This article stays focused on one layer: comparing the **DTV soft power options** by price.
+For the full cost picture beyond the course itself, embassy fee, agent or no agent, start with [the real cost breakdown of the whole DTV visa](/blog/dtv-visa-cost-breakdown). If you are still deciding between the Workcation, Soft Power, and Dependent categories, see [our breakdown of the three DTV visa types](/blog/dtv-visa-types-workcation-vs-soft-power). This article stays focused on one layer: comparing the **DTV soft power options** by price.
 
 ## Muay Thai, cooking, and language school: what actually still qualifies
 

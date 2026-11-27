@@ -106,7 +106,7 @@ In practice, the terms describe the same thing: leaving Thailand and re-entering
 
 ### Does the DTV visa extension cost the same as a tourist extension?
 
-Yes. The DTV's in-country extension and the 30-day extension of a visa-exempt entry both cost 1,900 THB. The difference is what you get: 180 more days on a DTV, 30 on the exemption.
+Yes. The DTV's in-country extension and the 30-day extension of a visa-exempt entry both cost 1,900 THB. The difference is what you get: 180 more days on a DTV, 30 on the exemption. Once you hold the DTV, [our guide to the 180-day extension, TM30, and 90-day report](/blog/dtv-visa-180-day-extension-tm30) walks through whether extending at Chiang Mai Immigration or taking a short return flight makes more sense.
 
 ---
 

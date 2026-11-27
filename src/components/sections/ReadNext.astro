@@ -26,13 +26,15 @@ export interface Props {
   keys: string[];
   /** Seuil en dessous duquel le bloc ne rend rien (défaut 2). */
   min?: number;
+  /** Plafond de cartes affichées (défaut 3, aligné sur la grille 3 colonnes). */
+  max?: number;
   /** Fond soft (défaut) ou transparent, pour alterner avec la section au-dessus. */
   soft?: boolean;
 }
-const { keys, min = 2, soft = true } = Astro.props;
+const { keys, min = 2, max = 3, soft = true } = Astro.props;
 
 const lang = Astro.currentLocale ?? 'en';
-const posts = await getPostsByKeys(lang, keys);
+const posts = (await getPostsByKeys(lang, keys)).slice(0, max);
 const cards = posts.length >= min ? await toBlogCards(lang, posts) : [];
 ---
 

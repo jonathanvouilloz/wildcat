@@ -1,0 +1,15 @@
+{
+  "slug": "dtv-visa-thai-bank-account",
+  "locale": "en",
+  "reviewed_at": "2026-11-27T16:36:45.943496Z",
+  "verdict": "PASS",
+  "summary": "Candid 2026 BOT/AMLO anti-mule reality; clear separation from home-country 500k proof of funds; concrete 6-month 220 THB ATM fee math and Wise-to-landlord workflow; zero financial advice overreach.",
+  "checks": {
+    "angle_and_bluf": "PASS",
+    "brand_voice_meaw": "PASS",
+    "ymyl_accuracy_and_disclaimers": "PASS",
+    "internal_links_prefix_at_build": "PASS",
+    "zero_em_dashes": "PASS",
+    "zero_deleted_urls": "PASS"
+  }
+}

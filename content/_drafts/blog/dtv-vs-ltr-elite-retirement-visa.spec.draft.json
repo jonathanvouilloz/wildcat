@@ -1,0 +1,284 @@
+{
+  "slug": "dtv-vs-ltr-elite-retirement-visa",
+  "module": "E",
+  "snippet": {
+    "title": "DTV vs Thailand Privilege (Elite) vs LTR: 5-Year Costs",
+    "h1": "DTV, Thailand Privilege, LTR, or Retirement visa: what 5 years in Thailand actually costs",
+    "description": "Compare Thailand's DTV, Privilege (Bronze 650k / Gold 900k), LTR, and Retirement visas on 5-year cost, banking, work rights, and rules."
+  },
+  "dates": {
+    "pubDate": "2026-11-27",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1600,
+    "maximum": 2000
+  },
+  "primary_keyword": "dtv vs thailand privilege elite visa",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "dtv vs thailand privilege elite visa",
+      "natural_form": "comparing the DTV and Thailand Privilege (Elite) visa",
+      "volume": null,
+      "placements": ["title", "h1", "intro", "meta"]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv vs ltr visa thailand",
+      "natural_form": "the DTV versus the LTR visa in Thailand",
+      "volume": null,
+      "placements": ["h2:dtv-vs-ltr"]
+    },
+    {
+      "role": "secondary",
+      "query": "cheapest 5 year visa thailand",
+      "natural_form": "the cheapest 5-year visa in Thailand",
+      "volume": null,
+      "placements": ["h2:five-year-comparison-table", "h2:which-visa-fits"]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv vs retirement visa thailand",
+      "natural_form": "the DTV versus the Thailand Retirement visa",
+      "volume": null,
+      "placements": ["h2:dtv-vs-retirement"]
+    },
+    {
+      "role": "secondary",
+      "query": "thailand privilege bronze gold cost",
+      "natural_form": "Thailand Privilege Bronze and Gold fees",
+      "volume": null,
+      "placements": ["h2:dtv-vs-privilege"]
+    },
+    {
+      "role": "secondary",
+      "query": "thailand ltr visa requirements boi",
+      "natural_form": "BOI LTR visa requirements",
+      "volume": null,
+      "placements": ["h2:dtv-vs-ltr"]
+    },
+    {
+      "role": "long_tail",
+      "query": "is thailand elite worth it after dtv",
+      "natural_form": "whether Thailand Privilege is still worth it",
+      "volume": null,
+      "placements": ["h2:dtv-vs-privilege", "h2:faq"]
+    },
+    {
+      "role": "long_tail",
+      "query": "dtv visa vs non o retirement 50",
+      "natural_form": "choosing between a DTV and a Retirement visa at 50+",
+      "volume": null,
+      "placements": ["h2:dtv-vs-retirement", "h2:faq"]
+    },
+    {
+      "role": "long_tail",
+      "query": "5 year thailand visa comparison bank account",
+      "natural_form": "Thai bank account access across 5-year visas",
+      "volume": null,
+      "placements": ["h2:five-year-comparison-table"]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "Thailand Privilege",
+      "accepted_forms": ["Thailand Privilege", "Thailand Privilege (Elite)"],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "LTR visa",
+      "accepted_forms": ["LTR visa", "Long-Term Resident (LTR) visa"],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "Retirement visa",
+      "accepted_forms": ["Retirement visa", "Non-O and Non-O-A Retirement visas"],
+      "required": true,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "five-year-comparison-table",
+      "level": 2,
+      "heading": "The 5-year comparison table: DTV vs Thailand Privilege vs LTR vs Retirement",
+      "purpose": "Present live-verified 5-year costs, capital thresholds, stay rules, banking, and work rights side by side.",
+      "target_keywords": ["dtv vs thailand privilege elite visa", "cheapest 5 year visa thailand", "5 year thailand visa comparison bank account"]
+    },
+    {
+      "id": "dtv-vs-privilege",
+      "level": 2,
+      "heading": "DTV vs Thailand Privilege (Elite): why anyone still pays 650,000+ THB",
+      "purpose": "Compare Bronze (650k) and Gold (900k) against DTV total cost and explain where Privilege genuinely wins.",
+      "target_keywords": ["dtv vs thailand privilege elite visa", "thailand privilege bronze gold cost", "is thailand elite worth it after dtv"]
+    },
+    {
+      "id": "dtv-vs-ltr",
+      "level": 2,
+      "heading": "DTV vs LTR visa: the BOI fast lane for high earners and investors",
+      "purpose": "Break down live BOI LTR income, company revenue, asset, and insurance thresholds.",
+      "target_keywords": ["dtv vs ltr visa thailand", "thailand ltr visa requirements boi"]
+    },
+    {
+      "id": "dtv-vs-retirement",
+      "level": 2,
+      "heading": "Over 50? DTV vs the Non-O and Non-O-A Retirement visas",
+      "purpose": "Compare 800k THB Thai bank deposit + no-work rules against DTV flexibility.",
+      "target_keywords": ["dtv vs retirement visa thailand", "dtv visa vs non o retirement 50"]
+    },
+    {
+      "id": "which-visa-fits",
+      "level": 2,
+      "heading": "Which 5-year Thailand visa actually fits your profile?",
+      "purpose": "Profile-by-profile decision guide linking to ED and short-stay guides without duplicating them.",
+      "target_keywords": ["cheapest 5 year visa thailand"]
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "FAQ on long-term Thailand visas",
+      "purpose": "Answer 4 high-intent follow-up questions in H3 format.",
+      "target_keywords": ["is thailand elite worth it after dtv", "dtv visa vs non o retirement 50"]
+    },
+    {
+      "id": "conclusion",
+      "level": 2,
+      "heading": "Conclusion",
+      "purpose": "Concise wrap-up and single warm CTA.",
+      "target_keywords": []
+    },
+    {
+      "id": "sources",
+      "level": 2,
+      "heading": "Sources and References",
+      "purpose": "Dated, verified source list.",
+      "target_keywords": []
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/dtv-visa",
+      "anchor": "full DTV visa guide",
+      "section_id": "five-year-comparison-table",
+      "required": true,
+      "reason": "Mandatory link to root pillar"
+    },
+    {
+      "url": "/dtv-visa#compare",
+      "anchor": "compare DTV, ED, and tourist visas",
+      "section_id": "which-visa-fits",
+      "required": true,
+      "reason": "Mandatory link to pillar comparison anchor"
+    },
+    {
+      "url": "/blog/ed-visa-vs-dtv-muay-thai",
+      "anchor": "ED visa versus DTV for Muay Thai",
+      "section_id": "which-visa-fits",
+      "required": false,
+      "reason": "Avoid duplicating ED comparison"
+    },
+    {
+      "url": "/blog/dtv-visa-cost-breakdown",
+      "anchor": "full DTV visa cost breakdown",
+      "section_id": "dtv-vs-privilege",
+      "required": false,
+      "reason": "Contextual bridge for DTV cost layers"
+    },
+    {
+      "url": "/blog/thailand-visa-guide-by-training-length",
+      "anchor": "Thailand visa guide by length of stay",
+      "section_id": "which-visa-fits",
+      "required": false,
+      "reason": "Avoid duplicating short-stay visa options"
+    },
+    {
+      "url": "/blog/dtv-visa-thai-bank-account",
+      "anchor": "opening a Thai bank account on a DTV",
+      "section_id": "five-year-comparison-table",
+      "required": false,
+      "reason": "Cross-link for banking differences"
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://www.thailandprivilege.co.th/home",
+      "title": "Thailand Privilege Official Membership Packages",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:25:00Z"
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://ltr.boi.go.th/",
+      "title": "Thailand BOI Long-Term Resident (LTR) Visa Official Portal",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:25:00Z"
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://ltr.boi.go.th/page/faq.html",
+      "title": "Thailand BOI LTR Visa Official FAQ",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:25:00Z"
+    },
+    {
+      "id": "SRC-004",
+      "url": "https://www.siam-legal.com/thailand-visa/Thailand-Retirement-Visa.php",
+      "title": "Siam Legal Thailand Retirement Visa Guide",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:26:00Z"
+    },
+    {
+      "id": "SRC-005",
+      "url": "https://www.thaievisa.go.th",
+      "title": "Official Thailand e-Visa Portal",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:25:00Z"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "Thailand Privilege Bronze costs 650,000 THB for 5 years (0 points) and Gold costs 900,000 THB for 5 years (20 points/year).",
+      "status": "confirmed",
+      "source_ids": ["SRC-001"]
+    },
+    {
+      "id": "CLM-002",
+      "statement": "The BOI LTR visa costs 50,000 THB upon approval for a 10-year renewable stay (5+5 years) with 1-year reporting and requires USD 80,000/year income (or USD 40,000 with a master's degree) plus an eligible public or USD 50M-revenue employer for remote workers.",
+      "status": "confirmed",
+      "source_ids": ["SRC-002", "SRC-003"]
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Thailand Retirement visas (50+) require 800,000 THB in a Thai bank account (with a 400,000 THB minimum balance rule) or 65,000 THB monthly income, prohibit work, and require 3,000,000 THB health insurance on the Non-O-A route.",
+      "status": "confirmed",
+      "source_ids": ["SRC-004"]
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "cover",
+      "subject": "DTV vs Thailand Privilege vs LTR 5-year comparison cover",
+      "description": "Branded Wildcat forest background with centered white Satoshi Bold title.",
+      "alt_text": "Wildcat Muay Thai Chiang Mai 5-year cost comparison of Thailand DTV, Thailand Privilege, LTR, and Retirement visas",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "cta": {
+    "url": "/contact?intent=dtv",
+    "anchor": "Start your DTV application"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "visa",
+    "draft": false,
+    "translationKey": "dtv-vs-ltr-elite-retirement-visa"
+  }
+}

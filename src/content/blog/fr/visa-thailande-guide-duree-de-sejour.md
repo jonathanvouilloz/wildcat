@@ -119,7 +119,7 @@ Oui. Cette exigence s'applique quel que soit le type d'entrée, exemption compri
 
 ## Conclusion
 
-Le bon visa Thaïlande ne se choisit pas en fonction de ce qui semble le plus simple sur le moment, mais en fonction de la durée réelle de ton projet d'entraînement. Une exemption suffit pour un essai ou une découverte, un visa touristique convient à un séjour ciblé de deux à trois mois, et un DTV devient pertinent dès que tu vises plusieurs mois de préparation sérieuse à **Muay Thai**.
+Le bon visa Thaïlande ne se choisit pas en fonction de ce qui semble le plus simple sur le moment, mais en fonction de la durée réelle de ton projet d'entraînement. Une exemption suffit pour un essai ou une découverte, un visa touristique convient à un séjour ciblé de deux à trois mois, et un DTV devient pertinent dès que tu vises plusieurs mois de préparation sérieuse à **Muay Thai**. Pour un projet sur 5 à 10 ans face aux autres visas longue durée, [notre comparatif DTV, Thailand Privilege (Elite), LTR et retraite](/blog/visa-dtv-vs-elite-ltr-thailande) chiffre chaque option.
 
 Si tu hésites encore sur ta propre situation, le plus simple reste d'en parler directement. La réponse arrivera en anglais, l'équipe sur place n'étant pas francophone, mais tu auras un avis honnête basé sur ce qu'on voit vraiment passer chaque mois.
 

@@ -115,7 +115,7 @@ Yes, in principle, regardless of trip length. Immigration can ask to see 10,000 
 
 ## Conclusion
 
-The maths changed on 15 September 2026, but the decision underneath it did not. Work out how long you actually want to train first, then pick the exemption, the tourist visa, or the DTV based on that number, not the other way around. Anyone applying for the DTV or the ED still needs to start that file from home, before the flight, not from a tourist stamp already inside Thailand.
+The maths changed on 15 September 2026, but the decision underneath it did not. Work out how long you actually want to train first, then pick the exemption, the tourist visa, or the DTV based on that number, not the other way around. If you are looking at a 5-to-10-year horizon and comparing the DTV against Privilege (Elite), LTR, or retirement visas, [our 5-year long-term visa cost comparison](/blog/dtv-vs-ltr-elite-retirement-visa) puts the numbers side by side. Anyone applying for the DTV or the ED still needs to start that file from home, before the flight, not from a tourist stamp already inside Thailand.
 
 If you are not sure yet which of these fits the training block you have in mind, tell us your timeline and we will tell you honestly which route makes sense.
 

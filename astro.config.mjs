@@ -80,6 +80,63 @@ function rehypeLocalizeInternalLinks() {
   };
 }
 
+// Rehype — en build prod, déplie en texte brut tout lien interne markdown vers
+// un article blog encore programmé (publishDate > now) ou draft, pour éviter
+// les 404 pendant un rollout étalé. Dès que le cron quotidien rebuild le jour J,
+// le lien redevient cliquable automatiquement. En dev, tout reste cliquable.
+function unpublishedBlogPaths() {
+  const hidden = new Set();
+  const root = fileURLToPath(new URL('./src/content/blog/', import.meta.url));
+  const now = Date.now();
+  for (const lang of ['en', 'fr']) {
+    const dir = join(root, lang);
+    if (!existsSync(dir)) continue;
+    for (const file of readdirSync(dir)) {
+      if (!/\.(md|mdx)$/.test(file)) continue;
+      const fm = readFileSync(join(dir, file), 'utf8').split(/^---\s*$/m)[1] ?? '';
+      const isDraft = /^draft:\s*true\b/m.test(fm);
+      const pub = fm.match(/^publishDate:\s*["']?(\d{4}-\d{2}-\d{2})/m)?.[1];
+      const isFuture = pub ? new Date(pub).valueOf() > now : false;
+      if (isDraft || isFuture) {
+        hidden.add(`/${lang}/blog/${file.replace(/\.(md|mdx)$/, '')}`);
+      }
+    }
+  }
+  return hidden;
+}
+
+const IS_PROD_BUILD =
+  process.env.NODE_ENV === 'production' || process.argv.includes('build');
+const UNPUBLISHED_BLOG_PATHS = IS_PROD_BUILD ? unpublishedBlogPaths() : new Set();
+
+function rehypeUnwrapFutureBlogLinks() {
+  if (!IS_PROD_BUILD || UNPUBLISHED_BLOG_PATHS.size === 0) return () => {};
+  const visit = (node) => {
+    if (!Array.isArray(node.children)) return;
+    const next = [];
+    for (const child of node.children) {
+      if (
+        child.type === 'element' &&
+        child.tagName === 'a' &&
+        typeof child.properties?.href === 'string'
+      ) {
+        const pathname = child.properties.href.split(/[?#]/)[0];
+        if (UNPUBLISHED_BLOG_PATHS.has(pathname)) {
+          if (Array.isArray(child.children)) {
+            child.children.forEach(visit);
+            next.push(...child.children);
+          }
+          continue;
+        }
+      }
+      visit(child);
+      next.push(child);
+    }
+    node.children = next;
+  };
+  return (tree) => visit(tree);
+}
+
 // Sitemap <lastmod> des articles — lu dans le frontmatter (updatedDate ?? publishDate).
 // Crawl budget minuscule (site jeune) : un lastmod exact aide Google à prioriser le
 // recrawl des articles mis à jour. Pages de service volontairement sans lastmod :
@@ -150,7 +207,7 @@ export default defineConfig({
 
   // Liens externes du contenu markdown/MDX → nouvel onglet (voir plugin ci-dessus).
   markdown: {
-    rehypePlugins: [rehypeExternalLinks, rehypeLocalizeInternalLinks],
+    rehypePlugins: [rehypeExternalLinks, rehypeLocalizeInternalLinks, rehypeUnwrapFutureBlogLinks],
   },
 
   // Images distantes autorisées pour <Image> (astro:assets) — en SSG elles

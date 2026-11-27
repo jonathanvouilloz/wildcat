@@ -1,0 +1,366 @@
+{
+  "slug": "dtv-visa-types-workcation-vs-soft-power",
+  "module": "E",
+  "snippet": {
+    "title": "DTV Visa Types: Workcation vs Soft Power vs Dependent",
+    "h1": "Workcation, Soft Power, or Dependent: which DTV visa route actually fits your file?",
+    "description": "Compare the 3 Thailand DTV visa types, why freelance portfolios get rejected, and when Muay Thai Soft Power is the cleaner route."
+  },
+  "dates": {
+    "pubDate": "2026-11-27",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1600,
+    "maximum": 2100
+  },
+  "primary_keyword": "dtv visa thailand workcation vs soft power",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "dtv visa thailand workcation vs soft power",
+      "natural_form": "Workcation vs Soft Power on the Thailand DTV visa",
+      "volume": null,
+      "placements": [
+        "title",
+        "h1",
+        "intro",
+        "meta"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa thailand categories",
+      "natural_form": "the three Thailand DTV visa categories",
+      "volume": null,
+      "placements": [
+        "h2:three-dtv-categories"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa thailand soft power",
+      "natural_form": "the DTV Soft Power route",
+      "volume": 20,
+      "placements": [
+        "h2:dtv-soft-power"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa freelance portfolio rejected",
+      "natural_form": "freelance portfolio rejections",
+      "volume": null,
+      "placements": [
+        "h2:dtv-workcation"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa workcation requirements",
+      "natural_form": "DTV Workcation requirements",
+      "volume": null,
+      "placements": [
+        "h2:dtv-workcation"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa dependent category",
+      "natural_form": "the DTV Dependent category",
+      "volume": null,
+      "placements": [
+        "h2:dtv-dependent"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "can a remote worker apply for dtv soft power",
+      "natural_form": "remote workers applying under Soft Power",
+      "volume": null,
+      "placements": [
+        "h2:decision-tree",
+        "h2:faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "thai language school dtv soft power",
+      "natural_form": "Thai language schools",
+      "volume": null,
+      "placements": [
+        "h2:dtv-soft-power",
+        "h2:faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "which dtv visa category is easiest to get",
+      "natural_form": "which DTV category is easiest to document",
+      "volume": null,
+      "placements": [
+        "h2:decision-tree"
+      ]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "Destination Thailand Visa",
+      "accepted_forms": [
+        "Destination Thailand Visa (DTV)",
+        "Destination Thailand Visa"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "DTV Workcation",
+      "accepted_forms": [
+        "DTV Workcation",
+        "Workcation"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "DTV Soft Power",
+      "accepted_forms": [
+        "DTV Soft Power",
+        "Thai Soft Power"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "DTV Dependent",
+      "accepted_forms": [
+        "DTV Dependent",
+        "Dependent"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "three-dtv-categories",
+      "level": 2,
+      "heading": "The three Thailand DTV visa categories side by side",
+      "purpose": "Compare Workcation, Thai Soft Power, and Dependent in a clear decision table and state the universal baseline rules.",
+      "target_keywords": [
+        "dtv visa thailand categories",
+        "dtv visa thailand workcation vs soft power"
+      ]
+    },
+    {
+      "id": "dtv-workcation",
+      "level": 2,
+      "heading": "DTV Workcation: smooth for salaried staff, tricky for freelancers",
+      "purpose": "Explain salaried vs freelance proof requirements and why freelance portfolios trigger rejections.",
+      "target_keywords": [
+        "dtv visa workcation requirements",
+        "dtv visa freelance portfolio rejected"
+      ]
+    },
+    {
+      "id": "dtv-soft-power",
+      "level": 2,
+      "heading": "DTV Soft Power: when Muay Thai gives you a cleaner file",
+      "purpose": "Detail qualifying Soft Power activities, clarify the 2025 Thai language school removal, and explain the 6-month Muay Thai enrolment practice.",
+      "target_keywords": [
+        "dtv visa thailand soft power",
+        "thai language school dtv soft power"
+      ]
+    },
+    {
+      "id": "dtv-dependent",
+      "level": 2,
+      "heading": "The DTV Dependent category and the unmarried partner catch",
+      "purpose": "Summarize legal spouse and child rules and flag the unmarried partner exclusion.",
+      "target_keywords": [
+        "dtv visa dependent category"
+      ]
+    },
+    {
+      "id": "decision-tree",
+      "level": 2,
+      "heading": "How to pick the right DTV category for your situation",
+      "purpose": "Profile-by-profile decision guide showing when Workcation wins vs when Soft Power wins.",
+      "target_keywords": [
+        "can a remote worker apply for dtv soft power",
+        "which dtv visa category is easiest to get"
+      ]
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "FAQ on DTV visa categories",
+      "purpose": "Answer top follow-up questions with H3 headings.",
+      "target_keywords": [
+        "can a remote worker apply for dtv soft power",
+        "thai language school dtv soft power"
+      ]
+    },
+    {
+      "id": "conclusion",
+      "level": 2,
+      "heading": "Conclusion",
+      "purpose": "Concise wrap-up and single warm CTA.",
+      "target_keywords": []
+    },
+    {
+      "id": "sources",
+      "level": 2,
+      "heading": "Sources and References",
+      "purpose": "Dated, verified source list.",
+      "target_keywords": []
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/dtv-visa",
+      "anchor": "full DTV visa guide",
+      "section_id": "three-dtv-categories",
+      "required": true,
+      "reason": "Mandatory link to root DTV pillar"
+    },
+    {
+      "url": "/dtv-visa/eligibility",
+      "anchor": "check your DTV eligibility",
+      "section_id": "decision-tree",
+      "required": true,
+      "reason": "Mandatory link to eligibility satellite"
+    },
+    {
+      "url": "/blog/cheapest-dtv-soft-power-activity",
+      "anchor": "cheapest DTV soft power activities",
+      "section_id": "dtv-soft-power",
+      "required": false,
+      "reason": "Avoid duplicating activity cost comparison"
+    },
+    {
+      "url": "/blog/dtv-visa-cost-breakdown",
+      "anchor": "full DTV visa cost breakdown",
+      "section_id": "three-dtv-categories",
+      "required": false,
+      "reason": "Contextual bridge for cost layers"
+    },
+    {
+      "url": "/blog/dtv-visa-spouse-dependent",
+      "anchor": "DTV visa guide for couples and dependents",
+      "section_id": "dtv-dependent",
+      "required": false,
+      "reason": "Deep-dive on spouse and unmarried partner rules"
+    },
+    {
+      "url": "/dtv-visa/how-to-apply",
+      "anchor": "step-by-step DTV application process",
+      "section_id": "dtv-workcation",
+      "required": false,
+      "reason": "Avoid repeating full 7-step application checklist"
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://www.thaievisa.go.th",
+      "title": "Official Thailand e-Visa Portal",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:25:00Z"
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://www.expatden.com/thailand/destination-thailand-visa/",
+      "title": "ExpatDen Destination Thailand Visa Guide",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:26:00Z"
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://www.siam-legal.com/thailand-visa/dtv-visa-thailand.php",
+      "title": "Siam Legal DTV Visa Thailand",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:25:00Z"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "The DTV has three official categories: Workcation, Thai Soft Power, and Dependent (spouse and unmarried children under 20).",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-001",
+        "SRC-002",
+        "SRC-003"
+      ]
+    },
+    {
+      "id": "CLM-002",
+      "statement": "Thai language schools were removed from qualifying DTV Soft Power activities in 2025; applicants for Thai language study are directed to the Non-Immigrant ED visa.",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-002"
+      ]
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Freelancers and self-employed applicants face higher rejection rates on Workcation when portfolios or client proof are vague or unseasoned.",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-002"
+      ]
+    },
+    {
+      "id": "CLM-004",
+      "statement": "Since 31 August 2026, applicants must apply through the Thai embassy covering their country of nationality or legal residence and provide a criminal record certificate.",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-002"
+      ]
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "cover",
+      "subject": "Thailand DTV visa categories comparison cover",
+      "description": "Branded Wildcat forest background with centered white Satoshi Bold title.",
+      "alt_text": "Wildcat Muay Thai Chiang Mai guide comparing Thailand DTV visa Workcation, Soft Power, and Dependent categories",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "cta": {
+    "url": "/contact?intent=dtv",
+    "anchor": "Start your DTV application"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "visa",
+    "draft": false,
+    "translationKey": "dtv-visa-types-workcation-vs-soft-power"
+  },
+  "schema_version": 1,
+  "source_brief": "content/_drafts/blog/dtv-visa-types-workcation-vs-soft-power.md",
+  "source_hash": "sha256:03438984459e8e1a0ca221ae3a260968953bc3b97eff7cfb923d494f079f0833",
+  "context_hash": "sha256:29522b3c5b2a30e83fda0157ca78ae73e92916ab2da46c12d2933214b896083d",
+  "compiled_at": "2026-11-27T16:31:53.945750Z",
+  "research_artifacts": [
+    {
+      "kind": "gatekeeper",
+      "path": ".seo-data/gatekeeper-dtv-expansion.json",
+      "hash": "sha256:5fe2a9608b17ab6841a0c0360bb67796d4de17597683832f6d0f9cb7d7a24990"
+    },
+    {
+      "kind": "topical_map",
+      "path": "docs/seo/topical-map-dtv-expansion.md",
+      "hash": "sha256:b313ef68eea2f0fc09497e531d757a0ada53511d5681d4eb98ce88da612c75b7"
+    },
+    {
+      "kind": "keywords",
+      "path": ".seo-data/keywords-dtv-softpower.json",
+      "hash": "sha256:70c3d59c340f6737ebb918d27b6c9a6408e1973bbb30587b601a69767456ec84"
+    }
+  ]
+}

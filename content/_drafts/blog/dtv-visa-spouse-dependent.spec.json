@@ -1,0 +1,343 @@
+{
+  "slug": "dtv-visa-spouse-dependent",
+  "module": "A",
+  "snippet": {
+    "title": "DTV Visa Thailand for Couples, Spouses & Dependents",
+    "h1": "Moving to Thailand on a DTV as a couple or family? Here is what actually works.",
+    "description": "How the Thailand DTV spouse and dependent route works, why unmarried partners are excluded, and how to handle the 500,000 THB proof."
+  },
+  "dates": {
+    "pubDate": "2026-11-27",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1400,
+    "maximum": 1800
+  },
+  "primary_keyword": "dtv visa thailand spouse dependent",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "dtv visa thailand spouse dependent",
+      "natural_form": "the Thailand DTV spouse and dependent route",
+      "volume": null,
+      "placements": [
+        "title",
+        "h1",
+        "intro",
+        "meta"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa thailand unmarried partner",
+      "natural_form": "unmarried partners on a DTV visa",
+      "volume": null,
+      "placements": [
+        "h2:unmarried-partner-trap"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa thailand family 500000 thb",
+      "natural_form": "the 500,000 THB family financial requirement",
+      "volume": null,
+      "placements": [
+        "h2:financial-proof-family"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "bring spouse on dtv visa thailand",
+      "natural_form": "bringing your spouse on a DTV visa",
+      "volume": null,
+      "placements": [
+        "h2:who-qualifies"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa children under 20",
+      "natural_form": "children under 20",
+      "volume": null,
+      "placements": [
+        "h2:who-qualifies"
+      ]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa marriage certificate apostille",
+      "natural_form": "marriage certificate legalisation",
+      "volume": null,
+      "placements": [
+        "h2:documents-and-timing"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "can unmarried couple get dtv visa thailand",
+      "natural_form": "whether an unmarried couple can share a DTV",
+      "volume": null,
+      "placements": [
+        "h2:unmarried-partner-trap",
+        "h2:faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "do dependents apply at the same time dtv",
+      "natural_form": "applying together or after the main holder",
+      "volume": null,
+      "placements": [
+        "h2:documents-and-timing",
+        "h2:faq"
+      ]
+    },
+    {
+      "role": "long_tail",
+      "query": "dtv visa 500000 thb per person or per couple",
+      "natural_form": "500,000 THB per person or per household",
+      "volume": null,
+      "placements": [
+        "h2:financial-proof-family"
+      ]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "DTV Dependent",
+      "accepted_forms": [
+        "DTV Dependent",
+        "DTV Dependent visa"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "unmarried partners",
+      "accepted_forms": [
+        "unmarried partners",
+        "unmarried partner"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "500,000 THB",
+      "accepted_forms": [
+        "500,000 THB"
+      ],
+      "required": true,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "who-qualifies",
+      "level": 2,
+      "heading": "Married, unmarried, or with kids: who qualifies as a DTV dependent?",
+      "purpose": "Compare eligibility, fees, and documents for married spouses, unmarried partners, and children under 20.",
+      "target_keywords": [
+        "dtv visa thailand spouse dependent",
+        "dtv visa children under 20"
+      ]
+    },
+    {
+      "id": "unmarried-partner-trap",
+      "level": 2,
+      "heading": "The unmarried partner trap and how couples actually solve it",
+      "purpose": "Explain the exclusion of unmarried partners and the two-independent-DTVs workaround.",
+      "target_keywords": [
+        "dtv visa thailand unmarried partner",
+        "can unmarried couple get dtv visa thailand"
+      ]
+    },
+    {
+      "id": "financial-proof-family",
+      "level": 2,
+      "heading": "The 500,000 THB question: per person or per household?",
+      "purpose": "Clarify embassy-by-embassy divergence on sponsorship letters vs separate balances.",
+      "target_keywords": [
+        "dtv visa thailand family 500000 thb",
+        "dtv visa 500000 thb per person or per couple"
+      ]
+    },
+    {
+      "id": "documents-and-timing",
+      "level": 2,
+      "heading": "Documents, legalisation, and timing: together or one after the other?",
+      "purpose": "Detail required certificates, apostilles, adult criminal record checks, and sequential vs simultaneous filing.",
+      "target_keywords": [
+        "dtv visa marriage certificate apostille",
+        "do dependents apply at the same time dtv"
+      ]
+    },
+    {
+      "id": "family-life",
+      "level": 2,
+      "heading": "Living and training in Chiang Mai as a couple or family",
+      "purpose": "Ground the guide in real family life at Wildcat in Chiang Mai.",
+      "target_keywords": [
+        "bring spouse on dtv visa thailand"
+      ]
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "FAQ on DTV spouse and dependent visas",
+      "purpose": "Answer 4 key couple and family questions in H3 format.",
+      "target_keywords": [
+        "can unmarried couple get dtv visa thailand",
+        "do dependents apply at the same time dtv"
+      ]
+    },
+    {
+      "id": "conclusion",
+      "level": 2,
+      "heading": "Conclusion",
+      "purpose": "Clear wrap-up and single CTA.",
+      "target_keywords": []
+    },
+    {
+      "id": "sources",
+      "level": 2,
+      "heading": "Sources and References",
+      "purpose": "Dated, verified source list.",
+      "target_keywords": []
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/dtv-visa",
+      "anchor": "full DTV visa guide",
+      "section_id": "who-qualifies",
+      "required": true,
+      "reason": "Mandatory link to root pillar"
+    },
+    {
+      "url": "/dtv-visa/eligibility",
+      "anchor": "check your DTV eligibility",
+      "section_id": "who-qualifies",
+      "required": true,
+      "reason": "Mandatory link to eligibility satellite"
+    },
+    {
+      "url": "/blog/dtv-visa-types-workcation-vs-soft-power",
+      "anchor": "Workcation vs Soft Power DTV comparison",
+      "section_id": "unmarried-partner-trap",
+      "required": false,
+      "reason": "Contextual bridge for unmarried couples choosing independent routes"
+    },
+    {
+      "url": "/blog/dtv-visa-proof-of-funds",
+      "anchor": "DTV proof of funds rules",
+      "section_id": "financial-proof-family",
+      "required": false,
+      "reason": "Avoid repeating asset type rules"
+    },
+    {
+      "url": "/blog/dtv-visa-new-requirements-2026",
+      "anchor": "new DTV rules from 31 August 2026",
+      "section_id": "documents-and-timing",
+      "required": false,
+      "reason": "Contextual bridge for home-country filing and criminal record check"
+    },
+    {
+      "url": "/stay-train",
+      "anchor": "Stay and Train packages in Chiang Mai",
+      "section_id": "family-life",
+      "required": false,
+      "reason": "Conversion bridge for couples/families"
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://www.thaievisa.go.th",
+      "title": "Official Thailand e-Visa Portal",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:25:00Z"
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://www.expatden.com/thailand/destination-thailand-visa/",
+      "title": "ExpatDen Destination Thailand Visa Guide",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:26:00Z"
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://www.siam-legal.com/thailand-visa/dtv-visa-thailand.php",
+      "title": "Siam Legal DTV Visa Thailand",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:25:00Z"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "DTV dependents are limited to a legal spouse and unmarried children under 20, with no cap on the number of qualifying dependents.",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-002",
+        "SRC-003"
+      ]
+    },
+    {
+      "id": "CLM-002",
+      "statement": "Each dependent submits a separate DTV application and pays a separate 10,000 THB embassy fee.",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-001",
+        "SRC-002"
+      ]
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Dependents can technically apply at the same time as the main holder at some embassies, though sequential filing after main approval avoids risking multiple non-refundable fees.",
+      "status": "confirmed",
+      "source_ids": [
+        "SRC-002"
+      ]
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "cover",
+      "subject": "Thailand DTV visa for couples and families cover",
+      "description": "Branded Wildcat forest background with centered white Satoshi Bold title.",
+      "alt_text": "Wildcat Muay Thai Chiang Mai guide to the Thailand DTV visa for spouses, families, and unmarried partners",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "cta": {
+    "url": "/contact?intent=dtv",
+    "anchor": "Start your DTV application"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "visa",
+    "draft": false,
+    "translationKey": "dtv-visa-spouse-dependent"
+  },
+  "schema_version": 1,
+  "source_brief": "content/_drafts/blog/dtv-visa-spouse-dependent.md",
+  "source_hash": "sha256:d6b1d5da8bbe738579744a805446de601646560eda692aaba5a1118491821724",
+  "context_hash": "sha256:29522b3c5b2a30e83fda0157ca78ae73e92916ab2da46c12d2933214b896083d",
+  "compiled_at": "2026-11-27T16:31:43+00:00",
+  "research_artifacts": [
+    {
+      "kind": "gatekeeper",
+      "path": ".seo-data/gatekeeper-dtv-expansion.json",
+      "hash": "sha256:5fe2a9608b17ab6841a0c0360bb67796d4de17597683832f6d0f9cb7d7a24990"
+    },
+    {
+      "kind": "topical_map",
+      "path": "docs/seo/topical-map-dtv-expansion.md",
+      "hash": "sha256:b313ef68eea2f0fc09497e531d757a0ada53511d5681d4eb98ce88da612c75b7"
+    }
+  ]
+}

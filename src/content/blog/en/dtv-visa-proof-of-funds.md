@@ -109,7 +109,7 @@ You might. The 500,000 THB is checked by the embassy before your visa is issued;
 
 A personal bank account with 500,000 THB in liquid funds is the one answer nobody disputes for DTV visa proof of funds. Stocks and crypto are far less settled, and the safest move with either is converting to cash in your own account well before you apply, rather than hoping your embassy takes the more generous reading.
 
-If your funds are spread across a few accounts, or you're not sure how your specific situation will read, it's worth walking through it with someone before you submit, not after. For the wider picture on qualifying overall, see [the full DTV eligibility guide](/dtv-visa/eligibility).
+If your funds are spread across a few accounts, or you're not sure how your specific situation will read, it's worth walking through it with someone before you submit, not after. For the wider picture on qualifying overall, see [the full DTV eligibility guide](/dtv-visa/eligibility). Once your visa is approved, [our guide on opening a Thai bank account on a DTV](/blog/dtv-visa-thai-bank-account) covers what actually works for day-to-day banking and PromptPay in Chiang Mai.
 
 [**Start your DTV application →**](/contact?intent=dtv)
 

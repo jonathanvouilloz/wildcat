@@ -1,0 +1,263 @@
+{
+  "slug": "dtv-visa-thai-bank-account",
+  "module": "A",
+  "snippet": {
+    "title": "Can You Open a Thai Bank Account on a DTV Visa?",
+    "h1": "Can you actually open a Thai bank account on a DTV visa? Honest Chiang Mai reality.",
+    "description": "Why most Thai banks refuse DTV holders, how anti-mule rules changed banking, and the practical payment setup that works in Chiang Mai."
+  },
+  "dates": {
+    "pubDate": "2026-11-27",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1200,
+    "maximum": 1600
+  },
+  "primary_keyword": "dtv visa thailand bank account",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "dtv visa thailand bank account",
+      "natural_form": "opening a Thai bank account on a DTV visa",
+      "volume": 10,
+      "placements": ["title", "h1", "intro", "meta"]
+    },
+    {
+      "role": "secondary",
+      "query": "open bank account thailand dtv",
+      "natural_form": "opening a bank account in Thailand on a DTV",
+      "volume": null,
+      "placements": ["h2:why-banks-say-no"]
+    },
+    {
+      "role": "secondary",
+      "query": "promptpay without thai bank account",
+      "natural_form": "paying with QR PromptPay without a Thai bank account",
+      "volume": null,
+      "placements": ["h2:daily-payment-toolkit"]
+    },
+    {
+      "role": "secondary",
+      "query": "bangkok bank kasikorn dtv visa",
+      "natural_form": "Bangkok Bank and Kasikorn branch policies",
+      "volume": null,
+      "placements": ["h2:why-banks-say-no"]
+    },
+    {
+      "role": "secondary",
+      "query": "thailand atm fee 220 thb",
+      "natural_form": "the 220 THB Thai ATM fee",
+      "volume": null,
+      "placements": ["h2:atm-fee-math"]
+    },
+    {
+      "role": "secondary",
+      "query": "wise revolut thailand dtv",
+      "natural_form": "Wise and Revolut in Thailand",
+      "volume": null,
+      "placements": ["h2:daily-payment-toolkit"]
+    },
+    {
+      "role": "long_tail",
+      "query": "why do thai banks reject dtv visa",
+      "natural_form": "why Thai banks turn away DTV holders",
+      "volume": null,
+      "placements": ["h2:why-banks-say-no", "h2:faq"]
+    },
+    {
+      "role": "long_tail",
+      "query": "how to pay rent chiang mai without thai bank",
+      "natural_form": "paying condo rent in Chiang Mai without a Thai bank account",
+      "volume": null,
+      "placements": ["h2:rent-and-camp"]
+    },
+    {
+      "role": "long_tail",
+      "query": "do i need a thai bank account for dtv visa",
+      "natural_form": "whether you need a Thai bank account for the DTV",
+      "volume": null,
+      "placements": ["h2:why-banks-say-no", "h2:faq"]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "Thai bank account",
+      "accepted_forms": ["Thai bank account"],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "PromptPay",
+      "accepted_forms": ["PromptPay", "QR PromptPay"],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "220 THB",
+      "accepted_forms": ["220 THB"],
+      "required": true,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "why-banks-say-no",
+      "level": 2,
+      "heading": "Why Thai banks usually say no to DTV holders",
+      "purpose": "Explain the tourist classification and anti-mule-account compliance tightening, and confirm you do not need a Thai bank for DTV.",
+      "target_keywords": ["dtv visa thailand bank account", "open bank account thailand dtv", "bangkok bank kasikorn dtv visa", "why do thai banks reject dtv visa"]
+    },
+    {
+      "id": "daily-payment-toolkit",
+      "level": 2,
+      "heading": "The Chiang Mai payment toolkit that works without a Thai bank",
+      "purpose": "Detail multi-currency cards (Wise, Revolut), cash + DCC avoidance, and foreigner QR payment options.",
+      "target_keywords": ["wise revolut thailand dtv", "promptpay without thai bank account"]
+    },
+    {
+      "id": "atm-fee-math",
+      "level": 2,
+      "heading": "The 220 THB ATM fee math over six months",
+      "purpose": "Compare weekly small withdrawals vs larger monthly pulls with real THB figures.",
+      "target_keywords": ["thailand atm fee 220 thb"]
+    },
+    {
+      "id": "rent-and-camp",
+      "level": 2,
+      "heading": "Paying rent, scooters, and Muay Thai training in Chiang Mai",
+      "purpose": "Show how students pay landlords via Wise/cash and pay Wildcat training or Stay & Train.",
+      "target_keywords": ["how to pay rent chiang mai without thai bank"]
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "FAQ on Thai bank accounts and the DTV visa",
+      "purpose": "Answer 4 key banking questions in H3 format.",
+      "target_keywords": ["do i need a thai bank account for dtv visa", "why do thai banks reject dtv visa"]
+    },
+    {
+      "id": "conclusion",
+      "level": 2,
+      "heading": "Conclusion",
+      "purpose": "Reassuring wrap-up and single warm CTA.",
+      "target_keywords": []
+    },
+    {
+      "id": "sources",
+      "level": 2,
+      "heading": "Sources and References",
+      "purpose": "Dated, verified source list.",
+      "target_keywords": []
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/dtv-visa",
+      "anchor": "full DTV visa guide",
+      "section_id": "why-banks-say-no",
+      "required": true,
+      "reason": "Mandatory link to root pillar"
+    },
+    {
+      "url": "/dtv-visa/long-stay-training",
+      "anchor": "monthly budget for long-stay training in Chiang Mai",
+      "section_id": "rent-and-camp",
+      "required": true,
+      "reason": "Mandatory link to long-stay budget satellite"
+    },
+    {
+      "url": "/blog/dtv-visa-proof-of-funds",
+      "anchor": "DTV proof of funds rules",
+      "section_id": "why-banks-say-no",
+      "required": false,
+      "reason": "Clear separation between home 500k account and local Thai account"
+    },
+    {
+      "url": "/blog/dtv-visa-180-day-extension-tm30",
+      "anchor": "DTV 180-day extension and TM30 guide",
+      "section_id": "why-banks-say-no",
+      "required": false,
+      "reason": "Cross-link showing foreign accounts work for extensions too"
+    },
+    {
+      "url": "/stay-train",
+      "anchor": "Stay and Train packages in Chiang Mai",
+      "section_id": "rent-and-camp",
+      "required": false,
+      "reason": "Conversion bridge for bundled accommodation and training"
+    },
+    {
+      "url": "/blog/dtv-vs-ltr-elite-retirement-visa",
+      "anchor": "DTV versus Thailand Privilege and LTR",
+      "section_id": "faq",
+      "required": false,
+      "reason": "Cross-link for visas that do include bank account support"
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://www.siam-legal.com/other-services/opening-a-bank-account-in-thailand.php",
+      "title": "Siam Legal Opening a Bank Account in Thailand",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:26:00Z"
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://www.expatden.com/thailand/destination-thailand-visa/",
+      "title": "ExpatDen Destination Thailand Visa Guide",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:26:00Z"
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://ltr.boi.go.th/",
+      "title": "Thailand BOI Long-Term Resident (LTR) Visa Official Portal",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:25:00Z"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "A Thai bank account is not required to apply for a DTV or to complete the 180-day in-country extension; foreign personal bank accounts holding 500,000 THB equivalent are accepted.",
+      "status": "confirmed",
+      "source_ids": ["SRC-002"]
+    },
+    {
+      "id": "CLM-002",
+      "statement": "Thai banks treat the DTV under tourist-class rules and routinely refuse walk-in DTV account openings under tightened anti-mule-account compliance.",
+      "status": "confirmed",
+      "source_ids": ["SRC-001"]
+    },
+    {
+      "id": "CLM-003",
+      "statement": "Long-term resident visas such as the BOI LTR include formal bank account opening assistance.",
+      "status": "confirmed",
+      "source_ids": ["SRC-003"]
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "cover",
+      "subject": "Opening a Thai bank account on a DTV visa cover",
+      "description": "Branded Wildcat forest background with centered white Satoshi Bold title.",
+      "alt_text": "Wildcat Muay Thai Chiang Mai practical guide on opening a Thai bank account and managing money on a DTV visa",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "cta": {
+    "url": "/contact?intent=dtv",
+    "anchor": "Start your DTV application"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "visa",
+    "draft": false,
+    "translationKey": "dtv-visa-thai-bank-account"
+  }
+}

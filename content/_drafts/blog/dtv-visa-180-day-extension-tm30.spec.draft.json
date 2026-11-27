@@ -1,0 +1,270 @@
+{
+  "slug": "dtv-visa-180-day-extension-tm30",
+  "module": "A",
+  "snippet": {
+    "title": "DTV 180-Day Extension, TM30 & 90-Day Report in Thailand",
+    "h1": "Extending your DTV by 180 days in Thailand: Chiang Mai immigration vs a quick flight out",
+    "description": "Step-by-step guide to the Thailand DTV 180-day extension (1,900 THB), TM30, 90-day report, and when a short flight out makes more sense."
+  },
+  "dates": {
+    "pubDate": "2026-11-27",
+    "updatedDate": null,
+    "reviewedDate": null
+  },
+  "word_count": {
+    "minimum": 1600,
+    "maximum": 2000
+  },
+  "primary_keyword": "dtv visa 180 day extension thailand",
+  "keywords": [
+    {
+      "role": "primary",
+      "query": "dtv visa 180 day extension thailand",
+      "natural_form": "the DTV 180-day extension in Thailand",
+      "volume": null,
+      "placements": ["title", "h1", "intro", "meta"]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa tm30 chiang mai",
+      "natural_form": "TM30 reporting in Chiang Mai",
+      "volume": null,
+      "placements": ["h2:tm30-and-90-day"]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa 90 day report",
+      "natural_form": "the 90-day report on a DTV",
+      "volume": null,
+      "placements": ["h2:tm30-and-90-day"]
+    },
+    {
+      "role": "secondary",
+      "query": "extend dtv visa or border run",
+      "natural_form": "extending in-country or taking a short flight out",
+      "volume": null,
+      "placements": ["h2:extension-vs-flight"]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa extension documents tm7",
+      "natural_form": "form TM.7 and extension documents",
+      "volume": null,
+      "placements": ["h2:chiang-mai-checklist"]
+    },
+    {
+      "role": "secondary",
+      "query": "dtv visa 180 days per entry",
+      "natural_form": "180 days per entry",
+      "volume": null,
+      "placements": ["h2:how-180-day-rule-works"]
+    },
+    {
+      "role": "long_tail",
+      "query": "do you need 500000 thb again for dtv extension",
+      "natural_form": "showing 500,000 THB again at extension",
+      "volume": null,
+      "placements": ["h2:chiang-mai-checklist", "h2:faq"]
+    },
+    {
+      "role": "long_tail",
+      "query": "dtv visa tax 180 days difference",
+      "natural_form": "the difference between the visa clock and tax residency",
+      "volume": null,
+      "placements": ["h2:two-180-day-clocks"]
+    },
+    {
+      "role": "long_tail",
+      "query": "chiang mai immigration dtv extension",
+      "natural_form": "Chiang Mai Immigration",
+      "volume": null,
+      "placements": ["h2:chiang-mai-checklist"]
+    }
+  ],
+  "bold_entities": [
+    {
+      "entity": "DTV 180-day extension",
+      "accepted_forms": ["DTV 180-day extension", "180-day extension"],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "TM30",
+      "accepted_forms": ["TM30", "TM.30"],
+      "required": true,
+      "maximum_occurrences": 1
+    },
+    {
+      "entity": "90-day report",
+      "accepted_forms": ["90-day report", "90-day report (TM.47)"],
+      "required": true,
+      "maximum_occurrences": 1
+    }
+  ],
+  "structure": [
+    {
+      "id": "how-180-day-rule-works",
+      "level": 2,
+      "heading": "How the DTV 180-day rule actually works: once per entry, not once in 5 years",
+      "purpose": "Clarify the once-per-entry extension rule and multiple-entry reset with no re-entry permit.",
+      "target_keywords": ["dtv visa 180 day extension thailand", "dtv visa 180 days per entry"]
+    },
+    {
+      "id": "chiang-mai-checklist",
+      "level": 2,
+      "heading": "Documents for the 1,900 THB DTV extension at Chiang Mai Immigration",
+      "purpose": "Walk through form TM.7, 500k THB 30-day re-verification, ongoing category proof, and residence proof.",
+      "target_keywords": ["dtv visa extension documents tm7", "chiang mai immigration dtv extension", "do you need 500000 thb again for dtv extension"]
+    },
+    {
+      "id": "tm30-and-90-day",
+      "level": 2,
+      "heading": "TM30 and the 90-day report (TM.47): the two traps that stall extensions",
+      "purpose": "Explain TM30 landlord filing, TM.47 reporting deadlines, fines, and how leaving Thailand resets TM.47.",
+      "target_keywords": ["dtv visa tm30 chiang mai", "dtv visa 90 day report"]
+    },
+    {
+      "id": "extension-vs-flight",
+      "level": 2,
+      "heading": "1,900 THB extension vs a short international flight: which is smarter?",
+      "purpose": "Side-by-side comparison table of extending in Thailand vs flying out on an existing DTV.",
+      "target_keywords": ["extend dtv visa or border run"]
+    },
+    {
+      "id": "two-180-day-clocks",
+      "level": 2,
+      "heading": "Two separate 180-day clocks: visa stay vs Thai tax residency",
+      "purpose": "Factual callout separating the per-entry immigration clock from the calendar-year tax residency threshold.",
+      "target_keywords": ["dtv visa tax 180 days difference"]
+    },
+    {
+      "id": "faq",
+      "level": 2,
+      "heading": "FAQ on DTV extensions, TM30, and 90-day reporting",
+      "purpose": "Answer 4 key post-arrival questions in H3 format.",
+      "target_keywords": ["do you need 500000 thb again for dtv extension", "dtv visa 90 day report"]
+    },
+    {
+      "id": "conclusion",
+      "level": 2,
+      "heading": "Conclusion",
+      "purpose": "Concise wrap-up and single warm CTA.",
+      "target_keywords": []
+    },
+    {
+      "id": "sources",
+      "level": 2,
+      "heading": "Sources and References",
+      "purpose": "Dated, verified source list.",
+      "target_keywords": []
+    }
+  ],
+  "internal_links": [
+    {
+      "url": "/dtv-visa",
+      "anchor": "full DTV visa guide",
+      "section_id": "how-180-day-rule-works",
+      "required": true,
+      "reason": "Mandatory link to root pillar"
+    },
+    {
+      "url": "/dtv-visa/how-to-apply",
+      "anchor": "how to apply for the DTV visa",
+      "section_id": "how-180-day-rule-works",
+      "required": true,
+      "reason": "Mandatory link to application satellite"
+    },
+    {
+      "url": "/blog/dtv-visa-proof-of-funds",
+      "anchor": "DTV proof of funds rules",
+      "section_id": "chiang-mai-checklist",
+      "required": false,
+      "reason": "Contextual bridge for 500k THB asset details"
+    },
+    {
+      "url": "/blog/dtv-vs-tourist-visa-runs-cost",
+      "anchor": "DTV visa versus tourist visa runs on cost",
+      "section_id": "extension-vs-flight",
+      "required": false,
+      "reason": "Distinguish DTV reset flights from tourist border runs"
+    },
+    {
+      "url": "/blog/dtv-visa-thai-bank-account",
+      "anchor": "opening a Thai bank account on a DTV",
+      "section_id": "chiang-mai-checklist",
+      "required": false,
+      "reason": "Cross-link for keeping 500k in foreign vs Thai bank"
+    },
+    {
+      "url": "/dtv-visa/long-stay-training",
+      "anchor": "monthly budget for long-stay training in Chiang Mai",
+      "section_id": "extension-vs-flight",
+      "required": false,
+      "reason": "Conversion bridge to long-stay budget page"
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-001",
+      "url": "https://www.expatden.com/thailand/destination-thailand-visa/",
+      "title": "ExpatDen Destination Thailand Visa Guide",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:26:00Z"
+    },
+    {
+      "id": "SRC-002",
+      "url": "https://www.siam-legal.com/thailand-visa/dtv-visa-thailand.php",
+      "title": "Siam Legal DTV Visa Thailand",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:25:00Z"
+    },
+    {
+      "id": "SRC-003",
+      "url": "https://www.thaievisa.go.th",
+      "title": "Official Thailand e-Visa Portal",
+      "status": "verified",
+      "accessed_at": "2026-11-27T16:25:00Z"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-001",
+      "statement": "A DTV stay of 180 days can be extended once per entry for up to 180 additional days (360 continuous days total) at Thai Immigration for 1,900 THB.",
+      "status": "confirmed",
+      "source_ids": ["SRC-001", "SRC-002"]
+    },
+    {
+      "id": "CLM-002",
+      "statement": "Thai Immigration requires form TM.7, passport copies, proof of 500,000 THB held for at least 30 days, proof of category activity, proof of residence, TM.30 receipt, and prior TM.47 copies for a DTV extension.",
+      "status": "confirmed",
+      "source_ids": ["SRC-001"]
+    },
+    {
+      "id": "CLM-003",
+      "statement": "DTV holders must file a 90-day report (TM.47) if staying over 90 consecutive days, and do not need a re-entry permit to leave and re-enter Thailand.",
+      "status": "confirmed",
+      "source_ids": ["SRC-001", "SRC-002"]
+    }
+  ],
+  "images": [
+    {
+      "id": "IMG-001",
+      "placement": "cover",
+      "type": "cover",
+      "subject": "Thailand DTV 180-day extension, TM30, and 90-day report cover",
+      "description": "Branded Wildcat forest background with centered white Satoshi Bold title.",
+      "alt_text": "Wildcat Muay Thai Chiang Mai guide to Thailand DTV 180-day extensions, TM30 registration, and 90-day reporting",
+      "aspect_ratio": "16:9"
+    }
+  ],
+  "cta": {
+    "url": "/contact?intent=dtv",
+    "anchor": "Start your DTV application"
+  },
+  "frontmatter": {
+    "author": "Meaw Boonpradub",
+    "category": "visa",
+    "draft": false,
+    "translationKey": "dtv-visa-180-day-extension-tm30"
+  }
+}

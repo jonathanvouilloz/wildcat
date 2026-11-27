@@ -1,0 +1,15 @@
+{
+  "slug": "dtv-visa-types-workcation-vs-soft-power",
+  "locale": "en",
+  "reviewed_at": "2026-11-27T16:36:45.943496Z",
+  "verdict": "PASS",
+  "summary": "Strong E-E-A-T comparison of Workcation vs Soft Power vs Dependent; freelance portfolio rejection triggers clearly explained; 2025 Thai language school removal explicitly noted; zero em-dashes; all mandatory links present.",
+  "checks": {
+    "angle_and_bluf": "PASS",
+    "brand_voice_meaw": "PASS",
+    "ymyl_accuracy_and_disclaimers": "PASS",
+    "internal_links_prefix_at_build": "PASS",
+    "zero_em_dashes": "PASS",
+    "zero_deleted_urls": "PASS"
+  }
+}

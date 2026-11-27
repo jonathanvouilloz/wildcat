@@ -1,0 +1,15 @@
+{
+  "slug": "dtv-visa-spouse-dependent",
+  "locale": "en",
+  "reviewed_at": "2026-11-27T16:36:45.943496Z",
+  "verdict": "PASS",
+  "summary": "Clear legal spouse vs unmarried partner vs children under 20 breakdown; honest embassy-by-embassy framing on 500k THB household proof and civil partnerships; zero invented kids age; zero em-dashes.",
+  "checks": {
+    "angle_and_bluf": "PASS",
+    "brand_voice_meaw": "PASS",
+    "ymyl_accuracy_and_disclaimers": "PASS",
+    "internal_links_prefix_at_build": "PASS",
+    "zero_em_dashes": "PASS",
+    "zero_deleted_urls": "PASS"
+  }
+}
